@@ -1,0 +1,12 @@
+stages:
+  - deploy
+
+deploy-site:
+  stage: deploy
+  script:
+    # aller dans le dossier et tirer les fichiers du repository gitlab
+    - ssh maniak 'cd ~/home/test/kotikota-theme && git checkout -- . && git pull origin master'
+  tags:
+    - devmaki
+  only:
+    - master
