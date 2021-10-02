@@ -1,0 +1,78 @@
+#login{
+	width: 620px;
+}
+body.login div#login h1 a {
+    background-image: url(../../images/logo.png); 
+    padding-bottom: 30px; 
+} 
+body.login{
+	background: url(../../images/bg-left.png) no-repeat 5% center / 124px, url(../../images/bg-right.png) no-repeat 95% center/ 124px;
+	font: normal 14px/normal Montserrat ,Arial;
+	color: #7b7b7b;
+}
+body.login .message.reset-pass{
+	border-left: 4px solid #8c4b8f;
+
+}
+.login form#resetpassform{
+	border: #dddddd solid 1px;
+	border-radius: 10px;
+}
+
+#pass1{
+	border: #dddddd solid 1px;
+    border-radius: 10px;
+    padding: 0 20px;
+    height: 60px;
+    width: 100%;
+    font-size: 14px;
+    font-family: Montserrat;
+    color: #7b7b7b;
+        margin-bottom: 33px;
+  }
+
+.user-pass1-wrap label{
+	color: #7b7b7b;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.login #pass-strength-result,
+.pw-weak,
+#backtoblog,
+#nav
+/*body.login .message.reset-pass a*/
+{
+	display: none !important;
+}
+.login-action-resetpass .message.reset-pass a{
+	color: #fbbd36;
+}
+input[type=text]:focus,
+.wp-core-ui .button-primary.focus, .wp-core-ui .button-primary:focus{
+	    box-shadow: none;
+}
+#wp-submit{
+
+    display: inline-block;
+    background: #fbbd36;
+    padding: 22px 29px;
+    color: #131313;
+    font: normal 14px/normal Opificio ,Arial;
+    text-transform: uppercase;
+    border-radius: 30px;
+    border: #fbbd36 solid 1px;
+    display: block;
+    margin: 20px auto;
+}
+#wp-submit:hover{
+	background-color: transparent;
+    color: #131313;
+}
+p.submit{
+	text-align:center;
+}
+.login .button-primary{
+	float: none;
+}

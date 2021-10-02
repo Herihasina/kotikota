@@ -1,0 +1,1108 @@
+<?php
+add_action( 'wp_ajax_create_cagnotte', 'create_cagnotte' );
+// add_action( 'wp_ajax_nopriv_create_cagnotte', 'create_cagnotte' ); hoan'zay auteur/connecté ihany
+
+function create_cagnotte(){
+
+    $erreurs = [];
+
+    $sousCateg      = strip_tags($_POST['sousCateg']);
+    $categ          = strip_tags($_POST['categ']);
+    $nomCagnotte    = strip_tags($_POST['nomCagnotte']);
+    $nom_benef      = strip_tags($_POST['nom_benef']);
+    $illustration   = strip_tags($_POST['illustration']);
+    $description    = strip_tags($_POST['description']);
+    $visibilite     = strip_tags($_POST['visibilite']);
+    $debut          = strip_tags($_POST['debut']);
+    $deadline       = strip_tags($_POST['deadline']);
+    $estLimite      = strip_tags($_POST['estLimite']);
+    $montantMax     = strip_tags($_POST['montantMax']);
+    $condParticip   = strip_tags($_POST['condParticip']); 
+    $m_conseille    = strip_tags($_POST['m_conseille']);
+    $m_fixe         = strip_tags($_POST['m_fixe']);
+    $accord         = strip_tags($_POST['accord']);
+
+    if ( $accord != 'on' ){
+        $erreurs[] = __("Vous devez accepter les CGU et la politique de confidentialité.", "kotikota");
+    }
+
+    if ( $_POST['sousCateg'] == 'undefined' )
+        $erreurs[] = __("Choisir le type de cagnotte", "kotikota");
+
+    if ( $_POST['categ'] == 'undefined' )
+        $erreurs[] = __("Choisir une catégorie", "kotikota");
+
+    if ( !isset($nomCagnotte) || $nomCagnotte == "" )
+       $erreurs[] = __("Entrer un nom pour la cagnotte.", "kotikota");
+
+   if ( !isset($nom_benef) || $nom_benef == "" )
+       $erreurs[] = __("Entrer les bénéficiares", "kotikota");
+
+    if ( !isset($illustration) || $illustration == "" )
+        $erreurs[] = __("Choisir une image.", "kotikota");
+
+    if ( !isset($description) || $description == "" )
+        $erreurs[] = __("Entrer la description de la cagnotte.", "kotikota");
+
+    if ( !isset($visibilite) || $visibilite == "" )
+       $erreurs[] = __("Entrer la description de la cagnotte.", "kotikota");
+
+    if ( !isset($debut) || $debut == "" )
+        $erreurs[] = __("Indiquer la date de début.", "kotikota");
+
+    if ( !isset($deadline) || $deadline == "" )
+        $erreurs[] = __("Indiquer la date de fin.", "kotikota");
+
+    if ( !isset($estLimite) || $estLimite == "" ) {
+        $erreurs[] = __("Cagnotte limitée ou illimitée.", "kotikota");
+    }else{
+        if ( 'true' === $estLimite ) { 
+            if ( !isset($montantMax) || $montantMax == "" || $montantMax == '0'){
+                $erreurs[] = __("Entrer le montant maximal.", "kotikota");
+            }else if ( !preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', $montantMax)){
+                $erreurs[] = __("Entrer uniquement un chiffre comme montant.", "kotikota");
+            }
+            $estLimite = true; //avadika bool otrzao fa ra castena izy d mahazo false true
+        }else{
+            $montantMax = 0;
+            $estLimite = false;
+        }
+    }    
+
+    if ( !isset($condParticip) || $condParticip == "" )
+        $erreurs[] = __("Choisir votre condition de participation", "kotikota");
+    else{  
+        $montant = 0;           
+        switch ( $condParticip ) { //1 libre - 2 conseille - 3 fixe
+            case 'conseille':
+                if ( !isset($m_conseille) || $m_conseille == "" || !preg_match("/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/", $m_conseille) ){
+                    $erreurs[] = __("Veuillez entrer le montant conseillé", "kotikota");                
+                }else{
+                    $montant = $m_conseille;
+                }
+                break;
+            case 'fixe':
+                if ( !isset($m_fixe) || $m_fixe == "" || !preg_match("/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/", $m_fixe) ){
+                    $erreurs[] = __("Veuillez entrer le montant exact à payer", "kotikota");
+                }else{
+                    $montant = $m_fixe;
+                }
+                break;            
+            default: //1
+                //nothing special
+                break;
+        }
+    }
+
+    $devise = strip_tags($_POST['devise']);
+
+    if ( !isset($devise) || $devise == "" ){
+        $erreurs[] = __("Indiquer la devise pour la cagnotte.", "kotikota");
+    }elseif ($devise != 'mga' && $devise != 'eu' && $devise != 'liv'){
+        $devise = get_field('devise_par_defaut','option');        
+        $devise_label = $devise['label'];
+        $devise_value = $devise['value'];
+    }else{
+        if ( $devise == 'mga' ){
+            $devise_label = 'Ar';
+            $devise_value = $devise;
+        }
+        if ( $devise == 'eu' ){
+            $devise_label = '€';
+            $devise_value = $devise;
+        }
+        if ( $devise == 'liv' ){
+            $devise_label = '£';
+            $devise_value = $devise;
+        }
+    }    
+   
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+
+    $array = ['violet','jaune','vert','rose'];
+    $colors = array_rand($array);
+    $couleur = $array[$colors];
+
+    // check les dates début et fin => cagnotte actif si cagnotte mbola anaty date
+    $actif_debut = start_date_past_or_now( $debut );
+    $actif_fin = end_date_now_or_future( $deadline );
+
+    $actif = false;
+    if( $actif_fin && $actif_debut ){
+        $actif = true;
+    }
+
+    $metas = array(
+            'nom_de_la_cagnotte'            => $nomCagnotte,
+            'description_de_la_cagnote'     => $description,
+            'objectif_montant'              => (int)$montantMax,
+            'montant_recolte'               => 0,
+            'visibilite_cagnotte'           => $visibilite,
+            'condition_de_participation'    => $condParticip,
+            'montant_suggere'               => $montant,
+            'titulaire_de_la_cagnotte'      => get_current_user_id(),
+            'actif'                         => $actif,
+            'cagnotte_cloturee'             => 'non',
+            'devise'                         => array($devise_label, $devise_value),
+            'couleur'                       => $couleur,
+            'recevoir_les_notifications_de_participation_par_e-mail' => true,
+        );
+    $post_type = 'cagnotte';
+    if ( $visibilite == "perso") {
+        $post_type = 'cagnotte-perso';
+    }
+
+    $postDetails = array(
+            'post_type'  => $post_type,
+            'post_title' => $nomCagnotte,
+            'post_status'=> 'publish',
+            'meta_input' => $metas
+        );
+
+    $post_notif = false;
+
+    $now_user = get_current_user_id();
+
+    if ( $_POST['cin_value'] != '' ){
+        $cin = attachment_url_to_postid( strip_tags( $_POST['cin_value']) );
+        update_field('piece_didentite', $cin, 'user_'.$now_user );
+    }
+
+    if ( is_first_cagnotte_de( $now_user ) ){
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
+        $apres_24h = date('d-m-y H', strtotime('+24 hours'));
+        $apres_36h = date('d-m-y H', strtotime('+36 hours'));
+        $apres_48h = date('d-m-y H', strtotime('+48 hours'));
+        update_field('primo_rappel', $apres_24h, 'user_'.$now_user);
+        update_field('deuxo_rappel', $apres_36h, 'user_'.$now_user);
+        update_field('trio_rappel', $apres_48h, 'user_'.$now_user); //123&é"azE
+        update_field('rappel_envoye', 0, 'user_'.$now_user);
+
+        if( $_POST['cin_value'] == '')
+            $post_notif = true;
+            
+    }
+
+    $newPost = wp_insert_post( $postDetails , true );
+
+    if ($newPost){
+        wp_set_object_terms( $newPost, array( (int)$sousCateg, (int)$categ ), 'categ-cagnotte' );
+        update_field('illustration_pour_la_cagnotte', attachment_url_to_postid($illustration), $newPost);
+        update_field('debut_cagnoote', $debut, $newPost);
+        update_field('deadline_cagnoote', $deadline, $newPost);        
+        update_field('fixer_un_objectif', (bool)$estLimite, $newPost);        
+        update_field('profil_valide', false, 'user_'.$now_user );
+
+        $benef = array(
+            'post_type' => 'beneficiaire',
+            'post_title' => $nom_benef,
+            'post_status' => 'publish',
+        );
+
+        $newbenef = wp_insert_post( $benef, true ); 
+
+        if (is_wp_error($newbenef)) {
+            $errors = $newbenef->get_error_messages();
+            foreach ($errors as $error) {
+                echo $error;
+                wp_die();
+            }
+        }else{
+            update_field( 'benef_cagnotte', $newbenef , $newPost );
+        }
+
+        sendNotificationCreation($newPost);
+        if( $post_notif)
+            sendRappelPostCreation( $now_user );
+
+        $single = get_permalink( $newPost );
+        echo "$single";
+    }
+    wp_die();
+    
+}
+
+
+add_action( 'wp_ajax_redirect_single', 'redirect_single' );
+add_action( 'wp_ajax_nopriv_redirect_single', 'redirect_single' );
+function redirect_single(){
+    $resp = "";
+    if ( !empty($_POST['id']) && isset($_POST['id']) ){
+        $id = (int)strip_tags($_POST['id']);
+        $resp = "success";
+    }else{
+        $resp = "failed";
+    }
+    echo $resp;
+    wp_die();
+}
+
+add_action( 'wp_ajax_redirect_gestion', 'redirect_gestion' );
+// add_action( 'wp_ajax_nopriv_redirect_single', 'redirect_single' );
+function redirect_gestion(){
+    $resp = "";
+    if ( !empty($_POST['id']) && isset($_POST['id']) ){
+        $id = (int)strip_tags($_POST['id']);
+        $resp = "success";
+    }else{
+        $resp = "failed";
+    }
+    echo $resp;
+    wp_die();
+}
+
+add_action( 'wp_ajax_creer_participation', 'creer_participation' );
+add_action( 'wp_ajax_nopriv_creer_participation', 'creer_participation' );
+
+function creer_participation(){
+    $erreurs = [];
+    $sucess = '';
+    $devise = strip_tags($_POST['devise']);
+    $accord         = strip_tags($_POST['accord']);
+
+    if ( $accord != 'on' ){
+        $erreurs[] = __("Vous devez accepter les CGU et la politique de confidentialité.", "kotikota");
+    }
+
+    if ( !isset($_POST['fname']) || $_POST['fname'] == "" )
+        $erreurs[] = __("Entrer un prénom valide", "kotikota"); 
+    if ( !isset($_POST['lname']) || $_POST['lname'] == "" )
+        $erreurs[] = __("Entrer un nom valide", "kotikota"); 
+    if ( !isset($_POST['mail']) || $_POST['mail'] == "" || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) )
+        $erreurs[] = __("Entrer une adresse email valide", "kotikota"); 
+    if ( !isset($_POST['phone']) || $_POST['phone'] == "" ){
+        $erreurs[] = __("Entrer un numéro de téléphone valide", "kotikota");
+    }elseif( !preg_match('/^\+[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( str_replace(' ','',$_POST['phone'] ) ) ) ){
+        $erreurs[] = __("Entrer un numero de téléphone valide", "kotikota");
+    }
+
+    if ( !isset($_POST['condition']) || $_POST['condition'] == "" )
+        $erreurs[] = __("Entrer la condition de participation", "kotikota");
+
+    if ( !isset($_POST['donation']) || $_POST['donation'] == "" ){
+        $erreurs[] = __("Entrer le montant à donner", "kotikota");
+    }elseif( !preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $_POST['donation'] ) ) ){
+        $erreurs[] = __("Entrer uniquement un chiffre comme montant.", "kotikota");
+    }
+    
+    if ( !isset($_POST['maskIdentite']) || $_POST['maskIdentite'] == "" )
+        $erreurs[] = __("Masquer/Afficher identité", "kotikota");
+    if ( !isset($_POST['maskParticipation']) || $_POST['maskParticipation'] == "" )
+        $erreurs[] = __("Masquer/Afficher participation", "kotikota");
+
+    if ( !isset($_POST['paiement']) || $_POST['paiement'] == "" )
+        $erreurs[] = __("Choisir un mode de paiement", "kotikota");
+
+    if ( !isset($_POST['idCagnotte']) || $_POST['idCagnotte'] == "" || !isset($_POST['devise']) || $_POST['devise'] == "" )
+        $erreurs[] = __("Petit malin va!", "kotikota");
+
+    if ( !isset($_POST['devise']) || $_POST['devise'] == "" ){
+        $erreurs[] = __("Veuillez choisir votre devise", "kotikota");
+    }elseif ($devise != 'mga' && $devise != 'eu' && $devise != 'liv'){        
+        $devise = get_field('devise_par_defaut','option'); 
+        $devise = $devise['value'];
+    }
+
+    $idCagnotte = strip_tags($_POST['idCagnotte']);
+
+    $condition = strip_tags( $_POST['condition'] );
+
+    $donation = (int)strip_tags( $_POST['donation'] );
+
+    // if ( $devise_cagnotte == $devise ){
+    //     //pas de conversion
+    // }elseif ( $devise_cagnotte == 'mga' && $devise == 'liv' ){
+    //     $donation = $donation * $liv_mga;
+    // }elseif( $devise_cagnotte == 'mga' && $devise == 'eu' ){
+    //     $donation = $donation * $eu_mga;
+    // }elseif( $devise_cagnotte == 'liv' && $devise == 'mga' ){
+    //     $donation = $donation / $liv_mga;
+    // }elseif( $devise_cagnotte == 'liv' && $devise == 'eu' ){
+    //     $donation = $donation / $liv_eu;
+    // }elseif( $devise_cagnotte == 'eu' && $devise == 'mga' ){
+    //     $donation = $donation /  $eu_mga;
+    // }elseif( $devise_cagnotte == 'eu' && $devise == 'liv' ){
+    //     $donation = $donation * $liv_eu;
+    // }
+
+    //lé field 'montant_suggere' io est le même pour montant fixe et montant suggéré :)
+    if ( strip_tags($_POST['condition']) == "fixe"){
+        $fixe = (int)get_field('montant_suggere', $_POST['idCagnotte'] );
+        if ( $fixe && preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $fixe ) ) ){
+            if ( $fixe != $donation ){
+                $erreurs[] = __("Veuillez entrer le montant fixé", "kotikota");
+            }
+        }elseif( !preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $fixe ) ) ){
+            $erreurs[] = __("Entrer uniquement un chiffre comme montant.", "kotikota");
+        }
+    }
+
+    if ( $erreurs ){
+        $success = false;
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+   
+    $fname = strip_tags($_POST['fname']);
+    $lname = strip_tags($_POST['lname']);
+    $email = filter_var($_POST['mail'], FILTER_SANITIZE_EMAIL);
+    $phone = strip_tags($_POST['phone']);
+    $phone33 = strip_tags($_POST['phone33']);
+    
+    $mot_doux = strip_tags($_POST['message']);       
+
+    $maskIdentite = strip_tags( $_POST['maskIdentite'] );
+    if ($maskIdentite == "on"){
+        $maskIdentite = true;
+    }else{
+        $maskIdentite = false;
+    }
+
+    $maskParticipation = strip_tags( $_POST['maskParticipation'] );
+    if ($maskParticipation == "on"){
+        $maskParticipation = true;
+    }else{
+        $maskParticipation = false;
+    }
+
+    $paiement = strip_tags( $_POST['paiement'] );
+
+    if ( $paiement == "paypal" ){
+        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
+        echo get_site_url() ."/don/?id=$id_participation&cl=$email";
+    }elseif ( $paiement == "orange" ){
+        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
+        echo get_site_url() ."/paiement-orange-money/?id=$id_participation&cl=$email";
+    }elseif ( $paiement == "telma" ){
+        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
+        echo get_site_url() ."/paiement-mvola/?id=$id_participation&cl=$email";
+    }elseif( $paiement == "airtel" ){
+        // $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone33, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
+        // echo get_site_url() ."/paiement-airtel-money/?id=$id_participation&cl=$email";
+        echo "trigger_popup=popup_airtel&idCagnotte=$idCagnotte&email=$email&lname=$lname&fname=$fname&phone=$phone&donation=$donation&maskParticipation=$maskParticipation&maskIdentite=$maskIdentite&mot_doux=$mot_doux&devise=$devise";
+    }elseif( $paiement == "bni" || $paiement == "visa"){
+        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
+        echo get_site_url() ."/virement-bancaire/?id=$id_participation&cl=$email";
+    }
+
+    // echo $url;
+    wp_die();
+}
+
+add_action( 'wp_ajax_pay_airtel', 'pay_airtel' );
+add_action( 'wp_ajax_nopriv_pay_airtel', 'pay_airtel' );
+function pay_airtel(){
+    if( isset($_POST) ){
+        $infos = $_POST['infos'];
+        $infos = explode("trigger_popup=popup_airtel&", $infos);  
+        $infos = $infos[1];
+        parse_str($infos, $Data);
+        extract($Data); 
+
+        $num_airtel = strip_tags( $_POST['num_airtel'] );
+
+         $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, "airtel", $maskParticipation, $maskIdentite, $mot_doux, $devise );
+
+         echo get_site_url() ."/paiement-airtel-money/?id=$id_participation&cl=$email&msisdn=$num_airtel";
+
+        wp_die();
+    }
+}
+
+add_action( 'wp_ajax_send_invite', 'send_invite' );
+
+function send_invite(){
+    $erreurs = [];
+
+    if ( !isset($_POST['emails']) || $_POST['emails'] == "" ){
+        $erreurs[] = "Entrer au moins une adresse email";
+    }
+    if ( !isset($_POST['idCagnotte']) || !is_cagnotte($_POST['idCagnotte']) )
+        $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+
+    $idCagnotte = $_POST['idCagnotte'];
+
+    sendInvitation( $_POST['emails'], $idCagnotte );
+    
+    wp_die();
+}
+
+add_action( 'wp_ajax_save_info_principale', 'save_info_principale' );
+
+function save_info_principale(){
+    $erreurs = [];
+
+    if ( !isset($_POST['nomCagnotte']) || $_POST['nomCagnotte'] == "" )
+       $erreurs[] = __("Entrer un nom pour la cagnotte.", "kotikota");
+
+    if ( !isset($_POST['debut']) || $_POST['debut'] == "" )
+       $erreurs[] = __("Indiquer la date de début.", "kotikota");
+    if ( !isset($_POST['fin']) || $_POST['fin'] == "" )
+       $erreurs[] = __("Indiquer la date de fin.", "kotikota");
+
+    if ( !isset($_POST['idBenef']) || $_POST['idBenef'] == "" )
+       $erreurs[] = __("Vous avez supprimé l'ID du bénéficiaire.", "kotikota");
+    if ( !isset($_POST['nom']) || $_POST['nom'] == "" )
+       $erreurs[] = __("Entrer le nom du bénéficiaire.", "kotikota");
+    if ( !isset($_POST['prenom']) || $_POST['prenom'] == "" )
+       $erreurs[] = __("Entrer le prénom du bénéficiaire.", "kotikota");
+    if ( !isset($_POST['email']) || $_POST['email'] == "" )
+       $erreurs[] = __("Entrer l'adresse email du bénéficiaire.", "kotikota");
+    if ( !isset($_POST['tel']) || $_POST['tel'] == "" ){
+       $erreurs[] = __("Entrer le numéro de contact du bénéficiaire.", "kotikota");
+    } elseif( !preg_match('/^\+[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( str_replace(' ','',$_POST['tel'] ) ) ) ){
+        $erreurs[] = __("Entrer un numero de téléphone valide", "kotikota");
+    }
+    if ( !isset($_POST['rib']) || $_POST['rib'] == "" )
+       $erreurs[] = __("Entrer le RIB du bénéficiaire.", "kotikota");
+
+   if ( !isset($_POST['categ']) || $_POST['categ'] == "" )
+       $erreurs[] = __("Indiquer la catégorie de cagnotte.", "kotikota");
+    if ( !isset($_POST['sousCateg']) || $_POST['sousCateg'] == "" )
+       $erreurs[] = __("Indiquer une type de cagnotte.", "kotikota");
+
+    if ( !isset($_POST['idCagnotte']) || !is_cagnotte($_POST['idCagnotte']) )
+        $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+
+    $idCagnotte = $_POST['idCagnotte'];
+
+    // check les dates début et fin => cagnotte actif si cagnotte mbola anaty date
+    $actif_debut = start_date_past_or_now( $_POST['debut'] );
+    $actif_fin = end_date_now_or_future( $_POST['fin'] );
+
+    $actif = false;
+    if( $actif_fin && $actif_debut ){
+        $actif = true;
+    }
+    update_field( 'actif', $actif, $idCagnotte );
+
+    update_field('nom_de_la_cagnotte', strip_tags( $_POST['nomCagnotte'] ), $idCagnotte );
+
+    $efa_nanova_debut = get_field('modif_debut', $idCagnotte );
+    $efa_nanova_fin   = get_field('modif_fin', $idCagnotte );
+
+    $debu = strtotime( get_field('debut_cagnoote',$idCagnotte) ); //debut taloha format yyyymmdd
+    //$debu = date('m-d-Y',$debu); //ovaina ho m/d/Y --> mba hitovy @ilay ao @$_POST
+
+    $fain = strtotime( get_field('deadline_cagnoote',$idCagnotte) ); //debut taloha format yyyymmdd
+    //$fain = date('m-d-Y',$fain); //ovaina ho m/d/Y --> mba hitovy @ilay ao @$_POST
+   
+    if ( $debu != strtotime($_POST['debut']) )
+        if ( !$efa_nanova_debut ){
+            $debut = $_POST['debut']; 
+            update_field( 'debut_cagnoote', $debut , $idCagnotte );
+            update_field( 'modif_debut', true, $idCagnotte );
+        }
+    if ( $fain != strtotime($_POST['fin']) )
+        if ( !$efa_nanova_fin ){
+            $fin = $_POST['fin'];
+            update_field( 'deadline_cagnoote', $fin, $idCagnotte );
+            update_field( 'modif_fin', true, $idCagnotte );
+        }
+
+    // info beneficiaire
+    $idBenef   = strip_tags( $_POST['idBenef'] );
+    $nom       = strip_tags( $_POST['nom'] );
+    $prenom    = strip_tags( $_POST['prenom'] );
+    $email     = strip_tags( $_POST['email'] );
+    $telephone = strip_tags( $_POST['tel'] );
+    $rib       = strip_tags( $_POST['rib'] );
+   
+    $update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
+    update_field('benef_cagnotte', $idBenef, $idCagnotte);
+
+    // update categorie/sous-categorie cagnotte
+    $categ = strip_tags( $_POST['categ'] );
+    $sousCateg = strip_tags( $_POST['sousCateg'] );
+    wp_set_object_terms( $idCagnotte, array( (int)$sousCateg, (int)$categ ), 'categ-cagnotte' );
+
+    $single = get_site_url().'/parametre-fond';
+    echo $single;
+    wp_die();  
+}
+
+add_action( 'wp_ajax_save_fond', 'save_fond' );
+
+function save_fond(){
+    $errors = [];
+
+    if ( !isset($_POST['bg']) || $_POST['bg'] == "" )
+        $erreurs[] = __("Choisir une image de fond", "kotikota");
+
+    if ( !isset($_POST['idCagnotte']) || !is_cagnotte($_POST['idCagnotte']) )
+        $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+
+    $bg = sanitize_url( $_POST['bg'] );
+    $idCagnotte = $_POST['idCagnotte'];
+
+    update_field('illustration_pour_la_cagnotte', attachment_url_to_postid($bg), $idCagnotte );
+    
+    $resp =  get_site_url().'/parametre-description?parametre='.$idCagnotte;
+    echo $resp;
+    
+    wp_die(); 
+}
+
+add_action( 'wp_ajax_save_descr', 'save_descr' );
+function save_descr(){
+    $erreurs = [];
+    $success = false;
+
+    if ( !isset($_POST['descr']) || $_POST['descr'] == "" )
+        $erreurs[] = __("Veuillez entrer la description de la cagnotte.", "kotikota");
+
+    if ( !isset($_POST['idCagnotte']) || !is_cagnotte($_POST['idCagnotte']) )
+        $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+
+    $newDescr = $_POST['descr'];
+    $idCagnotte = $_POST['idCagnotte'];
+
+    if ( $newDescr == '&lt;p&gt;&lt;br&gt;&lt;/p&gt;' || $newDescr == '<p><br></p>'){
+        //tsy manao inin
+    }else{
+        update_field('description_de_la_cagnote', $newDescr, $idCagnotte );
+    }
+
+    $success = true;
+    echo get_site_url().'/parametre-montant?parametre='.$idCagnotte;
+    wp_die();
+    
+}
+
+add_action( 'wp_ajax_save_montant', 'save_montant' );
+
+function save_montant(){
+    $erreurs = [];
+    $devise = strip_tags($_POST['devise']);
+
+    if ( !isset($_POST['ilaina']) || $_POST['ilaina'] == "" || !preg_match("/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/", $_POST['ilaina'] ) ){
+        $erreurs[] = __("Veuillez entrer l'objectif de montant", "kotikota"); 
+    }
+    if ( !isset($_POST['suggere']) || $_POST['suggere'] == "" || !preg_match("/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/", $_POST['suggere'] ))
+        $erreurs[] = __("Veuillez suggérer un montant", "kotikota");
+
+    if ( !isset($_POST['devise']) || $_POST['devise'] == "" ){
+        $erreurs[] = __("Veuillez choisir la devise pour la cagnotte", "kotikota");
+    }elseif ($devise != 'mga' && $devise != 'eu' && $devise != 'liv'){
+        
+        $devise = get_field('devise_par_defaut','option'); 
+        $devise = $devise['value'];
+    }
+
+    if ( !isset($_POST['maskIlainaAzo']) || $_POST['maskIlainaAzo'] == "" )
+        $erreurs[] = __("Masquer montant à atteindre/montant collecté", "kotikota");
+
+    if ( !isset($_POST['maskToutesContribution']) || $_POST['maskToutesContribution'] == "" )
+        $erreurs[] = __("Masquer toutes les contributions", "kotikota");
+
+    if ( !isset($_POST['maskContribution']) || $_POST['maskContribution'] == "" )
+        $erreurs[] = __("Masquer le montant de la contribution", "kotikota");
+
+    if ( !isset($_POST['idCagnotte']) || !is_cagnotte($_POST['idCagnotte']) )
+        $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+
+    $ilaina = strip_tags($_POST['ilaina']);
+    $suggere = strip_tags($_POST['suggere']);
+    $idCagnotte = $_POST['idCagnotte'];
+
+    $maskIlainaAzo = strip_tags( $_POST['maskIlainaAzo'] );
+    if ($maskIlainaAzo == "on"){
+        $maskIlainaAzo = true;
+    }else{
+        $maskIlainaAzo = false;
+    }
+    $maskToutesContribution = strip_tags( $_POST['maskToutesContribution'] );
+    if ($maskToutesContribution == "on"){
+        $maskToutesContribution = true;
+    }else{
+        $maskToutesContribution = false;
+    }
+    $maskContribution = strip_tags( $_POST['maskContribution'] );
+    if ($maskContribution == "on"){
+        $maskContribution = true;
+    }else{
+        $maskContribution = false;
+    }
+
+    update_field('objectif_montant', $ilaina , $idCagnotte );
+    update_field('montant_suggere', $suggere , $idCagnotte );
+    update_field('devise',$devise , $idCagnotte );
+    update_field('masquer_azo_ilaina', $maskIlainaAzo, $idCagnotte );
+    update_field('masquer_toutes_les_contributions', $maskToutesContribution, $idCagnotte );
+    update_field('masquer_le_montant_de_la_contribution', $maskContribution, $idCagnotte );
+
+    echo get_site_url().'/parametre-notification?parametre='.$idCagnotte;
+    wp_die();
+}
+
+add_action( 'wp_ajax_save_notif', 'save_notif' );
+
+function save_notif(){
+    $erreurs = [];
+
+    if ( !isset($_POST['recevoirNotif']) || $_POST['recevoirNotif'] == "" )
+        $erreurs[] = __("Recevoir les notifications de participation par e-mail", "kotikota");
+
+    if ( !isset($_POST['notifParticip']) || $_POST['notifParticip'] == "" )
+        $erreurs[] = __("Notifier les participants lors de la dépense de la cagnotte", "kotikota");
+
+    if ( !isset($_POST['idCagnotte']) || !is_cagnotte($_POST['idCagnotte']) )
+        $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+
+    $idCagnotte = $_POST['idCagnotte'];
+    $recevoirNotif = strip_tags( $_POST['recevoirNotif'] );
+    if ($recevoirNotif == "on"){
+        $recevoirNotif = true;
+    }else{
+        $recevoirNotif = false;
+    }
+    $notifParticip = strip_tags( $_POST['notifParticip'] );
+    if ($notifParticip == "on"){
+        $notifParticip = true;
+    }else{
+        $notifParticip = false;
+    }
+
+    update_field( 'recevoir_les_notifications_de_participation_par_e-mail', $recevoirNotif, $idCagnotte );
+    update_field( 'notifier_les_participants_lors_de_la_depense_de_la_cagnotte', $notifParticip, $idCagnotte );
+
+    $output = '<div>';
+
+    if( $recevoirNotif ){
+        $output .= "<p>" . __('Notifications de participation :','kotikota') ." <b>". __('Actives','kotikota') . "</b></p>";
+    }else{
+        $output .= "<p>" . __('Notifications de participation :','kotikota') ." <b>". __('Inactives','kotikota') . "</b></p>";
+    }
+
+    if( $notifParticip ){
+        $output .= "<p>" . __('Notifications des participations lors de la dépense de la cagnotte :','kotikota') ." <b>". __('Actives','kotikota') . "</b></p>";
+    }else{
+        $output .= "<p>" . __('Notifications des participations lors de la dépense de la cagnotte :','kotikota') ." <b>". __('Inactives','kotikota') . "</b></p>";
+    }
+
+    $output .= '</div>';
+
+    echo $output;
+    wp_die();
+}
+
+add_action( 'wp_ajax_ask_question', 'ask_question' );
+
+function ask_question(){
+    $erreurs = [];
+
+    if ( !isset($_POST['question']) || $_POST['question'] == "" ){
+        $erreurs[] = __("Veuillez bien poser votre question.", "kotikota");
+    }
+
+    if ( !isset($_POST['idCagnotte']) || !is_cagnotte($_POST['idCagnotte']) )
+        $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+
+    $question = strip_tags( $_POST['question'] );
+    $idCagnotte = $_POST['idCagnotte'];
+
+    //ajoutena ao @CPT mot_doux ilay message t@ty participation ty    
+    $postarr = array(
+            'post_type' => 'question',
+            'post_title' => substr($question, 0, 40),
+            'post_status' => 'publish',
+            'post_content' => $question,
+            'post_date'  => the_time('d/m/y'),
+            'post_author' => get_current_user_id() 
+            );
+
+    $editID = strip_tags( $_POST['id_question'] );
+    if ($editID != ''){
+        $postarr['ID'] =  $editID;   
+    }    
+
+    $newQuestion = wp_insert_post( $postarr, true ); 
+
+    if (is_wp_error($post_id)) {
+        $errors = $post_id->get_error_messages();
+        foreach ($errors as $error) {
+            echo $error;
+            wp_die();
+        }
+    }else{
+
+        $list_questions = get_field( 'questions', $idCagnotte ); 
+
+        if( !is_array($list_questions) ):
+            $list_questions = array();
+        endif;
+
+        array_push( $list_questions, $newQuestion );
+
+        update_field( 'questions', $list_questions , $idCagnotte );
+
+        $newQuestion = get_post($newQuestion);
+        $user_data = get_user_meta($newQuestion->post_author);
+        $date = new DateTime($newQuestion->post_date);
+        $html = '';
+
+        if ( $newQuestion == $editID){
+            $html .= '<div class="listComment">';
+        }
+            $html .= '<div class="content-comment">
+                        <div class="profil">';
+            $html .=          get_avatar( $newQuestion->post_author,80 );             
+            $html .= '    </div>';
+            $html .= '    <b class="author-name">';
+            $html .=           $user_data['first_name'][0].' '.$user_data['last_name'][0];
+            $html .= '    </b>';
+            $html .= '    <span class="date">'.printf( __('a écrit le %s','kotikota'), $date->format('d/m/y') ).'</span>';
+            $html .= '    <div class="txt">';
+            $html .=        $newQuestion->post_content;
+            $html .=     '</div>';
+            $html .= ' </div>';
+        if ( $newQuestion == $editID)
+            $html .= ' <div class="edit">
+                        <a href="#" title="" data-edit="'.$editID.'">&#9998;</a>
+                      </div>';
+        if ( $newQuestion == $editID)
+            $html .= ' <div class="delete">
+                        <a href="#" title="" data-delete="'.$editID.'">&#10008;</a>
+                      </div>';
+        if ( $newQuestion == $editID){
+            $html .= ' </div>';
+        }
+
+        echo $html;
+        wp_die();
+    }
+}
+
+add_action( 'wp_ajax_delete_pst', 'delete_pst' );
+
+function delete_pst(){
+    $erreur = '';
+
+    if ( !isset($_POST['id']) || $_POST['id'] == "" ){
+        $erreur = __("Quoi effacer ?", "kotikota");
+        echo "<li>$erreur</li>";
+        wp_die();
+    }
+    $id = strip_tags($_POST['id']);     
+
+    if (wp_delete_post($id )) echo "success";
+
+    wp_die();
+}
+
+add_action( 'wp_ajax_edit_profile', 'edit_profile' );
+
+function edit_profile(){
+    $erreurs = [];
+
+    if ( !isset($_POST['nom']) || $_POST['nom'] == "" )
+        $erreurs[] = __("Entrez votre nom", "kotikota");
+
+    if ( !isset($_POST['prenom']) || $_POST['prenom'] == "" )
+        $erreurs[] = __("Entrez votre prénom", "kotikota");
+
+    if ( !isset($_POST['mail']) || $_POST['mail'] == "" || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) )
+        $erreurs[] = __("Entrez votre adresse email valide.", "kotikota");
+
+    if ( !isset($_POST['naiss']) || $_POST['naiss'] == "" )
+        $erreurs[] = __("Entrez votre date de naissance.", "kotikota");
+
+    if ( isset($_POST['newpwd']) && $_POST['newpwd'] != '' ){
+        
+        if ( !preg_match(('/.{8,}/'), strip_tags($_POST['newpwd']) ) ){
+            $erreurs[] = __("Le mot de passe doit avoir au moins 8 caractères dont 1 minuscule 1 majuscule 1 nombre et 1 caractère spécial", "kotikota");
+        }else{
+            $newpwd = strip_tags($_POST['newpwd']);
+        }
+    }
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+
+    $userdata = array(
+            'ID' => get_current_user_id(),            
+            'first_name' => strip_tags($_POST['nom']),
+            'last_name' => strip_tags($_POST['prenom']),
+            'user_email' => strip_tags($_POST['mail'])
+        );
+
+    if ( $newpwd){
+        $userdata['user_pass'] = $newpwd;
+    }
+
+    $update_user = wp_update_user( $userdata );
+
+    if ($update_user && isset($userdata['user_pass']) ){
+        $sessions = WP_Session_Tokens::get_instance(get_current_user_id());
+        $sessions->destroy_all();
+    }
+
+    if ( strip_tags( $_POST['pdp'] ) != '' ){
+        $pdp = attachment_url_to_postid(strip_tags($_POST['pdp']));
+        update_field('photo', $pdp, 'user_'.get_current_user_id());
+    }
+
+    if ( strip_tags( $_POST['cin_value'] ) != '' ){
+        $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+        update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
+    }
+
+    update_field('date_de_naissance', strip_tags( $_POST['naiss'] ), 'user_'.get_current_user_id());
+
+    wp_die();
+}
+
+add_action( 'wp_ajax_relance_auto', 'relance_auto' );
+
+function relance_auto(){
+    $erreurs = [];
+
+    if ( !isset($_POST['emails']) || $_POST['emails'] == "" )
+        $erreurs[] = __("Emails non trouvés", "kotikota");
+
+    if ( !isset($_POST['idCagnotte']) || !is_cagnotte($_POST['idCagnotte']) )
+        $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
+
+    if ( count($erreurs) ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();   
+    }
+    $idCagnotte = $_POST['idCagnotte'];
+    $emails = array();
+    $tmp = $_POST['emails'];
+    foreach( $tmp as $t ){
+        $emails[] = sanitize_email( $t );
+    }
+
+    sendInvitation( $emails, $idCagnotte );
+
+    wp_die();
+}
+
+function startsWith($string, $startString) {
+  return preg_match('#^' . $startString . '#', $string) === 1;
+}
+
+add_action( 'wp_ajax_kk_search', 'kk_search' );
+add_action( 'wp_ajax_nopriv_kk_search', 'kk_search' );
+
+function kk_search(){
+    if ( empty($_POST['str']) && !isset($_POST['str']) ){
+        die();
+    }
+    $str = strip_tags( $_POST['str'] );
+
+    $metaquery = array(
+        array(
+            'key'     => 'nom_de_la_cagnotte',
+            'value'   => $str,
+            'compare' => 'LIKE',
+        ),
+    );
+
+    $args = array(
+        'post_type'      => array( 'cagnotte', 'cagnotte-perso' ),
+        'posts_per_page' => -1,
+        'meta_query'     => $metaquery
+        );
+
+    $q = new WP_Query( $args );
+
+    while ( $q->have_posts()) {
+        $q->the_post();
+        $nom = get_field('nom_de_la_cagnotte');
+        $nom = strtolower($nom);
+        if ( startsWith( $nom , strtolower($str)) ){
+            echo $nom;
+        }
+    }
+    wp_reset_postdata();
+    die();
+}
+
+# Ajax ao @ BO (liste de toutes les transactions )
+
+add_action( 'wp_ajax_update_cagnotte', 'update_cagnotte' );
+function update_cagnotte(){
+  if( $_POST['filtre'] == '' )
+    wp_die('Paramètre incorrect !');
+
+  $out = array();
+
+  $filtre = strip_tags( $_POST['filtre'] );
+
+  $cagnottes = get_participation_column('id_cagnotte');
+
+  if( is_array($cagnottes) ){
+    foreach ($cagnottes as $c) {
+      $out['nom_cagnottes'][] = get_field('nom_de_la_cagnotte',  $c->id_cagnotte);    
+    }
+    $_SESSION['filtre_col'] = 'id_cagnotte';
+    $out['nom_cagnottes'] = array_unique( $out['nom_cagnottes']);
+    $out['msg'] = "OK";
+  }else{
+    $out['msg'] = "NOK";
+  }
+  echo json_encode( $out );
+  wp_die();
+}
+
+add_action( 'wp_ajax_update_paiement', 'update_paiement' );
+function update_paiement(){
+  if( $_POST['filtre'] == ''  )
+    wp_die('Paramètre incorrect !');
+
+  $out = array();
+
+    $_SESSION['filtre_col'] = 'paiement';
+    $out['msg'] = "OK";
+ 
+  echo json_encode( $out );
+  wp_die();
+}
+
+add_action( 'wp_ajax_update_date', 'update_date' );
+function update_date(){
+  if( $_POST['filtre'] == ''  )
+    wp_die('Paramètre incorrect !');
+
+  $out = array();
+
+  $filtre = strip_tags( $_POST['filtre'] );
+
+  $cagnottes = get_participation_column('date');
+
+  if( is_array($cagnottes) ){
+    foreach ($cagnottes as $c) {
+      $date = explode(' ', $c->date);
+      $date = $date[0];
+      $out['date'][] = $date;    
+    }
+    $_SESSION['filtre_col'] = 'date';
+    $out['date'] = array_unique( $out['date']);
+    $out['msg'] = "OK";
+  }else{
+    $out['msg'] = "NOK";
+  }
+
+  echo json_encode( $out );
+  wp_die();
+}
+
+add_action( 'wp_ajax_update_reset', 'update_reset' );
+function update_reset(){
+  if( $_POST['filtre'] == ''  )
+    wp_die('Paramètre incorrect !');
+
+  unset( $_SESSION['filtre_col'] );
+  unset( $_SESSION['filtre_tri'] );
+
+  $out = array();
+  $out['msg'] = 'reload';
+
+  echo json_encode( $out );
+  wp_die();
+}
+
+function get_participation_column( $column_name ){
+  global $wpdb;
+  $participation = $wpdb->prefix.'participation';
+
+  $results = $wpdb->get_results(
+      "SELECT $column_name FROM $participation 
+      WHERE est_finalise = 1
+      ORDER BY id_participation DESC"
+  );
+
+  return $results;
+}
+
+add_action( 'wp_ajax_cloturer_cagnotte', 'cloturer_cagnotte' );
+function cloturer_cagnotte(){
+    if( isset( $_POST ) && !empty( $_POST ) ){
+        $id = $_POST['id_a_cloturer'];
+        
+        update_field('actif', false, $id );
+        update_field('cagnotte_cloturee', 'oui', $id );
+
+         $participants = array();
+        // andefasana notif daholo ny participant rehetra
+        $participants = get_field('tous_les_participants', $id);
+        if( is_array( $participants ) ):
+            foreach( $participants as $participant ){
+                $part = $participant['participant_'];
+                $partID = $part->ID;
+                $nom_participant = get_field('nom_participant', $partID);
+                $prenom_participant = get_field('prenom_participant', $partID);
+                $email_participant = get_field('email_participant', $partID);
+
+                $sent = sendNotificationFin($id, $email_participant, $nom_participant, $prenom_participant);
+            }
+        endif;
+        // andefasana notif koa ny titulaire
+        $sent_2 = sendNotificationFinPourTitulaire( $id );
+    }
+    wp_die();
+}

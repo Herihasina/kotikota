@@ -1,0 +1,53 @@
+.wrapAchat>div .icon>i,
+.wrapAchat>div:hover .icon>img{display:none}
+.wrapAchat>div:hover .icon>i{display:block;}
+@keyframes opace{from{opacity:0}
+to{opacity:1;}
+}
+@keyframes zoom{from{-webkit-transform:scale(0.9);-ms-transform:scale(0.9);transform:scale(0.9);}
+to{-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);}
+}
+@keyframes slidein-left{from{left:-25px;opacity:0;}
+to{left:0;opacity:1;}
+}
+@keyframes slidein-right{from{right:-25px;opacity:0;}
+to{right:-8px;opacity:1;}
+}
+@keyframes cursor{from{top:-30px;opacity:0;}
+to{top:2px;opacity:1;}
+}
+@keyframes click{0%{opacity:0;}
+65%{opacity:0;}
+100%{opacity:1;}
+}
+@keyframes valide{0%{opacity:0;}
+50%{opacity:0;}
+100%{opacity:1;}
+}
+@keyframes hand-cart{from{right:66px;opacity:0;}
+to{right:70px;opacity:1;}
+}
+@keyframes slidein-up{from{top:-25px;opacity:0;}
+to{top:-8px;opacity:1;}
+}
+@keyframes up{from{top:115px;opacity:1;}
+to{top:110px;opacity:0;}
+}
+@keyframes camion{from{right:76px;opacity:1;}
+to{right:65px;opacity:0;}
+}
+@keyframes ligne{from{left:-10px;opacity:0;}
+to{left:0px;opacity:1;}
+}
+.ico-bluestar{-webkit-animation:opace 0.8s ease infinite alternate;-moz-animation:opace 0.8s ease infinite alternate;animation:opace 0.8s ease infinite alternate;}
+.ico-start{top:12.5px;left:2.5px;-webkit-animation:opace 0.5s ease infinite alternate;-moz-animation:opace 0.5s ease infinite alternate;animation:opace 0.5s ease infinite alternate;}
+.ico-cursor{top:1px;-webkit-animation:cursor 1.2s ease;-moz-animation:cursor 1.2s ease;animation:cursor 1.2s ease;}
+.ico-com, .ico-hand {-webkit-animation:slidein-left 0.8s ease;-moz-animation:slidein-left 0.8s ease;animation:slidein-left 0.8s ease;}
+.ico-hand-cart {-webkit-animation:hand-cart 2s ease;-moz-animation:hand-cart 2s ease;animation:hand-cart 2s ease;}
+.ico-hand-take{ top:115px ;-webkit-animation:up 1.5s ease;-moz-animation:up 1.5s ease;animation:up 1.5s ease;}
+.ico-camion{ webkit-animation:camion 1.5s ease;-moz-animation:camion 1.5s ease;animation:camion 1.5s ease;}
+
+
+
+
+
