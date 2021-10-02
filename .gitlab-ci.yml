@@ -4,8 +4,7 @@ stages:
 deploy-site:
   stage: deploy
   script:
-    # aller dans le dossier et tirer les fichiers du repository gitlab
-    - ssh maniak 'cd ~/home/test/kotikota-theme && git checkout -- . && git pull origin master'
+    - ssh maniak 'cd ~/sites/maki-group.mg/kotikota.maki-group.mg/wp-content/themes/kotikota && git checkout -- . && git pull origin master'
   tags:
     - devmaki
   only:
