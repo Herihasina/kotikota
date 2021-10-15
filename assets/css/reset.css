@@ -1857,6 +1857,7 @@ a:hover { color:#fbbd36; }
 .lst-apropos .item .content { max-width: inherit; display: block; }
 .menu-liste-cagnotte.active { z-index: 9999 }
 .col-dates .chy-type .col.col47:first-of-type, .col-dates .chy-type .col.col47:last-of-type { width: 100% !important; padding: 0 !important;}
+.formulaire-cagnotte .chy-type .col.col47 { padding: 0 10px }
 
 }
 
@@ -1993,6 +1994,11 @@ a:hover { color:#fbbd36; }
     #ajaxsearchlite1 .probox .proinput, div.asl_w .probox .proinput { margin-left: 0 !important }
     .blc-securise { width: 50% !important;}
     .tarifs .cont-left .content .gratuit { padding: 8px 20px 8px 20px }
+
+    .formulaire-cagnotte .chy-type > .row { display: block; }
+    .formulaire-cagnotte .chy-type .col.col47 {width: 100%;/* padding-left: 0; */}
+
+
 }
 
 @media (max-width:600px) {
