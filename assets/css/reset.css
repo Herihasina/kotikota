@@ -1357,6 +1357,8 @@ input:checked {
 .blcFormulaire .chp {
     margin-bottom: 15px;
 }
+
+
 .cont-file {
     color: #8E8E8E;
     font-size: 16px;
@@ -1367,6 +1369,8 @@ input:checked {
     margin: 0 auto;
     border: 1px #cecece solid;
     border-radius: 38px;
+    padding-top: 100px;
+    background-color: red !important
 }
 .cont-file span {
     white-space: nowrap;
