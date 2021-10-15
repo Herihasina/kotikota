@@ -1369,8 +1369,7 @@ input:checked {
     margin: 0 auto;
     border: 1px #cecece solid;
     border-radius: 38px;
-    padding-top: 100px;
-    background-color: red !important
+
 }
 .cont-file span {
     white-space: nowrap;
@@ -1432,6 +1431,48 @@ input:checked {
 }
 .blc-cagnotte-participation .btn {
     text-align: center;
+}
+
+/* Radio Mvola sy ny tariny */
+.blc-radio .option ul li .check {
+    display: none !important;
+}
+.blc-radio .option ul li input[type=radio] {
+    display: block;
+    position: absolute;
+    border: 1px solid #5ec366;
+    border-radius: 100%;
+    height: 26px;
+    width: 26px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    z-index: 5;
+    transition: border .25s linear;
+    -webkit-transition: border .25s linear;
+    visibility: visible;
+}
+.blc-radio .option input[type=radio]:checked {
+    background: url(../images/ico-check2.png);
+}
+
+.formulaire-cagnotte .chy-type > .row {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 20px;
+}
+
+.formulaire-cagnotte .col-dates .chy-type {
+    margin: 0 0 40px;
+}
+.formulaire-cagnotte .col.col47.col-dates {
+    width: 100%;
+}
+.formulaire-cagnotte .col-dates .chy-type {
+    margin: 0 0px 40px;
+    /* padding-left: 7px; */
 }
 
 
@@ -2461,29 +2502,7 @@ input:checked {
     padding-left: 7px;
 }
 
-/* Radio Mvola sy ny tariny */
-.blc-radio .option ul li .check {
-    display: none !important;
-}
-.blc-radio .option ul li input[type=radio] {
-    display: block;
-    position: absolute;
-    border: 1px solid #5ec366;
-    border-radius: 100%;
-    height: 26px;
-    width: 26px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    left: 0;
-    z-index: 5;
-    transition: border .25s linear;
-    -webkit-transition: border .25s linear;
-    visibility: visible;
-}
-.blc-radio .option input[type=radio]:checked {
-    background: url(../images/ico-check2.png);
-}
+
 
 @media (max-width:768px) {
     .cont-file {
