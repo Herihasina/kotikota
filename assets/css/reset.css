@@ -1479,6 +1479,11 @@ input:checked {
     padding-left: 0;
 }
 
+.Info-principale .blcFormulaire.fichier {
+    padding: 0 26px;
+}
+.Info-principale .blcFormulaire.fichier label { display: block;color: #7b7b7b;font-size: 12px;font-family: Montserrat-r;margin-bottom: 13px; }
+.Info-principale .blcFormulaire.fichier .cont-file span  { color: #7b7b7b }
 
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right, .logo, .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
@@ -1858,7 +1863,9 @@ a:hover { color:#fbbd36; }
 .menu-liste-cagnotte.active { z-index: 9999 }
 .col-dates .chy-type .col.col47:first-of-type, .col-dates .chy-type .col.col47:last-of-type { width: 100% !important; padding: 0 !important;}
 .formulaire-cagnotte .chy-type .col.col47 { padding: 0 10px }
-
+.Info-principale .blcFormulaire.fichier {
+    padding: 0 0;
+}
 }
 
 @media (max-width:767px) {
