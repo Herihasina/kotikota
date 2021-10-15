@@ -181,7 +181,7 @@
                                 </div>
                              </div>
                             <div class="row">
-                                <div class="col col53">
+                                <div class="col col47">
                                     <div class="blc-chp">
                                          <label><?php _e('Objectif de montant à atteindre','kotikota'); ?> <span>*</span> </label>
                                          <select id="estLimite">
