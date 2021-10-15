@@ -1336,6 +1336,100 @@ input:checked {
     padding: 0 20px !important;
 }
 
+/* Cree ma cagnotte - Input Fille */
+.blcFormulaire {
+    margin: 50px auto 0;
+    padding: 0;
+    max-width: 960px;
+}
+.fichier {
+    max-width: inherit;
+    width: 100%;
+}
+.fichier .info, .fichier .cont-file {
+    text-align: center;
+}
+.fichier .info p {
+    font-size: 14px;
+    font-style: italic;
+    margin-top: -10px;
+}
+.blcFormulaire .chp {
+    margin-bottom: 15px;
+}
+.cont-file {
+    color: #8E8E8E;
+    font-size: 16px;
+    height: 60px;
+    padding: 0 175px 6px 0;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    border: 1px #cecece solid;
+    border-radius: 38px;
+}
+.cont-file span {
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: block;
+    height: 110%;
+    position: relative;
+    line-height: 60px;
+    padding: 0 30px;
+    width: 100%;
+    text-align: left;
+    color: #000;
+}
+.blcFormulaire .chp .input-file {
+    position: absolute;
+    opacity: 0;
+    width: 100%!important;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+.cont-file i {
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    display: block;
+    background:#885ca3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    font-style: normal;
+    color: #fff;
+    font-size: 14px;
+    width: 175px;
+    text-transform: uppercase;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.cont-file i.reset {
+    right: 190px;
+    z-index: 9999;
+    cursor: pointer;
+}
+.profilFile .blcFormulaire {
+    margin: 0 !important;
+}
+.profilFile .chp {
+    border: inherit !important;
+    padding: 0 !important;
+}
+.profilFile .cont-file span {
+    padding: 0 !important;
+}
+.blc-cagnotte-participation .btn {
+    text-align: center;
+}
+
 
 
 @media (min-width:1201px) {
