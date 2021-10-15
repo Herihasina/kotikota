@@ -162,7 +162,7 @@
                                  </div> -->
                                  <input type="hidden" name="visi" value="solidaire" id="type_cagnotte">
                                  <div class="col col47 col-dates">
-                                    <div class="chy-type clr">
+                                    <div class="chy-type_ clr">
                                         <div class="row">
                                             <div class="col col47">
                                                 <div class="blc-chp">
