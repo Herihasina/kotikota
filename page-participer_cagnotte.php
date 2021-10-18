@@ -254,7 +254,7 @@
                 <div class="blc-chp acc">
                   <label><input type="checkbox" name="accord" id="accord">
                     <?php
-                      printf( __('En participant à la cagnotte vous acceptez les %s et la %s','kotikota'), '<a href="'.get_site_url( 'cgu' ).'" title="">CGU</a>', '<a href="'. get_site_url('politique-de-confidentialite') .'">'.__('politique de confidentialité','kotikota').'</a>' )
+                      printf( __('En participant à la cagnotte vous acceptez les %s et la %s','kotikota'), '<a href="'.site_url( 'cgu' ).'" title="">CGU</a>', '<a href="'. site_url('politique-de-confidentialite') .'">'.__('politique de confidentialité','kotikota').'</a>' )
                     ?>
                   </label>
                 </div>
