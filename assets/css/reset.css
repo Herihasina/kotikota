@@ -1871,6 +1871,11 @@ a:hover { color:#fbbd36; }
 .Info-principale .blcFormulaire.fichier {
     padding: 0 0;
 }
+
+.profilFile .cont-file span {
+    padding: 0 10px !important;
+}
+
 }
 
 @media (max-width:767px) {
@@ -2267,6 +2272,9 @@ a:hover { color:#fbbd36; }
     .enter-mail-id{ width: 100%!important; }
 
     .det-cagnotte .blc-img .blocCloture { width: 200px; height: 75px; padding: 20px 17px 20px 30px; right: -17px;}
+
+    .col.profilFile { display: flex; margin-bottom: 40px;}
+
 }
 @media (max-width:480px) {
     .logo                                               {  width: 70px; height: 70px;}
