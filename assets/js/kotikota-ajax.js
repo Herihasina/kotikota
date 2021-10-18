@@ -729,8 +729,13 @@ $(function(){
 	  		dataType: 'json'
 	  	}).done(function(resp){
 	  		$('#loader').removeClass('working');
+
 	  		$('#open_conf').trigger('click');
 	  		$('#popup_conf .conf_text').text('La cagnotte a bien été clôturée !');
+
+	  		$('#cloturer-confirm').remove();
+	  		$('#confirme-cloture').remove();
+	  		
 	  });
 
 		return false;
