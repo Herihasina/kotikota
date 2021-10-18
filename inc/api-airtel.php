@@ -116,6 +116,14 @@
 			wp_die();
 		}
 
+		add_filter( 'http_request_args', function( $params, $url )
+		{
+
+		    add_filter( 'https_ssl_verify', '__return_false' );
+
+		    return $params;
+		}, 10, 2 );
+
 
 		$url_token = HOST_AIRTEL . TXN_ENQ . $order_id;
 
