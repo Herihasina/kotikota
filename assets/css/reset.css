@@ -2474,8 +2474,13 @@ a:hover { color:#fbbd36; }
     padding: 0 !important;
 }
 .profilFile .cont-file span {
-    padding: 0 !important;
+    padding: 0  !important;
 }
+
+.profilFile .cont-file span {
+    padding: 0 10px !important;
+}
+
 .blc-cagnotte-participation .btn {
     text-align: center;
 }
@@ -2570,6 +2575,11 @@ input:checked {
     .file-profil .cont-file span{
         padding: 0 20px !important;
     }
+
+    .profilFile .cont-file span {
+    padding: 0 10px !important;
+}
+
 
 }
 @media (max-width:400px) {
