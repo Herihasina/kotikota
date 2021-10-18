@@ -115,7 +115,7 @@
 			$response['message'] = 'KO';
 			wp_die();
 		}
-		var_dump( $order_id);die('vitaa');
+		
 
 		$url_token = HOST_AIRTEL . TXN_ENQ . $order_id;
 
@@ -133,7 +133,7 @@
  		    'headers' => $headers
  		);
 
- 		$status = wp_remote_get( $url_token, $args);
+ 		$status = wp_remote_get( $url_token, $args);var_dump( $status);die('vitaa');
  		$status = json_decode( $status['body'] );
  		$status = $status->data->transaction;
 
