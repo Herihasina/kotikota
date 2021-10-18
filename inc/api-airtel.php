@@ -115,6 +115,7 @@
 			$response['message'] = 'KO';
 			wp_die();
 		}
+		var_dump( $order_id);die('vitaa');
 
 		$url_token = HOST_AIRTEL . TXN_ENQ . $order_id;
 
