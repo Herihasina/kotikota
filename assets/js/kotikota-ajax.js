@@ -735,6 +735,7 @@ $(function(){
 
 	  		$('#cloturer-confirm').remove();
 	  		$('#confirme-cloture').remove();
+	  		$('#btn_participer_wrap').remove();
 	  		
 	  });
 
