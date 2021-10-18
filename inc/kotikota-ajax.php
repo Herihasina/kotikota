@@ -1040,7 +1040,6 @@ function update_date(){
       $date = $date[0];
       $out['date'][] = $date;    
     }
-    
     $_SESSION['filtre_col'] = 'date';
     $out['date'] = array_unique( $out['date']);
     $out['msg'] = "OK";

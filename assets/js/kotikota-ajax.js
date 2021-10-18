@@ -159,11 +159,11 @@ $(function(){
 	  			'accord' : accord
 	  		}
 	  	}).done( function(resp){
-	  		console.log(resp);
+	  		
 	  		$('#loader').removeClass('working');
 	  		var patt = new RegExp("^\<li\>");
 	  		var url = new RegExp("^http");
-	  		var popup = new RegExp('^trigger_popup');
+	  		var popup_airtel = new RegExp('^trigger_popup=popup_airtel');
 
 	  		if( url.test(resp) ){
 				 	console.log('redirect...');
@@ -177,7 +177,7 @@ $(function(){
 				  		}, 10000 );
 				 }
 
-				 if( popup.test(resp) ){
+				 if( popup_airtel.test(resp) ){
 				 	$('input[name="all_datas"]').val( resp );
 				 	$('#popup_airtel_trig').trigger('click');
 				 }
@@ -696,7 +696,7 @@ $(function(){
 
 	function check_AM_Status(){
 		
-		var order_id = $('#order_id').val(); 
+		var order_id = $('#order_id').val();
 		
   	$.ajax({
 	  		url: ajaxurl,
