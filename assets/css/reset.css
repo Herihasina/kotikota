@@ -2480,6 +2480,7 @@ a:hover { color:#fbbd36; }
 .profilFile .cont-file span {
     padding: 0 10px !important;
 }
+.fom-participe .formulaire .chp input { padding-left: 10px }
 
 .blc-cagnotte-participation .btn {
     text-align: center;
