@@ -115,7 +115,7 @@
 			$response['message'] = 'KO';
 			wp_die();
 		}
-		
+
 
 		$url_token = HOST_AIRTEL . TXN_ENQ . $order_id;
 
@@ -125,7 +125,8 @@
 			'Accept' 	   => '*/*',
 			'X-Country'	   => 'MG',
 			'X-Currency'   => 'MGA',	
-			'Authorization'=> 'Bearer ' . $bearer		
+			'Authorization'=> 'Bearer ' . $bearer,
+			'sslverify' 	=> false,
 		);
 
 		$args = array(
