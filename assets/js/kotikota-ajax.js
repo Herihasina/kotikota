@@ -696,7 +696,7 @@ $(function(){
 
 	function check_AM_Status(){
 		
-		var order_id = $('#order_id').val();
+		var order_id = $('#order_id').val(); 
 		
   	$.ajax({
 	  		url: ajaxurl,
