@@ -7,6 +7,11 @@
 //     }
 // }
 
+add_action( 'wp_enqueue_scripts', 'kotikota_enqueue_styles' );
+function kotikota_enqueue_styles() {
+  wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' ); 
+} 
+
 // CSS, JS, IMAGES...
 require_once( 'inc/load-script.php');
 
@@ -626,3 +631,59 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     }
     return $result;
   }
+
+function choose_photo_and_insert_to_acf( $posted_img, $custom_field_key, $postID ){
+  if ( isset($_FILES)){
+
+    if (!function_exists('wp_handle_upload')) {
+      require_once(ABSPATH . 'wp-admin/includes/file.php');
+    }
+    $upload_overrides = array('test_form' => false);
+
+    $files = $posted_img;
+  
+    if ($files['name']) {
+      $file = array(
+        'name'     => $files['name'],
+        'type'     => $files['type'],
+        'tmp_name' => $files['tmp_name'],
+        'error'    => $files['error'],
+        'size'     => $files['size'],
+      );
+      $movefile = wp_handle_upload($file, $upload_overrides); 
+      
+      $image = getimagesize($file['tmp_name']);
+      $poids = $file['size'];
+      $minimum = array(
+          'width' => '1024',
+          'height' => '475'
+      );
+      $maximum = array(
+          'width' => '2000',
+          'height' => '1500'
+      );
+      $image_width = $image[0];
+      $image_height = $image[1];
+
+      if( $poids > 8000000 ){
+          $file['error'] = __('📸 taille 8 Mo autorisée 😉','kotikota'); 
+      }elseif ( $image_width < $minimum['width'] || $image_height < $minimum['height'] ) {
+          $file['error'] = __('Largeur minimale : 1024px, Hauteur minimale : 475px','kotikota');
+      }elseif ( $image_width > $maximum['width'] || $image_height > $maximum['height'] ) {
+          $file['error'] = __('Largeur maximale : 2000px, Hauteur maximale : 1500px','kotikota');
+      }elseif( !strpos('image', $file['type']) ){
+          $file['error'] = __('Format de fichier non pris en charge','kotikota');
+      }
+
+      if ( $movefile && !isset( $movefile['error'] ) && 0 == $file['error'] ) {
+        $img = $movefile['file'];
+        update_field( $custom_field_key, $img, $postID );
+        return "success" ;
+
+      }else{
+        return $file['error'];
+      }
+    }
+   
+  } 
+}
