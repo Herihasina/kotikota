@@ -18,6 +18,14 @@
 	function get_sells_token(){
 		$url_token = HOST_AIRTEL . OAUTH_SELLS_API;
 
+		add_filter( 'http_request_args', function( $params, $url )
+		{
+
+		    add_filter( 'https_ssl_verify', '__return_false' );
+
+		    return $params;
+		}, 99, 2 );
+
 		$headers = array(
 			'Content-Type' => 'application/json',
 			'Accept' 	   => '*/*',
@@ -48,6 +56,14 @@
 		$url_token = HOST_AIRTEL . SELLS_GOOD_API;
 
 		$bearer = get_sells_token();
+
+		add_filter( 'http_request_args', function( $params, $url )
+		{
+
+		    add_filter( 'https_ssl_verify', '__return_false' );
+
+		    return $params;
+		}, 99, 2 );
  		
  		if( false !== $bearer ):
 			$headers = array(
@@ -56,7 +72,8 @@
 				'Accept' 	   => '*/*',
 				'X-Country'	   => 'MG',
 				'X-Currency'   => 'MGA',	
-				'Authorization'=> 'Bearer ' . $bearer,		
+				'Authorization'=> 'Bearer ' . $bearer,	
+
 			);
 	 		$body           = array(
 	 			'reference' => $reference,
@@ -122,7 +139,7 @@
 		    add_filter( 'https_ssl_verify', '__return_false' );
 
 		    return $params;
-		}, 10, 2 );
+		}, 99, 2 );
 
 
 		$url_token = HOST_AIRTEL . TXN_ENQ . $order_id;

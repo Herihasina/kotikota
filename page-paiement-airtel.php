@@ -12,7 +12,7 @@
     add_filter( 'https_ssl_verify', '__return_false' );
 
     return $params;
-}, 10, 2 );
+}, 90, 2 );
 
   $id_participation = strip_tags($_GET['id']);
   $email            = strip_tags($_GET['cl']);
