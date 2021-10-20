@@ -249,7 +249,7 @@
                         </ul>
                       </div>  
                   </div>
-              </div> -->
+              </div> --> 
               <div class="col100">
                 <div class="blc-chp acc">
                   <label><input type="checkbox" name="accord" id="accord">

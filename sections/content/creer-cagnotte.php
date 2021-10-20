@@ -253,7 +253,7 @@
                         </div>
                         <ul id="response"></ul>
                         <div class="btn">
-                            <a href="<?php echo home_url() ?>" class="link" title="<?php _e('annuler','kotikota'); ?>"><?php _e('annuler','kotikota'); ?></a>
+                            <a href="<?php echo home_url() ?>" class="link" title="<?php _e('annuler','kotikota'); ?>"><?php _e('annuler','kotikota'); ?></a> 
                             <input type="submit" class="link submit" value="<?php _e('créer ma cagnotte','kotikota'); ?>" id="creer-cagnotte">
                         </div>
                      </form>
