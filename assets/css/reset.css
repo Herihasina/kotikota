@@ -1745,6 +1745,9 @@ input:checked {
 }
 .tarifs .cont-left .col .content:nth-of-type(1) .txt .info { display:none}
 .tarifs .cont-right .col.payement { min-height: 400px }
+#confirme-cloture {
+    padding: 0 0 44px;
+}
 
 
 @media (min-width:1201px) {
@@ -2531,6 +2534,8 @@ a:hover { color:#fbbd36; }
     .det-cagnotte .blc-img .blocCloture { width: 200px; height: 75px; padding: 20px 17px 20px 30px; right: -17px;}
 
     .col.profilFile { display: flex; margin-bottom: 40px;}
+
+    #confirme-cloture .link.close-fancy {  margin-bottom: 10px;}
 
 }
 @media (max-width:480px) {
