@@ -177,12 +177,14 @@ select option                                               { padding: 10px 30px
 .scrollDown                                                 { z-index: 999;width: 50px;height: 50px;background: url(../images/scroll-down.png) no-repeat center #ffffff;border-radius: 0 0 10px 10px;position: fixed;top: -500px;right: 0;margin: auto;display: block;-webkit-box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75);
 box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
+
 .scrollDown.show{ top: 100px;-webkit-animation-name: fadeInDown; animation-name: fadeInDown; -webkit-animation-duration: 800ms; animation-duration: 800ms; }
 .scrollDown{ display: none; }
 
 /*.banner                                                   { background: url(../images/banner-home.jpg) bottom center; background-size:cover; width: 100%; height:768px;; position: relative;}
 .banner:after                                               { content: ''; display: block; width: 100%; height: 224px; background: url('../images/deco-banner.png') no-repeat center; background-size: cover; position: absolute; left: 0; bottom: -200px  } 
-*/.txt-banner                                               {  padding-left: 19px; max-width: 540px; padding-top: 23%}
+*/
+.txt-banner                                               {  padding-left: 19px; max-width: 540px; padding-top: 23%}
 .txt-banner h1  ,
 .txt-banner h2                                              { color:  #fff; font-size: 36px; line-height: 50px; margin-bottom: 36px;}
 .txt-banner .link                                           { padding: 22px 29px ; margin-bottom: 27px; border-radius:30px; border: none; background-color:#fbbd36;}
@@ -192,6 +194,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .banner-video video                                         { background-size: cover;width: 100%;object-fit: cover; height:135vh;position: relative; }
 #slider:after                                               { content: ''; width: 100%; height: 200px; position: absolute; bottom: 0; left: 0; background: url(../images/bg-banner.png); background-size: cover }
 /* MENU */
+
 .wrapMenuMobile                                           { display:none ;}
 .menu                                                     { display:block; position:relative; z-index:60; float: left; margin-top: 17px; margin-right: 40px}  
 .menu>ul                                                  { width:100%;  display:block; position:relative; text-align:center;  font-size:0; line-height:0; }  
@@ -417,9 +420,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .blcMaki span:before                { content: ''; background: url(../images/real.png); width: 42px; height: 23px; display: inline-block; vertical-align: top; margin: 0 10px }
 .scrooltop                          { z-index: 20; width:50px; height: 50px; background: url(../images/scroll-top.png) no-repeat center; box-shadow: 0 -3px 10px -1px rgba(0,0,0,0.2); border-radius: 10px 10px 0 0; position: absolute; bottom: -12px; left: 0; right: 0; margin: auto; display: block;}
 #chat-application   {bottom: 50px !important;}
-.blcMaki a:last-of-type::before {
-    display: none;
-}
+.blcMaki a:last-of-type::before {  display: none;}
 
 /* Apropos pop up */
 .pop-up-apropos                 { display: none; }
@@ -565,6 +566,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 
 
 /**********CAGNOTTE*************/
+
 .blc-cagnotte                               { padding:64px 0 22px}
 .ui-slider-horizontal                       { height: 28px;}
 .ui-slider-horizontal .ui-slider-handle     { /*display: none */}
@@ -619,12 +621,10 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .chy-type .col.col53             { width: 53%; padding-right: 65px }
 .chy-type .col.col47             { width: 47%; padding-left: 0 }
 .blc-chp select                 { width: 100%; box-sizing: border-box; height: 100%; background: url(../images/select.png) right center no-repeat; border: #dddddd solid 1px; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: none; cursor: pointer; color: #7b7b7b; font-size: 16px; font-family:Montserrat ; border-radius: 10px; height: 60px; padding: 0 27px }
-.blc-chp select option { padding: 10px 30px }
+.blc-chp select option          { padding: 10px 30px }
 .blc-chp .chp.datepicker        { background: url(../images/date.png) no-repeat right center; }
 .blc-chp .chp.montant           { background: url(../images/ar.png) no-repeat right center; }
-
 .chy-type .blc-chp              { margin-bottom: 33px }
-
 .ui-widget-header               { background-color: #8d4a8f;}
 .ui-datepicker .ui-datepicker-title { color: #fff }
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {background-color: #8d4a8f; border-color: #8d4a8f  }
@@ -740,12 +740,12 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 #desktop { display: block; }
 #mobile { display: none; }
 
-
 .svg svg{ width: 50px!important;height: 50px!important; }
 
 
 
 /**********CAGNOTTE DETAILS************/
+
 .banner-page.cagnotte h1 { text-transform: uppercase;}
 .banner-page.cagnotte h1 span { text-transform: initial !important;}
 .blc-cagnotte-details                   { padding: 60px 0 0 }
@@ -843,20 +843,11 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .lst-cagnotte-publique .item  .ico2 { position: absolute; left: 0; top: 0;  }
 .lst-cagnotte-publique .item  .ico-percent { position: absolute; left: 0; top: -1px; background:url(../images/bg-percent.png); width: 58px; height: 62px; padding: 9px 7px }
 .percent { background-color: #fff; border-radius: 50%; position: relative;  }
-.percent::after {
-    content: '';
-    border: 5px solid #fbbd36;
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    left: -4px;
-    top: -4px;
-    border-radius: 50%;
-}
-
+.percent::after { content: ''; border: 5px solid #fbbd36; position: absolute;  width: 32px; height: 32px; left: -4px;  top: -4px; border-radius: 50%;}
 .percent text tspan {font-family: Montserrat-b;}
 
 /*.blc-cagnotte-liste .lst-cagnotte-publique:hover .item .content { opacity: 1 }*/
+
 .blc-cagnotte-liste .lst-cagnotte-publique { margin-bottom: 42px }
 .pagination                     { text-align: center }
 .pagination ul li               { display: inline-block; margin: 0 8px; vertical-align: middle; }
@@ -979,9 +970,6 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .cont-message p { text-align: center }
 
 .lst-comment .cont-message  { margin-top:20px  }
-
-
-
 .gestion-cagnotte .titre { text-align: center; margin-bottom: 58px; margin-top: 98px }
 .gestion-cagnotte .titre h2 {  background-color: #59bdb1; padding: 26px 28px 17px;  color: #fff; font-size: 32px; font-family: Opificio-b ; border-radius: 45px; display: inline-block; }
 .gestion-cagnotte .titre span { display: inline-block; margin-right: 20px; vertical-align: middle; }
@@ -1141,7 +1129,6 @@ select.input-selec option { padding: 10px 30px }
 
 ul#response.error,
 .lrm-pass-strength-result[data-status="short"] { background-color: transparent !important; border: none !important; width: 100%!important; padding-left: 0 !important }
-
 #sous-menu-connecte { border-radius:  10px 10px;
 /*margin-top: -19px;
 padding-top: 22px;*/ }
@@ -1168,8 +1155,6 @@ padding-top: 22px;*/ }
 #montant_conseille.has-focus { width: 95% }
 .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight { background: #8d4a8f !important; color: #fff;}
 .zone-img.profil-img .inputfile + label.no-bg { background-image: none !important; font-size: 0 !important; background: none !important; }
-
-
     #ajaxsearchlite1 .probox .proinput, div.asl_w .probox .proinput { border: #ddd solid 1px;border-radius: 10px; height: 60px;
     border-radius: 10px;
     padding: 13px 20px 10px 30px; color: #a3a3a3;
@@ -1187,16 +1172,9 @@ padding-top: 22px;*/ }
 div.asl_w .probox .promagnifier { background-image: none !important; background-color: #fff !important }
 #ajaxsearchlite1 .probox .proinput, div.asl_w .probox .proinput { margin-right: 20px; box-shadow: none !important }
 #ajaxsearchlite1 .probox .proinput input, div.asl_w .probox .proinput input {color: #a3a3a3 !important}
-.proclose {
-    position: absolute !important;
-    right: 90px;
-    top: 13px;
-}
+.proclose {  position: absolute !important; right: 90px; top: 13px;}
 div.asl_m .probox .proloading { position: absolute; }
-.formulaire.fix-bloc {
-    max-width: 1024px;
-    margin: 0 auto;
-}
+.formulaire.fix-bloc {  max-width: 1024px; margin: 0 auto;}
 div.asl_r .results .asl_nores { border: #ddd solid 1px; border-radius: 10px; padding: 20px !important }
 div.asl_r .results {
     /*padding-right: 77px !important;*/
@@ -1296,6 +1274,268 @@ div.asl_r .resdrg {
 .det-cagnotte .content { overflow: inherit !important;}
 
 
+/* PopUp Confirm */
+#popup_conf {
+    max-width: 450px;
+    width: 100%;
+    padding: 0;
+    border-radius: 15px;
+    text-align: center;
+}
+.conf_titre {
+    font-size: 20px;
+    font-family: Opificio-b;
+    color: #fff;
+    margin-bottom: 20px;
+    background: #4cb848;
+    padding: 20px;
+}
+.conf_titre::after {
+    content: '';
+    background: url("../images/ico-invite2.png");
+    width: 51px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+.conf_text {
+    padding: 5px 40px 25px;
+}
+.fancybox-slide--html .fancybox-close-small {
+    right: 10px !important;
+    top: 10px !important;
+    color: #fff;
+}
+
+/* Liste checkbox Invite */
+.list_invite {
+    margin-bottom: 35px;
+}
+.list_invite .titre:first-of-type {
+    margin-top: 75px;
+    margin-bottom: 0;
+}
+.list_invite .titre:first-of-type h3 {
+    color:#59bdb1;
+}
+.list_invite .titre:last-of-type {
+    margin-top: 35px;
+    margin-bottom: 0;
+}
+.list_invite .titre:last-of-type h3 {
+    color:#e10454;
+}
+.list_invite .ont_pas_pariticipe>li {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 20px;
+}
+.list_invite .ont_pas_pariticipe {
+    margin: 15px 0;
+}
+.list_invite input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.list_invite span {
+    margin: 0 !important;
+    border: 1px #9f9f9f solid;
+    border-radius: 30px;
+    padding: 5px 15px;
+}
+.list_invite .submit {
+    margin-top: 25px;
+}
+.list_invite input:checked + span {
+    background: #875ba2;
+    border: 1px #875ba2 solid;
+    color: #fff;
+}
+
+/* Cree ma cagnotte - Input Fille */
+.blcFormulaire {
+    margin: 50px auto 0;
+    padding: 0;
+    max-width: 960px;
+}
+.fichier {
+    max-width: inherit;
+    width: 100%;
+}
+.fichier .info, .fichier .cont-file {
+    text-align: center;
+}
+.fichier .info p {
+    font-size: 14px;
+    font-style: italic;
+    margin-top: -10px;
+}
+.blcFormulaire .chp {
+    margin-bottom: 15px;
+}
+.cont-file {
+    color: #8E8E8E;
+    font-size: 16px;
+    height: 60px;
+    padding: 0 175px 6px 0;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    border: 1px #cecece solid;
+    border-radius: 38px;
+}
+.cont-file span {
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: block;
+    height: 110%;
+    position: relative;
+    line-height: 60px;
+    padding: 0 30px;
+    width: 100%;
+    text-align: left;
+    color: #000;
+}
+.blcFormulaire .chp .input-file {
+    position: absolute;
+    opacity: 0;
+    width: 100%!important;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+.cont-file i {
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    display: block;
+    background:#885ca3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    font-style: normal;
+    color: #fff;
+    font-size: 14px;
+    width: 175px;
+    text-transform: uppercase;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.cont-file i.reset {
+    right: 190px;
+    z-index: 9999;
+    cursor: pointer;
+}
+.profilFile .blcFormulaire {
+    margin: 0 !important;
+}
+.profilFile .chp {
+    border: inherit !important;
+    padding: 0 !important;
+}
+.profilFile .cont-file span {
+    padding: 0 !important;
+}
+.blc-cagnotte-participation .btn {
+    text-align: center;
+}
+
+/* Radio CGU */
+.acc a {
+    color: #8d4a8f;
+}
+.acc input {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -6px 10px 0 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: #7e7e7e solid 1px;
+    position: relative;
+    background-color: transparent;
+    transition: ease-in-out 400ms all;
+    cursor: pointer;
+}
+/* .acc.active input {
+    background-color: #8d4a8f;
+    border: #fbbd36 solid 3px;
+} */
+
+
+input:checked {
+    background-color: #8d4a8f;
+    border: #fbbd36 solid 3px;
+}
+
+.file-profil .cont-file span{
+    padding: 0 20px !important;
+}
+
+/* Modif Date */
+.col.col47.col-dates {
+    padding-right: 0;
+    width: 100%;
+    padding-left: 20px;
+}
+.col-dates .chy-type {
+    padding-left: 10px;
+    margin-bottom: 0;
+}
+.col-dates .chy-type .col.col47:first-of-type {
+    width: 51%;
+    padding-right: 57px;
+}
+.col-dates .chy-type .col.col47:last-of-type {
+    width: 46%;
+    padding-left: 7px;
+}
+
+/* Radio Mvola sy ny tariny */
+.blc-radio .option ul li .check {
+    display: none !important;
+}
+.blc-radio .option ul li input[type=radio] {
+    display: block;
+    position: absolute;
+    border: 1px solid #5ec366;
+    border-radius: 100%;
+    height: 26px;
+    width: 26px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    z-index: 5;
+    transition: border .25s linear;
+    -webkit-transition: border .25s linear;
+    visibility: visible;
+}
+.blc-radio .option input[type=radio]:checked {
+    background: url(../images/ico-check2.png);
+}
+
+
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right, .logo, .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
 a:hover { color:#fbbd36; }
@@ -1356,7 +1596,6 @@ a:hover { color:#fbbd36; }
 
 }
 
-
 @media (max-width:1235px) { 
     .slick-prev                                             { left: -78px }
     .slick-next                                             { right:-78px }  
@@ -1380,9 +1619,11 @@ a:hover { color:#fbbd36; }
     .btn-head                                               { margin-left: 20px;}
     .menu-flag li                                           { margin: 0 5px;}
 }
+
 @media (min-width:1201px) { 
    #menu-menu-home { display: block!important; }
 }
+
 @media (max-width:1200px) {
     #menu-menu-1 { background-color: #fff; display: none;} 
     #menu-menu-home { display: none;}
@@ -1644,33 +1885,17 @@ a:hover { color:#fbbd36; }
     .lst-apropos .col-right           { padding-left: 0;}
     .footer-3 .tel li a::before {  left: 0;top: -82px; display: block; margin: auto  }
     .footer-3 .mail li a::before { left: 0;top: -82px;display: block;right: 0;margin: auto; }
-      .banner-video video { height: 640px;}
-
-.col-dates .chy-type .col.col47 {
-    /* padding: 0 10px; */
-    width: 100%;
-}
-.chy-type .col.col53 {
-    width: 100%;
-    padding-right: 0;
-}
-.chy-type .col.col53 {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-}
-.chy-type .col.col47 {
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0
-}
-.col.col47.col-dates { padding: 0 !important;}
-.col-dates .chy-type { margin: 0 0px 40px; padding-left: 0 !important;}
-.col-dates .chy-type .col.col47 { padding: 0;}
-.chy-type { margin: 0 0 40px;}
-.lst-apropos .item .content { max-width: inherit; display: block; }
-.menu-liste-cagnotte.active { z-index: 9999 }
-
+    .banner-video video { height: 640px;}
+    .col-dates .chy-type .col.col47 {  /* padding: 0 10px; */ width: 100%; }
+    .chy-type .col.col53 {   width: 100%;  padding-right: 0;}
+    .chy-type .col.col53 {  width: 100%;  padding-right: 0;  padding-left: 0;  }
+    .chy-type .col.col47 {  width: 100%;  padding-left: 0; padding-right: 0  }
+    .col.col47.col-dates { padding: 0 !important;}
+    .col-dates .chy-type { margin: 0 0px 40px; padding-left: 0 !important;}
+    .col-dates .chy-type .col.col47 { padding: 0;}
+    .chy-type { margin: 0 0 40px;}
+    .lst-apropos .item .content { max-width: inherit; display: block; }
+    .menu-liste-cagnotte.active { z-index: 9999 }
     .col-dates .chy-type .col.col47:first-of-type, .col-dates .chy-type .col.col47:last-of-type { width: 100% !important; padding: 0 !important;}
 }
 
@@ -2059,7 +2284,6 @@ a:hover { color:#fbbd36; }
     .footer-3 .tel li a:first-of-type:before, .footer-3 .Whatsapp li a:before { left: 0; top: -85px; right: 0; margin: auto;}
     .footer-2 .mail, .footer-3 .tel, .footer-3 .Whatsapp { padding-left: 0; padding-top: 60px;}
     .enter-mail-id{ width: 100%!important; }
-
     .det-cagnotte .blc-img .blocCloture { width: 200px; height: 75px; padding: 20px 17px 20px 30px; right: -17px;}
 }
 @media (max-width:480px) {
@@ -2079,266 +2303,6 @@ a:hover { color:#fbbd36; }
      .enter-mail-id{ font-size: 15px!important; }
 }
 
-/* PopUp Confirm */
-#popup_conf {
-    max-width: 450px;
-    width: 100%;
-    padding: 0;
-    border-radius: 15px;
-    text-align: center;
-}
-.conf_titre {
-    font-size: 20px;
-    font-family: Opificio-b;
-    color: #fff;
-    margin-bottom: 20px;
-    background: #4cb848;
-    padding: 20px;
-}
-.conf_titre::after {
-    content: '';
-    background: url("../images/ico-invite2.png");
-    width: 51px;
-    height: 35px;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 10px;
-}
-.conf_text {
-    padding: 5px 40px 25px;
-}
-.fancybox-slide--html .fancybox-close-small {
-    right: 10px !important;
-    top: 10px !important;
-    color: #fff;
-}
-
-/* Liste checkbox Invite */
-.list_invite {
-    margin-bottom: 35px;
-}
-.list_invite .titre:first-of-type {
-    margin-top: 75px;
-    margin-bottom: 0;
-}
-.list_invite .titre:first-of-type h3 {
-    color:#59bdb1;
-}
-.list_invite .titre:last-of-type {
-    margin-top: 35px;
-    margin-bottom: 0;
-}
-.list_invite .titre:last-of-type h3 {
-    color:#e10454;
-}
-.list_invite .ont_pas_pariticipe>li {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0;
-    margin: 0 20px;
-}
-.list_invite .ont_pas_pariticipe {
-    margin: 15px 0;
-}
-.list_invite input[type="checkbox"] {
-    box-sizing: border-box;
-    padding: 0;
-    width: 100%;
-    display: inline-block;
-    vertical-align: middle;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-}
-.list_invite span {
-    margin: 0 !important;
-    border: 1px #9f9f9f solid;
-    border-radius: 30px;
-    padding: 5px 15px;
-}
-.list_invite .submit {
-    margin-top: 25px;
-}
-.list_invite input:checked + span {
-    background: #875ba2;
-    border: 1px #875ba2 solid;
-    color: #fff;
-}
-
-/* Cree ma cagnotte - Input Fille */
-.blcFormulaire {
-    margin: 50px auto 0;
-    padding: 0;
-    max-width: 960px;
-}
-.fichier {
-    max-width: inherit;
-    width: 100%;
-}
-.fichier .info, .fichier .cont-file {
-    text-align: center;
-}
-.fichier .info p {
-    font-size: 14px;
-    font-style: italic;
-    margin-top: -10px;
-}
-.blcFormulaire .chp {
-    margin-bottom: 15px;
-}
-.cont-file {
-    color: #8E8E8E;
-    font-size: 16px;
-    height: 60px;
-    padding: 0 175px 6px 0;
-    width: 100%;
-    position: relative;
-    margin: 0 auto;
-    border: 1px #cecece solid;
-    border-radius: 38px;
-}
-.cont-file span {
-    white-space: nowrap;
-    overflow: hidden;
-    -ms-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    display: block;
-    height: 110%;
-    position: relative;
-    line-height: 60px;
-    padding: 0 30px;
-    width: 100%;
-    text-align: left;
-    color: #000;
-}
-.blcFormulaire .chp .input-file {
-    position: absolute;
-    opacity: 0;
-    width: 100%!important;
-    bottom: 0;
-    left: 0;
-    top: 0;
-    cursor: pointer;
-    z-index: 9999;
-}
-.cont-file i {
-    border-radius: 30px;
-    -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
-    display: block;
-    background:#885ca3;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    font-style: normal;
-    color: #fff;
-    font-size: 14px;
-    width: 175px;
-    text-transform: uppercase;
-    line-height: 60px;
-    text-align: center;
-    margin-bottom: 5px;
-}
-.cont-file i.reset {
-    right: 190px;
-    z-index: 9999;
-    cursor: pointer;
-}
-.profilFile .blcFormulaire {
-    margin: 0 !important;
-}
-.profilFile .chp {
-    border: inherit !important;
-    padding: 0 !important;
-}
-.profilFile .cont-file span {
-    padding: 0 !important;
-}
-.blc-cagnotte-participation .btn {
-    text-align: center;
-}
-
-/* Radio CGU */
-.acc a {
-    color: #8d4a8f;
-}
-.acc input {
-    display: inline-block;
-    vertical-align: middle;
-    margin: -6px 10px 0 0;
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    border: #7e7e7e solid 1px;
-    position: relative;
-    background-color: transparent;
-    transition: ease-in-out 400ms all;
-    cursor: pointer;
-}
-/* .acc.active input {
-    background-color: #8d4a8f;
-    border: #fbbd36 solid 3px;
-} */
-
-
-input:checked {
-    background-color: #8d4a8f;
-    border: #fbbd36 solid 3px;
-}
-
-.file-profil .cont-file span{
-    padding: 0 20px !important;
-}
-
-/* Modif Date */
-.col.col47.col-dates {
-    padding-right: 0;
-    width: 100%;
-    padding-left: 20px;
-}
-.col-dates .chy-type {
-    padding-left: 10px;
-    margin-bottom: 0;
-}
-.col-dates .chy-type .col.col47:first-of-type {
-    width: 51%;
-    padding-right: 57px;
-}
-.col-dates .chy-type .col.col47:last-of-type {
-    width: 46%;
-    padding-left: 7px;
-}
-
-/* Radio Mvola sy ny tariny */
-.blc-radio .option ul li .check {
-    display: none !important;
-}
-.blc-radio .option ul li input[type=radio] {
-    display: block;
-    position: absolute;
-    border: 1px solid #5ec366;
-    border-radius: 100%;
-    height: 26px;
-    width: 26px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    left: 0;
-    z-index: 5;
-    transition: border .25s linear;
-    -webkit-transition: border .25s linear;
-    visibility: visible;
-}
-.blc-radio .option input[type=radio]:checked {
-    background: url(../images/ico-check2.png);
-}
 
 @media (max-width:768px) {
     .cont-file {
