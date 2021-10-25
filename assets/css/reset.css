@@ -1490,6 +1490,263 @@ input:checked {
     color: #bbbbbb;
     padding-left: 10px !important;
 }
+
+
+/* PopUp Confirm */
+#popup_conf {
+    max-width: 450px;
+    width: 100%;
+    padding: 0;
+    border-radius: 15px;
+    text-align: center;
+}
+.conf_titre {
+    font-size: 20px;
+    font-family: Opificio-b;
+    color: #fff;
+    margin-bottom: 20px;
+    background: #4cb848;
+    padding: 20px;
+}
+.conf_titre::after {
+    content: '';
+    background: url("../images/ico-invite2.png");
+    width: 51px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+.conf_text {
+    padding: 5px 40px 25px;
+}
+.fancybox-slide--html .fancybox-close-small {
+    right: 10px !important;
+    top: 10px !important;
+    color: #fff;
+}
+
+/* Liste checkbox Invite */
+.list_invite {
+    margin-bottom: 35px;
+}
+.list_invite .titre:first-of-type {
+    margin-top: 75px;
+    margin-bottom: 0;
+}
+.list_invite .titre:first-of-type h3 {
+    color:#59bdb1;
+}
+.list_invite .titre:last-of-type {
+    margin-top: 35px;
+    margin-bottom: 0;
+}
+.list_invite .titre:last-of-type h3 {
+    color:#e10454;
+}
+.list_invite .ont_pas_pariticipe>li {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0 20px;
+}
+.list_invite .ont_pas_pariticipe {
+    margin: 15px 0;
+}
+.list_invite input[type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.list_invite span {
+    margin: 0 !important;
+    border: 1px #9f9f9f solid;
+    border-radius: 30px;
+    padding: 5px 15px;
+}
+.list_invite .submit {
+    margin-top: 25px;
+}
+.list_invite input:checked + span {
+    background: #875ba2;
+    border: 1px #875ba2 solid;
+    color: #fff;
+}
+
+/* Cree ma cagnotte - Input Fille */
+.blcFormulaire {
+    margin: 50px auto 0;
+    padding: 0;
+    max-width: 960px;
+}
+.fichier {
+    max-width: inherit;
+    width: 100%;
+}
+.fichier .info, .fichier .cont-file {
+    text-align: center;
+}
+.fichier .info p {
+    font-size: 14px;
+    font-style: italic;
+    margin-top: -10px;
+}
+.blcFormulaire .chp {
+    margin-bottom: 15px;
+}
+.cont-file {
+    color: #8E8E8E;
+    font-size: 16px;
+    height: 60px;
+    padding: 0 175px 6px 0;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    border: 1px #cecece solid;
+    border-radius: 38px;
+}
+.cont-file span {
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    display: block;
+    height: 110%;
+    position: relative;
+    line-height: 60px;
+    padding: 0 30px;
+    width: 100%;
+    text-align: left;
+    color: #000;
+}
+.blcFormulaire .chp .input-file {
+    position: absolute;
+    opacity: 0;
+    width: 100%!important;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+.cont-file i {
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    display: block;
+    background:#885ca3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    font-style: normal;
+    color: #fff;
+    font-size: 14px;
+    width: 175px;
+    text-transform: uppercase;
+    line-height: 60px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.cont-file i.reset {
+    right: 190px;
+    z-index: 9999;
+    cursor: pointer;
+}
+.profilFile .blcFormulaire {
+    margin: 0 !important;
+}
+.profilFile .chp {
+    border: inherit !important;
+    padding: 0 !important;
+}
+.profilFile .cont-file span {
+    padding: 0  !important;
+}
+
+.profilFile .cont-file span {
+    padding: 0 10px !important;
+}
+.fom-participe .formulaire .chp input { padding-left: 10px }
+
+.blc-cagnotte-participation .btn {
+    text-align: center;
+}
+
+/* Radio CGU */
+.acc a {
+    color: #8d4a8f;
+}
+.acc input {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -6px 10px 0 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: #7e7e7e solid 1px;
+    position: relative;
+    background-color: transparent;
+    transition: ease-in-out 400ms all;
+    cursor: pointer;
+}
+/* .acc.active input {
+    background-color: #8d4a8f;
+    border: #fbbd36 solid 3px;
+} */
+
+
+input:checked {
+    background-color: #8d4a8f;
+    border: #fbbd36 solid 3px;
+}
+
+.file-profil .cont-file span{
+    padding: 0 20px !important;
+}
+
+/* Modif Date */
+.col.col47.col-dates {
+    padding-right: 0;
+    width: 100%;
+    padding-left: 20px;
+}
+.col-dates .chy-type {
+    padding-left: 10px;
+    margin-bottom: 0;
+}
+.col-dates .chy-type .col.col47:first-of-type {
+    width: 51%;
+    padding-right: 57px;
+}
+.col-dates .chy-type .col.col47:last-of-type {
+    width: 46%;
+    padding-left: 7px;
+}
+
+
+.tarifs .cont-left .info {
+    color: #fff;
+    font-size: 15px;
+    position: absolute;
+    bottom: -10px;
+    white-space: nowrap;
+}
+.tarifs .cont-left .col .content:nth-of-type(1) .txt .info { display:none}
+.tarifs .cont-right .col.payement { min-height: 400px }
+
+
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right, .logo, .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
 a:hover { color:#fbbd36; }
@@ -2294,249 +2551,6 @@ a:hover { color:#fbbd36; }
      .blc-securise { width: 100% !important;}
 }
 
-/* PopUp Confirm */
-#popup_conf {
-    max-width: 450px;
-    width: 100%;
-    padding: 0;
-    border-radius: 15px;
-    text-align: center;
-}
-.conf_titre {
-    font-size: 20px;
-    font-family: Opificio-b;
-    color: #fff;
-    margin-bottom: 20px;
-    background: #4cb848;
-    padding: 20px;
-}
-.conf_titre::after {
-    content: '';
-    background: url("../images/ico-invite2.png");
-    width: 51px;
-    height: 35px;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 10px;
-}
-.conf_text {
-    padding: 5px 40px 25px;
-}
-.fancybox-slide--html .fancybox-close-small {
-    right: 10px !important;
-    top: 10px !important;
-    color: #fff;
-}
-
-/* Liste checkbox Invite */
-.list_invite {
-    margin-bottom: 35px;
-}
-.list_invite .titre:first-of-type {
-    margin-top: 75px;
-    margin-bottom: 0;
-}
-.list_invite .titre:first-of-type h3 {
-    color:#59bdb1;
-}
-.list_invite .titre:last-of-type {
-    margin-top: 35px;
-    margin-bottom: 0;
-}
-.list_invite .titre:last-of-type h3 {
-    color:#e10454;
-}
-.list_invite .ont_pas_pariticipe>li {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0;
-    margin: 0 20px;
-}
-.list_invite .ont_pas_pariticipe {
-    margin: 15px 0;
-}
-.list_invite input[type="checkbox"] {
-    box-sizing: border-box;
-    padding: 0;
-    width: 100%;
-    display: inline-block;
-    vertical-align: middle;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-}
-.list_invite span {
-    margin: 0 !important;
-    border: 1px #9f9f9f solid;
-    border-radius: 30px;
-    padding: 5px 15px;
-}
-.list_invite .submit {
-    margin-top: 25px;
-}
-.list_invite input:checked + span {
-    background: #875ba2;
-    border: 1px #875ba2 solid;
-    color: #fff;
-}
-
-/* Cree ma cagnotte - Input Fille */
-.blcFormulaire {
-    margin: 50px auto 0;
-    padding: 0;
-    max-width: 960px;
-}
-.fichier {
-    max-width: inherit;
-    width: 100%;
-}
-.fichier .info, .fichier .cont-file {
-    text-align: center;
-}
-.fichier .info p {
-    font-size: 14px;
-    font-style: italic;
-    margin-top: -10px;
-}
-.blcFormulaire .chp {
-    margin-bottom: 15px;
-}
-.cont-file {
-    color: #8E8E8E;
-    font-size: 16px;
-    height: 60px;
-    padding: 0 175px 6px 0;
-    width: 100%;
-    position: relative;
-    margin: 0 auto;
-    border: 1px #cecece solid;
-    border-radius: 38px;
-}
-.cont-file span {
-    white-space: nowrap;
-    overflow: hidden;
-    -ms-text-overflow: ellipsis;
-    text-overflow: ellipsis;
-    display: block;
-    height: 110%;
-    position: relative;
-    line-height: 60px;
-    padding: 0 30px;
-    width: 100%;
-    text-align: left;
-    color: #000;
-}
-.blcFormulaire .chp .input-file {
-    position: absolute;
-    opacity: 0;
-    width: 100%!important;
-    bottom: 0;
-    left: 0;
-    top: 0;
-    cursor: pointer;
-    z-index: 9999;
-}
-.cont-file i {
-    border-radius: 30px;
-    -moz-border-radius: 30px;
-    -webkit-border-radius: 30px;
-    display: block;
-    background:#885ca3;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    font-style: normal;
-    color: #fff;
-    font-size: 14px;
-    width: 175px;
-    text-transform: uppercase;
-    line-height: 60px;
-    text-align: center;
-    margin-bottom: 5px;
-}
-.cont-file i.reset {
-    right: 190px;
-    z-index: 9999;
-    cursor: pointer;
-}
-.profilFile .blcFormulaire {
-    margin: 0 !important;
-}
-.profilFile .chp {
-    border: inherit !important;
-    padding: 0 !important;
-}
-.profilFile .cont-file span {
-    padding: 0  !important;
-}
-
-.profilFile .cont-file span {
-    padding: 0 10px !important;
-}
-.fom-participe .formulaire .chp input { padding-left: 10px }
-
-.blc-cagnotte-participation .btn {
-    text-align: center;
-}
-
-/* Radio CGU */
-.acc a {
-    color: #8d4a8f;
-}
-.acc input {
-    display: inline-block;
-    vertical-align: middle;
-    margin: -6px 10px 0 0;
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    border: #7e7e7e solid 1px;
-    position: relative;
-    background-color: transparent;
-    transition: ease-in-out 400ms all;
-    cursor: pointer;
-}
-/* .acc.active input {
-    background-color: #8d4a8f;
-    border: #fbbd36 solid 3px;
-} */
-
-
-input:checked {
-    background-color: #8d4a8f;
-    border: #fbbd36 solid 3px;
-}
-
-.file-profil .cont-file span{
-    padding: 0 20px !important;
-}
-
-/* Modif Date */
-.col.col47.col-dates {
-    padding-right: 0;
-    width: 100%;
-    padding-left: 20px;
-}
-.col-dates .chy-type {
-    padding-left: 10px;
-    margin-bottom: 0;
-}
-.col-dates .chy-type .col.col47:first-of-type {
-    width: 51%;
-    padding-right: 57px;
-}
-.col-dates .chy-type .col.col47:last-of-type {
-    width: 46%;
-    padding-left: 7px;
-}
-
 
 
 @media (max-width:768px) {
@@ -2595,16 +2609,6 @@ input:checked {
         text-align: center;
     }
 }
-
-.tarifs .cont-left .info {
-    color: #fff;
-    font-size: 15px;
-    position: absolute;
-    bottom: -10px;
-    white-space: nowrap;
-}
-.tarifs .cont-left .col .content:nth-of-type(1) .txt .info { display:none}
-.tarifs .cont-right .col.payement { min-height: 400px }
 
 
 @media (max-width:1024px) {
