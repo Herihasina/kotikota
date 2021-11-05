@@ -160,22 +160,26 @@
  		);
 
  		$status = wp_remote_get( $url_token, $args);
- 		$status = json_decode( $status['body'] );
- 		$status = $status->data->transaction;
+ 		if( is_array( $status ) ){
+	 		$status = json_decode( $status['body'] );
+	 		$status = $status->data->transaction;
 
- 		if( "TS" == $status->status ){ // Don bien effectué
- 			$participation = get_AM_participation( $order_id );
- 			$process 	   = traitement_post_paiement( $participation );
- 			$response['message'] = __('Votre don a bien été enregistré. Merci :)','kotikota');
- 			$response['code']	 = 'OK';
- 			$response['titre']	 = 'Don effectué';
- 			$response['class']	 = 'success';
- 		}else{ // Don nisy olana
- 			$response['message'] = $status->message;
- 			$response['code']	 = 'KO';
- 			$response['titre']	 = 'Don non effectué';
- 			$response['class']	 = 'failed';
- 		}
+	 		if( "TS" == $status->status ){ // Don bien effectué
+	 			$participation = get_AM_participation( $order_id );
+	 			$process 	   = traitement_post_paiement( $participation );
+	 			$response['message'] = __('Votre don a bien été enregistré. Merci :)','kotikota');
+	 			$response['code']	 = 'OK';
+	 			$response['titre']	 = 'Don effectué';
+	 			$response['class']	 = 'success';
+	 		}else{ // Don nisy olana
+	 			$response['message'] = $status->message;
+	 			$response['code']	 = 'KO';
+	 			$response['titre']	 = 'Don non effectué';
+	 			$response['class']	 = 'failed';
+	 		}
+	 	}else{
+	 		$reponse['error'] = "requête mal formée";
+	 	}
  		
  		echo json_encode( $response );
  		wp_die();
