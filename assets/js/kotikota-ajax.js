@@ -203,9 +203,7 @@ $(function(){
 	      	$('#loader').removeClass('working');
 	      	$('.output-normal').fadeOut(300);
 	      	$('.output-response').fadeIn(300);
-	      	setTimeout( function(){
-	      		window.location = resp;
-	      	},8000);	      	
+	      	window.location = resp;     	
 	      }
 	    });
 
@@ -691,7 +689,7 @@ $(function(){
 	// Page paiement Airtel Money
 	if( $('#AM_page').length > 0 ){
 		$('#loader').addClass('working');		
-		setTimeout( check_AM_Status, 35000 );
+		setTimeout( check_AM_Status, 40000 );
 	}
 
 	function check_AM_Status(){

@@ -12,7 +12,7 @@
         // }
         if( is_search() ){
           echo esc_html( get_search_query() ).' : '. __('Résultat de recherche','kotikota');
-        }elseif (is_single()){
+        }elseif (is_singular('cagnotte')){
           echo get_field('nom_de_la_cagnotte');
         }else{
           wp_title('|', true, 'right').'|'. bloginfo('name'); 
@@ -21,7 +21,7 @@
     </title>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <?php if ( is_single() ) : 
+    <?php if ( is_singular('cagnotte') ) : 
       $terms = get_the_terms( $post->ID, 'categ-cagnotte' ); 
     ?>
       <meta property="og:url" content="<?php echo get_the_permalink( $post->ID ); ?>" />
@@ -46,7 +46,7 @@
     <!-- Your Chat plugin code -->
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
-
+    <?php if( !is_page('paiement-airtel-money') ): ?>
     <script>
       var chatbox = document.getElementById('fb-customer-chat');
       chatbox.setAttribute("page_id", "105522724810462");
@@ -66,6 +66,7 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
+    <?php endif; ?>
 
 <div id="wrapper">
     <header id="header">
