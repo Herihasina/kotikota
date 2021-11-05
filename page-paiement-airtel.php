@@ -75,8 +75,10 @@
   </div>
   <div id="loader">
     <p><img src="<?php echo IMG_URL.'loader.gif' ?>" alt="loader"></p>
-    <p><?= __('Vous allez recevoir une demande de confirmation de code secret sur votre téléphone pour valider votre don','kotikota') ?>.</p>
-    <p><?php _e('Veuillez consulter votre téléphone...','kotikota'); ?></p>
+    <p>
+      <?= __('Vous allez recevoir une demande de confirmation de code secret sur votre téléphone pour valider votre don','kotikota') ?>.<br>
+      <?php _e('Veuillez consulter votre téléphone...','kotikota'); ?>
+    </p>
   </div>
   </main>
   <input type="hidden" id="order_id" name="order_id" value="<?= $order_id ?>">
