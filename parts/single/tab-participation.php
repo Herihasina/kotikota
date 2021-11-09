@@ -7,9 +7,9 @@
         foreach ( $tous_les_participants as $un ):
 
           $email_participant = $un['participant_']->email_participant;
-
-          $date_participation = new DateTime( $un['post_modified'] );  
-          $date_participation = $date_participation->format('d/m/y');  
+           
+          $date_participation = new DateTime( $un['participant_']->post_modified );  
+          $date_participation = $date_participation->format('d/m/y');
 
           $id_participant = $un['participant_']->ID;
             $cagnottes_participees = get_field('toutes_cagnottes_participees', $id_participant); 
