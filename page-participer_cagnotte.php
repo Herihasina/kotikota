@@ -64,16 +64,9 @@
               <div class="col ">
                   <div class="blc-chp">
                       <label for="phone"><?php echo __('Téléphone', 'kotikota'); ?> <span>*</span></label>
-                      <input type="tel" name="phone" id="phone" class="chp" required pattern="[0-9]{9}">
-                      <?php
-                        $devise = get_field('devise', $id_cagnotte);
-                        $devise = $devise['label'] ? $devise['label'] : $devise[0];
-                       ?>
-                      <select class="input-select prepend-select" id="choix-indicatif">
-                          <option value="+261" <?php if ($devise == 'mga') echo " selected"; ?>>+261</option>
-                          <!-- <option value="+33" <?php if ($devise == 'eu') echo " selected"; ?>>+33</option>
-                          <option value="+44" <?php if ($devise == 'liv') echo " selected"; ?>>+44</option> -->
-                        </select>
+                      <div class="chp">
+                        <input type="tel" name="phone" id="phone" class="chp" required pattern="[0-9]{9}">
+                      </div>
                   </div>
               </div>
             </div>             

@@ -99,7 +99,7 @@ $(function(){
 	  	var fname = $('#fname').val();
 	  	var lname = $('#lname').val();
 	  	var mail = $('#mail').val();
-	  	var phone = $('#choix-indicatif').val() + $('#phone').val();
+	  	var phone = $('#phone').val();
 	  	var phone_33 = $('#phone').val();
 	  	var condition = $('#condition').val();
 	  	var donation = $('#donation').val();
