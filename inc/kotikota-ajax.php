@@ -277,7 +277,7 @@ function creer_participation(){
         $erreurs[] = __("Entrer une adresse email valide", "kotikota"); 
     if ( !isset($_POST['phone']) || $_POST['phone'] == "" ){
         $erreurs[] = __("Entrer un numéro de téléphone valide", "kotikota");
-    }elseif( !preg_match('/^\+[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( str_replace(' ','',$_POST['phone'] ) ) ) ){
+    }elseif( !preg_match('/^\+*[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( str_replace(' ','',$_POST['phone'] ) ) ) ){
         $erreurs[] = __("Entrer un numero de téléphone valide", "kotikota");
     }
 
