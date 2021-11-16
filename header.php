@@ -40,21 +40,23 @@
 </head>
 <body <?php body_class() ?>>
 
+    <?php if( !is_page('paiement-airtel-money') ): ?>
     <!-- Messenger Chat plugin Code -->
     <div id="fb-root"></div>
 
     <!-- Your Chat plugin code -->
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
-    <?php if( !is_page('paiement-airtel-money') ): ?>
+
     <script>
       var chatbox = document.getElementById('fb-customer-chat');
       chatbox.setAttribute("page_id", "105522724810462");
       chatbox.setAttribute("attribution", "biz_inbox");
+
       window.fbAsyncInit = function() {
         FB.init({
           xfbml            : true,
-          version          : 'v11.0'
+          version          : 'v12.0'
         });
       };
 
@@ -66,8 +68,7 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
-    <?php endif; ?>
-
+  <?php endif; ?>
 <div id="wrapper">
     <header id="header">
       <?php
