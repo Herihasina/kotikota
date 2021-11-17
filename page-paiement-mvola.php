@@ -32,8 +32,8 @@
       Coordonnées de la livraison
   */
 
-  $id_part = $participation->donation;
-  $montant = "don_".$participation->id_cagnotte.time();
+  $id_part = "don_".$participation->id_cagnotte.time();
+  $montant = $participation->donation;
   $description = get_field('nom_de_la_cagnotte', $participation->id_cagnotte);
   $lname = $participation->lname;
   $fname = $participation->fname;
