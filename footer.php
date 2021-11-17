@@ -65,7 +65,7 @@
         </footer>
 
     </div>
-    test
+    
     <a href="#popup_conf" id="open_conf" class="fancybox_conf" data-fancybox="" title="" style="display: none;">X</a>
     <div id="popup_conf" style="display: none">
         <div class="content">
