@@ -18,7 +18,7 @@ define("HASH", "c836e9ee07bd85291bac8d3d0445b660a95f01b2ff0a9bf722f2dbe2a55838bb
     Description de la transaction == Nom de la cagnotte
     Coordonnées de la livraison
 */
-function create_payment_mvola( $amount, $ShopTransactionId, $ShopTransactionLabel, $nom_donneur, $prenom_donneur){
+function create_payment_mvola( $ShopTransactionId, $amount, $ShopTransactionLabel, $nom_donneur, $prenom_donneur){
   
   $MPGW_BASEURL = MPGW_BASEURL;
   $MPGW_WS_URL = MPGW_WS_URL;
