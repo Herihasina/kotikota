@@ -3,6 +3,7 @@
 <html lang="fr">
 
 <head>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lc7PboaAAAAAO615AOfhbSRGs8wLcCEj3dClpC7"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="google-site-verification" content="flt7o3SjFMndrKi6LSiFALha1_yJAl0nzZRpgIKEEIE" />
     <!-- <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v8.0&appId=103654281972420&autoLogAppEvents=1" nonce="PvABvkTR"></script> -->
@@ -40,8 +41,6 @@
      wp_head(); ?>
 </head>
 <body <?php body_class() ?>>
-
-    <?php if( !is_page('paiement-airtel-money') ): ?>
     <!-- Messenger Chat plugin Code -->
     <div id="fb-root"></div>
 
@@ -69,7 +68,6 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
-  <?php endif; ?>
 <div id="wrapper">
     <header id="header">
       <?php
@@ -84,6 +82,3 @@
       ?>
     </header>
    
-    <?php
-      // $status_am = check_status_AM( 'don_9611618302011' );
-     ?>
