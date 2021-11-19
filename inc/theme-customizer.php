@@ -1059,7 +1059,18 @@ function mdu_validate_image_size( $file ) {
         return $file;
     }
 
-    
-    
-    
 }
+
+function nextend_fb_connect_text_fn( $translated_text, $text, $domain ) {
+    switch ( $translated_text ) {
+        case 'Hold On' :
+            $translated_text = __('Veuillez patienter','kotikota');
+        break;
+        case "You are being redirected to another page,<br>it may take a few seconds.":
+            $translated_text = __('Vous allez être connecté et redirigé.','kotikota');
+        break;
+
+    }
+    return $translated_text;
+}
+add_filter( 'gettext', 'nextend_fb_connect_text_fn', 20, 3 );
