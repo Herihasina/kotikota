@@ -1051,8 +1051,7 @@ function mdu_validate_image_size( $file ) {
             //add in the field 'error' of the $file array the message
             $file['error'] = __('Largeur maximale : 2000px, Hauteur maximale : 1500px','kotikota'); 
             return $file;
-        }
-        else
+        }else
             return $file;
 
     }else{
