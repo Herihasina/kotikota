@@ -1028,28 +1028,29 @@ function mdu_validate_image_size( $file ) {
         $image = getimagesize($file['tmp_name']);
         $poids = $file['size'];
         $minimum = array(
-            'width' => '1024',
-            'height' => '475'
+            'width' => get_field('largeur_min','option'),
+            'height' => get_field('hauteur_min','option'),
         );
         $maximum = array(
-            'width' => '2000',
-            'height' => '1500'
+            'width' => get_field('largeur_max','option'),
+            'height' => get_field('hauteur_max','option'),
+            'weight' => (int)get_field('pds_dimage_max','option'),
         );
         $image_width = $image[0];
         $image_height = $image[1];
 
-        if( $poids > 8000000 ){
-            $file['error'] = __('📸 taille 8 Mo autorisée 😉','kotikota'); 
+        if( $poids > $maximum['weight'] ){
+            $file['error'] = sprintf( __("📸 taille %s autorisée 😉","kotikota"), $maximum['weight'] ); 
             return $file;
         }
         elseif ( $image_width < $minimum['width'] || $image_height < $minimum['height'] ) {
             // add in the field 'error' of the $file array the message 
-            $file['error'] = __('Largeur minimale : 1024px, Hauteur minimale : 475px','kotikota'); 
+            $file['error'] = sprintf( __('Largeur minimale : %1spx, Hauteur minimale : %2spx','kotikota'), $minimum['width'], $minimum['height'] );
             return $file;
         }
         elseif ( $image_width > $maximum['width'] || $image_height > $maximum['height'] ) {
             //add in the field 'error' of the $file array the message
-            $file['error'] = __('Largeur maximale : 2000px, Hauteur maximale : 1500px','kotikota'); 
+            $file['error'] = sprintf( __('Largeur maximale : %1spx, Hauteur maximale : %2spx','kotikota'), $maximum['width'], $maximum['height'] );
             return $file;
         }else
             return $file;
