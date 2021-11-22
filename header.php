@@ -33,6 +33,8 @@
       <?php 
         $img_url = get_field('illustration_pour_la_cagnotte', $post->ID);
         if ( $img_url ): ?>
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
           <meta property="og:image" content="<?= $img_url ?>" />
           <meta property="og:image:secure_url" content="<?= $img_url ?>" /> 
         <?php endif;
