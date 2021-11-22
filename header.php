@@ -38,7 +38,19 @@
           <meta property="og:image" content="<?= $img_url ?>" />
           <meta property="og:image:secure_url" content="<?= $img_url ?>" /> 
         <?php endif;
-      
+        elseif( is_home() || is_front_page() ):
+      ?>
+          <meta property="og:url" content="<?php echo home_url('/'); ?>" />
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content="KOTI KOTA" />
+          <meta property="og:description" content="<?php echo __('Le premier site de cagnotte en ligne à Madagascar','kotikota') ?>" />
+          <meta property="fb:app_id" content="3122702584626959">
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image" content="https://koti-kota.com/wp-content/uploads/2021/09/unicefmada_118782353_313714943185395_1746931575050700793_n.jpg" />
+          <meta property="og:image:secure_url" content="https://koti-kota.com/wp-content/uploads/2021/09/unicefmada_118782353_313714943185395_1746931575050700793_n.jpg" /> 
+          <meta property="og:image:alt" content="Image de Koti Kota" /> 
+      <?php
         endif;
      wp_head(); ?>
 </head>
