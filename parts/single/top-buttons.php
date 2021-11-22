@@ -11,8 +11,7 @@
       $link = "https://www.facebook.com/sharer/sharer.php?u=".get_permalink();
   ?>
     <div>
-      <a target="_blank" 
-          href="<?php echo $link; ?>" 
+      <a href="<?php echo $link; ?>" 
           class="link partage" title="<?php _e('Partager sur Facebook','kotikota') ?>"
           rel="noopener noreferrer">
         <span><?php _e('Partager sur Facebook','kotikota') ?></span>

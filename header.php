@@ -1,6 +1,5 @@
-<?php header('Access-Control-Allow-Origin: *'); ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" prefix="og: https://ogp.me/ns#">
 
 <head>
     <script src="https://www.google.com/recaptcha/api.js?render=6Lc7PboaAAAAAO615AOfhbSRGs8wLcCEj3dClpC7"></script>
@@ -27,9 +26,10 @@
       $terms = get_the_terms( $post->ID, 'categ-cagnotte' ); 
     ?>
       <meta property="og:url" content="<?php echo get_the_permalink( $post->ID ); ?>" />
-      <meta property="og:type" content="<?php _e('cagnotte','kotikota'); ?>" />
-      <meta property="og:title" content="<?php the_title(); ?>" />      
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content="<?php echo get_the_title(); ?>" />      
       <meta property="og:description" content="<?php echo $terms[0]->name; ?>" />
+      <meta property="fb:app_id" content="3122702584626959">
       <?php 
         $img_url = get_field('illustration_pour_la_cagnotte', $post->ID);
         if ( $img_url ): ?>
@@ -68,6 +68,7 @@
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>
+
 <div id="wrapper">
     <header id="header">
       <?php

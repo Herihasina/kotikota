@@ -1074,3 +1074,12 @@ function nextend_fb_connect_text_fn( $translated_text, $text, $domain ) {
     return $translated_text;
 }
 add_filter( 'gettext', 'nextend_fb_connect_text_fn', 20, 3 );
+
+add_action( 'wp_login','redirect_after_social', 10, 2);
+
+function redirect_after_social( $user_login, $user ){
+    if( isset( $_GET['loginSocial']) ){
+        wp_safe_redirect( $_SERVER['HTTP_REFERER'] );
+        exit;
+    }
+}
