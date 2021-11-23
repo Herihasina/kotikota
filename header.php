@@ -55,6 +55,7 @@
      wp_head(); ?>
 </head>
 <body <?php body_class() ?>>
+  
     <!-- Messenger Chat plugin Code -->
     <div id="fb-root"></div>
 
