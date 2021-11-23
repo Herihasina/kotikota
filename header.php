@@ -59,8 +59,7 @@
     <div id="fb-root"></div>
 
     <!-- Your Chat plugin code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
+    <div id="fb-customer-chat" class="fb-customerchat"></div>
 
     <script>
       var chatbox = document.getElementById('fb-customer-chat');
