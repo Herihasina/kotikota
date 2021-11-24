@@ -60,7 +60,7 @@
               </div>
               <div class="blc-liste-cagnote wow fadeIn" data-wow-delay="850ms" style="text-align:center">
                 <script type="text/javascript" src="https://go.mips.mu/gomips.js"></script>
-								<iframe style="width:340px!important;height:377px!important;" width="425" height="680" frameborder="no" scrolling="0" src="https://go.mips.mu/mipsit.php?c=<?php echo $final_data; ?>&smid=<?php echo $id_merchant; ?>"></iframe>
+								<iframe width="425" height="680" frameborder="no" scrolling="0" src="https://go.mips.mu/mipsit.php?c=<?php echo $final_data; ?>&smid=<?php echo $id_merchant; ?>"></iframe>
               </div>
           </div>
           <div class="btn wow fadeIn" data-wow-delay="850ms">
