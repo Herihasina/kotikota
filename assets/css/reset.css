@@ -1751,7 +1751,7 @@ input:checked {
 
 
 /* Css iframe visa master card */
-.blc-liste-cagnote iframe {  height: 450px;}
+.blc-liste-cagnote iframe {  height: 415px;}
 .blc-liste-cagnote iframe body { max-width: 445px !important; }
 .blc-liste-cagnote iframe body .paiementCont #num_carte { width: 100% !important }
 .blc-liste-cagnote iframe body .type-pay button { width: 100% !important }
