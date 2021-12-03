@@ -75,6 +75,9 @@
 				'Authorization'=> 'Bearer ' . $bearer,	
 
 			);
+			if( strlen( $reference) > 25 ){
+				$reference = substr( $reference, 0, 20 ) . '...';
+			}
 	 		$body           = array(
 	 			'reference' => $reference,
 	 			'subscriber'=> array(
