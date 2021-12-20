@@ -2,7 +2,11 @@
     <div class="lst-comment">
       <?php
         $mot_doux = get_field('mot_doux', $post->ID); 
+        
         if ( $mot_doux ):
+          usort($mot_doux,function($a, $b) {
+            return strcmp($b->post_date, $a->post_date);
+          });
           foreach ( $mot_doux as $mot_dou ):
             
             $authorID = get_user_id_by_display_name( $mot_dou->post_title );

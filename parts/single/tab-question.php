@@ -3,6 +3,9 @@
       <?php 
         $questions = get_field('questions', $post->ID);
         if ( $questions ):
+          usort($questions,function($a, $b) {
+            return strcmp($b->post_date, $a->post_date);
+          });
           foreach ( $questions as $question ): 
             $user_data = get_user_meta($question->post_author); 
       ?>
