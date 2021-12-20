@@ -60,11 +60,9 @@
               </div>
               <div class="col ">
                   <div class="blc-chp">
-                      <label for="phone"><?php echo __('Date de naissance', 'kotikota'); ?> <span>*</span></label>
+                      <label for="phone"><?php echo __('Numéro de téléphone', 'kotikota'); ?> <span>*</span></label>
                       <div class="chp">
-                        <?php  $naiss = strtotime( get_field('date_de_naissance', 'user_'.get_current_user_id()) ); 
-                        $naiss = date('d-m-Y',$naiss) ?>
-                        <input class="signup-date-birth" type="text" value="<?php echo $naiss ?>" />
+                        <input class="" type="tel" value="<?php echo get_field('numero_de_telephone', 'user_'.get_current_user_id()) ?>" name="tel" id="tel" />
                       </div>
                   </div>
               </div>

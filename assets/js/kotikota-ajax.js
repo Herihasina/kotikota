@@ -599,7 +599,7 @@ $(function(){
 	  	var nom = $('#fname').val();
 	  	var prenom = $('#lname').val();
 	  	var mail = $('#mail').val();
-	  	var naiss = $('.signup-date-birth').val();
+	  	var tel = $('#tel').val();
 	  	var pdp = $('#pdp').val();
 	  	var newpwd = $('#newpwd').val();
 	  	var cin_value = $('#cin_value').val();	
@@ -612,7 +612,7 @@ $(function(){
 			  			'nom': nom,
 			  			'prenom': prenom,
 			  			'mail': mail,
-			  			'naiss': naiss,
+			  			'tel': tel,
 			  			'pdp' : pdp,
 			  			'newpwd' : newpwd,
 			  			'cin_value' : cin_value

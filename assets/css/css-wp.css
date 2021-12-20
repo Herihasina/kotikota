@@ -133,7 +133,8 @@ select.input-select.select-tarif {
 .notification .blc-check .option ul { margin: 0 -30px }
 
 .zone-img .inputfile + label.no-bg{
-    background: none;
+    /* background: none; */
+    opacity: 0.5;
 }
 .input-image .zone-img.bg-user {
     background-color: transparent;

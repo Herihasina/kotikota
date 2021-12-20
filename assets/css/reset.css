@@ -1146,7 +1146,9 @@ ul#response.error,
 /*margin-top: -19px;
 padding-top: 22px;*/ }
 
-.zone-img .inputfile + label.no-bg { border: none; font-size: 0 }
+.zone-img .inputfile + label.no-bg { 
+    /* border: none; font-size: 0  */
+}
 
 #montant_fixe { opacity: 0.3 }
 #montant_conseille { opacity: 0.3 }

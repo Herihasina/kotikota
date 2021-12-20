@@ -860,8 +860,8 @@ function edit_profile(){
     if ( !isset($_POST['mail']) || $_POST['mail'] == "" || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) )
         $erreurs[] = __("Entrez votre adresse email valide.", "kotikota");
 
-    if ( !isset($_POST['naiss']) || $_POST['naiss'] == "" )
-        $erreurs[] = __("Entrez votre date de naissance.", "kotikota");
+    if ( !isset($_POST['tel']) || $_POST['tel'] == "" )
+        $erreurs[] = __("Entrez votre numéro de téléphone.", "kotikota");
 
     if ( isset($_POST['newpwd']) && $_POST['newpwd'] != '' ){
         
@@ -907,7 +907,7 @@ function edit_profile(){
         update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
     }
 
-    update_field('date_de_naissance', strip_tags( $_POST['naiss'] ), 'user_'.get_current_user_id());
+    update_field('numero_de_telephone', strip_tags( $_POST['tel'] ), 'user_'.get_current_user_id());
 
     wp_die();
 }

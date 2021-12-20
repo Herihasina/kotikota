@@ -8,6 +8,17 @@ $(document).ready(function() {
 		} else {
 			$('.headerTop ').removeClass('sticky')
 		}
+		// if(!$("input[name=isHome]").val()) {
+		// 	var posScroll = $(document).scrollTop();
+		// 	if (posScroll > 50) {
+		// 		$('.headerTop ').addClass('sticky')
+		// 	} else {
+		// 		$('.headerTop ').removeClass('sticky')
+		// 	}
+		// } else {
+		// 	$('.headerTop ').addClass('sticky')
+		// }
+		
 	});
 	// MENU MOBILE //
 	$(".wrapMenuMobile").click(function() {
