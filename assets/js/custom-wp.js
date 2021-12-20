@@ -516,6 +516,7 @@ $(document).ready(function() {
         setTimeout(function(args) {
             $('.zone-img').css('background', 'center / cover no-repeat url(' + $('#url_img_cagnotte').val() + ')');
             $('.zone-img .inputfile + label').addClass('no-bg');
+            $("label.no-bg").html("Changer<br>votre photo");
         }, 500);
         return false;
     });
