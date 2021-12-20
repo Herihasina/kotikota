@@ -86,6 +86,13 @@
 <div id="wrapper">
     <header id="header">
       <?php
+        if (is_home() || is_front_page() ):?>
+      <input type="hidden" name="isHome" value=1>
+        
+      <?php
+        endif; 
+      ?>
+      <?php
         include 'sections/header/top.php';
         include 'sections/header/slider.php';
         include 'sections/header/popup-connecter.php';
