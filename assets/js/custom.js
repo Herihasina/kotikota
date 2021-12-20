@@ -2,16 +2,22 @@ $(document).ready(function() {
 
   // MENU FIXED //
 	$(window).scroll(function () {
-		if(!$("input[name=isHome]").val()) {
-			var posScroll = $(document).scrollTop();
-			if (posScroll > 50) {
-				$('.headerTop ').addClass('sticky')
-			} else {
-				$('.headerTop ').removeClass('sticky')
-			}
-		} else {
+		var posScroll = $(document).scrollTop();
+		if (posScroll > 50) {
 			$('.headerTop ').addClass('sticky')
+		} else {
+			$('.headerTop ').removeClass('sticky')
 		}
+		// if(!$("input[name=isHome]").val()) {
+		// 	var posScroll = $(document).scrollTop();
+		// 	if (posScroll > 50) {
+		// 		$('.headerTop ').addClass('sticky')
+		// 	} else {
+		// 		$('.headerTop ').removeClass('sticky')
+		// 	}
+		// } else {
+		// 	$('.headerTop ').addClass('sticky')
+		// }
 		
 	});
 	// MENU MOBILE //
