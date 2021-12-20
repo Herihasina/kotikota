@@ -678,6 +678,52 @@ $(document).ready(function() {
         return false;
     })
 
+    if( $('.participation #phone:visible').length > 0 ){
+        var input = document.querySelector("#phone"),
+        errorMsg = document.querySelector("#error-msg"),
+        validMsg = document.querySelector("#valid-msg");
+
+        // var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+        var iti = window.intlTelInput(input, {
+            initialCountry: "auto",
+            geoIpLookup: function(callback) {
+                $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+                  var countryCode = (resp && resp.country) ? resp.country : "mg";
+                  callback(countryCode);
+            });
+            },
+            preferredCountries: ["mg","fr"],
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+        });
+
+        var reset = function() {
+          input.classList.remove("error");
+          errorMsg.innerHTML = "";
+          errorMsg.classList.add("hide");
+          validMsg.classList.add("hide");
+        };
+
+        // on blur: validate
+        input.addEventListener('blur', function() {
+          reset();
+          if (input.value.trim()) {
+            if (iti.isValidNumber()) {
+              validMsg.classList.remove("hide");
+            } else {
+              input.classList.add("error");
+              var errorCode = iti.getValidationError();
+              errorMsg.innerHTML = "✗";
+              errorMsg.classList.remove("hide");
+            }
+          }
+        });
+
+        // on keyup / change flag: reset
+        input.addEventListener('change', reset);
+        input.addEventListener('keyup', reset);
+    }
+
 });
 
 // $( window ).load(function() {

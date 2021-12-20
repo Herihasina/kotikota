@@ -473,3 +473,25 @@ select#gtranslate_selector {
     font-style: normal;
     margin-top: 10px;
 }
+.iti.iti--allow-dropdown{
+    display: block;
+}
+.relative{
+    position: relative;
+}
+#error-msg,
+#valid-msg{    
+    position: absolute;
+    right: 3%;
+    top: 56%;
+    font-weight: 800;
+}
+#valid-msg{
+    color: #25cf25;
+}
+#error-msg{
+    color: #b90909;
+}
+.hide{
+    display: none;
+}
