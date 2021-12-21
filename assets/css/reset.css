@@ -120,7 +120,12 @@
     font-weight: normal;
     font-style: normal;
 }
-
+#phone {
+	padding-left: 45px !important;
+}
+.iti.iti--allow-dropdown > input {
+	padding-left: 45px !important;
+}
 /* RESET */
 body, ul, li, ol, form, h1, h2, h3, h4, h5, h6, div, span, p { padding:0; margin:0; border:0; -webkit-text-size-adjust:none; -moz-text-size-adjust:none; text-size-adjust:none;}
 article, aside, dialog ,figcaption, figure, footer, header, hgroup, main, nav, section { display:block;}  
@@ -2644,6 +2649,3 @@ a:hover { color:#fbbd36; }
 
 }
 
-#phone {
-	padding-left: 45px !important;
-}
