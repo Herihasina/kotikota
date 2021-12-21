@@ -165,9 +165,11 @@
  		$status = wp_remote_get( $url_token, $args);
  		if( is_array( $status ) ){
 	 		$status = json_decode( $status['body'] );
+	 		
+	 		$status2 = $status->transaction;
 	 		$status = $status->data->transaction;
 
-	 		if( "TS" == $status->status ){ // Don bien effectué
+	 		if( "TS" == $status->status || "DP00800001001" == $status2->response_code ){ // Don bien effectué
 	 			$participation = get_AM_participation( $order_id );
 	 			$process 	   = traitement_post_paiement( $participation );
 	 			$response['message'] = __('Votre don a bien été enregistré. Merci :)','kotikota');
