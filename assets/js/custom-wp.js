@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+
+
+
     var change_mga_eu = $('#change-mga-eu').val();
     var change_mga_us = $('#change-mga-us').val();
     var change_us_eu = $('#change-us-eu').val();
@@ -249,14 +252,17 @@ $(document).ready(function() {
     //upload image cagnotte
     var mediaUploader;
     $('#fileImg').click(function(e) {
+
         e.preventDefault();
         if (mediaUploader) {
             mediaUploader.open();
+            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
             return;
         }
         mediaUploader = wp.media.frames.file_frame = wp.media({
             multiple: false
         });
+
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
             if ($('.blc-cagnotte').length) {
@@ -282,6 +288,35 @@ $(document).ready(function() {
             );
         });
         mediaUploader.open();
+        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+
+        $("#menu-item-upload").html("Télécharger des fichiers");
+        $("#menu-item-upload").css({
+            '-webkit-box-ordinal-group': '2',
+            '-moz-box-ordinal-group': '2',
+            '-ms-flex-order': '2',
+            '-webkit-order': '2',
+            'order': '2'
+         });
+
+        $("#menu-item-browse").html("Galerie de photos");
+        $("#menu-item-browse").css({
+            '-webkit-box-ordinal-group': '1',
+            '-moz-box-ordinal-group': '1',
+            '-ms-flex-order': '1',
+            '-webkit-order': '1',
+            'order': '1'
+        });
+        $(".media-router").css({
+            'display': '-webkit-box',
+            'display': '-moz-box',
+            'display': '-ms-flexbox',
+            'display': '-webkit-flex',
+            'display': '-webkit-box'
+        });
+         
+        $("#menu-item-browse").click();
+
     });
 
     function getMeta(url, callback) {
