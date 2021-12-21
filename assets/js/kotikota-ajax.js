@@ -95,18 +95,18 @@ $(function(){
 	  });
 	  
 	  $('#creer-participation').click(function(e){
-	  	
 	  	var fname = $('#fname').val();
 	  	var lname = $('#lname').val();
 	  	var mail = $('#mail').val();
-	  	var phone = $('#phone').val();
-	  	var phone_33 = $('#phone').val();
+	  	var phone = $('.iti__selected-dial-code').html()+$('#phone').val();
+	  	var phone_33 = $('.iti__selected-dial-code').html()+$('#phone').val();
 	  	var condition = $('#condition').val();
 	  	var donation = $('#donation').val();
 	  	var devise = $('#choix-devise').val();
 	  	var message = $('#message').val();
 	  	var accord 				= $('#accord:checked').val();
 	  	var maskIdentite = $('#masque1:checked').val();
+
 	  	if (maskIdentite != "on"){
 	  		maskIdentite = "off";
 	  	}
