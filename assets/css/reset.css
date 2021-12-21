@@ -2645,5 +2645,5 @@ a:hover { color:#fbbd36; }
 }
 
 #phone {
-	padding-left: 45px;
+	padding-left: 45px !important;
 }
