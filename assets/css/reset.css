@@ -121,10 +121,10 @@
     font-style: normal;
 }
 #phone {
-	padding-left: 45px !important;
+	padding-left: 90px !important;
 }
 .iti.iti--allow-dropdown > input {
-	padding-left: 45px !important;
+	padding-left: 90px !important;
 }
 /* RESET */
 body, ul, li, ol, form, h1, h2, h3, h4, h5, h6, div, span, p { padding:0; margin:0; border:0; -webkit-text-size-adjust:none; -moz-text-size-adjust:none; text-size-adjust:none;}
