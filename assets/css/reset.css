@@ -621,7 +621,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .choix-photo .col-right label   { margin-bottom: 30px;}
 .chy-type                       { margin: 0 -20px 40px }
 .chy-type .col                  { float: left; padding: 0 20px }
-.chy-type .col.col53             { width: 53%; padding-right: 65px }
+.chy-type .col.col53             { padding-left: 20px; width: 52%; }
 .chy-type .col.col47             { width: 47%; padding-left: 0 }
 .blc-chp select                 { width: 100%; box-sizing: border-box; height: 100%; background: url(../images/select.png) right center no-repeat; border: #dddddd solid 1px; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: none; cursor: pointer; color: #7b7b7b; font-size: 16px; font-family:Montserrat ; border-radius: 10px; height: 60px; padding: 0 27px }
 .blc-chp select option { padding: 10px 30px }
@@ -1473,18 +1473,19 @@ input:checked {
 .formulaire-cagnotte .col-dates .chy-type {
     margin: 0 0 ;
 }
-.formulaire-cagnotte .chy-type .col.col47.col-dates {
-    width: 100%;
-}
 .formulaire-cagnotte  .chy-type .col.col47 {
     width: 50%;
-    /* padding-left: 0; */
+    padding-left: 20px;
 }
 .formulaire-cagnotte  .col-dates .chy-type {
     margin: 0 -20px 40px;
     padding-left: 0;
 }
 
+.formulaire-cagnotte .chy-type .col.col47.col-dates {
+    width: 100%;
+    padding-left: 0;
+}
 .Info-principale .blcFormulaire.fichier {
     padding: 0 26px;
 }
@@ -1725,7 +1726,7 @@ input:checked {
 .col.col47.col-dates {
     padding-right: 0;
     width: 100%;
-    padding-left: 20px;
+    padding-left: 0;
 }
 .col-dates .chy-type {
     padding-left: 10px;

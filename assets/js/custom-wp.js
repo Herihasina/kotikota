@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 
-
+    // console.log($("script#tmpl-uploader-window").html());
 
     var change_mga_eu = $('#change-mga-eu').val();
     var change_mga_us = $('#change-mga-us').val();
@@ -262,7 +262,6 @@ $(document).ready(function() {
         mediaUploader = wp.media.frames.file_frame = wp.media({
             multiple: false
         });
-
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
             if ($('.blc-cagnotte').length) {
@@ -288,32 +287,17 @@ $(document).ready(function() {
             );
         });
         mediaUploader.open();
-        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+
+        mediaUploader.on( 'open', function() {
+            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+        });
+
+        // $("#tmpl-uploader-window .uploader-editor-title").text("Déposez vos fichiers pour les télécharger");
+        // $("script#tmpl-uploader-window").html($("script#tmpl-uploader-window").html().replace("téléverser", "télécharger"));
 
         $("#menu-item-upload").html("Télécharger des fichiers");
-        $("#menu-item-upload").css({
-            '-webkit-box-ordinal-group': '2',
-            '-moz-box-ordinal-group': '2',
-            '-ms-flex-order': '2',
-            '-webkit-order': '2',
-            'order': '2'
-         });
-
         $("#menu-item-browse").html("Galerie de photos");
-        $("#menu-item-browse").css({
-            '-webkit-box-ordinal-group': '1',
-            '-moz-box-ordinal-group': '1',
-            '-ms-flex-order': '1',
-            '-webkit-order': '1',
-            'order': '1'
-        });
-        $(".media-router").css({
-            'display': '-webkit-box',
-            'display': '-moz-box',
-            'display': '-ms-flexbox',
-            'display': '-webkit-flex',
-            'display': '-webkit-box'
-        });
+        $("#menu-item-upload").insertAfter('#menu-item-browse')
          
         $("#menu-item-browse").click();
 
