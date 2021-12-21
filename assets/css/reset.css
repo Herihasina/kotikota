@@ -2643,3 +2643,7 @@ a:hover { color:#fbbd36; }
      .footer-3 .Whatsapp li a:first-child:before { display: none; }
 
 }
+
+#phone {
+	padding-left: 45px;
+}
