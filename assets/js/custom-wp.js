@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    
+
     var change_mga_eu = $('#change-mga-eu').val();
     var change_mga_us = $('#change-mga-us').val();
     var change_us_eu = $('#change-us-eu').val();
@@ -292,6 +292,7 @@ $(document).ready(function() {
 
         $("#menu-item-upload").click(function(e) {
             $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
         });
     });
     function getMeta(url, callback) {
