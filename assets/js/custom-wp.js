@@ -1,5 +1,6 @@
 $(document).ready(function() {
-
+    var replaced = $("body").html().replace('Déposez vos fichiers pour les téléverser','Déposez vos fichiers pour les télécharger');
+    $("body").html(replaced);
 
     // console.log($("script#tmpl-uploader-window").html());
 
@@ -256,7 +257,6 @@ $(document).ready(function() {
         e.preventDefault();
         if (mediaUploader) {
             mediaUploader.open();
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
             return;
         }
         mediaUploader = wp.media.frames.file_frame = wp.media({
@@ -288,21 +288,16 @@ $(document).ready(function() {
         });
         mediaUploader.open();
 
-        mediaUploader.on( 'open', function() {
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-        });
-
-        // $("#tmpl-uploader-window .uploader-editor-title").text("Déposez vos fichiers pour les télécharger");
-        // $("script#tmpl-uploader-window").html($("script#tmpl-uploader-window").html().replace("téléverser", "télécharger"));
-
         $("#menu-item-upload").html("Télécharger des fichiers");
         $("#menu-item-browse").html("Galerie de photos");
         $("#menu-item-upload").insertAfter('#menu-item-browse')
          
         $("#menu-item-browse").click();
 
+        $("#menu-item-upload").click(function(e) {
+            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+        });
     });
-
     function getMeta(url, callback) {
         var img = new Image();
         img.src = url;
