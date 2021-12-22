@@ -1,9 +1,5 @@
 $(document).ready(function() {
-    var replaced = $("body").html().replace('Déposez vos fichiers pour les téléverser','Déposez vos fichiers pour les télécharger');
-    $("body").html(replaced);
-
-    // console.log($("script#tmpl-uploader-window").html());
-
+    
     var change_mga_eu = $('#change-mga-eu').val();
     var change_mga_us = $('#change-mga-us').val();
     var change_us_eu = $('#change-us-eu').val();
