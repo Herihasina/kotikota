@@ -467,8 +467,8 @@ function save_info_principale(){
     } elseif( !preg_match('/^\+[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( str_replace(' ','',$_POST['tel'] ) ) ) ){
         $erreurs[] = __("Entrer un numero de téléphone valide", "kotikota");
     }
-    if ( !isset($_POST['rib']) || $_POST['rib'] == "" )
-       $erreurs[] = __("Entrer le RIB du bénéficiaire.", "kotikota");
+    // if ( !isset($_POST['rib']) || $_POST['rib'] == "" )
+    //    $erreurs[] = __("Entrer le RIB du bénéficiaire.", "kotikota");
 
    if ( !isset($_POST['categ']) || $_POST['categ'] == "" )
        $erreurs[] = __("Indiquer la catégorie de cagnotte.", "kotikota");
