@@ -127,9 +127,12 @@
 		          		</div>
 		          		<div class="col">
 		          			<div class="blc-chp">
+								<input type="hidden" value="<?= $info->code ?>" id="code" name="code">
 				                <label><?php _e('Téléphone','kotikota'); ?><span>*</span></label>
-				                <input type="tel" name="tel" class="chp" id="tel" placeholder="+261xxxxxxxxx" required="" value="<?= $info->telephone ?>">
-				              </div>
+				                <input type="tel" name="tel" class="chp" id="tel" pattern="[0-9]{9}" placeholder="xxxxxxxxx" required="" value="<?= $info->telephone ?>">
+				            	<span id="valid-msg" class="hide">✓</span>
+                      			<span id="error-msg" class="hide">✗</span>  
+							</div>
 		          		</div>
 
 		          		<div class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms" style="visibility: visible; animation-delay: 1000ms; animation-name: fadeIn;">

@@ -613,6 +613,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $info->email  = get_field('email_benef', $idBenef );
     $info->telephone = get_field('telephone_benef', $idBenef );
     $info->rib    = get_field('rib_benef', $idBenef );
+    $info->code    = get_field('code_benef', $idBenef );
 
     return $info;
   }
@@ -667,11 +668,8 @@ function choose_photo_and_insert_to_acf( $posted_img, $custom_field_key, $postID
 
       if( $poids > 8000000 ){
           $file['error'] = __('📸 taille 8 Mo autorisée 😉','kotikota'); 
-      }elseif ( $image_width < $minimum['width'] || $image_height < $minimum['height'] ) {
-          $file['error'] = __('Largeur minimale : 1024px, Hauteur minimale : 475px','kotikota');
-      }elseif ( $image_width > $maximum['width'] || $image_height > $maximum['height'] ) {
-          $file['error'] = __('Largeur maximale : 2000px, Hauteur maximale : 1500px','kotikota');
-      }elseif( !strpos('image', $file['type']) ){
+      }
+      elseif( !strpos('image', $file['type']) ){
           $file['error'] = __('Format de fichier non pris en charge','kotikota');
       }
 

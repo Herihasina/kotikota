@@ -179,6 +179,8 @@ $(document).ready(function() {
             vis.find('.span-normal').hide();
             vis.find('.span-hover').show();
         }
+        vis.parents().find(".menu-liste-cagnotte").first().removeClass("active");
+
     });
 
     $(".fancybox-faq").fancybox({
@@ -259,9 +261,11 @@ $(document).ready(function() {
             $("#menu-item-browse").click();
             $("#menu-item-browse").css("display","block");
 
+            
             $("#menu-item-upload").click(function(e) {
                 $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
                 $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+                $(".media-uploader-status .h2").html("Téléchargement");
             });
             mediaUploader.open();
             return;
@@ -304,6 +308,7 @@ $(document).ready(function() {
         $("#menu-item-upload").click(function(e) {
             $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
             $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $(".media-uploader-status .h2").html("Téléchargement");
         });
     });
     function getMeta(url, callback) {
@@ -595,6 +600,7 @@ $(document).ready(function() {
             $("#menu-item-upload").click(function(e) {
                 $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
                 $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+                $(".media-uploader-status .h2").html("Téléchargement");
             });
             mediaUploader.open();
             return;
@@ -619,6 +625,7 @@ $(document).ready(function() {
         $("#menu-item-upload").click(function(e) {
             $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
             $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $(".media-uploader-status .h2").html("Téléchargement");
         });
     });
     $('#cin_btn').click(function(e) {
@@ -627,6 +634,7 @@ $(document).ready(function() {
             $("#menu-item-upload").html("Télécharger");
             $("#menu-item-upload").click();
             $("#menu-item-browse").css("display","none");
+            $(".media-uploader-status .h2").html("Téléchargement");
             $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
             $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
             mediaUploader.open();
@@ -645,6 +653,7 @@ $(document).ready(function() {
         $("#menu-item-upload").html("Télécharger");
         $("#menu-item-upload").click();
         $("#menu-item-browse").css("display","none");
+        $(".media-uploader-status .h2").html("Téléchargement");
         $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
         $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
     });
@@ -654,6 +663,7 @@ $(document).ready(function() {
             $("#menu-item-upload").html("Télécharger");
             $("#menu-item-upload").click();
             $("#menu-item-browse").css("display","none");
+            $(".media-uploader-status .h2").html("Téléchargement");
             $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
             $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
             mediaUploader.open();
@@ -671,6 +681,7 @@ $(document).ready(function() {
         $("#menu-item-upload").html("Télécharger");
         $("#menu-item-upload").click();
         $("#menu-item-browse").css("display","none");
+        $(".media-uploader-status .h2").html("Téléchargement");
         $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
         $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
     });
@@ -789,7 +800,56 @@ $(document).ready(function() {
         input.addEventListener('keyup', reset);
     }
 
+
+    if( $('#tel:visible').length > 0 ){
+        var input = document.querySelector("#tel"),
+        errorMsg = document.querySelector("#error-msg"),
+        validMsg = document.querySelector("#valid-msg");
+
+        var iti = window.intlTelInput(input, {
+            initialCountry: $("#code").val(),
+            separateDialCode: true,
+            geoIpLookup: function(callback) {
+                $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+                  var countryCode = (resp && resp.country) ? resp.country : "mg";
+                  callback(countryCode);
+            });
+            },
+            preferredCountries: ["mg","fr"],
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+        });
+
+        var reset = function() {
+          input.classList.remove("error");
+          errorMsg.innerHTML = "";
+          errorMsg.classList.add("hide");
+          validMsg.classList.add("hide");
+        };
+
+        // on blur: validate
+        input.addEventListener('blur', function() {
+          reset();
+          if (input.value.trim()) {
+            if (iti.isValidNumber()) {
+              validMsg.classList.remove("hide");
+            } else {
+              input.classList.add("error");
+              var errorCode = iti.getValidationError();
+              errorMsg.innerHTML = "✗";
+              errorMsg.classList.remove("hide");
+            }
+          }
+        });
+
+        // on keyup / change flag: reset
+        input.addEventListener('change', reset);
+        input.addEventListener('keyup', reset);
+    }
+    $(".iti__country").click(function(e) {
+        $("#code").val($(this).attr("data-country-code"));
+    });
 });
+
 
 // $( window ).load(function() {
 //     /* menu connecté */

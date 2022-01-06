@@ -1,5 +1,15 @@
 $(document).ready(function() {	
-
+	$("#connecter .fieldset--submit").click(function() {
+		$("#connecter .lrm-form-message").insertBefore($("#connecter .fieldset--submit"))
+		$("#connecter .lrm-form-message").addClass("hide");
+		$("#connecter .lrm-form-message").first().removeClass("hide");
+	});
+	$("#inscription .link.submit").click(function() {
+		if($('#inscription .lrm-form-message','#inscription').length == 0) {
+			$("#inscription .lrm-form-message").insertBefore($("#inscription div.bottom"))
+			$(".lrm-form-message--init").addClass("hide");
+		}
+	});
   // MENU FIXED //
 	$(window).scroll(function () {
 		var posScroll = $(document).scrollTop();

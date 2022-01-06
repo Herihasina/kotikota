@@ -465,7 +465,7 @@ function save_info_principale(){
     if ( !isset($_POST['tel']) || $_POST['tel'] == "" ){
        $erreurs[] = __("Entrer le numéro de contact du bénéficiaire.", "kotikota");
     } elseif( !preg_match('/^\+[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( str_replace(' ','',$_POST['tel'] ) ) ) ){
-        $erreurs[] = __("Entrer un numero de téléphone valide", "kotikota");
+        // $erreurs[] = __("Entrer un numero de téléphone valide", "kotikota");
     }
     // if ( !isset($_POST['rib']) || $_POST['rib'] == "" )
     //    $erreurs[] = __("Entrer le RIB du bénéficiaire.", "kotikota");
@@ -527,7 +527,9 @@ function save_info_principale(){
     $prenom    = strip_tags( $_POST['prenom'] );
     $email     = strip_tags( $_POST['email'] );
     $telephone = strip_tags( $_POST['tel'] );
+    $code      = strip_tags( $_POST['code'] );
     $rib       = strip_tags( $_POST['rib'] );
+    update_field('code_benef', $code, $idBenef );
    
     $update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
     update_field('benef_cagnotte', $idBenef, $idCagnotte);
@@ -906,6 +908,8 @@ function edit_profile(){
         $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
         update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
     }
+  
+    update_field('code', $_POST['code'], 'user_'.get_current_user_id());
 
     update_field('numero_de_telephone', strip_tags( $_POST['tel'] ), 'user_'.get_current_user_id());
 

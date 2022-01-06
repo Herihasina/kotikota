@@ -60,10 +60,14 @@
               </div>
               <div class="col ">
                   <div class="blc-chp">
-                      <label for="phone"><?php echo __('Numéro de téléphone', 'kotikota'); ?> <span>*</span></label>
-                      <div class="chp">
+                    <input type="hidden" value="<?php echo get_field('code', 'user_'.get_current_user_id()) ?>" id="code" name="code">
+                      <label for="tel"><?php echo __('Numéro de téléphone', 'kotikota'); ?> <span>*</span></label>
+                      <!-- <div class="chp">
                         <input class="" type="tel" value="<?php echo get_field('numero_de_telephone', 'user_'.get_current_user_id()) ?>" name="tel" id="tel" />
-                      </div>
+                      </div> -->
+                      <input type="tel" name="tel" id="tel" class="chp" required pattern="[0-9]{9}" value="<?php echo get_field('numero_de_telephone', 'user_'.get_current_user_id()) ?>">
+                      <span id="valid-msg" class="hide">✓</span>
+                      <span id="error-msg" class="hide">✗</span>
                   </div>
               </div>
               <div class="col">

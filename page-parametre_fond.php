@@ -38,7 +38,7 @@
               </div>
             </div>
           </div>
-          <div class="tip"><?php printf( __('%s taille 500 ko autorisée %s','kotikota'), '📸','😉' ) ?></div>
+          <div class="tip"><?php printf( __('%s taille 8 mo autorisée %s','kotikota'), '📸','😉' ) ?></div>
           <div class="slide-img wow fadeIn" data-wow-delay="950ms" id="slide-img">
           	<?php
                 $imgs = get_field('images_proposees','option'); 

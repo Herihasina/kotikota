@@ -120,7 +120,7 @@
     font-weight: normal;
     font-style: normal;
 }
-#phone {
+#phone, #tel {
 	padding-left: 90px !important;
 }
 .iti.iti--allow-dropdown > input {

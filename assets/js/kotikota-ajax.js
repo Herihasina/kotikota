@@ -289,6 +289,7 @@ $(function(){
 	  	var nom = $('#nom').val();
 	  	var prenom = $('#prenom').val();
 	  	var email = $('#email').val();
+	  	var code = $('#code').val();
 	  	var tel = $('#tel').val();
 	  	var rib = $('#rib_value').val();
 
@@ -304,6 +305,7 @@ $(function(){
 	  			'nom': nom,
 	  			'prenom': prenom,
 	  			'email': email,
+	  			'code': code,
 	  			'tel': tel,
 	  			'rib': rib,
 	  			'categ': categ,
@@ -599,6 +601,7 @@ $(function(){
 	  	var nom = $('#fname').val();
 	  	var prenom = $('#lname').val();
 	  	var mail = $('#mail').val();
+	  	var code = $('#code').val();
 	  	var tel = $('#tel').val();
 	  	var pdp = $('#pdp').val();
 	  	var newpwd = $('#newpwd').val();
@@ -612,6 +615,7 @@ $(function(){
 			  			'nom': nom,
 			  			'prenom': prenom,
 			  			'mail': mail,
+			  			'code': code,
 			  			'tel': tel,
 			  			'pdp' : pdp,
 			  			'newpwd' : newpwd,
