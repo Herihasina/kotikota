@@ -5,7 +5,7 @@ $(document).ready(function() {
 		$("#connecter .lrm-form-message").first().removeClass("hide");
 	});
 	$("#inscription .link.submit").click(function() {
-		$("#inscription .lrm-form-message").insertBefore($("#inscription div.bottom"))
+		$("#inscription .lrm-form-message-wrap").insertBefore($("#inscription div.bottom"))
 		$('#inscription .lrm-is-error').each(function() {
 			var txt = $(this).text();
 			if (seen[txt])
