@@ -217,7 +217,7 @@ function create_cagnotte(){
         }
 
         sendNotificationCreation($newPost);
-        if( $post_notif)
+        if( $post_notif && !$_POST['cin_value'])
             sendRappelPostCreation( $now_user );
 
         $single = get_permalink( $newPost );

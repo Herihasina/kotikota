@@ -357,7 +357,7 @@ function sendRappelPostCreation($userid){
         include($tpl);
     $html = ob_get_clean();
 
-  $objet = get_field('objet_rappel0','option') ? get_field('objet_rappel0','option') : __("Rappel Post Creation","kotikota");
+  $objet = get_field('objet_rappel0','option') ? get_field('objet_rappel0','option') : __("document à fournir sous 48h","kotikota");
 
   ob_start();
         include($tpl);
