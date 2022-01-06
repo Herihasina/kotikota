@@ -1043,16 +1043,17 @@ function mdu_validate_image_size( $file ) {
             $file['error'] = sprintf( __("📸 taille %s autorisée 😉","kotikota"), $maximum['weight'] ); 
             return $file;
         }
-        elseif ( $image_width < $minimum['width'] || $image_height < $minimum['height'] ) {
-            // add in the field 'error' of the $file array the message 
-            $file['error'] = sprintf( __('Largeur minimale : %1spx, Hauteur minimale : %2spx','kotikota'), $minimum['width'], $minimum['height'] );
-            return $file;
-        }
-        elseif ( $image_width > $maximum['width'] || $image_height > $maximum['height'] ) {
-            //add in the field 'error' of the $file array the message
-            $file['error'] = sprintf( __('Largeur maximale : %1spx, Hauteur maximale : %2spx','kotikota'), $maximum['width'], $maximum['height'] );
-            return $file;
-        }else
+        // elseif ( $image_width < $minimum['width'] || $image_height < $minimum['height'] ) {
+        //     // add in the field 'error' of the $file array the message 
+        //     $file['error'] = sprintf( __('Largeur minimale : %1spx, Hauteur minimale : %2spx','kotikota'), $minimum['width'], $minimum['height'] );
+        //     return $file;
+        // }
+        // elseif ( $image_width > $maximum['width'] || $image_height > $maximum['height'] ) {
+        //     //add in the field 'error' of the $file array the message
+        //     $file['error'] = sprintf( __('Largeur maximale : %1spx, Hauteur maximale : %2spx','kotikota'), $maximum['width'], $maximum['height'] );
+        //     return $file;
+        // }
+        else
             return $file;
 
     }else{
