@@ -9,13 +9,13 @@
                     <div class="footer-2">
                         <div class="col">
                             <div class="adresse">
-                                <div class="titre"><?= __('Où nous trouver ?','kotikota') ?></div>
+                                <!-- <div class="titre"><?= __('Où nous trouver ?','kotikota') ?></div> -->
                                 <?= get_theme_mod('ct_address') ?>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mail">
-                                <div class="titre"><?= __('nous écrire à','kotikota') ?></div>
+                                <!-- <div class="titre"><?= __('nous écrire à','kotikota') ?></div> -->
                                 <?= get_theme_mod('ct_email') ?>
                             </div>
                         </div>
@@ -23,11 +23,11 @@
                     <div class="footer-3">
                         <div class="col">
                             <div class="tel">
-                                <div class="titre"><?= __('Téléphone','kotikota') ?></div>
+                                <!-- <div class="titre"><?= __('Téléphone','kotikota') ?></div> -->
                                 <?= get_theme_mod('ct_phone') ?>
                             </div>
                             <div class="Whatsapp">
-                                <div class="titre">Whatsapp</div>
+                                <!-- <div class="titre">Whatsapp</div> -->
                                 <?= get_theme_mod('ct_whatsapp') ?>
                             </div>
                         </div>

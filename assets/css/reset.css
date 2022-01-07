@@ -397,11 +397,11 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .footer-2 .mail                                             { padding-left: 70px; /*background: url(../images/ico-mail.png) no-repeat left center*/;min-height: 50px;}
 
 /*.footer-3 .tel li a:before                                  { content: ''; background: url(../images/ico-tel.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -26px; display: block; } */
-.footer-2 .adresse li a:before                              { content: ''; background: url(../images/ico-adresse.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -26px; display: block; }
-.footer-2 .mail li a:before                                  { content: ''; background: url(../images/ico-mail.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -26px; display: block; }
-.footer-3 .tel li a:first-of-type:before                    { content: ''; background: url(../images/ico-tel.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -26px; display: block;}
+.footer-2 .adresse li a:before                              { content: ''; background: url(../images/ico-adresse.png); width: 50px; height: 50px; position: absolute; left: -70px;top: 0px; display: block; }
+.footer-2 .mail li a:before                                  { content: ''; background: url(../images/ico-mail.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -16px; display: block; }
+.footer-3 .tel li a:first-of-type:before                    { content: ''; background: url(../images/ico-tel.png); width: 50px; height: 50px; position: absolute; left: -70px;top: 0px; display: block;}
 .footer-3 .Whatsapp                                         { padding-left: 70px;/* background: url(../images/ico-tel.png) no-repeat left center;*/ min-height: 50px; color: #131313}
-.footer-3 .Whatsapp li a:before                             { content: ''; background: url(../images/ico-wats-app.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -26px; display: block;}
+.footer-3 .Whatsapp li a:before                             { content: ''; background: url(../images/ico-wats-app.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -16px; display: block;}
 
 .footer-3                                                   { padding-top: 33px }
 .social                                                     { float: right; padding-top: 32px; }
@@ -2544,7 +2544,7 @@ a:hover { color:#fbbd36; }
     .lst-comment-ca-marche .item.transferer span { top: -24px !important;}
 
     .footer-2 .adresse li a:before, .footer-2 .mail li a:before,
-    .footer-3 .tel li a:first-of-type:before, .footer-3 .Whatsapp li a:before { left: 0; top: -85px; right: 0; margin: auto;}
+    .footer-3 .tel li a:first-of-type:before, .footer-3 .Whatsapp li a:before { left: 0; top: -60px; right: 0; margin: auto;}
     .footer-2 .mail, .footer-3 .tel, .footer-3 .Whatsapp { padding-left: 0; padding-top: 60px;}
     .enter-mail-id{ width: 100%!important; }
 

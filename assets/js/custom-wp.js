@@ -1,5 +1,7 @@
 $(document).ready(function() {
-
+    // $(".media-sidebar").initialize( function(){
+    //    alert("bka")
+    // });
     var change_mga_eu = $('#change-mga-eu').val();
     var change_mga_us = $('#change-mga-us').val();
     var change_us_eu = $('#change-us-eu').val();
@@ -252,6 +254,10 @@ $(document).ready(function() {
     var mediaUploader;
     $('#fileImg').click(function(e) {
 
+        $('button[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            // var target = $(e.target).attr("href") // activated tab
+            alert("target");
+        }); 
         e.preventDefault();
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger des fichiers");
@@ -260,6 +266,7 @@ $(document).ready(function() {
             
             $("#menu-item-browse").click();
             $("#menu-item-browse").css("display","block");
+            $(".media-uploader-status .h2").html("Téléchargement");
 
             
             $("#menu-item-upload").click(function(e) {
@@ -270,11 +277,14 @@ $(document).ready(function() {
             mediaUploader.open();
             return;
         }
+
         mediaUploader = wp.media.frames.file_frame = wp.media({
             multiple: false
         });
         mediaUploader.on('select', function() {
+
             var attachment = mediaUploader.state().get('selection').first().toJSON();
+            
             if ($('.blc-cagnotte').length) {
                 $('#url_img_cagnotte').val(attachment.url).addClass('filled');
             }
@@ -296,12 +306,14 @@ $(document).ready(function() {
                     }
                 }
             );
+
         });
         mediaUploader.open();
 
         $("#menu-item-upload").html("Télécharger des fichiers");
         $("#menu-item-browse").html("Galerie de photos");
         $("#menu-item-upload").insertAfter('#menu-item-browse')
+        $(".media-uploader-status .h2").html("Téléchargement");
          
         $("#menu-item-browse").click();
 
@@ -596,6 +608,7 @@ $(document).ready(function() {
             
             $("#menu-item-browse").click();
             $("#menu-item-browse").css("display","block");
+            $(".media-uploader-status .h2").html("Téléchargement");
 
             $("#menu-item-upload").click(function(e) {
                 $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
@@ -619,6 +632,7 @@ $(document).ready(function() {
         $("#menu-item-upload").html("Télécharger des fichiers");
         $("#menu-item-browse").html("Galerie de photos");
         $("#menu-item-upload").insertAfter('#menu-item-browse')
+        $(".media-uploader-status .h2").html("Téléchargement");
          
         $("#menu-item-browse").click();
 

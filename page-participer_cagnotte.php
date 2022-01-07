@@ -95,9 +95,16 @@
                       <!-- <div class="tip">
                         Pour un paiement via Paypal, sélectionner la devise Euro (€).
                       </div> -->
-                          <?php if ( get_field('montant_suggere', $id ) != 0 ): ?>
+                          <?php if ( get_field('montant_suggere', $id ) != 0 && get_field('condition_de_participation', $id ) == "conseille" ): ?>
                       		<span class="montant"> 
-                            <?php echo __('Montant suggéré : ', 'kotikota');  
+                            <?php echo __('Montant minimum conseillé : ', 'kotikota');  
+                            
+                              $devise_lbl = $deviseB['label'];                             
+                              echo "<span id='span_montant' class='format_chiffre'>".get_field('montant_suggere', $id ).'</span> <span id="span_devise">'.$devise_lbl.'</span>' ?>
+                          </span>
+                          <?php elseif ( get_field('montant_suggere', $id ) != 0 && get_field('condition_de_participation', $id ) == "fixe" ): ?>
+                      		<span class="montant"> 
+                            <?php echo __('Montant imposé : ', 'kotikota');  
                             
                               $devise_lbl = $deviseB['label'];                             
                               echo "<span id='span_montant' class='format_chiffre'>".get_field('montant_suggere', $id ).'</span> <span id="span_devise">'.$devise_lbl.'</span>' ?>
