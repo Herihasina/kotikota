@@ -861,6 +861,119 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 
 .percent text tspan {font-family: Montserrat-b;}
 
+/* sjd */
+.menu-cagnotte.anniv           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.Mariage          { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.fiancaille           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.naissance           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.cremaillere           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.diplom           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.pot             { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.autre           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.action           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.creation           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.investissement           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.soins           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.obseque           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.voyage           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.soire           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.rembourssement           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.anniv::before           { 
+    background: url('../images/anniv.png') no-repeat center #e83878;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.Mariage::before          {
+     background: url('../images/mariage.png') no-repeat center #885297;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.fiancaille::before        
+   { background: url('../images/fiancaile.png') no-repeat center #fbbd36;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.naissance::before         
+  { background: url('../images/naissance.png') no-repeat center #59bdb1;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.cremaillere::before       
+    { background: url('../images/cremellaire.png') no-repeat center #8d4a8f;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.diplom::before           {
+     background: url('../images/diplome.png') no-repeat center #e83878;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.pot::before             { 
+    background: url('../images/pot.png') no-repeat center #885297;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.autre::before           { 
+    background: url('../images/autres.png') no-repeat center #bbbbbb;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.action::before           {
+     background: url('../images/action-human.png') no-repeat center #8d4a8f;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.creation::before          
+ { background: url('../images/creation.png') no-repeat center #fbbd36;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.investissement::before    
+       { background: url('../images/investissement.png') no-repeat center #59bdb1;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.soins::before           { 
+    background: url('../images/soins.png') no-repeat center #e83878;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.obseque::before           
+{ background: url('../images/obseque.png') no-repeat center #8d4a8f;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.voyage::before           {
+     background: url('../images/voyage.png') no-repeat center #e83878;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.soire::before           { 
+    background: url('../images/soire.png') no-repeat center #885297;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.rembourssement::before    
+       { background: url('../images/remboursement.png') no-repeat center #fbbd36;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
 /*.blc-cagnotte-liste .lst-cagnotte-publique:hover .item .content { opacity: 1 }*/
 .blc-cagnotte-liste .lst-cagnotte-publique { margin-bottom: 42px }
 .pagination                     { text-align: center }
