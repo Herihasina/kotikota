@@ -335,7 +335,7 @@ function creer_participation(){
         $fixe = (int)get_field('montant_suggere', $_POST['idCagnotte'] );
         if ( $fixe && preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $fixe ) ) ){
             if ( $fixe != $donation ){
-                $erreurs[] = __("Attention montant minimum imposé", "kotikota");
+                $erreurs[] = __("Veuillez entrer uniquement le montant fixé", "kotikota");
             }
         }elseif( !preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $fixe ) ) ){
             $erreurs[] = __("Entrer uniquement un chiffre comme montant.", "kotikota");
