@@ -69,9 +69,9 @@ function create_cagnotte(){
         }
     }    
 
-    if ( !isset($condParticip) || $condParticip == "" )
+    if ( !isset($condParticip) || $condParticip == "" ){
         $erreurs[] = __("Choisir votre condition de participation", "kotikota");
-    else{  
+    }else{  
         $montant = 0;           
         switch ( $condParticip ) { //1 libre - 2 conseille - 3 fixe
             case 'conseille':
