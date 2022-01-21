@@ -22,7 +22,7 @@
           get_field('titulaire_de_la_cagnotte')  == get_current_user_id() || 
           current_user_can('administrator') 
         ){
-          the_field('description_de_la_cagnote');
+          echo get_field('description_de_la_cagnote');
         }
         // elseif ( $type_cagnotte == "perso"){
         //   echo substr(get_field('description_de_la_cagnote'), 0, 220 ).'...';
