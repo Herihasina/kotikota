@@ -470,9 +470,10 @@ select#gtranslate_selector {
 }
 
 .tip.tip_creation{
-        font-size: 16px;
+    font-size: 16px;
     font-style: normal;
     margin-top: 10px;
+    text-align: left;
 }
 .iti.iti--allow-dropdown{
     display: block;

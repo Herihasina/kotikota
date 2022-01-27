@@ -104,7 +104,7 @@
                           </span>
                           <?php elseif ( get_field('montant_suggere', $id ) != 0 && get_field('condition_de_participation', $id ) == "fixe" ): ?>
                       		<span class="montant"> 
-                            <?php echo __('Montant imposé : ', 'kotikota');  
+                            <?php echo __('Montant minimum imposé : ', 'kotikota');  
                             
                               $devise_lbl = $deviseB['label'];                             
                               echo "<span id='span_montant' class='format_chiffre'>".get_field('montant_suggere', $id ).'</span> <span id="span_devise">'.$devise_lbl.'</span>' ?>
