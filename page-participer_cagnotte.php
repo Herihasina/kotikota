@@ -63,8 +63,9 @@
               </div>
               <div class="col ">
                   <div class="blc-chp relative">
+                  <input type="hidden" value="<?php echo $user_data['code'][0]; ?>" id="code" name="code">
                       <label for="phone"><?php echo __('Téléphone', 'kotikota'); ?> <span>*</span></label>
-                      <input type="tel" name="phone" id="phone" class="chp" required pattern="[0-9]{9}">
+                      <input type="tel" name="phone" id="phone" class="chp" required pattern="[0-9]{9}" value="<?php echo $user_data['numero_de_telephone'][0]; ?>" placeholder="">
                       <span id="valid-msg" class="hide">✓</span>
                       <span id="error-msg" class="hide">✗</span>
                   </div>

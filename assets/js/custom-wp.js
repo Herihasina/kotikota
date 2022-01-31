@@ -775,7 +775,10 @@ $(document).ready(function() {
         // var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
 
         var iti = window.intlTelInput(input, {
-            initialCountry: "auto",
+            initialCountry: $("#code").val(),
+            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+                return "";
+            },
             separateDialCode: true,
             geoIpLookup: function(callback) {
                 $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
@@ -787,11 +790,13 @@ $(document).ready(function() {
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
         });
 
+
         var reset = function() {
           input.classList.remove("error");
           errorMsg.innerHTML = "";
           errorMsg.classList.add("hide");
           validMsg.classList.add("hide");
+
         };
 
         // on blur: validate
