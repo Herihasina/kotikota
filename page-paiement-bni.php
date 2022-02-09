@@ -56,7 +56,7 @@
     <div class="wrapper">
           <div class="fom-participe">
               <div class="titre wow fadeIn" data-wow-delay="800ms">
-                 <h2 id="AM_titre"><?php echo __('Don par virement bancaire','kotikota') ?></h2>
+                 <h2 id="AM_titre"><?php echo __('Paiement carte bancaire','kotikota') ?></h2>
               </div>
               <div class="blc-liste-cagnote wow fadeIn" data-wow-delay="850ms" style="text-align:center">
                 <script type="text/javascript" src="https://go.mips.mu/gomips.js"></script>

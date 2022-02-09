@@ -62,11 +62,12 @@
                   </div>
               </div>
               <div class="col ">
-                  <div class="blc-chp">
+                  <div class="blc-chp relative">
+                  <input type="hidden" value="<?php echo $user_data['code'][0]; ?>" id="code" name="code">
                       <label for="phone"><?php echo __('Téléphone', 'kotikota'); ?> <span>*</span></label>
-                      <div class="chp">
-                        <input type="tel" name="phone" id="phone" class="chp" required pattern="[0-9]{9}">
-                      </div>
+                      <input type="tel" name="phone" id="phone" class="chp" required pattern="[0-9]{9}" value="<?php echo $user_data['numero_de_telephone'][0]; ?>" placeholder="">
+                      <span id="valid-msg" class="hide">✓</span>
+                      <span id="error-msg" class="hide">✗</span>
                   </div>
               </div>
             </div>             
@@ -86,7 +87,7 @@
                       <label for="donation"><?php echo __('Ma participation', 'kotikota'); ?> <span>*</span></label>
                       <div class="chp">
                         <input type="text" name="donation" id="donation" placeholder="Saisissez un montant" required>
-                        <select class="input-select appended-select" id="choix-devise">
+                        <select class="input-select appended-select" id="choix-devise" disabled style="background: none !important;">
                           <option value="mga" <?php if ($devise == 'mga') echo "selected"; ?>>Ar</option>
                           <!-- <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>€</option> -->
                           <!-- <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>£</option> -->
@@ -95,9 +96,16 @@
                       <!-- <div class="tip">
                         Pour un paiement via Paypal, sélectionner la devise Euro (€).
                       </div> -->
-                          <?php if ( get_field('montant_suggere', $id ) != 0 ): ?>
+                          <?php if ( get_field('montant_suggere', $id ) != 0 && get_field('condition_de_participation', $id ) == "conseille" ): ?>
                       		<span class="montant"> 
-                            <?php echo __('Montant suggéré : ', 'kotikota');  
+                            <?php echo __('Montant minimum conseillé : ', 'kotikota');  
+                            
+                              $devise_lbl = $deviseB['label'];                             
+                              echo "<span id='span_montant' class='format_chiffre'>".get_field('montant_suggere', $id ).'</span> <span id="span_devise">'.$devise_lbl.'</span>' ?>
+                          </span>
+                          <?php elseif ( get_field('montant_suggere', $id ) != 0 && get_field('condition_de_participation', $id ) == "fixe" ): ?>
+                      		<span class="montant"> 
+                            <?php echo __('Montant minimum imposé : ', 'kotikota');  
                             
                               $devise_lbl = $deviseB['label'];                             
                               echo "<span id='span_montant' class='format_chiffre'>".get_field('montant_suggere', $id ).'</span> <span id="span_devise">'.$devise_lbl.'</span>' ?>

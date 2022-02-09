@@ -35,7 +35,7 @@
               
               <div class="blcTab">
                 <ul class="tab-nav">
-                    <li class="participation"><a href="#participation"><span><?php _e('Participations','kotikota'); ?></span></a></li>
+                    <li class="participation"><a href="#participation"><span><?php _e('Participants','kotikota'); ?></span></a></li>
                     <li class="mot-doux"><a href="#mot-doux"><span><?php _e('Messages','kotikota'); ?></span></a></li>
                     <li class="question"><a href="#question"><span><?php _e('Questions','kotikota'); ?></span></a></li>
                 </ul>

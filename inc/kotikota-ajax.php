@@ -69,9 +69,9 @@ function create_cagnotte(){
         }
     }    
 
-    if ( !isset($condParticip) || $condParticip == "" )
+    if ( !isset($condParticip) || $condParticip == "" ){
         $erreurs[] = __("Choisir votre condition de participation", "kotikota");
-    else{  
+    }else{  
         $montant = 0;           
         switch ( $condParticip ) { //1 libre - 2 conseille - 3 fixe
             case 'conseille':
@@ -217,7 +217,7 @@ function create_cagnotte(){
         }
 
         sendNotificationCreation($newPost);
-        if( $post_notif)
+        if( $post_notif && !$_POST['cin_value'])
             sendRappelPostCreation( $now_user );
 
         $single = get_permalink( $newPost );
@@ -335,7 +335,7 @@ function creer_participation(){
         $fixe = (int)get_field('montant_suggere', $_POST['idCagnotte'] );
         if ( $fixe && preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $fixe ) ) ){
             if ( $fixe != $donation ){
-                $erreurs[] = __("Veuillez entrer le montant fixé", "kotikota");
+                $erreurs[] = __("Attention montant minimum imposé", "kotikota");
             }
         }elseif( !preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $fixe ) ) ){
             $erreurs[] = __("Entrer uniquement un chiffre comme montant.", "kotikota");
@@ -465,10 +465,10 @@ function save_info_principale(){
     if ( !isset($_POST['tel']) || $_POST['tel'] == "" ){
        $erreurs[] = __("Entrer le numéro de contact du bénéficiaire.", "kotikota");
     } elseif( !preg_match('/^\+[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( str_replace(' ','',$_POST['tel'] ) ) ) ){
-        $erreurs[] = __("Entrer un numero de téléphone valide", "kotikota");
+        // $erreurs[] = __("Entrer un numero de téléphone valide", "kotikota");
     }
-    if ( !isset($_POST['rib']) || $_POST['rib'] == "" )
-       $erreurs[] = __("Entrer le RIB du bénéficiaire.", "kotikota");
+    // if ( !isset($_POST['rib']) || $_POST['rib'] == "" )
+    //    $erreurs[] = __("Entrer le RIB du bénéficiaire.", "kotikota");
 
    if ( !isset($_POST['categ']) || $_POST['categ'] == "" )
        $erreurs[] = __("Indiquer la catégorie de cagnotte.", "kotikota");
@@ -527,7 +527,9 @@ function save_info_principale(){
     $prenom    = strip_tags( $_POST['prenom'] );
     $email     = strip_tags( $_POST['email'] );
     $telephone = strip_tags( $_POST['tel'] );
+    $code      = strip_tags( $_POST['code'] );
     $rib       = strip_tags( $_POST['rib'] );
+    update_field('code_benef', $code, $idBenef );
    
     $update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
     update_field('benef_cagnotte', $idBenef, $idCagnotte);
@@ -860,8 +862,8 @@ function edit_profile(){
     if ( !isset($_POST['mail']) || $_POST['mail'] == "" || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) )
         $erreurs[] = __("Entrez votre adresse email valide.", "kotikota");
 
-    if ( !isset($_POST['naiss']) || $_POST['naiss'] == "" )
-        $erreurs[] = __("Entrez votre date de naissance.", "kotikota");
+    if ( !isset($_POST['tel']) || $_POST['tel'] == "" )
+        $erreurs[] = __("Entrez votre numéro de téléphone.", "kotikota");
 
     if ( isset($_POST['newpwd']) && $_POST['newpwd'] != '' ){
         
@@ -906,8 +908,10 @@ function edit_profile(){
         $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
         update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
     }
+  
+    update_field('code', $_POST['code'], 'user_'.get_current_user_id());
 
-    update_field('date_de_naissance', strip_tags( $_POST['naiss'] ), 'user_'.get_current_user_id());
+    update_field('numero_de_telephone', strip_tags( $_POST['tel'] ), 'user_'.get_current_user_id());
 
     wp_die();
 }

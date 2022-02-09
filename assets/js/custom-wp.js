@@ -1,5 +1,7 @@
 $(document).ready(function() {
-
+    // $(".media-sidebar").initialize( function(){
+    //    alert("bka")
+    // });
     var change_mga_eu = $('#change-mga-eu').val();
     var change_mga_us = $('#change-mga-us').val();
     var change_us_eu = $('#change-us-eu').val();
@@ -179,6 +181,8 @@ $(document).ready(function() {
             vis.find('.span-normal').hide();
             vis.find('.span-hover').show();
         }
+        vis.parents().find(".menu-liste-cagnotte").first().removeClass("active");
+
     });
 
     $(".fancybox-faq").fancybox({
@@ -249,16 +253,38 @@ $(document).ready(function() {
     //upload image cagnotte
     var mediaUploader;
     $('#fileImg').click(function(e) {
+
+        $('button[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            // var target = $(e.target).attr("href") // activated tab
+            alert("target");
+        }); 
         e.preventDefault();
         if (mediaUploader) {
+            $("#menu-item-upload").html("Télécharger des fichiers");
+            $("#menu-item-browse").html("Galerie de photos");
+            $("#menu-item-upload").insertAfter('#menu-item-browse')
+            
+            $("#menu-item-browse").click();
+            $("#menu-item-browse").css("display","block");
+            $(".media-uploader-status .h2").html("Téléchargement");
+
+            
+            $("#menu-item-upload").click(function(e) {
+                $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+                $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+                $(".media-uploader-status .h2").html("Téléchargement");
+            });
             mediaUploader.open();
             return;
         }
+
         mediaUploader = wp.media.frames.file_frame = wp.media({
             multiple: false
         });
         mediaUploader.on('select', function() {
+
             var attachment = mediaUploader.state().get('selection').first().toJSON();
+            
             if ($('.blc-cagnotte').length) {
                 $('#url_img_cagnotte').val(attachment.url).addClass('filled');
             }
@@ -280,10 +306,23 @@ $(document).ready(function() {
                     }
                 }
             );
+
         });
         mediaUploader.open();
-    });
 
+        $("#menu-item-upload").html("Télécharger des fichiers");
+        $("#menu-item-browse").html("Galerie de photos");
+        $("#menu-item-upload").insertAfter('#menu-item-browse')
+        $(".media-uploader-status .h2").html("Téléchargement");
+         
+        $("#menu-item-browse").click();
+
+        $("#menu-item-upload").click(function(e) {
+            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $(".media-uploader-status .h2").html("Téléchargement");
+        });
+    });
     function getMeta(url, callback) {
         var img = new Image();
         img.src = url;
@@ -516,6 +555,7 @@ $(document).ready(function() {
         setTimeout(function(args) {
             $('.zone-img').css('background', 'center / cover no-repeat url(' + $('#url_img_cagnotte').val() + ')');
             $('.zone-img .inputfile + label').addClass('no-bg');
+            $("label.no-bg").html("Changer<br>votre photo");
         }, 500);
         return false;
     });
@@ -562,6 +602,19 @@ $(document).ready(function() {
     $('#pdp-btn').click(function(e) {
         e.preventDefault();
         if (mediaUploader) {
+            $("#menu-item-upload").html("Télécharger des fichiers");
+            $("#menu-item-browse").html("Galerie de photos");
+            $("#menu-item-upload").insertAfter('#menu-item-browse')
+            
+            $("#menu-item-browse").click();
+            $("#menu-item-browse").css("display","block");
+            $(".media-uploader-status .h2").html("Téléchargement");
+
+            $("#menu-item-upload").click(function(e) {
+                $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+                $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+                $(".media-uploader-status .h2").html("Téléchargement");
+            });
             mediaUploader.open();
             return;
         }
@@ -576,10 +629,28 @@ $(document).ready(function() {
             $('.zone-img .inputfile + label').addClass('no-bg');
         });
         mediaUploader.open();
+        $("#menu-item-upload").html("Télécharger des fichiers");
+        $("#menu-item-browse").html("Galerie de photos");
+        $("#menu-item-upload").insertAfter('#menu-item-browse')
+        $(".media-uploader-status .h2").html("Téléchargement");
+         
+        $("#menu-item-browse").click();
+
+        $("#menu-item-upload").click(function(e) {
+            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $(".media-uploader-status .h2").html("Téléchargement");
+        });
     });
     $('#cin_btn').click(function(e) {
         e.preventDefault();
         if (mediaUploader) {
+            $("#menu-item-upload").html("Télécharger");
+            $("#menu-item-upload").click();
+            $("#menu-item-browse").css("display","none");
+            $(".media-uploader-status .h2").html("Téléchargement");
+            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
             mediaUploader.open();
             return;
         }
@@ -593,10 +664,22 @@ $(document).ready(function() {
             $('#cin_value').siblings('span').text(attachment.filename);
         });
         mediaUploader.open();
+        $("#menu-item-upload").html("Télécharger");
+        $("#menu-item-upload").click();
+        $("#menu-item-browse").css("display","none");
+        $(".media-uploader-status .h2").html("Téléchargement");
+        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+        $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
     });
     $('#rib_btn').click(function(e) {
         e.preventDefault();
         if (mediaUploader) {
+            $("#menu-item-upload").html("Télécharger");
+            $("#menu-item-upload").click();
+            $("#menu-item-browse").css("display","none");
+            $(".media-uploader-status .h2").html("Téléchargement");
+            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
             mediaUploader.open();
             return;
         }
@@ -609,6 +692,12 @@ $(document).ready(function() {
             $('#rib_value').siblings('span').text(attachment.filename);
         });
         mediaUploader.open();
+        $("#menu-item-upload").html("Télécharger");
+        $("#menu-item-upload").click();
+        $("#menu-item-browse").css("display","none");
+        $(".media-uploader-status .h2").html("Téléchargement");
+        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+        $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
     });
 
     $('.signup-date-birth').datepicker({
@@ -678,7 +767,108 @@ $(document).ready(function() {
         return false;
     })
 
+    if( $('.participation #phone:visible').length > 0 ){
+        var input = document.querySelector("#phone"),
+        errorMsg = document.querySelector("#error-msg"),
+        validMsg = document.querySelector("#valid-msg");
+
+        // var errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
+
+        var iti = window.intlTelInput(input, {
+            initialCountry: $("#code").val(),
+            customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) {
+                return "";
+            },
+            separateDialCode: true,
+            geoIpLookup: function(callback) {
+                $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+                  var countryCode = (resp && resp.country) ? resp.country : "mg";
+                  callback(countryCode);
+            });
+            },
+            preferredCountries: ["mg","fr"],
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+        });
+
+
+        var reset = function() {
+          input.classList.remove("error");
+          errorMsg.innerHTML = "";
+          errorMsg.classList.add("hide");
+          validMsg.classList.add("hide");
+
+        };
+
+        // on blur: validate
+        input.addEventListener('blur', function() {
+          reset();
+          if (input.value.trim()) {
+            if (iti.isValidNumber()) {
+              validMsg.classList.remove("hide");
+            } else {
+              input.classList.add("error");
+              var errorCode = iti.getValidationError();
+              errorMsg.innerHTML = "✗";
+              errorMsg.classList.remove("hide");
+            }
+          }
+        });
+
+        // on keyup / change flag: reset
+        input.addEventListener('change', reset);
+        input.addEventListener('keyup', reset);
+    }
+
+
+    if( $('#tel:visible').length > 0 ){
+        var input = document.querySelector("#tel"),
+        errorMsg = document.querySelector("#error-msg"),
+        validMsg = document.querySelector("#valid-msg");
+
+        var iti = window.intlTelInput(input, {
+            initialCountry: $("#code").val(),
+            separateDialCode: true,
+            geoIpLookup: function(callback) {
+                $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+                  var countryCode = (resp && resp.country) ? resp.country : "mg";
+                  callback(countryCode);
+            });
+            },
+            preferredCountries: ["mg","fr"],
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+        });
+
+        var reset = function() {
+          input.classList.remove("error");
+          errorMsg.innerHTML = "";
+          errorMsg.classList.add("hide");
+          validMsg.classList.add("hide");
+        };
+
+        // on blur: validate
+        input.addEventListener('blur', function() {
+          reset();
+          if (input.value.trim()) {
+            if (iti.isValidNumber()) {
+              validMsg.classList.remove("hide");
+            } else {
+              input.classList.add("error");
+              var errorCode = iti.getValidationError();
+              errorMsg.innerHTML = "✗";
+              errorMsg.classList.remove("hide");
+            }
+          }
+        });
+
+        // on keyup / change flag: reset
+        input.addEventListener('change', reset);
+        input.addEventListener('keyup', reset);
+    }
+    $(".iti__country").click(function(e) {
+        $("#code").val($(this).attr("data-country-code"));
+    });
 });
+
 
 // $( window ).load(function() {
 //     /* menu connecté */

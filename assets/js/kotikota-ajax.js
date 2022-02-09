@@ -95,18 +95,18 @@ $(function(){
 	  });
 	  
 	  $('#creer-participation').click(function(e){
-	  	
 	  	var fname = $('#fname').val();
 	  	var lname = $('#lname').val();
 	  	var mail = $('#mail').val();
-	  	var phone = $('#phone').val();
-	  	var phone_33 = $('#phone').val();
+	  	var phone = $('.iti__selected-dial-code').html()+$('#phone').val();
+	  	var phone_33 = $('.iti__selected-dial-code').html()+$('#phone').val();
 	  	var condition = $('#condition').val();
 	  	var donation = $('#donation').val();
 	  	var devise = $('#choix-devise').val();
 	  	var message = $('#message').val();
 	  	var accord 				= $('#accord:checked').val();
 	  	var maskIdentite = $('#masque1:checked').val();
+
 	  	if (maskIdentite != "on"){
 	  		maskIdentite = "off";
 	  	}
@@ -289,6 +289,7 @@ $(function(){
 	  	var nom = $('#nom').val();
 	  	var prenom = $('#prenom').val();
 	  	var email = $('#email').val();
+	  	var code = $('#code').val();
 	  	var tel = $('#tel').val();
 	  	var rib = $('#rib_value').val();
 
@@ -304,6 +305,7 @@ $(function(){
 	  			'nom': nom,
 	  			'prenom': prenom,
 	  			'email': email,
+	  			'code': code,
 	  			'tel': tel,
 	  			'rib': rib,
 	  			'categ': categ,
@@ -599,7 +601,8 @@ $(function(){
 	  	var nom = $('#fname').val();
 	  	var prenom = $('#lname').val();
 	  	var mail = $('#mail').val();
-	  	var naiss = $('.signup-date-birth').val();
+	  	var code = $('#code').val();
+	  	var tel = $('#tel').val();
 	  	var pdp = $('#pdp').val();
 	  	var newpwd = $('#newpwd').val();
 	  	var cin_value = $('#cin_value').val();	
@@ -612,7 +615,8 @@ $(function(){
 			  			'nom': nom,
 			  			'prenom': prenom,
 			  			'mail': mail,
-			  			'naiss': naiss,
+			  			'code': code,
+			  			'tel': tel,
 			  			'pdp' : pdp,
 			  			'newpwd' : newpwd,
 			  			'cin_value' : cin_value

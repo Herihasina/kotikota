@@ -120,7 +120,12 @@
     font-weight: normal;
     font-style: normal;
 }
-
+#phone, #tel {
+	padding-left: 90px !important;
+}
+.iti.iti--allow-dropdown > input {
+	padding-left: 90px !important;
+}
 /* RESET */
 body, ul, li, ol, form, h1, h2, h3, h4, h5, h6, div, span, p { padding:0; margin:0; border:0; -webkit-text-size-adjust:none; -moz-text-size-adjust:none; text-size-adjust:none;}
 article, aside, dialog ,figcaption, figure, footer, header, hgroup, main, nav, section { display:block;}  
@@ -392,11 +397,11 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .footer-2 .mail                                             { padding-left: 70px; /*background: url(../images/ico-mail.png) no-repeat left center*/;min-height: 50px;}
 
 /*.footer-3 .tel li a:before                                  { content: ''; background: url(../images/ico-tel.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -26px; display: block; } */
-.footer-2 .adresse li a:before                              { content: ''; background: url(../images/ico-adresse.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -26px; display: block; }
-.footer-2 .mail li a:before                                  { content: ''; background: url(../images/ico-mail.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -26px; display: block; }
-.footer-3 .tel li a:first-of-type:before                    { content: ''; background: url(../images/ico-tel.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -26px; display: block;}
+.footer-2 .adresse li a:before                              { content: ''; background: url(../images/ico-adresse.png); width: 50px; height: 50px; position: absolute; left: -70px;top: 0px; display: block; }
+.footer-2 .mail li a:before                                  { content: ''; background: url(../images/ico-mail.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -16px; display: block; }
+.footer-3 .tel li a:first-of-type:before                    { content: ''; background: url(../images/ico-tel.png); width: 50px; height: 50px; position: absolute; left: -70px;top: 0px; display: block;}
 .footer-3 .Whatsapp                                         { padding-left: 70px;/* background: url(../images/ico-tel.png) no-repeat left center;*/ min-height: 50px; color: #131313}
-.footer-3 .Whatsapp li a:before                             { content: ''; background: url(../images/ico-wats-app.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -26px; display: block;}
+.footer-3 .Whatsapp li a:before                             { content: ''; background: url(../images/ico-wats-app.png); width: 50px; height: 50px; position: absolute; left: -70px;top: -16px; display: block;}
 
 .footer-3                                                   { padding-top: 33px }
 .social                                                     { float: right; padding-top: 32px; }
@@ -616,7 +621,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .choix-photo .col-right label   { margin-bottom: 30px;}
 .chy-type                       { margin: 0 -20px 40px }
 .chy-type .col                  { float: left; padding: 0 20px }
-.chy-type .col.col53             { width: 53%; padding-right: 65px }
+.chy-type .col.col53             { padding-left: 20px; width: 52%; }
 .chy-type .col.col47             { width: 47%; padding-left: 0 }
 .blc-chp select                 { width: 100%; box-sizing: border-box; height: 100%; background: url(../images/select.png) right center no-repeat; border: #dddddd solid 1px; -webkit-appearance: none; -moz-appearance: none; -ms-appearance: none; appearance: none; outline: none; cursor: pointer; color: #7b7b7b; font-size: 16px; font-family:Montserrat ; border-radius: 10px; height: 60px; padding: 0 27px }
 .blc-chp select option { padding: 10px 30px }
@@ -875,6 +880,119 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 
 .percent text tspan {font-family: Montserrat-b;}
 
+/* sjd */
+.menu-cagnotte.anniv           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.Mariage          { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.fiancaille           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.naissance           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.cremaillere           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.diplom           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.pot             { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.autre           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.action           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.creation           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.investissement           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.soins           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.obseque           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.voyage           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.soire           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.rembourssement           { padding: 13px 20px 10px 30px; }
+.menu-cagnotte.anniv::before           { 
+    background: url('../images/anniv.png') no-repeat center #e83878;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.Mariage::before          {
+     background: url('../images/mariage.png') no-repeat center #885297;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.fiancaille::before        
+   { background: url('../images/fiancaile.png') no-repeat center #fbbd36;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.naissance::before         
+  { background: url('../images/naissance.png') no-repeat center #59bdb1;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.cremaillere::before       
+    { background: url('../images/cremellaire.png') no-repeat center #8d4a8f;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.diplom::before           {
+     background: url('../images/diplome.png') no-repeat center #e83878;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.pot::before             { 
+    background: url('../images/pot.png') no-repeat center #885297;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.autre::before           { 
+    background: url('../images/autres.png') no-repeat center #bbbbbb;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.action::before           {
+     background: url('../images/action-human.png') no-repeat center #8d4a8f;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.creation::before          
+ { background: url('../images/creation.png') no-repeat center #fbbd36;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.investissement::before    
+       { background: url('../images/investissement.png') no-repeat center #59bdb1;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.soins::before           { 
+    background: url('../images/soins.png') no-repeat center #e83878;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.obseque::before           
+{ background: url('../images/obseque.png') no-repeat center #8d4a8f;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.voyage::before           {
+     background: url('../images/voyage.png') no-repeat center #e83878;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.soire::before           { 
+    background: url('../images/soire.png') no-repeat center #885297;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
+.menu-cagnotte.rembourssement::before    
+       { background: url('../images/remboursement.png') no-repeat center #fbbd36;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-size: 35px; }
 /*.blc-cagnotte-liste .lst-cagnotte-publique:hover .item .content { opacity: 1 }*/
 .blc-cagnotte-liste .lst-cagnotte-publique { margin-bottom: 42px }
 .pagination                     { text-align: center }
@@ -1165,7 +1283,9 @@ ul#response.error,
 /*margin-top: -19px;
 padding-top: 22px;*/ }
 
-.zone-img .inputfile + label.no-bg { border: none; font-size: 0 }
+.zone-img .inputfile + label.no-bg { 
+    /* border: none; font-size: 0  */
+}
 
 #montant_fixe { opacity: 0.3 }
 #montant_conseille { opacity: 0.3 }
@@ -1485,18 +1605,19 @@ input:checked {
 .formulaire-cagnotte .col-dates .chy-type {
     margin: 0 0 ;
 }
-.formulaire-cagnotte .chy-type .col.col47.col-dates {
-    width: 100%;
-}
 .formulaire-cagnotte  .chy-type .col.col47 {
     width: 50%;
-    /* padding-left: 0; */
+    padding-left: 20px;
 }
 .formulaire-cagnotte  .col-dates .chy-type {
     margin: 0 -20px 40px;
     padding-left: 0;
 }
 
+.formulaire-cagnotte .chy-type .col.col47.col-dates {
+    width: 100%;
+    padding-left: 0;
+}
 .Info-principale .blcFormulaire.fichier {
     padding: 0 26px;
 }
@@ -1737,7 +1858,7 @@ input:checked {
 .col.col47.col-dates {
     padding-right: 0;
     width: 100%;
-    padding-left: 20px;
+    padding-left: 0;
 }
 .col-dates .chy-type {
     padding-left: 10px;
@@ -2557,7 +2678,7 @@ a:hover { color:#fbbd36; }
     .lst-comment-ca-marche .item.transferer span { top: -24px !important;}
 
     .footer-2 .adresse li a:before, .footer-2 .mail li a:before,
-    .footer-3 .tel li a:first-of-type:before, .footer-3 .Whatsapp li a:before { left: 0; top: -85px; right: 0; margin: auto;}
+    .footer-3 .tel li a:first-of-type:before, .footer-3 .Whatsapp li a:before { left: 0; top: -60px; right: 0; margin: auto;}
     .footer-2 .mail, .footer-3 .tel, .footer-3 .Whatsapp { padding-left: 0; padding-top: 60px;}
     .enter-mail-id{ width: 100%!important; }
 
@@ -2661,4 +2782,24 @@ a:hover { color:#fbbd36; }
 @media (max-width:600px) {
      .footer-3 .Whatsapp li a:first-child:before { display: none; }
 
+}
+
+
+#menu-item-upload {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    -webkit-order: 2;
+    order: 2;
+  }
+
+#menu-item-browse {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+}
+#cin_btn {
+	z-index: 0;
 }

@@ -45,7 +45,7 @@
           </div>
           	<ul id="response"></ul>
 	        <div class="btn wow fadeIn" data-wow-delay="950ms">
-	          <a href="<?php echo get_permalink( $idCagnotte ) ?>" class="link" title="<?php _e('annuler','kotikota') ?>"><?php _e('terminer','kotikota') ?></a>
+	          <a href="<?php echo get_permalink( $idCagnotte ) ?>" class="link" title="<?php _e('annuler','kotikota') ?>"><?php _e('Annuler','kotikota') ?></a>
 	           <a href="<?php echo get_permalink( $idCagnotte)?>" class="link submit" title="Valider" id="submit-parametre"><?php _e('Valider','kotikota') ?></a>
 	        </div>
 

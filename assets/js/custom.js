@@ -1,5 +1,19 @@
 $(document).ready(function() {	
-
+	$("#connecter .fieldset--submit").click(function() {
+		$("#connecter .lrm-form-message").insertBefore($("#connecter .fieldset--submit"))
+		$("#connecter .lrm-form-message").addClass("hide");
+		$("#connecter .lrm-form-message").first().removeClass("hide");
+	});
+	$("#inscription .link.submit").click(function() {
+		$("#inscription .lrm-form-message-wrap").insertBefore($("#inscription div.bottom"))
+		$('#inscription .lrm-is-error').each(function() {
+			var txt = $(this).text();
+			if (seen[txt])
+				$(this).remove();
+			else
+				seen[txt] = true;
+		});
+	});
   // MENU FIXED //
 	$(window).scroll(function () {
 		var posScroll = $(document).scrollTop();
@@ -8,6 +22,17 @@ $(document).ready(function() {
 		} else {
 			$('.headerTop ').removeClass('sticky')
 		}
+		// if(!$("input[name=isHome]").val()) {
+		// 	var posScroll = $(document).scrollTop();
+		// 	if (posScroll > 50) {
+		// 		$('.headerTop ').addClass('sticky')
+		// 	} else {
+		// 		$('.headerTop ').removeClass('sticky')
+		// 	}
+		// } else {
+		// 	$('.headerTop ').addClass('sticky')
+		// }
+		
 	});
 	// MENU MOBILE //
 	$(".wrapMenuMobile").click(function() {
@@ -368,6 +393,9 @@ $(document).ready(function() {
 	$(".lst-type .item").click(function() {
 		$(this).addClass("active");
 		var k = ("#formulaire");
+		$(".menu-cagnotte").html($(this).find('.inner').html());
+		var classe = $(this).find('.inner').attr("class").replace("inner ", "");
+		$(".menu-cagnotte").attr("class", "menu-cagnotte "+classe);
 		$('html, body').animate({ scrollTop: $(k).offset().top - 350 }, 1000, "linear");
 		return false;
 	});

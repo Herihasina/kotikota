@@ -3,7 +3,11 @@
     <div class="lst-msg participation clr">
     <?php                       
       $tous_les_participants = get_field( 'tous_les_participants' );
+
       if ( $tous_les_participants && !$masquer_contributions): 
+        usort($tous_les_participants,function($a, $b) {
+          return strcmp($b['participant_']->post_modified, $a['participant_']->post_modified);
+        });
         foreach ( $tous_les_participants as $un ):
 
           $email_participant = $un['participant_']->email_participant;

@@ -80,7 +80,7 @@
                     $devise = get_field('devise', $idCagnotte);
                     $devise = $devise['value'];
                    ?>
-                   <select id="devise">
+                   <select id="devise" disabled style="background: none !important;">
                       <option value="mga" <?php if ($devise == 'mga') echo "selected"; ?>>ARIARY (Ar)</option>
                       <!-- <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>EURO (€)</option> -->
                       <!-- <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>LIVRE (£)</option>                      -->

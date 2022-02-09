@@ -9,13 +9,13 @@
                     <div class="footer-2">
                         <div class="col">
                             <div class="adresse">
-                                <div class="titre"><?= __('Où nous trouver ?','kotikota') ?></div>
+                                <!-- <div class="titre"><?= __('Où nous trouver ?','kotikota') ?></div> -->
                                 <?= get_theme_mod('ct_address') ?>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mail">
-                                <div class="titre"><?= __('nous écrire à','kotikota') ?></div>
+                                <!-- <div class="titre"><?= __('nous écrire à','kotikota') ?></div> -->
                                 <?= get_theme_mod('ct_email') ?>
                             </div>
                         </div>
@@ -23,20 +23,27 @@
                     <div class="footer-3">
                         <div class="col">
                             <div class="tel">
-                                <div class="titre"><?= __('Téléphone','kotikota') ?></div>
+                                <!-- <div class="titre"><?= __('Téléphone','kotikota') ?></div> -->
                                 <?= get_theme_mod('ct_phone') ?>
                             </div>
                             <div class="Whatsapp">
-                                <div class="titre">Whatsapp</div>
+                                <!-- <div class="titre">Whatsapp</div> -->
                                 <?= get_theme_mod('ct_whatsapp') ?>
                             </div>
                         </div>
                     </div>
                     <div class="social">
-                        <a href="<?= get_theme_mod('sn_fb_setting') ?>" class="fb" target="_blank"></a>
-                        <a href="<?= get_theme_mod('sn_insta_setting') ?>" class="insta" target="_blank"></a>
-                        <a href="<?= get_theme_mod('sn_tweet_setting') ?>" class="twitter" target="_blank"></a>
-                        <a href="<?= get_theme_mod('sn_yt_setting') ?>" class="youtube" target="_blank"></a>
+                        <div>
+                            <a href="<?= get_theme_mod('sn_fb_setting') ?>" class="fb" target="_blank"></a>
+                            <a href="<?= get_theme_mod('sn_insta_setting') ?>" class="insta" target="_blank"></a>
+                            <a href="<?= get_theme_mod('sn_tweet_setting') ?>" class="twitter" target="_blank"></a>
+                            <a href="<?= get_theme_mod('sn_yt_setting') ?>" class="youtube" target="_blank"></a>
+                        </div>
+                        <!-- TrustBox widget - Micro Review Count -->
+                        <div class="trustpilot-widget" data-locale="fr-FR" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="61dbd0fc47f95fb0e06d2b7f" data-style-height="50px" data-style-width="80%" style="margin-top: 25%;">
+                          <a href="https://www.trustpilot.com/review/koti-kota.com" target="_blank" rel="noopener">Trustpilot</a>
+                        </div>
+                        <!-- End TrustBox widget -->
                     </div>
                 </div>
                 <div class="blcBottom clr">

@@ -32,7 +32,7 @@
                     <li><a href="#" id="en"><img src="<?php echo $icones['anglais'] ?>"></a></li>
                 </ul>
             </div>
-            <?php //echo do_shortcode('[gtranslate]'); ?>
+            <?php echo do_shortcode('[gtranslate]'); ?>
             <?php if ( !is_user_logged_in() ) :?>
             <div class="btn-head">
                 <a href="#connecter" class="link fancybox-home " title="<?= __('s’enregistrer /se connecter','kotikota') ?>"><?= __('s’enregistrer /se connecter','kotikota') ?></a>

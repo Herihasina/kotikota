@@ -34,38 +34,38 @@ function wpb_sender_name( $original_email_from ) {
 add_filter( 'wp_mail_from_name', 'wpb_sender_name' );
 
 function get_slug() {
-	$slug = esc_html($_SERVER['REQUEST_URI'] );
-	$slugs = explode('/', $slug );
+  $slug = esc_html($_SERVER['REQUEST_URI'] );
+  $slugs = explode('/', $slug );
 
     return  $slugs[1];
 }
 
 function save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise  ){
-	global $wpdb;
+  global $wpdb;
 
-	$customer_table = $wpdb->prefix.'participation';
+  $customer_table = $wpdb->prefix.'participation';
 
-	 $mot_doux = $mot_doux == '' ? '' : $mot_doux;
+   $mot_doux = $mot_doux == '' ? '' : $mot_doux;
 
   $wpdb->insert($customer_table, array(
-  	"id_cagnotte" 					=> $idCagnotte,
-  	"email" 		 					=> $email,
-  	"lname" 		 					=> $lname,
-  	"fname" 		 					=> $fname,
-  	"phone" 		 					=> $phone,
+    "id_cagnotte"           => $idCagnotte,
+    "email"               => $email,
+    "lname"               => $lname,
+    "fname"               => $fname,
+    "phone"               => $phone,
     "donation"            => $donation,
-  	"devise"   	 					=> $devise,
-  	"paiement" 	 					=> $paiement,
-  	"maskParticipation" 	=> $maskParticipation,
-  	"maskIdentite" 				=> $maskIdentite,
+    "devise"              => $devise,
+    "paiement"            => $paiement,
+    "maskParticipation"   => $maskParticipation,
+    "maskIdentite"        => $maskIdentite,
     "date"                => date("d-m-Y h:i:s"),
-  	"mot_doux" 						=> $mot_doux,    
+    "mot_doux"            => $mot_doux,    
   ));
   return $wpdb->insert_id;
 }
 
 function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $modeDePaiement, $maskParticipation, $maskIdentite ){
-	//alaina izay participant manana an'io email io (car email est unique)
+  //alaina izay participant manana an'io email io (car email est unique)
   $oldParticipant = get_posts(array(
           'post_type' => 'participant',
           'meta_query' => array(
@@ -199,7 +199,7 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
 }
 
 function insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux ){
-	//ajoutena ao @CPT mot_doux ilay message t@ty participation ty    
+  //ajoutena ao @CPT mot_doux ilay message t@ty participation ty    
     $postarr = array(
             'post_type' => 'mot_doux',
             'post_title' => $fname.' '.$lname,
@@ -233,22 +233,22 @@ function insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux ){
 }
 
 function get_participation( $id_participation, $email = null, $est_finalise = 'false' ){
-	global $wpdb;
+  global $wpdb;
   $participation = $wpdb->prefix.'participation';
 
   if ( $email !== null ){
-  	$result = $wpdb->get_results(
+    $result = $wpdb->get_results(
       "SELECT * FROM $participation 
       WHERE id_participation = '$id_participation'     
           AND email = '$email'
           AND est_finalise = '$est_finalise' "
-  	); 
+    ); 
   }else{
-  	$result = $wpdb->get_results(
+    $result = $wpdb->get_results(
       "SELECT * FROM $participation 
       WHERE id_participation = '$id_participation'
           AND est_finalise = '$est_finalise' "
-  	);
+    );
   }
   
   if (!empty($result)) {
@@ -259,14 +259,14 @@ function get_participation( $id_participation, $email = null, $est_finalise = 'f
 }
 
 function update_participation( $id_participation ){
-	global $wpdb;
+  global $wpdb;
   $participation = $wpdb->prefix.'participation';
   $up_part = $wpdb->update($participation, 
       array(
           "est_finalise"     => 1,
       ),
       array(
-      	"id_participation" => $id_participation
+        "id_participation" => $id_participation
       )
   );
   if($up_part){
@@ -277,17 +277,17 @@ function update_participation( $id_participation ){
 }
 
 function get_devise_cagnotte( $id_cagnotte ){
-	$devise = get_field('devise', $id_cagnotte );
+  $devise = get_field('devise', $id_cagnotte );
   if( array_key_exists('value', $devise) ){
-	 $devise = $devise['value'];
+   $devise = $devise['value'];
   }else{
     $devise = $devise[1];
   }
-	return $devise;
+  return $devise;
 }
 
 function get_parameters(){
-	$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   $url_components = parse_url($url);
   parse_str($url_components['query'], $params); 
 
@@ -613,6 +613,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $info->email  = get_field('email_benef', $idBenef );
     $info->telephone = get_field('telephone_benef', $idBenef );
     $info->rib    = get_field('rib_benef', $idBenef );
+    $info->code    = get_field('code_benef', $idBenef );
 
     return $info;
   }
@@ -667,11 +668,8 @@ function choose_photo_and_insert_to_acf( $posted_img, $custom_field_key, $postID
 
       if( $poids > 8000000 ){
           $file['error'] = __('📸 taille 8 Mo autorisée 😉','kotikota'); 
-      }elseif ( $image_width < $minimum['width'] || $image_height < $minimum['height'] ) {
-          $file['error'] = __('Largeur minimale : 1024px, Hauteur minimale : 475px','kotikota');
-      }elseif ( $image_width > $maximum['width'] || $image_height > $maximum['height'] ) {
-          $file['error'] = __('Largeur maximale : 2000px, Hauteur maximale : 1500px','kotikota');
-      }elseif( !strpos('image', $file['type']) ){
+      }
+      elseif( !strpos('image', $file['type']) ){
           $file['error'] = __('Format de fichier non pris en charge','kotikota');
       }
 
@@ -686,4 +684,25 @@ function choose_photo_and_insert_to_acf( $posted_img, $custom_field_key, $postID
     }
    
   } 
+}
+
+function get_user_id_by_display_name( $display ){
+  // SELECT ID FROM `wp_users` WHERE `display_name` LIKE '%gp sc%';
+
+  global $wpdb;
+
+  $users         = $wpdb->prefix.'users';
+
+  $result = $wpdb->get_results(
+    "SELECT ID 
+    FROM $users as u
+    WHERE u.display_name = '$display'
+    "
+  );
+
+  if (!empty($result)) {
+    return $result[0];
+  }else {
+    return false;
+  }
 }

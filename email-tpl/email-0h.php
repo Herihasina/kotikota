@@ -469,10 +469,11 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    Votre cagnotte a bien été créé.<br><br>
-                                                                    Cependant, afin de pouvoir valider votre identité et pour que votre cagnotte reste active, nous vous invitons à se rendre sur le site et uploader une copie de votre pièce d'identité (CIN ou Passeport).
+                                                                    Il reste une dernière étape pour valider ta cagnotte ✅
+                                                                    <br>
+                                                                    Nous avons besoin sous 48h d’un justificatif d’identité (CIN ou Passeport) pour sécuriser ta cagnotte.
                                                                     <br><br>
-                                                                    Comptant sur votre compréhension.
+                                                                    Il te suffit de cliquer ci-dessous
                                                                 </div>
                                                                 <br>
                                                                  <br>

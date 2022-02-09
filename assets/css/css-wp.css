@@ -133,7 +133,8 @@ select.input-select.select-tarif {
 .notification .blc-check .option ul { margin: 0 -30px }
 
 .zone-img .inputfile + label.no-bg{
-    background: none;
+    /* background: none; */
+    opacity: 0.5;
 }
 .input-image .zone-img.bg-user {
     background-color: transparent;
@@ -469,7 +470,30 @@ select#gtranslate_selector {
 }
 
 .tip.tip_creation{
-        font-size: 16px;
+    font-size: 16px;
     font-style: normal;
     margin-top: 10px;
+    text-align: left;
+}
+.iti.iti--allow-dropdown{
+    display: block;
+}
+.relative{
+    position: relative;
+}
+#error-msg,
+#valid-msg{    
+    position: absolute;
+    right: 3%;
+    top: 56%;
+    font-weight: 800;
+}
+#valid-msg{
+    color: #25cf25;
+}
+#error-msg{
+    color: #b90909;
+}
+.hide{
+    display: none;
 }

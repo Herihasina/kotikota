@@ -19,6 +19,12 @@ function load_front_assets() {
     wp_enqueue_style( 'reset', CSS_URL . 'reset.css' );
     wp_enqueue_style( 'slick', CSS_URL . 'slick.css' );
     wp_enqueue_style( 'scrollbar', CSS_URL . 'jquery.scrollbar.css' );
+
+    wp_enqueue_style( 'intelTelInput', 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css' );
+
+    // if ( is_page('participer') )
+    //     wp_enqueue_style( 'intelTelInput', 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css' );
+
     if ( is_page('gestion-cagnotte-invite'))
         wp_enqueue_style( 'email-multipl', CSS_URL . 'email.multiple.css' );
     wp_enqueue_style( 'css-wp', CSS_URL . 'css-wp.css' );
@@ -39,6 +45,13 @@ function load_front_assets() {
     }
     if ( is_page('gestion-cagnotte-invite'))
         wp_register_script( 'email-multiple', JS_URL . 'jquery.email.multiple.js', array(), true, false, true );
+    
+    wp_register_script( 'intlTelInput', 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.js', array(), true, false, true );
+
+    // if( is_page( 'participer' ) ){
+    //     wp_register_script( 'intlTelInput', 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.js', array(), true, false, true );
+    // }
+
     wp_register_script( 'wow', JS_URL . 'wow.js', array(), true, false, true );
     wp_register_script( 'summernote_lite', JS_URL . 'summernote-lite.js', array(), true, false, true );
     wp_register_script( 'custom', JS_URL . 'custom.js', array(), true, false, true );
@@ -61,6 +74,14 @@ function load_front_assets() {
     }
     if ( is_page('gestion-cagnotte-invite'))
         wp_enqueue_script( 'email-multiple', false, array(), false, true );
+
+    wp_enqueue_script( 'intlTelInput', false, array(), false, true );
+
+    // if( is_page( 'participer' ) ){
+    //     wp_enqueue_script( 'intlTelInput', false, array(), false, true );
+    //     // wp_enqueue_script( 'utils', false, array(), false, true );
+    // }
+
     wp_enqueue_script( 'wow', false, array(), false, true );
     wp_enqueue_script( 'summernote_lite', false, array(), false, true );
     wp_enqueue_script( 'custom', false, array(), false, true );

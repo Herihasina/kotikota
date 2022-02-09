@@ -20,6 +20,9 @@
         }
       ?>
     </title>
+    <!-- TrustBox script -->
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+    <!-- End TrustBox script -->
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <?php if ( is_singular('cagnotte') ) : 
@@ -85,6 +88,13 @@
 
 <div id="wrapper">
     <header id="header">
+      <?php
+        if (is_home() || is_front_page() ):?>
+      <input type="hidden" name="isHome" value=1>
+        
+      <?php
+        endif; 
+      ?>
       <?php
         include 'sections/header/top.php';
         include 'sections/header/slider.php';
