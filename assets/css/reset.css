@@ -713,10 +713,29 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .lst-type .active .soire span         { background-image: url(../images/soire-h.png); background-color: #fff }
 .lst-type .active .soire                { background-color: #885297; color:#fff; }
 
-.lst-type .rembourssement                       { display: none !important;}
+.lst-type .rembourssement                      { display: none !important;}
 .lst-type .inner.rembourssement span           { background: url('../images/remboursement.png') no-repeat center #fbbd36; }
 .lst-type .active .rembourssement span         { background-image: url(../images/remboursement-h.png); background-color: #fff }
-.lst-type .active .rembourssement                { background-color: #fbbd36; color:#fff; }
+.lst-type .active .rembourssement              { background-color: #fbbd36; color:#fff; }
+
+
+.lst-type .environnement                      { display: none !important;}
+.lst-type .inner.environnement span           { background: url('../images/Action_environnementale.png') no-repeat center #59bdb1; }
+.lst-type .active .environnement span         { background-image: url(../images/Action_environnementale-h.png); background-color: #fff }
+.lst-type .active .environnement              { background-color: #59bdb1; color:#fff; }
+
+.lst-type .animal                      { display: none !important;}
+.lst-type .inner.animal span           { background: url('../images/Cause_animal.png') no-repeat center #e83878; }
+.lst-type .active .animal span         { background-image: url(../images/Cause_animal_h.png); background-color: #fff }
+.lst-type .active .animal              { background-color: #e83878; color:#fff; }
+
+.lst-type .religieuse                      { display: none !important;}
+.lst-type .inner.religieuse span           { background: url('../images/Action_religieuse.png') no-repeat center #8d4a8f; }
+.lst-type .active .religieuse span         { background-image: url(../images/Action_religieuse_h.png); background-color: #fff }
+.lst-type .active .religieuse              { background-color: #8d4a8f; color:#fff; }
+
+
+
 
 .lst-form-type                                  { margin:0 -15px 50px }
 .lst-form-type .col                             { padding: 0 15px }
