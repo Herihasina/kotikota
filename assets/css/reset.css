@@ -1899,6 +1899,10 @@ input:checked {
 .cbx span:last-child, .cbx2 span:last-child { width: auto !important; }
 
 
+.gestion-cagnotte .titre.link-cagnotte {
+    margin-top: 60px;
+}
+
 
 
 @media (min-width:1201px) {
