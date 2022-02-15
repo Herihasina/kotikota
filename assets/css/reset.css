@@ -2022,8 +2022,8 @@ a:hover { color:#fbbd36; }
 
     .headerTop .right                                           { margin-top: 17px;}
     .headerTop.sticky .right                                    { margin-top: 0;}
-    .headerTop                                                  { top: 0 }
-    .logo                                                       { width: 90px; height: 90px; display: block; margin: 0 auto ; padding-top: 0 }
+    .headerTop                                                  { top: 0; padding-top: 0  }
+    .logo                                                       { width: 90px; height: 90px; display: block; margin: 0 auto ; }
     .logo img                                                   { display: block; width: 100% }
 
     .lst-apropos .item:first-of-type .content .img              { left: -100px;}
