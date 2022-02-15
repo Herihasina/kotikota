@@ -1902,6 +1902,9 @@ input:checked {
 .gestion-cagnotte .titre.link-cagnotte {
     margin-top: 60px;
 }
+.lst-comment-ca-marche .item .content h3 a:hover {
+    color: #fff;
+}
 
 
 
