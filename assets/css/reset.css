@@ -172,7 +172,7 @@ select option                                               { padding: 10px 30px
 .menu-flag li                                               { float: left; margin: 0 10px  }
 .menu li                                                    { float: left; }
 .logo                                                       { display: block; margin-top: 20px;margin-left: 0;}
-.headerTop                                                  { position: relative; top: 0; left: 0; right: 0; margin: auto; z-index: 99; background-color: #fff; }
+.headerTop                                                  { position: relative; top: 0; left: 0; right: 0; margin: auto; z-index: 99; background-color: #fff; padding-top: 16px }
 .headerTop  .wrapper                                        { max-width: 1329px; }
 .btn-head .link                                             { padding: 18px 29px; border: none; background-color:#fbbd36;  }
 
@@ -1993,9 +1993,9 @@ a:hover { color:#fbbd36; }
     #menu-menu-home { display: none;}
     .wrapMenuMobile                                             { width:auto; height:45px; display:block; z-index:80; transition:all 400ms ease-in-out;  cursor:pointer;  text-transform:uppercase; position:absolute; right:40px; top:23px;}
     .menuMobile                                                 { width:30px; display:block; height:45px; cursor:pointer; position:relative; line-height:20px;padding: 0;color: #ffffff; text-indent: -100px;}
-    .menuMobile>div                                             { width:25px; height:3px; background:#ffffff; position:absolute; left:0;right:0;margin:auto; top:50%; margin-top:-1px;}
-    .menuMobile>div:before                                      { width:100%; height:3px; background:#ffffff; position:absolute; right:0; top:9px; content:"";}
-    .menuMobile>div:after                                       { width:100%; height:3px; background:#ffffff; position:absolute; right:0; top:-9px; content:"";}
+    .menuMobile>div                                             { width:25px; height:3px; background:#131313; position:absolute; left:0;right:0;margin:auto; top:50%; margin-top:-1px;}
+    .menuMobile>div:before                                      { width:100%; height:3px; background:#131313; position:absolute; right:0; top:9px; content:"";}
+    .menuMobile>div:after                                       { width:100%; height:3px; background:#131313; position:absolute; right:0; top:-9px; content:"";}
     .menuMobile.active>div                                      { height:0px;}
     .menuMobile.active > div::before                            { top: 0;transform: rotate(45deg);}
     .menuMobile.active > div::after                             { top: 0;transform: rotate(-45deg);}
@@ -2022,8 +2022,8 @@ a:hover { color:#fbbd36; }
 
     .headerTop .right                                           { margin-top: 17px;}
     .headerTop.sticky .right                                    { margin-top: 0;}
-    .headerTop                                                  { top: 10px }
-    .logo                                                       { width: 100px; height: 100px; display: block; margin: 0 auto ; }
+    .headerTop                                                  { top: 0 }
+    .logo                                                       { width: 90px; height: 90px; display: block; margin: 0 auto ; }
     .logo img                                                   { display: block; width: 100% }
 
     .lst-apropos .item:first-of-type .content .img              { left: -100px;}
@@ -2107,7 +2107,7 @@ a:hover { color:#fbbd36; }
     .blc-cagnotte-participation.mention .fom-participe { margin: 0 0 20px;}
     .blc-cagnotte-participation.mention .lst-cagnotte-publique  { padding-bottom: 0 }
     .logo {
-    margin-top: 0  !important;
+    margin-top: 5px !important; margin-bottom: 5px 
 }
 
 @media (max-width:1080px) { 
