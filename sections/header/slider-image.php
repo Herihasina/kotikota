@@ -16,7 +16,7 @@
                                             <?php the_sub_field('titre_header') ?>
                                         </h2>
                                         <div class="btn-banner wow fadeIn" data-wow-delay="1000ms">
-                                            <a href="#popup-apropos" class="link fancybox" title="<?php the_sub_field('bouton_1') ?>" data-fancybox><?php the_sub_field('bouton_1') ?></a><br>
+                                            <a href="#popup-apropos" class="link fancybox" title="<?php the_sub_field('bouton_1') ?>" data-fancybox><?php the_sub_field('bouton_1') ?></a>
                                              <?php if ( is_user_logged_in() ): ?>
                                                 <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" class="link" title="<?php the_sub_field('bouton_2') ?>"><?php the_sub_field('bouton_2') ?></a>
                                             <?php else: ?>
