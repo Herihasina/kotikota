@@ -22,6 +22,10 @@
                                             <?php else: ?>
                                                 <a href="#connecter" class="link fancybox" title="<?php the_sub_field('bouton_2') ?>"><?php the_sub_field('bouton_2') ?></a>
                                             <?php endif; ?>
+
+                                            <a href="<?php echo get_permalink( get_page_by_path( 'toutes-les-cagnottes' ) ) ?>" class="link" title="Participer à une cagnotte">Participer à une cagnotte</a>
+
+
                                         </div>
                                     <?php endwhile; ?>
                                 <?php endif; ?>
