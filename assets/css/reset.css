@@ -161,7 +161,7 @@ select option                                               { padding: 10px 30px
 .right                                                      { float: right; }
 .left                                                       { float: left }
 
-.headerTop.sticky                                           { background-color: #fff; position: fixed; top: 0; left: 0; z-index: 999 }
+.headerTop.sticky                                           { background-color: #fff; position: fixed; top: 0; left: 0; z-index: 999; padding-top: 0 }
 .headerTop.sticky .menu a                                   { color: #131313 }
 .headerTop.sticky  .right                                   { padding-top: 26px;}
 .headerTop.sticky .logo                                     { width: 60px; height: 60px; margin-top: 16px }
@@ -172,7 +172,7 @@ select option                                               { padding: 10px 30px
 .menu-flag li                                               { float: left; margin: 0 10px  }
 .menu li                                                    { float: left; }
 .logo                                                       { display: block; margin-top: 20px;margin-left: 0;}
-.headerTop                                                  { position: absolute; top: 20px; left: 0; right: 0; margin: auto; z-index: 99 }
+.headerTop                                                  { position: relative; top: 0; left: 0; right: 0; margin: auto; z-index: 99; background-color: #fff; }
 .headerTop  .wrapper                                        { max-width: 1329px; }
 .btn-head .link                                             { padding: 18px 29px; border: none; background-color:#fbbd36;  }
 
@@ -202,7 +202,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .menu>ul                                                  { width:100%;  display:block; position:relative; text-align:center;  font-size:0; line-height:0; }  
 .menu li                                                  { display:inline-block; position:relative; margin:0 15px} 
 .menu li:last-child                                       { margin-right: 0 }
-.menu a                                                   { width:auto; height:60px; font:normal 16px/16px Opificio;  color:#ffffff; display:block; padding:0; position:relative}
+.menu a                                                   { width:auto; height:60px; font:normal 16px/16px Opificio;  color:#131313; display:block; padding:0; position:relative}
 .menu a:after                                             { content: ""; border-bottom:#ffffff solid 4px ; display: block; width:0; margin-top: 18px }
 .menu>ul>li.active>a:after                                { width: 100% }
 .menu li.logo-mob                                         { display: none }
