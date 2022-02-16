@@ -2724,7 +2724,7 @@ a:hover { color:#fbbd36; }
     .tarifs .cont-left .info { bottom: -30px }
 
     .lst-securite .item .txt {padding: 30px 20px}
-    .lst-securite .item .titre {padding: 40px 40px 40px 60px}
+    .lst-securite .item .titre {padding: 20px 40px 20px 60px}
     .lst-securite .item .titre::before { left: 20px }
     .lst-securite .item .titre::after { right: 20px }
     .securite-cagnotte h2 {font-size: 30px}
