@@ -1914,6 +1914,15 @@ input:checked {
     color: #131313;
     margin-bottom: 41px;
 }
+.qui-sommes-nous h2::after {
+    content: '';
+    border-bottom: #ffd71d solid 1px;
+    width: 60px;
+    margin: 31px auto;
+    display: block;
+}
+.slide-qui-sommes-nous .item .img { display: block; overflow: hidden; border-radius: 15px }
+.slide-qui-sommes-nous .item .img  img { display: block; width: 100% }
 
 
 @media (min-width:1201px) {

@@ -261,6 +261,22 @@ $(document).ready(function() {
 		 ]
 	});
 
+	$('#slide-qsn').slick({
+			dots:false,
+			infinite:true,
+			autoplaySpeed:4000,
+			speed:500,
+			arrows:true,
+			autoplay:true,
+			pauseOnHover:false,
+			slidesToShow: 1,
+	        slidesToScroll: 1,
+			cssEase:'linear',
+			fade:true,
+			
+	});
+
+
 	$(".fancybox").fancybox({
         fitToView: false,
         autoSize: false,
