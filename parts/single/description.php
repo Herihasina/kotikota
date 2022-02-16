@@ -178,59 +178,59 @@
             <div class="inner-pp">
               <div class="lst-document scrollbar-inner">
                   <div class="row">
-                    <div class="col">
+                    <div class="col photo">
                       <h3>images</h3>
                       <div class="lst-option blcphotos">        
                         <div class="item">
-                          <input type="checkbox" class="photo" id="img1"> 
+                          <input type="checkbox" class="ck-photo" id="img1"> 
                           <label for="img1">
                             <a href="#" class="img"><img src="<?= IMG_URL ?>photo1.jpg" alt="Kotikota"></a>  
                           </label>
                         </div>
 
                         <div class="item">
-                          <input type="checkbox" class="photo" id="img2"> 
+                          <input type="checkbox" class="ck-photo" id="img2"> 
                           <label for="img2">
                             <a href="#"class="img"><img src="<?= IMG_URL ?>photo2.jpg" alt="Kotikota"></a>
                           </label>
                         </div>
 
                         <div class="item">
-                          <input type="checkbox" class="photo" id="img3"> 
+                          <input type="checkbox" class="ck-photo" id="img3"> 
                           <label for="img3">
                             <a href="#"  class="img"><img src="<?= IMG_URL ?>photo3.jpg" alt="Kotikota"></a> 
                           </label>
                         </div>
                         <div class="item">
-                          <input type="checkbox" class="photo" id="img4"> 
+                          <input type="checkbox" class="ck-photo" id="img4"> 
                           <label for="img4">
                             <a href="#" class="img"><img src="<?= IMG_URL ?>photo4.jpg" alt="Kotikota"></a> 
                             
                           </label>
                         </div>
                         <div class="item">
-                          <input type="checkbox" class="photo" id="img5"> 
+                          <input type="checkbox" class="ck-photo" id="img5"> 
                           <label for="img5">
                             <a href="#" class="img"><img src="<?= IMG_URL ?>photo5.jpg" alt="Kotikota"></a> 
                             
                           </label>
                         </div>
                         <div class="item">
-                          <input type="checkbox" class="photo" id="img6"> 
+                          <input type="checkbox" class="ck-photo" id="img6"> 
                           <label for="img6">
                             <a href="#" class="img"><img src="<?= IMG_URL ?>photo6.jpg" alt="Kotikota"></a> 
                             
                           </label>
                         </div>
                         <div class="item">
-                          <input type="checkbox" class="photo" id="img7"> 
+                          <input type="checkbox" class="ck-photo" id="img7"> 
                           <label for="img7">
                             <a href="#" class="img"><img src="<?= IMG_URL ?>photo7.jpg" alt="Kotikota"></a> 
                             
                           </label>
                         </div>
                         <div class="item">
-                          <input type="checkbox" class="photo" id="img8"> 
+                          <input type="checkbox" class="ck-photo" id="img8"> 
                           <label for="img8">
                             <a href="#" class="img"><img src="<?= IMG_URL ?>photo8.jpg" alt="Kotikota"></a>    
                           </label>
@@ -238,7 +238,7 @@
 
                       </div>
                     </div>
-                    <div class="col">
+                    <div class="col video">
                       <h3>vidéos</h3>
                         <div class="lst-option">        
                           <div class="item">      
