@@ -1906,6 +1906,14 @@ input:checked {
     color: #fff;
 }
 
+/** Qui sommes nous***/
+.qui-sommes-nous h2 {
+    text-align: center;
+    font-size: 36px;
+    font-family: Opificio-b;
+    color: #131313;
+    margin-bottom: 41px;
+}
 
 
 @media (min-width:1201px) {
