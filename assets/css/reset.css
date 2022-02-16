@@ -2699,6 +2699,7 @@ a:hover { color:#fbbd36; }
     #confirme-cloture .link.close-fancy {  margin-bottom: 10px;}
 
     .qui-sommes-nous h2 { font-size: 30px }
+    .tarifs .cont-left .info { bottom: -30px }
 
 }
 @media (max-width:480px) {
