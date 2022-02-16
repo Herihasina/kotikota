@@ -331,6 +331,21 @@ $(document).ready(function() {
 			vis.parent().addClass('active');	
 		}
 	});	
+
+
+	$(".lst-securite .item .titre").click(function() {
+		var vis = $(this);	
+		if(vis.parent().hasClass("active")){
+			vis.parent().removeClass("active");
+		}else{
+			$(".lst-securite .item .titre").parent().removeClass('active');
+			vis.parent().addClass('active');	
+		}
+	});	
+
+
+
+
 	// $(".lst-type .item .content").click(function() {
 	// 	var vis = $(this);	
 	// 	if(vis.parent().hasClass("active")){
