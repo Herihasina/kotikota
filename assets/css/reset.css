@@ -2144,8 +2144,8 @@ input[type="checkbox"].ck-photo:checked ~ label {
     display: block;
     border-radius: 50%;
     position: absolute;
-    right: 0;
-    bottom: 0;
+    right: 10px;
+    bottom: 10px;
     background: #fff;
 }
 .lst-document .lst-option .img::after {
@@ -2156,10 +2156,14 @@ input[type="checkbox"].ck-photo:checked ~ label {
     display: block;
     border-radius: 50%;
     position: absolute;
-    right: 3px;
-    bottom: 3px;
+    right: 13px;
+    bottom: 13px;
     opacity: 0
 }
+.video-img img {
+    display: block;
+}
+.inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label .img:after { opacity: 1 }
 
 
 @media (min-width:1201px) {
