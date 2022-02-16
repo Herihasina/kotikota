@@ -1963,7 +1963,7 @@ input:checked {
     text-align: center;
 }
 .cont-pp .inner-pp {
-    padding: 120px 80px 83px;
+    padding: 120px 20px 83px 20px;
 }
 
 .pp-document .lst-document {
@@ -1991,7 +1991,10 @@ input[type="checkbox"].document:checked ~ label {
 }
 .inner-pp .row {
     display: flex;
+    max-width: 840px;
+    margin: 0 auto;
 }
+
 .inner-pp .row .col .lst-option {
     max-width: 387px;
 }
@@ -2045,10 +2048,17 @@ input[type="checkbox"].document:checked ~ label {
     width: 50%;
 }
 
-.cont-pp .blcbtn { border-top: #ddd solid 1px; margin-top: 30px; padding-top: 60px; text-align: center }
+.cont-pp .blcbtn { 
+    border-top: #ddd solid 1px; 
+    margin: 30px auto 0 ; 
+    padding-top: 60px; 
+    text-align: center 
+}
+
 .blc-cagnotte-details .btn {
     text-align: center;
     margin-top: 40px;
+
 }
 .cont-pp .blcbtn .link {
     margin: 0 20px;
@@ -2068,6 +2078,12 @@ input[type="checkbox"].document:checked ~ label {
     -webkit-border-radius: 17px;
     -moz-border-radius: 17px;
     border-radius: 17px;
+}
+
+.pp-document .scrollbar-inner > .scroll-element .scroll-element_track {
+
+    width: 20px;
+    margin-left: 0;
 }
 
 
@@ -2440,9 +2456,7 @@ a:hover { color:#fbbd36; }
         }
         .chy-type .col.col47 {
             width: 100%;
-            padding-left: 0;
-            padding-right: 0
-        }
+            padding-left: 0;   padding-right: 0 }
         .col.col47.col-dates { padding: 0 !important;}
         .col-dates .chy-type { margin: 0 0px 40px; padding-left: 0 !important;}
         .col-dates .chy-type .col.col47 { padding: 0;}
@@ -2454,6 +2468,10 @@ a:hover { color:#fbbd36; }
         .Info-principale .blcFormulaire.fichier {  padding: 0 0;}
         .profilFile .cont-file span { padding: 0 10px !important; }
         #slide-qsn { padding-bottom: 70px; }
+
+        .cont-pp .inner-pp {
+            padding: 80px 20px 63px 20px;
+        }
 
 }
 
@@ -2595,6 +2613,9 @@ a:hover { color:#fbbd36; }
     .formulaire-cagnotte .chy-type .col.col47 {width: 100%;/* padding-left: 0; */}
     #qui-sommes-nous { margin-bottom: 70px;}
     .invitation .titre { margin-top: 20px !important;}
+    .cont-pp .titre::after { display: none; }
+    .cont-pp .titre {  padding: 53px 40px 44px;   }
+    .cont-pp .inner-pp {  padding: 40px 20px 43px 20px;}
 
 
 }
@@ -2866,6 +2887,16 @@ a:hover { color:#fbbd36; }
     .lst-securite .item .titre::before { left: 20px }
     .lst-securite .item .titre::after { right: 20px }
     .securite-cagnotte h2 {font-size: 30px}
+    .cont-pp .titre { padding: 20px 20px; }
+    .cont-pp .titre h2 { font-size: 30px }
+    .inner-pp .row .col { width: 100%;}
+    .inner-pp .row { flex-direction: column;}
+    .cont-pp .blcbtn { padding-top: 40px }
+    .inner-pp .row .col .lst-option .item { margin-bottom: 15px;}
+    .inner-pp .row { padding-right: 23px }
+    .inner-pp .row .col .lst-option .item label .ico { margin-right: 10px }
+    .inner-pp h3 {font-size: 20px; margin-bottom: 20px}
+    .cont-pp .blcbtn .link { margin-bottom: 10px }
 
 
 }
