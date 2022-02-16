@@ -1065,7 +1065,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 
 .lst-step .item.col2 .content           { margin: 0 auto  }
 .lst-step .item.col3 .content           { float: right }
-.invitation .titre { text-align: center; margin-bottom: 58px }
+.invitation .titre { text-align: center; margin-bottom: 58px; margin-top: 60px !important }
 .invitation .titre h2 {  background-color: #59bdb1; padding: 26px 28px 29px;  color: #fff; font-size: 32px; font-family: Opificio-b ; border-radius: 45px; display: inline-block; }
 .invitation .titre span { display: inline-block; margin-right: 20px; vertical-align: middle; }
 .liste-invitation ul { margin: 0 -25px }
@@ -2455,7 +2455,7 @@ a:hover { color:#fbbd36; }
 
     .formulaire-cagnotte .chy-type > .row { display: block; }
     .formulaire-cagnotte .chy-type .col.col47 {width: 100%;/* padding-left: 0; */}
-    #qui-sommes-nous { margin-bottom: 40px;}
+    #qui-sommes-nous { margin-bottom: 70px;}
 
 
 }
@@ -2722,6 +2722,13 @@ a:hover { color:#fbbd36; }
     .qui-sommes-nous h2 { font-size: 30px }
     .tarifs .cont-left .info { bottom: -30px }
 
+    .lst-securite .item .txt {padding: 30px 20px}
+    .lst-securite .item .titre {padding: 40px 40px 40px 60px}
+    .lst-securite .item .titre::before { left: 20px }
+    .lst-securite .item .titre::after { right: 20px }
+    .securite-cagnotte h2 {font-size: 30px}
+
+
 }
 @media (max-width:480px) {
     .logo                                               {  width: 70px; height: 70px;}
@@ -2740,9 +2747,8 @@ a:hover { color:#fbbd36; }
      .enter-mail-id{ font-size: 15px!important; }
      .blc-securise { width: 100% !important;}
      .banner-inner .titre { margin-top: -40px }
-     .qui-sommes-nous h2 {
-        font-size: 28px;
-    }
+     .qui-sommes-nous h2 { font-size: 28px; }
+     .lst-securite .item .titre {font-size: 16px}
 }
 
 
