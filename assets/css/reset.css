@@ -1982,6 +1982,19 @@ input[type="checkbox"].document:checked ~ label {
   border-radius: 55px
 }
 
+
+input[type="checkbox"].photo {
+  display: none;
+}
+input[type="checkbox"].photo ~ label {
+  border: 1px solid transparent;
+}
+input[type="checkbox"].photo:checked ~ label {
+  border: 1px solid transparent;
+}
+
+
+
 .inner-pp h3 {
     color: #131313;
     text-transform: uppercase;
@@ -2294,9 +2307,7 @@ a:hover { color:#fbbd36; }
     .blc-cagnotte-participation.mention .blc-liste-cagnote { margin: 0;}
     .blc-cagnotte-participation.mention .fom-participe { margin: 0 0 20px;}
     .blc-cagnotte-participation.mention .lst-cagnotte-publique  { padding-bottom: 0 }
-    .logo {
-    margin-top: 5px !important; margin-bottom: 5px 
-}
+    .logo {  margin-top: 5px !important; margin-bottom: 5px }
 
 @media (max-width:1080px) { 
     .blc-cagnotte .wrapper                          {  padding: 0 40px}
@@ -2858,11 +2869,7 @@ a:hover { color:#fbbd36; }
     .lst-apropos .col-right .item:first-of-type .content .img { left: 10px !important; max-width: 70px; top: 10px;}
     .lst-apropos .col-right .item .content .img { left: 15px !important; right: auto !important; max-width: 55px; top: 35px;}
 
-    .inscription-pp .btn {
-        text-align: center;
-        display: block;
-        /* margin: 5px 0 !important; */
-    }
+    .inscription-pp .btn { text-align: center;   display: block; }
     .inscription-pp .btn .m-l-20 { margin-left: 0 }
     .inscription-pp .btn .link { margin-bottom: 10px}
     .lst-comment-ca-marche .item.participez span { top: -25px !important;}

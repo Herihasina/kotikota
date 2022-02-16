@@ -34,8 +34,8 @@
   <div class="pp-document-photos">
     <div class="blcbtn">
       <a href="#pp-document" class="link fancybox" title="Document">Document</a>
-      <a href="#" class="link" title="Photos et vidéos">Photos et vidéos</a>
-
+      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos">Photos et vidéos</a>
+      
       <div class="pp-document" id="pp-document" style="display: none">
         <div class="Document cont-pp">
             <div class="titre">
@@ -164,14 +164,141 @@
                   </div>
               </div>
             </div>
-
             <div class="footer-pp">
                     <span>Des questions ? En savoir plus sur la création des cagnottes ?</span>
                     <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" title="Créer une cagotte en ligne">Créer une cagotte en ligne</a> - <a href="#" title="Faire une simulation">Faire une simulation</a>
             </div>
         </div>
-      </div>
 
+      <div class="pp-document" id="pp-photos" style="display: none">
+        <div class="Document cont-pp">
+            <div class="titre">
+                <h2>Images et vidéos</h2>
+            </div>
+            <div class="inner-pp">
+              <div class="lst-document scrollbar-inner">
+                  <div class="row">
+                    <div class="col">
+                      <h3>images</h3>
+                      <div class="lst-option">        
+                        <div class="item">
+                          <input type="checkbox" class="photo" id="img1"> 
+                          <label for="img1">
+                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo1.jpg" alt="Kotikota"></a>  
+                          </label>
+                        </div>
+
+                        <div class="item">
+                          <input type="checkbox" class="photo" id="img2"> 
+                          <label for="img2">
+                            <a href="#"class="img"><img src="<?= IMG_URL ?>photo2.jpg" alt="Kotikota"></a>
+                          </label>
+                        </div>
+
+                        <div class="item">
+                          <input type="checkbox" class="photo" id="img3"> 
+                          <label for="img3">
+                            <a href="#"  class="img"><img src="<?= IMG_URL ?>photo3.jpg" alt="Kotikota"></a> 
+                          </label>
+                        </div>
+                        <div class="item">
+                          <input type="checkbox" class="photo" id="img4"> 
+                          <label for="img4">
+                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo4.jpg" alt="Kotikota"></a> 
+                            
+                          </label>
+                        </div>
+                        <div class="item">
+                          <input type="checkbox" class="photo" id="img5"> 
+                          <label for="img5">
+                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo5.jpg" alt="Kotikota"></a> 
+                            
+                          </label>
+                        </div>
+                        <div class="item">
+                          <input type="checkbox" class="photo" id="img6"> 
+                          <label for="img6">
+                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo6.jpg" alt="Kotikota"></a> 
+                            
+                          </label>
+                        </div>
+                        <div class="item">
+                          <input type="checkbox" class="photo" id="img7"> 
+                          <label for="img7">
+                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo7.jpg" alt="Kotikota"></a> 
+                            
+                          </label>
+                        </div>
+                        <div class="item">
+                          <input type="checkbox" class="photo" id="img8"> 
+                          <label for="img8">
+                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo8.jpg" alt="Kotikota"></a>    
+                          </label>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="col">
+                      <h3>vidéos</h3>
+                        <div class="lst-option">        
+                          <div class="item">      
+                            <div class="contvideo">
+                              <div class="video-img"><img src="<?= IMG_URL ?>video1.jpg" alt="Kotikota"></div>
+                              <div class="txt">
+                                <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          <div class="item">
+                            <div class="contvideo">
+                              <div class="video-img"><img src="<?= IMG_URL ?>video2.jpg" alt="Kotikota"></div>
+                              <div class="txt">
+                                <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <div class="contvideo">
+                              <div class="video-img"><img src="<?= IMG_URL ?>video3.jpg" alt="Kotikota"></div>
+                              <div class="txt">
+                                <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="item">
+                            <div class="contvideo">
+                              <div class="video-img"><img src="<?= IMG_URL ?>video4.jpg" alt="Kotikota"></div>
+                              <div class="txt">
+                                <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="blcbtn">
+                     <a href="#" class="link" title="Ajouter">ajouter</a>
+                     <a href="#" class="link" title="Modifier">modifier</a>
+                     <a href="#" class="link" title="Supprimer">Supprimer</a>
+                  </div>
+              </div>
+            </div>
+            <div class="footer-pp">
+                    <span>Des questions ? En savoir plus sur la création des cagnottes ?</span>
+                    <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" title="Créer une cagotte en ligne">Créer une cagotte en ligne</a> - <a href="#" title="Faire une simulation">Faire une simulation</a>
+            </div>
+        </div>
+
+
+      </div>
     </div>
+
+
   </div>
 </div> 
