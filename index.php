@@ -11,6 +11,7 @@ get_header(); ?>
         <?php //include 'sections/content/exemple-cagnotte.php'; ?>
         <?php include 'sections/content/pourquoi-kotikota.php'; ?>        
         <?php include 'sections/content/tarifs.php'; ?>
+          <?php include 'sections/content/qui-sommes-nous.php'; ?>
         <?php include 'sections/content/foire-question.php'; ?>
         <?php include 'sections/content/compteur.php'; ?>
     </main>
