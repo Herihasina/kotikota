@@ -278,7 +278,7 @@ $(document).ready(function() {
 			{
 			  breakpoint:768,
 			   settings: {			
-				arrows:true,
+				arrows:false,
 				dots:true,
 			  }
 			},  
