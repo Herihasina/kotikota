@@ -2160,10 +2160,14 @@ input[type="checkbox"].ck-photo:checked ~ label {
     bottom: 13px;
     opacity: 0
 }
+
 .video-img img {
     display: block;
 }
+
 .inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label .img:after { opacity: 1 }
+.inner-pp .row .col .lst-option .item input[type="checkbox"].document:checked ~ label .ico:after { opacity: 1 }
+
 .inner-pp .row .col.photo {
     width: 55%;
 }
