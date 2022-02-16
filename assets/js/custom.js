@@ -273,6 +273,18 @@ $(document).ready(function() {
 	        slidesToScroll: 1,
 			cssEase:'linear',
 			fade:true,
+			responsive: [
+	
+			{
+			  breakpoint:768,
+			   settings: {			
+				arrows:true,
+				dots:true,
+			  }
+			},  
+
+		 
+		 ]
 			
 	});
 
