@@ -31,3 +31,10 @@
     </p>
   <?php endif; ?>
 </div> 
+<div class="pp-document">
+  <div class="blcbtn">
+    <a href="#" class="link" title="Document">Document</a>
+    <a href="#" class="link" title="Photos et vidéos">Photos et vidéos</a>
+
+  </div>
+</div>
