@@ -42,7 +42,7 @@
                 <h2>Documents</h2>
             </div>
             <div class="inner-pp">
-              <div class="scroll-wrapper lst-document scrollbar-inner">
+              <div class="lst-document scrollbar-inner">
                   <div class="row">
                     <div class="col">
                       <h3>documents word</h3>
@@ -156,14 +156,11 @@
                         </div>
                     </div>
                     </div>
-                    <div class="row">
-                      <div class="blcbtn">
-                           <a href="#" class="link" title="Ajouter">ajouter</a>
-                           <a href="#" class="link" title="Modifier">modifier</a>
-                           <a href="#" class="link" title="Supprimer">Supprimer</a>
-                      </div>
-                    </div>
-
+                  </div>
+                  <div class="blcbtn">
+                     <a href="#" class="link" title="Ajouter">ajouter</a>
+                     <a href="#" class="link" title="Modifier">modifier</a>
+                     <a href="#" class="link" title="Supprimer">Supprimer</a>
                   </div>
               </div>
             </div>

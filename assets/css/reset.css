@@ -2045,7 +2045,14 @@ input[type="checkbox"].document:checked ~ label {
     width: 50%;
 }
 
-.cont-pp .blcbtn { border-top: #ddd solid 1px; margin-top: 40px; padding-top: 40px }
+.cont-pp .blcbtn { border-top: #ddd solid 1px; margin-top: 30px; padding-top: 60px; }
+.blc-cagnotte-details .btn {
+    text-align: center;
+    margin-top: 40px;
+}
+.cont-pp .blcbtn .link {
+    margin: 0 20px;
+}
 
 
 @media (min-width:1201px) {
