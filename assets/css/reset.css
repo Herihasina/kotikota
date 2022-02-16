@@ -1914,6 +1914,18 @@ input:checked {
 .slide-qui-sommes-nous .item .img  img { display: block; width: 100% }
 #qui-sommes-nous { margin-bottom: 40px;}
 
+/**Securite cagnotte***/
+.securite-cagnotte h2 { text-align: center; font-size: 36px; font-family: Opificio-b; color: #131313; margin-bottom: 41px;}
+.securite-cagnotte h2::after {  content: ''; border-bottom: #ffd71d solid 1px; width: 60px; margin: 31px auto; display: block;}
+.lst-securite .item { border:#dddddd solid 1px; border-radius: 10px; margin-bottom: 40px; padding: 40px 0 }
+.lst-securite .item .titre { padding: 0 40px 40px 70px; font-family: Montserrat-b; color: #7b7b7b;position: relative;}
+
+.lst-securite .item .titre:before { content: ""; display: block; position: absolute; left: 40px; top: 0; bottom: 0; margin: auto; background:url(../images/ico-check4.png);  width: 25px; height: 25px; }
+.lst-securite .item .titre:after { content: ""; display: block; position: absolute; right: 30px; top: 0; bottom: 0; margin: auto; background:url(../images/down.png);  width: 15px; height: 20px; }
+
+.lst-securite .item .txt { border-top: #ddd solid 1px;  padding: 40px 40px;}
+.lst-securite .item .txt p { margin-bottom: 0 }
+
 
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}

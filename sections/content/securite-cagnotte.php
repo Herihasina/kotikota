@@ -2,6 +2,7 @@
 
 <div class="securite-cagnotte">
     <div class="wrapper">
+        <h2 class="wow fadeInUp" data-wow-delay="900ms" style="visibility: visible; animation-delay: 900ms; animation-name: fadeInUp;">Sécurité des cagnottes</h2>
         <div class="lst-securite">
             <div class="item">
                 <div class="titre">Une équipe vouée pour la lutte contre la fraude et le blanchiment d’argent</div>
@@ -9,7 +10,7 @@
             </div>
             <div class="item">
                 <div class="titre">Vous êtes autorisés à signaler une cagnotte pour que notre équipe l’examine</div>
-                <div class="text">
+                <div class="txt">
                     <p>Pour cela, il vous suffit d’envoyer un email à cette adresse hello@koti-kota.com. Indiquez les détails de la cagnotte en question et décrivez ensuite la raison pour laquelle vous signalez cette cagnotte.</p>
                 </div>
             </div>
