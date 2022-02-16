@@ -1978,9 +1978,69 @@ input[type="checkbox"].document ~ label {
   border: 1px solid transparent;
 }
 input[type="checkbox"].document:checked ~ label {
-  border: 1px solid #000;
+  border: 1px solid #dddddd;
+  border-radius: 55px
 }
 
+.inner-pp h3 {
+    color: #131313;
+    text-transform: uppercase;
+    font-family: Montserrat-b;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+.inner-pp .row {
+    display: flex;
+}
+.inner-pp .row .col .lst-option {
+    max-width: 387px;
+}
+.inner-pp .row .col .lst-option {
+    max-width: 387px;
+}
+.inner-pp .row .col .lst-option .item {
+    display: flex; margin-bottom: 30px
+}
+.inner-pp .row .col .lst-option .item label {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.inner-pp .row .col .lst-option .item label .ico {
+    margin-right: 20px;
+    height: 69px;
+    position: relative;
+}
+.inner-pp .row .col .lst-option .item .txt {
+    height: 48px;
+    overflow: hidden;
+}
+.inner-pp .row .col .lst-option .item label .ico::before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    border: #8e4a90 solid 1px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+}
+.inner-pp .row .col .lst-option .item label .ico::after {
+    content: "";
+    background: #8d4a8f;
+    width: 13px;
+    height: 13px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    opacity: 0
+}
+.inner-pp .row .col .lst-option .item input[type="checkbox"].document:checked ~ label .ico:after { opacity: 1 }
 
 
 
