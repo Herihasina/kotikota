@@ -46,8 +46,7 @@
                   <div class="row">
                     <div class="col">
                       <h3>documents word</h3>
-                      <div class="lst-option">
-                        
+                      <div class="lst-option">        
                         <div class="item">
                           <input type="checkbox" class="document" id="doc1"> 
                           <label for="doc1">
@@ -64,11 +63,27 @@
                           </label>
                         </div>
 
-
                       </div>
                     </div>
                     <div class="col">
                       <h3>documents pdf</h3>
+                        <div class="lst-option">        
+                          <div class="item">
+                            <input type="checkbox" class="document" id="pdf1"> 
+                            <label for="pdf1">
+                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                            </label>
+                          </div>
+                          <div class="item">
+                            <input type="checkbox" class="document" id="pdf2"> 
+                            <label for="pdf2">
+                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                            </label>
+                          </div>
+                        </div>
+                    </div>
                     </div>
                   </div>
               </div>

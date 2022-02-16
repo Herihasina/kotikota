@@ -1963,7 +1963,7 @@ input:checked {
     text-align: center;
 }
 .cont-pp .inner-pp {
-    padding: 141px 80px 83px;
+    padding: 120px 80px 83px;
 }
 
 .pp-document .lst-document {
@@ -2041,7 +2041,9 @@ input[type="checkbox"].document:checked ~ label {
     opacity: 0
 }
 .inner-pp .row .col .lst-option .item input[type="checkbox"].document:checked ~ label .ico:after { opacity: 1 }
-
+.inner-pp .row .col {
+    width: 50%;
+}
 
 
 @media (min-width:1201px) {
