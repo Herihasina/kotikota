@@ -2045,7 +2045,7 @@ input[type="checkbox"].document:checked ~ label {
     width: 50%;
 }
 
-.cont-pp .blcbtn { border-top: #ddd solid 1px; margin-top: 30px; padding-top: 60px; }
+.cont-pp .blcbtn { border-top: #ddd solid 1px; margin-top: 30px; padding-top: 60px; text-align: center }
 .blc-cagnotte-details .btn {
     text-align: center;
     margin-top: 40px;
@@ -2053,6 +2053,24 @@ input[type="checkbox"].document:checked ~ label {
 .cont-pp .blcbtn .link {
     margin: 0 20px;
 }
+
+.pp-document .scrollbar-inner > .scroll-element .scroll-bar {
+    background-color: #fbbd36;
+    opacity: 1;
+}
+.pp-document .scrollbar-inner > .scroll-element.scroll-y { width: 20px; }
+.pp-document .scrollbar-inner > .scroll-element .scroll-element_track {
+    background-color: #dddddd;
+    
+}
+
+.pp-document .scrollbar-inner > .scroll-element .scroll-element_outer, .pp-document .scrollbar-inner > .scroll-element .scroll-element_track, .pp-document .scrollbar-inner > .scroll-element .scroll-bar {
+    -webkit-border-radius: 17px;
+    -moz-border-radius: 17px;
+    border-radius: 17px;
+}
+
+
 
 
 @media (min-width:1201px) {
