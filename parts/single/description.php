@@ -63,6 +63,42 @@
                           </label>
                         </div>
 
+                        <div class="item">
+                          <input type="checkbox" class="document" id="doc3"> 
+                          <label for="doc3">
+                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                          </label>
+                        </div>
+                        <div class="item">
+                          <input type="checkbox" class="document" id="doc4"> 
+                          <label for="doc4">
+                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                          </label>
+                        </div>
+                        <div class="item">
+                          <input type="checkbox" class="document" id="doc5"> 
+                          <label for="doc5">
+                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                          </label>
+                        </div>
+                        <div class="item">
+                          <input type="checkbox" class="document" id="doc6"> 
+                          <label for="doc6">
+                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                          </label>
+                        </div>
+                        <div class="item">
+                          <input type="checkbox" class="document" id="doc7"> 
+                          <label for="doc7">
+                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                          </label>
+                        </div>
+
                       </div>
                     </div>
                     <div class="col">
@@ -82,11 +118,59 @@
                               <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
                             </label>
                           </div>
+                          <div class="item">
+                            <input type="checkbox" class="document" id="pdf3"> 
+                            <label for="pdf3">
+                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                            </label>
+                          </div>
+                          <div class="item">
+                            <input type="checkbox" class="document" id="pdf4"> 
+                            <label for="pdf4">
+                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                            </label>
+                          </div>
+                          <div class="item">
+                            <input type="checkbox" class="document" id="pdf5"> 
+                            <label for="pdf5">
+                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                            </label>
+                          </div>
+                          <div class="item">
+                            <input type="checkbox" class="document" id="pdf6"> 
+                            <label for="pdf6">
+                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                            </label>
+                          </div>
+                          <div class="item">
+                            <input type="checkbox" class="document" id="pdf7"> 
+                            <label for="pdf7">
+                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                            </label>
+                          </div>
                         </div>
                     </div>
                     </div>
+                    <div class="row">
+                      <div class="blcbtn">
+                           <a href="#" class="link" title="Ajouter">ajouter</a>
+                           <a href="#" class="link" title="Modifier">modifier</a>
+                           <a href="#" class="link" title="Supprimer">Supprimer</a>
+                      </div>
+                    </div>
+
                   </div>
               </div>
+            </div>
+
+            <div class="footer-pp">
+                    <span>Des questions ? En savoir plus sur la création des cagnottes ?</span>
+                    <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" title="Créer une cagotte en ligne">Créer une cagotte en ligne</a> - <a href="#" title="Faire une simulation">Faire une simulation</a>
             </div>
         </div>
       </div>
