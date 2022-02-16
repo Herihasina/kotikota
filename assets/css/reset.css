@@ -1929,10 +1929,59 @@ input:checked {
 
 .lst-securite .item .txt { border-top: #ddd solid 1px;  padding: 40px 40px; opacity: 0; display: none; -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
 .lst-securite .item .txt p { margin-bottom: 0 }
-.lst-securite .item.active .txt {
-    opacity: 1;
-    display: block;
+.lst-securite .item.active .txt { opacity: 1; display: block;}
+
+.pp-document-photos .blcbtn { text-align: center; margin-top: 40px}
+.pp-document-photos .blcbtn .link { margin: 0 20px;}
+
+.pp-document {
+    width: 1000px;
+    padding: 0;
+    border-radius: 20px;
 }
+
+.cont-pp .titre {
+    background-color: #875296;
+    padding: 53px 40px 44px;
+    position: relative;
+}
+.cont-pp .titre::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 59px;
+    position: absolute;
+    bottom: -58px;
+    left: 0;
+    background: url(../images/deco-titre1.png);
+    background-size: cover;
+}
+.cont-pp .titre h2 {
+    color: #fff;
+    font-family: Opificio-b;
+    font-size: 36px;
+    text-align: center;
+}
+.cont-pp .inner-pp {
+    padding: 141px 80px 83px;
+}
+
+.pp-document .lst-document {
+    height: 620px;
+}
+
+
+input[type="checkbox"].document {
+  display: none;
+}
+input[type="checkbox"].document ~ label {
+  border: 1px solid transparent;
+}
+input[type="checkbox"].document:checked ~ label {
+  border: 1px solid #000;
+}
+
+
 
 
 @media (min-width:1201px) {
