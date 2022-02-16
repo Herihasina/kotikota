@@ -180,7 +180,7 @@
                   <div class="row">
                     <div class="col">
                       <h3>images</h3>
-                      <div class="lst-option">        
+                      <div class="lst-option blcphotos">        
                         <div class="item">
                           <input type="checkbox" class="photo" id="img1"> 
                           <label for="img1">

@@ -2099,7 +2099,20 @@ input[type="checkbox"].photo:checked ~ label {
     margin-left: 0;
 }
 
+.blc-cagnotte-details .btn .link {
+    margin: 0 10px;
+}
+.lst-document .lst-option .img { display: block; overflow: hidden; border-radius: 10px }
+.lst-document .lst-option .img img { display: block; width: 100% }
+#pp-photos .inner-pp .row .col .lst-option .item label { padding-right: 0 }
+.inner-pp .row .col .lst-option.blcphotos { display: block; }
+.inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 50%; float: left;}
 
+.inner-pp .row .col .lst-option.blcphotos::after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 
 @media (min-width:1201px) {
