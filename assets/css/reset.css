@@ -784,7 +784,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .nom-cagnotteSum .content .col.col3     { width: 16%;}
 .nom-cagnotteSum .content .col.col4     { width: 16%;}
 .nom-cagnotteSum .content .col.col5     { width: 16%;}
-.nom-cagnotteSum .content .col.col6     { width: 16%;}
+.nom-cagnotteSum .content .col.col6     { width: 24%}
 .nom-cagnotteSum .content .col span:not(.format_chiffre) { font-size: 14px; text-transform: uppercase; font-family:Opificio-b;}
 .nom-cagnotteSum .content .col.col2 span    { color: #7b7b7b; font-family:Opificio; text-transform: none; font-size: 16px;}
 .nom-cagnotteSum .content .col .ico2        { height: 43px; position: relative;}
@@ -3023,6 +3023,13 @@ a:hover { color:#fbbd36; }
     .pp-partage .cont-pp .inner-pp {  padding: 20px 20px 20px 20px;}
     .pp-partage .invitation .titre h2 { font-size: 22px !important; line-height: normal; padding: 15px 20px 15px }
     .pp-partage .btn .link { margin-bottom: 10px;}
+    .nom-cagnotteSum .content .col span:not(.format_chiffre) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        display: block;
+    }
 
 
 }
