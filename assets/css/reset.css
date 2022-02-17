@@ -2109,7 +2109,6 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 50%; float: left; padding-right: 22px}
 
 .inner-pp .row .col .lst-option.blcphotos::after {
-    content: "";
     display: table;
     clear: both;
 }
@@ -2119,24 +2118,11 @@ input[type="checkbox"].ck-photo:checked ~ label {
     color: #000
 }
 .contvideo a:hover { color: #000 }
-.video-img {
-    margin-right: 20px;
-}
-#pp-photos .inner-pp .row .col .lst-option .item .txt {
-    height: 120px;
-    overflow: hidden;
-}
-.inner-pp .row .col .lst-option .item .txt h4 {
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-.inner-pp .row .col .lst-option .item .txt p {
-    height: 50px;
-    overflow: hidden;
-}
-#pp-photos .inner-pp .row .col .lst-option .item {
-    margin-bottom: 20px;
-}
+.video-img {    margin-right: 20px;}
+#pp-photos .inner-pp .row .col .lst-option .item .txt { height: 120px; overflow: hidden;}
+.inner-pp .row .col .lst-option .item .txt h4 { font-weight: 700; margin-bottom: 10px;}
+.inner-pp .row .col .lst-option .item .txt p { height: 50px; overflow: hidden;}
+#pp-photos .inner-pp .row .col .lst-option .item { margin-bottom: 20px; }
 .lst-document .lst-option.blcphotos .inner { position: relative; }
 
 .lst-document .lst-option.blcphotos  label::before {
@@ -2165,56 +2151,21 @@ input[type="checkbox"].ck-photo:checked ~ label {
     opacity: 0;
     z-index: 20
 }
-.video-img img {
-    display: block;
-}
+.video-img img {  display: block;}
 .video-img { position: relative; }
 .video-img .heure { background-color: #000; border-radius: 5px; padding:5px; color: #fff; font-size: 12px; text-align: center; position: absolute; right: 5px; bottom: 5px; line-height: 12px; display: inline-block; }
-
 .inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label:after { opacity: 1 }
-
-.inner-pp .row .col.photo {
-    width: 55%;
-}
-
-.btn-partage .link.partage span {
-    background: url(../images/share.png) left center no-repeat;
-    background-size: 25px
-}
-#pp-partage {
-    padding: 0;
-}
+.inner-pp .row .col.photo {  width: 55%;}
+.btn-partage .link.partage span { background: url(../images/share.png) left center no-repeat;  background-size: 25px}
+#pp-partage { padding: 0;}
 .pp-partage .invitation .titre { background-color: transparent !important;  }
 .pp-partage .invitation .titre:after { display: none; }
-.pp-partage  .btn{
-    text-align: center;
-    margin-top: 25px;
-}
-.pp-partage  #emails_list {
-    border: none;
-    resize: none;
-    width: 100%;
-    font-family: Montserrat-r;
-    font-size: 16px;
-    color: #7b7b7b;
-}
-.pp-partage .invitation .titre {
-    margin-top: 40px !important;
-    margin-bottom: 40px;
-    padding: 0 !important;
-}
-.pp-partage .cont-pp .inner-pp {
-    padding: 39px 40px 83px 40px;
-}
-.pp-partage .chp-lien {
-    margin-bottom: 40px;
-}
-.blc-rib .link.submit {
-    position: absolute;
-    right: 40px;
-    top: 20px;
-    margin: auto;
-}
+.pp-partage  .btn { text-align: center;  margin-top: 25px;}
+.pp-partage  #emails_list { border: none; resize: none;  width: 100%; font-family: Montserrat-r; font-size: 16px;  color: #7b7b7b;}
+.pp-partage .invitation .titre { margin-top: 40px !important; margin-bottom: 40px; padding: 0 !important;}
+.pp-partage .cont-pp .inner-pp { padding: 39px 40px 83px 40px;}
+.pp-partage .chp-lien { margin-bottom: 40px;}
+.blc-rib .link.submit { position: absolute; right: 40px;top: 20px; margin: auto;}
 .blc-rib .chp {
     border: #ddd solid 1px;
     height: 107px;
@@ -2227,34 +2178,15 @@ input[type="checkbox"].ck-photo:checked ~ label {
     -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
     -moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
 }
-.blc-rib {
-    position: relative;
-}
+.blc-rib {position: relative;}
 .pp-rib { width: 1000px ; padding: 0}
-
-.pp-rib .cont-pp .inner-pp {
-    padding: 120px 80px 83px 80px;
-}
-.pp-rib .form-rib p {
-    text-align: center;
-}
-.pp-rib .formulaireParametre .col.col-100 {
-    width: 100%;
-}
-
-.pp-rib .formulaireParametre .col.col-70 {
-    width: 70%;
-}
-
-.pp-rib .formulaireParametre .col.col-30 {
-    width: 30%;
-}
-
-.pp-rib .btn {
-    text-align: center;
-}
+.pp-rib .cont-pp .inner-pp {  padding: 120px 80px 83px 80px;}
+.pp-rib .form-rib p { text-align: center;}
+.pp-rib .formulaireParametre .col.col-100 { width: 100%;}
+.pp-rib .formulaireParametre .col.col-70 { width: 70%;}
+.pp-rib .formulaireParametre .col.col-30 { width: 30%;}
+.pp-rib .btn {  text-align: center;}
 .pp-rib .btn .link { margin: 0 10px 10px }
-
 .pp-rib .chpfile .input-file {
     position: absolute;
     opacity: 0;
@@ -2331,7 +2263,6 @@ a:hover { color:#fbbd36; }
     .txt-banner { padding-top: 20% }
 
 }
-
 
 @media (max-width:1235px) { 
     .slick-prev                                             { left: -78px }
@@ -2478,6 +2409,9 @@ a:hover { color:#fbbd36; }
     .blc-cagnotte-participation.mention .fom-participe { margin: 0 0 20px;}
     .blc-cagnotte-participation.mention .lst-cagnotte-publique  { padding-bottom: 0 }
     .logo {  margin-top: 5px !important; margin-bottom: 5px }
+    .pp-rib .cont-pp .inner-pp { padding: 120px 40px 83px 40px; }
+
+}
 
 @media (max-width:1080px) { 
     .blc-cagnotte .wrapper                          {  padding: 0 40px}
@@ -2622,34 +2556,22 @@ a:hover { color:#fbbd36; }
     .footer-3 .mail li a::before { left: 0;top: -82px;display: block;right: 0;margin: auto; }
     .banner-video video { height: 640px;}
 
-    .col-dates .chy-type .col.col47 {
-        /* padding: 0 10px; */
-        width: 100%;
-    }
-    .chy-type .col.col53 {
-         width: 100%;
-        padding-right: 0;
-    }
-    .chy-type .col.col53 {
-        width: 100%;
-        padding-right: 0;
-        padding-left: 0;
-    }
-        .chy-type .col.col47 {
-            width: 100%;
-            padding-left: 0;   padding-right: 0 }
-        .col.col47.col-dates { padding: 0 !important;}
-        .col-dates .chy-type { margin: 0 0px 40px; padding-left: 0 !important;}
-        .col-dates .chy-type .col.col47 { padding: 0;}
-        .chy-type { margin: 0 0 40px;}
-        .lst-apropos .item .content { max-width: inherit; display: block; }
-        .menu-liste-cagnotte.active { z-index: 9999 }
-        .col-dates .chy-type .col.col47:first-of-type, .col-dates .chy-type .col.col47:last-of-type { width: 100% !important; padding: 0 !important;}
-        .formulaire-cagnotte .chy-type .col.col47 { padding: 0 10px }
-        .Info-principale .blcFormulaire.fichier {  padding: 0 0;}
-        .profilFile .cont-file span { padding: 0 10px !important; }
-        #slide-qsn { padding-bottom: 70px; }
-        .cont-pp .inner-pp {  padding: 80px 20px 63px 20px; }
+    .col-dates .chy-type .col.col47 { width: 100%    }
+    .chy-type .col.col53 { width: 100%; padding-right: 0;}
+    .chy-type .col.col53 { width: 100%;  padding-right: 0; padding-left: 0;}
+    .chy-type .col.col47 { width: 100%;padding-left: 0;   padding-right: 0 }
+    .col.col47.col-dates { padding: 0 !important;}
+    .col-dates .chy-type { margin: 0 0px 40px; padding-left: 0 !important;}
+    .col-dates .chy-type .col.col47 { padding: 0;}
+    .chy-type { margin: 0 0 40px;}
+    .lst-apropos .item .content { max-width: inherit; display: block; }
+    .menu-liste-cagnotte.active { z-index: 9999 }
+    .col-dates .chy-type .col.col47:first-of-type, .col-dates .chy-type .col.col47:last-of-type { width: 100% !important; padding: 0 !important;}
+    .formulaire-cagnotte .chy-type .col.col47 { padding: 0 10px }
+    .Info-principale .blcFormulaire.fichier {  padding: 0 0;}
+    .profilFile .cont-file span { padding: 0 10px !important; }
+    #slide-qsn { padding-bottom: 70px; }
+    .cont-pp .inner-pp {  padding: 80px 20px 63px 20px; }
 
 }
 
@@ -2777,12 +2699,12 @@ a:hover { color:#fbbd36; }
 
       .lst-apropos .item   { text-align: left }
       .lst-apropos .col-left { padding-left: 0 }
-           .lst-apropos .col-left, 
+      .lst-apropos .col-left, 
       .lst-apropos .col-right           { padding-left: 0;}
       .media-modal { height: 80% !important }
       .banner-video video { height: 560px;}
 
-      .lrm-col-half-width.lrm-col-first.fieldset--last-name.lrm-col { margin-bottom: 20px;}
+    .lrm-col-half-width.lrm-col-first.fieldset--last-name.lrm-col { margin-bottom: 20px;}
     #ajaxsearchlite1 .probox .proinput, div.asl_w .probox .proinput { margin-left: 0 !important }
     .blc-securise { width: 50% !important;}
     .tarifs .cont-left .content .gratuit { padding: 8px 20px 8px 20px }
@@ -3020,26 +2942,14 @@ a:hover { color:#fbbd36; }
      .comment-ca-marche .cont-left .img { width: 250px; height: 250px; margin-top: -120px }
      .lst-comment-ca-marche { margin: 25px auto 0;}    
      .appended-select { right: -14px !important;}
+    .fom-participe .formulaire .chp{ padding: 0; }
+    .fom-participe .blc-check .option ul li label{ padding: 0 28px; }
+    .scrollDown.show{ top: 87px; }
+    .scrollDown{ display: block; }
+    .scrollDown.active{ display: none; }
 
-
-     .fom-participe .formulaire .chp{ padding: 0; }
-     .fom-participe .blc-check .option ul li label{ padding: 0 28px; }
-
-     .scrollDown.show{ top: 87px; }
-       .scrollDown{ display: block; }
-       .scrollDown.active{ display: none; }
-
-    .lst-apropos .item .content .img {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        max-width: 70px;
-        margin-top: -35px;
-    }
-    .lst-apropos .col-right .item .content .img {
-        left: 0;
-        top: 50%;
-    }
+    .lst-apropos .item .content .img { position: absolute;left: 0; top: 50%;  max-width: 70px;   margin-top: -35px;}
+    .lst-apropos .col-right .item .content .img {  left: 0; top: 50%; }
     .lst-apropos .item:first-of-type .content .img { left: 15px; margin-top: 0; max-width: 55px; top: 0;}
     .lst-apropos .col-right .item:first-of-type .content .img { left: 10px !important; max-width: 70px; top: 10px;}
     .lst-apropos .col-right .item .content .img { left: 15px !important; right: auto !important; max-width: 55px; top: 35px;}
@@ -3084,13 +2994,8 @@ a:hover { color:#fbbd36; }
     .pp-partage .cont-pp .inner-pp {  padding: 20px 20px 20px 20px;}
     .pp-partage .invitation .titre h2 { font-size: 22px !important; line-height: normal; padding: 15px 20px 15px }
     .pp-partage .btn .link { margin-bottom: 10px;}
-    .nom-cagnotteSum .content .col span:not(.format_chiffre) {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 100%;
-        display: block;
-    }
+    .nom-cagnotteSum .content .col span:not(.format_chiffre) {  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; display: block;}
+    .pp-rib .cont-pp .inner-pp {  padding: 40px 20px 40px 20px; }
 
 
 }
