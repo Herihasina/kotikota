@@ -1990,7 +1990,7 @@ input[type="checkbox"].ck-photo ~ label {
   border: 1px solid transparent;
 }
 input[type="checkbox"].ck-photo:checked ~ label {
-  border: 1px solid transparent;
+  border: 1px solid #000;
 }
 
 
