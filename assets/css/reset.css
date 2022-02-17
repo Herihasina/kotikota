@@ -2108,8 +2108,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .inner-pp .row .col .lst-option.blcphotos { display: block;max-width: 413px; }
 .inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 50%; float: left; padding-right: 22px}
 
-.inner-pp .row .col .lst-option.blcphotos::after {
-    display: table;
+.inner-pp .row .col .lst-option.blcphotos::after {    display: table;
     clear: both;
 }
 .contvideo a {
@@ -2200,6 +2199,20 @@ input[type="checkbox"].ck-photo:checked ~ label {
 }
 .pp-rib  .cont-file { margin-bottom: 30px }
 .pp-rib .cont-file span { color: #7b7b7b }
+
+.pp-rib .titre::before {
+    content: '';
+    display: block;
+    width: 51px;
+    height: 58px;
+    /* display: block; */
+    position: absolute;
+    left: 80px;
+    top: 37px;
+    margin: auto;
+    background: url(../images/ico-rib.png);
+    z-index: 20;
+}
 
 
 
