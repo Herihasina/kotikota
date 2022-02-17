@@ -103,8 +103,8 @@
                     </div>
                 </div>
                 <?php  if ( get_field('fixer_un_objectif' ) ): ?>
-                  <div class="col col6">
-                      <!-- <div class="rest-collect">
+                 <!-- <div class="col col6">
+                       <div class="rest-collect">
                           <div class="ico2"><img src="<?= IMG_URL ?>ico-rst-collct.png"></div>
                           <?php
                             if ( $masquer_azo_ilaina || $type_cagnotte == 'perso'){
@@ -132,8 +132,8 @@
                           ?>
                           <b><?php echo '<span class="format_chiffre">'.$reste.'</span> '.$devise; ?></b>
                           <span><?php _e('reste à collecter','kotikota'); ?></span>
-                      </div> -->
-                  </div>
+                      </div> 
+                  </div>-->
                 <?php endif; ?>
     </div>
 </div>
