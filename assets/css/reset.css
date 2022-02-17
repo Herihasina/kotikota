@@ -2093,11 +2093,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     border-radius: 17px;
 }
 
-.pp-document .scrollbar-inner > .scroll-element .scroll-element_track {
-
-    width: 20px;
-    margin-left: 0;
-}
+.pp-document .scrollbar-inner > .scroll-element .scroll-element_track {  width: 20px; margin-left: 0;}
 
 .blc-cagnotte-details .btn .link {
     margin: 0 10px;
@@ -2107,15 +2103,8 @@ input[type="checkbox"].ck-photo:checked ~ label {
 #pp-photos .inner-pp .row .col .lst-option .item label { padding-right: 0 }
 .inner-pp .row .col .lst-option.blcphotos { display: block;max-width: 413px; }
 .inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 50%; float: left; padding-right: 22px}
-
-.inner-pp .row .col .lst-option.blcphotos::after {    display: table;
-    clear: both;
-}
-.contvideo a {
-    display: flex;
-    align-items: center;
-    color: #000
-}
+.inner-pp .row .col .lst-option.blcphotos::after {    display: table; clear: both;}
+.contvideo a { display: flex;  align-items: center; color: #000}
 .contvideo a:hover { color: #000 }
 .video-img {    margin-right: 20px;}
 #pp-photos .inner-pp .row .col .lst-option .item .txt { height: 120px; overflow: hidden;}
@@ -2165,18 +2154,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .pp-partage .cont-pp .inner-pp { padding: 39px 40px 83px 40px;}
 .pp-partage .chp-lien { margin-bottom: 40px;}
 .blc-rib .link.submit { position: absolute; right: 40px;top: 20px; margin: auto;}
-.blc-rib .chp {
-    border: #ddd solid 1px;
-    height: 107px;
-    width: 100%;
-    border-radius: 10px;
-    padding: 10px 20px;
-    color: #7b7b7b;
-    font-size: 16px;
-    box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);
-}
+.blc-rib .chp { border: #ddd solid 1px; height: 107px;  width: 100%; border-radius: 10px; padding: 10px 20px;  color: #7b7b7b;  font-size: 16px; box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1); -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);-moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);}
 .blc-rib {position: relative;}
 .pp-rib { width: 1000px ; padding: 0}
 .pp-rib .cont-pp .inner-pp {  padding: 120px 80px 83px 80px;}
@@ -2186,33 +2164,13 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .pp-rib .formulaireParametre .col.col-30 { width: 30%;}
 .pp-rib .btn {  text-align: center;}
 .pp-rib .btn .link { margin: 0 10px 10px }
-.pp-rib .chpfile .input-file {
-    position: absolute;
-    opacity: 0;
-    width: 100%!important;
-    bottom: 0;
-    left: 0;
-    top: 0;
-    cursor: pointer;
-    z-index: 9999;
-    height: 100%;
-}
+.pp-rib .chpfile .input-file {  position: absolute;  opacity: 0;  width: 100%!important;  bottom: 0;  left: 0;  top: 0; cursor: pointer; z-index: 9999;  height: 100%;}
 .pp-rib  .cont-file { margin-bottom: 30px }
 .pp-rib .cont-file span { color: #7b7b7b }
-
-.pp-rib .titre::before {
-    content: '';
-    display: block;
-    width: 51px;
-    height: 58px;
-    /* display: block; */
-    position: absolute;
-    left: 80px;
-    top: 37px;
-    margin: auto;
-    background: url(../images/ico-rib.png);
-    z-index: 20;
-}
+.pp-rib .titre::before {  content: ''; display: block; width: 51px; height: 58px; /* display: block; */position: absolute;left: 80px; top: 37px; margin: auto;  background: url(../images/ico-rib.png); z-index: 20;}
+#menu-item-upload { -webkit-box-ordinal-group: 2; -moz-box-ordinal-group: 2; -ms-flex-order: 2;-webkit-order: 2;order: 2; }
+#menu-item-browse {  -webkit-box-ordinal-group: 1;  -moz-box-ordinal-group: 1;-ms-flex-order: 1; -webkit-order: 1; order: 1;}
+#cin_btn {  z-index: 0;}
 
 
 
@@ -2274,7 +2232,6 @@ a:hover { color:#fbbd36; }
 
 @media (max-width:1366px) { 
     .txt-banner { padding-top: 20% }
-
 }
 
 @media (max-width:1235px) { 
@@ -2585,6 +2542,48 @@ a:hover { color:#fbbd36; }
     .profilFile .cont-file span { padding: 0 10px !important; }
     #slide-qsn { padding-bottom: 70px; }
     .cont-pp .inner-pp {  padding: 80px 20px 63px 20px; }
+     .tarifs .cont-right .col.payement { min-height: inherit; }
+
+}
+
+@media (max-width:768px) {
+    .cont-file {
+        padding: 0 !important;
+        margin: 0 auto 0 !important;
+        height: auto !important;
+        border: none !important;
+        border-radius: 0 !important;
+    }
+    .cont-file i {
+        margin: 15px auto 0 !important;
+        font-size: 12px !important;
+        position: relative !important;
+        display: inline-block;
+        width: 125px !important;
+        padding: 0px 25px !important;
+        height: auto !important;
+    }
+    .cont-file i.reset {
+        right: 0 !important;
+    }
+    .cont-file span {
+        border: 1px #cecece solid !important;
+        border-radius: 30px !important;
+    }
+    .blcFormulaire .chp .input-file {
+        height: 135px;
+    }
+    .file-profil .cont-file {
+        padding: 0 0 50px !important;
+    }
+    .file-profil .chp {
+        height: auto !important;
+        margin-bottom: 0 !important;
+    }
+    .file-profil .cont-file span{
+        padding: 0 20px !important;
+    }
+    .profilFile .cont-file span { padding: 0 10px !important;}
 
 }
 
@@ -2738,6 +2737,7 @@ a:hover { color:#fbbd36; }
     #pp-photos .inner-pp .row .col .lst-option.blcphotos .item { padding-right: 10px }
     #pp-photos .inner-pp h3 { text-align: center }
     .pp-rib .titre::before { top: 34px }
+    .pp-rib .cont-pp .inner-pp { padding: 60px 40px 60px 40px;}
 
 
 }
@@ -3015,6 +3015,8 @@ a:hover { color:#fbbd36; }
     .pp-rib .titre::before { width: 30px; height: 34px; background-size: cover; left: 20px ; top: 18px }
     .pp-rib .cont-file i { width: 100% !important }
     .blc-rib .link.submit { position: static; margin: auto; text-align: center; padding: 22px 20px; width: 100%}
+     .tarifs .cont-right .col.payement { min-height:inherit; }
+     .footer-3 .Whatsapp li a:first-child:before { display: none; }
 
 
 
@@ -3047,98 +3049,13 @@ a:hover { color:#fbbd36; }
 }
 
 
-
-@media (max-width:768px) {
-    .cont-file {
-        padding: 0 !important;
-        margin: 0 auto 0 !important;
-        height: auto !important;
-        border: none !important;
-        border-radius: 0 !important;
-    }
-    .cont-file i {
-        margin: 15px auto 0 !important;
-        font-size: 12px !important;
-        position: relative !important;
-        display: inline-block;
-        width: 125px !important;
-        padding: 0px 25px !important;
-        height: auto !important;
-    }
-    .cont-file i.reset {
-        right: 0 !important;
-    }
-    .cont-file span {
-        border: 1px #cecece solid !important;
-        border-radius: 30px !important;
-    }
-    .blcFormulaire .chp .input-file {
-        height: 135px;
-    }
-    .file-profil .cont-file {
-        padding: 0 0 50px !important;
-    }
-    .file-profil .chp {
-        height: auto !important;
-        margin-bottom: 0 !important;
-    }
-    .file-profil .cont-file span{
-        padding: 0 20px !important;
-    }
-
-    .profilFile .cont-file span {
-    padding: 0 10px !important;
-}
-
-
-}
 @media (max-width:400px) {
-    .formulaire-cagnotte .btn {
-        margin-top: 15px;
-    }
-    .profilFile .formulaire .chp {
-        padding: 0;
-    }
-    .blc-cagnotte-participation .btn {
-        margin-top: 50px;
-        text-align: center;
-    }
-}
-
-
-@media (max-width:1024px) {
-    .tarifs .cont-right .col.payement {
-        min-height: inherit;
-    }
- }
-
-@media (max-width:768px) {
- .tarifs .cont-right .col.payement { min-height:inherit; }
+    .formulaire-cagnotte .btn {  margin-top: 15px; }
+    .profilFile .formulaire .chp { padding: 0;}
+    .blc-cagnotte-participation .btn {  margin-top: 50px;  text-align: center;}
 }
 
 
 
-@media (max-width:600px) {
-     .footer-3 .Whatsapp li a:first-child:before { display: none; }
-
-}
 
 
-#menu-item-upload {
-    -webkit-box-ordinal-group: 2;
-    -moz-box-ordinal-group: 2;
-    -ms-flex-order: 2;
-    -webkit-order: 2;
-    order: 2;
-  }
-
-#menu-item-browse {
-    -webkit-box-ordinal-group: 1;
-    -moz-box-ordinal-group: 1;
-    -ms-flex-order: 1;
-    -webkit-order: 1;
-    order: 1;
-}
-#cin_btn {
-	z-index: 0;
-}
