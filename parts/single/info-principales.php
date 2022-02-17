@@ -1,6 +1,7 @@
 <?php  $type_cagnotte = get_field('visibilite_cagnotte'); ?>
 <div class="nom-cagnotteSum wow fadeInUp" data-wow-delay="800ms">
     <div class="content">
+       
         <div class="col col1">
           <?php 
             $terms = get_the_terms( $post->ID, 'categ-cagnotte' );
@@ -23,6 +24,15 @@
                 <span><?php echo $categ; ?></span>
             </div>  
         </div>
+
+        <div class="col col6">
+            <div class="objectifs">
+              <div class="ico2"><img src="<?= IMG_URL ?>ico-jrs.png"></div>
+              <b>Lorem</b>
+              <span>Objectifs</span>
+            </div>
+        </div>
+
         <div class="col col3">
             <div class="jours">
                 <div class="ico2"><img src="<?= IMG_URL ?>ico-jrs.png"></div>
