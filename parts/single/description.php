@@ -233,7 +233,7 @@
                         <div class="item">
                           <input type="checkbox" class="ck-photo" id="img8"> 
                           <label for="img8">
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo1.jpg" alt="Kotikota"></a>          
+                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo8.jpg" alt="Kotikota"></a>          
                           </label>
                         </div>
 
