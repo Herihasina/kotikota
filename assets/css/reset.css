@@ -1990,7 +1990,7 @@ input[type="checkbox"].ck-photo ~ label {
   border: 1px solid transparent;
 }
 input[type="checkbox"].ck-photo:checked ~ label {
-  border: 1px solid #000;
+  border: 1px solid transparent;
 }
 
 
@@ -2138,6 +2138,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     margin-bottom: 20px;
 }
 .lst-document .lst-option.blcphotos .inner { position: relative; }
+
 .lst-document .lst-option.blcphotos  label::before {
     content: "";
     width: 17px;
@@ -2149,6 +2150,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     right: 10px;
     bottom: 10px;
     background: #fff;
+    z-index: 20
 }
 .lst-document .lst-option.blcphotos label::after {
     content: "";
@@ -2160,7 +2162,8 @@ input[type="checkbox"].ck-photo:checked ~ label {
     position: absolute;
     right: 13px;
     bottom: 13px;
-    opacity: 0
+    opacity: 0;
+    z-index: 20
 }
 
 .video-img img {
@@ -2170,7 +2173,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .video-img { position: relative; }
 .video-img .heure { background-color: #000; border-radius: 5px; padding:5px; color: #fff; font-size: 12px; text-align: center; position: absolute; right: 5px; bottom: 5px; line-height: 12px; display: inline-block; }
 
-.inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label .img:after { opacity: 1 }
+.inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label:after { opacity: 1 }
 
 
 .inner-pp .row .col.photo {
