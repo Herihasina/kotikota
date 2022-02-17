@@ -153,10 +153,10 @@
                             </div> -->
                             <div class="blc-rib">
                             	<input type="text" name="rib" class="chp" id="rib" placeholder="Aucun fichier" required="" value="">
-                            	<a href="" class="link submit">Remplir le RIB du Bénéficiaire</a>
+                            	<a href="#pp-rib" class="link submit fancybox">Remplir le RIB du Bénéficiaire</a>
                             </div>
 
-                            <div class="pp-rib" id="pp-rib">
+                            <div class="pp-rib" id="pp-rib" style="display: none">
                             	<div class="cont-rib cont-pp">
                             		<div class="titre">RIB du Bénéficiaire</div>
                             		<div class="inner-pp">
