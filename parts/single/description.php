@@ -184,7 +184,7 @@
                         <div class="item">
                           <input type="checkbox" class="document" id="img1"> 
                           <label for="img1">
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo1.jpg" alt="Kotikota"></a>  
+                            <a href="<?= IMG_URL ?>photo1.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo1.jpg" alt="Kotikota"></a>  
                           </label>
                         </div>
 
@@ -256,14 +256,18 @@
                           </div>
                           <div class="item">
                             <div class="contvideo">
-                              <div class="video-img"><img src="<?= IMG_URL ?>video2.jpg" alt="Kotikota"><span class="heure">12:37</span></div>
-                              <div class="txt">
-                                <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                              </div>
+                              <a href="#" target="_blank">
+                                <div class="video-img"><img src="<?= IMG_URL ?>video2.jpg" alt="Kotikota"><span class="heure">12:37</span></div>
+                                <div class="txt">
+                                  <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+                                </div>
+                              </a>
+
                             </div>
                           </div>
                           <div class="item">
+                            <a href="#" target="_blank">
                             <div class="contvideo">
                               <div class="video-img"><img src="<?= IMG_URL ?>video3.jpg" alt="Kotikota"><span class="heure">18:10</span></div>
                               <div class="txt">
@@ -271,14 +275,17 @@
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
                               </div>
                             </div>
+                            </a>
                           </div>
                           <div class="item">
                             <div class="contvideo">
-                              <div class="video-img"><img src="<?= IMG_URL ?>video4.jpg" alt="Kotikota"><span class="heure">45:25</span></div>
-                              <div class="txt">
-                                <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                              </div>
+                              <a href="#" target="_blank">
+                                <div class="video-img"><img src="<?= IMG_URL ?>video4.jpg" alt="Kotikota"><span class="heure">45:25</span></div>
+                                <div class="txt">
+                                  <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+                                </div>
+                              </a>
                             </div>
                           </div>
                         </div>
