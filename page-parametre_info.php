@@ -137,7 +137,7 @@
 
 		          		<div class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms" style="visibility: visible; animation-delay: 1000ms; animation-name: fadeIn;">
                             <label><?php _e('Ajouter un RIB','kotikota'); ?></label>
-                            <div class="chp">
+                           <!--  <div class="chp">
                                 <div class="cont-file">
                                 		<?php if( $info->rib == '' || $info->rib == 0 ): ?>
                                     	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
@@ -150,7 +150,12 @@
                                     <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
                                 </div>
                                 <div class="zone-img-rib"></div>
+                            </div> -->
+                            <div class="blc-rib">
+                            	<input type="text" name="rib" class="chp" id="rib" placeholder="RIB" required="" value="">
+                            	<a href="" class="link submit">Remplir le RIB du Bénéficiaire</a>
                             </div>
+
                         </div>
 	            	</div>
 		          	<div class="clear"></div>
