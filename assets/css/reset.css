@@ -2032,7 +2032,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     height: 48px;
     overflow: hidden;
 }
-.inner-pp .row .col .lst-option.blcphotos .item label::before {
+.inner-pp .row .col .lst-option .item label .ico::before {
     content: "";
     width: 17px;
     height: 17px;
@@ -2044,7 +2044,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     bottom: 0;
     background: #fff;
 }
-.inner-pp .row .col .lst-option.blcphotos .item label:after {
+.inner-pp .row .col .lst-option .item label .ico::after {
     content: "";
     background: #8d4a8f;
     width: 13px;
@@ -2056,9 +2056,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     bottom: 3px;
     opacity: 0
 }
-
-.inner-pp .row .col .lst-option .item input[type="checkbox"].document:checked ~ label:after { opacity: 1 }
-
+.inner-pp .row .col .lst-option .item input[type="checkbox"].document:checked ~ label .ico:after { opacity: 1 }
 .inner-pp .row .col {
     width: 50%;
 }
@@ -2115,7 +2113,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     display: table;
     clear: both;
 }
-.contvideo a{
+.contvideo a {
     display: flex;
     align-items: center;
     color: #000
@@ -2165,15 +2163,14 @@ input[type="checkbox"].ck-photo:checked ~ label {
     opacity: 0
 }
 
-
 .video-img img {
     display: block;
 }
 
 .video-img { position: relative; }
-.video-img .heure { background-color: #000; border-radius: 3px; padding:5px; color: #fff; font-size: 12px; text-align: center; display: inline-block; position: absolute; right: 5px; bottom: 5px; line-height: 12px }
+.video-img .heure { background-color: #000; border-radius: 5px; padding:5px; color: #fff; font-size: 12px; text-align: center; position: absolute; right: 5px; bottom: 5px; line-height: 12px; display: inline-block; }
 
-.inner-pp .row .col .lst-option.blcphotos  .item input[type="checkbox"].ck-photo:checked ~ label:after { opacity: 1 }
+.inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label .img:after { opacity: 1 }
 
 
 .inner-pp .row .col.photo {
