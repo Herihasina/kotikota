@@ -2197,7 +2197,11 @@ input[type="checkbox"].ck-photo:checked ~ label {
     font-size: 16px;
     color: #7b7b7b;
 }
-.pp-partage  .invitation .titre { margin-top: 20px; margin-bottom: 40px }
+.pp-partage .invitation .titre {
+    margin-top: 40px !important;
+    margin-bottom: 40px;
+    padding: 0 !important;
+}
 .pp-partage .cont-pp .inner-pp {
     padding: 39px 40px 83px 40px;
 }
