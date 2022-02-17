@@ -3020,6 +3020,10 @@ a:hover { color:#fbbd36; }
       flex-direction: column;
       text-align: center;
     }
+    .pp-document-photos .blcbtn .link {
+        margin: 0 20px 10px;
+    }
+    .cont-pp .titre h2 { font-size: 28px }
 }
 
 
