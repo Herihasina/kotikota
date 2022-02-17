@@ -27,10 +27,10 @@
         </div>
         <div class="inner-pp">
             <div class="invitation">
-        <div class="titre wow fadeIn" data-wow-delay="900ms">
+        <div class="titre " >
           <h2><span><img src="<?php echo IMG_URL ?>ico-invite2.png"></span><?php _e('Invitez vos amis par message','kotikota'); ?></h2>
         </div>
-        <div class="liste-invitation clr wow fadeIn" data-wow-delay="950ms">
+        <div class="liste-invitation clr " >
           <ul class="clr">
               <li class="whatsapp"><a href="https://wa.me/?text=<?php echo get_permalink($id_cagnotte) ?>?origin=invite" title="whatsapp" target="_blank"><?php _e('whatsapp','kotikota'); ?></a></li>
               <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink($id_cagnotte); ?>?origin=invite" title="Facebook" target="_blank"><?php _e('facebook','kotikota'); ?></a></li>
@@ -41,14 +41,14 @@
           <h2><span><img src="<?php echo IMG_URL ?>icon-link.png"></span>Lien de votre cagnotte</h2>
         </div>
 
-        <div class="chp-lien wow fadeIn" data-wow-delay="950ms">
+        <div class="chp-lien " >
           <div class="blc-chp">
             <div class="chp">
               <input type="text" name="" placeholder="<?php printf(__('Lien de votre cagnotte.Exemple : %s','kotikota'), get_permalink($id_cagnotte) ) ?>" value="<?php echo get_permalink($id_cagnotte) ?>" readonly>
             </div>
           </div>
         </div>
-        <div class="invitation-mail wow fadeIn" data-wow-delay="950ms">
+        <div class="invitation-mail  " >
           <div class="titre">
             <h2><span><img src="<?php echo IMG_URL ?>ico-invite-mail.png"></span><?php _e('Invitez vos amis par e-mail','kotikota'); ?></h2>
           </div>
@@ -126,7 +126,7 @@
           </div>
         </div>
         <ul id="response"></ul>
-        <div class="btn wow fadeIn" data-wow-delay="950ms">
+        <div class="btn" >
           <input type="hidden" id="idCagnotte" name="idCagnotte" value="<?php echo $id_cagnotte ?>">
           <a href="<?php echo get_permalink( $id_cagnotte ) ?>" class="link" title="<?php _e('Annuler','kotikota'); ?>"><?php _e('Annuler','kotikota'); ?></a>
           <input type="submit" id="invite_email" name="" class="link submit" value="<?php _e('Valider','kotikota'); ?>">
