@@ -2706,6 +2706,14 @@ a:hover { color:#fbbd36; }
     .cont-pp .titre {  padding: 53px 40px 44px;   }
     .cont-pp .inner-pp {  padding: 40px 20px 43px 20px;}
 
+    #pp-photos .inner-pp .row { flex-direction: column; }
+    #pp-photos .inner-pp .row .col.photo { width: 100%;}
+    #pp-photos .inner-pp .row .col .lst-option.blcphotos {  max-width: 100%; padding-right: 20px;}
+    #pp-photos .inner-pp .row .col { width: 100%;}
+    #pp-photos .inner-pp .row .col .lst-option {  max-width: 100%; padding-right: 20px;}
+    #pp-photos .inner-pp .row .col .lst-option.blcphotos .item { padding-right: 10px }
+    #pp-photos .inner-pp h3 { text-align: center }
+
 
 }
 
@@ -2983,6 +2991,8 @@ a:hover { color:#fbbd36; }
     .inner-pp h3 {font-size: 20px; margin-bottom: 20px}
     .cont-pp .blcbtn .link { margin-bottom: 10px }
 
+    #pp-photos .inner-pp .row .col .lst-option.blcphotos {padding-right: 0}
+
 
 }
 @media (max-width:480px) {
@@ -3004,6 +3014,12 @@ a:hover { color:#fbbd36; }
      .banner-inner .titre { margin-top: -40px }
      .qui-sommes-nous h2 { font-size: 28px; }
      .lst-securite .item .titre {font-size: 16px}
+     .video-img { margin-right: 0; margin-bottom: 10px }
+    .contvideo a {
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
 }
 
 

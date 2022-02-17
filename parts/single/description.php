@@ -193,7 +193,7 @@
                           <div class="inner">
                             <input type="checkbox" class="ck-photo" id="img2"> 
                             <label for="img2"></label>
-                            <a href="#"class="img"><img src="<?= IMG_URL ?>photo2.jpg" alt="Kotikota"></a>
+                            <a href="<?= IMG_URL ?>photo2.jpg"class="img fancybox"><img src="<?= IMG_URL ?>photo2.jpg" alt="Kotikota"></a>
                           </div>
                         </div>
 
@@ -201,14 +201,14 @@
                           <div class="inner">
                             <input type="checkbox" class="ck-photo" id="img3"> 
                             <label for="img3">  </label>
-                            <a href="#"  class="img"><img src="<?= IMG_URL ?>photo3.jpg" alt="Kotikota"></a>
+                            <a href="<?= IMG_URL ?>photo3.jpg"  class="img fancybox"><img src="<?= IMG_URL ?>photo3.jpg" alt="Kotikota"></a>
                           </div>
                         </div>
                         <div class="item">
                           <div class="inner">
                             <input type="checkbox" class="ck-photo" id="img4"> 
                             <label for="img4"></label>
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo4.jpg" alt="Kotikota"></a>
+                            <a href="<?= IMG_URL ?>photo4.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo4.jpg" alt="Kotikota"></a>
                           </div>
                         </div>
                         <div class="item">
@@ -216,21 +216,21 @@
                             <input type="checkbox" class="ck-photo" id="img5"> 
                             <label for="img5">     
                             </label>
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo5.jpg" alt="Kotikota"></a> 
+                            <a href="<?= IMG_URL ?>photo5.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo5.jpg" alt="Kotikota"></a> 
                           </div>
                         </div>
                         <div class="item">
                           <div class="inner">
                             <input type="checkbox" class="ck-photo" id="img6"> 
                             <label for="img6"> </label>
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo6.jpg" alt="Kotikota"></a> 
+                            <a href="<?= IMG_URL ?>photo6.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo6.jpg" alt="Kotikota"></a> 
                           </div>
                         </div>
                         <div class="item">
                           <div class="inner">
                             <input type="checkbox" class="ck-photo" id="img7"> 
                             <label for="img7">   </label>
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo7.jpg" alt="Kotikota"></a> 
+                            <a href="<?= IMG_URL ?>photo7.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo7.jpg" alt="Kotikota"></a> 
                           </div>
                         </div>
 
@@ -238,7 +238,7 @@
                           <div class="inner">
                             <input type="checkbox" class="ck-photo" id="img8"> 
                             <label for="img8"> </label>
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo8.jpg" alt="Kotikota"></a> 
+                            <a href="<?= IMG_URL ?>photo8.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo8.jpg" alt="Kotikota"></a> 
                           </div>
                         </div>
 
