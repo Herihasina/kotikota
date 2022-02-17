@@ -182,27 +182,27 @@
                       <h3>images</h3>
                       <div class="lst-option blcphotos">        
                         <div class="item">
-                          <input type="checkbox" class="ck-photo" id="img1"> 
+                          <input type="checkbox" class="document" id="img1"> 
                           <label for="img1">
                             <a href="#" class="img"><img src="<?= IMG_URL ?>photo1.jpg" alt="Kotikota"></a>  
                           </label>
                         </div>
 
                         <div class="item">
-                          <input type="checkbox" class="ck-photo" id="img2"> 
+                          <input type="checkbox" class="document" id="img2"> 
                           <label for="img2">
                             <a href="#"class="img"><img src="<?= IMG_URL ?>photo2.jpg" alt="Kotikota"></a>
                           </label>
                         </div>
 
                         <div class="item">
-                          <input type="checkbox" class="ck-photo" id="img3"> 
+                          <input type="checkbox" class="document" id="img3"> 
                           <label for="img3">
                             <a href="#"  class="img"><img src="<?= IMG_URL ?>photo3.jpg" alt="Kotikota"></a> 
                           </label>
                         </div>
                         <div class="item">
-                          <input type="checkbox" class="ck-photo" id="img4"> 
+                          <input type="checkbox" class="document" id="img4"> 
                           <label for="img4">
                             <a href="#" class="img"><img src="<?= IMG_URL ?>photo4.jpg" alt="Kotikota"></a> 
                             
@@ -246,7 +246,7 @@
                         <div class="lst-option">        
                           <div class="item">      
                             <div class="contvideo">
-                              <div class="video-img"><img src="<?= IMG_URL ?>video1.jpg" alt="Kotikota"></div>
+                              <div class="video-img"><img src="<?= IMG_URL ?>video1.jpg" alt="Kotikota"><span class="heure">23:15</span></div>
                               <div class="txt">
                                 <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
@@ -256,7 +256,7 @@
                           </div>
                           <div class="item">
                             <div class="contvideo">
-                              <div class="video-img"><img src="<?= IMG_URL ?>video2.jpg" alt="Kotikota"></div>
+                              <div class="video-img"><img src="<?= IMG_URL ?>video2.jpg" alt="Kotikota"><span class="heure">12:37</span></div>
                               <div class="txt">
                                 <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
@@ -265,7 +265,7 @@
                           </div>
                           <div class="item">
                             <div class="contvideo">
-                              <div class="video-img"><img src="<?= IMG_URL ?>video3.jpg" alt="Kotikota"></div>
+                              <div class="video-img"><img src="<?= IMG_URL ?>video3.jpg" alt="Kotikota"><span class="heure">18:10</span></div>
                               <div class="txt">
                                 <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
@@ -274,7 +274,7 @@
                           </div>
                           <div class="item">
                             <div class="contvideo">
-                              <div class="video-img"><img src="<?= IMG_URL ?>video4.jpg" alt="Kotikota"></div>
+                              <div class="video-img"><img src="<?= IMG_URL ?>video4.jpg" alt="Kotikota"><span class="heure">45:25</span></div>
                               <div class="txt">
                                 <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
