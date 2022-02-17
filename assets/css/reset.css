@@ -3009,6 +3009,11 @@ a:hover { color:#fbbd36; }
     .pp-partage .btn .link { margin-bottom: 10px;}
     .nom-cagnotteSum .content .col span:not(.format_chiffre) {  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%; display: block;}
     .pp-rib .cont-pp .inner-pp {  padding: 40px 20px 40px 20px; }
+    .pp-rib .formulaireParametre .col.col-70 { width: 100%;}
+    .pp-rib .formulaireParametre .col.col-30 { width: 100%;}
+    .pp-rib .titre::before { width: 30px; height: 34px; background-size: cover; left: 20px  }
+    .pp-rib .cont-file i { width: 100% !important }
+
 
 
 }
@@ -3032,15 +3037,11 @@ a:hover { color:#fbbd36; }
      .qui-sommes-nous h2 { font-size: 28px; }
      .lst-securite .item .titre {font-size: 16px}
      .video-img { margin-right: 0; margin-bottom: 10px }
-    .contvideo a {
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-    }
-    .pp-document-photos .blcbtn .link {
-        margin: 0 20px 10px;
-    }
+    .contvideo a { justify-content: center;  flex-direction: column; text-align: center; }
+    .pp-document-photos .blcbtn .link { margin: 0 20px 10px;}
     .cont-pp .titre h2 { font-size: 28px }
+    .pp-rib .titre::before { display: none; }
+    .cont-pp .titre { padding: 20px 40px 20px 20px;}
 }
 
 
