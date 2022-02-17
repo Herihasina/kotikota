@@ -152,8 +152,105 @@
                                 <div class="zone-img-rib"></div>
                             </div> -->
                             <div class="blc-rib">
-                            	<input type="text" name="rib" class="chp" id="rib" placeholder="RIB" required="" value="">
+                            	<input type="text" name="rib" class="chp" id="rib" placeholder="Aucun fichier" required="" value="">
                             	<a href="" class="link submit">Remplir le RIB du Bénéficiaire</a>
+                            </div>
+
+                            <div class="pp-rib" id="pp-rib">
+                            	<div class="cont-rib cont-pp">
+                            		<div class="titre">RIB du Bénéficiaire</div>
+                            		<div class="inner-pp">
+                            			<form class="form-rib">
+                            				<p>Vous êtes prié de renseigner le Relevé d’Identité Bancaire du bénéficiaire de votre cagnotte afin que nous puissions lui transférer le montant récupéré. </p>
+                            				<p>Merci de compléter les informations suivantes :</p>
+                            				<div class="formulaireParametre ">
+                            					<div class="col">
+	                            					<div class="blc-chp">
+	                            						<label>Titulaire du compte <span>*</span></label>
+	                            						<input type="text" name="" placeholder="Votre nom" class="chp" id="nom">
+	                            					</div>
+                            					</div>
+                            					<div class="col">
+                            						<div class="blc-chp">
+	                            						<label>Banque</label>
+	                            						<input type="text" name="" placeholder="Le nom de votre banque" class="chp" id="bank">
+	                            					</div>
+                            					</div>
+                            					<div class="col">
+                            						<div class="blc-chp">
+	                            						<label>Domiciliation bancaire</label>
+	                            						<input type="text" name="" placeholder="Votre adresse de domiciliation" class="chp" id="domicile">
+	                            					</div>
+                            					</div>
+                            					<div class="col">
+                            						<div class="blc-chp">
+	                            						<label>Code Banque</label>
+	                            						<input type="text" name="" placeholder="----" class="chp" id="codebank">
+	                            					</div>
+                            					</div>
+                            					<div class="col">
+                            						<div class="blc-chp">
+	                            						<label>Code Guichet</label>
+	                            						<input type="text" name="" placeholder="----" class="chp" id="codeguichet">
+	                            					</div>
+                            					</div>
+                            					<div class="col">
+                            						<div class="blc-chp">
+	                            						<label>Numéro de Compte</label>
+	                            						<input type="text" name="" placeholder="-----------" class="chp" id="numcompte">
+	                            					</div>
+                            					</div>
+                            					<div class="col">
+                            						<div class="blc-chp">
+	                            						<label>Clé RIB</label>
+	                            						<input type="text" name="" placeholder="--" class="chp" id="numcompte">
+	                            					</div>
+                            					</div>
+
+                            					<div class="col">
+                            						<div class="blc-chp">
+	                            						<label>IBAN </label>
+	                            						<input type="text" name="" placeholder="---- ---- ---- ---- ---- ---- ---" class="chp" id="numcompte">
+	                            					</div>
+                            					</div>
+                            					<div class="col">
+                            						<div class="blc-chp">
+	                            						<label>BIC</label>
+	                            						<input type="text" name="" placeholder="-----------" class="chp" id="numcompte">
+	                            					</div>
+                            					</div>
+
+                            					<div class="info-rib">
+                            						<p>Pour assurer une double vérification, vous pouvez fournir une photo du RIB du bénéficiaire</p>
+                            					</div>
+                            					<div class="col">
+                            						<label><?php _e('Ajouter un RIB','kotikota'); ?></label>
+						                            <div class="chp">
+						                                <div class="cont-file">
+						                                		<?php if( $info->rib == '' || $info->rib == 0 ): ?>
+						                                    	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
+						                                  	<?php else: ?>
+						                                  		<span><?= get_the_title( $info->rib ) ?></span>
+						                                  	<?php endif; ?>
+						                                    <input type="text" name="file[]" class="input-file" id="rib_btn">
+						                                    <input type="hidden" name="" value="<?= $info->rib ?>" id="rib_value">
+						                                    <i> <?php _e('Parcourir','kotikota'); ?></i>
+						                                    <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
+						                                </div>
+						                                <div class="zone-img-rib"></div>
+						                            </div>
+                            					</div>
+                            					<div class="info-rib">
+                            						<p>Pour assurer une double vérification, vous aSi vous souhaitez obtenir un transfert via Mobile Money, il faudra effectuer une demande spéciale à l’adresse hello@koti-kota.com en précisant le Nom de votre cagnotte, votre Identifiant Koti Kota (Profil), le montant à récupérer, votre numéro de téléphone ainsi qu’un justificatif d’identité (CIN, passeport,…)</p>
+                            					</div>
+                            					<div class="btn">
+										           <a href="https://koti-kota.com/cagnotte/voyage-test/" class="link" title="annuler">annuler</a>
+										           <input type="submit" name="" value="enregistrer" class="link submit" >
+										        </div>
+                            				</div>
+                            			</form>
+                            		</div>
+                            	</div>
                             </div>
 
                         </div>
