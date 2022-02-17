@@ -37,7 +37,7 @@
               <li class="twitter"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<?php echo urlencode( get_the_title( $id_cagnotte )) ?>?origin=invite" data-size="large" title="Twitter" target="_blank"><?php _e('twitter','kotikota'); ?></a></li>
           </ul>
         </div>
-        <div class="titre link-cagnotte wow fadeIn">
+        <div class="titre link-cagnotte">
           <h2><span><img src="<?php echo IMG_URL ?>icon-link.png"></span>Lien de votre cagnotte</h2>
         </div>
 
