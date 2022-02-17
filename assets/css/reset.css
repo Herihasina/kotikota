@@ -2113,9 +2113,10 @@ input[type="checkbox"].ck-photo:checked ~ label {
     display: table;
     clear: both;
 }
-.contvideo {
+.contvideo a{
     display: flex;
     align-items: center;
+    color: #000
 }
 .video-img {
     margin-right: 20px;
@@ -2161,6 +2162,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     opacity: 0
 }
 
+
 .video-img img {
     display: block;
 }
@@ -2169,7 +2171,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .video-img .heure { background-color: #000; border-radius: 3px; padding:5px; color: #fff; font-size: 12px; text-align: center; display: inline-block; position: absolute; right: 5px; bottom: 5px; line-height: 12px }
 
 .inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label .img:after { opacity: 1 }
-.inner-pp .row .col .lst-option .item input[type="checkbox"].document:checked ~ label .ico:after { opacity: 1 }
+
 
 .inner-pp .row .col.photo {
     width: 55%;

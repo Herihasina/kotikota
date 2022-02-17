@@ -182,59 +182,48 @@
                       <h3>images</h3>
                       <div class="lst-option blcphotos">        
                         <div class="item">
-                          <input type="checkbox" class="document" id="img1"> 
-                          <label for="img1">
-                            <a href="<?= IMG_URL ?>photo1.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo1.jpg" alt="Kotikota"></a>  
-                          </label>
+                          <input type="checkbox" class="ck-photo" id="img1"> 
+                          <label for="img1"></label>
+                          <a href="<?= IMG_URL ?>photo1.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo1.jpg" alt="Kotikota"></a> 
                         </div>
 
                         <div class="item">
-                          <input type="checkbox" class="document" id="img2"> 
-                          <label for="img2">
+                          <input type="checkbox" class="ck-photo" id="img2"> 
+                          <label for="img2"></label>
                             <a href="#"class="img"><img src="<?= IMG_URL ?>photo2.jpg" alt="Kotikota"></a>
-                          </label>
                         </div>
 
                         <div class="item">
-                          <input type="checkbox" class="document" id="img3"> 
-                          <label for="img3">
-                            <a href="#"  class="img"><img src="<?= IMG_URL ?>photo3.jpg" alt="Kotikota"></a> 
-                          </label>
+                          <input type="checkbox" class="ck-photo" id="img3"> 
+                          <label for="img3">  </label>
+                          <a href="#"  class="img"><img src="<?= IMG_URL ?>photo3.jpg" alt="Kotikota"></a>
                         </div>
                         <div class="item">
-                          <input type="checkbox" class="document" id="img4"> 
-                          <label for="img4">
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo4.jpg" alt="Kotikota"></a> 
-                            
-                          </label>
+                          <input type="checkbox" class="ck-photo" id="img4"> 
+                          <label for="img4"></label>
+                          <a href="#" class="img"><img src="<?= IMG_URL ?>photo4.jpg" alt="Kotikota"></a>
                         </div>
                         <div class="item">
                           <input type="checkbox" class="ck-photo" id="img5"> 
-                          <label for="img5">
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo5.jpg" alt="Kotikota"></a> 
-                            
+                          <label for="img5">     
                           </label>
+                          <a href="#" class="img"><img src="<?= IMG_URL ?>photo5.jpg" alt="Kotikota"></a> 
                         </div>
                         <div class="item">
                           <input type="checkbox" class="ck-photo" id="img6"> 
-                          <label for="img6">
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo6.jpg" alt="Kotikota"></a> 
-                            
-                          </label>
+                          <label for="img6"> </label>
+                          <a href="#" class="img"><img src="<?= IMG_URL ?>photo6.jpg" alt="Kotikota"></a> 
                         </div>
                         <div class="item">
                           <input type="checkbox" class="ck-photo" id="img7"> 
-                          <label for="img7">
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo7.jpg" alt="Kotikota"></a> 
-                            
-                          </label>
+                          <label for="img7">   </label>
+                          <a href="#" class="img"><img src="<?= IMG_URL ?>photo7.jpg" alt="Kotikota"></a> 
                         </div>
 
                         <div class="item">
                           <input type="checkbox" class="ck-photo" id="img8"> 
-                          <label for="img8">
-                            <a href="#" class="img"><img src="<?= IMG_URL ?>photo8.jpg" alt="Kotikota"></a>          
-                          </label>
+                          <label for="img8"> </label>
+                          <a href="#" class="img"><img src="<?= IMG_URL ?>photo8.jpg" alt="Kotikota"></a> 
                         </div>
 
                       
@@ -246,11 +235,13 @@
                         <div class="lst-option">        
                           <div class="item">      
                             <div class="contvideo">
+                              <a href="#" target="_blank">
                               <div class="video-img"><img src="<?= IMG_URL ?>video1.jpg" alt="Kotikota"><span class="heure">23:15</span></div>
                               <div class="txt">
                                 <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
                               </div>
+                              </a>
                             </div>
                             
                           </div>
