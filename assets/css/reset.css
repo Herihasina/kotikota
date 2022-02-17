@@ -2230,7 +2230,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .blc-rib {
     position: relative;
 }
-.pp-rib { width: 1000px }
+.pp-rib { width: 1000px ; padding: 0}
 
 .pp-rib .cont-pp .inner-pp {
     padding: 120px 80px 83px 80px;
@@ -2268,6 +2268,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
 }
 .pp-rib  .cont-file { margin-bottom: 30px }
 .pp-rib .cont-file span { color: #7b7b7b }
+
 
 
 
