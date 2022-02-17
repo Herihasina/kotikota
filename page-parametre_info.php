@@ -158,25 +158,25 @@
 
                             <div class="pp-rib" id="pp-rib" style="display: none">
                             	<div class="cont-rib cont-pp">
-                            		<div class="titre">RIB du Bénéficiaire</div>
+                            		<div class="titre"><h2>RIB du Bénéficiaire</h2></div>
                             		<div class="inner-pp">
                             			<form class="form-rib">
                             				<p>Vous êtes prié de renseigner le Relevé d’Identité Bancaire du bénéficiaire de votre cagnotte afin que nous puissions lui transférer le montant récupéré. </p>
                             				<p>Merci de compléter les informations suivantes :</p>
                             				<div class="formulaireParametre ">
-                            					<div class="col">
+                            					<div class="col col-100">
 	                            					<div class="blc-chp">
 	                            						<label>Titulaire du compte <span>*</span></label>
 	                            						<input type="text" name="" placeholder="Votre nom" class="chp" id="nom">
 	                            					</div>
                             					</div>
-                            					<div class="col">
+                            					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>Banque</label>
 	                            						<input type="text" name="" placeholder="Le nom de votre banque" class="chp" id="bank">
 	                            					</div>
                             					</div>
-                            					<div class="col">
+                            					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>Domiciliation bancaire</label>
 	                            						<input type="text" name="" placeholder="Votre adresse de domiciliation" class="chp" id="domicile">
@@ -207,13 +207,13 @@
 	                            					</div>
                             					</div>
 
-                            					<div class="col">
+                            					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>IBAN </label>
 	                            						<input type="text" name="" placeholder="---- ---- ---- ---- ---- ---- ---" class="chp" id="numcompte">
 	                            					</div>
                             					</div>
-                            					<div class="col">
+                            					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>BIC</label>
 	                            						<input type="text" name="" placeholder="-----------" class="chp" id="numcompte">
@@ -223,7 +223,7 @@
                             					<div class="info-rib">
                             						<p>Pour assurer une double vérification, vous pouvez fournir une photo du RIB du bénéficiaire</p>
                             					</div>
-                            					<div class="col">
+                            					<div class="col col-100">
                             						<label><?php _e('Ajouter un RIB','kotikota'); ?></label>
 						                            <div class="chp">
 						                                <div class="cont-file">

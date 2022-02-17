@@ -2230,6 +2230,34 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .blc-rib {
     position: relative;
 }
+.pp-rib { width: 1000px }
+
+.pp-rib .cont-pp .inner-pp {
+    padding: 120px 80px 83px 80px;
+}
+.pp-rib .form-rib p {
+    text-align: center;
+}
+.pp-rib .formulaireParametre .col.col-100 {
+    width: 100%;
+}
+.pp-rib .btn {
+    text-align: center;
+}
+.pp-rib .btn .link { margin: 0 10px 10px }
+
+.pp-rib .chp .input-file {
+    position: absolute;
+    opacity: 0;
+    width: 100%!important;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+.pp-rib  .cont-file { margin-bottom: 30px }
+
 
 
 @media (min-width:1201px) {
