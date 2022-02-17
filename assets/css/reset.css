@@ -2106,7 +2106,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .lst-document .lst-option .img img { display: block; width: 100% }
 #pp-photos .inner-pp .row .col .lst-option .item label { padding-right: 0 }
 .inner-pp .row .col .lst-option.blcphotos { display: block;max-width: 413px; }
-.inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 50%; float: left;}
+.inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 50%; float: left; padding-right: 22px}
 
 .inner-pp .row .col .lst-option.blcphotos::after {
     content: "";
@@ -2137,8 +2137,8 @@ input[type="checkbox"].ck-photo:checked ~ label {
 #pp-photos .inner-pp .row .col .lst-option .item {
     margin-bottom: 20px;
 }
-
-.lst-document .lst-option .img::before {
+.lst-document .lst-option.blcphotos .inner { position: relative; }
+.lst-document .lst-option.blcphotos  label::before {
     content: "";
     width: 17px;
     height: 17px;
@@ -2150,7 +2150,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     bottom: 10px;
     background: #fff;
 }
-.lst-document .lst-option .img::after {
+.lst-document .lst-option.blcphotos label::after {
     content: "";
     background: #8d4a8f;
     width: 13px;
