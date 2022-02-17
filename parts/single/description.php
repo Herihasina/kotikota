@@ -258,8 +258,9 @@
                             </div>
                           </div>
                           <div class="item">
-                            <a href="#" target="_blank">
+                            
                             <div class="contvideo">
+                              <a href="#" target="_blank">
                               <div class="video-img"><img src="<?= IMG_URL ?>video3.jpg" alt="Kotikota"><span class="heure">18:10</span></div>
                               <div class="txt">
                                 <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>

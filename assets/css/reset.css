@@ -2120,6 +2120,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     align-items: center;
     color: #000
 }
+.contvideo a:hover { color: #000 }
 .video-img {
     margin-right: 20px;
 }
