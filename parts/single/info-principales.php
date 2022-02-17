@@ -27,9 +27,9 @@
 
         <div class="col col6">
             <div class="objectifs">
-              <div class="ico2"><img src="<?= IMG_URL ?>ico-jrs.png"></div>
-              <b>Lorem</b>
-              <span>Objectifs</span>
+              <div class="ico2"><img src="<?= IMG_URL ?>ico-rst-collct.png"></div>
+              <b>80 000 Ar</b>
+              <span>Objectifs (Montant à atteindre)</span>
             </div>
         </div>
 
