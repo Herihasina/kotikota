@@ -2241,12 +2241,21 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .pp-rib .formulaireParametre .col.col-100 {
     width: 100%;
 }
+
+.pp-rib .formulaireParametre .col.col-70 {
+    width: 70%;
+}
+
+.pp-rib .formulaireParametre .col.col-30 {
+    width: 30%;
+}
+
 .pp-rib .btn {
     text-align: center;
 }
 .pp-rib .btn .link { margin: 0 10px 10px }
 
-.pp-rib .chp .input-file {
+.pp-rib .chpfile .input-file {
     position: absolute;
     opacity: 0;
     width: 100%!important;
@@ -2255,8 +2264,10 @@ input[type="checkbox"].ck-photo:checked ~ label {
     top: 0;
     cursor: pointer;
     z-index: 9999;
+    height: 100%;
 }
 .pp-rib  .cont-file { margin-bottom: 30px }
+.pp-rib .cont-file span { color: #7b7b7b }
 
 
 

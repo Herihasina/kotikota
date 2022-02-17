@@ -194,13 +194,13 @@
 	                            						<input type="text" name="" placeholder="----" class="chp" id="codeguichet">
 	                            					</div>
                             					</div>
-                            					<div class="col">
+                            					<div class="col col-70">
                             						<div class="blc-chp">
 	                            						<label>Numéro de Compte</label>
 	                            						<input type="text" name="" placeholder="-----------" class="chp" id="numcompte">
 	                            					</div>
                             					</div>
-                            					<div class="col">
+                            					<div class="col col-30">
                             						<div class="blc-chp">
 	                            						<label>Clé RIB</label>
 	                            						<input type="text" name="" placeholder="--" class="chp" id="numcompte">
@@ -224,8 +224,9 @@
                             						<p>Pour assurer une double vérification, vous pouvez fournir une photo du RIB du bénéficiaire</p>
                             					</div>
                             					<div class="col col-100">
+                            						<div class="blc-chp">
                             						<label><?php _e('Ajouter un RIB','kotikota'); ?></label>
-						                            <div class="chp">
+						                            <div class="chpfile">
 						                                <div class="cont-file">
 						                                		<?php if( $info->rib == '' || $info->rib == 0 ): ?>
 						                                    	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
@@ -238,6 +239,7 @@
 						                                    <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
 						                                </div>
 						                                <div class="zone-img-rib"></div>
+						                            </div>
 						                            </div>
                             					</div>
                             					<div class="info-rib">
