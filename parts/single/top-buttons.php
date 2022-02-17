@@ -23,7 +23,7 @@
     <div class="pp-partage" id="pp-partage" style="display: none">
       <div class="cont-partage cont-pp">
         <div class="titre">
-            <h2>nvitez vos participants</h2>
+            <h2>Invitez vos participants</h2>
         </div>
         <div class="inner-pp">
             <div class="invitation">

@@ -2180,6 +2180,30 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .btn-partage .link.partage span {
     background: url(../images/share.png) left center no-repeat;
 }
+#pp-partage {
+    padding: 0;
+}
+.pp-partage .invitation .titre { background-color: transparent !important;  }
+.pp-partage .invitation .titre:after { display: none; }
+.pp-partage  .btn{
+    text-align: center;
+    margin-top: 25px;
+}
+.pp-partage  #emails_list {
+    border: none;
+    resize: none;
+    width: 100%;
+    font-family: Montserrat-r;
+    font-size: 16px;
+    color: #7b7b7b;
+}
+.pp-partage  .invitation .titre { margin-top: 20px; margin-bottom: 40px }
+.pp-partage .cont-pp .inner-pp {
+    padding: 39px 40px 83px 40px;
+}
+.pp-partage .chp-lien {
+    margin-bottom: 40px;
+}
 
 
 @media (min-width:1201px) {
