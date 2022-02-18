@@ -1,5 +1,5 @@
 <div class="blc-img">
-    <?php 
+<!--     <?php 
       $img_url = attachment_url_to_postid(get_field('illustration_pour_la_cagnotte'));
       if ( $img_url )
         echo wp_get_attachment_image( $img_url, 'banniere-single' );
@@ -19,13 +19,13 @@
             <img src="<?php echo IMG_URL ?>ok.png">
           </span>
     <?php 
-        }elseif ( $statu < 100 && $limited ){ ?>          
+        }elseif ( $statu < 100 && $limited ){ ?>  -->         
           <span class="ico-percent">
               <div class="percent" style="width:45px;height:45px;">
                 <p style="display:none;"><?php echo $statu ?>%</p>
               </div>
           </span>
-    <?php } ?>
+   <!--  <?php } ?>
     <?php if( $closed ): ?>
         <span class="ico-percent cloturer">
           <div class="ckeckCloturer"></div>
@@ -34,5 +34,5 @@
           <?= __('Cette cagnotte est clôturée','kotikota') ?>
         </span>
     <?php endif; ?></div>
-
+ -->
 
