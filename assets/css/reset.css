@@ -865,7 +865,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 
 
 .lst-cagnotte-publique .item  .ico2 { position: absolute; left: 0; top: 0;  }
-.lst-cagnotte-publique .item  .ico-percent { position: absolute; left: 0; top: -1px; background:url(../images/bg-percent.png); width: 58px; height: 62px; padding: 9px 7px }
+.lst-cagnotte-publique .item  .ico-percent { position: absolute; left: 0; top: -1px; background:url(../images/bg-percent.png); width: 100px; height: 103px; padding: 9px 7px }
 .percent { background-color: #fff; border-radius: 50%; position: relative;  }
 .percent::after {
     content: '';
@@ -2549,9 +2549,8 @@ a:hover { color:#fbbd36; }
     .cont-pp .inner-pp {  padding: 80px 20px 63px 20px; }
      .tarifs .cont-right .col.payement { min-height: inherit; }
     .inner-pp .row .col {  padding: 0 10px; }
-    .blc-cagnotte-details .btn .link {
-        margin: 0 10px 10px;
-    }
+    .blc-cagnotte-details .btn .link { margin: 0 10px 10px;}
+    .inner-pp .lst-document  .row { padding-right: 20px }
 
 }
 
@@ -2593,7 +2592,7 @@ a:hover { color:#fbbd36; }
         padding: 0 20px !important;
     }
     .profilFile .cont-file span { padding: 0 10px !important;}
-    .lst-document .inner-pp .row { padding-right: 20px }
+    .inner-pp .lst-document  .row { padding-right: 20px }
     .info-rib { padding: 0 40px; }
 
 }
