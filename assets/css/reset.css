@@ -2793,6 +2793,10 @@ a:hover { color:#fbbd36; }
     .pp-rib .titre::before { top: 34px }
     .pp-rib .cont-pp .inner-pp { padding: 60px 40px 60px 40px;}
     .Info-principale .blcFormulaire.fichier { padding: 0 10px;}
+    .det-cagnotte .content .titre.jaune {  display: inline-block; width: 100%;}
+    .txt-beneficiaire { display: inline-block; vertical-align: middle;}
+    .profilverifi {  margin-left: 0; margin-top: 10px;}
+
 
 
 }
@@ -3074,9 +3078,6 @@ a:hover { color:#fbbd36; }
     .footer-3 .Whatsapp li a:first-child:before { display: none; }
     .blc-cagnotte-details .btn .link {   margin: 0 10px 10px;}
 
-    .det-cagnotte .content .titre.jaune {  display: inline-block; width: 100%;}
-    .txt-beneficiaire { display: inline-block; vertical-align: middle;}
-    .profilverifi {  margin-left: 0; margin-top: 10px;}
 
 
 
