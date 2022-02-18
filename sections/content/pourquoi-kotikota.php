@@ -2,9 +2,9 @@
     <div class="wrapper">
         <?php if(have_rows('section_pourquoi')): ?>
             <?php while(have_rows('section_pourquoi')): the_row(); ?>
-                <!-- <h2 class="wow fadeInUp" data-wow-delay="900ms"><?php the_sub_field('titre') ?>
-                    <span><?php the_sub_field('sous_titre') ?></span>
-                </h2> -->
+                 <h2 class="wow fadeInUp" data-wow-delay="900ms"><?php the_sub_field('titre') ?>
+                    <!--<span><?php the_sub_field('sous_titre') ?></span>-->
+                </h2> 
                 <div class="lst-apropos clr">
                     <div class="col-left">
                         <?php if(have_rows('element_gauche')): ?>
