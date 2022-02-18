@@ -3015,8 +3015,9 @@ a:hover { color:#fbbd36; }
     .pp-rib .titre::before { width: 30px; height: 34px; background-size: cover; left: 20px ; top: 18px }
     .pp-rib .cont-file i { width: 100% !important }
     .blc-rib .link.submit { position: static; margin: auto; text-align: center; padding: 22px 20px; width: 100%}
-     .tarifs .cont-right .col.payement { min-height:inherit; }
-     .footer-3 .Whatsapp li a:first-child:before { display: none; }
+    .tarifs .cont-right .col.payement { min-height:inherit; }
+    .footer-3 .Whatsapp li a:first-child:before { display: none; }
+    .blc-cagnotte-details .btn .link {   margin: 0 10px 10px;}
 
 
 
