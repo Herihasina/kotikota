@@ -1,16 +1,28 @@
 <div class="titre jaune">
   <span class="ico"><img src="<?= IMG_URL ?>ico-cagnotte1.png"></span>
-  <span class="label"><?php _e('cagnotte Organisée par :','kotikota'); ?></span>
-  <span class="nom">
-    <?php 
-      $user = get_user_meta( get_field('titulaire_de_la_cagnotte') );
-      if ( $user['first_name'][0] != '' || $user['last_name'][0] != '' ){
-        echo $user['first_name'][0].' '.$user['last_name'][0]; 
-      }else{
-        echo $user['nickname'][0];
-      }
-    ?>
-   </span>
+  
+   <div class="txt-beneficiaire">
+    <div class="txt-inner">
+      <div>
+        <span class="label"><?php _e('cagnotte Organisée par :','kotikota'); ?></span>
+        <span class="nom">
+          <?php 
+            $user = get_user_meta( get_field('titulaire_de_la_cagnotte') );
+            if ( $user['first_name'][0] != '' || $user['last_name'][0] != '' ){
+              echo $user['first_name'][0].' '.$user['last_name'][0]; 
+            }else{
+              echo $user['nickname'][0];
+            }
+          ?>
+         </span>
+      </div>
+      <div>
+         <span class="label">Bénéficiaire : </span> 
+         <span class="nom">Sakalava capitale</span>
+      </div>
+     </div>
+
+   </div>
 </div>
 <div class="txt">
   <?php if ( get_field('description_de_la_cagnote') ) : ?>
