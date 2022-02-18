@@ -888,7 +888,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 
 .percent::after {
     content: '';
-    border: 5px solid #fbbd36;
+    border: 5px solid #593562;
     position: absolute;
     width: 45px;
     height: 45px;
