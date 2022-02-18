@@ -10,3 +10,10 @@
 .social a.insta:hover,
 .social a.twitter:hover,
 .social a.youtube:hover { opacity: 0.8; } 
+
+
+@media (max-width: 767px) {
+    .lst-step .item .content { position: relative;padding-bottom: 40px; }
+    .lst-step .item .content h2 { position: absolute;left: 0;right: 0;bottom: 15px;margin-bottom:0 !important;}
+
+}
