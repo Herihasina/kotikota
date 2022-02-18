@@ -4,7 +4,7 @@
 .social a.insta { background-color: #3f729b!important; }
 .social a.twitter { background-color: #00acee!important; }
 .social a.youtube { background-color: #c4302b!important; }
-.social .trustpilot-widget a { background: #dadada url(../images/logo-trustpilot.svg) no-repeat center;background-size: 50%; }
+.social .trustpilot-widget a { background: #dadada url(../images/logo-trustpilot.svg) no-repeat center;background-size: 50%; font-size: 0px; }
 
 .social a.fb:hover,
 .social a.insta:hover,
