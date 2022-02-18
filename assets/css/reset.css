@@ -812,7 +812,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .det-cagnotte .content .titre.vert { background-color: #59bdb1;  }
 .det-cagnotte .content .titre span { display: inline-block; vertical-align: middle; }
 .det-cagnotte .content .titre .label { text-transform: uppercase; font-size: 14px }
-.det-cagnotte .content .titre .ico { margin-right: 18px;}
+.det-cagnotte .content .titre .ico { margin-right: 18px; margin-top: 8px}
 .det-cagnotte .content .txt { border: #dddddd solid 1px; padding: 33px 53px 40px 60px; border-radius: 0 0 10px 10px }
 .det-cagnotte .content .txt h2 { color: #000000; font-size: 24px; line-height: normal; font-family:Opificio-b; margin-bottom: 26px  }
 .det-cagnotte .content .txt p { margin-bottom: 14px }
@@ -2208,7 +2208,19 @@ input[type="checkbox"].ck-photo:checked ~ label {
     margin-bottom: 20px
 }
 .lst-cagnotte-publique .objectif div { text-transform: uppercase;color: #59bdb1; font-family: Montserrat-b }
-
+.profilverifi {
+    margin-left: 40px;
+}
+.profilverifi span {
+    background: #fff;
+    color: #000;
+    display: inline-block;
+    padding: 6px 18px 6px 40px;
+    border-radius: 20px;
+    font-size: 14px;
+    position: relative;
+}
+.profilverifi span:before { content: ""; background: url(../images/checked2.png); display:block; width: 20px; height: 20px; vertical-align: middle; position: absolute; left: 10px; top: 0; bottom: 0; margin: auto; }
 
 
 

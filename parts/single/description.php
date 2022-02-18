@@ -1,6 +1,5 @@
 <div class="titre jaune">
   <span class="ico"><img src="<?= IMG_URL ?>ico-cagnotte1.png"></span>
-  
    <div class="txt-beneficiaire">
     <div class="txt-inner">
       <div>
@@ -21,8 +20,11 @@
          <span class="nom">Sakalava capitale</span>
       </div>
      </div>
-
    </div>
+   <div class="profilverifi">
+     <span>Profil vérifié</span>
+   </div>
+
 </div>
 <div class="txt">
   <?php if ( get_field('description_de_la_cagnote') ) : ?>
