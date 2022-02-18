@@ -801,7 +801,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .det-cagnotte .content          { border-radius: 13px; overflow: hidden; margin-bottom: 59px }
 .det-cagnotte .content .blc-img { position: relative; }
 .det-cagnotte .content .blc-img img { display: block; width: 100% ; height: auto;}
-.det-cagnotte .content .blc-img .ico-percent { position: absolute; top :0; left: 0; width: 74px; height: 77px; background:url(../images/bg-percent.png); background-size: cover; padding: 10px}
+.det-cagnotte .content .blc-img .ico-percent { position: absolute; top :0; left: 0; width: 100px; height: 103px; background:url(../images/bg-percent.png); background-size: cover; padding: 10px}
 .det-cagnotte .content .blc-img .ico-percent .percent:after { width: 41px; height: 41px; top: -3px }
 .det-cagnotte .content .titre { padding: 17px 58px 12px ; color: #fff}
 .det-cagnotte .content .titre.jaune { background-color: #fbbd36;  }

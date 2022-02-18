@@ -59,7 +59,12 @@
                         $type_cagnotte = get_field('visibilite_cagnotte');
                         echo wp_strip_all_tags( get_field('description_de_la_cagnote') ); ?>
                     </p>
+                    <div class="objectif">
+                        <div>objectif</div>
+                        <span>1 000 000 Ar</span>
+                    </div>
                 </a>
+                
                 <div class="compteur">
                     <div class="jour">
                             <span>
