@@ -1,9 +1,9 @@
 
 /* Color Reseaux Sociaux */
-.social a.fb { background-color: #3b5998; }
-.social a.insta { background-color: #3f729b; }
-.social a.twitter { background-color: #00acee; }
-.social a.youtube { background-color: #c4302b; }
+.social a.fb { background-color: #3b5998!important; }
+.social a.insta { background-color: #3f729b!important; }
+.social a.twitter { background-color: #00acee!important; }
+.social a.youtube { background-color: #c4302b!important; }
 
 .social a.fb:hover,
 .social a.insta:hover,
