@@ -2171,6 +2171,11 @@ input[type="checkbox"].ck-photo:checked ~ label {
 #menu-item-upload { -webkit-box-ordinal-group: 2; -moz-box-ordinal-group: 2; -ms-flex-order: 2;-webkit-order: 2;order: 2; }
 #menu-item-browse {  -webkit-box-ordinal-group: 1;  -moz-box-ordinal-group: 1;-ms-flex-order: 1; -webkit-order: 1; order: 1;}
 #cin_btn {  z-index: 0;}
+#pp-rib {
+    border-radius: 10px;
+    overflow: hidden;
+}
+#pp-rib  .formulaireParametre .blc-chp label { font-size: 16px }
 
 
 
@@ -2543,6 +2548,7 @@ a:hover { color:#fbbd36; }
     #slide-qsn { padding-bottom: 70px; }
     .cont-pp .inner-pp {  padding: 80px 20px 63px 20px; }
      .tarifs .cont-right .col.payement { min-height: inherit; }
+    .inner-pp .row .col {  padding: 0 10px; }
 
 }
 
