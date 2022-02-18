@@ -2200,6 +2200,12 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .percent text {
     font-size: 16px !important;
 }
+.lst-cagnotte-publique .objectif {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px
+}
+.lst-cagnotte-publique .objectif div { text-transform: uppercase;color: #59bdb1; font-family: Montserrat-b }
 
 
 
