@@ -867,7 +867,15 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .lst-cagnotte-publique .item  .ico2 { position: absolute; left: 0; top: 0;  }
 .lst-cagnotte-publique .item  .ico-percent { position: absolute; left: 0; top: -1px; background:url(../images/bg-percent.png); width: 100px; height: 103px; padding: 9px 7px }
 .percent { background-color: #fff; border-radius: 50%; position: relative;  }
-.percent::after {
+.percent {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    padding-top: 2px;
+    left: 16px;
+    top: 16px;
+}
+/*.percent::after {
     content: '';
     border: 5px solid #fbbd36;
     position: absolute;
@@ -876,7 +884,20 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
     left: -4px;
     top: -4px;
     border-radius: 50%;
+}*/
+
+.percent::after {
+    content: '';
+    border: 5px solid #fbbd36;
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    left: -2px;
+    top: -2px;
+    border-radius: 50%;
+    padding-top: 3px
 }
+
 
 .percent text tspan {font-family: Montserrat-b;}
 
@@ -2176,6 +2197,9 @@ input[type="checkbox"].ck-photo:checked ~ label {
     overflow: hidden;
 }
 #pp-rib  .formulaireParametre .blc-chp label { font-size: 16px }
+.percent text {
+    font-size: 16px !important;
+}
 
 
 
