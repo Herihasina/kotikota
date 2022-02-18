@@ -2549,6 +2549,9 @@ a:hover { color:#fbbd36; }
     .cont-pp .inner-pp {  padding: 80px 20px 63px 20px; }
      .tarifs .cont-right .col.payement { min-height: inherit; }
     .inner-pp .row .col {  padding: 0 10px; }
+    .blc-cagnotte-details .btn .link {
+        margin: 0 10px 10px;
+    }
 
 }
 
