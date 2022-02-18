@@ -2543,7 +2543,7 @@ a:hover { color:#fbbd36; }
     .menu-liste-cagnotte.active { z-index: 9999 }
     .col-dates .chy-type .col.col47:first-of-type, .col-dates .chy-type .col.col47:last-of-type { width: 100% !important; padding: 0 !important;}
     .formulaire-cagnotte .chy-type .col.col47 { padding: 0 10px }
-    .Info-principale .blcFormulaire.fichier {  padding: 0 0;}
+    .Info-principale .blcFormulaire.fichier {  padding: 0 30px}
     .profilFile .cont-file span { padding: 0 10px !important; }
     #slide-qsn { padding-bottom: 70px; }
     .cont-pp .inner-pp {  padding: 80px 20px 63px 20px; }
@@ -2590,6 +2590,8 @@ a:hover { color:#fbbd36; }
         padding: 0 20px !important;
     }
     .profilFile .cont-file span { padding: 0 10px !important;}
+    .lst-document .inner-pp .row { padding-right: 20px }
+    .info-rib { padding: 0 40px; }
 
 }
 
@@ -2744,6 +2746,7 @@ a:hover { color:#fbbd36; }
     #pp-photos .inner-pp h3 { text-align: center }
     .pp-rib .titre::before { top: 34px }
     .pp-rib .cont-pp .inner-pp { padding: 60px 40px 60px 40px;}
+    .Info-principale .blcFormulaire.fichier { padding: 0 10px;}
 
 
 }
