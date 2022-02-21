@@ -1298,7 +1298,8 @@ select.input-selec option { padding: 10px 30px }
 .lrm-form { text-align: center }
 .det-cagnotte .content .txt p br { display: none;}
 .lst-cagnotte-publique > h3 {  border: #8d4a8f solid 1px; padding: 29px 30px; border-radius: 42px; display: inline-block; margin: 0 auto;}
-
+.lst-cagnotte-publique > a { border: #8d4a8f solid 1px; padding: 29px 30px; border-radius: 42px; display: inline-block; margin: 0 auto; color: #131313 }
+.lst-cagnotte-publique > a:hover { background-color: #fbbd36 ; color: #131313}
 ul#response.error,
 .lrm-pass-strength-result[data-status="short"] { background-color: transparent !important; border: none !important; width: 100%!important; padding-left: 0 !important }
 
