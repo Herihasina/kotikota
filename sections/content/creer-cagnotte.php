@@ -217,7 +217,7 @@
                                     <div class="content custom-radio">
                                         <input type="radio" name="participation_cagnotte"  id="montantconseille" class="radio"  value="conseille"> 
                                         <label for="montantconseille"> <?php _e('Montant minimum conseillé','kotikota'); ?> </label>    
-                                        <!-- <input type="text" name="" id="montant_conseille" placeholder="<?php // _e('chacun donne ce qu’il veut…mais tu conseilles un montant','kotikota'); ?>" class="chp-txt"> -->
+                                        <!-- <input type="text" name="" id="montant_conseille" placeholder="<?php /* _e('chacun donne ce qu’il veut…mais tu conseilles un montant','kotikota'); */ ?>" class="chp-txt"> -->
                                         <input type="text" name="" id="montant_conseille" placeholder="<?php _e('saisir montant','kotikota'); ?>" class="chp-txt has-focus">
                                     </div>
                                 </div>
@@ -225,8 +225,8 @@
                                     <div class="content custom-radio">
                                         <input type="radio" name="participation_cagnotte" id="montantfixe" class="radio"  value="fixe">
                                         <label for="montantfixe"> <?php _e('Montant minimum imposé','kotikota'); ?></label>
-                                        <!-- <input type="text" name="" id="montant_fixe" placeholder="<?= // __('chacun donne… ce que tu veux','kotikota'); ?>" class="chp-txt" > -->
-                                        <input type="text" name="" id="montant_fixe" placeholder="<?= __('saisir montant','kotikota'); ?>" class="chp-txt has-focus" >
+                                        <!-- <input type="text" name="" id="montant_fixe" placeholder="<?php /* _e('chacun donne… ce que tu veux','kotikota'); */ ?>" class="chp-txt" > -->
+                                        <input type="text" name="" id="montant_fixe" placeholder="<?php _e('saisir montant','kotikota'); ?>" class="chp-txt has-focus" >
                                     </div>
                                 </div>
                              </div>
