@@ -13,7 +13,7 @@
 
 
 @media (max-width: 767px) {
-    .lst-step .item .content { position: relative;padding-bottom: 40px; }
-    .lst-step .item .content h2 { position: absolute;left: 0;right: 0;bottom: 15px;margin-bottom:0 !important;}
+    .lst-step .item .content { position: relative;padding-bottom: 50px; }
+    .lst-step .item .content h2 { position: absolute;left: 0;right: 0;bottom: 5px;margin-bottom:0 !important;}
 
 }
