@@ -34,6 +34,28 @@ $(document).ready(function() {
 		// }
 		
 	});
+
+	$(window).scroll(function () {
+		var posScroll = $(document).scrollTop();
+		if (posScroll > 350) {
+			$('.zone-search ').addClass('sticky')
+		} else {
+			$('.zone-search ').removeClass('sticky')
+		}
+		// if(!$("input[name=isHome]").val()) {
+		// 	var posScroll = $(document).scrollTop();
+		// 	if (posScroll > 50) {
+		// 		$('.headerTop ').addClass('sticky')
+		// 	} else {
+		// 		$('.headerTop ').removeClass('sticky')
+		// 	}
+		// } else {
+		// 	$('.headerTop ').addClass('sticky')
+		// }
+		
+	});
+
+
 	// MENU MOBILE //
 	$(".wrapMenuMobile").click(function() {
 		$(this).toggleClass('active');
