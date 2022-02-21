@@ -360,7 +360,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .tarifs .content                                            { max-width: 520px; margin-top: 24px; }
 .tarifs .content .txt p                                     { font-size: 16px; line-height: 24px; font-family: Montserrat-r; margin-bottom: 32px; color: #131313  }
 .tarifs .content .txt.titre2 h3                             { background-image:url(../images/ico-titre2.png); padding-left: 66px; margin-bottom: 5px; line-height: 39px  }
-.tarifs .cont-right  .col.payement                          { background-color: #8d4a8f;  padding:40px 61px 28px 66px; border-radius: 200px 0 0 200px; position: relative; z-index: 2}
+.tarifs .cont-right  .col.payement                          { background-color: #8d4a8f;  padding:25px 61px 19px 66px; border-radius: 200px 0 0 200px; position: relative; z-index: 2}
 .txt.titre2                                                 {  padding-left: 0 !important;max-width: 300px; margin: 0 auto;display: block !important;}
 .lst-payement ul                                            { text-align: center; }
 .lst-payement ul li                                         { display: inline-block; margin: 0 5px }
