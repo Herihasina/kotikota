@@ -458,15 +458,19 @@ $(document).ready(function() {
     });
 
     // focus montants -- créer cagnote
+    /*
     $('#montant_conseille').focusout(function() {
         $(this).removeClass('has-focus');
     });
+    */
     $('#montant_conseille').focus(function() {
         $(this).addClass('has-focus');
     });
+    /*
     $('#montant_fixe').focusout(function() {
         $(this).removeClass('has-focus');
     });
+    */
     $('#montant_fixe').focus(function() {
         $(this).addClass('has-focus');
     });
