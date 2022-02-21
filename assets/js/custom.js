@@ -529,12 +529,15 @@ $(document).ready(function() {
 	})
 
 
-	$(".scrollDown-pp").click(function() {
-      var c = $(this).attr("href");
-      $('html, body').animate({ scrollTop: $(c).offset().top - 140 }, 1000, "linear");
-      return false;
 
-    });
+	 $('.scrollDown-pp').click(function () {
+	 $('#form-pp-connecter').slideToggle('2000', function () {
+	        $(".fancybox-overlay-fixed").animate({
+	            scrollTop: $(document).height()
+	        }, 2000);
+	    });
+	    return false;
+	});
 
 });
 
