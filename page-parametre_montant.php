@@ -27,13 +27,18 @@
           </div>
           <div class="formulaireParametre montant clr wow fadeIn" data-wow-delay="950ms">
             <form>
-              <div class="col">
+              <div class="col coll">
                 <div class="blc-chp">
                   <label><?php _e('Montant à atteindre', 'kotikota'); ?></label>
                   <input type="text" name="montant" class="chp" id="ilaina" value="<?php echo get_field('objectif_montant', $idCagnotte) ?>">
+                  <div class="on-off">
+                      <input type="checkbox" class="onoff" id="onoff">
+                      <label for="onoff"><span>on</span></label>
+                  </div>
+
                 </div>
               </div>
-              <div class="col">
+            <!--   <div class="col">
                 <div class="blc-chp">
                    <div class="blc-check">
                       <div class="option">
@@ -49,14 +54,20 @@
                     </div>
                   
                 </div>
-              </div>
+              </div> -->
               <div class="col">
                 <div class="blc-chp">
                   <label><?php _e('Suggérer un montant de don','kotikota'); ?></label>
                   <input type="text" name="montantdon" class="chp" id="suggere" value="<?php echo get_field('montant_suggere', $idCagnotte) ?>">
+
+                  <div class="on-off">
+                      <input type="checkbox" class="onoff" id="onoff1">
+                      <label for="onoff1"><span>on</span></label>
+                  </div>
+
                 </div>
               </div>
-              <div class="col">
+          <!--     <div class="col">
                 <div class="blc-chp">   
                    <div class="blc-check">
                       <div class="option">
@@ -72,7 +83,7 @@
                     </div>
                 </div>
               </div>
-
+ -->
                <div class="col">
                 <div class="blc-chp">
                    <label><?php _e('Devise','kotikota'); ?></label>
@@ -85,9 +96,15 @@
                       <!-- <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>EURO (€)</option> -->
                       <!-- <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>LIVRE (£)</option>                      -->
                    </select>
+
+                  <div class="on-off">
+                      <input type="checkbox" class="onoff" id="onoff2">
+                      <label for="onoff2"><span>on</span></label>
+                  </div>
+
                 </div>
               </div>
-               <div class="col">
+            <!--   <div class="col">
                 <div class="blc-chp">
                    <div class="blc-check">
                       <div class="option">
@@ -102,7 +119,7 @@
                       </div>
                     </div>
                 </div>
-              </div>
+              </div> -->
 
             </form>
           </div>
