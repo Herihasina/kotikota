@@ -2308,7 +2308,7 @@ input[type="checkbox"].onoff ~ label span {
     text-transform: uppercase;
     opacity: 0
 }
-input[type="checkbox"].onoff ~ label:checked span { opacity: 1  }
+input[type="checkbox"].onoff:checked ~ label span { opacity: 1  }
 
 input[type="checkbox"].onoff ~ label::after {
     content: "off";
@@ -2322,7 +2322,7 @@ input[type="checkbox"].onoff ~ label::after {
 
 input[type="checkbox"].onoff ~ label:after { opacity: 1 }
 
-input[type="checkbox"].onoff ~ label:checked:after { opacity: 0 }
+input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 
 
 
