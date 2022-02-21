@@ -1,7 +1,7 @@
 
 /* Color Reseaux Sociaux */
 .social a.fb { background-color: #3b5998!important; }
-.social a.insta { background: url(../images/instagram.png) no-repeat center !important; }
+.social a.insta { background-color:radial-gradient(circle, rgba(255,220,125,1) 0%, rgba(244,111,48,1) 23%, rgba(195,42,163,1) 64%, rgba(114,50,189,1) 90%, rgba(76,95,215,1) 100%) !important; }
 .social a.twitter { background-color: #00acee!important; }
 .social a.youtube { background-color: #c4302b!important; }
 .social .trustpilot-widget a { background: #dadada url(../images/logo-trustpilot.svg) no-repeat center;background-size: 50%; font-size: 0px; }
