@@ -2336,6 +2336,27 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 
 .participation .blc-check .option ul li .check  { display: none; }
 
+#pp-felicitation {
+    padding: 0;
+    max-width: 500px;
+}
+.pp-felicitation .btn {
+    padding: 0 20px 40px;
+    text-align: center;
+}
+.pp-felicitation .btn .link {
+    min-width: 150px;
+}
+.pp-felicitation .conf_titre::after {
+    content: '';
+    background: url("../images/ico-felicitation.png");
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
 a:hover { color:#fbbd36; }
