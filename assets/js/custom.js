@@ -536,7 +536,7 @@ $(document).ready(function() {
 	    // Or you can animate the scrolling:
 	    container.animate({
 	        scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()
-	    }, 1000);
+	    }, 3000);
 	    return false;
 	});
 
