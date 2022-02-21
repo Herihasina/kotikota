@@ -82,6 +82,10 @@
                      <a href="<?php echo get_the_permalink( $id) ?>" title="<?php echo get_field('nom_de_la_cagnotte',$id) ?>" class="txt">
                         <h3><?php echo get_field('nom_de_la_cagnotte',$id) ?></h3>
                         <p><?php echo wp_strip_all_tags(get_field('description_de_la_cagnote', $id) )?> </p>
+                        <div class="objectif">
+                            <div>objectif</div>
+                            <span>1 000 000 Ar</span>
+                        </div>
                     </a>
                     <div class="compteur">
                         <div class="jour">
