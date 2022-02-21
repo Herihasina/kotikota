@@ -528,5 +528,11 @@ $(document).ready(function() {
 	        1500);
 	})
 
+	$(".scrollDown-pp").click(function() {
+	    $('html,body').animate({
+	        scrollTop: $("#form-pp-connecter").offset().top - 70},
+	        1500);
+	})
+
 });
 

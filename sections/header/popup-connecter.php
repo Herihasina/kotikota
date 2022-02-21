@@ -1,6 +1,6 @@
 <div class="popup-connecter popup " id="connecter" style="display: none">
     <div class="connecter-pp clr">
-        <a class="scrollDown"></a>
+        <a class="scrollDown-pp"></a>
         <div class="cont-left">
             <div class="content">
                 <h2><?php _e('Connectez vous à votre compte','kotikota'); ?></h2>
@@ -9,7 +9,7 @@
                  ?>              
             </div>
         </div>
-        <div class="cont-right">
+        <div class="cont-right" id="form-pp-connecter">
             <div class="content">
                 <h2><?php _e('Pas encore inscrit ?','kotikota'); ?></h2>
                 <p><?php _e('Rejoignez la communauté des KotiKoteurs <br>et collectez immédiatement','kotikota'); ?></p>
