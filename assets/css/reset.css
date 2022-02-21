@@ -1114,7 +1114,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .blc-check .option ul li                        { display: block; position: relative; float:none; margin-bottom: 37px; height: auto !important;  }
 .blc-check .option ul li input[type=checkbox]    { position: absolute; visibility: hidden}
 .blc-check .option ul li label                  { display: block; position: relative;    padding: 0 ; margin:16px auto;  z-index: 9; cursor: pointer; -webkit-transition: all 0.25s linear; color:#7b7b7b }
-.blc-check .option ul li .check                 { display: block; position: absolute; border: 1px solid #5ec366; border-radius: 100%; height: 26px; width: 26px; top: 0; bottom: 0; margin: auto; right: 20px; left: auto;; transition: border .25s linear; -webkit-transition: border .25s linear; }
+.blc-check .option ul li .check                 { display: none; position: absolute; border: 1px solid #5ec366; border-radius: 100%; height: 26px; width: 26px; top: 0; bottom: 0; margin: auto; right: 20px; left: auto;; transition: border .25s linear; -webkit-transition: border .25s linear; }
 .blc-check .option ul li .check::before         { /*background-color:#5ec366;*/ display: block; position: absolute; content: ''; border-radius: 100%; height: 26px; width: 26px; top: -1px; left:-1px; margin: auto; transition: background 0.25s linear; -webkit-transition: background 0.25s linear; }
 .blc-check .option input[type=checkbox]:checked ~ .check           { /*background-color:#5ec366*/}
 .blc-check .option input[type=checkbox]:checked ~ .check::before  { background: url(../images/ico-check2.png); }
@@ -2306,7 +2306,9 @@ input[type="checkbox"].onoff ~ label span {
     color: #fff;
     font-size: 10px;
     text-transform: uppercase;
+    opacity: 0
 }
+input[type="checkbox"].onoff ~ label:checked span { opacity: 1  }
 
 input[type="checkbox"].onoff ~ label::after {
     content: "off";
@@ -2317,6 +2319,10 @@ input[type="checkbox"].onoff ~ label::after {
     font-size: 10px;
     text-transform: uppercase;
 }
+
+input[type="checkbox"].onoff ~ label:after { opacity: 1 }
+
+input[type="checkbox"].onoff ~ label:checked:after { opacity: 0 }
 
 
 
