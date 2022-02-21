@@ -529,14 +529,14 @@ $(document).ready(function() {
 	        1500);
 	})
 
-	$('.scrollDown-pp').animate({  scrollTop: $("#form-pp-connecter").offset().top  }, 2000);
-
-	 $('.scrollDown-pp').click(function () {
-	 $('#form-pp-connecter').slideToggle('2000', function () {
-	        $(".fancybox-overlay-fixed").animate({
-	            scrollTop: $(document).height()
-	        }, 2000);
-	    });
+	$(".scrollDown-pp").click(function() {
+	    var container = $('.fancybox-overlay');
+	    var scrollTo = $("#form-pp-connecter");
+	    
+	    // Or you can animate the scrolling:
+	    container.animate({
+	        scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()
+	    }, 1000);
 	    return false;
 	});
 
