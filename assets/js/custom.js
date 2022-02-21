@@ -37,7 +37,7 @@ $(document).ready(function() {
 
 	$(window).scroll(function () {
 		var posScroll = $(document).scrollTop();
-		if (posScroll > 250) {
+		if (posScroll > 200) {
 			$('.zone-search ').addClass('sticky')
 		} else {
 			$('.zone-search ').removeClass('sticky')
