@@ -2297,7 +2297,7 @@ input[type="checkbox"].onoff:checked ~ label::before {
 }
 
 
-.blc-check .option ul li label::after {
+.blc-check .option ul li .onoff label::after {
     content: "On";
     position: absolute;
     top: -1px;
