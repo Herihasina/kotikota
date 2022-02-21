@@ -2248,6 +2248,16 @@ input[type="checkbox"].ck-photo:checked ~ label {
 #form-pp-connecter{
     min-height:125px;
 }
+.lst-cagnotte-publique .rose .content .img .ico img {
+    width: auto;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 
 @media (min-width:1201px) {
