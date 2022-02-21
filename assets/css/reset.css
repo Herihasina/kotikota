@@ -2902,6 +2902,8 @@ a:hover { color:#fbbd36; }
     .zone-search.sticky {  position: fixed; width: 100%; top: 90px; z-index: 20;background: #fff;  padding: 10px 40px;box-sizing: border-box;left: 0;}
     .scrollDown-pp {display: block;}
 
+    .blc-cagnotte-participation .fom-participe .formulaire .chp {padding: 0 70px 0 28px}
+
 
 }
 
@@ -3182,6 +3184,12 @@ a:hover { color:#fbbd36; }
     .footer-3 .Whatsapp li a:first-child:before { display: none; }
     .blc-cagnotte-details .btn .link {   margin: 0 10px 10px;}
     .zone-search.sticky { padding: 10px 20px }
+
+
+    .blc-cagnotte-participation .fom-participe .blc-check .option ul li label { padding: 0 0;}
+    input[type="checkbox"].onoff ~ label {padding: 0 !important}
+    .blc-cagnotte-participation  .fom-participe .blc-check .option ul li label { padding: 0;} 
+    .blc-cagnotte-participation .fom-participe .formulaire .chp input { padding-left: 0;} 
 
 
 
