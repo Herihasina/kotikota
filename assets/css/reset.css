@@ -2260,6 +2260,42 @@ input[type="checkbox"].ck-photo:checked ~ label {
 }
 
 
+.on-off { position: absolute; right: 40px; top: 20px }
+
+
+input[type="checkbox"].onoff {
+  display: none;
+}
+input[type="checkbox"].onoff ~ label {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
+  padding:2px;
+  background-color: #c0ceda ;
+  transition: all 0.5s ;
+}
+input[type="checkbox"].onoff ~ label::before {
+  box-sizing: border-box;
+  display: block;
+  content: "";
+  height: calc(1.5rem - 4px);
+  width: calc(1.5rem - 4px);
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.5s ;
+}
+input[type="checkbox"].onoff:checked ~ label {
+  background-color: #00B7E8 ;
+}
+input[type="checkbox"].onoff:checked ~ label::before {
+  margin-left: 1.5rem ;
+}
+
+
+
+
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
 a:hover { color:#fbbd36; }

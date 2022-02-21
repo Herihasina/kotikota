@@ -121,11 +121,21 @@
                           <input id="masque1" type="checkbox">
                           <label for="masque1"><?php echo __('Masquer mon identité auprès des autres participants','kotikota'); ?></label>
                           <div class="check"></div>
+
+                          <div class="on-off">
+                            <input type="checkbox" class="onoff" id="demo5">
+                            <label for="onoff"></label>
+                          </div>
+
+
                         </li>
                         <li class="chp">
                           <input id="masque2" type="checkbox">
                           <label for="masque2"><?php echo __('Masquer le montant de ma participation auprès des autres participants','kotikota'); ?></label>
                           <div class="check"></div>
+
+
+
                         </li>
                     </ul>
                   </div>
