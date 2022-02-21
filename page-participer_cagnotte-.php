@@ -123,7 +123,7 @@
                           <div class="check"></div>
 
                           <div class="on-off">
-                            <input type="checkbox" class="onoff" id="demo5">
+                            <input type="checkbox" class="onoff" id="onoff">
                             <label for="onoff"></label>
                           </div>
 
@@ -133,6 +133,11 @@
                           <input id="masque2" type="checkbox">
                           <label for="masque2"><?php echo __('Masquer le montant de ma participation auprès des autres participants','kotikota'); ?></label>
                           <div class="check"></div>
+
+                          <div class="on-off">
+                            <input type="checkbox" class="onoff" id="onoff">
+                            <label for="onoff"></label>
+                          </div>
 
 
 
