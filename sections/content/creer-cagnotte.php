@@ -210,14 +210,14 @@
                                     <div class="content custom-control custom-radio ">
                                          <input type="radio" name="participation_cagnotte"  id="montantlibre" class="radio" value="libre">
                                          <label for="montantlibre"> <?php _e('Montant libre','kotikota'); ?> <span></span></label>
-                                        <input type="txt" name=""  placeholder="<?= __('chacun donne ce qu’il veut','kotikota'); ?>"  class="chp-txt" readonly="">
+                                        <input type="txt" name=""  placeholder="<?= __('chacun donne ce qu’il veut','kotikota'); ?>"  class="chp-txt has-focus" readonly="">
                                     </div>
                                 </div>
                                 <div class="item">
                                     <div class="content custom-radio">
                                         <input type="radio" name="participation_cagnotte"  id="montantconseille" class="radio"  value="conseille"> 
                                         <label for="montantconseille"> <?php _e('Montant minimum conseillé','kotikota'); ?> </label>    
-                                        <input type="text" name="" id="montant_conseille" placeholder="<?php _e('chacun donne ce qu’il veut…mais tu conseilles un montant','kotikota'); ?>" class="chp-txt">
+                                        <input type="text" name="" id="montant_conseille" placeholder="<?php _e('chacun donne ce qu’il veut…mais tu conseilles un montant','kotikota'); ?>" class="chp-txt has-focus">
                                     </div>
                                 </div>
                                 <div class="item">
