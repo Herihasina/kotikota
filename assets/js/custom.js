@@ -529,7 +529,7 @@ $(document).ready(function() {
 	        1500);
 	})
 
-
+	$('.scrollDown-pp').animate({  scrollTop: $("#form-pp-connecter").offset().top  }, 2000);
 
 	 $('.scrollDown-pp').click(function () {
 	 $('#form-pp-connecter').slideToggle('2000', function () {
