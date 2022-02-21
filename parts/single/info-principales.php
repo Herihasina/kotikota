@@ -29,7 +29,7 @@
             <div class="objectifs">
               <div class="ico2"><img src="<?= IMG_URL ?>ico-rst-collct.png"></div>
               <b>80 000 Ar</b>
-              <span>Objectifs (Montant à atteindre)</span>
+              <span>Objectifs</span>
             </div>
         </div>
 

@@ -2088,7 +2088,10 @@ input[type="checkbox"].ck-photo:checked ~ label {
     border-top: #ddd solid 1px; 
     margin: 30px auto 0 ; 
     padding-top: 60px; 
-    text-align: center 
+    text-align: center ;
+    position: relative;
+    background: #fff;
+    z-index: 20
 }
 
 .blc-cagnotte-details .btn {

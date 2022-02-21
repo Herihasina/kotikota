@@ -105,13 +105,7 @@
                             <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
                           </label>
                         </div>
-                        <div class="item">
-                          <input type="checkbox" class="document" id="doc7"> 
-                          <label for="doc7">
-                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                          </label>
-                        </div>
+                     
 
                       </div>
                     </div>
@@ -160,13 +154,7 @@
                               <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
                             </label>
                           </div>
-                          <div class="item">
-                            <input type="checkbox" class="document" id="pdf7"> 
-                            <label for="pdf7">
-                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                            </label>
-                          </div>
+                    
                         </div>
                     </div>
                     </div>
