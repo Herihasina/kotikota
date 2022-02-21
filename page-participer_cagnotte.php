@@ -124,7 +124,7 @@
                           <div class="check"></div>
                           <div class="on-off">
                             <input type="checkbox" class="onoff" id="onoff">
-                            <label for="onoff"></label>
+                            <label for="onoff"><span>on</span></label>
                           </div>
 
 
@@ -136,7 +136,7 @@
 
                           <div class="on-off">
                             <input type="checkbox" class="onoff" id="onoff1">
-                            <label for="onoff1"></label>
+                            <label for="onoff1"><span>on</span></label>
                           </div>
 
 
