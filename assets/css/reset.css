@@ -1299,7 +1299,7 @@ select.input-selec option { padding: 10px 30px }
 .det-cagnotte .content .txt p br { display: none;}
 .lst-cagnotte-publique > h3 {  border: #8d4a8f solid 1px; padding: 29px 30px; border-radius: 42px; display: inline-block; margin: 0 auto;}
 .lst-cagnotte-publique > a { border: #8d4a8f solid 1px; padding: 29px 30px; border-radius: 42px; display: inline-block; margin: 0 auto; color: #131313 }
-.lst-cagnotte-publique > a:hover { background-color: #fbbd36 ; color: #131313}
+.lst-cagnotte-publique > a:hover { background-color: #8d4a8f ; color: #fff}
 ul#response.error,
 .lrm-pass-strength-result[data-status="short"] { background-color: transparent !important; border: none !important; width: 100%!important; padding-left: 0 !important }
 
@@ -1943,7 +1943,9 @@ input:checked {
 .securite-cagnotte .wrapper { max-width: 1104px;}
 .securite-cagnotte h2 { text-align: center; font-size: 36px; font-family: Opificio-b; color: #131313; margin-bottom: 41px;}
 .securite-cagnotte h2::after {  content: ''; border-bottom: #ffd71d solid 1px; width: 60px; margin: 31px auto; display: block;}
-.lst-securite .item { border:#dddddd solid 1px; border-radius: 10px; margin-bottom: 40px; }
+.lst-securite .item { border:#dddddd solid 1px; border-radius: 10px; margin-bottom: 40px; box-shadow: -1px 1px 16px -6px rgba(0,0,0,0.29);
+-webkit-box-shadow: -1px 1px 16px -6px rgba(0,0,0,0.29);
+-moz-box-shadow: -1px 1px 16px -6px rgba(0,0,0,0.29); }
 .lst-securite .item .titre { padding: 40px 40px 40px 90px; font-family: Montserrat-b; color: #7b7b7b;position: relative; font-size: 18px; cursor: pointer}
 
 .lst-securite .item .titre:before { content: ""; display: block; position: absolute; left: 40px; top: 0; bottom: 0; margin: auto; background:url(../images/ico-check4.png);  width: 25px; height: 25px; }
