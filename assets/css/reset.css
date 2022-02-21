@@ -365,7 +365,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .lst-payement ul                                            { text-align: center; }
 .lst-payement ul li                                         { display: inline-block; margin: 0 5px }
 .lst-payement ul li.clr                                     { display: block; margin: 0;}
-.lst-payement ul li img                                     { -webkit-filter: grayscale(100%); filter: grayscale(100%); }
+.lst-payement ul li img                                     { -webkit-filter: grayscale(100%); filter: grayscale(100%); background-color: #fff; width: 120px; height: 120px; border-radius: 50% }
 .lst-payement                                               { max-width: 460px;}
 .txt.titre1                                                 { margin-top: 31px; text-align: left;}
 .content.mode-paiement                                      { padding: 55px 0 15px 183px; max-width: inherit;}
