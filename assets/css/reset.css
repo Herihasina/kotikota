@@ -2235,7 +2235,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
     background: url(../images/scroll-down.png) no-repeat center #ffffff;
     border-radius: 0 0 10px 10px;
     position: absolute;
-    top: -44px;
+    top: 44px;
     right: 0;
     margin: auto;
     display: block;

@@ -534,5 +534,15 @@ $(document).ready(function() {
 	        1500);
 	})
 
+	$(".scrollDown-pp").click(function() {
+
+      var c = $(this).attr("href");
+
+      $('html, body').animate({ scrollTop: $(c).offset().top - 140 }, 1000, "linear");
+
+      return false;
+
+    });
+
 });
 
