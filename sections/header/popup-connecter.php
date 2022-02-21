@@ -1,5 +1,6 @@
 <div class="popup-connecter popup " id="connecter" style="display: none">
     <div class="connecter-pp clr">
+        <a class="scrollDown"></a>
         <div class="cont-left">
             <div class="content">
                 <h2><?php _e('Connectez vous à votre compte','kotikota'); ?></h2>
