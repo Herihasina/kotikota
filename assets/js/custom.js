@@ -304,7 +304,8 @@ $(document).ready(function() {
         autoSize: false,
         closeClick: false,
         openEffect: 'none',
-        closeEffect: 'none'
+        closeEffect: 'none',
+        fitToView:false,
 	 });
 
 	// $(".lst-faq .s-titre").click(function() {
