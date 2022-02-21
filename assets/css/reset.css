@@ -1114,7 +1114,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .blc-check .option ul li                        { display: block; position: relative; float:none; margin-bottom: 37px; height: auto !important;  }
 .blc-check .option ul li input[type=checkbox]    { position: absolute; visibility: hidden}
 .blc-check .option ul li label                  { display: block; position: relative;    padding: 0 ; margin:16px auto;  z-index: 9; cursor: pointer; -webkit-transition: all 0.25s linear; color:#7b7b7b }
-.blc-check .option ul li .check                 { display: none; position: absolute; border: 1px solid #5ec366; border-radius: 100%; height: 26px; width: 26px; top: 0; bottom: 0; margin: auto; right: 20px; left: auto;; transition: border .25s linear; -webkit-transition: border .25s linear; }
+.blc-check .option ul li .check                 { display: block; position: absolute; border: 1px solid #5ec366; border-radius: 100%; height: 26px; width: 26px; top: 0; bottom: 0; margin: auto; right: 20px; left: auto;; transition: border .25s linear; -webkit-transition: border .25s linear; }
 .blc-check .option ul li .check::before         { /*background-color:#5ec366;*/ display: block; position: absolute; content: ''; border-radius: 100%; height: 26px; width: 26px; top: -1px; left:-1px; margin: auto; transition: background 0.25s linear; -webkit-transition: background 0.25s linear; }
 .blc-check .option input[type=checkbox]:checked ~ .check           { /*background-color:#5ec366*/}
 .blc-check .option input[type=checkbox]:checked ~ .check::before  { background: url(../images/ico-check2.png); }
@@ -2325,6 +2325,15 @@ input[type="checkbox"].onoff ~ label:after { opacity: 1 }
 input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 
 
+.formulaireParametre.montant .col { float: none; width: 100%; margin-bottom: 40px }
+.formulaireParametre.montant .blc-chp {
+    margin-bottom: 0;
+    position: relative;
+}
+.formulaireParametre.montant .blc-chp .on-off { top: 54px }
+.formulaireParametre.montant .blc-chp input[type="checkbox"].onoff ~ label::before { top: 0px; left: 1px;}
+
+.participation .blc-check .option ul li .check  { display: none; }
 
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
