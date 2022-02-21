@@ -257,7 +257,7 @@
                         <div class="btn">
                             <a href="<?php echo home_url() ?>" class="link" title="<?php _e('annuler','kotikota'); ?>"><?php _e('annuler','kotikota'); ?></a> 
                             <input type="submit" class="link submit" value="<?php _e('créer ma cagnotte','kotikota'); ?>" id="creer-cagnotte">
-                            <a href="#pp-felicitation" class="link submit fancybox" id="creer-cagnotte"></a>
+                            <a href="#pp-felicitation" class="link submit fancybox" id="creer-cagnotte">créer ma cagnotte pop up</a>
                         </div>
                         <div class="pp-felicitation" id="pp-felicitation" style="display: none">
                             <div class="content">
