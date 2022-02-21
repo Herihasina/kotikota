@@ -13,6 +13,8 @@ body .social .trustpilot-widget a { background: #dadada url(../images/logo-trust
 .social a.youtube:hover { opacity: 0.8; } 
 body .blc-apropos h2 { text-transform: none ; }
 
+body #montant_conseille.has-focus,body #montant_fixe.has-focus { width: 50%;border-radius: 5px;border-color: #cecece !important; }
+
 @media (max-width: 767px) {
     .lst-step .item .content { position: relative;padding-bottom: 50px; }
     .lst-step .item .content h2 { position: absolute;left: 0;right: 0;bottom: 5px;margin-bottom:0 !important;}
