@@ -14,9 +14,9 @@ get_header(); ?>
     	}	else { ?>
               <div class="blc-liste-cagnote force-login wow fadeIn" data-wow-delay="850ms">
                 <div class="lst-cagnotte-publique wow fadeIn clr" data-wow-delay="900ms">
-                    <h3 style="text-align:center">
+                    <a href="#connecter" style="text-align:center" class="fancybox-home">
                         <?php _e("Vous devez vous authentifier pour pouvoir créer une cagnotte!", "kotikota"); ?>
-                    </h3>
+                    </a>
                 </div>
             </div> 
     	<?php
