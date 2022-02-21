@@ -19,5 +19,5 @@ body #montant_conseille.has-focus,body #montant_fixe.has-focus { width: 50%;bord
     .lst-step .item .content { position: relative;padding-bottom: 50px; }
     .lst-step .item .content h2 { position: absolute;left: 0;right: 0;bottom: 5px;margin-bottom:0 !important;}
     .blc-apropos h2 { line-height: normal; }
-    body #montant_conseille.has-focus,body #montant_fixe.has-focus { width: 100%; }
+    body #montant_conseille.has-focus,body #montant_fixe.has-focus { width: 95%; }
 }
