@@ -2303,7 +2303,7 @@ input[type="checkbox"].onoff ~ label span {
     color: #fff;
     position: absolute;
     left: 6px;
-    top: 0;
+    top: 1px;
     color: #fff;
     font-size: 10px;
     text-transform: uppercase;
@@ -2315,7 +2315,7 @@ input[type="checkbox"].onoff ~ label::after {
     content: "off";
     position: absolute;
     right: 4px;
-    top: 0;
+    top: 1px;
     color: #fff;
     font-size: 10px;
     text-transform: uppercase;
@@ -2349,12 +2349,13 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 }
 .pp-felicitation .conf_titre::after {
     content: '';
-    background: url("../images/ico-felicitation.png");
-    width: 50px;
-    height: 50px;
+    background: url("../images/ico-felicitation.png") no-repeat center;
+    width: 40px;
+    height: 40px;
     display: inline-block;
     vertical-align: middle;
     margin-left: 10px;
+    background-size: cover;
 }
 
 .pp-felicitation .conf_text {
@@ -2956,6 +2957,7 @@ a:hover { color:#fbbd36; }
 
     .blc-cagnotte-participation .fom-participe .formulaire .chp {padding: 0 70px 0 28px}
     .lst-payement ul li.clr { display: none;}
+    .on-off { position: absolute;  right: 20px; top: 50%;margin-top: -33px;}
 
 
 
