@@ -30,6 +30,15 @@
                                     <?php endwhile; ?>
                                 <?php endif; ?>
                             </div>
+                            <div class="blc-video">
+                                <a href="" class="cont-video">
+                                    <div>
+                                        <i class="ico"></i>
+                                        <img src="<?= IMG_URL ?>img-video.jpg" alt="Kotikota">
+                                    </div>
+                                    <span>Cliquez pour lire la vidéo</span>
+                                </a>
+                            </div>
                         </div>     
                  </div>
                 <!-- /image slider -->
