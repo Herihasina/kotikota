@@ -2395,6 +2395,9 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 }
 
 #BNI_page .fom-participe { margin-bottom: 10px }
+#BNI_page .blc-img ul li {
+    width: 25%;
+}
 
 
 @media (min-width:1201px) {
