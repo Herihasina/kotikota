@@ -30,16 +30,23 @@
                                     <?php endwhile; ?>
                                 <?php endif; ?>
                             </div>
-                            <div class="blc-video">
-                                <a href="" class="cont-video">
-                                    <div>
-                                        <i class="ico"></i>
-                                        <img src="<?= IMG_URL ?>img-video.jpg" alt="Kotikota">
-                                    </div>
-                                    <span>Cliquez pour lire la vidéo</span>
-                                </a>
+
+                        </div>  
+                        <div class="blc-video">
+                            <a href="#pp-video" class="cont-video fancybox">
+                                <div>
+                                    <i class="ico"></i>
+                                    <img src="<?= IMG_URL ?>img-video.jpg" alt="Kotikota">
+                                </div>
+                                <span>Cliquez pour lire la vidéo</span>
+                            </a>
+                            <div class="pp-video" id="pp-video">
+                                <div class="content">
+                                     <div class="modal-body">
+                                        <iframe width="870" height="489" src="https://www.youtube.com/embed/SvuoDerqNW0" frameborder="0" allowfullscreen=""></iframe></div>
+                                </div>
                             </div>
-                        </div>     
+                        </div>   
                  </div>
                 <!-- /image slider -->
 <?php 
