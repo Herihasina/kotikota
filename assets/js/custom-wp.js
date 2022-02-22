@@ -724,9 +724,9 @@ $(document).ready(function() {
         weekHeader: 'Sem.',
     });
 
-    change_placeholder($('#montant_fixe'), 'chacun donne… ce que tu veux');
-    change_placeholder($('#montant_conseille'), 'chacun donne ce qu’il veut…mais tu conseilles un montant');
-
+    // change_placeholder($('#montant_fixe'), 'chacun donne… ce que tu veux');
+    // change_placeholder($('#montant_conseille'), 'chacun donne ce qu’il veut…mais tu conseilles un montant');
+    /*
     function change_placeholder(id, original_ph) {
         id.focusin(function() {
             $(this).attr('placeholder', 'saisir un montant');
@@ -735,6 +735,7 @@ $(document).ready(function() {
             $(this).attr('placeholder', original_ph);
         });
     }
+    */
 
     function numStr(a, b) {
         a = '' + a;
