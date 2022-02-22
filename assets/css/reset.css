@@ -2398,13 +2398,18 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 #BNI_page .blc-img ul li {
     width: 25%;
 }
-.blc-video { position: absolute; right: 54px; top: 25% }
+.blc-video { position: absolute; right: 54px; top: 25%; z-index: 20 }
 .cont-video { display: block; }
 .cont-video > div {display: block; border:#fbbd36 solid 2px; border-radius: 10px; overflow: hidden; width: 367px; height: 210px; position: relative;  }
-.cont-video div:after { content: ""; width: 100%; height: 100%; position: absolute; background-color: #885297; opacity: 0.5; left: 0; top: 0 }
+.cont-video div:after { content: ""; width: 100%; height: 100%; position: absolute; background-color: #5B256A; opacity: 0.5; left: 0; top: 0 }
 .cont-video img { display: block; width: 100% ; }
 .cont-video i { background:url(../images/ico-video.png); width: 60px; height: 60px; display: block; position: absolute; left: 0; right: 0; margin: auto; top: 0; bottom: 0;  z-index: 2 }
 .cont-video span { display: block; color: #fff ; text-align: center; font-size: 16px}
+#pp-video {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
 
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
@@ -2612,6 +2617,15 @@ a:hover { color:#fbbd36; }
     .logo {  margin-top: 5px !important; margin-bottom: 5px }
     .pp-rib .cont-pp .inner-pp { padding: 120px 40px 83px 40px; }
 
+    .blc-video {
+        position: absolute;
+        right: 54px;
+        top: auto;
+        z-index: 20;
+        bottom: 130px;
+    }
+    .cont-video > div { width: 280px; height: auto; }
+
 }
 
 @media (max-width:1080px) { 
@@ -2777,6 +2791,8 @@ a:hover { color:#fbbd36; }
     .inner-pp .row .col {  padding: 0 10px; }
     .blc-cagnotte-details .btn .link { margin: 0 10px 10px;}
     .inner-pp .lst-document  .row { padding-right: 20px }
+
+    .blc-video { bottom: 20px }
 
 }
 
