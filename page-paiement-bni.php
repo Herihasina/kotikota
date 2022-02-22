@@ -65,9 +65,10 @@
           </div>
           <div class="blc-img">
             <ul>
-              <li><img src="<?= IMG_URL ?>logo.png" alt="Kotikota"></li>
-              <li><img src="<?= IMG_URL ?>logo.png" alt="Kotikota"></li>
-              <li><img src="<?= IMG_URL ?>logo.png" alt="Kotikota"></li>
+              <li><img src="<?= IMG_URL ?>256bitSSLEncryption.png" alt="Kotikota"></li>
+              <li><img src="<?= IMG_URL ?>mastercard1.png" alt="Kotikota"></li>
+              <li><img src="<?= IMG_URL ?>visa1.png" alt="Kotikota"></li>
+              <li><img src="<?= IMG_URL ?>bni2.png" alt="Kotikota"></li>
             </ul>
           </div>
 
