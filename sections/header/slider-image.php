@@ -40,7 +40,7 @@
                                 </div>
                                 <span>Cliquez pour lire la vidéo</span>
                             </a>
-                            <div class="pp-video" id="pp-video">
+                            <div class="pp-video" id="pp-video" style="display:none">
                                 <div class="content">
                                      <div class="modal-body">
                                         <iframe width="870" height="489" src="https://www.youtube.com/watch?v=H1DUszPZakQ&t=4s" frameborder="0" allowfullscreen=""></iframe></div>
