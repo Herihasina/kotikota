@@ -63,6 +63,14 @@
 								<iframe width="425" height="680" frameborder="no" scrolling="0" src="https://go.mips.mu/mipsit.php?c=<?php echo $final_data; ?>&smid=<?php echo $id_merchant; ?>"></iframe>
               </div>
           </div>
+          <div class="blc-img">
+            <ul>
+              <li><img src="<?= IMG_URL ?>logo.png" alt="Kotikota"></li>
+              <li><img src="<?= IMG_URL ?>logo.png" alt="Kotikota"></li>
+              <li><img src="<?= IMG_URL ?>logo.png" alt="Kotikota"></li>
+            </ul>
+          </div>
+
           <div class="btn wow fadeIn" data-wow-delay="850ms">
           	<a href="<?= get_permalink( $participation->id_cagnotte ) ?>" class="link" title="<?php _e('Revenir à la liste','kotikota'); ?>">
               <?php _e('Revenir à la cagnotte','kotikota'); ?>

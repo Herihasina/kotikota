@@ -2364,6 +2364,20 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 #sectFooter .text:hover a { color: #fff; background-color:#706F6F  }
 #sectFooter .shape1, #sectFooter .shape2 { display: none; }
 
+.lst-cagnotte-publique .vert .content .img .ico img {
+    display: block;
+    width: auto;
+    height: auto;
+    position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+}
+
+
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
 a:hover { color:#fbbd36; }
