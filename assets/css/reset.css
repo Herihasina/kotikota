@@ -360,15 +360,17 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .tarifs .content                                            { max-width: 520px; margin-top: 24px; }
 .tarifs .content .txt p                                     { font-size: 16px; line-height: 24px; font-family: Montserrat-r; margin-bottom: 32px; color: #131313  }
 .tarifs .content .txt.titre2 h3                             { background-image:url(../images/ico-titre2.png); padding-left: 66px; margin-bottom: 5px; line-height: 39px  }
-.tarifs .cont-right  .col.payement                          { background-color: #8d4a8f;  padding:25px 61px 19px 66px; border-radius: 200px 0 0 200px; position: relative; z-index: 2}
+.tarifs .cont-right  .col.payement                          { background-color: #8d4a8f;  padding:25px 61px 19px 66px; border-radius: 200px 0 0 200px; position: relative; z-index: 2; display: flex; align-items: center}
 .txt.titre2                                                 {  padding-left: 0 !important;max-width: 300px; margin: 0 auto;display: block !important;}
 .lst-payement ul                                            { text-align: center; }
-.lst-payement ul li                                         { display: inline-block; margin: 0 5px }
-.lst-payement ul li.clr                                     { display: block; margin: 0;}
+.lst-payement ul li                                         { display: inline-block; margin: 0 5px 10px }
+.lst-payement ul li.clr                                     { display: none; margin: 0;}
 .lst-payement ul li img                                     { /*-webkit-filter: grayscale(100%); filter: grayscale(100%);*/ background-color: #fff; width: 120px; height: 120px; border-radius: 50% }
 .lst-payement                                               { max-width: 460px;}
 .txt.titre1                                                 { margin-top: 31px; text-align: left;}
 .content.mode-paiement                                      { padding: 55px 0 15px 183px; max-width: inherit;}
+
+
 
 .foire-question                                             { padding: 39px 0 54px}
 .foire-question h2                                          { text-align: center;  font-size: 36px; font-family:Opificio-b ; color:#131313; margin-bottom: 41px; }
@@ -2697,7 +2699,7 @@ a:hover { color:#fbbd36; }
     .lst-payement .slick-dots button                        { border-color: #fff }
     .lst-payement .slick-active button                      { background: #fff;}
      .lst-payement .slick-dots                              { margin: 40px 0 0 }
-     .lst-payement                                          { max-width: inherit;}
+    /* .lst-payement                                          { max-width: inherit;}*/
      .btn-partage .link                                     { background-color: #fff; color: #131313 }
      .det-cagnotte .content .txt                            { padding: 50px 40px 40px 40px;}
      .pop-up-apropos .btn                                   { margin-top: 30px;}
@@ -2957,7 +2959,9 @@ a:hover { color:#fbbd36; }
 
     .blc-cagnotte-participation .fom-participe .formulaire .chp {padding: 0 70px 0 28px}
     .lst-payement ul li.clr { display: none;}
-    .on-off { position: absolute;  right: 20px; top: 50%;margin-top: -33px;}
+
+    .fom-participe .on-off { position: absolute;  right: 20px; top: 50%;margin-top: -30px;}
+    .lst-payement { height: auto;}
 
 
 
