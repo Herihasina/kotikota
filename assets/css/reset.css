@@ -3305,6 +3305,7 @@ a:hover { color:#fbbd36; }
     .blc-video { right: 20px }
 
     .modal-body iframe { width: 100%;}
+    .cont-video i { width: 40px; height: 40px; background-size: cover }
 
 
 
