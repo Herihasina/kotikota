@@ -3005,6 +3005,8 @@ a:hover { color:#fbbd36; }
     .lst-payement { height: auto;}
     .btn-banner.wow.fadeIn { display: inline-block;}
     .blc-video { right: 40px }
+    .txt-banner .link { clear: both; display: table; }
+    .cont-video > div { width: 200px;height: auto;}
 
 
 
