@@ -3340,7 +3340,7 @@ a:hover { color:#fbbd36; }
     .fom-participe .formulaire .chp                     { }
     .fom-participe .blc-check .option ul li label       { padding: 0 59px 0 28px  }
      .lst-msg.participation .item                       { width: 100%; float: none; margin-bottom: 20px }
-     .parametre .lst-step .item                         { width: 100%;float: none;}
+     /*.parametre .lst-step .item                         { width: 100%;float: none;}*/
      .nom-cagnotteSum .content .col.right .item span    { margin-right: 0;}
      .switch select { width:67px !important  }
      .switch-input { text-align: left; padding-left: 10px }
@@ -3360,6 +3360,26 @@ a:hover { color:#fbbd36; }
     .cont-video > div { width: 180px;}
     .cont-video span { font-size: 12px }
     .blc-video { right: auto; left: 20px}
+
+
+    .lst-step .item .content .ico {
+        width: 50px;
+        height: 50px;
+    }
+    .lst-step .item .content .ico img {
+        max-width: 26px;
+    }
+    .lst-step .item .content h2 {
+        margin-bottom: 13px;
+        font-size: 12px;
+        line-height: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .lst-step .item .content { 
+        padding-bottom: 29px;
+    }
 }
 
 
