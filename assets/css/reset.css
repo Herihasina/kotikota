@@ -2794,11 +2794,11 @@ a:hover { color:#fbbd36; }
 
     .blc-video { bottom: 20px }
 
-
+/*
     .lst-step .item .content .ico { width: 100px; height: 100px }
     .lst-step .item .content .ico img { max-width: 50px }
     .lst-step .item .content h2 { margin-bottom: 13px ; font-size: 16px}
-    .parametre .lst-step .item { width: 20% }
+    .parametre .lst-step .item { width: 20% }*/
 
 }
 
@@ -2937,7 +2937,7 @@ a:hover { color:#fbbd36; }
      .parametreCagnotte .titre                          { margin-bottom: 40px; margin-top: 20px;}
 
      .parametre .lst-step                               { margin: 0;}
-     .parametre .lst-step .item                         {  width: 20%; float: left; margin-bottom: 20px;}
+     .parametre .lst-step .item                         {  width: 50%; float: left; margin-bottom: 20px;}
      .parametreCagnotte .nom-cagnotteSum                { margin-bottom: 40px }
      .slide-img                                         { margin-bottom: 40px;}
      .input-image .zone-img .inputfile + label span     { line-height: normal; font-size: 28px; padding: 0 20px }
@@ -3018,10 +3018,10 @@ a:hover { color:#fbbd36; }
     .zone-beneficiaire .zone-search.sticky { position: relative; !important;  padding: 0; top: 0}
     .zone-beneficiaire .lst-type { display: block !important; }
     .zone-beneficiaire .menu-liste-cagnotte.active { position: static; }
-    .lst-step .item .content .ico { width: 80px; height: 80px;}
+  /*  .lst-step .item .content .ico { width: 80px; height: 80px;}
     .lst-step .item .content .ico img { max-width: 40px;}
     .lst-step .item .content h2 { font-size: 15px;}
-    .lst-step .item.active .content .ico::after { width: 30px; height: 31px; background-size: cover}
+    .lst-step .item.active .content .ico::after { width: 30px; height: 31px; background-size: cover}*/
 
 
 
@@ -3336,7 +3336,7 @@ a:hover { color:#fbbd36; }
     .fom-participe .formulaire .chp                     { }
     .fom-participe .blc-check .option ul li label       { padding: 0 59px 0 28px  }
      .lst-msg.participation .item                       { width: 100%; float: none; margin-bottom: 20px }
-     /*.parametre .lst-step .item                         { width: 100%;float: none;}*/
+     .parametre .lst-step .item                         { width: 100%;float: none;}
      .nom-cagnotteSum .content .col.right .item span    { margin-right: 0;}
      .switch select { width:67px !important  }
      .switch-input { text-align: left; padding-left: 10px }
@@ -3357,7 +3357,7 @@ a:hover { color:#fbbd36; }
     .cont-video span { font-size: 12px }
     .blc-video { right: auto; left: 20px}
 
-
+/*
     .lst-step .item .content .ico {
         width: 50px;
         height: 50px;
@@ -3376,7 +3376,7 @@ a:hover { color:#fbbd36; }
     .lst-step .item .content { 
         padding-bottom: 29px;
     }
-    .lst-step .item.active .content .ico::after { width: 20px; height: 21px; background-size: cover}
+    .lst-step .item.active .content .ico::after { width: 20px; height: 21px; background-size: cover}*/
 }
 
 
