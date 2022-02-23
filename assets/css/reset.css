@@ -728,17 +728,17 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .lst-type .active .rembourssement              { background-color: #fbbd36; color:#fff; }
 
 
-.lst-type .environnement                      { display: none !important;}
+.lst-type .environnement                      { display: block ;}
 .lst-type .inner.environnement span           { background: url('../images/Action_environnementale.png') no-repeat center #59bdb1; }
 .lst-type .active .environnement span         { background-image: url(../images/Action_environnementale-h.png); background-color: #fff }
 .lst-type .active .environnement              { background-color: #59bdb1; color:#fff; }
 
-.lst-type .animal                      { display: none !important;}
+.lst-type .animal                      { display: block ;}
 .lst-type .inner.animal span           { background: url('../images/Cause_animal.png') no-repeat center #e83878; }
 .lst-type .active .animal span         { background-image: url(../images/Cause_animal_h.png); background-color: #fff }
 .lst-type .active .animal              { background-color: #e83878; color:#fff; }
 
-.lst-type .religieuse                      { display: none !important;}
+.lst-type .religieuse                      { display: block ;}
 .lst-type .inner.religieuse span           { background: url('../images/Action_religieuse.png') no-repeat center #8d4a8f; }
 .lst-type .active .religieuse span         { background-image: url(../images/Action_religieuse_h.png); background-color: #fff }
 .lst-type .active .religieuse              { background-color: #8d4a8f; color:#fff; }
