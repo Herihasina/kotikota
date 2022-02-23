@@ -2923,13 +2923,13 @@ a:hover { color:#fbbd36; }
      .fom-participe .titre span                         { margin-right: 10px }
      .blc-liste-cagnote                                 { margin: 0;}
 
-     .lst-step .item .content .ico                      { width: 140px; height: 140px }
+     .lst-step .item .content .ico                      { width: 100px; height: 100px }
      .lst-step::before                                  { display: none }
      .liste-invitation ul li                            { padding: 0 15px }
 
      .gestion-cagnotte .titre                           { margin-bottom: 40px; margin-top: 20px;}
      .liste-message .s-titre                            { padding: 23px 20px 27px}
-     .lst-msg.participation .item                       { width: 50% }
+     .lst-msg.participation .item                       { width: 20% }
      .blc-cagnotte-liste.resultat .titre                { margin-bottom: 40px }
      .note-editor.note-frame .note-editing-area .note-editable { height: 300px !important }
      .editeur-txt                                       { margin: 40px 0;}
@@ -3013,6 +3013,9 @@ a:hover { color:#fbbd36; }
     .blc-video { right: 40px }
     .txt-banner .link { clear: both; display: table; }
     .cont-video > div { width: 200px;height: auto;}
+
+    .lst-type {  display: none;}
+    .menu-liste-cagnotte.active .lst-type { display: block;  padding: 0 20px;}
 
 
 
