@@ -3003,6 +3003,8 @@ a:hover { color:#fbbd36; }
 
     .fom-participe .on-off { position: absolute;  right: 20px; top: 50%;margin-top: -30px;}
     .lst-payement { height: auto;}
+    .btn-banner.wow.fadeIn { display: inline-block;}
+    .blc-video { right: 40px }
 
 
 
@@ -3291,20 +3293,16 @@ a:hover { color:#fbbd36; }
     input[type="checkbox"].onoff ~ label {padding: 0 !important}
     .blc-cagnotte-participation  .fom-participe .blc-check .option ul li label { padding: 0;} 
     .blc-cagnotte-participation .fom-participe .formulaire .chp input { padding-left: 0;} 
-    .formulaireParametre.montant .blc-chp input[type="checkbox"].onoff ~ label::before {
-        top: 2px;
-        left: 3px;
-    }
+    .formulaireParametre.montant .blc-chp input[type="checkbox"].onoff ~ label::before {  top: 2px; left: 3px;}
     .parametreCagnotte .nom-cagnotteSum { padding: 15px 20px 15px 20px;}
     .lst-payement ul li.clr { display: none;}
-
-    #BNI_page .blc-img ul {
-        display: block;
-        max-width: 700px;
-        margin: 0 auto 50px;
-       
-    }
+    #BNI_page .blc-img ul {  display: block; max-width: 700px; margin: 0 auto 50px;   }
     #BNI_page .blc-img ul li { display: inline-block; width: 49%; vertical-align: middle; margin-bottom: 20px }
+
+    .cont-video > div { width: 200px;}
+    .blc-video { right: 20px }
+
+    .modal-body iframe { width: 100%;}
 
 
 
@@ -3335,6 +3333,10 @@ a:hover { color:#fbbd36; }
     .cont-pp .titre h2 { font-size: 28px }
     .pp-rib .titre::before { display: none; }
     .cont-pp .titre { padding: 20px 40px 20px 20px;}
+    .txt-banner { padding-top: 30px; max-width: 280px;}
+    .cont-video > div { width: 180px;}
+    .cont-video span { font-size: 12px }
+    .blc-video { right: auto; left: 20px}
 }
 
 
