@@ -2794,6 +2794,12 @@ a:hover { color:#fbbd36; }
 
     .blc-video { bottom: 20px }
 
+
+    .lst-step .item .content .ico { width: 100px; height: 100px }
+    .lst-step .item .content .ico img { max-width: 50px }
+    .lst-step .item .content h2 { margin-bottom: 13px ; font-size: 16px}
+    .parametre .lst-step .item { width: 20% }
+
 }
 
 @media (max-width:768px) {
