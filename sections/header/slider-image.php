@@ -23,7 +23,7 @@
                                                 <a href="#connecter" class="link fancybox" title="<?php the_sub_field('bouton_2') ?>"><?php the_sub_field('bouton_2') ?></a>
                                             <?php endif; ?>
 
-                                            <a href="<?php the_sub_field('lien_bouton_2') ?>" class="link" title="<?php the_sub_field('bouton_2') ?>"><?php the_sub_field('bouton_2') ?></a>
+                                            <a href="<?php the_sub_field('lien_bouton_3') ?>" class="link" title="<?php the_sub_field('bouton_3') ?>"><?php the_sub_field('bouton_3') ?></a>
 
 
                                         </div>
