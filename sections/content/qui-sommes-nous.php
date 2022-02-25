@@ -2,9 +2,9 @@
 
 <div class="qui-sommes-nous" id="qui-sommes-nous" >
     <div class="wrapper">
-        <h2 class="wow fadeInUp" data-wow-delay="900ms" style="visibility: visible; animation-delay: 900ms; animation-name: fadeInUp;"><?php the_sub_field('qui_sommes_nous_titre') ?></h2>
+        <h2 class="wow fadeInUp" data-wow-delay="900ms" style="visibility: visible; animation-delay: 900ms; animation-name: fadeInUp;"><?= get_field('qui_sommes_nous_titre') ?></h2>
         <div class="txt">
-            <p><?php the_sub_field('qui_sommes_nous_texte') ?></p>
+            <p><?= get_field('qui_sommes_nous_texte') ?></p>
         </div>
         <div class="slide-qui-sommes-nous" id="slide-qsn">
             <?php
