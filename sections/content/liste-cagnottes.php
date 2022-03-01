@@ -61,10 +61,12 @@
                         $type_cagnotte = get_field('visibilite_cagnotte');
                         echo wp_strip_all_tags( get_field('description_de_la_cagnote') ); ?>
                     </p>
+                    <?php  if ( get_field('fixer_un_objectif' ) ): ?>
                     <div class="objectif">
                         <div>objectif</div>
                         <span><?= number_format($ilaina, 0, '.', ' '); ?> <?= $devise ?></span>
                     </div>
+                    <? endif; ?>
                 </a>
                 
                 <div class="compteur">
