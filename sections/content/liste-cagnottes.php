@@ -61,7 +61,7 @@
                     </p>
                     <div class="objectif">
                         <div>objectif</div>
-                        <span>1 000 000 Ar</span>
+                        <span><?= $ilaina ?> Ar</span>
                     </div>
                 </a>
                 
