@@ -33,7 +33,7 @@
                   <input type="text" name="montant" class="chp" id="ilaina" value="<?php echo get_field('objectif_montant', $idCagnotte) ?>">
                   <div class="on-off">
                       <input type="checkbox" class="onoff" id="masque1" <?php if ( get_field('masquer_azo_ilaina', $idCagnotte) ) echo " checked"; ?>>
-                      <label for="onoff"><span>on</span></label>
+                      <label for="masque1"><span>on</span></label>
                   </div>
 
                 </div>
