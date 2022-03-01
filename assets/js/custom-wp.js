@@ -882,7 +882,7 @@ $(document).ready(function() {
         else {
            $(this).prop('checked', false);
         }
-    }
+    });
 });
 
 
