@@ -30,6 +30,7 @@
             $devise = get_field('devise');
             $devise = $devise['label'] ? $devise['label'] : $devise[0];
         ?>
+        <?php  if ( get_field('fixer_un_objectif' ) ): ?>
         <div class="col col6">
             <div class="objectifs">
               <div class="ico2"><img src="<?= IMG_URL ?>ico-rst-collct.png"></div>
@@ -37,7 +38,7 @@
               <span>Objectifs</span>
             </div>
         </div>
-
+        <?php endif; ?>
         <div class="col col3">
             <div class="jours">
                 <div class="ico2"><img src="<?= IMG_URL ?>ico-jrs.png"></div>
