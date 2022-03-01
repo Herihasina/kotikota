@@ -28,6 +28,8 @@
                         $azo = (int)get_field('montant_recolte');
                         $ilaina = (int)get_field('objectif_montant');
                         $closed = get_field('cagnotte_cloturee') == 'oui' ? true : false;
+                        $devise = get_field('devise');
+                        $devise = is_array( $devise ) && array_key_exists('label', $devise) ? $devise['label'] : 'Ar';
 
                         if (!$ilaina ) $ilaina = 1;
 
@@ -61,7 +63,7 @@
                     </p>
                     <div class="objectif">
                         <div>objectif</div>
-                        <span><?= $ilaina ?> Ar</span>
+                        <span><?= $ilaina ?> <?= $devise ?></span>
                     </div>
                 </a>
                 
@@ -73,9 +75,7 @@
                         </div>
                     <div class="user">
                          <?php 
-                            $part = get_field('tous_les_participants');
-                            $devise = get_field('devise');
-                            $devise = is_array( $devise ) && array_key_exists('label', $devise) ? $devise['label'] : 'Ar';
+                            $part = get_field('tous_les_participants');                            
                             if ( !$part ) $part = []                        
                         ?>
                             <span>
