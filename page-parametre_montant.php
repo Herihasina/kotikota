@@ -32,7 +32,7 @@
                   <label><?php _e('Montant à atteindre', 'kotikota'); ?></label>
                   <input type="text" name="montant" class="chp" id="ilaina" value="<?php echo get_field('objectif_montant', $idCagnotte) ?>">
                   <div class="on-off">
-                      <input type="checkbox" value="1" class="onoff" id="masque1" <?php if ( get_field('masquer_azo_ilaina', $idCagnotte) ) echo " checked"; ?>>
+                      <input type="checkbox" value="1" class="onoff" id="masque1" <?php if ( get_field('fixer_un_objectif', $idCagnotte) ) echo ' cchecked="checked"'; ?>>
                       <label for="masque1"><span>on</span></label>
                   </div>
 
