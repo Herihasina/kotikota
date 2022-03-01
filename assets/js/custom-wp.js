@@ -877,10 +877,10 @@ $(document).ready(function() {
         //togBtn= $(this);
         //togBtn.val(togBtn.prop('checked'));
         if ($(this).is(':checked')) {
-            $(this).prop('checked',true)
+            $(this).attr('checked','checked');
         }
         else {
-           $(this).prop('checked', false);
+           $(this).removeAttr('checked');
         }
     });
 });
