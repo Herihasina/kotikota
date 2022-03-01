@@ -35,7 +35,7 @@
             <div class="objectifs">
               <div class="ico2"><img src="<?= IMG_URL ?>ico-rst-collct.png"></div>
               <b><?= number_format($objectif, 0, '.', ' '); ?> <?= $devise ?></b>
-              <span>Objectifs</span>
+              <span><?php _e('Objectifs','kotikota'); ?></span>
             </div>
         </div>
         <?php endif; ?>
