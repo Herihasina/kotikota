@@ -61,7 +61,7 @@
                   <input type="text" name="montantdon" class="chp" id="suggere" value="<?php echo get_field('montant_suggere', $idCagnotte) ?>">
 
                   <div class="on-off">
-                      <input type="checkbox" class="onoff" id="masque2">
+                      <input type="checkbox" class="onoff" id="masque2" <?php if ( get_field('masquer_toutes_les_contributions', $idCagnotte) ) echo " checked"; ?>>
                       <label for="masque2"><span>on</span></label>
                   </div>
 
@@ -98,7 +98,7 @@
                    </select>
 
                   <div class="on-off">
-                      <input type="checkbox" class="onoff" id="masque3">
+                      <input type="checkbox" class="onoff" id="masque3" <?php if ( get_field('masquer_le_montant_de_la_contribution', $idCagnotte) ) echo " checked"; ?>>
                       <label for="masque3"><span>on</span></label>
                   </div>
 
