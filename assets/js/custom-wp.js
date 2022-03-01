@@ -878,9 +878,11 @@ $(document).ready(function() {
         //togBtn.val(togBtn.prop('checked'));
         if ($(this).is(':checked')) {
             $(this).attr('checked','checked');
+            $(this).val('on');
         }
         else {
            $(this).removeAttr('checked');
+            $(this).val('off');
         }
     });
 });
