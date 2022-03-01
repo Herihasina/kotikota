@@ -33,7 +33,7 @@
         <div class="col col6">
             <div class="objectifs">
               <div class="ico2"><img src="<?= IMG_URL ?>ico-rst-collct.png"></div>
-              <b><?= number_format($objectif, 2, '.', ' '); ?> <?= $devise ?></b>
+              <b><?= number_format($objectif, 0, '.', ' '); ?> <?= $devise ?></b>
               <span>Objectifs</span>
             </div>
         </div>
