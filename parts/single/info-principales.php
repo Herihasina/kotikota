@@ -24,11 +24,16 @@
                 <span><?php echo $categ; ?></span>
             </div>  
         </div>
-
+        <?php
+            $objectif = (int)get_field('objectif_montant');
+            if (!$objectif ) $objectif = 1;
+            $devise = get_field('devise');
+            $devise = $devise['label'] ? $devise['label'] : $devise[0];
+        ?>
         <div class="col col6">
             <div class="objectifs">
               <div class="ico2"><img src="<?= IMG_URL ?>ico-rst-collct.png"></div>
-              <b>80 000 Ar</b>
+              <b><?= $objectif ?> <?= $devise ?></b>
               <span>Objectifs</span>
             </div>
         </div>
@@ -73,11 +78,7 @@
             </div>
         </div>
         <?php 
-          $masquer_azo_ilaina = get_field('masquer_azo_ilaina');
-          
-          
-            $devise = get_field('devise');
-            $devise = $devise['label'] ? $devise['label'] : $devise[0];
+          $masquer_azo_ilaina = get_field('masquer_azo_ilaina');            
         ?>
                 <div class="col col5">
                     <div class="collecte">
