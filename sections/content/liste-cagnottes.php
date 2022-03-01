@@ -63,7 +63,7 @@
                     </p>
                     <div class="objectif">
                         <div>objectif</div>
-                        <span><?= $ilaina ?> <?= $devise ?></span>
+                        <span><?= number_format($ilaina, 2, '.', ' '); ?> <?= $devise ?></span>
                     </div>
                 </a>
                 
