@@ -671,7 +671,7 @@ function save_montant(){
     update_field('objectif_montant', $ilaina , $idCagnotte );
     update_field('montant_suggere', $suggere , $idCagnotte );
     update_field('devise',$devise , $idCagnotte );
-    update_field('masquer_azo_ilaina', $maskIlainaAzo, $idCagnotte );
+    update_field('fixer_un_objectif', $maskIlainaAzo, $idCagnotte );
     update_field('masquer_toutes_les_contributions', $maskToutesContribution, $idCagnotte );
     update_field('masquer_le_montant_de_la_contribution', $maskContribution, $idCagnotte );
 
