@@ -61,8 +61,8 @@
                   <input type="text" name="montantdon" class="chp" id="suggere" value="<?php echo get_field('montant_suggere', $idCagnotte) ?>">
 
                   <div class="on-off">
-                      <input type="checkbox" class="onoff" id="onoff1">
-                      <label for="onoff1"><span>on</span></label>
+                      <input type="checkbox" class="onoff" id="masque2">
+                      <label for="masque2"><span>on</span></label>
                   </div>
 
                 </div>
@@ -98,8 +98,8 @@
                    </select>
 
                   <div class="on-off">
-                      <input type="checkbox" class="onoff" id="onoff2">
-                      <label for="onoff2"><span>on</span></label>
+                      <input type="checkbox" class="onoff" id="masque3">
+                      <label for="masque3"><span>on</span></label>
                   </div>
 
                 </div>
