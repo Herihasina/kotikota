@@ -872,6 +872,17 @@ $(document).ready(function() {
     $(".iti__country").click(function(e) {
         $("#code").val($(this).attr("data-country-code"));
     });
+    
+    $(".onoff").on('change', function() {
+        //togBtn= $(this);
+        //togBtn.val(togBtn.prop('checked'));
+        if ($(this).is(':checked')) {
+            $(this).prop('checked',true)
+        }
+        else {
+           $(this).prop('checked', false);
+        }
+    }
 });
 
 
