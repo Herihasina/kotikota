@@ -123,8 +123,8 @@
                           <label for="masque1"><?php echo __('Masquer mon identité auprès des autres participants','kotikota'); ?></label>
                           <div class="check"></div>
                           <div class="on-off">
-                            <input type="checkbox" class="onoff" id="onoff">
-                            <label for="onoff"><span>on</span></label>
+                            <input type="checkbox" class="onoff" id="masque1">
+                            <label for="masque1"><span>on</span></label>
                           </div>
 
 
@@ -135,8 +135,8 @@
                           <div class="check"></div>
 
                           <div class="on-off">
-                            <input type="checkbox" class="onoff" id="onoff1">
-                            <label for="onoff1"><span>on</span></label>
+                            <input type="checkbox" class="onoff" id="masque2">
+                            <label for="masque2"><span>on</span></label>
                           </div>
 
 
