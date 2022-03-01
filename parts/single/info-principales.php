@@ -30,6 +30,7 @@
             $devise = get_field('devise');
             $devise = $devise['label'] ? $devise['label'] : $devise[0];
         ?>
+        <?= get_field('fixer_un_objectif' ) ?>
         <?php  if ( get_field('fixer_un_objectif' ) ): ?>
         <div class="col col6">
             <div class="objectifs">
