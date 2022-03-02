@@ -745,9 +745,26 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .lst-type .active .religieuse              { background-color: #8d4a8f; color:#fff; }
 
 .lst-type .autonomisation-femme                      { display: flex ;}
-.lst-type .inner.autonomisation-femme span           { background: url('../images/icon_autonomi-femme.png') no-repeat center #8d4a8f; }
+.lst-type .inner.autonomisation-femme span           { background: url('../images/icon_autonomi-femme.png') no-repeat center #e83878; }
 .lst-type .active .autonomisation-femme span         { background-image: url(../images/icon_autonomi-femme-h.png); background-color: #fff }
-.lst-type .active .autonomisation-femme              { background-color: #8d4a8f; color:#fff; }
+.lst-type .active .autonomisation-femme              { background-color: #e83878; color:#fff; }
+
+.lst-type .catastrophe                      { display: flex ;}
+.lst-type .inner.catastrophe span           { background: url('../images/icon_catastrophes-naturelles1.png') no-repeat center #59bdb1; }
+.lst-type .active .catastrophe span         { background-image: url(../images/icon_catastrophes-naturelles1-h.png); background-color: #fff }
+.lst-type .active .catastrophe              { background-color: #59bdb1; color:#fff; }
+
+.lst-type .education_enfant                     { display: flex ;}
+.lst-type .inner.education_enfant span           { background: url('../images/icon_education-enfants.png') no-repeat center #fbbd36; }
+.lst-type .active .education_enfant span         { background-image: url(../images/icon_education-enfants-h.png); background-color: #fff }
+.lst-type .active .education_enfant              { background-color: #fbbd36; color:#fff; }
+
+.lst-type .lutte_pauvrete                     { display: flex ;}
+.lst-type .inner.lutte_pauvrete span           { background: url('../images/icon_lutte-pauvrete.png') no-repeat center #8d4a8f; }
+.lst-type .active .lutte_pauvrete span         { background-image: url(../images/icon_lutte-pauvrete-h.png); background-color: #fff }
+.lst-type .active .lutte_pauvrete              { background-color: #8d4a8f; color:#fff; }
+
+
 
 
 
