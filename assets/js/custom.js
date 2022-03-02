@@ -525,7 +525,7 @@ $(document).ready(function() {
 	// SCROLL DOWN
 	$(".scrollDown").click(function() {
 	    $('html,body').animate({
-	        scrollTop: $("#footer").offset().top - 70},
+	        scrollTop: $("#footer").offset().top - 90},
 	        1500);
 	})
 
