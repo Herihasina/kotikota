@@ -238,6 +238,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .lst-comment-ca-marche .item                              { position: relative; }
 .lst-comment-ca-marche .item span                         { font-size: 60px; font-family: Montserrat ; position: absolute; }
 .lst-comment-ca-marche .item .content h3                  { font-size: 48px; font-family:Opificio; color: #fff; margin-bottom: 12px;  }
+
 .lst-comment-ca-marche .item .content p                   { font-size: 16px; font-family:Montserrat ; color: #fff }
 .lst-comment-ca-marche .item .content img                 { position: absolute; right: 20px; top: 10px; }
 .lst-comment-ca-marche .item .content                     { position: relative;}
@@ -1929,8 +1930,16 @@ input:checked {
     margin-top: 60px;
 }
 .lst-comment-ca-marche .item .content h3 a:hover {
-    color: #fff;
+    color: #fbbd36;
 }
+
+.lst-comment-ca-marche .item.invitez .content h3 a:hover {
+    color:#8c4b8f;
+}
+
+
+
+
 
 /** Qui sommes nous***/
 .qui-sommes-nous h2 { text-align: center; font-size: 36px; font-family: Opificio-b; color: #131313; margin-bottom: 41px;}

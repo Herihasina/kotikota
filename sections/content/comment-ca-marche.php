@@ -36,7 +36,7 @@
                                             break;
                                     }
                                 ?>
-                                <i><img class="<?=$css?>" src="<?php the_sub_field('image') ?>"></i>
+                                <i><a href="#"><img class="<?=$css?>" src="<?php the_sub_field('image') ?>"></a></i>
                             </div>
                             
                         </div>
