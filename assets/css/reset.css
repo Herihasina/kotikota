@@ -744,6 +744,11 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .lst-type .active .religieuse span         { background-image: url(../images/Action_religieuse_h.png); background-color: #fff }
 .lst-type .active .religieuse              { background-color: #8d4a8f; color:#fff; }
 
+.lst-type .autonomisation-femme                      { display: flex ;}
+.lst-type .inner.autonomisation-femme span           { background: url('../images/icon_autonomi-femme.png') no-repeat center #8d4a8f; }
+.lst-type .active .autonomisation-femme span         { background-image: url(../images/icon_autonomi-femme-h.png); background-color: #fff }
+.lst-type .active .autonomisation-femme              { background-color: #8d4a8f; color:#fff; }
+
 
 
 
