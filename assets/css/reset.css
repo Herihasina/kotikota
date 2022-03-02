@@ -3052,7 +3052,7 @@ a:hover { color:#fbbd36; }
     .menu-liste-cagnotte.active .lst-type { display: block;  padding: 0 20px;}
     .zone-beneficiaire .zone-search.sticky { position: relative; !important;  padding: 0; top: 0}
     .zone-beneficiaire .lst-type { display: block !important; }
-    .zone-beneficiaire .menu-liste-cagnotte.active { position: static; }
+    /*.zone-beneficiaire .menu-liste-cagnotte.active { position: static; }*/
   /*  .lst-step .item .content .ico { width: 80px; height: 80px;}
     .lst-step .item .content .ico img { max-width: 40px;}
     .lst-step .item .content h2 { font-size: 15px;}
