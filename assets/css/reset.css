@@ -654,7 +654,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .formulaire-cagnotte .btn .link         { margin: 0 30px }
 .link.submit                            { background-color: #fbbd36; border-color: #fbbd36 ; cursor: pointer}
 .lst-type .item                         { margin-bottom: 20px; cursor: pointer; }
-.lst-type .inner                        { background-color: #f1f1f1; height: 60px; border-radius: 30px; padding: 17px 10px; position: relative; font-size: 16px; font-family:Opificio-b; color: #7b7b7b; padding-left: 75px; display: flex; align-items: center; }
+.lst-type .inner                        { background-color: #f1f1f1; height: 60px; border-radius: 30px; padding: 17px 10px; position: relative; font-size: 16px; font-family:Opificio-b; color: #7b7b7b; padding-left: 75px; display: flex; align-items: center; text-align: left; }
 
 .lst-type .inner span                   { width: 50px; height: 50px; border-radius: 50% ; position: absolute; left:10px; top: 0; bottom: 0; margin: auto; display: block; }
 
@@ -729,17 +729,17 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .lst-type .active .rembourssement              { background-color: #fbbd36; color:#fff; }
 
 
-.lst-type .environnement                      { display: block ;}
+.lst-type .environnement                      { display: flex ;}
 .lst-type .inner.environnement span           { background: url('../images/Action_environnementale.png') no-repeat center #59bdb1; }
 .lst-type .active .environnement span         { background-image: url(../images/Action_environnementale-h.png); background-color: #fff }
 .lst-type .active .environnement              { background-color: #59bdb1; color:#fff; }
 
-.lst-type .animal                      { display: block ;}
+.lst-type .animal                      { display: flex ;}
 .lst-type .inner.animal span           { background: url('../images/Cause_animal.png') no-repeat center #e83878; }
 .lst-type .active .animal span         { background-image: url(../images/Cause_animal_h.png); background-color: #fff }
 .lst-type .active .animal              { background-color: #e83878; color:#fff; }
 
-.lst-type .religieuse                      { display: block ;}
+.lst-type .religieuse                      { display: flex ;}
 .lst-type .inner.religieuse span           { background: url('../images/Action_religieuse.png') no-repeat center #8d4a8f; }
 .lst-type .active .religieuse span         { background-image: url(../images/Action_religieuse_h.png); background-color: #fff }
 .lst-type .active .religieuse              { background-color: #8d4a8f; color:#fff; }
@@ -2418,6 +2418,10 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     padding: 0;
     margin: 0;
     background-color: transparent;
+}
+
+#popup-apropos .fancybox-close-small {
+    color: #000;
 }
 
 @media (min-width:1201px) {
