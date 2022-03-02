@@ -311,7 +311,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .lst-cagnotte-publique                                      { max-width: 1054px; margin: 0 auto 57px }
 .lst-cagnotte-publique .content                             { border:#dddddd solid 1px; border-radius: 17px; max-width: 320px; margin: 0 auto; overflow:hidden; }
 .lst-cagnotte-publique .content  h3                         { color: #000000; font-size: 22px; font-family:Opificio-b ; margin-bottom: 15px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; min-height: 24px }
-.lst-cagnotte-publique .content .txt                        { padding: 10px 30px 6px; display: block; color: #131313; background-color: #fff}
+.lst-cagnotte-publique .content .txt                        { padding: 10px 30px 6px; display: block; color: #131313; background-color: #fff; height: 194px}
 .lst-cagnotte-publique .content .txt  p                     { font-size: 16px; line-height: 24px; font-family:Montserrat-r ; height: 75px; overflow:hidden; margin-bottom: 20px}
 .lst-cagnotte-publique .content .img                        { margin-bottom: 15px; position: relative; display: block; height: 202px; overflow: hidden; }
 /*.lst-cagnotte-publique .content .img:before                 { content: ''; display: block; background-color:rgba(0,0,0,0.3); position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0 }*/
@@ -2920,7 +2920,7 @@ a:hover { color:#fbbd36; }
     .zone-search .blc-menu {  position: static; width: 100%; margin-bottom: 10px}
     .menu-liste-cagnotte .lst-form-type::before { display: none }
     .menu-liste-cagnotte { top: 54px; }
-    .menu-liste-cagnotte .lst-form-type { border-top: none; box-shadow: none; padding-top: 30px; border-radius: 0 0 10px 10px }
+    .menu-liste-cagnotte .lst-form-type { border-top: none; box-shadow: none; padding-top: 30px; border-radius: 0 0 10px 10px; height: 400px; overflow-y: scroll; }
 
      .blc-chp.blc-radio                                 { display: block }
      .blc-chp.blc-radio h3                              { display: block ; width: 100%; text-align: center }
@@ -3331,6 +3331,7 @@ a:hover { color:#fbbd36; }
     .modal-body iframe { width: 100%;}
     .cont-video i { width: 40px; height: 40px; background-size: cover }
     .lst-step .item.active .content .ico::after { width: 30px; height: 31px; background-size: cover}
+     .menu-liste-cagnotte .lst-form-type { height: 300px }
 
 
 
