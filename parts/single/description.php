@@ -156,7 +156,7 @@
             </div>
             <div class="footer-pp">
                     <span>Des questions ? En savoir plus sur la création des cagnottes ?</span>
-                    <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" title="Créer une cagotte en ligne">Créer une cagotte en ligne</a> - <a href="#" title="Faire une simulation">Faire une simulation</a>
+                    <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" title="Créer une cagotte en ligne">Créer une cagotte en ligne</a> <!-- - <a href="#" title="Faire une simulation">Faire une simulation</a> -->
             </div>
         </div>
 
@@ -299,7 +299,7 @@
             </div>
             <div class="footer-pp">
                     <span>Des questions ? En savoir plus sur la création des cagnottes ?</span>
-                    <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" title="Créer une cagotte en ligne">Créer une cagotte en ligne</a> - <a href="#" title="Faire une simulation">Faire une simulation</a>
+                    <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" title="Créer une cagotte en ligne">Créer une cagotte en ligne</a> <!-- - <a href="#" title="Faire une simulation">Faire une simulation</a> -->
             </div>
         </div>
 
