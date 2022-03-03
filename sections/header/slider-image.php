@@ -45,7 +45,7 @@
                             <div class="pp-video" id="pp-video" style="display:none">
                                 <div class="content">
                                      <div class="modal-body">
-                                        <iframe width="870" height="489" src="https://www.youtube.com/embed/<?= $video ?>?autoplay=1&loop=1&playlist=<?= $video ?>" frameborder="0" allowfullscreen="" allow="autoplay;" ></iframe></div>
+                                        <iframe width="870" height="489" src="https://www.youtube.com/embed/<?= $video ?>?autoplay=1&?rel=0" frameborder="0" allowfullscreen="" allow="autoplay;" ></iframe></div>
                                 </div>
                             </div>
                         </div>   
