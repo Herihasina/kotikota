@@ -358,7 +358,7 @@ $(document).ready(function() {
 	// SCROLL DOWN
 	$(".scroll1").click(function() {
 	    $('html,body').animate({
-	        scrollTop: $("#qui-sommes-nous").offset().top - 250},
+	        scrollTop: $("qui-sommes-nous").offset().top - 250},
 	        1500);
 	});
 
