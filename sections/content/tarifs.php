@@ -1,4 +1,4 @@
-<div class="tarifs clr">
+<div class="tarifs clr" id="tarifs">
 
     <?php if(have_rows('section_tarifs')){
         while(have_rows('section_tarifs')){
