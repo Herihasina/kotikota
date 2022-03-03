@@ -29,7 +29,7 @@ onYouTubeIframeAPIReady = function () {
 $(document).ready(function() {	
 
 	$(".cont-video").fancybox({
-		afterClose: function() {
+		beforeClose: function() {
 			console.log('pop closed')
 		}
 	});
