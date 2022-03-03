@@ -3,6 +3,8 @@
 
     if ($banniere) :
         $images = $banniere['banniere_image'];
+        $video = $banniere['video_vignette']['lien_video'];
+        $vignette = $banniere['video_vignette']['vignette'];
         if( is_array( $images )):
             foreach ( $images as $img ){
      ?>
@@ -36,14 +38,14 @@
                             <a href="#pp-video" class="cont-video fancybox">
                                 <div>
                                     <i class="ico"></i>
-                                    <img src="<?= IMG_URL ?>img-video.jpg" alt="Kotikota">
+                                    <img src="<?= $vignette ?>" alt="Kotikota">
                                 </div>
                                 <span>Cliquez pour lire la vidéo</span>
                             </a>
                             <div class="pp-video" id="pp-video" style="display:none">
                                 <div class="content">
                                      <div class="modal-body">
-                                        <iframe width="870" height="489" src="https://www.youtube.com/embed/Hk989vESxWw" frameborder="0" allowfullscreen=""></iframe></div>
+                                        <iframe width="870" height="489" src="<?= $video ?>" frameborder="0" allowfullscreen=""></iframe></div>
                                 </div>
                             </div>
                         </div>   
