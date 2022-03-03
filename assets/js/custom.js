@@ -14,9 +14,6 @@ onYouTubeIframeAPIReady = function () {
 		height: '489',
 		width: '870',
 		videoId: video_id,
-		playerVars: {
-			'autoplay': 0,
-		}
 	});
 }
 $(document).ready(function() {	
