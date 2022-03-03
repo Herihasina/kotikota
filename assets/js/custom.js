@@ -325,6 +325,13 @@ $(document).ready(function() {
 		return false;
 	});
 
+	$(".menu-item-home .scroll").click(function() {
+		$('html,body').animate({
+        	scrollTop: $("#qui-sommes-nous").offset().top - 90},
+        1500);
+	});
+
+
 	$('.scrollbar-inner').scrollbar();
 
 	$('.parallax-window').parallax({imageSrc: '../images/bg-left.png'});
