@@ -35,19 +35,19 @@
 
                         </div>  
                         <div class="blc-video">
-                            <a href="#pp-video" class="cont-video fancybox" id="play-pop-up-video-home">
+                            <a href="#pp-video" class="cont-video fancybox" id="play-pop-up-video-home" data-fancybox href="https://www.youtube.com/watch?v=<?= $video ?>&amp;autoplay=1&amp;rel=0&amp;controls=0&amp;showinfo=0">
                                 <div>
                                     <i class="ico"></i>
                                     <img src="<?= $vignette ?>" alt="Kotikota">
                                 </div>
                                 <span>Cliquez pour lire la vidéo</span>
                             </a>
-                            <div class="pp-video" id="pp-video" style="display:none">
+                            <!-- <div class="pp-video" id="pp-video" style="display:none">
                                 <div class="content">
                                     <div id="modal-video-home" class="modal-body" data-video="<?= $video ?>">
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>   
                  </div>
                 <!-- /image slider -->
