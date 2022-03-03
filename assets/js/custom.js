@@ -14,6 +14,16 @@ onYouTubeIframeAPIReady = function () {
 		height: '489',
 		width: '870',
 		videoId: video_id,
+		events: {
+			'onReady': function (e) {
+				e.target.playVideo();
+			},
+			'onStateChange': function (e) {
+				if (e.data == YT.PlayerState.ENDED) {
+					instance.close();
+				}
+			}
+		}
 	});
 }
 $(document).ready(function() {	
