@@ -327,7 +327,7 @@ $(document).ready(function() {
 
 
 	
-	$('.menu-item-home').children().removeClass('scroll');
+
 
 
 
