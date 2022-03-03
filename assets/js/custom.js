@@ -325,11 +325,10 @@ $(document).ready(function() {
 		return false;
 	});
 
-	$(".menu-item-home .scroll").click(function() {
-		$('html,body').animate({
-        	scrollTop: $("#qui-sommes-nous").offset().top - 90},
-        1500);
-	});
+
+	$(".menu-item-home").child().removeClass("scroll");
+
+
 
 
 	$('.scrollbar-inner').scrollbar();

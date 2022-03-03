@@ -1969,7 +1969,7 @@ input:checked {
 .qui-sommes-nous .txt { text-align: center; margin-bottom: 50px }
 .slide-qui-sommes-nous .item .img { display: block; overflow: hidden; border-radius: 15px ; max-height: 530px;}
 .slide-qui-sommes-nous .item .img  img { display: block; width: 100% }
-#qui-sommes-nous { margin-bottom: 70px;}
+.qui-sommes-nous { margin-bottom: 70px;}
 .qui-sommes-nous .wrapper { max-width: 1104px;}
 
 /**Securite cagnotte***/
@@ -3016,7 +3016,7 @@ a:hover { color:#fbbd36; }
 
     .formulaire-cagnotte .chy-type > .row { display: block; }
     .formulaire-cagnotte .chy-type .col.col47 {width: 100%;/* padding-left: 0; */}
-    #qui-sommes-nous { margin-bottom: 70px;}
+    .qui-sommes-nous { margin-bottom: 70px;}
     .invitation .titre { margin-top: 20px !important;}
     .cont-pp .titre::after { display: none; }
     .cont-pp .titre {  padding: 53px 40px 44px;   }
