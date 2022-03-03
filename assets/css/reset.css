@@ -1967,7 +1967,7 @@ input:checked {
 .qui-sommes-nous h2 { text-align: center; font-size: 36px; font-family: Opificio-b; color: #131313; margin-bottom: 41px;}
 .qui-sommes-nous h2::after {  content: ''; border-bottom: #ffd71d solid 1px; width: 60px; margin: 31px auto; display: block;}
 .qui-sommes-nous .txt { text-align: center; margin-bottom: 50px }
-.slide-qui-sommes-nous .item .img { display: block; overflow: hidden; border-radius: 15px ; max-height: 530px;}
+.slide-qui-sommes-nous .item .img { display: block; overflow: hidden; border-radius: 15px ; height: 530px;}
 .slide-qui-sommes-nous .item .img  img { display: block; width: 100% }
 #qui-sommes-nous { margin-bottom: 70px;}
 .qui-sommes-nous .wrapper { max-width: 1104px;}
@@ -3057,6 +3057,9 @@ a:hover { color:#fbbd36; }
     .lst-step .item .content .ico img { max-width: 40px;}
     .lst-step .item .content h2 { font-size: 15px;}
     .lst-step .item.active .content .ico::after { width: 30px; height: 31px; background-size: cover}*/
+
+
+    .slide-qui-sommes-nous .item .img { height: auto; }
 
 
 
