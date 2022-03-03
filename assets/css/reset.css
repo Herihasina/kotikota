@@ -2433,7 +2433,7 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 .cont-video { display: block; }
 .cont-video > div {display: block; border:#fbbd36 solid 2px; border-radius: 10px; overflow: hidden; width: 367px; height: 210px; position: relative;  }
 .cont-video div:after { content: ""; width: 100%; height: 100%; position: absolute; background-color: #5B256A; opacity: 0.5; left: 0; top: 0 }
-.cont-video img { display: block; width: 100% ; }
+.cont-video img { display: block; width: 100% ; height: 100%; object-fit: cover }
 .cont-video i { background:url(../images/ico-video.png); width: 60px; height: 60px; display: block; position: absolute; left: 0; right: 0; margin: auto; top: 0; bottom: 0;  z-index: 2 }
 .cont-video span { display: block; color: #fff ; text-align: center; font-size: 16px}
 #pp-video {
