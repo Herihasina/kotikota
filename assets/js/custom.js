@@ -347,9 +347,6 @@ $(document).ready(function() {
 			videoId: video_id,
 			playerVars: {
 				'autoplay': 0,
-				'rel': 0,
-				'showinfo': 0,
-				'controls':0
 			}
 		});
 	}
