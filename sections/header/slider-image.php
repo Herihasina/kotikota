@@ -35,7 +35,7 @@
 
                         </div>  
                         <div class="blc-video">
-                            <a href="#pp-video" class="cont-video fancybox">
+                            <a href="#pp-video" class="cont-video fancybox" id="play-pop-up-video-home">
                                 <div>
                                     <i class="ico"></i>
                                     <img src="<?= $vignette ?>" alt="Kotikota">
