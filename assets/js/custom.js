@@ -317,6 +317,7 @@ $(document).ready(function() {
 	// 		$(this).toggleClass('active');
 	// 	}
 	// }); 
+
 	// SCROLL //
 	$(".scroll").click(function() {
 		var c = $(this).attr("href");
@@ -324,11 +325,13 @@ $(document).ready(function() {
 		return false;
 	});
 
+
+	// SCROLL DOWN
 	$(".scroll1").click(function() {
-		var c = $(this).attr("href");
-		$('html, body').animate({ scrollTop: $(c).offset().top -250 }, 1000, "linear");
-		return false;
-	});
+	    $('html,body').animate({
+	        scrollTop: $("#qui-sommes-nous").offset().top - 250 },
+	        1500);
+	})
 
 
 	$('.scrollbar-inner').scrollbar();
