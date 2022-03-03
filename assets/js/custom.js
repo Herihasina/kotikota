@@ -326,7 +326,8 @@ $(document).ready(function() {
 	});
 
 
-	$(".menu-item-home").child().removeClass("scroll");
+	
+	$('.menu-item-home').children().removeAttr('scroll');
 
 
 
