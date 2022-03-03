@@ -1,11 +1,11 @@
 
-<div class="qui-sommes-nous" id="qui-sommes-nous" >
+<div class="qui-sommes-nous" id="qui-sommes-nous " >
     <div class="wrapper"  >
         <h2 ><?= get_field('qui_sommes_nous_titre') ?></h2>
         <div class="txt">
             <p><?= get_field('qui_sommes_nous_texte') ?></p>
         </div>
-        <div class="slide-qui-sommes-nous" id="slide-qsn">
+        <div class="slide-qui-sommes-nous clr" id="slide-qsn">
             <?php
                 $slide_images = get_field('qui_sommes_nous_images');
 
