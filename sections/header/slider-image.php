@@ -35,7 +35,7 @@
 
                         </div>  
                         <div class="blc-video">
-                            <a href="#pp-video" class="cont-video fancybox" id="play-pop-up-video-home" data-fancybox href="https://www.youtube.com/watch?v=<?= $video ?>&autoplay=1&rel=0&controls=0&showinfo=0">
+                            <a class="cont-video fancybox" id="play-pop-up-video-home" data-fancybox href="https://www.youtube.com/watch?v=<?= $video ?>&autoplay=1&rel=0&controls=0&showinfo=0">
                                 <div>
                                     <i class="ico"></i>
                                     <img src="<?= $vignette ?>" alt="Kotikota">
