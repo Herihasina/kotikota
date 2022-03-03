@@ -321,17 +321,23 @@ $(document).ready(function() {
 	// SCROLL //
 	$(".scroll").click(function() {
 		var c = $(this).attr("href");
-		$('html, body').animate({ scrollTop: $(c).offset().top -250 }, 1000, "linear");
+		$('html, body').animate({ scrollTop: $(c).offset().top -250}, 1000, "linear");
 		return false;
 	});
+
+
 
 
 	// SCROLL DOWN
 	$(".scroll1").click(function() {
 	    $('html,body').animate({
-	        scrollTop: $("#qui-sommes-nous").offset().top - 250 },
+	        scrollTop: $("#qui-sommes-nous").offset().top - 250},
 	        1500);
-	})
+	});
+
+
+
+
 
 	//youtube script
 	var tag = document.createElement('script');
