@@ -27,14 +27,11 @@ onYouTubeIframeAPIReady = function () {
 	});
 }
 $(document).ready(function() {	
-	
-	$('#play-pop-up-video-home').click(function () {
-		console.log('here');
-		banner_home_player.playVideo();
-	});
-	$('#pp-video .fancybox-close-small').click(function () {
-		console.log('here close');
-		banner_home_player.stopVideo();
+
+	$(".cont-video").fancybox({
+		afterClose: function() {
+			console.log('pop closed')
+		}
 	});
 	
 	$("#connecter .fieldset--submit").click(function() {
