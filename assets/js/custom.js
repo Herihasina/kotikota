@@ -354,7 +354,7 @@ $(document).ready(function() {
 		});
 	}
 
-	$('#pp-video').click(function () {
+	$('#play-pop-up-video-home').click(function () {
 		banner_home_player.playVideo();
 	});
 
