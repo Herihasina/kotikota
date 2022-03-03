@@ -324,6 +324,13 @@ $(document).ready(function() {
 		return false;
 	});
 
+	$(".scroll1").click(function() {
+		var c = $(this).attr("href");
+		$('html, body').animate({ scrollTop: $(c).offset().top -250 }, 1000, "linear");
+		return false;
+	});
+
+
 	$('.scrollbar-inner').scrollbar();
 
 	$('.parallax-window').parallax({imageSrc: '../images/bg-left.png'});

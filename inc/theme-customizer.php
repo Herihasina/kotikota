@@ -226,7 +226,7 @@ function change_menu($items){
 add_filter('wp_nav_menu_objects', 'change_menu');
 
 function add_menuclass($ulclass) {
-    return preg_replace('/<a/', '<a class="scroll"', $ulclass, -1);
+    return preg_replace('/<a/', '<a class="scroll1"', $ulclass, -1);
 }
 add_filter('wp_nav_menu','add_menuclass');
 
