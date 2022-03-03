@@ -15,13 +15,14 @@ onYouTubeIframeAPIReady = function () {
 		width: '870',
 		videoId: video_id,
 		playerVars: {
-			'autoplay': 0,
+			'autoplay': 1,
 		}
 	});
 }
 $(document).ready(function() {	
 	
 	$('#play-pop-up-video-home').click(function () {
+		console.log('here');
 		banner_home_player.playVideo();
 	});
 	
