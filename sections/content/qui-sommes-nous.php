@@ -1,8 +1,8 @@
 
 
-<div class="qui-sommes-nous" id="qui-sommes-nous" >
-    <div class="wrapper">
-        <h2 class="wow fadeInUp" data-wow-delay="900ms" style="visibility: visible; animation-delay: 900ms; animation-name: fadeInUp;"><?= get_field('qui_sommes_nous_titre') ?></h2>
+<div class="qui-sommes-nous" >
+    <div class="wrapper" id="qui-sommes-nous" >
+        <h2 ><?= get_field('qui_sommes_nous_titre') ?></h2>
         <div class="txt">
             <p><?= get_field('qui_sommes_nous_texte') ?></p>
         </div>
