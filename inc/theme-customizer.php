@@ -218,7 +218,7 @@ function change_menu($items){
     if ( !is_home() && !is_front_page() )
           foreach($items as $item){
             if ( in_array("menu-item-home", $item->classes) ){
-                    $item->url = get_bloginfo("url") . "/#quisommesnous";
+                    $item->url = get_bloginfo("url") . "/.cagnotte-publique";
             }
           }
   return $items;
