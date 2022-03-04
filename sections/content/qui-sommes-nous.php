@@ -1,5 +1,5 @@
 
-<div class="qui-sommes-nous" id="comment-ca-marche" >
+<div class="qui-sommes-nous" id="quisommesnous" >
     <div class="wrapper">
         <h2 ><?= get_field('qui_sommes_nous_titre') ?></h2>
         <div class="txt">
