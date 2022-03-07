@@ -39,7 +39,7 @@ function load_front_assets() {
     wp_register_script( 'jquery_ui', JS_URL . 'jquery-ui.min.js', array(), true, false, true );
     wp_register_script( 'scrollbar', JS_URL . 'jquery.scrollbar.js', array(), true, false, true );
 
-    if ( is_page('toutes-les-cagnottes') || is_search() || is_tax() || is_single() || is_page('toutes-mes-cagnottes') ){
+    if ( is_page('toutes-les-cagnottes') || is_search() || is_tax() || is_single() || is_page('toutes-mes-cagnottes') || is_page('toutes-mes-participations')){
         wp_register_script( 'circle-bar1', JS_URL . 'jQuery.circleProgressBar1.js', array(), true, false, true );
         wp_register_script( 'circle-bar', JS_URL . 'jQuery.circleProgressBar.js', array(), true, false, true );
     }
