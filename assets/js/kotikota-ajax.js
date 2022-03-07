@@ -56,7 +56,13 @@ $(function(){
 				var patt = new RegExp("^http");
 				if( patt.test(resp) ){
 					//window.location = resp;
-					$('#creer-cagnotte-popup').trigger('click');
+					//$('#creer-cagnotte-popup').trigger('click');
+					$().fancybox({
+					    selector : '#pp-felicitation',
+					    beforeClose: function() {
+						    window.location = resp;
+						}
+					});
 				}else{
 		  		$('ul#response').addClass('error').html(resp);
 		  		setTimeout(function() {
@@ -67,7 +73,11 @@ $(function(){
 
 	  	return false;
 	  });
-
+	 
+	 $('#pp-felicitation').click(function(){
+	  	$.fancybox.close();
+	  });
+	
 	   /******
 	  participation 
 	  *************/
