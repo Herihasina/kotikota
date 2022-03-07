@@ -1,3 +1,8 @@
+<?php 
+  $benef = get_beneficiaire_cagnotte( $post->ID );
+  $nom_beneficiaire = get_beneficiaire_info( $benef->ID )->nom;
+?>
+
 <div class="titre jaune">
   <span class="ico"><img src="<?= IMG_URL ?>ico-cagnotte1.png"></span>
    <div class="txt-beneficiaire">
@@ -16,8 +21,8 @@
          </span>
       </div>
       <div>
-         <span class="label">Bénéficiaire : </span> 
-         <span class="nom">Sakalava capitale</span>
+         <span class="label"><?php _e('Bénéficiaire :','kotikota'); ?> </span> 
+         <span class="nom"><?= $nom_beneficiaire ?></span>
       </div>
      </div>
    </div>
