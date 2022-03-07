@@ -55,7 +55,8 @@ $(function(){
 	  		$('#loader').removeClass('working');
 				var patt = new RegExp("^http");
 				if( patt.test(resp) ){
-					window.location = resp;
+					//window.location = resp;
+					$('#creer-cagnotte-popup').trigger('click');
 				}else{
 		  		$('ul#response').addClass('error').html(resp);
 		  		setTimeout(function() {
