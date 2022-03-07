@@ -66,6 +66,8 @@
                         echo __('Toutes nos cagnottes', 'kotikota');
                     elseif ( basename(get_page_template()) == 'page-lister_mes_cagnotte.php'):
                         echo __('Toutes mes cagnottes', 'kotikota');
+                    elseif ( basename(get_page_template()) == 'page-lister_mes_participations.php'):
+                        echo __('Toutes mes cagnottes', 'kotikota');
                     elseif ( basename(get_page_template()) == 'page-participer_cagnotte.php'):
                         $id = $_GET['part'];
                         $terms = get_the_terms($id, 'categ-cagnotte');

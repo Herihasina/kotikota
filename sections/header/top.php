@@ -58,6 +58,7 @@
                         <ul>
                             <li><a href="<?php echo get_permalink( get_page_by_path( 'mon-profil' ) ); ?>" title=""><?php _e('Mon profil','kotikota') ?></a></li>
                             <li><a href="<?php echo get_permalink( get_page_by_path( 'toutes-mes-cagnottes' ) ); ?>" title=""><?php _e('Mes cagnottes','kotikota') ?></a></li>
+                            <li><a href="<?php echo get_permalink( get_page_by_path( 'toutes-mes-participations' ) ); ?>" title=""><?php _e('Mes participations','kotikota') ?></a></li>
                             <li><a href="<?php echo wp_logout_url() ?>" title=""><?php _e('Me déconnecter','kotikota') ?></a></li>
                         </ul>
                     </div>
