@@ -74,7 +74,7 @@ $(function(){
 	  	return false;
 	  });
 	 
-	 $('#pp-felicitation').click(function(){
+	  $('#pp-felicitation .link').click(function(){
 	  	$.fancybox.close();
 	  });
 	
