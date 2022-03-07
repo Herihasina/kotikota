@@ -57,7 +57,7 @@
               <?php if ( (is_user_logged_in() && get_field('titulaire_de_la_cagnotte')  == get_current_user_id()) || current_user_can('administrator') ): ?>
                 <a href="<?php echo get_permalink(get_page_by_path( 'parametre-info-principale')).'?parametre='.$post->ID ?>" class="link" title="<?php _e('Paramètres cagnotte','kotikota'); ?>"><?php _e('Paramètres cagnotte','kotikota'); ?></a> 
 
-                <a href="<?php echo get_permalink(get_page_by_path( 'gestion-cagnotte-invite')).'?parametre='.$post->ID ?>" id="gestionner" data-id="<?php echo $post->ID ?>" data-url="<?php echo get_permalink(get_page_by_path( 'gestion-cagnotte-invite')) ?>" class="link" title="<?php _e('Gestion des Participations','kotikota'); ?>"><?php _e('Gestion des Participations','kotikota'); ?></a>
+                <a href="<?php echo get_permalink(get_page_by_path( 'gestion-cagnotte-invite')).'?gest='.$post->ID ?>" id="gestionner" data-id="<?php echo $post->ID ?>" data-url="<?php echo get_permalink(get_page_by_path( 'gestion-cagnotte-invite')) ?>" class="link" title="<?php _e('Gestion des Participations','kotikota'); ?>"><?php _e('Gestion des Participations','kotikota'); ?></a>
 
                 <?php if( get_field('cagnotte_cloturee') == "non" ): ?>
                   <a href="#confirme-cloture" id="cloturer-confirm" class="link" data-fancybox title="Clôturer"><?php _e('Clôturer','kotikota'); ?></a>
