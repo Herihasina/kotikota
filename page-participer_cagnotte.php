@@ -119,7 +119,7 @@
                   <div class="option">
                     <ul>
                        <li class="chp">
-                          <input id="masque1" type="checkbox">
+                          <!--input id="masque1" type="checkbox"-->
                           <label for="masque1"><?php echo __('Masquer mon identité auprès des autres participants','kotikota'); ?></label>
                           <div class="check"></div>
                           <div class="on-off">
@@ -130,7 +130,7 @@
 
                         </li>
                         <li class="chp">
-                          <input id="masque2" type="checkbox">
+                          <!--input id="masque2" type="checkbox"-->
                           <label for="masque2"><?php echo __('Masquer le montant de ma participation auprès des autres participants','kotikota'); ?></label>
                           <div class="check"></div>
 
