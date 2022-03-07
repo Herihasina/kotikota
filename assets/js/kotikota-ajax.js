@@ -57,8 +57,8 @@ $(function(){
 				if( patt.test(resp) ){
 					//window.location = resp;
 					//$('#creer-cagnotte-popup').trigger('click');
-					$().fancybox({
-					    selector : '#pp-felicitation',
+					$('#pp-felicitation').fancybox({
+					    //selector : '#pp-felicitation',
 					    beforeClose: function() {
 						    window.location = resp;
 						}
