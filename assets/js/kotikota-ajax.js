@@ -57,12 +57,12 @@ $(function(){
 				if( patt.test(resp) ){
 					//window.location = resp;
 					//$('#creer-cagnotte-popup').trigger('click');
-					$('#pp-felicitation').fancybox({
-					    //selector : '#pp-felicitation',
-					    beforeClose: function() {
+					$.fancybox.open({
+						src : '#pp-felicitation',
+						beforeClose: function() {
 						    window.location = resp;
 						}
-					});
+					});					
 				}else{
 		  		$('ul#response').addClass('error').html(resp);
 		  		setTimeout(function() {
