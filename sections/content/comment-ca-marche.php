@@ -15,7 +15,7 @@
                     <div class="item <?php the_sub_field('class_css') ?> wow fadeInRight" data-wow-delay="<?php the_sub_field('delai') ?>ms">
                         <span><?=$i?></span>
                         <div class="content">
-                            <h3><a href="#"><?php the_sub_field('titre') ?></a></h3>
+                            <h3><a href="<?php the_sub_field('lien') ?>"><?php the_sub_field('titre') ?></a></h3>
                             <p><?php the_sub_field('contenu') ?></p>
                             <div class="icon">
                                 <img src="<?php the_sub_field('image') ?>">
@@ -36,7 +36,7 @@
                                             break;
                                     }
                                 ?>
-                                <i><a href="#"><img class="<?=$css?>" src="<?php the_sub_field('image') ?>"></a></i>
+                                <i><a href="<?php the_sub_field('lien') ?>"><img class="<?=$css?>" src="<?php the_sub_field('image') ?>"></a></i>
                             </div>
                             
                         </div>
