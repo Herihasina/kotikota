@@ -7,15 +7,15 @@
             <?php
                 $list_securite = get_field('securite_cacgnotte_liste');
                 if($list_securite):
-                foreach ($list_securite as $key => $securite) {
+                foreach ($list_securite as $securite) {
             ?>
                 <div class="item">
                     <div class="titre"><?= $securite['securite_cacgnotte_liste_titre'] ?></div>
                     <div class="txt"><p><?= $securite['securite_cacgnotte_liste_texte'] ?></p></div>
                 </div>
-            <?php
-                endif;
+            <?php                
                 }
+                endif;
             ?>
         </div>
     </div>
