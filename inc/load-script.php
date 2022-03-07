@@ -68,7 +68,7 @@ function load_front_assets() {
     wp_enqueue_script( 'parallax', false, array(), false, true );
     wp_enqueue_script( 'jquery_ui', false, array(), false, true );
     wp_enqueue_script( 'scrollbar', false, array(), false, true );
-    if (is_page('toutes-les-cagnottes') || is_search() || is_tax()|| is_single()|| is_page('toutes-mes-cagnottes') || is_front_page() ){
+    if (is_page('toutes-les-cagnottes') || is_search() || is_tax()|| is_single()|| is_page('toutes-mes-cagnottes') || is_front_page() || is_page('toutes-mes-participations') ){
         wp_enqueue_script( 'circle-bar1', false, array(), false, true );
         wp_enqueue_script( 'circle-bar', false, array(), false, true );
     }
