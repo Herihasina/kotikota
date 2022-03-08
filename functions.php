@@ -28,6 +28,14 @@ require_once 'inc/api-bnipay.php';
 //CRON 
 require_once 'inc/kk-cron.php';
 
+#Liste des cagnottes perso
+#et solidaires
+$cagnottes_personnelles_ids = array( 13, 6, 5, 14, 15, 16, 17 ,7, 18, 33, 23, 11, 22 );
+$cagnottes_solidaires_ids   = array( 8, 19, 21, 20, 25, 26, 27, 29, 31, 28, 30, 10 );
+
+define("IDS_CAGNOTTE_PERSO", $cagnottes_personnelles_ids );
+define("IDS_CAGNOTTE_SOLID", $cagnottes_solidaires_ids );
+
 function wpb_sender_name( $original_email_from ) {
     return 'Team Koti-Kota';
 }
@@ -745,3 +753,11 @@ function get_user_id_by_display_name( $display ){
     return false;
   }
 }
+
+// function calcul_frais_cagnotte( $idCagnotte, $typeCagnotte ){
+//   $montant_recolte = get_field( 'montant_recolte', $idCagnotte );
+
+//   if( 'cagnotte-perso' == $typeCagnotte ){
+//     $frais = 6
+//   }
+// }

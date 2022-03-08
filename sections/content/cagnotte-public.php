@@ -6,16 +6,13 @@
             $all_posts = [];
             $args = array(  
                 'post_type' => array('cagnotte','cagnotte-perso'),
-                'post_status' => 'publish', 
-                'meta_key'       => 'tous_les_participants',
-                'orderby'        => 'meta_value',
-                'order'          => 'DESC',
-                // 'meta_query' => array(
-                //     array(
-                //         'key' => 'actif',
-                //         'value' => true
-                //     )
-                // )
+                'post_status' => 'publish',
+                'meta_query' => array(
+                    array(
+                        'key' => 'visibilite_cagnotte',
+                        'value' => 'publique',
+                    ),
+                )
             );
 
             //alaina daholo ny terms rehetra zay tsy manana zanaka == zanaka

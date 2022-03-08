@@ -3,6 +3,33 @@ $(function(){
 /******
 	  création cagnotte 
 	  *************/
+
+	  /*
+	  * Choix catégorie de cagnotte
+	  * Type de cagnotte est défini selon type
+	  
+	  * Cagnotte SOLIDAIRE = automatiquement PUBLIQUE ==> cacher le choix déroulant
+		* Cagnotte PERSONNELLE = cagnotte PUBLIQUE ou PRIVÉE au choix (on doit pouvoir choisir)
+		*/
+		var cagnottes_personnelles_ids = [ '13', '6', '5', '14', '15', '16', '17' ,'7', '18', '33', '23', '11', '22' ];
+		var cagnottes_solidaires_ids   = [ '8', '19', '21', '20', '25', '26', '27', '29', '31', '28', '30', '10' ];
+
+	  $('.lst-type .item').on('click', function(){ 
+			var choix_categ = $(this).find('input[name="sous-categ"]').val();
+
+			if( cagnottes_personnelles_ids.includes( choix_categ ) ){
+				/* Afaka misafidy oe publique sa privée */
+				$('#type_cagnotte').removeAttr( 'disabled' );
+				$('#frais_cagnotte').text('Frais 6%');
+
+			}else if( cagnottes_solidaires_ids.includes( choix_categ ) ){
+				/* Tonga dia publique systématiquement */
+				$('#type_cagnotte').val('publique');
+				$('#type_cagnotte').attr('disabled', 'true');
+				$('#frais_cagnotte').text('Frais 3%');
+			}
+		});
+
 	  $('#creer-cagnotte').click(function(e){
 	  	$('#loader').addClass('working');
 

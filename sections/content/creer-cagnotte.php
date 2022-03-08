@@ -76,6 +76,16 @@
                 <div id="formulaire" class="formulaire-cagnotte">
                 <div class="wrapper">
                      <form>
+                        <div class="chy-type clr wow fadeIn" data-wow-delay="900ms">
+                         <!-- <div class="blc-chp wow fadeIn" data-wow-delay="900ms"> -->
+                            <div class="row">
+                                 <div class="col col53">
+                                    <div class="blc-chp">
+                                         <label id="frais_cagnotte"></label>
+                                    </div>
+                                 </div>
+                             </div>
+                         </div>
                          <div class="chy-type clr wow fadeIn" data-wow-delay="900ms">
                          <!-- <div class="blc-chp wow fadeIn" data-wow-delay="900ms"> -->
                             <div class="row">
@@ -151,16 +161,16 @@
                          </div>
                         <div class="chy-type clr wow fadeIn" data-wow-delay="950ms">
                             <div class="row">
-                                <!-- <div class="col col53">
+                                <div class="col col53">
                                     <div class="blc-chp">
-                                         <label><?php _e('Type de cagnotte','kotikota'); ?></label>
+                                         <label><?php _e('Visibilité de la cagnotte','kotikota'); ?></label>
                                          <select id="type_cagnotte">
-                                            <option value="perso"><?php _e('Cagnotte Privée','kotikota'); ?></option>
-                                            <option value="solidaire"><?php _e('Cagnotte Publique','kotikota'); ?></option>
+                                            <option value="privee"><?php _e('Cagnotte Privée','kotikota'); ?></option>
+                                            <option value="publique"><?php _e('Cagnotte Publique','kotikota'); ?></option>
                                         </select>
                                     </div>
-                                 </div> -->
-                                 <input type="hidden" name="visi" value="solidaire" id="type_cagnotte">
+                                 </div>
+                                 <!-- <input type="hidden" name="visi" value="solidaire" id="type_cagnotte"> -->
                                  <div class="col col47 col-dates">
                                     <div class="chy-type_ clr">
                                         <div class="row">

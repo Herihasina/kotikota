@@ -115,7 +115,15 @@ function create_cagnotte(){
             $devise_label = '£';
             $devise_value = $devise;
         }
-    }    
+    }
+
+    if( in_array( $sousCateg , IDS_CAGNOTTE_PERSO ) ){
+        $post_type = 'cagnotte-perso';
+    }elseif( in_array( $sousCateg, IDS_CAGNOTTE_SOLID) ){
+        $post_type = 'cagnotte';
+    }else{
+        $erreurs[] = __("Le type de cagnotte ne correspond à aucun type connu !", "kotikota");
+    }
    
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
@@ -152,17 +160,13 @@ function create_cagnotte(){
             'couleur'                       => $couleur,
             'recevoir_les_notifications_de_participation_par_e-mail' => true,
         );
-    $post_type = 'cagnotte';
-    if ( $visibilite == "perso") {
-        $post_type = 'cagnotte-perso';
-    }
 
     $postDetails = array(
-            'post_type'  => $post_type,
-            'post_title' => $nomCagnotte,
-            'post_status'=> 'publish',
-            'meta_input' => $metas
-        );
+        'post_type'  => $post_type,
+        'post_title' => $nomCagnotte,
+        'post_status'=> 'publish',
+        'meta_input' => $metas
+    );
 
     $post_notif = false;
 
