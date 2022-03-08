@@ -252,28 +252,32 @@ function get_user_participation($email_participant){
     )
   ))[0];
 
-  //prendres toutes les cagnottes auxquelles le participant a contribué
-  $toutes_cagnottes_participees = get_field('toutes_cagnottes_participees',$participant->ID); 
-  $toutes_cagnottes_participees_id = [];
-  foreach ($toutes_cagnottes_participees as $cagn ){ 
-    $toutes_cagnottes_participees_id[] = $cagn['cagnotte']->ID; //prendre les ids des cagnottes
-  }
+  $participations = [];
 
-  //prendre les cagnottes
-  $per_page = get_field('per_page','options');
-  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-  $args = array(  
-        'post_type' => array('cagnotte','cagnotte-perso'),
-        'post_status' => 'publish',
-        'posts_per_page' => $per_page, 
-        'orderby' => 'ID',
-        'order' => 'DESC',
-        'paged' => $paged,
-        'post__in' => $toutes_cagnottes_participees_id
-        
-  );
+  if($participant):
+    //prendres toutes les cagnottes auxquelles le participant a contribué
+    $toutes_cagnottes_participees = get_field('toutes_cagnottes_participees',$participant->ID); 
+    $toutes_cagnottes_participees_id = [];
+    foreach ($toutes_cagnottes_participees as $cagn ){ 
+      $toutes_cagnottes_participees_id[] = $cagn['cagnotte']->ID; //prendre les ids des cagnottes
+    }
 
-  $participations = query_posts( $args );
+    //prendre les cagnottes
+    $per_page = get_field('per_page','options');
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    $args = array(  
+          'post_type' => array('cagnotte','cagnotte-perso'),
+          'post_status' => 'publish',
+          'posts_per_page' => $per_page, 
+          'orderby' => 'ID',
+          'order' => 'DESC',
+          'paged' => $paged,
+          'post__in' => $toutes_cagnottes_participees_id
+          
+    );
+
+    $participations = query_posts( $args );
+  endif;
 
   return $participations;
 }

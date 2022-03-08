@@ -17,9 +17,10 @@
         	$userdata = wp_get_current_user();
             $email_user =$userdata->data->user_email ;
 
+
             $loop = get_user_participation($email_user);
             
-            if (have_posts()):
+            if ($loop && have_posts()):
                 include 'sections/content/liste-cagnottes.php';
             else:
         ?>

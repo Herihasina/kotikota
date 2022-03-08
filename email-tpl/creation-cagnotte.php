@@ -495,7 +495,7 @@
                                                                             valign="middle"
                                                                         >
                                                                             <a
-                                                                                href="<?= get_permalink(get_page_by_path( 'parametre-info-principale')) ?>?origin=post-setup&cgid=<?=  $id ?>"
+                                                                                href="<?= get_permalink(get_page_by_path( 'gestion-cagnotte-invite')) ?>?origin=post-setup&gest=<?=  $id ?>"
                                                                                 style="
                                                                                     background: #fbbd36;
                                                                                     color: #131313;
@@ -509,7 +509,7 @@
                                                                                 "
                                                                                 target="_blank"
                                                                             >
-                                                                                param&#233;trez votre cagnotte
+                                                                                partager votre cagnotte
                                                                             </a>
                                                                         </td>
                                                                     </tr>
