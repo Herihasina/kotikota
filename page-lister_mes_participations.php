@@ -17,6 +17,8 @@
         	$userdata = wp_get_current_user();
             $email_user =$userdata->data->user_email ;
 
+            var_dump($email_user);
+
             $loop = get_user_participation($email_user);
             
             if (have_posts()):
