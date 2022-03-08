@@ -60,7 +60,7 @@ function save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donatio
     "email"               => $email,
     "lname"               => $lname,
     "fname"               => $fname,
-    "phone"               => $phone,
+    "phone"               =>  str_replace(' ', '', $phone),
     "donation"            => $donation,
     "devise"              => $devise,
     "paiement"            => $paiement,

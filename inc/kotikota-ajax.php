@@ -374,21 +374,20 @@ function creer_participation(){
 
     $paiement = strip_tags( $_POST['paiement'] );
 
+    $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
+
     if ( $paiement == "paypal" ){
-        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
+        
         echo get_site_url() ."/don/?id=$id_participation&cl=$email";
     }elseif ( $paiement == "orange" ){
-        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
         echo get_site_url() ."/paiement-orange-money/?id=$id_participation&cl=$email";
     }elseif ( $paiement == "telma" ){
-        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
         echo get_site_url() ."/paiement-mvola/?id=$id_participation&cl=$email";
     }elseif( $paiement == "airtel" ){
         // $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone33, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
         // echo get_site_url() ."/paiement-airtel-money/?id=$id_participation&cl=$email";
         echo "trigger_popup=popup_airtel&idCagnotte=$idCagnotte&email=$email&lname=$lname&fname=$fname&phone=$phone&donation=$donation&maskParticipation=$maskParticipation&maskIdentite=$maskIdentite&mot_doux=$mot_doux&devise=$devise";
     }elseif( $paiement == "bni" || $paiement == "visa"){
-        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
         echo get_site_url() ."/virement-bancaire/?id=$id_participation&cl=$email";
     }
 
