@@ -244,6 +244,9 @@ function get_user_participation($email_participant){
     )
   ))[0];
 
+  var_dump($participant);
+
+
   //prendres toutes les cagnottes auxquelles le participant a contribué
   $toutes_cagnottes_participees = get_field('toutes_cagnottes_participees',$participant->ID); 
   $toutes_cagnottes_participees_id = [];
