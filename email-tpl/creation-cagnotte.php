@@ -509,7 +509,7 @@
                                                                                 "
                                                                                 target="_blank"
                                                                             >
-                                                                                param&#233;trez votre cagnotte
+                                                                                partager votre cagnotte
                                                                             </a>
                                                                         </td>
                                                                     </tr>
