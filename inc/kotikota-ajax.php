@@ -675,7 +675,7 @@ function save_montant(){
     update_field('masquer_toutes_les_contributions', $maskToutesContribution, $idCagnotte );
     update_field('masquer_le_montant_de_la_contribution', $maskContribution, $idCagnotte );
 
-    echo get_site_url().'/parametre-notification?parametre='.$idCagnotte;
+    //echo get_site_url().'/parametre-notification?parametre='.$idCagnotte;
     wp_die();
 }
 
