@@ -1,6 +1,9 @@
 <?php 
   $benef = get_beneficiaire_cagnotte( $post->ID );
   $nom_beneficiaire = get_beneficiaire_info( $benef->ID )->nom;
+  $titulaire_id = get_field('titulaire_de_la_cagnotte') ;
+  $user = get_user_meta( $titulaire_id);
+  $profil_valide = get_field('profil_valide', 'user_'.$titulaire_id )
 ?>
 
 <div class="titre jaune">
@@ -11,7 +14,6 @@
         <span class="label"><?php _e('cagnotte Organisée par :','kotikota'); ?></span>
         <span class="nom">
           <?php 
-            $user = get_user_meta( get_field('titulaire_de_la_cagnotte') );
             if ( $user['first_name'][0] != '' || $user['last_name'][0] != '' ){
               echo $user['first_name'][0].' '.$user['last_name'][0]; 
             }else{
@@ -26,9 +28,11 @@
       </div>
      </div>
    </div>
-   <div class="profilverifi">
-     <span>Profil vérifié</span>
-   </div>
+  <?php if($profil_valide) :?>
+      <div class="profilverifi">
+        <span><?php _e('Profil vérifié','kotikota'); ?></span>
+      </div>
+  <?php endif; ?>
 
 </div>
 <div class="txt">
