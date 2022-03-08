@@ -5,7 +5,9 @@
 
   if ( array_key_exists("gest", $_GET) )
     $id_cagnotte = strip_tags($_GET['gest']);
-
+  elseif( array_key_exists("origin", $_GET) && trim( $_GET['origin'] ) == 'post-setup' && array_key_exists("gest", $_GET) )
+    $idCagnotte = strip_tags($_GET['gest']);
+  
   if ( !is_cagnotte( $id_cagnotte ) )
     die('Cette ID ne correspond à votre cagnotte :)');
 
