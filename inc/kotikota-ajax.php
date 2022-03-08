@@ -331,13 +331,18 @@ function creer_participation(){
     # /tapitra #
 
     //lé field 'montant_suggere' io est le même pour montant fixe et montant suggéré :)
+    # fixe == montant minimum imposé
+    # conseille == montant minimum conseillé
+
     if ( strip_tags($_POST['condition']) == "fixe"){
-        $fixe = (int)get_field('montant_suggere', $_POST['idCagnotte'] );
-        if ( $fixe && preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $fixe ) ) ){
-            if ( $fixe != $donation ){
+
+        $montant_suggere = (int)get_field('montant_suggere', $_POST['idCagnotte'] );
+
+        if ( $montant_suggere && preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $montant_suggere ) ) ){
+            if ( $donation < $montant_suggere ){
                 $erreurs[] = __("Attention montant minimum imposé", "kotikota");
             }
-        }elseif( !preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $fixe ) ) ){
+        }elseif( !preg_match('/^[\d]*[\s]?[\.\,]?[\d]*[\s]?$/', strip_tags( $montant_suggere ) ) ){
             $erreurs[] = __("Entrer uniquement un chiffre comme montant.", "kotikota");
         }
     }
