@@ -427,7 +427,8 @@ $(function(){
 
 	  /*Paramtre montant */
 	  $('#submit-montant').click(function(){
-		var url_redirect = $(this).attr('href');  
+		var url_redirect = $(this).attr('href');
+		console.log(url_redirect);
 	  	$('#loader').addClass('working');
 
 	  	var ilaina = $('#ilaina').val();
