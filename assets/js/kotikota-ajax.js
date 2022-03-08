@@ -161,7 +161,7 @@ $(function(){
 	  		/* affichéna ny montant équivalent en ariary */
 	  		var $montant_converti = calcul_devise_en_mga( $montant, $devise, change_mga_eu, change_mga_liv, change_mga_cad, change_mga_usd );
 	  		
-	  		$('.change-texte').text('Montant équivalent : ' + $montant_converti + 'MGA');
+	  		$('.change-texte').text('Montant équivalent : ' + $montant_converti + ' MGA');
 	  	}else{
 	  		$('.change-texte').text('');
 	  	}
