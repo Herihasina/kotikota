@@ -88,13 +88,13 @@
         </a>
       </div>
     </div>
-    <div class="item<?php if ($active == 'notif') echo ' active no-ico';	?>">
+    <!--<div class="item<?php if ($active == 'notif') echo ' active no-ico';	?>">
       <div class="content">
         <h2><?php _e('Notifications','kotikota')?></h2>
         <a href="<?php echo get_site_url()?>/parametre-notification/?parametre=<?= $idCagnotte ?>" class="ico">
           <img src="<?php echo IMG_URL ?>notification.png">
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
 </div> 
