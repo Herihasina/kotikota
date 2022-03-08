@@ -88,7 +88,7 @@
                       <div class="chp">
                         <input type="number" name="donation" id="donation" placeholder="Saisissez un montant" required>
                         <select class="input-select appended-select" id="choix-devise" style="background: none !important;">
-                          <option value="mga" <?php if ($devise == 'mga') echo "selected"; ?>>Ar</option>
+                          <option value="mga" <?php if ($devise == 'mga') echo "selected"; ?>>MGA</option>
                           <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>€</option>
                           <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>£</option>
                           <option value="cad" <?php if ($devise == 'liv') echo "selected"; ?>>CAD</option>
