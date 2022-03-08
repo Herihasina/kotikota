@@ -126,7 +126,7 @@
           <input type="hidden" id="idCagnotte" name="idCagnotte" value="<?php echo $idCagnotte ?>">
           <ul id="response"></ul>
 	        <div class="btn wow fadeIn" data-wow-delay="950ms">
-	          <a href="<?php echo get_permalink( $idCagnotte ) ?>/parametre-montant/" class="link" title="<?php _e('revenir','kotikota') ?>"><?php _e('revenir','kotikota') ?></a>
+	          <a href="<?php echo get_permalink( $idCagnotte ) ?>/parametre-description/" class="link" title="<?php _e('revenir','kotikota') ?>"><?php _e('revenir','kotikota') ?></a>
 	          <!--<a href="<?php echo get_site_url()?>/parametre-notification/" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="submit-montant"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>-->
 		  <a href="<?php echo get_permalink( $idCagnotte)?>" class="link submit" title="Valider" id="submit-montant"><?php _e('Valider','kotikota') ?></a>
 	        </div>
