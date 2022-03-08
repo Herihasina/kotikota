@@ -128,7 +128,7 @@
 	        <div class="btn wow fadeIn" data-wow-delay="950ms">
 	          <a href="<?php echo get_permalink( $idCagnotte ) ?>" class="link" title="<?php _e('annuler','kotikota') ?>"><?php _e('annuler','kotikota') ?></a>
 	          <!--<a href="<?php echo get_site_url()?>/parametre-notification/" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="submit-montant"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>-->
-		  <a href="<?php echo get_permalink( $idCagnotte)?>" class="link submit" title="Valider" id="submit-parametre"><?php _e('Valider','kotikota') ?></a>
+		  <a href="<?php echo get_permalink( $idCagnotte)?>" class="link submit" title="Valider" id="submit-montant"><?php _e('Valider','kotikota') ?></a>
 	        </div>
 
 				</div>
