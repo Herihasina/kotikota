@@ -267,7 +267,7 @@ function creer_participation(){
     $erreurs = [];
     $sucess = '';
     $devise = strip_tags($_POST['devise']);
-    $accord         = strip_tags($_POST['accord']);
+    $accord = strip_tags($_POST['accord']);
 
     if ( $accord != 'on' ){
         $erreurs[] = __("Vous devez accepter les CGU et la politique de confidentialité.", "kotikota");
@@ -318,21 +318,17 @@ function creer_participation(){
 
     $donation = (int)strip_tags( $_POST['donation'] );
 
-    // if ( $devise_cagnotte == $devise ){
-    //     //pas de conversion
-    // }elseif ( $devise_cagnotte == 'mga' && $devise == 'liv' ){
-    //     $donation = $donation * $liv_mga;
-    // }elseif( $devise_cagnotte == 'mga' && $devise == 'eu' ){
-    //     $donation = $donation * $eu_mga;
-    // }elseif( $devise_cagnotte == 'liv' && $devise == 'mga' ){
-    //     $donation = $donation / $liv_mga;
-    // }elseif( $devise_cagnotte == 'liv' && $devise == 'eu' ){
-    //     $donation = $donation / $liv_eu;
-    // }elseif( $devise_cagnotte == 'eu' && $devise == 'mga' ){
-    //     $donation = $donation /  $eu_mga;
-    // }elseif( $devise_cagnotte == 'eu' && $devise == 'liv' ){
-    //     $donation = $donation * $liv_eu;
-    // }
+    # Eto isika manao ny #
+    # resaka conversion devise #
+    if( 'mga' != $devise ){
+        $change_mga_eu  = get_field('change_mga_eu','options');
+        $change_mga_liv = get_field('change_mga_liv','options');
+        $change_mga_usd = get_field('change_mga_usd','options');
+        $change_mga_cad = get_field('change_mga_cad','options');
+
+        $donation = calcul_devise_en_mga( $donation, $devise, $change_mga_eu, $change_mga_liv, $change_mga_cad, $change_mga_usd );
+    }
+    # /tapitra #
 
     //lé field 'montant_suggere' io est le même pour montant fixe et montant suggéré :)
     if ( strip_tags($_POST['condition']) == "fixe"){

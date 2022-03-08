@@ -132,6 +132,41 @@ $(function(){
 	  	return false;
 	  });
 	  
+	  /* 
+	  * Participation
+	  */
+
+	  function calcul_devise_en_mga( montant, $devise, taux_eu, taux_liv, taux_cad, taux_usd ){
+	  	if( 'eu' == $devise ){
+	  		return montant * taux_eu;
+  		}else if( 'liv' == $devise ){
+  			return montant * taux_liv;
+  		}else if( 'cad' == $devise ){
+				return montant * taux_cad;
+  		}else if( 'usd' == $devise ){
+  			return montant * taux_usd;
+  		}
+	  }
+
+	  $('#choix-devise').on('change',function(){
+	  	var change_mga_eu  = $('#change-mga-eu').val();
+	    var change_mga_usd = $('#change-mga-usd').val();
+	    var change_mga_liv = $('#change-mga-liv').val();
+	    var change_mga_cad = $('#change-mga-cad').val();
+
+	  	var $devise = $(this).val();
+	  	var $montant= $('#donation').val();
+
+	  	if( 'mga' != $devise ){
+	  		/* affichéna ny montant équivalent en ariary */
+	  		var $montant_converti = calcul_devise_en_mga( $montant, $devise, change_mga_eu, change_mga_liv, change_mga_cad, change_mga_usd );
+	  		
+	  		$('.change-texte').text('Montant équivalent : ' + $montant_converti + 'MGA');
+	  	}else{
+	  		$('.change-texte').text('');
+	  	}
+	  });
+
 	  $('#creer-participation').click(function(e){
 	  	var fname = $('#fname').val();
 	  	var lname = $('#lname').val();
@@ -156,23 +191,23 @@ $(function(){
 	  	var paiement = $('input[name="selector"]:checked').val();
 	  	var idCagnotte = $('input[name="id_cagnotte"]').val();
 
-	  	if ( devise == 'mga' && paiement == 'paypal' ){
-	  		$('#open_conf').trigger('click');
-	  		$('#popup_conf').addClass('warning_popup');
-	  		$('#popup_conf .conf_titre').text('Attention !');
-	  		$('#popup_conf .conf_text').text('La devise MGA n\'est pas supportée par Paypal. Veuillez en choisir une autre.');
+	  	// if ( devise == 'mga' && paiement == 'paypal' ){
+	  	// 	$('#open_conf').trigger('click');
+	  	// 	$('#popup_conf').addClass('warning_popup');
+	  	// 	$('#popup_conf .conf_titre').text('Attention !');
+	  	// 	$('#popup_conf .conf_text').text('La devise MGA n\'est pas supportée par Paypal. Veuillez en choisir une autre.');
 
-	  		return false;
-	  	}else if ( devise != 'mga' ){
-	  		if ( paiement == 'orange' || paiement == 'telma' || paiement == 'airtel' ){ 
-		  		$('#open_conf').trigger('click');
-		  		$('#popup_conf').addClass('warning_popup');
-		  		$('#popup_conf .conf_titre').text('Attention !');
-		  		$('#popup_conf .conf_text').text('Les paiements par mobile money ne peuvent être effectués qu\'en MGA.');
+	  	// 	return false;
+	  	// }else if ( devise != 'mga' ){
+	  	// 	if ( paiement == 'orange' || paiement == 'telma' || paiement == 'airtel' ){ 
+		  // 		$('#open_conf').trigger('click');
+		  // 		$('#popup_conf').addClass('warning_popup');
+		  // 		$('#popup_conf .conf_titre').text('Attention !');
+		  // 		$('#popup_conf .conf_text').text('Les paiements par mobile money ne peuvent être effectués qu\'en MGA.');
 
-		  		return false;
-	  		}
-	  	}
+		  // 		return false;
+	  	// 	}
+	  	// }
 
 	  	$('#loader').addClass('working');
 
@@ -225,6 +260,8 @@ $(function(){
 
 	  	return false;
 	  });
+
+	  /* Fin participation *///
 
 	  $('#airtelinput').on('submit', function(){
 	  	var infos = $('input[name="all_datas"]').val();

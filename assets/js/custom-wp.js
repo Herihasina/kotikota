@@ -3,8 +3,9 @@ $(document).ready(function() {
     //    alert("bka")
     // });
     var change_mga_eu = $('#change-mga-eu').val();
-    var change_mga_us = $('#change-mga-us').val();
-    var change_us_eu = $('#change-us-eu').val();
+    var change_mga_usd = $('#change-mga-usd').val();
+    var change_us_liv = $('#change-mga-liv').val();
+    var change_us_cad = $('#change-mga-cad').val();
 
     $('#go-connected').click(function() {
         $('#popup-apropos .fancybox-close-small').trigger('click');

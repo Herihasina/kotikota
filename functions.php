@@ -765,3 +765,15 @@ function get_user_id_by_display_name( $display ){
 //     $frais = 6
 //   }
 // }
+
+function calcul_devise_en_mga( $montant, $devise, $taux_eu, $taux_liv, $taux_cad, $taux_usd ){
+  if( 'eu' == $devise ){
+    return $montant * $taux_eu;
+  }elseif( 'liv' == $devise ){
+    return $montant * $taux_liv;
+  }elseif( 'cad' == $devise ){
+    return $montant * $taux_cad;
+  }elseif( 'usd' == $devise ){
+    return $montant * $taux_usd;
+  }
+}

@@ -86,12 +86,17 @@
                       ?>
                       <label for="donation"><?php echo __('Ma participation', 'kotikota'); ?> <span>*</span></label>
                       <div class="chp">
-                        <input type="text" name="donation" id="donation" placeholder="Saisissez un montant" required>
-                        <select class="input-select appended-select" id="choix-devise" disabled style="background: none !important;">
+                        <input type="number" name="donation" id="donation" placeholder="Saisissez un montant" required>
+                        <select class="input-select appended-select" id="choix-devise" style="background: none !important;">
                           <option value="mga" <?php if ($devise == 'mga') echo "selected"; ?>>Ar</option>
-                          <!-- <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>€</option> -->
-                          <!-- <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>£</option> -->
+                          <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>€</option>
+                          <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>£</option>
+                          <option value="cad" <?php if ($devise == 'liv') echo "selected"; ?>>CAD</option>
+                          <option value="usd" <?php if ($devise == 'liv') echo "selected"; ?>>USD</option>
                         </select>
+                      </div>
+                      <div class="tip change-texte">
+                        
                       </div>
                       <!-- <div class="tip">
                         Pour un paiement via Paypal, sélectionner la devise Euro (€).
@@ -277,8 +282,9 @@
             <ul id="response"></ul>
         </div>
         <input type="hidden" name="" id="change-mga-eu" value="<?php echo get_field('change_mga_eu','options'); ?>">
-        <input type="hidden" name="" id="change-mga-us" value="<?php echo get_field('change_mga_liv','options'); ?>">
-        <input type="hidden" name="" id="change-us-eu" value="<?php echo get_field('change_eu_liv','options'); ?>">
+        <input type="hidden" name="" id="change-mga-liv" value="<?php echo get_field('change_mga_liv','options'); ?>">
+        <input type="hidden" name="" id="change-mga-usd" value="<?php echo get_field('change_mga_usd','options'); ?>">
+        <input type="hidden" name="" id="change-mga-cad" value="<?php echo get_field('change_mga_cad','options'); ?>">
         <div class="btn">
         <?php //echo do_shortcode( '[wp_paypal button="buynow" name="My product" amount="1.00"]' ) ?>
           <a href="#" onclick="window.history.back();" class="link" title="<?= __('Annuler','kotikota') ?>"><?= __('Annuler','kotikota') ?></a>
