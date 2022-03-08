@@ -1,3 +1,8 @@
+<?php 
+    $user = wp_get_current_user();
+    $profil_valide = get_field('profil_valide', 'user_'.$user->ID )
+?>
+
 <div class="blc-cagnotte">
                 <div class="wrapper">
                      <div class="blc-slider-range">
@@ -231,19 +236,22 @@
                                 </div>
                              </div>
                         </div>
-                        <div class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms">
-                            <label> <?php _e('Ajouter votre passeport ou carte identité (à fournir sous 48h )','kotikota'); ?></label>
-                            <div class="chp">
-                                <div class="cont-file">
-                                    <span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
-                                    <input type="text" name="file[]" class="input-file" id="cin_btn">
-                                    <input type="hidden" name="" value="" id="cin_value">
-                                    <i> <?php _e('Parcourir','kotikota'); ?></i>
-                                    <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
+                        <?php if($profil_valide): ?>
+                            <div class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms">
+                                <label> <?php _e('Ajouter votre passeport ou carte identité (à fournir sous 48h )','kotikota'); ?></label>
+                                <div class="chp">
+                                    <div class="cont-file">
+                                        <span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
+                                        <input type="text" name="file[]" class="input-file" id="cin_btn">
+                                        <input type="hidden" name="" value="" id="cin_value">
+                                        <i> <?php _e('Parcourir','kotikota'); ?></i>
+                                        <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
+                                    </div>
+                                    <div class="zone-img-cin"></div>
                                 </div>
-                                <div class="zone-img-cin"></div>
                             </div>
-                        </div>
+                        <?php endif; ?>
+
                         <div class="acc">
                                 <div class="chp">
                                   <label><input type="checkbox" name="accord" id="accord">
