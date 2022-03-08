@@ -426,7 +426,8 @@ $(function(){
 	  });
 
 	  /*Paramtre montant */
-	  $('#submit-montant').click(function(){ 
+	  $('#submit-montant').click(function(){
+		var url_redirect = $(this).attr('href');  
 	  	$('#loader').addClass('working');
 
 	  	var ilaina = $('#ilaina').val();
@@ -465,7 +466,7 @@ $(function(){
 	  		var url = new RegExp("^http");
 	  		if( url.test(resp) ){
 				 	console.log('redirect...');
-				 		window.location = resp;
+				 	window.location = url_redirect;//resp;
 				 }else{
 	  			$('ul#response').addClass('error').html(resp);
 			  		setTimeout(function() {
