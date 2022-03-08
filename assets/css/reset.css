@@ -1211,7 +1211,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .parametreCagnotte .nom-cagnotteSum .content { justify-content: space-between; }
 .parametreCagnotte .nom-cagnotteSum .col .ico { margin-right: 0 }
 .parametreCagnotte .nom-cagnotteSum  { padding: 15px 43px 15px 15px; margin-bottom: 73px }
-.parametre .lst-step .item { width: 20% }
+.parametre .lst-step .item { width: 25% }
 .parametre .lst-step .item.selected h2 { color: #bbbbbb }
 .parametre .lst-step .item .content { margin: 0 auto }
 .parametre .lst-step { margin: 0 -20px }
@@ -1957,6 +1957,10 @@ input:checked {
 
 .lst-comment-ca-marche .item.invitez .content h3 a:hover {
     color:#8c4b8f;
+}
+
+.lst-faq .txt p a {
+    color: #676767;
 }
 
 
