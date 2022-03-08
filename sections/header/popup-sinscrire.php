@@ -9,6 +9,7 @@
             ?>
 
             <div class="txt-bottom">
+                <p class="success-register"></p>
                 <p>
                 <?php
                     printf( __('La société KOTI KOTA traite vos données afin de vous permettre de créer votre « cagnotte en ligne ». %s Les données portant une * sont obligatoires.','kotikota'),'<br />' ) 
