@@ -806,8 +806,8 @@ function get_youtube_video_detail($video_id){
   
   $video_data['url'] = "https://www.youtube.com/watch?v=".$video_id;
   $video_data['title'] = $youtubeVals['items'][0]['snippet']['title'];
-  $video_data['description'] = $youtubeVals ['items'][0]['snippet']['description'];
-  $video_data['vignette'] = $youtubeVals ['items'][0]['snippet']['thumbnails']['default']['url'];
+  $video_data['description'] = wp_trim_words( $youtubeVals ['items'][0]['snippet']['description'], 6, '...' );
+  $video_data['vignette'] = $youtubeVals ['items'][0]['snippet']['thumbnails']['standard']['url'];
   $iso8601_duration = $youtubeVals ['items'][0]['contentDetails']['duration'];
   $date_interval= new DateInterval($iso8601_duration);
   $video_data['duration']= $date_interval->i.":".$date_interval->s;
