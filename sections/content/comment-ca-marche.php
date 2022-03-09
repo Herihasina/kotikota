@@ -76,7 +76,17 @@
                                             break;
                                     }
                                 ?>
-                                <i><a href="<?php the_sub_field('lien') ?>"><img class="<?=$css?>" src="<?php the_sub_field('image') ?>"></a></i>
+                                <i>
+                                  <?php if ( $i == 2 ): ?>                                    
+                                    <a href="<?= $url_invite ?>" class="<?= $url_class_invite ?>">
+                                      <img class="<?=$css?>" src="<?php the_sub_field('image') ?>">
+                                    </a>
+                                <?php else: ?>
+                                    <a href="<?php the_sub_field('lien') ?>">
+                                      <img class="<?=$css?>" src="<?php the_sub_field('image') ?>">
+                                    </a>
+                                <?php endif; ?>                                 
+                                </i>
                             </div>
                             
                         </div>
