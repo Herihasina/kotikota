@@ -2532,7 +2532,8 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     font-size: 16px;
     text-align: center;
     line-height: 34px;
-    top: -2px
+    top: -2px;
+    background-image: url(../images/select-v.png);
 }
 
 
