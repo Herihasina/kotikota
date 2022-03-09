@@ -32,7 +32,7 @@
                     $q = query_posts( $args );
                     	while( $q->have_posts() ) :                    
                         	$post_id = get_the_ID();
-                        	$url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest='$post_id;
+                        	$url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest='.$post_id;
                         	$url_class_invite = '';
 			endwhile;
 			wp_reset_postdata();
