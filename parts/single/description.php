@@ -184,7 +184,7 @@
                     </div>
                     <div class="col video">
                       <h3>vidéos</h3>
-                        <div class="lst-option">        
+                        <div class="lst-option blcvideos ">        
                           <div class="item">      
                             <div class="contvideo">
                               <a href="#" target="_blank">
