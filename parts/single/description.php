@@ -210,6 +210,10 @@
                                   <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
                                 </div>
+                                <div class="check-video">                            
+                                   <input type="checkbox" class="ck-photo" id="video2"> 
+                                   <label for="video2"></label>
+                                </div>
                               </a>
 
                             </div>
@@ -223,6 +227,10 @@
                                 <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
                               </div>
+                               <div class="check-video">                            
+                                 <input type="checkbox" class="ck-photo" id="video3"> 
+                                 <label for="video3"></label>
+                              </div>
                             </div>
                             </a>
                           </div>
@@ -233,6 +241,10 @@
                                 <div class="txt">
                                   <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
                                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+                                </div>
+                                 <div class="check-video">                            
+                                   <input type="checkbox" class="ck-photo" id="video4"> 
+                                   <label for="video4"></label>
                                 </div>
                               </a>
                             </div>
