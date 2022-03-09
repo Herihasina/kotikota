@@ -173,6 +173,7 @@ function create_cagnotte(){
     $now_user = get_current_user_id();
 
     if ( $_POST['cin_value'] != '' ){
+        echo "here CIN";
         $cin = attachment_url_to_postid( strip_tags( $_POST['cin_value']) );
         update_field('piece_didentite', $cin, 'user_'.$now_user );
     }
