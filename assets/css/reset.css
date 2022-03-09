@@ -2179,7 +2179,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .contvideo a:hover { color: #000 }
 .video-img {    margin-right: 20px;}
 #pp-photos .inner-pp .row .col .lst-option .item .txt { height: 120px; overflow: hidden;}
-.inner-pp .row .col .lst-option .item .txt h4 { font-weight: 700; margin-bottom: 10px;}
+.inner-pp .row .col .lst-option .item .txt h4 { font-weight: 700; margin-bottom: 10px; height: 50px; overflow: hidden;}
 .inner-pp .row .col .lst-option .item .txt p { height: 50px; overflow: hidden;}
 #pp-photos .inner-pp .row .col .lst-option .item { margin-bottom: 20px; }
 .lst-document .lst-option.blcphotos .inner { position: relative; }
@@ -2240,8 +2240,19 @@ input[type="checkbox"].ck-photo:checked ~ label {
 
 
 
-.video-img img {  display: block;}
-.video-img { position: relative; }
+.video-img img {
+    display: block;
+    height: 119px;
+    object-fit: cover;
+}
+
+.video-img {
+    position: relative;
+    height: 119px;
+    display: block;
+    width: 168px;
+}
+
 .video-img .heure { background-color: #000; border-radius: 5px; padding:5px; color: #fff; font-size: 12px; text-align: center; position: absolute; right: 5px; bottom: 5px; line-height: 12px; display: inline-block; }
 .inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label:after { opacity: 1 }
 .inner-pp .row .col.photo {  width: 55%;}
