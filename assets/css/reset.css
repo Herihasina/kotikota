@@ -1,6 +1,5 @@
-@import 'styles.css'; 
+@import 'styles.css'
 
-/* IMPORT FONTS */
 @font-face {
     font-family: 'Opificio';
     src: url('../fonts/Opificio-RegularRounded.eot');
@@ -12,6 +11,9 @@
     font-style: normal;
     font-display: swap;
 }
+
+
+
 @font-face {
     font-family: 'Opificio-b';
     src: url('../fonts/Opificio-BoldRounded.eot');
@@ -2167,8 +2169,8 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .blc-cagnotte-details .btn .link {
     margin: 0 10px;
 }
-.lst-document .lst-option .img { display: block; overflow: hidden; border-radius: 10px; position: relative; }
-.lst-document .lst-option .img img { display: block; width: 100% }
+.lst-document .lst-option .img { display: block; overflow: hidden; border-radius: 10px; position: relative; height: 119px }
+.lst-document .lst-option .img img { display: block; width: 100% ; height: 119px; object-fit: cover}
 #pp-photos .inner-pp .row .col .lst-option .item label { padding-right: 0 }
 .inner-pp .row .col .lst-option.blcphotos { display: block;max-width: 413px; }
 .inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 50%; float: left; padding-right: 22px}

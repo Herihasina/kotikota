@@ -193,6 +193,11 @@
                                 <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
                               </div>
+                              <div class="check-video">                            
+                                 <input type="checkbox" class="ck-photo" id="video1"> 
+                                 <label for="video1"></label>
+                              </div>
+
                               </a>
                             </div>
                             
