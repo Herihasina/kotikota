@@ -72,6 +72,7 @@
               <?php if($document_fichiers): 
                   $word_doc=[];  
                   $pdf_doc=[];  
+                  var_dump($document_fichiers);
                   foreach($document_fichiers as $doc ): 
                     $file_data=[];
                     $fichier = $doc['fichier']; 
