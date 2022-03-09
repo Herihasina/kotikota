@@ -2498,7 +2498,11 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     padding: 14px 30px;
     display: inline-block;
     margin-bottom: 0;
+    background: #8d4a8f;
+    color: #fff;
+    font-weight: 700;
 }
+
 .formulaire-cagnotte .blc-chp label em { background: url(../images/ico-info2.png); background-size: cover; width: 15px; height: 15px; display: inline-block; margin-left: 10px }
 
 .tip.change-texte {
