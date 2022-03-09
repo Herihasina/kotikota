@@ -72,14 +72,17 @@
               <?php if($document_fichiers): 
                   $word_doc=[];  
                   $pdf_doc=[];  
-                  var_dump($document_fichiers);
                   foreach($document_fichiers as $doc ): 
                     $file_data=[];
                     $fichier = $doc['fichier']; 
                     $file_data['name'] = $fichier['title'];
                     $file_data['url'] = wp_get_attachment_url( $fichier);
                     $extension = pathinfo( get_attached_file( $fichier ) )['extension'];
-                    echo $extension;
+                    echo "<pre>";
+                    var_dump($file_data);
+                    var_dump($extension);
+                    echo "<pre>";
+
                   endforeach;
                 
               ?>
