@@ -495,10 +495,10 @@
                                                                             style="border: none; border-radius: 30px; cursor: auto; padding: 18px 31px; background: #fbbd36;"
                                                                             valign="middle"
                                                                         >
-                                                                        <a href="http://www.facebook.com/sharer.php?u=<?= get_permalink($id) ?>" target="_blank">
+                                                                        <a href="https://wa.me/<?= get_field('fb_kotikota','option') ?>?text=Une%20cagnotte%20intéressant%20sur%20kotikota" target="_blank">
                                                                             <img width="58" height="50" src="<?= IMG_URL ?>whatsapp.png" alt="whatsapp" style="width: 58px; height: 50px; display: block;" />
                                                                         </a>
-                                                                        <a href="<?= get_field('fb_kotikota','option') ?>" target="_blank">
+                                                                        <a href="http://www.facebook.com/sharer.php?u=<?= get_permalink($id) ?>" target="_blank">
                                                                             <img width="58" height="50" src="<?= IMG_URL ?>fb.jpg" alt="facebook" style="width: 58px; height: 50px; display: block;" />
                                                                         </a>
 
