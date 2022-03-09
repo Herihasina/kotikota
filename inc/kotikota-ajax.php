@@ -220,7 +220,7 @@ function create_cagnotte(){
         }
 
         sendNotificationCreation($newPost);
-        $piece_didentite = get_field('piece_didentite', 'user_'.$now_user );
+        // $piece_didentite = get_field('piece_didentite', 'user_'.$now_user );
         // if( !$piece_didentite )
         //     sendRappelPostCreation( $now_user );
 
