@@ -492,17 +492,31 @@
                                                                             align="center"
                                                                             bgcolor="#fbbd36"
                                                                             role="presentation"
-                                                                            style="border: none; border-radius: 30px; cursor: auto; padding: 18px 31px; background: #fbbd36;"
+                                                                            style="border: none; border-radius: 5px; cursor: auto; padding: 0; background: #fbbd36;"
                                                                             valign="middle"
                                                                         >
                                                                         <a href="https://wa.me/<?= get_field('fb_kotikota','option') ?>?text=Une%20cagnotte%20intéressant%20sur%20kotikota" target="_blank">
-                                                                            <img width="58" height="50" src="<?= IMG_URL ?>whatsapp.png" alt="whatsapp" style="width: 58px; height: 50px; display: block;" />
+                                                                            <img width="177" height="52" src="<?= IMG_URL ?>whatsapp2.png" alt="whatsapp" style="width: 117px; height: 52px; display: block;" />
                                                                         </a>
-                                                                        <a href="http://www.facebook.com/sharer.php?u=<?= get_permalink($id) ?>" target="_blank">
-                                                                            <img width="58" height="50" src="<?= IMG_URL ?>fb.jpg" alt="facebook" style="width: 58px; height: 50px; display: block;" />
+
+                                                                        
+
+                                                                        </td>
+                                                                        <td width="30"></td>
+                                                                        <td
+                                                                            align="center"
+                                                                            bgcolor="#fbbd36"
+                                                                            role="presentation"
+                                                                            style="border: none; border-radius: 5px; cursor: auto; padding: 0; background: #1b7cef;"
+                                                                            valign="middle"
+                                                                        >
+                                                                          <a href="http://www.facebook.com/sharer.php?u=<?= get_permalink($id) ?>" target="_blank">
+                                                                            <img width="177" height="52" src="<?= IMG_URL ?>facebook3.png" alt="facebook" style="width: 177px; height: 52px; display: block;" />
                                                                         </a>
 
                                                                         </td>
+
+
                                                                     </tr>
                                                                 </table>
                                                             </td>
