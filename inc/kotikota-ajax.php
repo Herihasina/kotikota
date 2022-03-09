@@ -200,7 +200,6 @@ function create_cagnotte(){
         update_field('debut_cagnoote', $debut, $newPost);
         update_field('deadline_cagnoote', $deadline, $newPost);        
         update_field('fixer_un_objectif', (bool)$estLimite, $newPost);        
-        update_field('profil_valide', false, 'user_'.$now_user );
 
         $benef = array(
             'post_type' => 'beneficiaire',
