@@ -70,7 +70,11 @@ $(function(){
 	  	form_data.append('m_fixe', m_fixe);
 	  	form_data.append('devise', devise);
 	  	form_data.append('accord', accord);
-	  	form_data.append('cin_value', cin_value);
+		if(cin_value){
+			form_data.append('cin_value', cin_value);
+		}else{
+			form_data.append('cin_value', '');
+		}
 	  	
 	  	$.ajax({
 	  		url: ajaxurl,
