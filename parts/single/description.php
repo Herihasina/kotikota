@@ -8,6 +8,7 @@
   $liste_des_documents = get_field('liste_des_documents');
   $document_fichiers = $liste_des_documents['document_fichiers'];
   $photos_et_videos = $liste_des_documents['photos_et_videos'];
+  $curr_userdata = wp_get_current_user();
 ?>
 
 <div class="titre jaune">
@@ -84,11 +85,6 @@
                         $word_doc[]=$file_data;
                     endif;
                   endforeach;
-                  echo "<pre>";
-                  var_dump($word_doc);
-                  var_dump($pdf_doc);
-                  echo "</pre>";
-
                 
               ?>
                 <div class="lst-document scrollbar-inner">
@@ -97,94 +93,49 @@
                         <h3>documents word</h3>
                         <?php if($word_doc):?>
                           <div class="lst-option">
-                            <?php //foreach($document_fichiers as $doc ): 
-                              // $fichier = $doc['fichier'];  
-                            ?>        
+                            <?php foreach($word_doc as $doc ): ?>        
                               <div class="item">
-                                <input type="checkbox" class="document" id="doc1"> 
-                                <label for="doc1">
-                                  <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                  <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                                </label>
+                                <?php if($curr_userdata->ID == $titulaire_id) :?>
+                                  <input type="checkbox" class="document" id="doc1"> 
+                                  <label for="doc1">
+                                    <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                                    <div class="txt"><?= $doc['name'] ?></div>
+                                  </label>
+                                <?php else: ?>
+                                  <a href="<?= $doc['url'] ?>" class="doc-item-link">
+                                    <div class="doc-item">
+                                      <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                                      <div class="txt"><?= $doc['name'] ?></div>
+                                    </div>
+                                  </a>
+                                <?php endif; ?>
                               </div>
-                            <?php //endforeach; ?>
-
-                            <div class="item">
-                              <input type="checkbox" class="document" id="doc2"> 
-                              <label for="doc2">
-                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                              </label>
-                            </div>
-
-                            <div class="item">
-                              <input type="checkbox" class="document" id="doc3"> 
-                              <label for="doc3">
-                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                              </label>
-                            </div>
-                            <div class="item">
-                              <input type="checkbox" class="document" id="doc4"> 
-                              <label for="doc4">
-                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                              </label>
-                            </div>
-                            <div class="item">
-                              <input type="checkbox" class="document" id="doc5"> 
-                              <label for="doc5">
-                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                              </label>
-                            </div>
-                        
-                        
-
+                            <?php endforeach; ?>
                           </div>
                         <?php endif; ?>
                       </div>
                       <div class="col">
                         <h3>documents pdf</h3>
                         <?php if($pdf_doc):?>
-                          <div class="lst-option">        
-                            <div class="item">
-                              <input type="checkbox" class="document" id="pdf1"> 
-                              <label for="pdf1">
-                                <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                              </label>
-                            </div>
-                            <div class="item">
-                              <input type="checkbox" class="document" id="pdf2"> 
-                              <label for="pdf2">
-                                <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                              </label>
-                            </div>
-                            <div class="item">
-                              <input type="checkbox" class="document" id="pdf3"> 
-                              <label for="pdf3">
-                                <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                              </label>
-                            </div>
-                            <div class="item">
-                              <input type="checkbox" class="document" id="pdf4"> 
-                              <label for="pdf4">
-                                <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                              </label>
-                            </div>
-                            <div class="item">
-                              <input type="checkbox" class="document" id="pdf5"> 
-                              <label for="pdf5">
-                                <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                              </label>
-                            </div>
-                        
-                      
+                          <div class="lst-option">       
+                            <?php foreach($pdf_doc as $doc ): ?>   
+                              <div class="item">
+                                <?php if($curr_userdata->ID == $titulaire_id) :?>
+                                  <input type="checkbox" class="document" id="pdf1"> 
+                                  <label for="pdf1">
+                                    <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                    <div class="txt"><?= $doc['name'] ?></div>
+                                  </label>
+                                <?php else: ?>
+                                  <a href="<?= $doc['url'] ?>" class="doc-item-link">
+                                    <div class="doc-item">
+                                      <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                      <div class="txt"><?= $doc['name'] ?></div>
+                                    </div>
+                                  </a>
+                                <?php endif; ?>
+                              </div>
+                            <?php endforeach; ?>
                           </div>
                         <?php endif; ?>
                       </div>
