@@ -189,22 +189,21 @@
                               <?php foreach($videos as $video ): 
                                 $video_id= $video['lien_youtube'];
                                 $video_data = get_youtube_video_detail($video_id);
-                                echo "<pre>";
-                                var_dump($video_data);
-                                echo "</pre>";
                               ?>        
                                 <div class="item">      
                                   <div class="contvideo">
-                                    <a href="#" target="_blank">
-                                      <div class="video-img"><img src="<?= IMG_URL ?>video1.jpg" alt="Kotikota"><span class="heure">23:15</span></div>
+                                    <a href="<?= $video_data['url'] ?>" target="_blank">
+                                      <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
                                       <div class="txt">
-                                        <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+                                        <h4><?= $video_data['title'] ?></h4>
+                                        <p><?= $video_data['description'] ?></p>
                                       </div>
-                                      <div class="check-video">                            
-                                        <input type="checkbox" class="ck-photo" id="video1"> 
-                                        <label for="video1"></label>
-                                      </div>
+                                      <?php if($curr_userdata->ID == $titulaire_id) :?>
+                                        <div class="check-video">                            
+                                          <input type="checkbox" class="ck-photo" id="video1"> 
+                                          <label for="video1"></label>
+                                        </div>
+                                      <?php endif; ?>
                                     </a>
                                   </div>
                                 </div>
