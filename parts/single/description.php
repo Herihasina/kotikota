@@ -5,10 +5,12 @@
   $user = get_user_meta( $titulaire_id);
   $profil_valide = get_field('profil_valide', 'user_'.$titulaire_id );
 
+  $curr_userdata = wp_get_current_user();
   $liste_des_documents = get_field('liste_des_documents');
   $document_fichiers = $liste_des_documents['document_fichiers'];
   $photos_et_videos = $liste_des_documents['photos_et_videos'];
-  $curr_userdata = wp_get_current_user();
+  $photos = $photos_et_videos['images'];
+  $videos = $photos_et_videos['videos'];
 ?>
 
 <div class="titre jaune">
@@ -161,71 +163,24 @@
                   <div class="row">
                     <div class="col photo">
                       <h3>images</h3>
-                      <div class="lst-option blcphotos">        
-                        <div class="item">
-                          <div class="inner">
-                            <input type="checkbox" class="ck-photo" id="img1"> 
-                            <label for="img1"></label>
-                            <a href="<?= IMG_URL ?>photo1.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo1.jpg" alt="Kotikota"></a>
-                          </div> 
-                        </div>
+                      <?php if($photos): ?>
+                        <div class="lst-option blcphotos">
+                          <?php foreach($photos as $photo ): 
+                            $image = $photo['image'] ;
+                          ?>         
+                            <div class="item">
+                              <div class="inner">
+                              <?php if($curr_userdata->ID == $titulaire_id) :?>
+                                <input type="checkbox" class="ck-photo" id="img1"> 
+                                <label for="img1"></label>
+                              <?php endif; ?>
+                                <a href="<?= $image['url'] ?>" class="img fancybox"><img src="<?= $image['url'] ?>" alt="Kotikota"></a>
+                              </div> 
+                            </div>
+                          <?php endforeach; ?>
 
-                        <div class="item">
-                          <div class="inner">
-                            <input type="checkbox" class="ck-photo" id="img2"> 
-                            <label for="img2"></label>
-                            <a href="<?= IMG_URL ?>photo2.jpg"class="img fancybox"><img src="<?= IMG_URL ?>photo2.jpg" alt="Kotikota"></a>
-                          </div>
                         </div>
-
-                        <div class="item">
-                          <div class="inner">
-                            <input type="checkbox" class="ck-photo" id="img3"> 
-                            <label for="img3">  </label>
-                            <a href="<?= IMG_URL ?>photo3.jpg"  class="img fancybox"><img src="<?= IMG_URL ?>photo3.jpg" alt="Kotikota"></a>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="inner">
-                            <input type="checkbox" class="ck-photo" id="img4"> 
-                            <label for="img4"></label>
-                            <a href="<?= IMG_URL ?>photo4.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo4.jpg" alt="Kotikota"></a>
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="inner">
-                            <input type="checkbox" class="ck-photo" id="img5"> 
-                            <label for="img5">     
-                            </label>
-                            <a href="<?= IMG_URL ?>photo5.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo5.jpg" alt="Kotikota"></a> 
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="inner">
-                            <input type="checkbox" class="ck-photo" id="img6"> 
-                            <label for="img6"> </label>
-                            <a href="<?= IMG_URL ?>photo6.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo6.jpg" alt="Kotikota"></a> 
-                          </div>
-                        </div>
-                        <div class="item">
-                          <div class="inner">
-                            <input type="checkbox" class="ck-photo" id="img7"> 
-                            <label for="img7">   </label>
-                            <a href="<?= IMG_URL ?>photo7.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo7.jpg" alt="Kotikota"></a> 
-                          </div>
-                        </div>
-
-                        <div class="item">
-                          <div class="inner">
-                            <input type="checkbox" class="ck-photo" id="img8"> 
-                            <label for="img8"> </label>
-                            <a href="<?= IMG_URL ?>photo8.jpg" class="img fancybox"><img src="<?= IMG_URL ?>photo8.jpg" alt="Kotikota"></a> 
-                          </div>
-                        </div>
-
-                      
-
-                      </div>
+                      <?php endif; ?>
                     </div>
                     <div class="col video">
                       <h3>vidéos</h3>
