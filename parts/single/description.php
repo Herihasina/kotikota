@@ -3,7 +3,11 @@
   $nom_beneficiaire = get_beneficiaire_info( $benef->ID )->nom;
   $titulaire_id = get_field('titulaire_de_la_cagnotte') ;
   $user = get_user_meta( $titulaire_id);
-  $profil_valide = get_field('profil_valide', 'user_'.$titulaire_id )
+  $profil_valide = get_field('profil_valide', 'user_'.$titulaire_id );
+
+  $liste_des_documents = get_field('liste_des_documents');
+  $document_fichiers = $liste_des_documents['document_fichiers'];
+  $photos_et_videos = $liste_des_documents['photos_et_videos'];
 ?>
 
 <div class="titre jaune">
@@ -65,103 +69,125 @@
                 <h2>Documents</h2>
             </div>
             <div class="inner-pp">
-              <div class="lst-document scrollbar-inner">
-                  <div class="row">
-                    <div class="col">
-                      <h3>documents word</h3>
-                      <div class="lst-option">        
-                        <div class="item">
-                          <input type="checkbox" class="document" id="doc1"> 
-                          <label for="doc1">
-                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                          </label>
-                        </div>
+              <?php if($document_fichiers): 
+                  $word_doc=[];  
+                  $pdf_doc=[];  
+                  foreach($document_fichiers as $doc ): 
+                    $file_data=[];
+                    $fichier = $doc['fichier']; 
+                    $file_data['name'] = $fichier['title'];
+                    $file_data['url'] = wp_get_attachment_url( $fichier);
+                    $extension = pathinfo( get_attached_file( $fichier ) )['extension'];
+                    echo $extension;
+                  endforeach;
+                
+              ?>
+                <div class="lst-document scrollbar-inner">
+                    <div class="row">
+                      <div class="col">
+                        <h3>documents word</h3>
+                        <?php if($word_doc):?>
+                          <div class="lst-option">
+                            <?php //foreach($document_fichiers as $doc ): 
+                              // $fichier = $doc['fichier'];  
+                            ?>        
+                              <div class="item">
+                                <input type="checkbox" class="document" id="doc1"> 
+                                <label for="doc1">
+                                  <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                                  <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                                </label>
+                              </div>
+                            <?php //endforeach; ?>
 
-                        <div class="item">
-                          <input type="checkbox" class="document" id="doc2"> 
-                          <label for="doc2">
-                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                          </label>
-                        </div>
+                            <div class="item">
+                              <input type="checkbox" class="document" id="doc2"> 
+                              <label for="doc2">
+                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                              </label>
+                            </div>
 
-                        <div class="item">
-                          <input type="checkbox" class="document" id="doc3"> 
-                          <label for="doc3">
-                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                          </label>
-                        </div>
-                        <div class="item">
-                          <input type="checkbox" class="document" id="doc4"> 
-                          <label for="doc4">
-                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                          </label>
-                        </div>
-                        <div class="item">
-                          <input type="checkbox" class="document" id="doc5"> 
-                          <label for="doc5">
-                            <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                            <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                          </label>
-                        </div>
-                     
-                     
+                            <div class="item">
+                              <input type="checkbox" class="document" id="doc3"> 
+                              <label for="doc3">
+                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                              </label>
+                            </div>
+                            <div class="item">
+                              <input type="checkbox" class="document" id="doc4"> 
+                              <label for="doc4">
+                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                              </label>
+                            </div>
+                            <div class="item">
+                              <input type="checkbox" class="document" id="doc5"> 
+                              <label for="doc5">
+                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                              </label>
+                            </div>
+                        
+                        
 
+                          </div>
+                        <?php endif; ?>
+                      </div>
+                      <div class="col">
+                        <h3>documents pdf</h3>
+                        <?php if($pdf_doc):?>
+                          <div class="lst-option">        
+                            <div class="item">
+                              <input type="checkbox" class="document" id="pdf1"> 
+                              <label for="pdf1">
+                                <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                              </label>
+                            </div>
+                            <div class="item">
+                              <input type="checkbox" class="document" id="pdf2"> 
+                              <label for="pdf2">
+                                <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                              </label>
+                            </div>
+                            <div class="item">
+                              <input type="checkbox" class="document" id="pdf3"> 
+                              <label for="pdf3">
+                                <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                              </label>
+                            </div>
+                            <div class="item">
+                              <input type="checkbox" class="document" id="pdf4"> 
+                              <label for="pdf4">
+                                <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                              </label>
+                            </div>
+                            <div class="item">
+                              <input type="checkbox" class="document" id="pdf5"> 
+                              <label for="pdf5">
+                                <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
+                              </label>
+                            </div>
+                        
+                      
+                          </div>
+                        <?php endif; ?>
+                      </div>
                       </div>
                     </div>
-                    <div class="col">
-                      <h3>documents pdf</h3>
-                        <div class="lst-option">        
-                          <div class="item">
-                            <input type="checkbox" class="document" id="pdf1"> 
-                            <label for="pdf1">
-                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                            </label>
-                          </div>
-                          <div class="item">
-                            <input type="checkbox" class="document" id="pdf2"> 
-                            <label for="pdf2">
-                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                            </label>
-                          </div>
-                          <div class="item">
-                            <input type="checkbox" class="document" id="pdf3"> 
-                            <label for="pdf3">
-                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                            </label>
-                          </div>
-                          <div class="item">
-                            <input type="checkbox" class="document" id="pdf4"> 
-                            <label for="pdf4">
-                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                            </label>
-                          </div>
-                          <div class="item">
-                            <input type="checkbox" class="document" id="pdf5"> 
-                            <label for="pdf5">
-                              <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                              <div class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</div>
-                            </label>
-                          </div>
-                       
-                    
-                        </div>
+                    <div class="blcbtn">
+                      <a href="#" class="link" title="Ajouter">ajouter</a>
+                      <a href="#" class="link" title="Modifier">modifier</a>
+                      <a href="#" class="link" title="Supprimer">Supprimer</a>
                     </div>
-                    </div>
-                  </div>
-                  <div class="blcbtn">
-                     <a href="#" class="link" title="Ajouter">ajouter</a>
-                     <a href="#" class="link" title="Modifier">modifier</a>
-                     <a href="#" class="link" title="Supprimer">Supprimer</a>
-                  </div>
-              </div>
+                </div>
+              <?php endif; ?>
             </div>
             <div class="footer-pp">
                     <span>Des questions ? En savoir plus sur la création des cagnottes ?</span>
