@@ -1,3 +1,35 @@
+<?php
+                    // Avoir le dernier cagnottes du kotikoteur
+                    if ( is_user_logged_in() ) {
+                        $args = array(
+                            'post_type' => array('cagnotte','cagnotte-perso'),
+                            'post_status' => 'publish',
+                            'posts_per_page' => 1,
+                            'orderby' => 'ID',
+                            'order' => 'DESC',
+                            'meta_query' => array(
+                                array(
+                                    'key' => 'titulaire_de_la_cagnotte',
+                                    'value' => get_current_user_id(),
+
+                                )
+                            )
+                        );
+
+                        $q = query_posts( $args );
+                        while( $q->have_posts() ) :                    
+                                $ca_id = get_the_ID();
+                                $url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest='.$ca_id;
+                                $url_class_invite = '';
+                        endwhile;
+                        wp_reset_postdata();
+                    } else {
+                        $url_invite = '#connecter';
+                        $url_class_invite = 'class="link fancybox-home"';
+                    }                    
+
+?>
+
 <div class="comment-ca-marche clr" id="comment-ca-marche">
     <div class="wrapper">
         <div class="cont-left">
