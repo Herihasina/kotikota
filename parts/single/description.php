@@ -76,8 +76,8 @@
                     $file_data=[];
                     $fichier = $doc['fichier']; 
                     $file_data['name'] = $fichier['title'];
-                    $file_data['url'] = wp_get_attachment_url( $fichier);
-                    $extension = pathinfo( get_attached_file( $fichier ) )['extension'];
+                    $file_data['url'] = $fichier['url'];
+                    $extension = pathinfo(  $file_data['url'] )['extension'];
                     echo "<pre>";
                     var_dump($file_data);
                     var_dump($extension);
