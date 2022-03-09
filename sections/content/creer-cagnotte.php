@@ -231,7 +231,7 @@
                                      <div class="blc-chp">
                                          <label><?php _e('Fixe un objectif de montant à atteindre','kotikota'); ?> <span>*</span></label>
                                         <input type="text" name="" class="chp montant jauge" id="limite_cagnotte">
-                                        <select class="input-select appended-select" id="choix-devise" disabled style="background: none !important;">
+                                        <select class="input-select appended-select" id="choix-devise" disabled style="">
                                           <option value="mga">Ar</option>
                                           <!-- <option value="eu">€</option> -->
                                           <!-- <option value="liv">£</option> -->
