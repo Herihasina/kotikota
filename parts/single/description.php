@@ -188,10 +188,10 @@
                             <div class="lst-option"> 
                               <?php foreach($videos as $video ): 
                                 $video_id= $video['lien_youtube'];
-                                $video_data = get_youtube_video_detail($video_id);
-                                echo "<pre>";
-                                var_dump($video_data);
-                                echo "</pre>";
+                                // $video_data = get_youtube_video_detail($video_id);
+                                // echo "<pre>";
+                                // var_dump($video_data);
+                                // echo "</pre>";
                               ?>        
                                 <div class="item">      
                                   <div class="contvideo">
