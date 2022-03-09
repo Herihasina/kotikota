@@ -97,13 +97,13 @@
                             <div class="row">
                                  <div class="col col53">
                                     <div class="blc-chp">
-                                         <label><?php _e('Catégorie de cagnotte','kotikota'); ?> <span></span></label>
+                                         <label><?php _e('Catégorie de cagnotte','kotikota'); ?> <em></em></label>
                                          <input type="text" name="" id="cat_cagnotte" class="chp">
                                     </div>
                                  </div>
                                 <div class="col col47">
                                     <div class="blc-chp">
-                                        <label><?php _e('Classe de cagnotte','kotikota'); ?> <span>*</span></label>
+                                        <label><?php _e('Classe de cagnotte','kotikota'); ?> <span>*</span> <em></em></label>
                                         <select id="type_cagnotte">
                                             <option value="privee"><?php _e('Cagnotte Privée','kotikota'); ?></option>
                                             <option value="publique"><?php _e('Cagnotte Publique','kotikota'); ?></option>
