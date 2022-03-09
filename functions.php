@@ -809,8 +809,8 @@ function get_youtube_video_detail($video_id){
   $video_data['description'] = $youtubeVals ['items'][0]['snippet']['description'];
   $video_data['vignette'] = $youtubeVals ['items'][0]['snippet']['thumbnails']['default']['url'];
   $iso8601_duration = $youtubeVals ['items'][0]['contentDetails']['duration'];
-  $date_interval= new DateInterval($iso8601_duration);
-  $video_data['duration']= $date_interval->i.":".$date_interval->s;
+  // $date_interval= new DateInterval($iso8601_duration);
+  $video_data['duration']= $iso8601_duration;
 
   return $video_data;
 }
