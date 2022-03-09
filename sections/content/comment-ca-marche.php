@@ -19,7 +19,7 @@
                         //$q = query_posts( $args );
                         //while( $q->have_posts() ) :                    
                                 //$ca_id = get_the_ID();
-                                $url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest=';
+                                $url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest='.$post->ID;
                                 $url_class_invite = '';
                         //endwhile;
                         //wp_reset_postdata();
@@ -47,9 +47,12 @@
                     <div class="item <?php the_sub_field('class_css') ?> wow fadeInRight" data-wow-delay="<?php the_sub_field('delai') ?>ms">
                         <span><?=$i?></span>
                         <div class="content">
-                            <h3>
-                                
+                            <h3>                               
+                                <?php if ( $i == 2 ): ?>
+                                    <a href="<?= $url_invite ?>" class="<?= $url_class_invite ?>"><?php the_sub_field('titre') ?></a>
+                                <?php else: ?>
                                     <a href="<?php the_sub_field('lien') ?>"><?php the_sub_field('titre') ?></a>
+                                <?php endif; ?>
                                 
                             </h3>
                             <p><?php the_sub_field('contenu') ?></p>
