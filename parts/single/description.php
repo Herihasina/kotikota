@@ -185,71 +185,35 @@
                     <div class="col video">
                       <h3>vidéos</h3>
                         <div class="lst-option blcvideos ">        
-                          <div class="item">      
-                            <div class="contvideo">
-                              <a href="#" target="_blank">
-                              <div class="video-img"><img src="<?= IMG_URL ?>video1.jpg" alt="Kotikota"><span class="heure">23:15</span></div>
-                              <div class="txt">
-                                <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+                      <?php if($videos): ?>
+                        <div class="lst-option"> 
+                          <?php foreach($videos as $video ): 
+                            $video_id= $video['lien_youtube'];
+                            $video_data = get_youtube_video_detail($video_id);
+                            echo "<pre>";
+                            var_dump($video_data);
+                            echo "</pre>";
+                          ?>        
+                            <div class="item">      
+                              <div class="contvideo">
+                                <a href="#" target="_blank">
+                                  <div class="video-img"><img src="<?= IMG_URL ?>video1.jpg" alt="Kotikota"><span class="heure">23:15</span></div>
+                                  <div class="txt">
+                                    <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+                                  </div>
+                                  <div class="check-video">                            
+                                    <input type="checkbox" class="ck-photo" id="video1"> 
+                                    <label for="video1"></label>
+                                  </div>
+                                </a>
                               </div>
-                              <div class="check-video">                            
-                                 <input type="checkbox" class="ck-photo" id="video1"> 
-                                 <label for="video1"></label>
-                              </div>
-
-                              </a>
                             </div>
                             
-                          </div>
-                          <div class="item">
-                            <div class="contvideo">
-                              <a href="#" target="_blank">
-                                <div class="video-img"><img src="<?= IMG_URL ?>video2.jpg" alt="Kotikota"><span class="heure">12:37</span></div>
-                                <div class="txt">
-                                  <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                                </div>
-                                <div class="check-video">                            
-                                   <input type="checkbox" class="ck-photo" id="video2"> 
-                                   <label for="video2"></label>
-                                </div>
-                              </a>
-
-                            </div>
-                          </div>
-                          <div class="item">
-                            
-                            <div class="contvideo">
-                              <a href="#" target="_blank">
-                              <div class="video-img"><img src="<?= IMG_URL ?>video3.jpg" alt="Kotikota"><span class="heure">18:10</span></div>
-                              <div class="txt">
-                                <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                              </div>
-                               <div class="check-video">                            
-                                 <input type="checkbox" class="ck-photo" id="video3"> 
-                                 <label for="video3"></label>
-                              </div>
-                            </div>
-                            </a>
-                          </div>
-                          <div class="item">
-                            <div class="contvideo">
-                              <a href="#" target="_blank">
-                                <div class="video-img"><img src="<?= IMG_URL ?>video4.jpg" alt="Kotikota"><span class="heure">45:25</span></div>
-                                <div class="txt">
-                                  <h4>Lorem ipsum dolor sit amet, consectetur ΔΩ </h4>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
-                                </div>
-                                 <div class="check-video">                            
-                                   <input type="checkbox" class="ck-photo" id="video4"> 
-                                   <label for="video4"></label>
-                                </div>
-                              </a>
-                            </div>
-                          </div>
+                          <?php endforeach; ?>
                         </div>
+                      <?php endif; ?>
+                      
                     </div>
                     </div>
                   </div>

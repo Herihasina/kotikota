@@ -777,3 +777,42 @@ function calcul_devise_en_mga( $montant, $devise, $taux_eu, $taux_liv, $taux_cad
     return $montant * $taux_usd;
   }
 }
+
+function get_youtube_video_detail($video_id){
+  $video_data=[];
+  $myApiKey = 'AIzaSyBhJk7J2pzZ5ZF5K1mlm_V5l3xcKwc6rSU'; 
+  $youtubeDataAPI = 
+      'https://www.googleapis.com/youtube/v3/videos?id ='
+      . $video_id . '&key=' . $myApiKey . '&part=contentDetails,snippet';
+
+  /* Create new resource */
+  $ch = curl_init();
+
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  /* Set the URL and options  */
+  curl_setopt($ch, CURLOPT_URL, $youtubeDataAPI);
+  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+  curl_setopt($ch, CURLOPT_VERBOSE, 0);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  /* Grab the URL */
+  $curlResource = curl_exec($ch);
+
+ /* Close the resource */
+  curl_close($ch);
+
+  $youtubeData = json_decode($curlResource);
+
+  $youtubeVals = json_decode(json_encode($youtubeData), true);
+
+  
+  $video_data['url'] = "https://www.youtube.com/watch?v=".$video_id;
+  $video_data['title'] = $youtubeVals['items'][0]['snippet']['title'];
+  $video_data['description'] = $youtubeVals ['items'][0]['snippet']['description'];
+  $video_data['vignette'] = $youtubeVals ['items'][0]['snippet']['thumbnails']['default']['url'];
+  $iso8601_duration = $youtubeVals ['items'][0]['contentDetails']['duration'];
+  $date_interval= new DateInterval($iso8601_duration);
+  $video_data['duration']= $date_interval->i.":".$date_interval->s;
+
+  return $video_data;
+}
