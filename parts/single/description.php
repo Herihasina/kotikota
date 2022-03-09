@@ -206,10 +206,9 @@
                                     <input type="checkbox" class="ck-photo" id="video1"> 
                                     <label for="video1"></label>
                                   </div>
-
                                 </a>
                               </div>
-                          </div>
+                            </div>
                             
                           <?php endforeach; ?>
                         </div>
