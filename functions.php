@@ -781,7 +781,7 @@ function calcul_devise_en_mga( $montant, $devise, $taux_eu, $taux_liv, $taux_cad
 function get_youtube_video_detail($video_id){
   $video_data=[];
   $myApiKey = 'AIzaSyBhJk7J2pzZ5ZF5K1mlm_V5l3xcKwc6rSU'; 
-  $youtubeDataAPI = 'https://www.googleapis.com/youtube/v3/videos?id ='. $video_id . '&key=' . $myApiKey . '&part=contentDetails,snippet';
+  $youtubeDataAPI = 'https://www.googleapis.com/youtube/v3/videos?id='. $video_id . '&key=' . $myApiKey . '&part=contentDetails,snippet';
 
   /* Create new resource */
   $ch = curl_init();
