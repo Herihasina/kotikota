@@ -26,7 +26,7 @@
                         wp_reset_postdata();
                     } else {
                         $url_invite = '#connecter';
-                        $url_class_invite = 'class="link fancybox-home"';
+                        $url_class_invite = 'link fancybox-home';
                     }                    
 
 ?>
