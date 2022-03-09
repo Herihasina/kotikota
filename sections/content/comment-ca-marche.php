@@ -16,12 +16,12 @@
                             )
                         );
 
-                        $q = query_posts( $args );
-                        while( $q->have_posts() ) :                    
+                        $q = WP_Query( $args );
+                        while( $q->have_posts() ) {                  
                                 //$ca_id = get_the_ID();
                                 $url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest='.$post->ID;
                                 $url_class_invite = '';
-                        endwhile;
+                        }
                         wp_reset_postdata();
                     } else {
                         $url_invite = '#connecter';
