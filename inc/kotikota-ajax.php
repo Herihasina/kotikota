@@ -173,7 +173,6 @@ function create_cagnotte(){
     $now_user = get_current_user_id();
 
     if ( $_POST['cin_value'] != '' ){
-        echo "here CIN";
         $cin = attachment_url_to_postid( strip_tags( $_POST['cin_value']) );
         update_field('piece_didentite', $cin, 'user_'.$now_user );
     }
@@ -221,9 +220,9 @@ function create_cagnotte(){
         }
 
         sendNotificationCreation($newPost);
-        // $piece_didentite = get_field('piece_didentite', 'user_'.$now_user );
-        // if( !$piece_didentite )
-        //     sendRappelPostCreation( $now_user );
+        $piece_didentite = get_field('piece_didentite', 'user_'.$now_user );
+        if( !$piece_didentite )
+            sendRappelPostCreation( $now_user );
 
         $single = get_permalink( $newPost );
         echo "$single";
