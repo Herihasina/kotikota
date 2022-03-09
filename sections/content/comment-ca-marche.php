@@ -16,13 +16,14 @@
                             )
                         );
 
-                        //$q = query_posts( $args );
-                        //while( $q->have_posts() ) :                    
+                        /*$q = new WP_Query( $args );
+                        while( $q->have_posts() ) {
+                                $q->the_post();*/
                                 //$ca_id = get_the_ID();
-                                $url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest='.$post->ID;
+                                $url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest=';
                                 $url_class_invite = '';
-                        //endwhile;
-                        //wp_reset_postdata();
+                        /*}
+                        wp_reset_postdata();*/
                     } else {
                         $url_invite = '#connecter';
                         $url_class_invite = 'class="link fancybox-home"';
