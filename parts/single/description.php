@@ -78,12 +78,17 @@
                     $file_data['name'] = $fichier['title'];
                     $file_data['url'] = $fichier['url'];
                     $extension = pathinfo(  $file_data['url'] )['extension'];
-                    echo "<pre>";
-                    var_dump($file_data);
-                    var_dump($extension);
-                    echo "<pre>";
-
+                    if($extension=='pdf'):
+                        $pdf_doc[]=$file_data;
+                    elseif($extension=='docx' || $extension=='docx'):
+                        $word_doc[]=$file_data;
+                    endif;
                   endforeach;
+                  echo "<pre>";
+                  var_dump($word_doc);
+                  var_dump($pdf_doc);
+                  echo "</pre>";
+
                 
               ?>
                 <div class="lst-document scrollbar-inner">
