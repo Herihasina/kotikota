@@ -30,16 +30,17 @@
                     );
 
                     $q = query_posts( $args );
-                    while( $q->have_posts() ) :                    
-                        $post_id = get_the_ID();
-                        $url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest='$post_id;
-                        $url_class_invite = '';
+                    	while( $q->have_posts() ) :                    
+                        	$post_id = get_the_ID();
+                        	$url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest='$post_id;
+                        	$url_class_invite = '';
+			endwhile;
+			wp_reset_postdata();
                     } else {
                         $url_invite = '#connecter';
                         $url_class_invite = 'class="link fancybox-home"';
                     }
-                    endwhile;
-			        wp_reset_postdata();
+                    
 
                 ?>
                 <?php if(have_rows('etapes')): $i = 1; ?>
@@ -48,7 +49,7 @@
                         <span><?=$i?></span>
                         <div class="content">
                             <h3>
-                                <?php if( $i == 2 ): ?>
+                                <?php if ( $i == 2 ): ?>
                                     <a href="<?= $url_invite ?>" class="<?= $url_class_invite ?>"><?php the_sub_field('titre') ?></a>
                                 <?php else: ?>
                                     <a href="<?php the_sub_field('lien') ?>"><?php the_sub_field('titre') ?></a>
