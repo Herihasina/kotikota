@@ -103,10 +103,8 @@
                                   </label>
                                 <?php else: ?>
                                   <a href="<?= $doc['url'] ?>" class="doc-item-link">
-                                    <div class="doc-item">
                                       <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
                                       <div class="txt"><?= $doc['name'] ?></div>
-                                    </div>
                                   </a>
                                 <?php endif; ?>
                               </div>
@@ -128,10 +126,8 @@
                                   </label>
                                 <?php else: ?>
                                   <a href="<?= $doc['url'] ?>" class="doc-item-link">
-                                    <div class="doc-item">
                                       <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
                                       <div class="txt"><?= $doc['name'] ?></div>
-                                    </div>
                                   </a>
                                 <?php endif; ?>
                               </div>

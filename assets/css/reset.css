@@ -2080,18 +2080,21 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .inner-pp .row .col .lst-option .item {
     display: flex; margin-bottom: 30px
 }
-.inner-pp .row .col .lst-option .item label {
+.inner-pp .row .col .lst-option .item label, .inner-pp .row .col .lst-option .item .doc-item-link{
     display: flex;
     align-items: center;
     padding-right: 20px;
     cursor: pointer;
 }
-.inner-pp .row .col .lst-option .item label .ico {
+.inner-pp .row .col .lst-option .item .doc-item-link{
+    color: #131313;
+}
+.inner-pp .row .col .lst-option .item label .ico, .inner-pp .row .col .lst-option .item .doc-item-link .ico{
     margin-right: 20px;
     height: 69px;
     position: relative;
 }
-.inner-pp .row .col .lst-option .item .txt {
+.inner-pp .row .col .lst-option .item .txt, .inner-pp .row .col .lst-option .item .doc-item-link .txt{
     height: 48px;
     overflow: hidden;
 }
@@ -3327,7 +3330,7 @@ a:hover { color:#fbbd36; }
     .cont-pp .blcbtn { padding-top: 40px }
     .inner-pp .row .col .lst-option .item { margin-bottom: 15px;}
     .inner-pp .row { padding-right: 23px }
-    .inner-pp .row .col .lst-option .item label .ico { margin-right: 10px }
+    .inner-pp .row .col .lst-option .item label .ico,  .inner-pp .row .col .lst-option .item .doc-item-link .ico{ margin-right: 10px }
     .inner-pp h3 {font-size: 20px; margin-bottom: 20px}
     .cont-pp .blcbtn .link { margin-bottom: 10px }
 
