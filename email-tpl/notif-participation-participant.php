@@ -9,6 +9,10 @@
         <!--<![endif]-->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="La communauté des KotiKoteurs"/>
+        <!--meta property="og:image" content="lien de l'image de votre site"/-->
+        <meta property="og:url " content="kotikota.mg"/>
+        <meta property="og:description" content="Cagnotte <?=$nomcagnotte?>"/>
         <style type="text/css">
             #outlook a {
                 padding: 0;
@@ -491,7 +495,7 @@
                                                                             style="border: none; border-radius: 30px; cursor: auto; padding: 18px 31px; background: #fbbd36;"
                                                                             valign="middle"
                                                                         >
-                                                                        <a href="<?= get_field('wa_kotikota','option') ?>" target="_blank">
+                                                                        <a href="http://www.facebook.com/sharer.php?u=<?= get_permalink($id) ?>" target="_blank">
                                                                             <img width="58" height="50" src="<?= IMG_URL ?>whatsapp.png" alt="whatsapp" style="width: 58px; height: 50px; display: block;" />
                                                                         </a>
                                                                         <a href="<?= get_field('fb_kotikota','option') ?>" target="_blank">
