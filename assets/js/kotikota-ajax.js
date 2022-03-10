@@ -167,6 +167,27 @@ $(function(){
 	  	}else{
 	  		$('.change-texte').text('');
 	  	}
+
+	  });
+
+	  $('#donation').on('keyup',function(){
+	  	var change_mga_eu  = $('#change-mga-eu').val();
+	    var change_mga_usd = $('#change-mga-usd').val();
+	    var change_mga_liv = $('#change-mga-liv').val();
+	    var change_mga_cad = $('#change-mga-cad').val();
+
+	  	var $devise = $('#choix-devise').val();
+	  	var $montant= $(this).val();
+
+	  	if( 'mga' != $devise ){
+	  		/* affichéna ny montant équivalent en ariary */
+	  		var $montant_converti = calcul_devise_en_mga( $montant, $devise, change_mga_eu, change_mga_liv, change_mga_cad, change_mga_usd );
+	  		
+	  		$('.change-texte').text('Montant équivalent : ' + $montant_converti + ' MGA');
+	  	}else{
+	  		$('.change-texte').text('');
+	  	}
+	  	
 	  });
 
 	  $('#creer-participation').click(function(e){
