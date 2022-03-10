@@ -105,7 +105,7 @@
                                 <div class="col col47">
                                     <div class="blc-chp">
                                         <label><?php _e('Classe de cagnotte','kotikota'); ?> <span>*</span> </label>
-                                        <select id="type_cagnotte" name="visibilite">
+                                        <select id="type_cagnotte" name="visibilite" class="disabled">
                                             <option value="privee"><?php _e('Cagnotte Privée','kotikota'); ?></option>
                                             <option value="publique"><?php _e('Cagnotte Publique','kotikota'); ?></option>
                                         </select>

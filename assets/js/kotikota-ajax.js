@@ -20,7 +20,7 @@ $(function(){
 
 			if( categorie_c == 'Personnelle' ){
 				/* Afaka misafidy oe publique sa privée */
-				$('#type_cagnotte').removeAttr( 'disabled' );
+				$('#type_cagnotte').removeClass( 'disabled' );
 				$('#frais_cagnotte').show();
 				$('#frais_cagnotte').text('Frais 6%');
 
@@ -29,7 +29,8 @@ $(function(){
 			}else if( categorie_c == 'Solidaire' ){
 				/* Tonga dia publique systématiquement */
 				$('#type_cagnotte').val('publique');
-				$('#type_cagnotte').attr('disabled', 'true');
+				$('#type_cagnotte').removeClass('disabled');
+				$('#type_cagnotte').addClass('disabled');
 				$('#frais_cagnotte').show();
 				$('#frais_cagnotte').text('Frais 3%');
 

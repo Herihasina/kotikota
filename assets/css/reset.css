@@ -3531,5 +3531,7 @@ a:hover { color:#fbbd36; }
     }
 }
 
-
+#type_cagnotte.disabled{
+    pointer-events: none;
+}
 
