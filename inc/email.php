@@ -1,7 +1,6 @@
 <?php
 
-function sendNotificationCreation($id){
-    $current_user = wp_get_current_user();
+function sendNotificationCreation($id){    
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
     $prenom = get_user_meta($titulaire);  
@@ -13,14 +12,11 @@ function sendNotificationCreation($id){
     $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');
 
     if( 'mg' == ICL_LANGUAGE_CODE ){
-      $tpl = locate_template( 'email-tpl/notif-participation.php', false, false );
-      $tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
+      $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );      
     }elseif( 'en' == ICL_LANGUAGE_CODE ){
-      $tpl = locate_template( 'email-tpl/notif-participation.php', false, false );
-      $tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
+      $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );      
     }else{
-      $tpl = locate_template( 'email-tpl/notif-participation.php', false, false );
-      $tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
+      $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );      
     }
     
     ob_start();
@@ -37,6 +33,7 @@ function sendNotificationCreation($id){
 }
  
 function sendNotificationParticipation($id){
+    $current_user = wp_get_current_user();
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
     $prenom = get_user_meta($titulaire);
@@ -50,10 +47,13 @@ function sendNotificationParticipation($id){
 
     if( 'mg' == ICL_LANGUAGE_CODE ){
       $tpl = locate_template( 'email-tpl/notif-participation.php', false, false );
+      $tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
     }elseif( 'en' == ICL_LANGUAGE_CODE ){
       $tpl = locate_template( 'email-tpl/notif-participation.php', false, false );
+      $tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
     }else{
       $tpl = locate_template( 'email-tpl/notif-participation.php', false, false );
+      $tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
     }
 
     ob_start();
