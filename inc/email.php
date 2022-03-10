@@ -345,9 +345,10 @@ function envoiTroisiemeRappel($userid){
   }
 }
 
-function sendRappelPostCreation($userid){
+function sendRappelPostCreation($userid, $postId = 0){
   $info_rappel = get_user_info_by_id( $userid );
-
+  $nomcagnotte = get_field('nom_de_la_cagnotte', $postId);
+    
   $email = $info_rappel->user_email;
 
   $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');
