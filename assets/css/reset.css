@@ -3429,7 +3429,20 @@ a:hover { color:#fbbd36; }
     .blc-cagnotte-participation .btn {  margin-top: 50px;  text-align: center;}
 }
 
-
+.mobile-only{
+    display: none;
+}
+.desk-only{
+    display: block;
+}
+@media (max-width: 601px){
+    .mobile-only{
+        display: block;
+    }
+    .desk-only{
+        display: none;
+    }
+}
 
 
 

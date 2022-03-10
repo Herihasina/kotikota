@@ -777,3 +777,28 @@ function calcul_devise_en_mga( $montant, $devise, $taux_eu, $taux_liv, $taux_cad
     return $montant * $taux_usd;
   }
 }
+
+function get_image_attach_id ( $filename, $cagnotteID ) {
+      
+    // Get the path to the upload directory. 
+    // If it was uploaded to WP, wp_upload_dir() does the job
+    $wp_upload_dir = wp_upload_dir();
+    $full_path = $wp_upload_dir['path'] .'/'. $filename;
+
+    // Check the type of file. We'll use this as the 'post_mime_type'.
+    $filetype = wp_check_filetype(basename($full_path), null);
+
+    // Prepare an array of post data for the attachment.
+    $attachment = array(
+        'guid'           => $wp_upload_dir['url'] . '/' . basename($full_path), 
+        'post_mime_type' => $filetype['type'],
+        'post_title'     => preg_replace( '/\.[^.]+$/', '', basename($full_path) ),
+        'post_content'   => '',
+        'post_status'    => 'inherit'
+    );
+
+    // Insert the attachment.
+    $attach_id = wp_insert_attachment( $attachment, $full_path, $cagnotteID );
+
+    return $attach_id;
+}

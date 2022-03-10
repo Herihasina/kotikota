@@ -17,7 +17,7 @@
 
                      </div>
                     <div class="lst-type-cagnotte wow fadeInUp" data-wow-delay="900ms">
-                        <form class="form-type clr">
+                        <div class="form-type clr">
                             <label><?php _e('Choisir un type de cagnotte','kotikota') ?> <span>*</span></label>
                             <div class="clear"></div>
                             <div class="lst-form-type clr jauge">
@@ -75,12 +75,12 @@
                                 }
                                 ?>
                             </div>
-                         </form>
+                         </div>
                      </div>
                 </div>
                 <div id="formulaire" class="formulaire-cagnotte">
                 <div class="wrapper">
-                     <form>
+                     <form id="form-creation-cagnotte">
                         <div class="chy-type clr wow fadeIn" data-wow-delay="900ms">
                          <!-- <div class="blc-chp wow fadeIn" data-wow-delay="900ms"> -->
                             <div class="row">
@@ -97,13 +97,13 @@
                                  <div class="col col53">
                                     <div class="blc-chp">
                                          <label><?php _e('Donnes un nom à ta cagnotte','kotikota'); ?> <span>*</span></label>
-                                         <input type="text" name="" id="nom_cagnotte" class="chp jauge">
+                                         <input type="text" name="nomCagnotte" id="nom_cagnotte" class="chp jauge">
                                     </div>
                                  </div>
                                  <div class="col col47">
                                     <div class="blc-chp">
                                         <label><?php _e('Le nom du/des bénéficiaires','kotikota'); ?> <span>*</span></label>
-                                         <input type="text" name="" id="nom_benef" class="chp jauge">
+                                         <input type="text" name="nom_benef" id="nom_benef" class="chp jauge">
                                     </div>
                                  </div>
                              </div>
@@ -112,12 +112,15 @@
                              <div class="col-left">
                                 <label><?php _e('Choisis la bonne photo ','kotikota'); ?> <span>*</span></label>
                                 <div class="blc-img jauge">
-                                    <div class="zone-img">
-                                        <input name="file" id="fileImg" class="inputfile" type="text">
+                                    <!-- Desk only -->
+                                    <div class="zone-img desk-only illustration_cagnotte">
+                                        <input name="" id="fileImg" class="inputfile" type="text">
                                         <label for="fileImg"><?php _e('Ajouter  <br> votre photo','kotikota'); ?></label>
-                                        <input type="hidden" value="" name="choix-photo" id="url_img_cagnotte">
+                                        <input type="hidden" value="" name="illustration" id="url_img_cagnotte" required>
                                     </div>
-                                    <div class="lst-img clr scrollbar-inner">
+                                    <!-- /Desk only -->
+
+                                    <div class="lst-img clr scrollbar-inner desk-only">
                                         <div class="inner">
                                             <?php
                                                 $query_images_args = array(
@@ -154,13 +157,19 @@
                                             ?>
                                         </div>
                                     </div>
+
+                                     <!-- Mobile only -->
+                                    <div class="mobile-only illustration_cagnotte">
+                                        <input type="file" capture="environment" accept="image/*" name="illustration_mobile" id="url_img_cagnotte_mobile" required>
+                                    </div>                                        
+                                    <!-- /mobile only -->
                                 </div>
                                 <div class="tip tip_creation"><?php printf( __('%s taille 8 Mo autorisée %s','kotikota'), '📸','😉' ) ?></div>
                              </div>
                              <div class="col-right">
                                  <div class="blc-chp">
                                     <label><?php _e('Il est temps d’en dire un peu plus aux participants','kotikota'); ?> <span>*</span> </label>
-                                    <textarea class="txt-area jauge" placeholder="<?= __('Message','kotikota'); ?>" id="description_cagnotte"></textarea>
+                                    <textarea class="txt-area jauge" name="description" placeholder="<?= __('Message','kotikota'); ?>" id="description_cagnotte"></textarea>
                                  </div>
                              </div>
                          </div>
@@ -169,7 +178,7 @@
                                 <div class="col col53">
                                     <div class="blc-chp">
                                          <label><?php _e('Visibilité de la cagnotte','kotikota'); ?></label>
-                                         <select id="type_cagnotte">
+                                         <select id="type_cagnotte" name="visibilite">
                                             <option value="privee"><?php _e('Cagnotte Privée','kotikota'); ?></option>
                                             <option value="publique"><?php _e('Cagnotte Publique','kotikota'); ?></option>
                                         </select>
@@ -182,13 +191,13 @@
                                             <div class="col col47">
                                                 <div class="blc-chp">
                                                      <label><?php _e('Date de début','kotikota'); ?> <span>*</span></label>
-                                                    <input type="text" name="" class="chp datepicker debut_cagnotte jauge filled" id="datepicker_debut" readonly>
+                                                    <input type="text" name="debut" class="chp datepicker debut_cagnotte jauge filled" id="datepicker_debut" readonly>
                                                  </div>
                                             </div>
                                             <div class="col col47">
                                                 <div class="blc-chp">
                                                      <label><?php _e('Date de fin','kotikota'); ?> <span>*</span></label>
-                                                    <input type="text" name="" class="chp datepicker deadline_cagnotte jauge" id="datepicker" readonly>
+                                                    <input type="text" name="deadline" class="chp datepicker deadline_cagnotte jauge" id="datepicker" readonly>
                                                  </div>
                                             </div>
                                         </div>
@@ -199,7 +208,7 @@
                                 <div class="col col47">
                                     <div class="blc-chp">
                                          <label><?php _e('Objectif de montant à atteindre','kotikota'); ?> <span>*</span> </label>
-                                         <select id="estLimite">
+                                         <select id="estLimite" name="estLimite">
                                             <option value="true"><?php _e('Oui','kotikota'); ?></option>
                                             <option value="false"><?php _e('Non','kotikota'); ?></option>
                                         </select>
@@ -208,8 +217,8 @@
                                  <div class="col col47">
                                      <div class="blc-chp">
                                          <label><?php _e('Fixe un objectif de montant à atteindre','kotikota'); ?> <span>*</span></label>
-                                        <input type="text" name="" class="chp montant jauge" id="limite_cagnotte">
-                                        <select class="input-select appended-select" id="choix-devise" disabled style="background: none !important;">
+                                        <input type="text" name="montantMax" class="chp montant jauge" id="limite_cagnotte">
+                                        <select class="input-select appended-select" id="choix-devise" name="devise" disabled style="background: none !important;">
                                           <option value="mga">Ar</option>
                                           <!-- <option value="eu">€</option> -->
                                           <!-- <option value="liv">£</option> -->
@@ -225,7 +234,7 @@
                                     <div class="content custom-control custom-radio ">
                                          <input type="radio" name="participation_cagnotte"  id="montantlibre" class="radio" value="libre">
                                          <label for="montantlibre"> <?php _e('Montant libre','kotikota'); ?> <span></span></label>
-                                        <input type="txt" name=""  placeholder="<?= __('chacun donne ce qu’il veut','kotikota'); ?>"  class="chp-txt" readonly="">
+                                        <input type="txt" name="montantLibre"  placeholder="<?= __('chacun donne ce qu’il veut','kotikota'); ?>"  class="chp-txt" readonly="">
                                     </div>
                                 </div>
                                 <div class="item">
@@ -233,7 +242,7 @@
                                         <input type="radio" name="participation_cagnotte"  id="montantconseille" class="radio"  value="conseille"> 
                                         <label for="montantconseille"> <?php _e('Montant minimum conseillé','kotikota'); ?> </label>    
                                         <!-- <input type="text" name="" id="montant_conseille" placeholder="<?php /* _e('chacun donne ce qu’il veut…mais tu conseilles un montant','kotikota'); */ ?>" class="chp-txt"> -->
-                                        <input type="text" name="" id="montant_conseille" placeholder="<?php _e('saisir un montant','kotikota'); ?>" class="chp-txt has-focus">
+                                        <input type="text" name="m_conseille" id="montant_conseille" placeholder="<?php _e('saisir un montant','kotikota'); ?>" class="chp-txt has-focus">
                                     </div>
                                 </div>
                                 <div class="item">
@@ -241,30 +250,39 @@
                                         <input type="radio" name="participation_cagnotte" id="montantfixe" class="radio"  value="fixe">
                                         <label for="montantfixe"> <?php _e('Montant minimum imposé','kotikota'); ?></label>
                                         <!-- <input type="text" name="" id="montant_fixe" placeholder="<?php /* _e('chacun donne… ce que tu veux','kotikota'); */ ?>" class="chp-txt" > -->
-                                        <input type="text" name="" id="montant_fixe" placeholder="<?php _e('saisir un montant','kotikota'); ?>" class="chp-txt has-focus" >
+                                        <input type="text" name="m_fixe" id="montant_fixe" placeholder="<?php _e('saisir un montant','kotikota'); ?>" class="chp-txt has-focus" >
                                     </div>
                                 </div>
                              </div>
                         </div>
-                        <?php if(!$profil_valide): ?>
+                        <?php //if(!$profil_valide): ?>
                             <div class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms">
                                 <label> <?php _e('Ajouter votre passeport ou carte identité (à fournir sous 48h )','kotikota'); ?></label>
-                                <div class="chp">
+                                <!-- visible seulement pour desk  -->
+                               <div class="chp desk-only">
                                     <div class="cont-file">
                                         <span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
-                                        <input type="text" name="file[]" class="input-file" id="cin_btn">
-                                        <input type="hidden" name="" value="" id="cin_value">
+                                        <input type="text" name="" class="input-file" id="cin_btn">
+                                        <input type="hidden" name="cin_value" value="" id="cin_value">
                                         <i> <?php _e('Parcourir','kotikota'); ?></i>
                                         <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
                                     </div>
                                     <div class="zone-img-cin"></div>
                                 </div>
+                                <!-- /fin desk -->
+
+                                <!-- visible seulement pour mobile -->
+                                <div class="mobile-only">
+                                    <input type="file" name="cin_value_mobile" id="cin_value" capture="environment" accept="image/*">
+                                </div>
+                                <!-- /fin visible seulement pour mobile -->
+
                             </div>
-                        <?php endif; ?>
+                        <?php //endif; ?>
 
                         <div class="acc">
                                 <div class="chp">
-                                  <label><input type="checkbox" name="accord" id="accord">
+                                  <label><input type="checkbox" name="accord" id="accord" value="oui">
                                     <?php
                                       printf( __('En créant la cagnotte vous acceptez les %1s et la %2s','kotikota'), '<a href="'.home_url('/cgu/').'" title="">CGU</a>', '<a href="'. home_url('/politique-de-confidentialite/') .'">'.__('politique de confidentialité','kotikota').'</a>' )
                                     ?>
@@ -273,8 +291,11 @@
                         </div>
                         <ul id="response"></ul>
                         <div class="btn">
+                            <input type="hidden" id="sous-Categ" name="sous_categ" value=""> 
+                            <input type="hidden" id="categ" name="categ" value="">
+                            <input type="hidden" id="condParticip" name="condParticip" value="">
                             <a href="<?php echo home_url() ?>" class="link" title="<?php _e('annuler','kotikota'); ?>"><?php _e('annuler','kotikota'); ?></a> 
-                            <input type="submit" class="link submit" value="<?php _e('créer ma cagnotte','kotikota'); ?>" id="creer-cagnotte">
+                            <input type="submit" name="submit_creation_cagnotte" class="link submit" value="<?php _e('créer ma cagnotte','kotikota'); ?>" id="creer-cagnotte">
                             <a href="#pp-felicitation" style="display: none" class="link submit fancybox" id="creer-cagnotte-popup">créer ma cagnotte pop up</a>
                         </div>
                         <div class="pp-felicitation" id="pp-felicitation" style="display: none">

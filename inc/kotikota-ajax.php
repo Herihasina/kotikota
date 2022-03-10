@@ -6,27 +6,82 @@ function create_cagnotte(){
 
     $erreurs = [];
 
-    $sousCateg      = strip_tags($_POST['sousCateg']);
-    $categ          = strip_tags($_POST['categ']);
-    $nomCagnotte    = strip_tags($_POST['nomCagnotte']);
-    $nom_benef      = strip_tags($_POST['nom_benef']);
-    $illustration   = strip_tags($_POST['illustration']);
-    $description    = strip_tags($_POST['description']);
-    $visibilite     = strip_tags($_POST['visibilite']);
-    $debut          = strip_tags($_POST['debut']);
-    $deadline       = strip_tags($_POST['deadline']);
-    $estLimite      = strip_tags($_POST['estLimite']);
-    $montantMax     = strip_tags($_POST['montantMax']);
-    $condParticip   = strip_tags($_POST['condParticip']); 
-    $m_conseille    = strip_tags($_POST['m_conseille']);
-    $m_fixe         = strip_tags($_POST['m_fixe']);
-    $accord         = strip_tags($_POST['accord']);
+    $str = http_build_query($_POST);
+    parse_str($str, $Data);
+    extract($Data);
 
-    if ( $accord != 'on' ){
+    $sousCateg = $sous_categ;
+
+    if( 'mobile' == $device ){
+        if ( isset($_FILES['cin_value_mobile'] ) ){
+
+            if (!function_exists('wp_handle_upload')) {
+                require_once(ABSPATH . 'wp-admin/includes/file.php');
+            }
+
+            $upload_overrides = array('test_form' => false);
+
+            $files = $_FILES['cin_value_mobile'];
+
+            foreach ($files as $file => $value) {
+                $file = array(
+                'name'     => $files['name'],
+                'type'     => $files['type'],
+                'tmp_name' => $files['tmp_name'],
+                'error'    => $files['error'],
+                'size'     => $files['size'],
+                );
+                $filename_cin = $file['name'];
+                $movefile = wp_handle_upload($file, $upload_overrides); 
+                if ($movefile && !isset($movefile['error'])) {
+                    $cin = $movefile['url'];
+                }
+            }
+        }
+
+        if ( isset($_FILES['illustration_mobile'] ) ){
+
+            if (!function_exists('wp_handle_upload')) {
+                require_once(ABSPATH . 'wp-admin/includes/file.php');
+            }
+
+            $upload_overrides = array('test_form' => false);
+
+            $files = $_FILES['illustration_mobile'];
+
+            foreach ($files as $file => $value) {
+                $file = array(
+                'name'     => $files['name'],
+                'type'     => $files['type'],
+                'tmp_name' => $files['tmp_name'],
+                'error'    => $files['error'],
+                'size'     => $files['size'],
+                );
+
+                $filename = $file['name'];
+                $movefile = wp_handle_upload($file, $upload_overrides);
+                if ($movefile && !isset($movefile['error'])) {
+                    $illustration = $movefile['url'];
+                }
+            }
+        }else{
+            $erreurs[] = __("Veuillez choisir une image pour illustrer la cagnotte.", "kotikota");
+        }
+
+    }else if( 'desktop' == $device ){
+        $illustration = $illustration;
+        $cin = $cin_value;
+
+    }else{
+        $erreurs[] = __("Provenance de la requête inconnue !", "kotikota");
+    }
+    
+
+    if ( $accord != 'oui' || !$accord ){
         $erreurs[] = __("Vous devez accepter les CGU et la politique de confidentialité.", "kotikota");
     }
 
-    if ( $_POST['sousCateg'] == 'undefined' )
+    if ( $_POST['sous-Categ'] == 'undefined' )
         $erreurs[] = __("Choisir le type de cagnotte", "kotikota");
 
     if ( $_POST['categ'] == 'undefined' )
@@ -39,7 +94,7 @@ function create_cagnotte(){
        $erreurs[] = __("Entrer les bénéficiares", "kotikota");
 
     if ( !isset($illustration) || $illustration == "" )
-        $erreurs[] = __("Choisir une image.", "kotikota");
+        $erreurs[] = __("Veuillez choisir une image pour illustrer la cagnotte.", "kotikota");
 
     if ( !isset($description) || $description == "" )
         $erreurs[] = __("Entrer la description de la cagnotte.", "kotikota");
@@ -94,7 +149,7 @@ function create_cagnotte(){
         }
     }
 
-    $devise = strip_tags($_POST['devise']);
+    $devise = 'mga';
 
     if ( !isset($devise) || $devise == "" ){
         $erreurs[] = __("Indiquer la devise pour la cagnotte.", "kotikota");
@@ -103,18 +158,18 @@ function create_cagnotte(){
         $devise_label = $devise['label'];
         $devise_value = $devise['value'];
     }else{
-        if ( $devise == 'mga' ){
+        // if ( $devise == 'mga' ){
             $devise_label = 'Ar';
             $devise_value = $devise;
-        }
-        if ( $devise == 'eu' ){
-            $devise_label = '€';
-            $devise_value = $devise;
-        }
-        if ( $devise == 'liv' ){
-            $devise_label = '£';
-            $devise_value = $devise;
-        }
+        // }
+        // if ( $devise == 'eu' ){
+        //     $devise_label = '€';
+        //     $devise_value = $devise;
+        // }
+        // if ( $devise == 'liv' ){
+        //     $devise_label = '£';
+        //     $devise_value = $devise;
+        // }
     }
 
     if( in_array( $sousCateg , IDS_CAGNOTTE_PERSO ) ){
@@ -172,9 +227,16 @@ function create_cagnotte(){
 
     $now_user = get_current_user_id();
 
-    if ( $_POST['cin_value'] != '' ){
-        $cin = attachment_url_to_postid( strip_tags( $_POST['cin_value']) );
-        update_field('piece_didentite', $cin, 'user_'.$now_user );
+    if ( $cin != '' ){
+        if( 'mobile' == $device ){
+            $cin = get_image_attach_id ( $filename_cin, 'user_'.$now_user );
+
+            update_field('piece_didentite', $cin, 'user_'.$now_user );
+        }elseif( 'desktop' == $device ){
+            $cin = attachment_url_to_postid( $cin );
+            update_field('piece_didentite', $cin, 'user_'.$now_user );
+        }
+        
     }
 
     if ( is_first_cagnotte_de( $now_user ) ){
@@ -187,7 +249,7 @@ function create_cagnotte(){
         update_field('trio_rappel', $apres_48h, 'user_'.$now_user); //123&é"azE
         update_field('rappel_envoye', 0, 'user_'.$now_user);
 
-        if( $_POST['cin_value'] == '')
+        if( $cin == '' )
             $post_notif = true;
             
     }
@@ -196,7 +258,14 @@ function create_cagnotte(){
 
     if ($newPost){
         wp_set_object_terms( $newPost, array( (int)$sousCateg, (int)$categ ), 'categ-cagnotte' );
-        update_field('illustration_pour_la_cagnotte', attachment_url_to_postid($illustration), $newPost);
+        if( 'mobile' == $device ){
+            $attach_id = get_image_attach_id ( $filename,$newPost );
+            update_field('illustration_pour_la_cagnotte', $attach_id, $newPost );
+        }elseif( 'desktop' == $device ){
+            update_field('illustration_pour_la_cagnotte', attachment_url_to_postid( $illustration ), $newPost );
+        }
+        
+
         update_field('debut_cagnoote', $debut, $newPost);
         update_field('deadline_cagnoote', $deadline, $newPost);        
         update_field('fixer_un_objectif', (bool)$estLimite, $newPost);        

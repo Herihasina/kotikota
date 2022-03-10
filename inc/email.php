@@ -301,10 +301,6 @@ function envoiSecondRappel($userid){
     $tpl = locate_template( 'email-tpl/email-36h.php',false, false );
   }
 
-  ob_start();
-        include($tpl);
-    $html = ob_get_clean();
-
   $objet = get_field('objet_rappel2','option') ? get_field('objet_rappel2','option') : __("Rappel N° 2","kotikota");
 
   ob_start();
@@ -333,10 +329,6 @@ function envoiTroisiemeRappel($userid){
   }else{
     $tpl = locate_template( 'email-tpl/email-48h.php',false, false );
   }
-
-  ob_start();
-        include($tpl);
-    $html = ob_get_clean();
 
   $objet = get_field('objet_rappel3','option') ? get_field('objet_rappel3','option') : __("Rappel N° 3","kotikota");
 
@@ -367,10 +359,6 @@ function sendRappelPostCreation($userid){
   }else{
     $tpl = locate_template( 'email-tpl/email-0h.php',false, false );
   }
-
-  ob_start();
-        include($tpl);
-    $html = ob_get_clean();
 
   $objet = get_field('objet_rappel0','option') ? get_field('objet_rappel0','option') : __("document à fournir sous 48h","kotikota");
 

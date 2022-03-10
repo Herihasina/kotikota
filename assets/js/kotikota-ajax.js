@@ -16,6 +16,7 @@ $(function(){
 
 	  $('.lst-type .item').on('click', function(){ 
 			var choix_categ = $(this).find('input[name="sous-categ"]').val();
+			var categ = $(this).find('input[name="categ"]').val();
 
 			if( cagnottes_personnelles_ids.includes( choix_categ ) ){
 				/* Afaka misafidy oe publique sa privée */
@@ -28,49 +29,36 @@ $(function(){
 				$('#type_cagnotte').attr('disabled', 'true');
 				$('#frais_cagnotte').text('Frais 3%');
 			}
+
+			$('#sous-Categ').val( choix_categ );
+			$('#categ').val( categ );
+
+		});
+
+		$('.lst-choix-cond-part .item').on('click', function(){
+			var condPart = $(this).find('input[name="participation_cagnotte"]').val();
+
+			$('#condParticip').val( condPart );
 		});
 
 	  $('#creer-cagnotte').click(function(e){
 	  	$('#loader').addClass('working');
 
-	  	var sousCateg 		= $('.lst-type .item.active input[name="sous-categ"]').val();
-	  	var categ 				= $('.lst-type .item.active input[name="categ"]').val();
-	  	var nomCagnotte 	= $('#nom_cagnotte').val();
-	  	var nom_benef 		= $('#nom_benef').val();
-	  	var illustration 	= $('input[name="choix-photo"]').val();
-	  	var description 	= $('#description_cagnotte').val();
-	  	var visibilite 		= $('#type_cagnotte').val();
-	  	var debut 	 			= $('.debut_cagnotte').val();
-	  	var deadline 			= $('.deadline_cagnotte').val();
-	  	var estLimite 		= $('#estLimite').val();
-	  	var montantMax 		= $('#limite_cagnotte').val();
-	  	var condParticip 	= $('.lst-choix-cond-part .item.active input[name="participation_cagnotte"]').val();
-	  	var m_conseille 	= $('#montant_conseille').val();
-	  	var m_fixe 				= $('#montant_fixe').val();
-	  	var devise 				= $('#choix-devise').val();
-	  	var accord 				= $('#accord:checked').val();
-	  	var cin_value 		= $('#cin_value').val();		
+	  	var form_data = new FormData( $('#form-creation-cagnotte')[0] );
 
-	  	var form_data = new FormData();
+	  	if( $('.illustration_cagnotte.mobile-only:visible').length ){
+	  		form_data.delete('cin_value');
+	  		form_data.delete('illustration');
+	  		form_data.append('device', 'mobile');
+
+	  	}else if( $('.illustration_cagnotte.desk-only:visible').length  ){
+	  		form_data.delete('cin_value_mobile');
+	  		form_data.delete('illustration_mobile');
+	  		form_data.append('device', 'desktop');
+
+	  	}
 
 	  	form_data.append('action', 'create_cagnotte');
-	  	form_data.append('sousCateg', sousCateg);
-	  	form_data.append('categ', categ);
-	  	form_data.append('nomCagnotte', nomCagnotte);
-	  	form_data.append('nom_benef', nom_benef);
-	  	form_data.append('illustration', illustration);
-	  	form_data.append('description', description);
-	  	form_data.append('visibilite', visibilite);
-	  	form_data.append('debut', debut);
-	  	form_data.append('deadline', deadline);
-	  	form_data.append('estLimite', estLimite);
-	  	form_data.append('montantMax', montantMax);
-	  	form_data.append('condParticip', condParticip);
-	  	form_data.append('m_conseille', m_conseille);
-	  	form_data.append('m_fixe', m_fixe);
-	  	form_data.append('devise', devise);
-	  	form_data.append('accord', accord);
-	  	form_data.append('cin_value', cin_value);
 	  	
 	  	$.ajax({
 	  		url: ajaxurl,
