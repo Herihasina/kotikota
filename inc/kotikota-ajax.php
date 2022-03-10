@@ -100,7 +100,7 @@ function create_cagnotte(){
         $erreurs[] = __("Entrer la description de la cagnotte.", "kotikota");
 
     if ( !isset($visibilite) || $visibilite == "" )
-       $erreurs[] = __("Entrer la description de la cagnotte.", "kotikota");
+       $erreurs[] = __("Entrer la visibilité de la cagnotte.", "kotikota");
 
     if ( !isset($debut) || $debut == "" )
         $erreurs[] = __("Indiquer la date de début.", "kotikota");
