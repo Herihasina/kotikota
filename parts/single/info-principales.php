@@ -43,16 +43,7 @@
             <div class="jours">
                 <div class="ico2"><img src="<?= IMG_URL ?>ico-jrs.png"></div>
                 <?php 
-                  if ( 
-                        $type_cagnotte == 'solidaire' 
-                        || $isInvited 
-                        || get_field('titulaire_de_la_cagnotte' )  == get_current_user_id() 
-                        || current_user_can('administrator') 
-                    ):
                     $diff = get_nbr_de_jour_restant( get_field('deadline_cagnoote') );
-                  else:
-                    $diff = '--';
-                  endif;
                 ?>
                 <b>
                   <?php 
@@ -86,19 +77,7 @@
                         <div class="ico2"><img src="<?= IMG_URL ?>ico-collect.png"></div>
                         <b>
                           <?php 
-                            if ( 
-                              ($type_cagnotte == 'solidaire' || 
-                              $isInvited || 
-                              get_field('titulaire_de_la_cagnotte')  == get_current_user_id() || 
-                              current_user_can('administrator') ) &&
-                              !$masquer_azo_ilaina
-                            ){
                               echo '<span class="format_chiffre">'.get_field('montant_recolte').'</span> '. $devise; 
-                            }elseif( $masquer_azo_ilaina && ( !current_user_can('administrator') || get_field('titulaire_de_la_cagnotte')  != get_current_user_id() ) ){
-                              echo "--";
-                            }else{
-                              echo "--";
-                            }
                           ?>
                         </b>
                         <span><?php _e('collecté','kotikota'); ?><?php if ((int)get_field('montant_recolte') >= 2) echo "s"; ?></span>

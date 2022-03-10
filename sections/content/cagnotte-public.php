@@ -101,15 +101,11 @@
                                 <div class="amount">
                                     <span>
                                         <?php 
-                                            if ( $type_cagnotte == 'solidaire'){
-                                                if (get_field('montant_recolte', $id) ){ 
-                                                    echo '<span class="format_chiffre">'.get_field('montant_recolte', $id).'</span> '. $devise;
-                                                }else{
-                                                    echo "0 ".$devise;
-                                                }
+                                            if (get_field('montant_recolte', $id) ){ 
+                                                echo '<span class="format_chiffre">'.get_field('montant_recolte', $id).'</span> '. $devise;
                                             }else{
-                                                echo '--';
-                                            } 
+                                                echo "0 ".$devise;
+                                            }
                                         ?>
                                     </span>
                                 </div>

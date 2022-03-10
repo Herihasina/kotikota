@@ -91,20 +91,13 @@
                         </div>
                         <div class="amount">
                             <span>
-                            <?php 
-                                if ( 
-                                    $type_cagnotte == 'publique' || 
-                                    get_field('titulaire_de_la_cagnotte')  == get_current_user_id() || 
-                                    current_user_can('administrator') ){
-                                    if( get_field('montant_recolte') ){ 
-                                        echo '<span class="format_chiffre">'.get_field('montant_recolte').'</span> '.$devise;
+                                <?php 
+                                    if (get_field('montant_recolte') ){ 
+                                        echo '<span class="format_chiffre">'.get_field('montant_recolte').'</span> '. $devise;
                                     }else{
-                                        echo "0 ". $devise;
+                                        echo "0 ".$devise;
                                     }
-                                }else{
-                                    echo '--';
-                                } 
-                            ?>
+                                ?>
                             </span>
                         </div>
                     </div>
