@@ -345,6 +345,14 @@ function envoiTroisiemeRappel($userid){
   }
 }
 
+add_filter( 'the_post_export_content', rib_export );
+
+function rib_export( $post_content ){
+    $nom = 'Titulaire du compte : ' . get_field('rib_nom');
+    $banque = '</br>Nom de la banque : ' . get_field('rib_banque');
+    return $nom . $banque;
+}
+
 function sendRappelPostCreation($userid, $postId = 0){
   $info_rappel = get_user_info_by_id( $userid );
   $nomcagnotte = get_field('nom_de_la_cagnotte', $postId);
