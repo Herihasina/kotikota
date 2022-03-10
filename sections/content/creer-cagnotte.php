@@ -91,6 +91,28 @@
                                  </div>
                              </div>
                          </div>
+
+                        <div class="chy-type clr wow fadeIn" data-wow-delay="900ms">
+                         <!-- <div class="blc-chp wow fadeIn" data-wow-delay="900ms"> -->
+                            <div class="row">
+                                 <div class="col col53">
+                                    <div class="blc-chp">
+                                         <label><?php _e('Catégorie de cagnotte','kotikota'); ?></label>
+                                         <input type="text" name="" id="cat_cagnotte" class="chp">
+                                    </div>
+                                 </div>
+                                <div class="col col47">
+                                    <div class="blc-chp">
+                                        <label><?php _e('Classe de cagnotte','kotikota'); ?> <span>*</span> </label>
+                                        <select id="type_cagnotte">
+                                            <option value="privee"><?php _e('Cagnotte Privée','kotikota'); ?></option>
+                                            <option value="publique"><?php _e('Cagnotte Publique','kotikota'); ?></option>
+                                        </select>
+                                    </div>
+                                 </div>
+                             </div>
+                         </div>
+
                          <div class="chy-type clr wow fadeIn" data-wow-delay="900ms">
                          <!-- <div class="blc-chp wow fadeIn" data-wow-delay="900ms"> -->
                             <div class="row">

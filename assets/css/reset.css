@@ -1,6 +1,5 @@
-@import 'styles.css'; 
+@import 'styles.css';
 
-/* IMPORT FONTS */
 @font-face {
     font-family: 'Opificio';
     src: url('../fonts/Opificio-RegularRounded.eot');
@@ -12,6 +11,9 @@
     font-style: normal;
     font-display: swap;
 }
+
+
+
 @font-face {
     font-family: 'Opificio-b';
     src: url('../fonts/Opificio-BoldRounded.eot');
@@ -2080,18 +2082,21 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .inner-pp .row .col .lst-option .item {
     display: flex; margin-bottom: 30px
 }
-.inner-pp .row .col .lst-option .item label {
+.inner-pp .row .col .lst-option .item label, .inner-pp .row .col .lst-option .item .doc-item-link{
     display: flex;
     align-items: center;
     padding-right: 20px;
     cursor: pointer;
 }
-.inner-pp .row .col .lst-option .item label .ico {
+.inner-pp .row .col .lst-option .item .doc-item-link{
+    color: #131313;
+}
+.inner-pp .row .col .lst-option .item label .ico, .inner-pp .row .col .lst-option .item .doc-item-link .ico{
     margin-right: 20px;
     height: 69px;
     position: relative;
 }
-.inner-pp .row .col .lst-option .item .txt {
+.inner-pp .row .col .lst-option .item .txt, .inner-pp .row .col .lst-option .item .doc-item-link .txt{
     height: 48px;
     overflow: hidden;
 }
@@ -2164,17 +2169,17 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .blc-cagnotte-details .btn .link {
     margin: 0 10px;
 }
-.lst-document .lst-option .img { display: block; overflow: hidden; border-radius: 10px; position: relative; }
-.lst-document .lst-option .img img { display: block; width: 100% }
+.lst-document .lst-option .img { display: block; overflow: hidden; border-radius: 10px; position: relative; height: 119px }
+.lst-document .lst-option .img img { display: block; width: 100% ; height: 119px; object-fit: cover}
 #pp-photos .inner-pp .row .col .lst-option .item label { padding-right: 0 }
 .inner-pp .row .col .lst-option.blcphotos { display: block;max-width: 413px; }
 .inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 50%; float: left; padding-right: 22px}
 .inner-pp .row .col .lst-option.blcphotos::after {    display: table; clear: both;}
-.contvideo a { display: flex;  align-items: center; color: #000}
+.contvideo a { display: flex;  align-items: center; color: #000; position: relative;}
 .contvideo a:hover { color: #000 }
 .video-img {    margin-right: 20px;}
 #pp-photos .inner-pp .row .col .lst-option .item .txt { height: 120px; overflow: hidden;}
-.inner-pp .row .col .lst-option .item .txt h4 { font-weight: 700; margin-bottom: 10px;}
+.inner-pp .row .col .lst-option .item .txt h4 { font-weight: 700; margin-bottom: 10px; height: 50px; overflow: hidden;}
 .inner-pp .row .col .lst-option .item .txt p { height: 50px; overflow: hidden;}
 #pp-photos .inner-pp .row .col .lst-option .item { margin-bottom: 20px; }
 .lst-document .lst-option.blcphotos .inner { position: relative; }
@@ -2205,8 +2210,50 @@ input[type="checkbox"].ck-photo:checked ~ label {
     opacity: 0;
     z-index: 20
 }
-.video-img img {  display: block;}
-.video-img { position: relative; }
+
+.lst-document .lst-option.blcvideos  label::before {
+    content: "";
+    width: 17px;
+    height: 17px;
+    border: #8e4a90 solid 1px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: #fff;
+    z-index: 20
+}
+.lst-document .lst-option.blcvideos label::after {
+    content: "";
+    background: #8d4a8f;
+    width: 13px;
+    height: 13px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    right: 13px;
+    bottom: 13px;
+    opacity: 0;
+    z-index: 20
+}
+
+
+
+.video-img img {
+    display: block;
+    height: 119px;
+    object-fit: cover;
+    width: 168px
+}
+
+.video-img {
+    position: relative;
+    height: 119px;
+    display: block;
+    width: 168px;
+}
+
 .video-img .heure { background-color: #000; border-radius: 5px; padding:5px; color: #fff; font-size: 12px; text-align: center; position: absolute; right: 5px; bottom: 5px; line-height: 12px; display: inline-block; }
 .inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label:after { opacity: 1 }
 .inner-pp .row .col.photo {  width: 55%;}
@@ -2449,6 +2496,46 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 #popup-apropos .fancybox-close-small {
     color: #000;
 }
+
+.lst-cagnotte-publique > div > h3 {
+    border: #7e569f solid 1px;
+    display: inline-block;
+    padding: 22px 30px;
+    border-radius: 40px;
+}
+
+#frais_cagnotte {
+    border: #8d4a8f solid 1px;
+    border-radius: 30px;
+    padding: 14px 30px;
+    display: inline-block;
+    margin-bottom: 0;
+    background: #8d4a8f;
+    color: #fff;
+    font-weight: 700;
+}
+
+.formulaire-cagnotte .blc-chp label em { background: url(../images/ico-info2.png); background-size: cover; width: 15px; height: 15px; display: inline-block; margin-left: 10px }
+
+.tip.change-texte {
+  display: block;
+    font-size: 16px;
+    color: #fbbd36;
+    margin-top: 9px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+#choix-devise {
+    padding: 0 60px 0 27px;
+    width: 135px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 34px;
+    top: -2px;
+    background-image: url(../images/select-v.png);
+}
+
 
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
@@ -3327,7 +3414,7 @@ a:hover { color:#fbbd36; }
     .cont-pp .blcbtn { padding-top: 40px }
     .inner-pp .row .col .lst-option .item { margin-bottom: 15px;}
     .inner-pp .row { padding-right: 23px }
-    .inner-pp .row .col .lst-option .item label .ico { margin-right: 10px }
+    .inner-pp .row .col .lst-option .item label .ico,  .inner-pp .row .col .lst-option .item .doc-item-link .ico{ margin-right: 10px }
     .inner-pp h3 {font-size: 20px; margin-bottom: 20px}
     .cont-pp .blcbtn .link { margin-bottom: 10px }
 

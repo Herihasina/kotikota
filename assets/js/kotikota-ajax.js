@@ -59,6 +59,13 @@ $(function(){
 	  	}
 
 	  	form_data.append('action', 'create_cagnotte');
+	
+		// if(cin_value){
+		// 	form_data.append('cin_value', cin_value);
+		// }else{
+		// 	form_data.append('cin_value', '');
+		// }
+
 	  	
 	  	$.ajax({
 	  		url: ajaxurl,

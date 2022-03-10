@@ -269,7 +269,6 @@ function create_cagnotte(){
         update_field('debut_cagnoote', $debut, $newPost);
         update_field('deadline_cagnoote', $deadline, $newPost);        
         update_field('fixer_un_objectif', (bool)$estLimite, $newPost);        
-        update_field('profil_valide', false, 'user_'.$now_user );
 
         $benef = array(
             'post_type' => 'beneficiaire',
@@ -290,7 +289,8 @@ function create_cagnotte(){
         }
 
         sendNotificationCreation($newPost);
-        if( $post_notif && !$_POST['cin_value'])
+        $piece_didentite = get_field('piece_didentite', 'user_'.$now_user );
+        if( !$piece_didentite )
             sendRappelPostCreation( $now_user );
 
         $single = get_permalink( $newPost );

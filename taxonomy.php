@@ -23,7 +23,7 @@
     ?>
             <div class="blc-liste-cagnote wow fadeIn" data-wow-delay="850ms">
                 <div class="lst-cagnotte-publique center wow fadeIn clr" data-wow-delay="900ms">
-                    <h3 style="text-align:center">
+                    <h3 style="text-align:center" class="aucuncagnotte">
                         <?php printf( __( "Aucune cagnotte n'a été trouvée dans cette catégorie", 'kotikota' ) ); ?>
                     </h3>
                 </div>
