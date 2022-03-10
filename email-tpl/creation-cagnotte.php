@@ -470,7 +470,7 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    Votre cagnotte a &#233;t&#233; cr&#233;&#233;e avec succ&#232;s
+                                                                    Votre cagnotte <a href="<?=  get_permalink($id) ?>" title=""><?= $nomcagnotte ?></a> a &#233;t&#233; cr&#233;&#233;e avec succ&#232;s
                                                                     <br>
                                                                     <br>
                                                                     Bienvenue dans la communaut&#233; des KotiKoteurs

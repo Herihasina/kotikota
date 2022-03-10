@@ -469,7 +469,7 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    Il reste une dernière étape pour valider ta cagnotte ✅
+                                                                    Il reste une dernière étape pour valider ta cagnotte ✅ <a href="<?=  get_permalink($postId) ?>" title=""><?= $nomcagnotte ?></a>
                                                                     <br>
                                                                     Nous avons besoin sous 48h d’un justificatif d’identité (CIN ou Passeport) pour sécuriser ta cagnotte.
                                                                     <br><br>
