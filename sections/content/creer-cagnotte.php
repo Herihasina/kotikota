@@ -1,6 +1,6 @@
 <?php 
     $user = wp_get_current_user();
-    $profil_valide = get_field('profil_valide', 'user_'.$user->ID )
+    $profil_valide = get_field('profil_valide', 'user_'.$user->ID );
 ?>
 
 <div class="blc-cagnotte">
@@ -49,6 +49,7 @@
                                                         ));
                                                     foreach ( $enfants as $enfant ):
                                                         $visu = get_field('picto_sous-categorie', 'categ-cagnotte_'. $enfant->term_id);
+                                                        $categorie = get_field('selectionner_la_categorie', 'categ-cagnotte_'. $enfant->term_id);
                                                         $couleur = "";
                                                         if( is_array($visu) && array_key_exists( 'class_de_cette_categorie' , $visu ) ):
                                                             $couleur = $visu['class_de_cette_categorie'];
@@ -59,7 +60,7 @@
                                                                      <div class="inner <?php echo $couleur; ?>">
                                                                         <?php echo $enfant->name; ?>
                                                                         <span></span>
-                                                                           <input type="hidden" name="sous-categ" value="<?php echo $enfant->term_id ?>"> 
+                                                                           <input type="hidden" data-categorie="<?= $categorie['label'] ?>" name="sous-categ" value="<?php echo $enfant->term_id ?>"> 
                                                                            <input type="hidden" name="categ" value="<?php echo $parent->term_id ?>"> 
                                                                     </div>
                                                                  </div>

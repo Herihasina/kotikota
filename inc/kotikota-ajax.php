@@ -10,7 +10,7 @@ function create_cagnotte(){
     parse_str($str, $Data);
     extract($Data);
 
-    $sousCateg = $sous_categ;
+    $sousCateg = $sous_categ;    
 
     if( 'mobile' == $device ){
         if ( isset($_FILES['cin_value_mobile'] ) ){
@@ -172,9 +172,11 @@ function create_cagnotte(){
         // }
     }
 
-    if( in_array( $sousCateg , IDS_CAGNOTTE_PERSO ) ){
+    $categories_cagnotte = categoriser_les_cagnottes();
+
+    if( in_array( $sousCateg , $categories_cagnotte['personnelles'] ) ){
         $post_type = 'cagnotte-perso';
-    }elseif( in_array( $sousCateg, IDS_CAGNOTTE_SOLID) ){
+    }elseif( in_array( $sousCateg, $categories_cagnotte['solidaires'] ) ){
         $post_type = 'cagnotte';
     }else{
         $erreurs[] = __("Le type de cagnotte ne correspond à aucun type connu !", "kotikota");
@@ -201,20 +203,20 @@ function create_cagnotte(){
     }
 
     $metas = array(
-            'nom_de_la_cagnotte'            => $nomCagnotte,
-            'description_de_la_cagnote'     => $description,
-            'objectif_montant'              => (int)$montantMax,
-            'montant_recolte'               => 0,
-            'visibilite_cagnotte'           => $visibilite,
-            'condition_de_participation'    => $condParticip,
-            'montant_suggere'               => $montant,
-            'titulaire_de_la_cagnotte'      => get_current_user_id(),
-            'actif'                         => $actif,
-            'cagnotte_cloturee'             => 'non',
-            'devise'                         => array($devise_label, $devise_value),
-            'couleur'                       => $couleur,
-            'recevoir_les_notifications_de_participation_par_e-mail' => true,
-        );
+        'nom_de_la_cagnotte'            => $nomCagnotte,
+        'description_de_la_cagnote'     => $description,
+        'objectif_montant'              => (int)$montantMax,
+        'montant_recolte'               => 0,
+        'visibilite_cagnotte'           => $visibilite,
+        'condition_de_participation'    => $condParticip,
+        'montant_suggere'               => $montant,
+        'titulaire_de_la_cagnotte'      => get_current_user_id(),
+        'actif'                         => $actif,
+        'cagnotte_cloturee'             => 'non',
+        'devise'                         => array($devise_label, $devise_value),
+        'couleur'                       => $couleur,
+        'recevoir_les_notifications_de_participation_par_e-mail' => true,
+    );
 
     $postDetails = array(
         'post_type'  => $post_type,

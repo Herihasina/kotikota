@@ -30,11 +30,47 @@ require_once 'inc/kk-cron.php';
 
 #Liste des cagnottes perso
 #et solidaires
-$cagnottes_personnelles_ids = array( 13, 6, 5, 14, 15, 16, 17 ,7, 18, 33, 23, 11, 22 );
-$cagnottes_solidaires_ids   = array( 8, 19, 21, 20, 25, 26, 27, 29, 31, 28, 30, 10 );
 
-define("IDS_CAGNOTTE_PERSO", $cagnottes_personnelles_ids );
-define("IDS_CAGNOTTE_SOLID", $cagnottes_solidaires_ids );
+function categoriser_les_cagnottes(){
+  $parents = get_terms( array(
+      'taxonomy'   => 'categ-cagnotte',
+      'hide_empty' => false,
+  ) );
+
+  $cagnottes_personnelles_ids = array();
+  $cagnottes_solidaires_ids   = array();
+
+  if( is_array( $parents ) ){
+    foreach ( $parents as $parent ){
+      $enfants = get_terms( array( 
+          'taxonomy'   => 'categ-cagnotte',
+          'hide_empty' => false,
+          'orderby'    => 'tax_position',
+          'order'      => 'ASC',
+          'meta_key'   => 'tax_position',
+          'child_of'   => $parent->term_id
+      ));
+
+      if( is_array( $enfants ) ){
+        foreach( $enfants as $enfant ){
+          $categorie = get_field('selectionner_la_categorie', 'categ-cagnotte_'. $enfant->term_id);
+
+          if( 'perso' == $categorie['value'] ){
+            $cagnottes_personnelles_ids[] = $enfant->term_id;
+          }elseif( 'solid' == $categorie['value'] ){
+            $cagnottes_solidaires_ids[] = $enfant->term_id;
+          }
+        }
+      }
+    }
+  }
+
+  return array( 
+    'personnelles' => $cagnottes_personnelles_ids, 
+    'solidaires' => $cagnottes_solidaires_ids 
+  );
+  
+}
 
 function wpb_sender_name( $original_email_from ) {
     return 'Team Koti-Kota';
