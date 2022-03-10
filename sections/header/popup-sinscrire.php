@@ -18,3 +18,20 @@
         </div>
     </div>
 </div>
+
+<div class="popup-inscription popup" id="new_user" style="display: none;">
+    <div class="inscription-pp">
+        <div class="content">
+            <div class="titre">
+                <h2><?php _e('Une dernière étape','kotikota'); ?></h2>
+            </div>
+
+            <div class="txt-bottom">
+                <p>
+                <?php
+                    printf( __('Un email vous a été envoyé pour confirmer votre identité','kotikota'),'<br />' ) 
+                ?>
+                </p></div>
+        </div>
+    </div>
+</div>

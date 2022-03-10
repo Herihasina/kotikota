@@ -34,6 +34,14 @@ $(document).ready(function() {
         return false;
     });
 
+
+    if( $('#new_btn:visible').length ){
+        $('#new_btn').trigger('click');
+        setTimeout(function() {
+            $.fancybox.close();
+        }, 8000);
+    }
+
     $('#ml').click(function() {
         $('#gtranslate_selector')
             .val('fr|mg')

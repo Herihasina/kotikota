@@ -106,4 +106,8 @@
         endif; 
       ?>
     </header>
+    
+    <?php if( isset( $_GET['new'] ) ){ ?>
+      <a href="#new_user" data-fancybox id="new_btn">X</a>
+    <?php } ?>
    
