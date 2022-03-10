@@ -277,7 +277,7 @@
                                 </div>
                              </div>
                         </div>
-                        <?php //if(!$profil_valide): ?>
+                        <?php if(!$profil_valide): ?>
                             <div class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms">
                                 <label> <?php _e('Ajouter votre passeport ou carte identité (à fournir sous 48h )','kotikota'); ?></label>
                                 <!-- visible seulement pour desk  -->
@@ -300,7 +300,7 @@
                                 <!-- /fin visible seulement pour mobile -->
 
                             </div>
-                        <?php //endif; ?>
+                        <?php endif; ?>
 
                         <div class="acc">
                                 <div class="chp">
