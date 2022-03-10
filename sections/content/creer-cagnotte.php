@@ -104,7 +104,7 @@
                                 <div class="col col47">
                                     <div class="blc-chp">
                                         <label><?php _e('Classe de cagnotte','kotikota'); ?> <span>*</span> </label>
-                                        <select id="type_cagnotte">
+                                        <select id="type_cagnotte" name="visibilite">
                                             <option value="privee"><?php _e('Cagnotte Privée','kotikota'); ?></option>
                                             <option value="publique"><?php _e('Cagnotte Publique','kotikota'); ?></option>
                                         </select>
@@ -197,7 +197,7 @@
                          </div>
                         <div class="chy-type clr wow fadeIn" data-wow-delay="950ms">
                             <div class="row">
-                                <div class="col col53">
+                               <!--  <div class="col col53">
                                     <div class="blc-chp">
                                          <label><?php _e('Visibilité de la cagnotte','kotikota'); ?></label>
                                          <select id="type_cagnotte" name="visibilite">
@@ -205,7 +205,7 @@
                                             <option value="publique"><?php _e('Cagnotte Publique','kotikota'); ?></option>
                                         </select>
                                     </div>
-                                 </div>
+                                 </div> -->
                                  <!-- <input type="hidden" name="visi" value="solidaire" id="type_cagnotte"> -->
                                  <div class="col col47 col-dates">
                                     <div class="chy-type_ clr">
