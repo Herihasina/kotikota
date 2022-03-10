@@ -98,7 +98,7 @@
                                  <div class="col col53">
                                     <div class="blc-chp">
                                          <label><?php _e('Catégorie de cagnotte','kotikota'); ?></label>
-                                         <input type="text" name="" id="cat_cagnotte" class="chp">
+                                         <input type="text" name="" id="cat_cagnotte" class="chp" disabled>
                                     </div>
                                  </div>
                                 <div class="col col47">
