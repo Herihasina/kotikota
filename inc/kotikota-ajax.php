@@ -1192,6 +1192,7 @@ add_action( 'wp_ajax_insert_doc_cagnotte', 'insert_doc_cagnotte' );
 function insert_doc_cagnotte(){
 
     $erreurs = [];
+    echo "goes_here";
 
 
     if ( isset($_FILES['doc_file'] ) && isset($_POST)){

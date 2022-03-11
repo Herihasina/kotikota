@@ -738,11 +738,11 @@ $(document).ready(function() {
                     'doc_file' : attachment.url,
                     'cagnotte_id': cagnotte_id
                 },           
-                contentType: false,
-                processData: false,
+                dataType: 'html',
                 type:"POST",
             }).done(function(resp){
-                    $('#loader').removeClass('working');
+                console.log(resp);
+                    // $('#loader').removeClass('working');
                     // var patt = new RegExp("^http");
                     // if( patt.test(resp) ){
                     //     $.fancybox.open({
