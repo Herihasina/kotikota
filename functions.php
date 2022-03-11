@@ -894,3 +894,29 @@ function rib_pdf_admin_enqueue_scripts() {
 
     //wp_localize_script( 'cagnotte-input-js', 'ajax_object', array( 'ajax_url' =&gt; admin_url( 'admin-ajax.php' ) ) );
 }
+
+add_action('wp_ajax_download_rib_report', 'download_rib_report_handler');
+add_action('wp_ajax_nopriv_download_rib_report', 'download_rib_report_handler');
+
+function download_rib_report_handler() {
+    return generate_rib_report(get_field('rib_nom', 'option'));
+}
+
+function generate_rib_report($array, $filename = "export.csv", $delimiter=";") {
+    // tell the browser it's going to be a csv file
+    header('Content-Type: text/csv; charset=utf-8');
+    
+    // tell the browser we want to save it instead of displaying it
+    header('Content-Disposition: attachment; filename=export.csv');
+
+    // open the "output" stream
+    // see http://www.php.net/manual/en/wrappers.php.php#refsect2-wrappers.php-unknown-unknown-unknown-descriptioq
+    $f = fopen('php://output', 'w');
+
+    // use keys as column titles
+    fputcsv( $f, array_keys( $array['0'] ) , $delimiter );
+
+    foreach ($array as $line) {
+        fputcsv($f, $line, $delimiter);
+    }
+}
