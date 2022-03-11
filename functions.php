@@ -910,7 +910,7 @@ function download_rib_report_handler() {
 }
 add_action ( 'admin_init', 'rib_on_admin_Init');
 function rib_on_admin_Init() {
-  if ( !isset($_GET['rib']) ) {
+  if ( isset($_GET['rib']) ) {
     generate_post_to_pdf_file($_GET['postID']);
   }
 }
@@ -945,5 +945,5 @@ function generate_post_to_pdf_file($postID) {
 
       $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
       $pdf->Output($filePath, 'F');
-      $pdf->Output($filePath, 'D');
+      $pdf->Output($post->ID . '.pdf', 'D');
     }
