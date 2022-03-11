@@ -939,7 +939,7 @@ $(function(){
                 type:"POST",
             }).done(function(resp){
                 $('#pp-photos .lst-document .row .photo').html(resp);		
-                $("#ajout-video-image").close();
+                $.fancybox.close();
             });
 
 
