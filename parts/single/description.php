@@ -262,6 +262,9 @@
                   </div>
               </div>
               <div id="add_video" class="link" title="Ajouter" data-cagnotte-id="<?=  $post->ID ?>">Ajouter</div>
+              <span class="error_video">
+                
+              </span>
           </div>
       </div>
     </div>

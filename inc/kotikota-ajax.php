@@ -1468,6 +1468,71 @@ function insert_image_cagnotte(){
                     </h3>
                 </div>
             <?php endif; ?>
+            </div>
+       <?php
+        echo $html;
+
+            
+        wp_die();
+    }
+
+}
+
+add_action( 'wp_ajax_insert_video_cagnotte', 'insert_video_cagnotte' );
+function insert_video_cagnotte(){
+    $erreurs = [];
+
+    if ( isset($_POST)){
+        $html="";
+        $str = http_build_query($_POST);
+        parse_str($str, $Data);
+        extract($Data);
+
+        $add_doc = add_row('liste_videos_cagnotte',array('lien_youtube' => $video_id),$cagnotte_id);
+        $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
+        $curr_userdata = wp_get_current_user();
+        $videos = get_field('liste_videos_cagnotte',$cagnotte_id);
+
+       ?>
+            <h3>vidéos</h3>
+            <div class="lst-option blcvideos ">        
+                <?php if($videos): ?>
+                <div class="lst-option"> 
+                    <?php foreach($videos as $video ): 
+                    $video_id= $video['lien_youtube'];
+                    $video_data = get_youtube_video_detail($video_id);
+                    ?>        
+                    <div class="item">      
+                        <div class="contvideo">
+                        <a href="<?= $video_data['url'] ?>" target="_blank">
+                            <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
+                            <div class="txt">
+                            <h4><?= $video_data['title'] ?></h4>
+                            <p><?= $video_data['description'] ?></p>
+                            </div>
+                            <?php if($curr_userdata->ID == $titulaire_id) :?>
+                            <div class="check-video">                            
+                                <input type="checkbox" class="ck-photo" id="video1"> 
+                                <label for="video1"></label>
+                            </div>
+                            <?php endif; ?>
+                        </a>
+                        </div>
+                    </div>
+                    
+                    <?php endforeach; ?>
+                </div>
+            
+                <?php
+                else:
+                ?>
+                    <div style="text-align:center">
+                        <h3 style="text-align:center">
+                            <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                        </h3>
+                    </div>
+                <?php endif; ?>
+            </div>
        <?php
         echo $html;
 

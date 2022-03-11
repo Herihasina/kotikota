@@ -953,4 +953,27 @@ $(function(){
         $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
     });
 
+	$('#add_video').click(function(e){
+		e.preventDefault();
+		var cagnotte_id= $(this).data('cagnotteId');
+		var video_id= $("[name=video_id]").val();
+		if(video_id){
+			$.ajax({
+				url: ajaxurl,
+				data: {
+					'action': 'insert_video_cagnotte',
+					'video_id' : video_id,
+					'cagnotte_id': cagnotte_id
+				},           
+				dataType: 'html',
+				type:"POST",
+			}).done(function(resp){
+				$('#pp-photos .lst-document .row .video').html(resp);		
+				$.fancybox.close();
+			});
+		}else{
+			$('.error_video').text("Veuillez entrer un ID");
+		}
+	});
+
 })
