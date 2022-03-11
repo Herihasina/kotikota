@@ -279,7 +279,7 @@
 
       </div>
       <div id="ajout-video-image" style="display: none">
-          <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>">Cliquez ici pou ajouter une photo</a>
+          <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>">Cliquez ici pour ajouter une photo</a>
           <div class="col">
               <div class=" blc-chp ">
                   <label for="fname"><?php echo __('ID de la nouvelle video','kotikota'); ?><span>*</span></label>
