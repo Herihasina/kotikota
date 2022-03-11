@@ -716,6 +716,7 @@ $(document).ready(function() {
     $('#add_doc_btn').click(function(e) {
         e.preventDefault();
         var self= $(this);
+        console.log(self);
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger");
             $("#menu-item-upload").click();
