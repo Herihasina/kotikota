@@ -65,7 +65,7 @@
                 </div>
                 <div class="btn">
                     <a href="#connecter" id="go-connected" class="link" title="<?php the_sub_field('bouton_1') ?>"><?php the_sub_field('bouton_1') ?></a>
-                    <a href="mailto:contact@koti-kota.com" class="link" title="<?php the_sub_field('bouton_2') ?>"><?php the_sub_field('bouton_2') ?></a>
+                    <a href="mailto:hello@koti-kota.com" class="link" title="<?php the_sub_field('bouton_2') ?>"><?php the_sub_field('bouton_2') ?></a>
                 </div>
                 <?php endwhile; ?>
             <?php endif; ?>
