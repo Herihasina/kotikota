@@ -910,4 +910,47 @@ $(function(){
         $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
     });
 
+	$('#add_image').click(function(e) {
+        e.preventDefault();
+        var cagnotte_id= $(this).data('cagnotteId');
+        if (mediaUploader) {
+            $("#menu-item-upload").html("Télécharger");
+            $("#menu-item-upload").click();
+            $("#menu-item-browse").css("display","none");
+            $(".media-uploader-status .h2").html("Téléchargement");
+            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            mediaUploader.open();
+            return;
+        }
+        mediaUploader = wp.media.frames.file_frame = wp.media({
+            multiple: false
+        });
+        mediaUploader.on('select', function() {
+            var attachment = mediaUploader.state().get('selection').first().toJSON();
+            $.ajax({
+                url: ajaxurl,
+                data: {
+                    'action': 'insert_image_cagnotte',
+                    'image_url' : attachment.url,
+                    'cagnotte_id': cagnotte_id
+                },           
+                dataType: 'html',
+                type:"POST",
+            }).done(function(resp){
+                // $('#pp-photos .lst-document .photo').html(resp);		
+                
+            });
+
+
+        });
+        mediaUploader.open();
+        $("#menu-item-upload").html("Télécharger");
+        $("#menu-item-upload").click();
+        $("#menu-item-browse").css("display","none");
+        $(".media-uploader-status .h2").html("Téléchargement");
+        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+        $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+    });
+
 })

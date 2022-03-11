@@ -188,7 +188,7 @@
                       <?php if($photos): ?>
                         <div class="lst-option blcphotos">
                           <?php foreach($photos as $photo ): 
-                            $image = $photo['image'] ;
+                            $image = wp_get_attachment_url( $photo['image'] );
                           ?>         
                             <div class="item">
                               <div class="inner">
@@ -196,7 +196,7 @@
                                 <input type="checkbox" class="ck-photo" id="img1"> 
                                 <label for="img1"></label>
                               <?php endif; ?>
-                                <a href="<?= $image['url'] ?>" class="img fancybox"><img src="<?= $image['url'] ?>" alt="Kotikota"></a>
+                                <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
                               </div> 
                             </div>
                           <?php endforeach; ?>
@@ -253,7 +253,7 @@
 
       </div>
       <div id="ajout-video-image" style="display: none">
-          <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo">Cliquez ici pou ajouter une photo</a>
+          <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>">Cliquez ici pou ajouter une photo</a>
           <div class="col">
               <div class=" blc-chp ">
                   <label for="fname"><?php echo __('ID de la nouvelle video','kotikota'); ?><span>*</span></label>
@@ -261,7 +261,7 @@
                     <input type="text" name="video_id" placeholder="<?php echo __('exemple: 9wNPug7h1gQ','kotikota'); ?>" >
                   </div>
               </div>
-              <div id="add_video" class="link" title="Ajouter">Ajouter</div>
+              <div id="add_video" class="link" title="Ajouter" data-cagnotte-id="<?=  $post->ID ?>">Ajouter</div>
           </div>
       </div>
     </div>
