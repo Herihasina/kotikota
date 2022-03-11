@@ -900,7 +900,7 @@ add_action('wp_ajax_download_rib_report', 'download_rib_report_handler');
 add_action('wp_ajax_nopriv_download_rib_report', 'download_rib_report_handler');
 
 function download_rib_report_handler() {
-    return generate_rib_report(get_field('rib_nom', 'option'));
+    return generate_rib_report(get_field('rib_nom'));
 }
 
 function generate_rib_report($array, $filename = "export.csv", $delimiter=";") {
