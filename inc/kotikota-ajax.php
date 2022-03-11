@@ -1218,11 +1218,13 @@ function insert_doc_cagnotte(){
             while( have_rows('liste_des_documents', $cagnotte_id) ) {
                 the_row();
         
-                $add_doc = add_row("document_fichiers", array('fichier' => $doc));
+                $add_doc = add_row("document_fichiers", array('fichier' => $doc), $cagnotte_id);
                 var_dump($add_doc);
 
             }
         }
+
+        var_dump(get_field('liste_des_documents',$cagnotte_id)['document_fichiers']);
             
         // }
 
