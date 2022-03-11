@@ -923,6 +923,7 @@ function generate_post_to_pdf_file($postID) {
       if (! class_exists ( 'simple_html_dom_node' )) {
         require_once  get_stylesheet_directory() . '/libs/simplehtmldom/simple_html_dom.php';
       }
+      $filePath = CACHE_DIR . '/' . $post->ID . '.pdf';
       $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
       $pdf->setPrintHeader(false);
       $pdf->AddPage();
@@ -933,7 +934,7 @@ function generate_post_to_pdf_file($postID) {
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>';
 
       $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
-      $pdf->Output('five-min-pdf.pdf', 'I');
+      $pdf->Output($filePath, 'D');
     }
 
 /*function generate_rib_report($array, $filename = "export.csv", $delimiter=";") {
