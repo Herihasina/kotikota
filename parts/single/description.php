@@ -114,6 +114,12 @@
                               </div>
                             <?php endforeach; ?>
                           </div>
+                        <?php else: ?>
+                          <div style="text-align:center">
+                              <h3 style="text-align:center">
+                                  <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                              </h3>
+                          </div>
                         <?php endif; ?>
                       </div>
                       <div class="col">
@@ -137,12 +143,24 @@
                               </div>
                             <?php endforeach; ?>
                           </div>
+                        <?php else: ?>
+                          <div style="text-align:center">
+                              <h3 style="text-align:center">
+                                  <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                              </h3>
+                          </div>
                         <?php endif; ?>
                       </div>
                       </div>
                     </div>
                     
                 </div>
+              <?php else: ?>
+              <div style="text-align:center">
+                  <h3 style="text-align:center">
+                      <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                  </h3>
+              </div>
               <?php endif; ?>
               <?php if($curr_userdata->ID == $titulaire_id) :?>
                 <div class="blcbtn">

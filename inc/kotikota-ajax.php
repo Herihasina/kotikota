@@ -1219,7 +1219,7 @@ function insert_doc_cagnotte(){
                       $word_doc[]=$file_data;
                   endif;
                 endforeach;
-            ?>
+                ?>
                 <div class="row">
                     <div class="col">
                     <h3>documents word</h3>
@@ -1241,6 +1241,15 @@ function insert_doc_cagnotte(){
                             <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
+                        </div>
+                        
+                    <?php
+                    else:
+                    ?>
+                        <div style="text-align:center">
+                            <h3 style="text-align:center">
+                                <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                            </h3>
                         </div>
                     <?php endif; ?>
                     </div>
@@ -1265,10 +1274,26 @@ function insert_doc_cagnotte(){
                                 </div>
                             <?php endforeach; ?>
                             </div>
+                            <?php
+                        else:
+                        ?>
+                            <div style="text-align:center">
+                                <h3 style="text-align:center">
+                                    <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                                </h3>
+                            </div>
                         <?php endif; ?>
                         </div>
                     </div>
                 </div>
+        <?php
+        else:
+        ?>
+            <div style="text-align:center">
+                <h3 style="text-align:center">
+                    <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                </h3>
+            </div>
         <?php
             endif;
             echo $html;
@@ -1337,6 +1362,15 @@ function remove_doc_cagnotte(){
                             </div>
                         <?php endforeach; ?>
                         </div>
+                        
+                    <?php
+                    else:
+                    ?>
+                        <div style="text-align:center">
+                            <h3 style="text-align:center">
+                                <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                            </h3>
+                        </div>
                     <?php endif; ?>
                     </div>
                     <div class="col">
@@ -1360,10 +1394,26 @@ function remove_doc_cagnotte(){
                                 </div>
                             <?php endforeach; ?>
                             </div>
+                            <?php
+                        else:
+                        ?>
+                            <div style="text-align:center">
+                                <h3 style="text-align:center">
+                                    <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                                </h3>
+                            </div>
                         <?php endif; ?>
                         </div>
                     </div>
                 </div>
+        <?php
+        else:
+        ?>
+            <div style="text-align:center">
+                <h3 style="text-align:center">
+                    <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                </h3>
+            </div>
         <?php
             endif;
             echo $html;
