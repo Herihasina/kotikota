@@ -1192,47 +1192,47 @@ add_action( 'wp_ajax_insert_doc_cagnotte', 'insert_doc_cagnotte' );
 function insert_doc_cagnotte(){
 
     $erreurs = [];
-    echo "goes_here";
+    // echo "goes_here";
 
 
-    if ( isset($_FILES['doc_file'] ) && isset($_POST)){
+    if ( isset($_POST)){
         $str = http_build_query($_POST);
         parse_str($str, $Data);
         extract($Data);
 
-        if (!function_exists('wp_handle_upload')) {
-            require_once(ABSPATH . 'wp-admin/includes/file.php');
-        }
+        // if (!function_exists('wp_handle_upload')) {
+        //     require_once(ABSPATH . 'wp-admin/includes/file.php');
+        // }
 
-        $upload_overrides = array('test_form' => false);
+        // $upload_overrides = array('test_form' => false);
 
-        $files = $_FILES['doc_file'];
+        // $files = $_FILES['doc_file'];
 
-        foreach ($files as $file => $value) {
-            $file = array(
-                'name'     => $files['name'],
-                'type'     => $files['type'],
-                'tmp_name' => $files['tmp_name'],
-                'error'    => $files['error'],
-                'size'     => $files['size'],
-            );
-            $filename_doc_file = $file['name'];
-            $movefile = wp_handle_upload($file, $upload_overrides); 
-            if ($movefile && !isset($movefile['error'])) {
-                $doc_file = $movefile['url'];
-            }
-        }
+        // foreach ($files as $file => $value) {
+        //     $file = array(
+        //         'name'     => $files['name'],
+        //         'type'     => $files['type'],
+        //         'tmp_name' => $files['tmp_name'],
+        //         'error'    => $files['error'],
+        //         'size'     => $files['size'],
+        //     );
+        //     $filename_doc_file = $file['name'];
+        //     $movefile = wp_handle_upload($file, $upload_overrides); 
+        //     if ($movefile && !isset($movefile['error'])) {
+        //         $doc_file = $movefile['url'];
+        //     }
+        // }
 
-        if ( $doc_file != '' ){
-            $doc_file = get_image_attach_id ( $filename_doc_file, 'user_'.$now_user );
-            $value = [
-                    'document_fichiers' =>['fichier' => $doc_file]
-            ];
+        // if ( $doc_file != '' ){
+        //     $doc_file = get_image_attach_id ( $filename_doc_file, 'user_'.$now_user );
+        $value = [
+                'document_fichiers' =>['fichier' => $doc_file]
+        ];
 
-            var_dump(update_field('liste_des_documents', $value, $cagnotte_id));
+        var_dump(update_field('liste_des_documents', $value, $cagnotte_id));
             
             
-        }
+        // }
 
             
         wp_die();
