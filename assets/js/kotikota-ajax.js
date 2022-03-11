@@ -862,8 +862,7 @@ $(function(){
 			dataType: 'html',
 			type:"POST",
 		}).done(function(resp){
-			// $('.lst-document').html(resp);		
-			console.log(resp);
+			$('.lst-document').html(resp);		
 		});
 	});
 
