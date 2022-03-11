@@ -43,7 +43,7 @@ function load_front_assets() {
         wp_register_script( 'circle-bar1', JS_URL . 'jQuery.circleProgressBar1.js', array(), true, false, true );
         wp_register_script( 'circle-bar', JS_URL . 'jQuery.circleProgressBar.js', array(), true, false, true );
     }
-    if ( is_page('gestion-cagnotte-invite'))
+    if ( is_page('gestion-cagnotte-invite') || is_single())
         wp_register_script( 'email-multiple', JS_URL . 'jquery.email.multiple.js', array(), true, false, true );
     
     wp_register_script( 'intlTelInput', 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.js', array(), true, false, true );
@@ -72,7 +72,7 @@ function load_front_assets() {
         wp_enqueue_script( 'circle-bar1', false, array(), false, true );
         wp_enqueue_script( 'circle-bar', false, array(), false, true );
     }
-    if ( is_page('gestion-cagnotte-invite'))
+    if ( is_page('gestion-cagnotte-invite') || is_single())
         wp_enqueue_script( 'email-multiple', false, array(), false, true );
 
     wp_enqueue_script( 'intlTelInput', false, array(), false, true );

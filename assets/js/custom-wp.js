@@ -715,6 +715,7 @@ $(document).ready(function() {
 
     $('#add_doc_btn').click(function(e) {
         e.preventDefault();
+        var self= $(this);
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger");
             $("#menu-item-upload").click();
@@ -730,9 +731,14 @@ $(document).ready(function() {
         });
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-            $('#cin_value').val(attachment.url);
+            console.log(attachment.url);
+            self.data("fileUrl",attachment.url);
+            console.log(self.data("fileUrl"));
             $('.zone-img-cin').css('background', 'center / cover no-repeat url(' + $('#cin_value').val() + ')');
-            $('#cin_value').siblings('span').text(attachment.filename);
+            self.data("fileName",attachment.filename);
+            console.log(attachment.filename);
+            console.log(self.data("fileName"));
+
         });
         mediaUploader.open();
         $("#menu-item-upload").html("Télécharger");
