@@ -77,10 +77,11 @@
                   $pdf_doc=[];  
                   foreach($document_fichiers as $doc ): 
                     $file_data=[];
-                    $fichier = $doc['fichier']; 
-                    $file_data['name'] = $fichier['title'];
-                    $file_data['url'] = $fichier['url'];
-                    $extension = pathinfo(  $file_data['url'] )['extension'];
+                    $fichier_id = $doc['fichier']; 
+                    $fichier = get_attached_file( $fichier_id);
+                    $file_data['name'] = basename ( $fichier );
+                    $file_data['url'] =wp_get_attachment_url( $fichier_id );;
+                    $extension = pathinfo( $fichier )['extension'];
                     if($extension=='pdf'):
                         $pdf_doc[]=$file_data;
                     elseif($extension=='docx' || $extension=='docx'):
