@@ -77,6 +77,7 @@
                     $file_data=[];
                     $fichier_id = $doc['fichier']; 
                     $fichier = get_attached_file( $fichier_id);
+                    $file_data['id'] = $fichier_id;
                     $file_data['name'] = basename ( $fichier );
                     $file_data['url'] =wp_get_attachment_url( $fichier_id );;
                     $extension = pathinfo( $fichier )['extension'];
@@ -97,8 +98,8 @@
                             <?php foreach($word_doc as $doc ): ?>        
                               <div class="item">
                                 <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                  <input type="checkbox" class="document" id="doc1"> 
-                                  <label for="doc1">
+                                  <input type="checkbox" name="doc_files[]" class="document document-check" id="doc-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>"> 
+                                  <label for="doc-<?= $doc['id'] ?>">
                                     <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
                                     <div class="txt"><?= $doc['name'] ?></div>
                                   </label>
@@ -120,8 +121,8 @@
                             <?php foreach($pdf_doc as $doc ): ?>   
                               <div class="item">
                                 <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                  <input type="checkbox" class="document" id="pdf1"> 
-                                  <label for="pdf1">
+                                  <input type="checkbox" name="doc_files[]" class="document document-check" id="pdf-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>"> 
+                                  <label for="pdf-<?= $doc['id'] ?>">
                                     <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
                                     <div class="txt"><?= $doc['name'] ?></div>
                                   </label>
@@ -144,7 +145,7 @@
               <?php if($curr_userdata->ID == $titulaire_id) :?>
                 <div class="blcbtn">
                   <a href="#" id="add_doc_btn" class="link" title="Ajouter" data-cagnotte-id="<?=  $post->ID ?>">ajouter</a>
-                  <a href="#" class="link" title="Supprimer">Supprimer</a>
+                  <a href="#" id="remove_doc_btn" class="link" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>">Supprimer</a>
                 </div>
               <?php endif; ?>
             </div>

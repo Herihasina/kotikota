@@ -844,4 +844,23 @@ $(function(){
 		return false;
 	});
 
+	$('#add_doc_btn').click(function(e){
+		e.preventDefault();
+		var cagnotte_id= $(this).data('cagnotteId');
+		var file_ids = $('.document-check').val();
+		$.ajax({
+			url: ajaxurl,
+			data: {
+				'action': 'remove_doc_cagnotte',
+				'file_ids' : file_ids,
+				'cagnotte_id': cagnotte_id
+			},           
+			dataType: 'html',
+			type:"POST",
+		}).done(function(resp){
+			// $('.lst-document').html(resp);		
+			console.log(resp);
+		});
+	});
+
 })
