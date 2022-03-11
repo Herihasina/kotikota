@@ -253,7 +253,11 @@
 
       </div>
       <div id="ajout-video-image" style="display: none">
-          Content test
+          <div id="add_image" class="link" title="Cliquez ici pour ajouter une photo">Cliquez ici pou ajouter une photo</div>
+          <div class="add-video">
+            <input type="text" name="id-video" placeholder="Ajouter le lien de la video à ajouter ici">
+            <div class="link" title="Ajouter">Ajouter</div>
+          </div>
       </div>
     </div>
 
