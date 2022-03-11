@@ -908,7 +908,7 @@ function download_rib_report_handler() {
 }
 function generate_post_to_pdf_file($postID) {
 
-      $logo_width = '';
+      //$logo_width = '';
       $post = get_post ( $postID );
       $content = $post->post_content;
       //echo get_stylesheet_directory_uri();
@@ -916,13 +916,14 @@ function generate_post_to_pdf_file($postID) {
       if (! class_exists ( 'TCPDF' )) {
         require_once  get_stylesheet_directory() . '/libs/tcpdf_min/tcpdf.php';
       }
-      if (! class_exists ( 'pdfheader' )) {
+      /*if (! class_exists ( 'pdfheader' )) {
         require_once  get_stylesheet_directory() . '/pdfheader.php';
       }
       
       if (! class_exists ( 'simple_html_dom_node' )) {
         require_once  get_stylesheet_directory() . '/libs/simplehtmldom/simple_html_dom.php';
-      }
+      }*/
+  
       $filePath = CACHE_DIR . '/' . $post->ID . '.pdf';
       $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
       $pdf->setPrintHeader(false);
@@ -934,24 +935,6 @@ function generate_post_to_pdf_file($postID) {
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>';
 
       $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+      $pdf->Output($filePath, 'F');
       $pdf->Output($filePath, 'D');
     }
-
-/*function generate_rib_report($array, $filename = "export.csv", $delimiter=";") {
-    // tell the browser it's going to be a csv file
-    header('Content-Type: text/csv; charset=utf-8');
-    
-    // tell the browser we want to save it instead of displaying it
-    header('Content-Disposition: attachment; filename=export.csv');
-
-    // open the "output" stream
-    // see http://www.php.net/manual/en/wrappers.php.php#refsect2-wrappers.php-unknown-unknown-unknown-descriptioq
-    $f = fopen('php://output', 'w');
-
-    // use keys as column titles
-    fputcsv( $f, array_keys( $array['0'] ) , $delimiter );
-
-    foreach ($array as $line) {
-        fputcsv($f, $line, $delimiter);
-    }
-}*/
