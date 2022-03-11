@@ -844,7 +844,7 @@ $(function(){
 		return false;
 	});
 
-	$('#add_doc_btn').click(function(e){
+	$('#remove_doc_btn').click(function(e){
 		e.preventDefault();
 		var cagnotte_id= $(this).data('cagnotteId');
 		var file_ids = $('.document-check').val();
