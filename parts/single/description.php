@@ -253,10 +253,15 @@
 
       </div>
       <div id="ajout-video-image" style="display: none">
-          <div id="add_image" class="link" title="Cliquez ici pour ajouter une photo">Cliquez ici pou ajouter une photo</div>
-          <div class="add-video">
-            <input type="text" name="id-video" placeholder="Ajouter le lien de la video à ajouter ici">
-            <div class="link" title="Ajouter">Ajouter</div>
+          <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo">Cliquez ici pou ajouter une photo</a>
+          <div class="col">
+              <div class=" blc-chp ">
+                  <label for="fname"><?php echo __('ID de la nouvelle video','kotikota'); ?><span>*</span></label>
+                  <div class="chp">
+                    <input type="text" name="video_id" placeholder="<?php echo __('exemple: 9wNPug7h1gQ','kotikota'); ?>" >
+                  </div>
+              </div>
+              <div id="add_video" class="link" title="Ajouter">Ajouter</div>
           </div>
       </div>
     </div>
