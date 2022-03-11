@@ -1566,8 +1566,8 @@ function remove_media_cagnotte(){
                 $delete_image = delete_row('liste_images_cagnotte', $id, $cagnotte_id);
             }
         }
-        if($vidoe_ids && !empty($vidoe_ids)){
-            foreach($vidoe_ids as $id){
+        if($video_ids && !empty($video_ids)){
+            foreach($video_ids as $id){
                 $delete_image = delete_row('liste_videos_cagnotte', $id, $cagnotte_id);
             }
         }
