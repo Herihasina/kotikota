@@ -4,7 +4,7 @@ jQuery(document).on( 'click', '.rib-action', function(e) {
     jQuery.ajax({
         type:"POST",
         url:ajax_object.ajax_url,
-        data: {action:'download_rib_report'},
+        data: {action:'download_rib_report', postID: ajax_object.postID},
         success:function(res){
             //console.log(res);
 
