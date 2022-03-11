@@ -11,7 +11,7 @@ jQuery(document).on( 'click', '.rib-action', function(e) {
             /*
                * Make CSV downloadable
                */
-            var downloadLink = document.createElement("a");
+            /*var downloadLink = document.createElement("a");
             var fileData = ['\ufeff'+res];
 
             var blobObject = new Blob(fileData,{
@@ -24,10 +24,10 @@ jQuery(document).on( 'click', '.rib-action', function(e) {
 
             /*
              * Actually download CSV
-             */
+             *
             document.body.appendChild(downloadLink);
             downloadLink.click();
-            document.body.removeChild(downloadLink);
+            document.body.removeChild(downloadLink);*/
         }
     });
 });
