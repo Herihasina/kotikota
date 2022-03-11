@@ -2546,8 +2546,9 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     top: 0;
     bottom: 0;
 }
+#new_user .text-bottom { margin-top: 10px }
+#new_user .text-bottom p  { border:#8057a0 solid 1px; display: inline-block; padding: 22px 20px; border-radius: 30px ;}
 
-#new_user .text-bottom p  { border:#8057a0 solid 1px; display: inline-block; padding: 22px 20px; border-radius: 30px }
 
 
 @media (min-width:1201px) {
