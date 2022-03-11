@@ -1402,29 +1402,3 @@ function generate_post_to_pdf_file($postID) {
         fputcsv($f, $line, $delimiter);
     }
 }*/
-
-if (! class_exists ( 'TCPDF' )) {
-	require_once PTPDF_PATH . '/tcpdf/tcpdf.php';
-}
-
-class CUSTOMPDF extends TCPDF {
-	public function header() {
-		if(defined('PRINT_HEADER')) {
-			$this->setPrintHeader ( false );
-		} else {
-			parent::header();
-		}
-	}
-	public function Footer() {
-		$options = get_option ( PTPDF_PREFIX );
-		
-		if(isset($options['custom_footer_option'])) {
-			if(!empty($options['custom_footer']))
-			$this->writeHTMLCell ($options['footer_cell_width'], $options['footer_min_height'], $options['footer_lcornerX'], $options['footer_font_lcornerY'], $options['custom_footer'], '',0, $options['footer_cell_fill'], true, $options['footer_align'], $options['footer_cell_auto_padding']);
-				
-		} else {
-			// call parent footer method for default footer
-			parent::Footer();
-		}
-	}
-}
