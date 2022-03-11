@@ -1229,7 +1229,7 @@ function insert_doc_cagnotte(){
                     'document_fichiers' =>['fichier' => $doc_file]
             ];
 
-            update_field('liste_des_documents', $value, $cagnotte_id);
+            var_dump(update_field('liste_des_documents', $value, $cagnotte_id));
             
             
         }
