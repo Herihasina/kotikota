@@ -1204,15 +1204,25 @@ function insert_doc_cagnotte(){
         var_dump($doc);
         var_dump($cagnotte_id);
         var_dump($doc_file);
-        $value = array(
-            "document_fichiers" => array('fichier' => $doc),
-        );
+        // $value = array(
+        //     "document_fichiers" => array('fichier' => $doc),
+        // );
 
         // var_dump(update_field('liste_des_documents', $value, $cagnotte_id));
-        $add_doc = add_row('field_6228534c750e7',array('field_6228535a750e8' => $doc),$cagnotte_id);
-        var_dump($add_doc);
-        var_dump(get_field('field_6228534c750e7',$cagnotte_id));
-        var_dump(update_field('liste_des_documents', get_field('field_6228534c750e7',$cagnotte_id), $cagnotte_id));
+        // $add_doc = add_row('field_6228534c750e7',array('field_6228535a750e8' => $doc),$cagnotte_id);
+        // var_dump($add_doc);
+        // var_dump(get_field('field_6228534c750e7',$cagnotte_id));
+        // var_dump(update_field('liste_des_documents', get_field('field_6228534c750e7',$cagnotte_id), $cagnotte_id));
+
+        if( have_rows('liste_des_documents', $cagnotte_id) ) {
+            while( have_rows('liste_des_documents', $cagnotte_id) ) {
+                the_row();
+        
+                $add_doc = add_row("document_fichiers", array('fichier' => $doc));
+                var_dump($add_doc);
+
+            }
+        }
             
         // }
 
