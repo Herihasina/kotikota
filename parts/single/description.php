@@ -139,13 +139,13 @@
                       </div>
                       </div>
                     </div>
-                    <?php if($curr_userdata->ID == $titulaire_id) :?>
-                        <div class="blcbtn">
-                          <a href="#" id="add_doc_btn" class="link" title="Ajouter" data-file-name="" data-file-url="">ajouter</a>
-                          <a href="#" class="link" title="Supprimer">Supprimer</a>
-                        </div>
-                    <?php endif; ?>
                     
+                </div>
+              <?php endif; ?>
+              <?php if($curr_userdata->ID == $titulaire_id) :?>
+                <div class="blcbtn">
+                  <a href="#" id="add_doc_btn" class="link" title="Ajouter" data-cagnotte-id="<?=  $post->ID ?>">ajouter</a>
+                  <a href="#" class="link" title="Supprimer">Supprimer</a>
                 </div>
               <?php endif; ?>
             </div>

@@ -715,7 +715,7 @@ $(document).ready(function() {
 
     $('#add_doc_btn').click(function(e) {
         e.preventDefault();
-        var self= $(this);
+        var cagnotte_id= $(this).data('cagnotteId');
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger");
             $("#menu-item-upload").click();
@@ -731,13 +731,35 @@ $(document).ready(function() {
         });
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-            console.log(attachment.url);
-            self.data("fileUrl",attachment.url);
-            console.log(self.data("fileUrl"));
-            $('.zone-img-cin').css('background', 'center / cover no-repeat url(' + $('#cin_value').val() + ')');
-            self.data("fileName",attachment.filename);
-            console.log(attachment.filename);
-            console.log(self.data("fileName"));
+            $.ajax({
+                url: ajaxurl,
+                data: {
+                    'action': 'insert_doc_cagnotte',
+                    'doc_file' : attachment.url,
+                    'cagnotte_id': cagnotte_id
+                },           
+                dataType: 'html',
+                type:"POST",
+            }).done(function(resp){
+                console.log(resp);
+                    // $('#loader').removeClass('working');
+                    // var patt = new RegExp("^http");
+                    // if( patt.test(resp) ){
+                    //     $.fancybox.open({
+                    //         src : '#pp-felicitation',
+                    //         beforeClose: function() {
+                    //             window.location = resp;
+                    //         }
+                    //     });					
+                    // }else{
+                    //     $('ul#response').addClass('error').html(resp);
+                    //     setTimeout(function() {
+                    //         $('ul#response').removeClass('error').html('');
+                    //     }, 10000 );			
+                    // }		
+                
+            });
+
 
         });
         mediaUploader.open();
