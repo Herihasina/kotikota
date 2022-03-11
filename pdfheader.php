@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  */
 if (! class_exists ( 'TCPDF' )) {
-	require_once get_stylesheet_directory_uri . '/libs/tcpdf/tcpdf.php';
+	require_once  get_stylesheet_directory_uri() . '/libs/tcpdf_min/tcpdf.php';
 }
 /* if($this->options['page_header']=="None") {
 	define('PRINT_HEADER','1');
