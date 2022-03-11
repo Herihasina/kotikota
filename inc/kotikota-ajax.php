@@ -1226,8 +1226,9 @@ function insert_doc_cagnotte(){
         // if ( $doc_file != '' ){
         //     $doc_file = get_image_attach_id ( $filename_doc_file, 'user_'.$now_user );
 
+        $doc = attachment_url_to_postid(strip_tags($doc_file));
         $value = array(
-            array( "document_fichiers" => array('fichier' => $doc_file),)
+            array( "document_fichiers" => array('fichier' => $doc),)
         );
 
         var_dump(update_field('liste_des_documents', $value, $cagnotte_id));
