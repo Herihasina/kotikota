@@ -1,6 +1,6 @@
 jQuery(document).on( 'click', '.rib-action', function(e) {
     e.stopPropagation();
-
+    console.log(ajax_object.postID);
     jQuery.ajax({
         type:"POST",
         url:ajax_object.ajax_url,
