@@ -3499,7 +3499,7 @@ a:hover { color:#fbbd36; }
         border: #fff solid 1px;
         background: url(../images/ico-photo.png)no-repeat center #8d4a8f;
         display: block;
-        margin: 0;
+        margin: 0 0 20px;
     }
     #cin_value {   width: 100%;
     height: 100%;
