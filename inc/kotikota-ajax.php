@@ -1232,7 +1232,9 @@ function insert_doc_cagnotte(){
             "document_fichiers" => array('fichier' => $doc),
         );
 
-        var_dump(update_field('liste_des_documents', $value, $cagnotte_id));
+        // var_dump(update_field('liste_des_documents', $value, $cagnotte_id));
+        $add_doc = add_row('field_6228534c750e7',array('fichier' => $doc));
+        var_dump($add_doc);
             
             
         // }
