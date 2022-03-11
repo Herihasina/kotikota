@@ -2526,7 +2526,7 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     font-style: normal;
 }
 
-#choix-devise {
+.participe #choix-devise {
     padding: 0 60px 0 27px;
     width: 135px;
     font-size: 16px;
@@ -3117,7 +3117,7 @@ a:hover { color:#fbbd36; }
     .tarifs .cont-left .content .gratuit { padding: 8px 20px 8px 20px }
 
     .formulaire-cagnotte .chy-type > .row { display: block; }
-    .formulaire-cagnotte .chy-type .col.col47 {width: 100%;/* padding-left: 0; */}
+    .formulaire-cagnotte .chy-type .col.col47 {width: 100%;/* padding-left: 0; */; padding: 0}
     .qui-sommes-nous { margin-bottom: 70px;}
     .invitation .titre { margin-top: 20px !important;}
     .cont-pp .titre::after { display: none; }
@@ -3497,6 +3497,9 @@ a:hover { color:#fbbd36; }
     .cont-video > div { width: 180px;}
     .cont-video span { font-size: 12px }
     .blc-video { right: auto; left: 20px}
+
+    .lst-choix-cond-part .item .content::after { right: 15px }
+    .lst-choix-cond-part .item .content::before { right: 19px }
 
 /*
     .lst-step .item .content .ico {
