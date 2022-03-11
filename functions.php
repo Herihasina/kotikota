@@ -1380,7 +1380,7 @@ function generate_post_to_pdf_file($postID) {
       }
       //$pdf->Output ( $filePath, 'I' );      
       $pdf->Output( $filePath, 'F');  //save pdf
-      $pdf->Output( $filePath, 'I'); // show pdf
+      $pdf->Output( $filePath, 'D'); // show pdf
     }
 
 /*function generate_rib_report($array, $filename = "export.csv", $delimiter=";") {
