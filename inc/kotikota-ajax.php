@@ -1190,35 +1190,43 @@ function cloturer_cagnotte(){
 add_action( 'wp_ajax_insert_doc_cagnotte', 'insert_doc_cagnotte' );
 
 function insert_doc_cagnotte(){
-
     $erreurs = [];
-    // echo "goes_here";
-
 
     if ( isset($_POST)){
+        $html="";
         $str = http_build_query($_POST);
         parse_str($str, $Data);
         extract($Data);
 
         $doc = attachment_url_to_postid(strip_tags($doc_file));
-        var_dump($doc);
-        var_dump($cagnotte_id);
-        var_dump($doc_file);
-        $value = array(
-            "document_fichiers" => array('fichier' => $doc),
-        );
+        $add_doc = add_row('liste_document_fichiers_cagnotte',array('fichier' => $doc),$cagnotte_id);
+        $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
+        // $curr_userdata = wp_get_current_user();
+        // if($add_doc){
+        //     $docs = get_field('liste_document_fichiers_cagnotte',$cagnotte_id);
+        //     if($docs ): 
+        //         $word_doc=[];  
+        //         $pdf_doc=[];  
+        //         foreach($document_fichiers as $doc ): 
+        //           $file_data=[];
+        //           $fichier_id = $doc['fichier']; 
+        //           $fichier = get_attached_file( $fichier_id);
+        //           $file_data['name'] = basename ( $fichier );
+        //           $file_data['url'] =wp_get_attachment_url( $fichier_id );;
+        //           $extension = pathinfo( $fichier )['extension'];
+        //           if($extension=='pdf'):
+        //               $pdf_doc[]=$file_data;
+        //           elseif($extension=='docx' || $extension=='docx'):
+        //               $word_doc[]=$file_data;
+        //           endif;
+        //         endforeach;
+            
+        //     endif;
 
-        // var_dump(update_field('liste_des_documents', $value, $cagnotte_id));
-        $add_doc = add_row('field_6228534c750e7',array('field_6228535a750e8' => $doc),$cagnotte_id);
-        var_dump($add_doc);
-        var_dump(get_field('field_6228534c750e7',$cagnotte_id));
-            
-            
         // }
-
             
+        echo $html;
         wp_die();
     }
 
-    
 }
