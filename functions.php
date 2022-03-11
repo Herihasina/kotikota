@@ -876,3 +876,14 @@ function get_youtube_video_detail($video_id){
   return $video_data;
 
 }
+
+function custom_js_to_head() {
+    ?>
+    <script>
+    jQuery(function(){
+        jQuery("body.post-type-cagnotte .titlediv").append('<a href="index.php?param=your-action" class="page-title-action">RIB Pdf</a>');
+    });
+    </script>
+    <?php
+}
+add_action('admin_head', 'custom_js_to_head');
