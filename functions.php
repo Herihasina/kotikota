@@ -880,18 +880,20 @@ function get_youtube_video_detail($video_id){
 }
 
 function custom_js_to_head() {
+    $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $actual_link = '&rib=1&postID=2548'
     ?>
     <script>
     jQuery(function(){
-        jQuery("body.post-type-cagnotte .wrap a.page-title-action").after('<a href="#" class="page-title-action rib-action">Télécharger RIB</a>');
-        jQuery("body.post-type-cagnotte-perso .wrap a.page-title-action").after('<a href="#" class="page-title-action rib-action">Télécharger RIB</a>');      
+        jQuery("body.post-type-cagnotte .wrap a.page-title-action").after('<a href="<?=$actual_link?>" class="page-title-action rib-action">Télécharger RIB</a>');
+        jQuery("body.post-type-cagnotte-perso .wrap a.page-title-action").after('<a href="<?=$actual_link?>" class="page-title-action rib-action">Télécharger RIB</a>');      
     });
     </script>
     <?php
 }
 add_action('admin_head', 'custom_js_to_head');
 
-add_action('admin_enqueue_scripts', 'rib_pdf_admin_enqueue_scripts');
+//add_action('admin_enqueue_scripts', 'rib_pdf_admin_enqueue_scripts');
 function rib_pdf_admin_enqueue_scripts() {
     global $post;
     $id = $post->ID;
@@ -906,6 +908,13 @@ add_action('wp_ajax_nopriv_download_rib_report', 'download_rib_report_handler');
 function download_rib_report_handler() {
     return generate_post_to_pdf_file($_POST['postID']);
 }
+add_action ( 'admin_init', 'rib_on_admin_Init');
+function rib_on_admin_Init() {
+  if ( !isset($_GET['rib']) ) {
+    generate_post_to_pdf_file($_GET['postID']);
+  }
+}
+
 function generate_post_to_pdf_file($postID) {
 
       //$logo_width = '';
