@@ -1207,7 +1207,7 @@ function insert_doc_cagnotte(){
             if($docs ): 
                 $word_doc=[];  
                 $pdf_doc=[];  
-                foreach($document_fichiers as $doc ): 
+                foreach($docs as $doc ): 
                   $file_data=[];
                   $fichier_id = $doc['fichier']; 
                   $fichier = get_attached_file( $fichier_id);
