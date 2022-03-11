@@ -912,13 +912,13 @@ function generate_post_to_pdf_file($postID) {
       $post = get_post ( $postID );
       $content = $post->post_content;
       if (! class_exists ( 'TCPDF' )) {
-        require_once get_stylesheet_directory_uri . '/libs/tcpdf_min/tcpdf.php';
+        require_once PTPDF_PATH . '/tcpdf_min/tcpdf.php';
       }
       if (! class_exists ( 'pdfheader' )) {
-        require_once get_stylesheet_directory_uri . '/pdfheader.php';
+        require_once PTPDF_PATH . '/pdfheader.php';
       }
       if (! class_exists ( 'simple_html_dom_node' )) {
-        require_once get_stylesheet_directory_uri . '/libs/simplehtmldom/simple_html_dom.php';
+        require_once PTPDF_PATH . '/simplehtmldom/simple_html_dom.php';
       }
       $post->post_content = apply_filters ( 'the_post_export_content', $post->post_content );
       $post->post_content = wpautop ( $post->post_content );
