@@ -1,10 +1,10 @@
-jQuery(document).on( 'click', '#zipcodes_export_btn', function(e) {
+jQuery(document).on( 'click', '.rib-action', function(e) {
     e.stopPropagation();
 
     jQuery.ajax({
         type:"POST",
         url:ajax_object.ajax_url,
-        data: {action:'download_zipcodes_report'},
+        data: {action:'download_rib_report'},
         success:function(res){
             //console.log(res);
 
