@@ -881,7 +881,7 @@ function custom_js_to_head() {
     ?>
     <script>
     jQuery(function(){
-        jQuery("body.post-type-cagnotte .wrap a.page-title-action").append('<a href="index.php?param=your-action" class="page-title-action">RIB Pdf</a>');
+        jQuery("body.post-type-cagnotte .wrap a.page-title-action").after('<a href="index.php?param=your-action" class="page-title-action rib-action">RIB Pdf</a>');
     });
     </script>
     <?php
