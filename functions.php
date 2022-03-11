@@ -891,9 +891,11 @@ add_action('admin_head', 'custom_js_to_head');
 
 add_action('admin_enqueue_scripts', 'rib_pdf_admin_enqueue_scripts');
 function rib_pdf_admin_enqueue_scripts() {
+    global $post;
+    $id = $post->ID;
+  
     wp_enqueue_script( 'rib-pdf-input-js', get_stylesheet_directory_uri() . '/assets/js/admin-script.js', false, '1.0.0' );
-
-    wp_localize_script( 'rib-pdf-input-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+    wp_localize_script( 'rib-pdf-input-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'postID' => $id ) );  
 }
 
 add_action('wp_ajax_download_rib_report', 'download_rib_report_handler');
