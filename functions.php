@@ -939,12 +939,12 @@ function generate_post_to_pdf_file($postID) {
       $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
       $pdf->SetCreator ( 'kotikota' . PDF_CREATOR );
       $pdf->SetAuthor ( get_bloginfo ( 'name' ) );
-      $pdf_title = $post->post_title;
+      $pdf_title = 'Informations RIB de la cagnotte <<' . $post->post_title .'>>';
   
       $pdf->setPrintHeader(false);
       $pdf->AddPage();
       $html .= "<body>";
-      $html .= "<h1 style=\"text-align:center\">".apply_filters ( 'the_post_title', $pdf_title )."</h1>";
+      $html .= "<h2 style=\"text-align:center\">".apply_filters ( 'the_post_title', $pdf_title )."</h2><hr>";
       $html .= "Titulaire du compte : " . get_field('rib_nom', $post->ID) .'<br>';
       $html .= "Nom de la banque : " .get_field('rib_banque', $post->ID).'<br>';
       $html .= "Adresse de domiciliation : " .get_field('rib_adresse_de_domiciliation', $post->ID.'<br>');
