@@ -98,7 +98,7 @@
                             <?php foreach($word_doc as $doc ): ?>        
                               <div class="item">
                                 <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                  <input type="checkbox" name="doc_files[]" class="document document-check" id="doc-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>"> 
+                                  <input type="checkbox" name="doc_files" class="document document-check" id="doc-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>"> 
                                   <label for="doc-<?= $doc['id'] ?>">
                                     <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
                                     <div class="txt"><?= $doc['name'] ?></div>
@@ -121,7 +121,7 @@
                             <?php foreach($pdf_doc as $doc ): ?>   
                               <div class="item">
                                 <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                  <input type="checkbox" name="doc_files[]" class="document document-check" id="pdf-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>"> 
+                                  <input type="checkbox" name="doc_files" class="document document-check" id="pdf-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>"> 
                                   <label for="pdf-<?= $doc['id'] ?>">
                                     <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
                                     <div class="txt"><?= $doc['name'] ?></div>

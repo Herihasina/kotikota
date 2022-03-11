@@ -847,7 +847,10 @@ $(function(){
 	$('#remove_doc_btn').click(function(e){
 		e.preventDefault();
 		var cagnotte_id= $(this).data('cagnotteId');
-		var file_ids = $('[name=doc_files[]]').val();
+		var file_ids = $('[name=doc_files]').val();
+        $('[name=doc_files]:checked').each(function(i){
+			file_ids[i] = $(this).val();
+        });
 		console.log(file_ids);
 		$.ajax({
 			url: ajaxurl,
