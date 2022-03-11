@@ -1381,7 +1381,7 @@ function generate_post_to_pdf_file($postID) {
       $pdf->Output ( $filePath, 'F' );      
     }
 
-function generate_rib_report($array, $filename = "export.csv", $delimiter=";") {
+/*function generate_rib_report($array, $filename = "export.csv", $delimiter=";") {
     // tell the browser it's going to be a csv file
     header('Content-Type: text/csv; charset=utf-8');
     
@@ -1398,4 +1398,4 @@ function generate_rib_report($array, $filename = "export.csv", $delimiter=";") {
     foreach ($array as $line) {
         fputcsv($f, $line, $delimiter);
     }
-}
+}*/
