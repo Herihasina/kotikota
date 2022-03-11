@@ -713,64 +713,6 @@ $(document).ready(function() {
         $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
     });
 
-    $('#add_doc_btn').click(function(e) {
-        e.preventDefault();
-        var cagnotte_id= $(this).data('cagnotteId');
-        if (mediaUploader) {
-            $("#menu-item-upload").html("Télécharger");
-            $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
-            $(".media-uploader-status .h2").html("Téléchargement");
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-            mediaUploader.open();
-            return;
-        }
-        mediaUploader = wp.media.frames.file_frame = wp.media({
-            multiple: false
-        });
-        mediaUploader.on('select', function() {
-            var attachment = mediaUploader.state().get('selection').first().toJSON();
-            $.ajax({
-                url: ajaxurl,
-                data: {
-                    'action': 'insert_doc_cagnotte',
-                    'doc_file' : attachment.url,
-                    'cagnotte_id': cagnotte_id
-                },           
-                dataType: 'html',
-                type:"POST",
-            }).done(function(resp){
-                $('.lst-document').html(resp);
-                    // $('#loader').removeClass('working');
-                    // var patt = new RegExp("^http");
-                    // if( patt.test(resp) ){
-                    //     $.fancybox.open({
-                    //         src : '#pp-felicitation',
-                    //         beforeClose: function() {
-                    //             window.location = resp;
-                    //         }
-                    //     });					
-                    // }else{
-                    //     $('ul#response').addClass('error').html(resp);
-                    //     setTimeout(function() {
-                    //         $('ul#response').removeClass('error').html('');
-                    //     }, 10000 );			
-                    // }		
-                
-            });
-
-
-        });
-        mediaUploader.open();
-        $("#menu-item-upload").html("Télécharger");
-        $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
-        $(".media-uploader-status .h2").html("Téléchargement");
-        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-        $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-    });
-
     $('.signup-date-birth').datepicker({
         dateFormat: 'dd-mm-yy',
         changeMonth: true,

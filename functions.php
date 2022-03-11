@@ -6,6 +6,7 @@
 //         session_start();
 //     }
 // }
+define ( 'CACHE_DIR', WP_CONTENT_DIR . '/uploads/pdfs/');
 
 add_action( 'wp_enqueue_scripts', 'kotikota_enqueue_styles' );
 function kotikota_enqueue_styles() {
@@ -864,17 +865,18 @@ function get_youtube_video_detail($video_id){
 
   $youtubeVals = json_decode(json_encode($youtubeData), true);
 
-  
-  $video_data['url'] = "https://www.youtube.com/watch?v=".$video_id;
-  $video_data['title'] = $youtubeVals['items'][0]['snippet']['title'];
-  $video_data['description'] = wp_trim_words( $youtubeVals ['items'][0]['snippet']['description'], 6, '...' );
-  $video_data['vignette'] = $youtubeVals ['items'][0]['snippet']['thumbnails']['standard']['url'];
-  $iso8601_duration = $youtubeVals ['items'][0]['contentDetails']['duration'];
-  $date_interval= new DateInterval($iso8601_duration);
-  $video_data['duration']= $date_interval->i.":".$date_interval->s;
-
-  return $video_data;
-
+  if($youtubeVals['pageInfo']['totalResults']>0){
+    $video_data['url'] = "https://www.youtube.com/watch?v=".$video_id;
+    $video_data['title'] = $youtubeVals['items'][0]['snippet']['title'];
+    $video_data['description'] = wp_trim_words( $youtubeVals ['items'][0]['snippet']['description'], 6, '...' );
+    $video_data['vignette'] = $youtubeVals ['items'][0]['snippet']['thumbnails']['standard']['url'];
+    $iso8601_duration = $youtubeVals ['items'][0]['contentDetails']['duration'];
+    $date_interval= new DateInterval($iso8601_duration);
+    $video_data['duration']= $date_interval->i.":".$date_interval->s;
+    return $video_data;
+  }else{
+    return false;
+  }
 }
 
 function custom_js_to_head() {
@@ -891,33 +893,48 @@ add_action('admin_head', 'custom_js_to_head');
 
 add_action('admin_enqueue_scripts', 'rib_pdf_admin_enqueue_scripts');
 function rib_pdf_admin_enqueue_scripts() {
+    global $post;
+    $id = $post->ID;
+  
     wp_enqueue_script( 'rib-pdf-input-js', get_stylesheet_directory_uri() . '/assets/js/admin-script.js', false, '1.0.0' );
-
-    wp_localize_script( 'rib-pdf-input-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+    wp_localize_script( 'rib-pdf-input-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'postID' => $id ) );  
 }
 
 add_action('wp_ajax_download_rib_report', 'download_rib_report_handler');
 add_action('wp_ajax_nopriv_download_rib_report', 'download_rib_report_handler');
 
 function download_rib_report_handler() {
-    return generate_rib_report(get_field('rib_nom'));
+    return generate_post_to_pdf_file($_POST['postID']);
 }
+function generate_post_to_pdf_file($postID) {
 
-function generate_rib_report($array, $filename = "export.csv", $delimiter=";") {
-    // tell the browser it's going to be a csv file
-    header('Content-Type: text/csv; charset=utf-8');
-    
-    // tell the browser we want to save it instead of displaying it
-    header('Content-Disposition: attachment; filename=export.csv');
+      //$logo_width = '';
+      $post = get_post ( $postID );
+      $content = $post->post_content;
+      //echo get_stylesheet_directory_uri();
+  
+      if (! class_exists ( 'TCPDF' )) {
+        require_once  get_stylesheet_directory() . '/libs/tcpdf_min/tcpdf.php';
+      }
+      /*if (! class_exists ( 'pdfheader' )) {
+        require_once  get_stylesheet_directory() . '/pdfheader.php';
+      }
+      
+      if (! class_exists ( 'simple_html_dom_node' )) {
+        require_once  get_stylesheet_directory() . '/libs/simplehtmldom/simple_html_dom.php';
+      }*/
+  
+      $filePath = CACHE_DIR . '/' . $post->ID . '.pdf';
+      $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+      $pdf->setPrintHeader(false);
+      $pdf->AddPage();
 
-    // open the "output" stream
-    // see http://www.php.net/manual/en/wrappers.php.php#refsect2-wrappers.php-unknown-unknown-unknown-descriptioq
-    $f = fopen('php://output', 'w');
+      $html = '<h1>Welcome to <a href="http://techbriefers.com/" style="text-decoration:none;padding: 10px;"> <span style="background-color:#ef3e47;color:#fff;"> Tech</span><span style="background-color:#fff1f0;color:#000;">Briefers</span> </a>!</h1>
+      <i>This is the two minute example of TCPDF library by <a href="http://techbriefers.com/">techbriefers</a>.</i>
+      <h2>What is Lorem Ipsum?</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>';
 
-    // use keys as column titles
-    fputcsv( $f, array_keys( $array['0'] ) , $delimiter );
-
-    foreach ($array as $line) {
-        fputcsv($f, $line, $delimiter);
+      $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
+      $pdf->Output($filePath, 'F');
+      $pdf->Output($filePath, 'D');
     }
-}
