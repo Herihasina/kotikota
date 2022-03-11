@@ -1247,9 +1247,9 @@ function insert_doc_cagnotte(){
                     else:
                     ?>
                         <div style="text-align:center">
-                            <h3 style="text-align:center">
+                            <h4 style="text-align:center">
                                 <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                            </h3>
+                            </h4>
                         </div>
                     <?php endif; ?>
                     </div>
@@ -1278,9 +1278,9 @@ function insert_doc_cagnotte(){
                         else:
                         ?>
                             <div style="text-align:center">
-                                <h3 style="text-align:center">
+                                <h4 style="text-align:center">
                                     <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                                </h3>
+                                </h4>
                             </div>
                         <?php endif; ?>
                         </div>
@@ -1290,9 +1290,9 @@ function insert_doc_cagnotte(){
         else:
         ?>
             <div style="text-align:center">
-                <h3 style="text-align:center">
+                <h4 style="text-align:center">
                     <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                </h3>
+                </h4>
             </div>
         <?php
             endif;
@@ -1367,9 +1367,9 @@ function remove_doc_cagnotte(){
                     else:
                     ?>
                         <div style="text-align:center">
-                            <h3 style="text-align:center">
+                            <h4 style="text-align:center">
                                 <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                            </h3>
+                            </h4>
                         </div>
                     <?php endif; ?>
                     </div>
@@ -1398,9 +1398,9 @@ function remove_doc_cagnotte(){
                         else:
                         ?>
                             <div style="text-align:center">
-                                <h3 style="text-align:center">
+                                <h4 style="text-align:center">
                                     <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                                </h3>
+                                </h4>
                             </div>
                         <?php endif; ?>
                         </div>
@@ -1410,9 +1410,9 @@ function remove_doc_cagnotte(){
         else:
         ?>
             <div style="text-align:center">
-                <h3 style="text-align:center">
+                <h4 style="text-align:center">
                     <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                </h3>
+                </h4>
             </div>
         <?php
             endif;
@@ -1463,9 +1463,9 @@ function insert_image_cagnotte(){
             else:
             ?>
                 <div style="text-align:center">
-                    <h3 style="text-align:center">
+                    <h4 style="text-align:center">
                         <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                    </h3>
+                    </h4>
                 </div>
             <?php endif; ?>
             </div>
@@ -1534,9 +1534,9 @@ function insert_video_cagnotte(){
                 else:
                 ?>
                     <div style="text-align:center">
-                        <h3 style="text-align:center">
+                        <h4 style="text-align:center">
                             <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                        </h3>
+                        </h4>
                     </div>
                 <?php endif; ?>
             </div>
@@ -1604,9 +1604,9 @@ function remove_media_cagnotte(){
                     else:
                     ?>
                         <div style="text-align:center">
-                            <h3 style="text-align:center">
+                            <h4 style="text-align:center">
                                 <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                            </h3>
+                            </h4>
                         </div>
                 <?php endif; ?>
                 </div>
@@ -1649,9 +1649,9 @@ function remove_media_cagnotte(){
                     else:
                     ?>
                         <div style="text-align:center">
-                            <h3 style="text-align:center">
+                            <h4 style="text-align:center">
                                 <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                            </h3>
+                            </h4>
                         </div>
                     <?php endif; ?>
                     </div>
