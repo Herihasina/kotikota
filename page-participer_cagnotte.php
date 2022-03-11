@@ -85,7 +85,7 @@
                         $devise = $deviseB['value'];
                       ?>
                       <label for="donation"><?php echo __('Ma participation', 'kotikota'); ?> <span>*</span></label>
-                      <div class="chp">
+                      <div class="chp device">
                         <input type="number" name="donation" id="donation" placeholder="Saisissez un montant" required>
                         <select class="input-select appended-select" id="choix-devise" style="">
                           <option value="mga" <?php if ($devise == 'mga') echo "selected"; ?>>MGA</option>
