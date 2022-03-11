@@ -3232,6 +3232,9 @@ a:hover { color:#fbbd36; }
             text-align: center !important;
             margin-bottom: 30px;
         }
+        #pp-document .lst-document h4 {
+    margin-bottom: 0;
+}
 
 
 
