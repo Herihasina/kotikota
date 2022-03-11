@@ -141,7 +141,7 @@
                     </div>
                     <?php if($curr_userdata->ID == $titulaire_id) :?>
                         <div class="blcbtn">
-                          <a href="#" id="add_doc_btn" class="link" title="Ajouter" data-file="">ajouter</a>
+                          <a href="#" id="add_doc_btn" class="link" title="Ajouter" data-filename="" data-fileurl="">ajouter</a>
                           <a href="#" class="link" title="Supprimer">Supprimer</a>
                         </div>
                     <?php endif; ?>

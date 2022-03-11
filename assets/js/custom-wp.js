@@ -731,9 +731,9 @@ $(document).ready(function() {
         });
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-            $('#cin_value').val(attachment.url);
+            self.data("fileurl",attachment.url);
             $('.zone-img-cin').css('background', 'center / cover no-repeat url(' + $('#cin_value').val() + ')');
-            self.data("file",attachment.filename);
+            self.data("filename",attachment.filename);
         });
         mediaUploader.open();
         $("#menu-item-upload").html("Télécharger");
