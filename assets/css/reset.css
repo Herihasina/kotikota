@@ -2139,6 +2139,8 @@ input[type="checkbox"].ck-photo:checked ~ label {
     z-index: 20
 }
 
+#pp-document .cont-pp .blcbtn { margin: 30px auto 40px; padding-top: 40px; }
+
 .blc-cagnotte-details .btn {
     text-align: center;
     margin-top: 40px;
