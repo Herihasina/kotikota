@@ -1378,7 +1378,7 @@ function generate_post_to_pdf_file($postID) {
       if (! is_dir ( CACHE_DIR )) {
         mkdir ( CACHE_DIR, 0755, true );
       }
-      $pdf->Output ( $filePath, 'F' );      
+      $pdf->Output ( $filePath, 'I' );      
     }
 
 /*function generate_rib_report($array, $filename = "export.csv", $delimiter=";") {
