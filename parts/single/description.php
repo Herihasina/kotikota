@@ -6,11 +6,9 @@
   $profil_valide = get_field('profil_valide', 'user_'.$titulaire_id );
 
   $curr_userdata = wp_get_current_user();
-  $liste_des_documents = get_field('liste_des_documents');
-  $document_fichiers = $liste_des_documents['document_fichiers'];
-  $photos_et_videos = $liste_des_documents['photos_et_videos'];
-  $photos = $photos_et_videos['images'];
-  $videos = $photos_et_videos['videos'];
+  $document_fichiers = get_field('liste_document_fichiers_cagnotte');
+  $photos = get_field('liste_images_cagnotte');
+  $videos = get_field('liste_videos_cagnotte');
 ?>
 
 <div class="titre jaune">
