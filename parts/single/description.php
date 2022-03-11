@@ -73,11 +73,12 @@
               <?php if($document_fichiers): 
                   $word_doc=[];  
                   $pdf_doc=[];  
+                  $key_field=1;
                   foreach($document_fichiers as $doc ): 
                     $file_data=[];
                     $fichier_id = $doc['fichier']; 
                     $fichier = get_attached_file( $fichier_id);
-                    $file_data['id'] = $fichier_id;
+                    $file_data['id'] = $key_field;
                     $file_data['name'] = basename ( $fichier );
                     $file_data['url'] =wp_get_attachment_url( $fichier_id );;
                     $extension = pathinfo( $fichier )['extension'];
@@ -86,6 +87,7 @@
                     elseif($extension=='docx' || $extension=='docx'):
                         $word_doc[]=$file_data;
                     endif;
+                    $key_field++;
                   endforeach;
                 
               ?>
