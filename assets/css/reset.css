@@ -2594,6 +2594,7 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 #ajout-video-image .fancybox-close-small {
     color: #000;
 }
+.lst-document h4 { text-align: left !important; }
 
 
 @media (min-width:1201px) {
