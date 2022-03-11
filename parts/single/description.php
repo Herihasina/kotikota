@@ -238,7 +238,7 @@
                   </div>
                   <?php if($curr_userdata->ID == $titulaire_id) :?>
                     <div class="blcbtn">
-                     <a href="#" class="link" title="Ajouter">ajouter</a>
+                     <a href="#ajout-video-image" class="link fancybox" title="Ajouter">ajouter</a>
                      <a href="#" class="link" title="Supprimer">Supprimer</a>
                     </div>
                   <?php endif; ?>
@@ -251,6 +251,9 @@
         </div>
 
 
+      </div>
+      <div id="ajout-video-image" style="display: none">
+          Content test
       </div>
     </div>
 
