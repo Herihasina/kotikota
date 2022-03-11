@@ -885,7 +885,8 @@ $(function(){
         });
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-            $.ajax({
+            console.log(attachment.mime);
+			$.ajax({
                 url: ajaxurl,
                 data: {
                     'action': 'insert_doc_cagnotte',
