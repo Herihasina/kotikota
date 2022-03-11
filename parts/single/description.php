@@ -201,7 +201,15 @@
                             </div>
                           <?php endforeach; ?>
                         </div>
-                      <?php endif; ?>
+                      <?php
+                      else:
+                      ?>
+                            <div style="text-align:center">
+                                <h3 style="text-align:center">
+                                    <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                                </h3>
+                            </div>
+                    <?php endif; ?>
                     </div>
                     <div class="col video">
                       <h3>vidéos</h3>
@@ -235,7 +243,15 @@
                                 endif;
                               endforeach; ?>
                             </div>
-                          <?php endif; ?>
+                      <?php
+                        else:
+                        ?>
+                            <div style="text-align:center">
+                                <h3 style="text-align:center">
+                                    <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                                </h3>
+                            </div>
+                        <?php endif; ?>
                         </div>
                     </div>
                   </div>

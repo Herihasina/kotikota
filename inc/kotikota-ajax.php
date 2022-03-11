@@ -1506,24 +1506,26 @@ function insert_video_cagnotte(){
                     <?php foreach($videos as $video ): 
                     $video_id= $video['lien_youtube'];
                     $video_data = get_youtube_video_detail($video_id);
+                    if($video_data):
                     ?>        
-                    <div class="item">      
-                        <div class="contvideo">
-                        <a href="<?= $video_data['url'] ?>" target="_blank">
-                            <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
-                            <div class="txt">
-                            <h4><?= $video_data['title'] ?></h4>
-                            <p><?= $video_data['description'] ?></p>
+                        <div class="item">      
+                            <div class="contvideo">
+                            <a href="<?= $video_data['url'] ?>" target="_blank">
+                                <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
+                                <div class="txt">
+                                <h4><?= $video_data['title'] ?></h4>
+                                <p><?= $video_data['description'] ?></p>
+                                </div>
+                                <?php if($curr_userdata->ID == $titulaire_id) :?>
+                                <div class="check-video">                            
+                                    <input type="checkbox" class="ck-photo" id="video1"> 
+                                    <label for="video1"></label>
+                                </div>
+                                <?php endif; ?>
+                            </a>
                             </div>
-                            <?php if($curr_userdata->ID == $titulaire_id) :?>
-                            <div class="check-video">                            
-                                <input type="checkbox" class="ck-photo" id="video1"> 
-                                <label for="video1"></label>
-                            </div>
-                            <?php endif; ?>
-                        </a>
                         </div>
-                    </div>
+                    <?php endif; ?>
                     
                     <?php endforeach; ?>
                 </div>
@@ -1533,7 +1535,7 @@ function insert_video_cagnotte(){
                 ?>
                     <div style="text-align:center">
                         <h3 style="text-align:center">
-                            <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                            <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
                         </h3>
                     </div>
                 <?php endif; ?>
