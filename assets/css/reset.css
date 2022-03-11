@@ -2548,7 +2548,9 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 }
 .inscription-pp .txt-bottom { margin-top: 60px; text-align: center }
 .inscription-pp .txt-bottom p  { border:#8057a0 solid 1px; display: inline-block; padding: 22px 20px; border-radius: 30px ;}
-
+.popup-inscription .txt-bottom p {
+    border: none;
+}
 
 
 @media (min-width:1201px) {
