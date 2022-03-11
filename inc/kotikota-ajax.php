@@ -1200,32 +1200,6 @@ function insert_doc_cagnotte(){
         parse_str($str, $Data);
         extract($Data);
 
-        // if (!function_exists('wp_handle_upload')) {
-        //     require_once(ABSPATH . 'wp-admin/includes/file.php');
-        // }
-
-        // $upload_overrides = array('test_form' => false);
-
-        // $files = $_FILES['doc_file'];
-
-        // foreach ($files as $file => $value) {
-        //     $file = array(
-        //         'name'     => $files['name'],
-        //         'type'     => $files['type'],
-        //         'tmp_name' => $files['tmp_name'],
-        //         'error'    => $files['error'],
-        //         'size'     => $files['size'],
-        //     );
-        //     $filename_doc_file = $file['name'];
-        //     $movefile = wp_handle_upload($file, $upload_overrides); 
-        //     if ($movefile && !isset($movefile['error'])) {
-        //         $doc_file = $movefile['url'];
-        //     }
-        // }
-
-        // if ( $doc_file != '' ){
-        //     $doc_file = get_image_attach_id ( $filename_doc_file, 'user_'.$now_user );
-
         $doc = attachment_url_to_postid(strip_tags($doc_file));
         var_dump($doc);
         var_dump($cagnotte_id);
@@ -1237,6 +1211,7 @@ function insert_doc_cagnotte(){
         // var_dump(update_field('liste_des_documents', $value, $cagnotte_id));
         $add_doc = add_row('field_6228534c750e7',array('field_6228535a750e8' => $doc),$cagnotte_id);
         var_dump($add_doc);
+        var_dump(get_field('field_6228534c750e7',$cagnotte_id));
             
             
         // }
