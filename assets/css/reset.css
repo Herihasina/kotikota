@@ -3223,6 +3223,11 @@ a:hover { color:#fbbd36; }
      .offrir-cadeau .lst-type { display: block; }
 
      .chp.device::before { width: 100px }
+     #pp-document .lst-document h4 {
+    text-align: center !important;
+    font-weight: 700;
+}
+#pp-photos .inner-pp .row .col .lst-option { padding-right: 0 }
 
 
 
