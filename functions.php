@@ -6,7 +6,7 @@
 //         session_start();
 //     }
 // }
-define ( 'CACHE_DIR', WP_CONTENT_DIR . '/uploads/pdfs');
+define ( 'CACHE_DIR', WP_CONTENT_DIR . '/uploads/pdfs/');
 
 add_action( 'wp_enqueue_scripts', 'kotikota_enqueue_styles' );
 function kotikota_enqueue_styles() {
