@@ -1488,6 +1488,11 @@ function insert_video_cagnotte(){
         parse_str($str, $Data);
         extract($Data);
 
+        $video_data = get_youtube_video_detail($video_id);
+        if(!$video_data){
+            echo "Veuillez entrer un ID valide !";
+            wp_die();
+        }
         $add_doc = add_row('liste_videos_cagnotte',array('lien_youtube' => $video_id),$cagnotte_id);
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
         $curr_userdata = wp_get_current_user();

@@ -956,6 +956,7 @@ $(function(){
 	$('#add_video').click(function(e){
 		e.preventDefault();
 		var cagnotte_id= $(this).data('cagnotteId');
+		var patt = new RegExp("^Veuillez");
 		var video_id= $("[name=video_id]").val();
 		if(video_id){
 			$.ajax({
@@ -968,8 +969,12 @@ $(function(){
 				dataType: 'html',
 				type:"POST",
 			}).done(function(resp){
-				$('#pp-photos .lst-document .row .video').html(resp);		
-				$.fancybox.close();
+				if(patt.test(resp)){
+					$('.error_video').text(resp);
+				}else{
+					$('#pp-photos .lst-document .row .video').html(resp);		
+					$.fancybox.close();
+				}
 			});
 		}else{
 			$('.error_video').text("Veuillez entrer un ID");

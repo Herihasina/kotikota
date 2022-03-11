@@ -865,17 +865,18 @@ function get_youtube_video_detail($video_id){
 
   $youtubeVals = json_decode(json_encode($youtubeData), true);
 
-  
-  $video_data['url'] = "https://www.youtube.com/watch?v=".$video_id;
-  $video_data['title'] = $youtubeVals['items'][0]['snippet']['title'];
-  $video_data['description'] = wp_trim_words( $youtubeVals ['items'][0]['snippet']['description'], 6, '...' );
-  $video_data['vignette'] = $youtubeVals ['items'][0]['snippet']['thumbnails']['standard']['url'];
-  $iso8601_duration = $youtubeVals ['items'][0]['contentDetails']['duration'];
-  $date_interval= new DateInterval($iso8601_duration);
-  $video_data['duration']= $date_interval->i.":".$date_interval->s;
-
-  return $video_data;
-
+  if($youtubeVals['pageInfo']['totalResults']>0){
+    $video_data['url'] = "https://www.youtube.com/watch?v=".$video_id;
+    $video_data['title'] = $youtubeVals['items'][0]['snippet']['title'];
+    $video_data['description'] = wp_trim_words( $youtubeVals ['items'][0]['snippet']['description'], 6, '...' );
+    $video_data['vignette'] = $youtubeVals ['items'][0]['snippet']['thumbnails']['standard']['url'];
+    $iso8601_duration = $youtubeVals ['items'][0]['contentDetails']['duration'];
+    $date_interval= new DateInterval($iso8601_duration);
+    $video_data['duration']= $date_interval->i.":".$date_interval->s;
+    return $video_data;
+  }else{
+    return false;
+  }
 }
 
 function custom_js_to_head() {
