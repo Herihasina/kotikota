@@ -2591,7 +2591,9 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     color: #7b7b7b;
 }
 
-#ajout-video-image .fancybox-slide--html .fancybox-close-small { color: #000 }
+#ajout-video-image .fancybox-close-small {
+    color: #000;
+}
 
 
 @media (min-width:1201px) {
