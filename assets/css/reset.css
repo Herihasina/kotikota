@@ -2032,7 +2032,7 @@ input:checked {
 }
 
 .pp-document .lst-document {
-    height: 620px;
+    max-height: 620px;
 }
 
 
@@ -2545,8 +2545,8 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     top: 0;
     bottom: 0;
 }
-.inscription-pp .txt-bottom { margin-top: 60px; text-align: center }
-.inscription-pp .txt-bottom p  { border:#8057a0 solid 1px; display: inline-block; padding: 22px 20px; border-radius: 30px ;}
+.inscription-pp .txt-bottom { margin-top: 100px; text-align: center }
+.inscription-pp .txt-bottom p  { border:#8057a0 solid 1px; display: inline-block; padding: 22px 20px; border-radius: 30px ; font-size: 18px}
 #inscription.popup-inscription .txt-bottom p {
     border: none;
 }
