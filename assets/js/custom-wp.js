@@ -741,7 +741,7 @@ $(document).ready(function() {
                 dataType: 'html',
                 type:"POST",
             }).done(function(resp){
-                console.log(resp);
+                $('.lst-document').html(resp);
                     // $('#loader').removeClass('working');
                     // var patt = new RegExp("^http");
                     // if( patt.test(resp) ){

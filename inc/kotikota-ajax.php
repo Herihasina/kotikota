@@ -1193,19 +1193,89 @@ function insert_doc_cagnotte(){
     $erreurs = [];
 
     if ( isset($_POST)){
+        $html="";
         $str = http_build_query($_POST);
         parse_str($str, $Data);
         extract($Data);
 
         $doc = attachment_url_to_postid(strip_tags($doc_file));
-        var_dump($doc);
-        var_dump($cagnotte_id);
-        var_dump($doc_file);
         $add_doc = add_row('liste_document_fichiers_cagnotte',array('fichier' => $doc),$cagnotte_id);
-        var_dump($add_doc);
-        var_dump(get_field('liste_document_fichiers_cagnotte',$cagnotte_id));
+        $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
+        $curr_userdata = wp_get_current_user();
+        if($add_doc){
+            $docs = get_field('liste_document_fichiers_cagnotte',$cagnotte_id);
+            if($docs ): 
+                $word_doc=[];  
+                $pdf_doc=[];  
+                foreach($document_fichiers as $doc ): 
+                  $file_data=[];
+                  $fichier_id = $doc['fichier']; 
+                  $fichier = get_attached_file( $fichier_id);
+                  $file_data['name'] = basename ( $fichier );
+                  $file_data['url'] =wp_get_attachment_url( $fichier_id );;
+                  $extension = pathinfo( $fichier )['extension'];
+                  if($extension=='pdf'):
+                      $pdf_doc[]=$file_data;
+                  elseif($extension=='docx' || $extension=='docx'):
+                      $word_doc[]=$file_data;
+                  endif;
+                endforeach;
+            ?>
+                <div class="row">
+                    <div class="col">
+                    <h3>documents word</h3>
+                    <?php if($word_doc):?>
+                        <div class="lst-option">
+                        <?php foreach($word_doc as $doc ): ?>        
+                            <div class="item">
+                            <?php if($curr_userdata->ID == $titulaire_id) :?>
+                                <input type="checkbox" class="document" id="doc1"> 
+                                <label for="doc1">
+                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                                <div class="txt"><?= $doc['name'] ?></div>
+                                </label>
+                            <?php else: ?>
+                                <a href="<?= $doc['url'] ?>" class="doc-item-link">
+                                    <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
+                                    <div class="txt"><?= $doc['name'] ?></div>
+                                </a>
+                            <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+                    </div>
+                    <div class="col">
+                        <h3>documents pdf</h3>
+                        <?php if($pdf_doc):?>
+                            <div class="lst-option">       
+                            <?php foreach($pdf_doc as $doc ): ?>   
+                                <div class="item">
+                                <?php if($curr_userdata->ID == $titulaire_id) :?>
+                                    <input type="checkbox" class="document" id="pdf1"> 
+                                    <label for="pdf1">
+                                    <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                    <div class="txt"><?= $doc['name'] ?></div>
+                                    </label>
+                                <?php else: ?>
+                                    <a href="<?= $doc['url'] ?>" class="doc-item-link" target="_blank">
+                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                        <div class="txt"><?= $doc['name'] ?></div>
+                                    </a>
+                                <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+        <?php
+            endif;
+
+        }
             
-            
+        echo $html;
         wp_die();
     }
 
