@@ -715,6 +715,7 @@ $(document).ready(function() {
 
     $('#add_doc_btn').click(function(e) {
         e.preventDefault();
+        var self= $(this);
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger");
             $("#menu-item-upload").click();
@@ -732,7 +733,7 @@ $(document).ready(function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
             $('#cin_value').val(attachment.url);
             $('.zone-img-cin').css('background', 'center / cover no-repeat url(' + $('#cin_value').val() + ')');
-            $('#cin_value').siblings('span').text(attachment.filename);
+            self.data("file",attachment.filename);
         });
         mediaUploader.open();
         $("#menu-item-upload").html("Télécharger");
