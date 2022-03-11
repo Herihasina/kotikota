@@ -116,9 +116,9 @@
                           </div>
                         <?php else: ?>
                           <div style="text-align:center">
-                              <h3 style="text-align:center">
+                              <h4 style="text-align:center">
                                   <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                              </h3>
+                              </h4>
                           </div>
                         <?php endif; ?>
                       </div>
@@ -145,9 +145,9 @@
                           </div>
                         <?php else: ?>
                           <div style="text-align:center">
-                              <h3 style="text-align:center">
+                              <h4 style="text-align:center">
                                   <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                              </h3>
+                              </h4>
                           </div>
                         <?php endif; ?>
                       </div>
@@ -157,9 +157,9 @@
                 </div>
               <?php else: ?>
               <div style="text-align:center">
-                  <h3 style="text-align:center">
+                  <h4 style="text-align:center">
                       <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                  </h3>
+                  </h4>
               </div>
               <?php endif; ?>
               <?php if($curr_userdata->ID == $titulaire_id) :?>
@@ -209,9 +209,9 @@
                       else:
                       ?>
                             <div style="text-align:center">
-                                <h3 style="text-align:center">
+                                <h4 style="text-align:center">
                                     <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                                </h3>
+                                </h4>
                             </div>
                     <?php endif; ?>
                     </div>
@@ -254,9 +254,9 @@
                         else:
                         ?>
                             <div style="text-align:center">
-                                <h3 style="text-align:center">
+                                <h4 style="text-align:center">
                                     <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                                </h3>
+                                </h4>
                             </div>
                         <?php endif; ?>
                         </div>
@@ -279,7 +279,7 @@
 
       </div>
       <div id="ajout-video-image" style="display: none">
-          <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>">Cliquez ici pou ajouter une photo</a>
+          <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>">Cliquez ici pour ajouter une photo</a>
           <div class="col">
               <div class=" blc-chp ">
                   <label for="fname"><?php echo __('ID de la nouvelle video','kotikota'); ?><span>*</span></label>

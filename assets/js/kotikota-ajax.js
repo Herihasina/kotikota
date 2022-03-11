@@ -885,7 +885,6 @@ $(function(){
         });
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-            console.log(attachment.mime);
 			$.ajax({
                 url: ajaxurl,
                 data: {
