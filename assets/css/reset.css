@@ -2919,7 +2919,7 @@ a:hover { color:#fbbd36; }
     .lst-apropos .item .content { max-width: inherit; display: block; }
     .menu-liste-cagnotte.active { z-index: 9999 }
     .col-dates .chy-type .col.col47:first-of-type, .col-dates .chy-type .col.col47:last-of-type { width: 100% !important; padding: 0 !important;}
-    .formulaire-cagnotte .chy-type .col.col47 { padding: 0 10px }
+    .formulaire-cagnotte .chy-type .col.col47 { padding: 0 0 0 10px}
     .Info-principale .blcFormulaire.fichier {  padding: 0 30px}
     .profilFile .cont-file span { padding: 0 10px !important; }
     #slide-qsn { padding-bottom: 70px; }
@@ -2936,6 +2936,10 @@ a:hover { color:#fbbd36; }
     .lst-step .item .content .ico img { max-width: 50px }
     .lst-step .item .content h2 { margin-bottom: 13px ; font-size: 16px}
     .parametre .lst-step .item { width: 20% }*/
+
+
+    #form-creation-cagnotte .chy-type .col.col53 { width: 50%;}
+
 
 }
 
@@ -3162,6 +3166,8 @@ a:hover { color:#fbbd36; }
 
 
     .slide-qui-sommes-nous .item .img { height: auto; }
+     #form-creation-cagnotte .chy-type .col.col53 { width: 100%;}
+     .offrir-cadeau .lst-type { display: block; }
 
 
 
