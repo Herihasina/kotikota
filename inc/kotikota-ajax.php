@@ -1413,13 +1413,13 @@ function remove_doc_cagnotte(){
                     </div>
                 </div>
         <?php
-        else:
-        ?>
-            <div style="text-align:center">
-                <h4 style="text-align:center">
-                    <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                </h4>
-            </div>
+            else:
+            ?>
+                <div style="text-align:center">
+                    <h4 style="text-align:center">
+                        <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                    </h4>
+                </div>
         <?php
             endif;
             echo $html;
@@ -1574,7 +1574,7 @@ function remove_media_cagnotte(){
         }
         if($video_ids && !empty($video_ids)){
             foreach($video_ids as $id){
-                $delete_image = delete_row('liste_videos_cagnotte', $id, $cagnotte_id);
+                $delete_video = delete_row('liste_videos_cagnotte', $id, $cagnotte_id);
             }
         }
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
