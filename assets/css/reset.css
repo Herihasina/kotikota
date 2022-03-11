@@ -2551,6 +2551,17 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     border: none;
 }
 
+.chp.device::before {
+    content: "";
+    display: block;
+    background: #fff;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 28px;
+    top: 18px;
+}
+
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
 a:hover { color:#fbbd36; }
@@ -3171,6 +3182,8 @@ a:hover { color:#fbbd36; }
     .slide-qui-sommes-nous .item .img { height: auto; }
      #form-creation-cagnotte .chy-type .col.col53 { width: 100%;}
      .offrir-cadeau .lst-type { display: block; }
+
+     .chp.device::before { width: 100px }
 
 
 
