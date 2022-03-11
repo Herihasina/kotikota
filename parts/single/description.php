@@ -188,18 +188,21 @@
                       <?php if($photos): ?>
                         <div class="lst-option blcphotos">
                           <?php foreach($photos as $photo ): 
+                            $key_image=1;
                             $image = wp_get_attachment_url( $photo['image'] );
                           ?>         
                             <div class="item">
                               <div class="inner">
                               <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <input type="checkbox" class="ck-photo" id="img1"> 
-                                <label for="img1"></label>
+                                <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>"> 
+                                <label for="img-<?= $key_image?>"></label>
                               <?php endif; ?>
                                 <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
                               </div> 
                             </div>
-                          <?php endforeach; ?>
+                          <?php 
+                              $key_image++;
+                          endforeach; ?>
                         </div>
                       <?php
                       else:
@@ -219,6 +222,7 @@
                               <?php foreach($videos as $video ): 
                                 $video_id= $video['lien_youtube'];
                                 $video_data = get_youtube_video_detail($video_id);
+                                $key_video=1;
                                 if($video_data):
                               ?>        
                                   <div class="item">      
@@ -230,9 +234,9 @@
                                           <p><?= $video_data['description'] ?></p>
                                         </div>
                                         <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                          <div class="check-video">                            
-                                            <input type="checkbox" class="ck-photo" id="video1"> 
-                                            <label for="video1"></label>
+                                          <div class="check-video">
+                                            <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>"> 
+                                            <label for="video-<?= $key_video?>"></label>
                                           </div>
                                         <?php endif; ?>
                                       </a>
@@ -241,6 +245,7 @@
                                 
                               <?php 
                                 endif;
+                                $key_video++;
                               endforeach; ?>
                             </div>
                       <?php
@@ -255,13 +260,13 @@
                         </div>
                     </div>
                   </div>
-                  <?php if($curr_userdata->ID == $titulaire_id) :?>
-                    <div class="blcbtn">
-                     <a href="#ajout-video-image" class="link fancybox" title="Ajouter">ajouter</a>
-                     <a href="#" class="link" title="Supprimer">Supprimer</a>
-                    </div>
-                  <?php endif; ?>
               </div>
+              <?php if($curr_userdata->ID == $titulaire_id) :?>
+                <div class="blcbtn">
+                  <a href="#ajout-video-image" class="link fancybox" title="Ajouter">ajouter</a>
+                  <a href="#" class="link" id="remove_media_btn" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>">Supprimer</a>
+                </div>
+              <?php endif; ?>
             </div>
             <div class="footer-pp">
                     <span>Des questions ? En savoir plus sur la création des cagnottes ?</span>
