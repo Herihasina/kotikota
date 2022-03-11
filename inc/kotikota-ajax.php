@@ -1228,6 +1228,8 @@ function insert_doc_cagnotte(){
 
         $doc = attachment_url_to_postid(strip_tags($doc_file));
         var_dump($doc);
+        var_dump($cagnotte_id);
+        var_dump($doc_file);
         $value = array(
             "document_fichiers" => array('fichier' => $doc),
         );
