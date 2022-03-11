@@ -2562,6 +2562,36 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     top: 18px;
 }
 
+
+#ajout-video-image {
+    text-align: center;
+}
+
+#add_image {
+    margin-bottom: 10px;
+    background: #8c4b8f;
+    color: #fff;
+    cursor: pointer
+}
+
+#ajout-video-image .blc-chp label {
+    margin-bottom: 20px;
+    display: block;
+}
+#ajout-video-image  .chp input {
+    border: #ddd solid 1px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    height: 60px;
+    border-radius: 10px;
+    font-family: Montserrat;
+    font-size: 16px;
+    color: #7b7b7b;
+}
+
+#ajout-video-image .fancybox-slide--html .fancybox-close-small { color: #000 }
+
+
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
 a:hover { color:#fbbd36; }
