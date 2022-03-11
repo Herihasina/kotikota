@@ -880,8 +880,10 @@ function get_youtube_video_detail($video_id){
 }
 
 function custom_js_to_head() {
+    global $post;
+    $id = $post->ID;
     $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    $actual_link .= '&rib=1&postID=2548'
+    $actual_link .= '&rib=1&postID='.$id;
     ?>
     <script>
     jQuery(function(){
