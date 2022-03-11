@@ -938,8 +938,8 @@ $(function(){
                 dataType: 'html',
                 type:"POST",
             }).done(function(resp){
-                // $('#pp-photos .lst-document .photo').html(resp);		
-                
+                $('#pp-photos .lst-document .row .photo').html(resp);		
+                $("#ajout-video-image").close();
             });
 
 

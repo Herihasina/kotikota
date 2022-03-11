@@ -1435,12 +1435,40 @@ function insert_image_cagnotte(){
         parse_str($str, $Data);
         extract($Data);
 
-        var_dump($image_url);
-        // $doc = attachment_url_to_postid(strip_tags($doc_file));
-        // $add_doc = add_row('liste_document_fichiers_cagnotte',array('fichier' => $doc),$cagnotte_id);
-        // $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
-        // $curr_userdata = wp_get_current_user();
-       
+        $image = attachment_url_to_postid(strip_tags($image_url));
+        $add_doc = add_row('liste_images_cagnotte',array('image' => $image),$cagnotte_id);
+        $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
+        $curr_userdata = wp_get_current_user();
+        $photos = get_field('liste_images_cagnotte',$cagnotte_id);
+
+       ?>
+            <h3>images</h3>
+            <?php if($photos): ?>
+            <div class="lst-option blcphotos">
+                <?php foreach($photos as $photo ): 
+                $image = wp_get_attachment_url( $photo['image'] );
+                ?>         
+                <div class="item">
+                    <div class="inner">
+                    <?php if($curr_userdata->ID == $titulaire_id) :?>
+                    <input type="checkbox" class="ck-photo" id="img1"> 
+                    <label for="img1"></label>
+                    <?php endif; ?>
+                    <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
+                    </div> 
+                </div>
+                <?php endforeach; ?>
+            </div>
+            <?php
+            else:
+            ?>
+                <div style="text-align:center">
+                    <h3 style="text-align:center">
+                        <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                    </h3>
+                </div>
+            <?php endif; ?>
+       <?php
         echo $html;
 
             
