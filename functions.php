@@ -887,3 +887,10 @@ function custom_js_to_head() {
     <?php
 }
 add_action('admin_head', 'custom_js_to_head');
+
+add_action('admin_enqueue_scripts', 'rib_pdf_admin_enqueue_scripts');
+function rib_pdf_admin_enqueue_scripts() {
+    wp_enqueue_script( 'rib-pdf-input-js', get_stylesheet_directory_uri() . '/admin/script.js', false, '1.0.0' );
+
+    wp_localize_script( 'cagnotte-input-js', 'ajax_object', array( 'ajax_url' =&gt; admin_url( 'admin-ajax.php' ) ) );
+}
