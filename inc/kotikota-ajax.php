@@ -1580,10 +1580,11 @@ function remove_media_cagnotte(){
             <div class="row">
                 <div class="col photo">
                     <h3>images</h3>
-                    <?php if($photos): ?>
+                    <?php if($photos): 
+                        $key_image=1;
+                    ?>
                     <div class="lst-option blcphotos">
                         <?php foreach($photos as $photo ): 
-                        $key_image=1;
                         $image = wp_get_attachment_url( $photo['image'] );
                         ?>         
                         <div class="item">
@@ -1612,12 +1613,13 @@ function remove_media_cagnotte(){
                 <div class="col video">
                     <h3>vidéos</h3>
                     <div class="lst-option blcvideos ">        
-                        <?php if($videos): ?>
+                        <?php if($videos): 
+                            $key_video=1;
+                        ?>
                         <div class="lst-option"> 
                             <?php foreach($videos as $video ): 
                             $video_id= $video['lien_youtube'];
                             $video_data = get_youtube_video_detail($video_id);
-                            $key_video=1;
                             if($video_data):
                             ?>        
                                 <div class="item">      
