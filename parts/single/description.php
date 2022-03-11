@@ -236,11 +236,12 @@
                         </div>
                     </div>
                   </div>
-                  <div class="blcbtn">
+                  <?php if($curr_userdata->ID == $titulaire_id) :?>
+                    <div class="blcbtn">
                      <a href="#" class="link" title="Ajouter">ajouter</a>
-                     <a href="#" class="link" title="Modifier">modifier</a>
                      <a href="#" class="link" title="Supprimer">Supprimer</a>
-                  </div>
+                    </div>
+                  <?php endif; ?>
               </div>
             </div>
             <div class="footer-pp">

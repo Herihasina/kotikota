@@ -866,6 +866,7 @@ $(function(){
 		});
 	});
 
+	var mediaUploader;
 	$('#add_doc_btn').click(function(e) {
         e.preventDefault();
         var cagnotte_id= $(this).data('cagnotteId');
