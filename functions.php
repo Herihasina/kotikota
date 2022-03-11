@@ -923,6 +923,8 @@ function generate_post_to_pdf_file($postID) {
       if (! class_exists ( 'simple_html_dom_node' )) {
         require_once  get_stylesheet_directory_uri() . '/libs/simplehtmldom/simple_html_dom.php';
       }
+      echo get_stylesheet_directory_uri() . '/pdfheader.php';
+  
       $post->post_content = apply_filters ( 'the_post_export_content', $post->post_content );
       $post->post_content = wpautop ( $post->post_content );
       $post->post_content = do_shortcode ( $post->post_content );
@@ -933,7 +935,7 @@ function generate_post_to_pdf_file($postID) {
         $filePath = CACHE_DIR . '/' . $post->ID . '.pdf';
       //}
       // new PDF document
-      echo $filePath;
+      
   
       //if (isset ( $this->options ['page_size'] )) {
       //  $pagesize = ($this->options ['page_size']);
