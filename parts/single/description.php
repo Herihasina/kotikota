@@ -70,28 +70,28 @@
                 <h2>Documents</h2>
             </div>
             <div class="inner-pp">
-              <?php if($document_fichiers): 
-                  $word_doc=[];  
-                  $pdf_doc=[];  
-                  $key_field=1;
-                  foreach($document_fichiers as $doc ): 
-                    $file_data=[];
-                    $fichier_id = $doc['fichier']; 
-                    $fichier = get_attached_file( $fichier_id);
-                    $file_data['id'] = $key_field;
-                    $file_data['name'] = basename ( $fichier );
-                    $file_data['url'] =wp_get_attachment_url( $fichier_id );;
-                    $extension = pathinfo( $fichier )['extension'];
-                    if($extension=='pdf'):
-                        $pdf_doc[]=$file_data;
-                    elseif($extension=='docx' || $extension=='docx'):
-                        $word_doc[]=$file_data;
-                    endif;
-                    $key_field++;
-                  endforeach;
-                
-              ?>
                 <div class="lst-document scrollbar-inner">
+                  <?php if($document_fichiers): 
+                    $word_doc=[];  
+                    $pdf_doc=[];  
+                    $key_field=1;
+                    foreach($document_fichiers as $doc ): 
+                      $file_data=[];
+                      $fichier_id = $doc['fichier']; 
+                      $fichier = get_attached_file( $fichier_id);
+                      $file_data['id'] = $key_field;
+                      $file_data['name'] = basename ( $fichier );
+                      $file_data['url'] =wp_get_attachment_url( $fichier_id );;
+                      $extension = pathinfo( $fichier )['extension'];
+                      if($extension=='pdf'):
+                          $pdf_doc[]=$file_data;
+                      elseif($extension=='docx' || $extension=='docx'):
+                          $word_doc[]=$file_data;
+                      endif;
+                      $key_field++;
+                    endforeach;
+                  
+                ?>
                     <div class="row">
                       <div class="col">
                         <h3>documents word</h3>
@@ -153,15 +153,14 @@
                       </div>
                       </div>
                     </div>
-                    
+                  <?php else: ?>
+                      <div style="text-align:center">
+                          <h4 style="text-align:center">
+                              <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                          </h4>
+                      </div>
+                  <?php endif; ?>
                 </div>
-              <?php else: ?>
-              <div style="text-align:center">
-                  <h4 style="text-align:center">
-                      <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                  </h4>
-              </div>
-              <?php endif; ?>
               <?php if($curr_userdata->ID == $titulaire_id) :?>
                 <div class="blcbtn">
                   <a href="#" id="add_doc_btn" class="link" title="Ajouter" data-cagnotte-id="<?=  $post->ID ?>">ajouter</a>

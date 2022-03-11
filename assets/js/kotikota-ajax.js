@@ -910,24 +910,25 @@ $(function(){
         $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
     });
 
+	var mediaUploaderImage;
 	$('#add_image').click(function(e) {
         e.preventDefault();
         var cagnotte_id= $(this).data('cagnotteId');
-        if (mediaUploader) {
+        if (mediaUploaderImage) {
             $("#menu-item-upload").html("Télécharger");
             $("#menu-item-upload").click();
             $("#menu-item-browse").css("display","none");
             $(".media-uploader-status .h2").html("Téléchargement");
             $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
             $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-            mediaUploader.open();
+            mediaUploaderImage.open();
             return;
         }
-        mediaUploader = wp.media.frames.file_frame = wp.media({
+        mediaUploaderImage = wp.media.frames.file_frame = wp.media({
             multiple: false
         });
-        mediaUploader.on('select', function() {
-            var attachment = mediaUploader.state().get('selection').first().toJSON();
+        mediaUploaderImage.on('select', function() {
+            var attachment = mediaUploaderImage.state().get('selection').first().toJSON();
             $.ajax({
                 url: ajaxurl,
                 data: {
@@ -944,7 +945,7 @@ $(function(){
 
 
         });
-        mediaUploader.open();
+        mediaUploaderImage.open();
         $("#menu-item-upload").html("Télécharger");
         $("#menu-item-upload").click();
         $("#menu-item-browse").css("display","none");

@@ -1204,11 +1204,13 @@ function insert_doc_cagnotte(){
         if($add_doc){
             $docs = get_field('liste_document_fichiers_cagnotte',$cagnotte_id);
             if($docs ): 
+                $key_field=1;
                 $word_doc=[];  
                 $pdf_doc=[];  
                 foreach($docs as $doc ): 
                   $file_data=[];
-                  $fichier_id = $doc['fichier']; 
+                  $fichier_id = $doc['fichier'];
+                  $file_data['id'] = $key_field; 
                   $fichier = get_attached_file( $fichier_id);
                   $file_data['name'] = basename ( $fichier );
                   $file_data['url'] =wp_get_attachment_url( $fichier_id );;
@@ -1218,6 +1220,7 @@ function insert_doc_cagnotte(){
                   elseif($extension=='docx' || $extension=='docx'):
                       $word_doc[]=$file_data;
                   endif;
+                  $key_field++;
                 endforeach;
                 ?>
                 <div class="row">
@@ -1228,8 +1231,8 @@ function insert_doc_cagnotte(){
                         <?php foreach($word_doc as $doc ): ?>        
                             <div class="item">
                             <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <input type="checkbox" class="document" id="doc1"> 
-                                <label for="doc1">
+                                <input type="checkbox" name="doc_files" class="document document-check" id="doc-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>"> 
+                                <label for="doc-<?= $doc['id'] ?>">
                                 <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
                                 <div class="txt"><?= $doc['name'] ?></div>
                                 </label>
@@ -1260,10 +1263,10 @@ function insert_doc_cagnotte(){
                             <?php foreach($pdf_doc as $doc ): ?>   
                                 <div class="item">
                                 <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                    <input type="checkbox" class="document" id="pdf1"> 
-                                    <label for="pdf1">
-                                    <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                    <div class="txt"><?= $doc['name'] ?></div>
+                                    <input type="checkbox" name="doc_files" class="document document-check" id="pdf-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>"> 
+                                    <label for="pdf-<?= $doc['id'] ?>">
+                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                        <div class="txt"><?= $doc['name'] ?></div>
                                     </label>
                                 <?php else: ?>
                                     <a href="<?= $doc['url'] ?>" class="doc-item-link" target="_blank">
@@ -1324,11 +1327,13 @@ function remove_doc_cagnotte(){
         if($delete_doc){
             $docs = get_field('liste_document_fichiers_cagnotte',$cagnotte_id);
             if($docs ): 
+                $key_field=1;
                 $word_doc=[];  
                 $pdf_doc=[];  
                 foreach($docs as $doc ): 
                   $file_data=[];
-                  $fichier_id = $doc['fichier']; 
+                  $fichier_id = $doc['fichier'];
+                  $file_data['id'] = $key_field; 
                   $fichier = get_attached_file( $fichier_id);
                   $file_data['name'] = basename ( $fichier );
                   $file_data['url'] =wp_get_attachment_url( $fichier_id );;
@@ -1338,8 +1343,9 @@ function remove_doc_cagnotte(){
                   elseif($extension=='docx' || $extension=='docx'):
                       $word_doc[]=$file_data;
                   endif;
+                  $key_field++;
                 endforeach;
-            ?>
+                ?>
                 <div class="row">
                     <div class="col">
                     <h3>documents word</h3>
@@ -1348,8 +1354,8 @@ function remove_doc_cagnotte(){
                         <?php foreach($word_doc as $doc ): ?>        
                             <div class="item">
                             <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <input type="checkbox" class="document" id="doc1"> 
-                                <label for="doc1">
+                                <input type="checkbox" name="doc_files" class="document document-check" id="doc-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>"> 
+                                <label for="doc-<?= $doc['id'] ?>">
                                 <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
                                 <div class="txt"><?= $doc['name'] ?></div>
                                 </label>
@@ -1380,10 +1386,10 @@ function remove_doc_cagnotte(){
                             <?php foreach($pdf_doc as $doc ): ?>   
                                 <div class="item">
                                 <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                    <input type="checkbox" class="document" id="pdf1"> 
-                                    <label for="pdf1">
-                                    <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                    <div class="txt"><?= $doc['name'] ?></div>
+                                    <input type="checkbox" name="doc_files" class="document document-check" id="pdf-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>"> 
+                                    <label for="pdf-<?= $doc['id'] ?>">
+                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
+                                        <div class="txt"><?= $doc['name'] ?></div>
                                     </label>
                                 <?php else: ?>
                                     <a href="<?= $doc['url'] ?>" class="doc-item-link" target="_blank">
@@ -1407,13 +1413,13 @@ function remove_doc_cagnotte(){
                     </div>
                 </div>
         <?php
-        else:
-        ?>
-            <div style="text-align:center">
-                <h4 style="text-align:center">
-                    <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                </h4>
-            </div>
+            else:
+            ?>
+                <div style="text-align:center">
+                    <h4 style="text-align:center">
+                        <?php printf( __( 'Aucun document', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                    </h4>
+                </div>
         <?php
             endif;
             echo $html;
@@ -1443,7 +1449,7 @@ function insert_image_cagnotte(){
 
        ?>
             <h3>images</h3>
-            <?php if($photos): ?>
+            <?php if($photos): $key_image=1;?>
             <div class="lst-option blcphotos">
                 <?php foreach($photos as $photo ): 
                 $image = wp_get_attachment_url( $photo['image'] );
@@ -1451,13 +1457,13 @@ function insert_image_cagnotte(){
                 <div class="item">
                     <div class="inner">
                     <?php if($curr_userdata->ID == $titulaire_id) :?>
-                    <input type="checkbox" class="ck-photo" id="img1"> 
-                    <label for="img1"></label>
+                        <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>" value="<?= $key_image?>"> 
+                        <label for="img-<?= $key_image?>"></label>
                     <?php endif; ?>
                     <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
                     </div> 
                 </div>
-                <?php endforeach; ?>
+                <?php $key_image++; endforeach; ?>
             </div>
             <?php
             else:
@@ -1506,7 +1512,7 @@ function insert_video_cagnotte(){
                     <?php foreach($videos as $video ): 
                     $video_id= $video['lien_youtube'];
                     $video_data = get_youtube_video_detail($video_id);
-                    if($video_data):
+                    if($video_data):$key_video=1;
                     ?>        
                         <div class="item">      
                             <div class="contvideo">
@@ -1518,8 +1524,8 @@ function insert_video_cagnotte(){
                                 </div>
                                 <?php if($curr_userdata->ID == $titulaire_id) :?>
                                 <div class="check-video">                            
-                                    <input type="checkbox" class="ck-photo" id="video1"> 
-                                    <label for="video1"></label>
+                                    <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>" value="<?= $key_video?>"> 
+                                    <label for="video-<?= $key_video?>"></label>
                                 </div>
                                 <?php endif; ?>
                             </a>
@@ -1527,7 +1533,7 @@ function insert_video_cagnotte(){
                         </div>
                     <?php endif; ?>
                     
-                    <?php endforeach; ?>
+                    <?php $key_video++; endforeach; ?>
                 </div>
             
                 <?php
@@ -1568,7 +1574,7 @@ function remove_media_cagnotte(){
         }
         if($video_ids && !empty($video_ids)){
             foreach($video_ids as $id){
-                $delete_image = delete_row('liste_videos_cagnotte', $id, $cagnotte_id);
+                $delete_video = delete_row('liste_videos_cagnotte', $id, $cagnotte_id);
             }
         }
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
@@ -1590,7 +1596,7 @@ function remove_media_cagnotte(){
                         <div class="item">
                             <div class="inner">
                             <?php if($curr_userdata->ID == $titulaire_id) :?>
-                            <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>"> 
+                            <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>" value="<?= $key_image?>"> 
                             <label for="img-<?= $key_image?>"></label>
                             <?php endif; ?>
                             <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
@@ -1632,7 +1638,7 @@ function remove_media_cagnotte(){
                                     </div>
                                     <?php if($curr_userdata->ID == $titulaire_id) :?>
                                         <div class="check-video">
-                                        <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>"> 
+                                        <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>" value="<?= $key_video?>"> 
                                         <label for="video-<?= $key_video?>"></label>
                                         </div>
                                     <?php endif; ?>
