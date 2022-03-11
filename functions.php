@@ -911,12 +911,15 @@ function generate_post_to_pdf_file($postID) {
       $logo_width = '';
       $post = get_post ( $postID );
       $content = $post->post_content;
+      echo get_stylesheet_directory_uri();
+  
       if (! class_exists ( 'TCPDF' )) {
         require_once  get_stylesheet_directory_uri() . '/libs/tcpdf_min/tcpdf.php';
       }
       if (! class_exists ( 'pdfheader' )) {
         require_once  get_stylesheet_directory_uri() . '/pdfheader.php';
       }
+      
       if (! class_exists ( 'simple_html_dom_node' )) {
         require_once  get_stylesheet_directory_uri() . '/libs/simplehtmldom/simple_html_dom.php';
       }
@@ -930,7 +933,8 @@ function generate_post_to_pdf_file($postID) {
         $filePath = CACHE_DIR . '/' . $post->ID . '.pdf';
       //}
       // new PDF document
-
+      echo $filePath;
+  
       //if (isset ( $this->options ['page_size'] )) {
       //  $pagesize = ($this->options ['page_size']);
       //} else {
