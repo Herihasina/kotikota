@@ -1562,12 +1562,12 @@ function remove_media_cagnotte(){
         $delete_image=false;
         $delete_video=false;
         if($image_ids && !empty($image_ids)){
-            foreach($$image_ids as $id){
+            foreach($image_ids as $id){
                 $delete_image = delete_row('liste_images_cagnotte', $id, $cagnotte_id);
             }
         }
         if($vidoe_ids && !empty($vidoe_ids)){
-            foreach($$vidoe_ids as $id){
+            foreach($vidoe_ids as $id){
                 $delete_image = delete_row('liste_videos_cagnotte', $id, $cagnotte_id);
             }
         }
