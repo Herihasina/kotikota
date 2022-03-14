@@ -426,7 +426,59 @@ $(function(){
 
 	  	return false;
 	  });
+	  	/* Paramètres rib */
+	  $('.form-rib .link.submit').click(function(){
+	  	$('#loader').addClass('working');
+	  	var nomCagnotte = $('#nom_cagnotte').val();
+	  	var idCagnotte	= $('#idCagnotte').val();
+	  	var idBenef = $('#benef').val();
+	  	// info beneficiaire
 
+	  	var titulaire = $('#rib_nom').val();
+	  	var banque = $('#rib_bank').val();
+	  	var domicile = $('#rib_domicile').val();
+	  	var codebanque = $('#rib_codebank').val();
+	  	var codeguichet = $('#rib_codeguichet').val();
+	  	var numcompte = $('#rib_numcompte').val();
+	  	var cle = $('#rib_cle').val();
+	  	var iban = $('#rib_iban').val();
+	  	var bic = $('#rib_bic').val();
+
+	  	$.ajax({
+	  		url: ajaxurl,
+	  		type: 'POST',
+	  		data:{
+	  			'action':'save_info_banque',
+	  			'titulaire': titulaire,
+	  			'banque': banque,
+	  			'domicile': domicile,
+	  			'codebanque': codebanque,
+	  			'codeguichet': codeguichet,
+	  			'numcompte': numcompte,
+	  			'cle': cle,
+	  			'iban': iban,
+	  			'bic': bic,
+	  			'idCagnotte': idCagnotte,
+	  			'idBenef': idBenef,
+	  		}
+	  	}).done(function(resp){
+	  		var url = new RegExp("^http");
+	  		if( url.test(resp) ){
+				 	console.log('redirect..');
+				 		window.location = resp + '?parametre='+idCagnotte;
+				 }else{
+	  			$('ul#response').addClass('error').html(resp);
+			  		setTimeout(function() {
+			  			$('ul#response').removeClass('error').html('');
+			  		}, 10000 );
+	  		}
+				 $('#loader').removeClass('working');
+	  	});
+
+	  	return false;
+
+	  });
+	
 	  /* paramtre fond */
 	  $('#slide-img .item a').click(function(){
 			var src = $(this).data('imgsrc');
