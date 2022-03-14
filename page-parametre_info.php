@@ -279,7 +279,7 @@
 
 		</main>
 <script type="text/javascript">
-	$(document).ready(function() {	
+	jQuery(document).ready(function($) {
 		var fancy = "<?=  strip_tags($_GET['fancy']) ?>";
 		if (fancy != '') {
 			$(fancy).fancybox();
