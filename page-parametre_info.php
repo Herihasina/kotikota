@@ -1,11 +1,14 @@
 <?php
 	// Template name: info principale
-
+	
 	if ( array_key_exists("parametre", $_GET) ){
 		$idCagnotte = strip_tags($_GET['parametre']);
 	}elseif( array_key_exists("origin", $_GET) && trim( $_GET['origin'] ) == 'post-setup' && array_key_exists("cgid", $_GET) ){
 		$idCagnotte = strip_tags($_GET['cgid']);
 	}
+	
+	$rib_image = wp_get_attachment_image( $idCagnotte, 'full' );
+	print_r($rib_image);
 
 	if ( !is_cagnotte( $idCagnotte ) )
 		die(__('Cette ID ne correspond à votre cagnotte :)','kotikota'));
