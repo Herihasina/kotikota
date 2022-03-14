@@ -69,11 +69,11 @@
                         $benef = get_beneficiaire_cagnotte( $post->ID );
                         $info = get_beneficiaire_info( $benef->ID, $post->ID  );
                         if( $info->rib_file == '' || $info->rib_file == 0 ) {
-                        $link = '<a href="' get_site_url().'/parametre-info-principale/?parametre='.$post->ID.'#pp-rib"'. '>informations bancaires ici</a>';
+                        $link = '<a href="' get_site_url().'/parametre-info-principale/?parametre='.$post->ID.'#pp-rib"'. '>'. __('informations bancaires ici','kotikota') .'</a>';
                       ?>
                         <div class="conf_text">
                           <?= __('N\'oubliez pas de compléter vos ','kotikota') ?>
-                          <? = $link ?>
+                          <?= $link ?>
                           <?= __(' pour que nous puissions vous transférer le montant de votre cagnotte. <br><br> Cette action est irréversible.<br>Une fois clôturée, il sera impossible à tout utilisateur de participer à votre cagnotte. Toutefois, vous pourrez toujours la partager sur vos réseaux.','kotikota'); ?>
                         </div>
 
