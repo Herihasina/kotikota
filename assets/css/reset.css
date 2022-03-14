@@ -2605,6 +2605,8 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 .info-cagnotte { position: absolute; left: 0;  }
 .info-cagnotte div {
     font-size: 14px;
+    color: #fbbd36;
+    font-weight: 700
 }
 
 
@@ -3606,13 +3608,13 @@ a:hover { color:#fbbd36; }
         order: 3;
     }
     .lst-payement ul li:nth-of-type(5) {
-        order: 8;
-    }
-    .lst-payement ul li:nth-of-type(6) {
         order: 2;
     }
+    .lst-payement ul li:nth-of-type(6) {
+        order: 6;
+    }
     .lst-payement ul li:nth-of-type(8) {
-        order: 4;
+        order: 8;
     }
 
 
