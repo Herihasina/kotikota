@@ -139,10 +139,10 @@
                             <label><?php _e('Ajouter un RIB','kotikota'); ?></label>
                            <!--  <div class="chp">
                                 <div class="cont-file">
-                                		<?php if( $info->rib == '' || $info->rib == 0 ): ?>
+                                		<?php if( $info->rib_file == '' || $info->rib_file == 0 ): ?>
                                     	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
                                   	<?php else: ?>
-                                  		<span><?= get_the_title( $info->rib ) ?></span>
+                                  		<span><?= get_the_title( $info->rib_file ) ?></span>
                                   	<?php endif; ?>
                                     <input type="text" name="file[]" class="input-file" id="rib_btn">
                                     <input type="hidden" name="" value="<?= $info->rib_file ?>" id="rib_value">
@@ -152,7 +152,7 @@
                                 <div class="zone-img-rib"></div>
                             </div> -->
                             <div class="blc-rib">
-                            	<input type="text" name="rib" class="chp" id="rib" placeholder="Aucun fichier" required="" value="">
+                            	<input type="text" name="rib" class="chp" id="rib" placeholder="<?php if( $info->rib_file == '' || $info->rib_file == 0 ): echo 'Aucun fichier' else: echo get_the_title( $info->rib_file ); endif; ?>" required="" value="">
                             	<a href="#pp-rib" class="link submit fancybox">Remplir le RIB du Bénéficiaire</a>
                             </div>
 
@@ -234,7 +234,7 @@
 						                                  		<span><?= get_the_title( $info->rib ) ?></span>
 						                                  	<?php endif; ?>
 						                                    <input type="text" name="file[]" class="input-file" id="rib_btn">
-						                                    <input type="text" name="" value="<?= $info->rib_file ?>" id="rib_value">
+						                                    <input type="hidden" name="" value="<?= $info->rib_file ?>" id="rib_value">
 						                                    <i> <?php _e('Parcourir','kotikota'); ?></i>
 						                                    <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
 						                                </div>
