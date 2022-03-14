@@ -631,7 +631,7 @@ function save_info_banque(){
        $erreurs[] = __("Indiquer le nom de la banque.", "kotikota");
 
     if ( !isset($_POST['domicile']) || $_POST['domicile'] == "" )
-       $erreurs[] = __("Indiquer l\'adresse de domiciliation de la banque.", "kotikota");
+       $erreurs[] = __("Indiquer l'adresse de domiciliation de la banque.", "kotikota");
 
     if ( !isset($_POST['codebanque']) || $_POST['codebanque'] == "" )
        $erreurs[] = __("Indiquer le code banque.", "kotikota");
@@ -652,6 +652,9 @@ function save_info_banque(){
     
     if ( !isset($_POST['cle']) || $_POST['cle'] == "" ){
        $erreurs[] = __("Indiquer Numero BIC.", "kotikota");
+    }
+    if ( !isset($_POST['fichier']) || $_POST['fichier'] == "" ){
+       $erreurs[] = __("Vous devez téléverser un fichier Image ou PDF", "kotikota");
     }
 
     /*if ( $erreurs ){
