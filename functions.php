@@ -720,9 +720,9 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
       update_field('rib_nom', $rib_nom, $idBenef ) &&
       update_field('rib_banque', $rib_banque, $idBenef ) &&
       update_field('rib_adresse_de_domiciliation', $rib_adresse_de_domiciliation, $idBenef ) &&
-      update_field('rib_code_banque',_rib $rib_code_banque, $idBenef ) &&
-      update_field('rib_code_agence', $rib_code_agence, $idBenef )
-      update_field('rib_num_de_compte', $rib_num_de_compte, $idBenef )
+      update_field('rib_code_banque', $rib_code_banque, $idBenef ) &&
+      update_field('rib_code_agence', $rib_code_agence, $idBenef ) &&
+      update_field('rib_num_de_compte', $rib_num_de_compte, $idBenef ) &&
       update_field('rib_cle_rib', $rib_cle_rib, $idBenef )
     ){
       $result = true;
