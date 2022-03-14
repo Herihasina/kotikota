@@ -619,6 +619,60 @@ function save_info_principale(){
     wp_die();  
 }
 
+add_action( 'wp_ajax_save_info_banque', 'save_info_banque' );
+
+function save_info_banque(){
+    $erreurs = [];
+
+    if ( !isset($_POST['titulaire']) || $_POST['titulaire'] == "" )
+       $erreurs[] = __("Entrer un nom titulaire du compte.", "kotikota");
+
+    if ( !isset($_POST['banque']) || $_POST['banque'] == "" )
+       $erreurs[] = __("Indiquer le nom de la banque.", "kotikota");
+
+    if ( !isset($_POST['domicile']) || $_POST['domicile'] == "" )
+       $erreurs[] = __("Indiquer l\'adresse de domiciliation de la banque.", "kotikota");
+
+    if ( !isset($_POST['codebanque']) || $_POST['codebanque'] == "" )
+       $erreurs[] = __("Indiquer le code banque.", "kotikota");
+
+    if ( !isset($_POST['codeguichet']) || $_POST['codeguichet'] == "" )
+       $erreurs[] = __("Indiquer le code guichet ou code agence.", "kotikota");
+
+    if ( !isset($_POST['numcompte']) || $_POST['numcompte'] == "" )
+       $erreurs[] = __("Indiquer le numero de compte.", "kotikota");
+
+    if ( !isset($_POST['cle']) || $_POST['cle'] == "" ){
+       $erreurs[] = __("Entrer le clé Rib.", "kotikota");
+    }
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();
+    }
+
+    $idCagnotte = $_POST['idCagnotte'];
+
+    // info beneficiaire
+    $idBenef   = strip_tags( $_POST['idBenef'] );
+    $titulaire       = strip_tags( $_POST['titulaire'] );
+    $banque    = strip_tags( $_POST['banque'] );
+    $domicile     = strip_tags( $_POST['domicile'] );
+    $codebanque = strip_tags( $_POST['codebanque'] );
+    $codeguichet      = strip_tags( $_POST['codeguichet'] );
+    $numcompte       = strip_tags( $_POST['numcompte'] );
+    $cle       = strip_tags( $_POST['cle'] );
+    update_field('code_benef', $code, $idBenef );
+
+    $update_benef = update_beneficiaire_info_rib( $idBenef,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle );
+
+    $single = get_site_url().'/parametre-info-principale';
+    echo $single;
+    wp_die();
+}
+
 add_action( 'wp_ajax_save_fond', 'save_fond' );
 
 function save_fond(){
