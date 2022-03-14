@@ -46,6 +46,7 @@ $(document).ready(function() {
         $('#new_btn').trigger('click');
         setTimeout(function() {
             $.fancybox.close();
+            window.history.pushState('Home',"Koti Kota",'/');
         }, 8000);
     }
 
