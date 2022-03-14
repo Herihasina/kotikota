@@ -432,7 +432,7 @@ $(function(){
 	  	var nomCagnotte = $('#nom_cagnotte').val();
 	  	var idCagnotte	= $('#idCagnotte').val();
 	  	var idBenef = $('#benef').val();
-		var fd = new FormData();
+		
 	  	// info beneficiaire
 
 	  	var titulaire = $('#rib_nom').val();
@@ -445,26 +445,11 @@ $(function(){
 	  	var iban = $('#rib_iban').val();
 	  	var bic = $('#rib_bic').val();
 		var fichier = $('#rib_value').val();
-		    
-		fd.append('action','save_info_banque');
-	  	fd.append('titulaire',titulaire);
-	  	fd.append('banque',banque);
-	  	fd.append('domicile',domicile);
-	  	fd.append('codebanque',codebanque);
-	  	fd.append('codeguichet',codeguichet);
-	  	fd.append('numcompte',numcompte);
-	  	fd.append('cle',cle);
-	  	fd.append('iban',iban);
-	  	fd.append('bic',bic);
-	  	fd.append('idCagnotte',idCagnotte);
-	  	fd.append('idBenef',idBenef);
-		fd.append('fichier', fichier);
-		  
+		console.log(fichier); 		  
 	  	$.ajax({
 	  		url: ajaxurl,
-	  		type: 'POST',
-			data: fd,
-	  		/*data:{
+	  		type: 'POST',			
+	  		data:{
 	  			'action':'save_info_banque',
 	  			'titulaire': titulaire,
 	  			'banque': banque,
@@ -477,16 +462,17 @@ $(function(){
 	  			'bic': bic,
 	  			'idCagnotte': idCagnotte,
 	  			'idBenef': idBenef,
-	  		}*/
+				'fichier' : fichier
+	  		}
 	  	}).done(function(resp){
 	  		var url = new RegExp("^http");
 	  		if( url.test(resp) ){
 				 	console.log('redirect..');
 				 		window.location = resp + '?parametre='+idCagnotte;
 				 }else{
-	  			$('ul#response').addClass('error').html(resp);
+	  			$('ul#responsepopup').addClass('error').html(resp);
 			  		setTimeout(function() {
-			  			$('ul#response').removeClass('error').html('');
+			  			$('ul#responsepopup').removeClass('error').html('');
 			  		}, 10000 );
 	  		}
 				 $('#loader').removeClass('working');

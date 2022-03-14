@@ -135,24 +135,24 @@
 							</div>
 		          		</div>
 
-		          		<div class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms" style="visibility: visible; animation-delay: 1000ms; animation-name: fadeIn;">
+		          		<div id="rib_info" class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms" style="visibility: visible; animation-delay: 1000ms; animation-name: fadeIn;">
                             <label><?php _e('Ajouter un RIB','kotikota'); ?></label>
                            <!--  <div class="chp">
                                 <div class="cont-file">
-                                		<?php if( $info->rib == '' || $info->rib == 0 ): ?>
+                                		<?php if( $info->rib_file == '' || $info->rib_file == 0 ): ?>
                                     	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
                                   	<?php else: ?>
-                                  		<span><?= get_the_title( $info->rib ) ?></span>
+                                  		<span><?= get_the_title( $info->rib_file ) ?></span>
                                   	<?php endif; ?>
                                     <input type="text" name="file[]" class="input-file" id="rib_btn">
-                                    <input type="hidden" name="" value="<?= $info->rib ?>" id="rib_value">
+                                    <input type="hidden" name="" value="<?= $info->rib_file ?>" id="rib_value">
                                     <i> <?php _e('Parcourir','kotikota'); ?></i>
                                     <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
                                 </div>
                                 <div class="zone-img-rib"></div>
                             </div> -->
                             <div class="blc-rib">
-                            	<input type="text" name="rib" class="chp" id="rib" placeholder="Aucun fichier" required="" value="">
+                            	<input type="text" name="rib" class="chp" id="rib" placeholder="<?php if( $info->rib_file == '' || $info->rib_file == 0 ){ echo 'Aucun fichier'; } else { echo get_the_title( $info->rib_file ); } ?>" required="" value="">
                             	<a href="#pp-rib" class="link submit fancybox">Remplir le RIB du Bénéficiaire</a>
                             </div>
 
@@ -228,13 +228,13 @@
                             						<label><?php _e('Ajouter un RIB','kotikota'); ?></label>
 						                            <div class="chpfile">
 						                                <div class="cont-file">
-						                                		<?php if( $info->rib == '' || $info->rib == 0 ): ?>
+						                                		<?php if( $info->rib_file == '' || $info->rib_file == 0 ): ?>
 						                                    	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
 						                                  	<?php else: ?>
-						                                  		<span><?= get_the_title( $info->rib ) ?></span>
+						                                  		<span><?= get_the_title( $info->rib_file ) ?></span>
 						                                  	<?php endif; ?>
 						                                    <input type="text" name="file[]" class="input-file" id="rib_btn">
-						                                    <input type="hidden" name="" value="<?= $info->rib ?>" id="rib_value">
+						                                    <input type="hidden" name="" value="<?= $info->rib_file ?>" id="rib_value">
 						                                    <i> <?php _e('Parcourir','kotikota'); ?></i>
 						                                    <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
 						                                </div>
@@ -245,8 +245,9 @@
                             					<div class="info-rib">
                             						<p>Pour assurer une double vérification, vous aSi vous souhaitez obtenir un transfert via Mobile Money, il faudra effectuer une demande spéciale à l’adresse hello@koti-kota.com en précisant le Nom de votre cagnotte, votre Identifiant Koti Kota (Profil), le montant à récupérer, votre numéro de téléphone ainsi qu’un justificatif d’identité (CIN, passeport,…)</p>
                             					</div>
+								<ul id="responsepopup"></ul>
                             					<div class="btn">
-										           <a href="https://koti-kota.com/cagnotte/voyage-test/" class="link" title="annuler">annuler</a>
+										           <a href="#" class="link" title="annuler" data-fancybox-close="">annuler</a>
 										           <input type="submit" name="" value="enregistrer" class="link submit" >
 										        </div>
                             				</div>

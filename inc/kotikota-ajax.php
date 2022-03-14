@@ -631,7 +631,7 @@ function save_info_banque(){
        $erreurs[] = __("Indiquer le nom de la banque.", "kotikota");
 
     if ( !isset($_POST['domicile']) || $_POST['domicile'] == "" )
-       $erreurs[] = __("Indiquer l\'adresse de domiciliation de la banque.", "kotikota");
+       $erreurs[] = __("Indiquer l'adresse de domiciliation de la banque.", "kotikota");
 
     if ( !isset($_POST['codebanque']) || $_POST['codebanque'] == "" )
        $erreurs[] = __("Indiquer le code banque.", "kotikota");
@@ -653,6 +653,9 @@ function save_info_banque(){
     if ( !isset($_POST['cle']) || $_POST['cle'] == "" ){
        $erreurs[] = __("Indiquer Numero BIC.", "kotikota");
     }
+    if ( !isset($_POST['fichier']) || $_POST['fichier'] == "" ){
+       $erreurs[] = __("Vous devez téléverser un fichier Image ou PDF", "kotikota");
+    }
 
     /*if ( $erreurs ){
         foreach ($erreurs as $erreur ){
@@ -662,8 +665,7 @@ function save_info_banque(){
     }*/
     
     $idCagnotte = $_POST['idCagnotte'];
-    $rib_file = $_POST['fichier'];
-    
+       
 
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
@@ -682,9 +684,12 @@ function save_info_banque(){
     $numcompte       = strip_tags( $_POST['numcompte'] );
     $cle       = strip_tags( $_POST['cle'] );
     $iban       = strip_tags( $_POST['iban'] );
-    $bic       = strip_tags( $_POST['bic'] );    
-
-    update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic,$rib_file);    
+    $bic       = strip_tags( $_POST['bic'] );
+    $rib_file  = attachment_url_to_postid(strip_tags($_POST['fichier']));
+   
+    update_field('rib_fichier', $rib_file, $idCagnotte );
+    
+    update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic);    
     
     $single = get_site_url().'/parametre-info-principale';
     echo $single;
@@ -1618,12 +1623,15 @@ function insert_video_cagnotte(){
        ?>
             <h3>vidéos</h3>
             <div class="lst-option blcvideos ">        
-                <?php if($videos): ?>
+                <?php if($videos): 
+                    $key_video=1;
+                    $count_correct_id=0;
+                ?>
                 <div class="lst-option"> 
                     <?php foreach($videos as $video ): 
                     $video_id= $video['lien_youtube'];
                     $video_data = get_youtube_video_detail($video_id);
-                    if($video_data):$key_video=1;
+                    if($video_data): $count_correct_id++;
                     ?>        
                         <div class="item">      
                             <div class="contvideo">
@@ -1648,8 +1656,15 @@ function insert_video_cagnotte(){
                 </div>
             
                 <?php
-                else:
+                elseif($count_correct_id!=count($videos)):
                 ?>
+                    <div style="text-align:center">
+                        <h4 style="text-align:center">
+                            <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                        </h4>
+                    </div>
+
+                <?php   else: ?>
                     <div style="text-align:center">
                         <h4 style="text-align:center">
                             <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
@@ -1732,12 +1747,13 @@ function remove_media_cagnotte(){
                     <div class="lst-option blcvideos ">        
                         <?php if($videos): 
                             $key_video=1;
+                            $count_correct_id=0;
                         ?>
                         <div class="lst-option"> 
                             <?php foreach($videos as $video ): 
                             $video_id= $video['lien_youtube'];
                             $video_data = get_youtube_video_detail($video_id);
-                            if($video_data):
+                            if($video_data): $count_correct_id++;
                             ?>        
                                 <div class="item">      
                                 <div class="contvideo">
@@ -1762,15 +1778,22 @@ function remove_media_cagnotte(){
                             $key_video++;
                             endforeach; ?>
                         </div>
-                    <?php
-                    else:
-                    ?>
-                        <div style="text-align:center">
-                            <h4 style="text-align:center">
-                                <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                            </h4>
-                        </div>
-                    <?php endif; ?>
+                        <?php
+                        elseif($count_correct_id!=count($videos)):
+                        ?>
+                            <div style="text-align:center">
+                                <h4 style="text-align:center">
+                                    <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                                </h4>
+                            </div>
+
+                        <?php   else: ?>
+                            <div style="text-align:center">
+                                <h4 style="text-align:center">
+                                    <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                                </h4>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 </div>
