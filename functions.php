@@ -713,6 +713,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $info->rib_cle_rib    = get_field('rib_cle_rib', $idCagnotte );
     $info->rib_iban    = get_field('rib_iban', $idCagnotte );
     $info->rib_bic    = get_field('rib_bic', $idCagnotte );
+    $info->rib_file    = get_field('rib_fichier', $idCagnotte );
     
     return $info;
   }
