@@ -445,7 +445,7 @@ $(function(){
 	  	var iban = $('#rib_iban').val();
 	  	var bic = $('#rib_bic').val();
 		var fichier = $('#rib_value').val();
-		 		  
+		console.log(fichier); 		  
 	  	$.ajax({
 	  		url: ajaxurl,
 	  		type: 'POST',			
