@@ -470,9 +470,9 @@ $(function(){
 				 	console.log('redirect..');
 				 		window.location = resp + '?parametre='+idCagnotte;
 				 }else{
-	  			$('ul#response').addClass('error').html(resp);
+	  			$('ul#responsepopup').addClass('error').html(resp);
 			  		setTimeout(function() {
-			  			$('ul#response').removeClass('error').html('');
+			  			$('ul#responsepopup').removeClass('error').html('');
 			  		}, 10000 );
 	  		}
 				 $('#loader').removeClass('working');
