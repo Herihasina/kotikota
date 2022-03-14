@@ -7,14 +7,6 @@
 		$idCagnotte = strip_tags($_GET['cgid']);
 	}
 	
-	$attachments = get_posts( array(
-        'post_type'         => 'attachment',
-        'posts_per_page'    => -1,
-        'post_parent'       => $idCagnotte,
-        'exclude'           => get_post_thumbnail_id() // Exclude post thumbnail to the attachment count
-    ) );
-	print_r($attachments);
-
 	if ( !is_cagnotte( $idCagnotte ) )
 		die(__('Cette ID ne correspond à votre cagnotte :)','kotikota'));
 

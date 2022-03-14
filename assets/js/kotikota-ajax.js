@@ -444,7 +444,8 @@ $(function(){
 	  	var cle = $('#rib_cle').val();
 	  	var iban = $('#rib_iban').val();
 	  	var bic = $('#rib_bic').val();
-		  
+		var fichier = $('#rib_value').val();
+		    
 		fd.append('action','save_info_banque');
 	  	fd.append('titulaire',titulaire);
 	  	fd.append('banque',banque);
@@ -457,17 +458,7 @@ $(function(){
 	  	fd.append('bic',bic);
 	  	fd.append('idCagnotte',idCagnotte);
 	  	fd.append('idBenef',idBenef);
-
-        var files_data = $('.form-rib .input-file'); // The <input type="file" /> field
-
-        // Loop through each data and create an array file[] containing our files data.
-        $.each($(files_data), function(i, obj) {
-            $.each(obj.files,function(j,file){
-                fd.append('files[' + j + ']', file);
-            })
-        });
-
-	  	
+		fd.append('fichier', fichier);
 		  
 	  	$.ajax({
 	  		url: ajaxurl,
