@@ -2598,6 +2598,14 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 #pp-document .lst-document h4 {
     text-align: center !important;
 }
+#type_cagnotte.disabled{
+    pointer-events: none;
+    background:#f3f3f3;
+}
+.info-cagnotte { position: absolute; left: 0;  }
+.info-cagnotte div {
+    font-size: 14px;
+}
 
 
 
@@ -3689,13 +3697,6 @@ a:hover { color:#fbbd36; }
     }
 }
 
-#type_cagnotte.disabled{
-    pointer-events: none;
-    background:#f3f3f3;
-}
-.info-cagnotte { position: absolute; left: 0; bottom: 0 }
-.info-cagnotte div {
-    font-size: 14px;
-}
+
 
 
