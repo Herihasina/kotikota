@@ -694,7 +694,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     return $benef;
   }
 
-  function get_beneficiaire_info( $idBenef ){
+  function get_beneficiaire_info( $idBenef, $idCagnotte ){
     $info = new stdClass();
     $info->nom    = get_field('nom_benef', $idBenef ) != '' ? get_field('nom_benef', $idBenef ) : get_the_title( $idBenef );
     $info->prenom = get_field('prenom_benef', $idBenef );
@@ -702,8 +702,38 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $info->telephone = get_field('telephone_benef', $idBenef );
     $info->rib    = get_field('rib_benef', $idBenef );
     $info->code    = get_field('code_benef', $idBenef );
-
+    
+    // RIB
+    $info->rib_nom    = get_field('rib_nom', $idCagnotte );
+    $info->rib_banque    = get_field('rib_banque', $idCagnotte );
+    $info->rib_adresse_de_domiciliation    = get_field('rib_adresse_de_domiciliation', $idCagnotte );
+    $info->rib_code_banque    = get_field('rib_code_banque', $idCagnotte );
+    $info->rib_code_agence    = get_field('rib_code_agence', $idCagnotte );
+    $info->rib_num_de_compte    = get_field('rib_num_de_compte', $idCagnotte );
+    $info->rib_cle_rib    = get_field('rib_cle_rib', $idCagnotte );
+    $info->rib_iban    = get_field('rib_iban', $idCagnotte );
+    $info->rib_bic    = get_field('rib_bic', $idCagnotte );
+    
     return $info;
+  }
+  
+  function update_beneficiaire_info_rib( $idCagnotte,$rib_nom,$rib_banque,$rib_adresse_de_domiciliation,$rib_code_banque,$rib_code_agence,$rib_num_de_compte,$rib_cle_rib,$rib_iban,$rib_bic){
+    if(
+      update_field('rib_nom', $rib_nom, $idCagnotte ) &&
+      update_field('rib_banque', $rib_banque, $idCagnotte ) &&
+      update_field('rib_adresse_de_domiciliation', $rib_adresse_de_domiciliation, $idCagnotte ) &&
+      update_field('rib_code_banque', $rib_code_banque, $idCagnotte ) &&
+      update_field('rib_code_agence', $rib_code_agence, $idCagnotte ) &&
+      update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte ) &&
+      update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ) &&
+      update_field('rib_iban', $rib_iban, $idCagnotte ) &&
+      update_field('rib_bic', $rib_bic, $idCagnotte )
+    ){
+      $result = true;
+    }else{
+      $result = false;
+    }
+    return $result;
   }
 
   function update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib = '' ){
@@ -880,8 +910,10 @@ function get_youtube_video_detail($video_id){
 }
 
 function custom_js_to_head() {
+    global $post;
+    $id = $post->ID;
     $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    $actual_link .= '&rib=1&postID=2548'
+    $actual_link .= '&rib=1&postID='.$id;
     ?>
     <script>
     jQuery(function(){
@@ -935,15 +967,41 @@ function generate_post_to_pdf_file($postID) {
   
       $filePath = CACHE_DIR . '/' . $post->ID . '.pdf';
       $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+      $pdf->SetCreator ( 'kotikota' . PDF_CREATOR );
+      $pdf->SetAuthor ( get_bloginfo ( 'name' ) );
+      $pdf_title = 'Informations RIB de la cagnotte ' . $post->post_title;
+  
       $pdf->setPrintHeader(false);
       $pdf->AddPage();
-
-      $html = '<h1>Welcome to <a href="http://techbriefers.com/" style="text-decoration:none;padding: 10px;"> <span style="background-color:#ef3e47;color:#fff;"> Tech</span><span style="background-color:#fff1f0;color:#000;">Briefers</span> </a>!</h1>
+      $html .= "<body>";
+      $html .= "<h2 style=\"text-align:center\">".apply_filters ( 'the_post_title', $pdf_title )."</h2><hr>";
+      $html .= '<br><br>'."Titulaire du compte : " . get_field('rib_nom', $post->ID) .'<br>';
+      $html .= '<br>'."Nom de la banque : " .get_field('rib_banque', $post->ID).'<br>';
+      $html .= '<br>'."Adresse de domiciliation : " .get_field('rib_adresse_de_domiciliation', $post->ID).'<br>';
+      $html .= '<br>'."RIB : " .get_field('rib_code_banque', $post->ID) .' '.get_field('rib_code_agence', $post->ID) .' '.get_field('rib_num_de_compte', $post->ID) .' '.get_field('rib_cle_rib', $post->ID).'<br>';
+      $html .= '<br>'."IBAN : " .get_field('rib_iban', $post->ID).'<br>';
+      $html .= '<br>'."BIC : " .get_field('rib_bic', $post->ID).'<br>';
+      $html .="</body>";
+  
+      /*$html = '<h1>Welcome to <a href="http://techbriefers.com/" style="text-decoration:none;padding: 10px;"> <span style="background-color:#ef3e47;color:#fff;"> Tech</span><span style="background-color:#fff1f0;color:#000;">Briefers</span> </a>!</h1>
       <i>This is the two minute example of TCPDF library by <a href="http://techbriefers.com/">techbriefers</a>.</i>
       <h2>What is Lorem Ipsum?</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>';
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>';*/
 
       $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
       $pdf->Output($filePath, 'F');
       $pdf->Output($post->ID . '.pdf', 'D');
     }
+  
+  function cvf_td_generate_random_code($length=10) {
+
+     $string = '';
+     $characters = "23456789ABCDEFHJKLMNPRTVWXYZabcdefghijklmnopqrstuvwxyz";
+
+     for ($p = 0; $p < $length; $p++) {
+         $string .= $characters[mt_rand(0, strlen($characters)-1)];
+     }
+
+     return $string;
+
+  }

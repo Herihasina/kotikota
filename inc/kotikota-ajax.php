@@ -619,6 +619,149 @@ function save_info_principale(){
     wp_die();  
 }
 
+add_action( 'wp_ajax_save_info_banque', 'save_info_banque' );
+
+function save_info_banque(){
+    $erreurs = [];
+
+    if ( !isset($_POST['titulaire']) || $_POST['titulaire'] == "" )
+       $erreurs[] = __("Entrer un nom titulaire du compte.", "kotikota");
+
+    if ( !isset($_POST['banque']) || $_POST['banque'] == "" )
+       $erreurs[] = __("Indiquer le nom de la banque.", "kotikota");
+
+    if ( !isset($_POST['domicile']) || $_POST['domicile'] == "" )
+       $erreurs[] = __("Indiquer l\'adresse de domiciliation de la banque.", "kotikota");
+
+    if ( !isset($_POST['codebanque']) || $_POST['codebanque'] == "" )
+       $erreurs[] = __("Indiquer le code banque.", "kotikota");
+
+    if ( !isset($_POST['codeguichet']) || $_POST['codeguichet'] == "" )
+       $erreurs[] = __("Indiquer le code guichet ou code agence.", "kotikota");
+
+    if ( !isset($_POST['numcompte']) || $_POST['numcompte'] == "" )
+       $erreurs[] = __("Indiquer le numero de compte.", "kotikota");
+
+    if ( !isset($_POST['cle']) || $_POST['cle'] == "" ){
+       $erreurs[] = __("Entrer le clé Rib.", "kotikota");
+    }
+    
+    if ( !isset($_POST['iban']) || $_POST['iban'] == "" ){
+       $erreurs[] = __("Indiquer Numero IBAN.", "kotikota");
+    }
+    
+    if ( !isset($_POST['cle']) || $_POST['cle'] == "" ){
+       $erreurs[] = __("Indiquer Numero BIC.", "kotikota");
+    }
+
+    /*if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();
+    }*/
+    
+    $idCagnotte = $_POST['idCagnotte'];
+    
+    $valid_formats = array("jpg", "png", "gif", "bmp", "jpeg"); // Supported file types
+    $max_file_size = 1024 * 500; // in kb
+    $max_image_upload = 10; // Define how many images can be uploaded to the current post
+    $wp_upload_dir = wp_upload_dir();
+    $path = $wp_upload_dir['path'] . '/';
+    $count = 0;
+
+    $attachments = get_posts( array(
+        'post_type'         => 'attachment',
+        'posts_per_page'    => -1,
+        'post_parent'       => $idCagnotte,
+        'exclude'           => get_post_thumbnail_id() // Exclude post thumbnail to the attachment count
+    ) );
+
+    if( $_SERVER['REQUEST_METHOD'] == "POST" ){
+
+        // Check if user is trying to upload more than the allowed number of images for the current post
+        if( ( count( $attachments ) + count( $_FILES['files']['name'] ) ) > $max_image_upload ) {
+            $erreurs[] = "Sorry you can only upload " . $max_image_upload . " images for each Ad";
+        } else {
+
+            foreach ( $_FILES['files']['name'] as $f => $name ) {
+                $extension = pathinfo( $name, PATHINFO_EXTENSION );
+                // Generate a randon code for each file name
+                $new_filename = cvf_td_generate_random_code( 20 )  . '.' . $extension;
+
+                if ( $_FILES['files']['error'][$f] == 4 ) {
+                    continue;
+                }
+
+                if ( $_FILES['files']['error'][$f] == 0 ) {
+                    // Check if image size is larger than the allowed file size
+                    if ( $_FILES['files']['size'][$f] > $max_file_size ) {
+                        $erreurs[] = "$name is too large!.";
+                        continue;
+
+                    // Check if the file being uploaded is in the allowed file types
+                    } elseif( ! in_array( strtolower( $extension ), $valid_formats ) ){
+                        $erreurs[] = "$name is not a valid format";
+                        continue;
+
+                    } else{
+                        // If no errors, upload the file...
+                        if( move_uploaded_file( $_FILES["files"]["tmp_name"][$f], $path.$new_filename ) ) {
+
+                            $count++;
+
+                            $filename = $path.$new_filename;
+                            $filetype = wp_check_filetype( basename( $filename ), null );
+                            $wp_upload_dir = wp_upload_dir();
+                            $attachment = array(
+                                'guid'           => $wp_upload_dir['url'] . '/' . basename( $filename ),
+                                'post_mime_type' => $filetype['type'],
+                                'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $filename ) ),
+                                'post_content'   => '',
+                                'post_status'    => 'inherit'
+                            );
+                            // Insert attachment to the database
+                            $attach_id = wp_insert_attachment( $attachment, $filename, $parent_post_id );
+
+                            require_once( ABSPATH . 'wp-admin/includes/image.php' );
+
+                            // Generate meta data
+                            $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+                            wp_update_attachment_metadata( $attach_id, $attach_data );
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();
+    }
+    
+    // info beneficiaire
+    $idBenef   = strip_tags( $_POST['idBenef'] );
+    $titulaire       = strip_tags( $_POST['titulaire'] );
+    $banque    = strip_tags( $_POST['banque'] );
+    $domicile     = strip_tags( $_POST['domicile'] );
+    $codebanque = strip_tags( $_POST['codebanque'] );
+    $codeguichet      = strip_tags( $_POST['codeguichet'] );
+    $numcompte       = strip_tags( $_POST['numcompte'] );
+    $cle       = strip_tags( $_POST['cle'] );
+    $iban       = strip_tags( $_POST['iban'] );
+    $bic       = strip_tags( $_POST['bic'] );    
+
+    update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic );
+
+    $single = get_site_url().'/parametre-info-principale';
+    echo $single;
+    wp_die();
+}
+
 add_action( 'wp_ajax_save_fond', 'save_fond' );
 
 function save_fond(){

@@ -426,7 +426,85 @@ $(function(){
 
 	  	return false;
 	  });
+	  	/* Paramètres rib */
+	  $('.form-rib .link.submit').click(function(){
+	  	$('#loader').addClass('working');
+	  	var nomCagnotte = $('#nom_cagnotte').val();
+	  	var idCagnotte	= $('#idCagnotte').val();
+	  	var idBenef = $('#benef').val();
+		var fd = new FormData();
+	  	// info beneficiaire
 
+	  	var titulaire = $('#rib_nom').val();
+	  	var banque = $('#rib_bank').val();
+	  	var domicile = $('#rib_domicile').val();
+	  	var codebanque = $('#rib_codebank').val();
+	  	var codeguichet = $('#rib_codeguichet').val();
+	  	var numcompte = $('#rib_numcompte').val();
+	  	var cle = $('#rib_cle').val();
+	  	var iban = $('#rib_iban').val();
+	  	var bic = $('#rib_bic').val();
+		  
+		fd.append('action','save_info_banque');
+	  	fd.append('titulaire',titulaire);
+	  	fd.append('banque',banque);
+	  	fd.append('domicile',domicile);
+	  	fd.append('codebanque',codebanque);
+	  	fd.append('codeguichet',codeguichet);
+	  	fd.append('numcompte',numcompte);
+	  	fd.append('cle',cle);
+	  	fd.append('iban',iban);
+	  	fd.append('bic',bic);
+	  	fd.append('idCagnotte',idCagnotte);
+	  	fd.append('idBenef',idBenef);
+
+        var files_data = $('.form-rib .input-file'); // The <input type="file" /> field
+
+        // Loop through each data and create an array file[] containing our files data.
+        $.each($(files_data), function(i, obj) {
+            $.each(obj.files,function(j,file){
+                fd.append('files[' + j + ']', file);
+            })
+        });
+
+	  	
+		  
+	  	$.ajax({
+	  		url: ajaxurl,
+	  		type: 'POST',
+			data: fd,
+	  		/*data:{
+	  			'action':'save_info_banque',
+	  			'titulaire': titulaire,
+	  			'banque': banque,
+	  			'domicile': domicile,
+	  			'codebanque': codebanque,
+	  			'codeguichet': codeguichet,
+	  			'numcompte': numcompte,
+	  			'cle': cle,
+	  			'iban': iban,
+	  			'bic': bic,
+	  			'idCagnotte': idCagnotte,
+	  			'idBenef': idBenef,
+	  		}*/
+	  	}).done(function(resp){
+	  		var url = new RegExp("^http");
+	  		if( url.test(resp) ){
+				 	console.log('redirect..');
+				 		window.location = resp + '?parametre='+idCagnotte;
+				 }else{
+	  			$('ul#response').addClass('error').html(resp);
+			  		setTimeout(function() {
+			  			$('ul#response').removeClass('error').html('');
+			  		}, 10000 );
+	  		}
+				 $('#loader').removeClass('working');
+	  	});
+
+	  	return false;
+
+	  });
+	
 	  /* paramtre fond */
 	  $('#slide-img .item a').click(function(){
 			var src = $(this).data('imgsrc');
