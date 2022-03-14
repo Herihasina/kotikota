@@ -210,13 +210,13 @@
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>IBAN </label>
-	                            						<input type="text" name="" placeholder="---- ---- ---- ---- ---- ---- ---" class="chp" id="rib_iban">
+	                            						<input type="text" name="" placeholder="---- ---- ---- ---- ---- ---- ---" class="chp" id="rib_iban" value="<?= $info->rib_iban ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>BIC</label>
-	                            						<input type="text" name="" placeholder="-----------" class="chp" id="rib_bic">
+	                            						<input type="text" name="" placeholder="-----------" class="chp" id="rib_bic" value="<?= $info->rib_bic ?>">
 	                            					</div>
                             					</div>
 
