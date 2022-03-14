@@ -662,8 +662,7 @@ function save_info_banque(){
     }*/
     
     $idCagnotte = $_POST['idCagnotte'];
-    $rib_file = sanitize_url($_POST['fichier']);
-    
+       
 
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
@@ -682,7 +681,8 @@ function save_info_banque(){
     $numcompte       = strip_tags( $_POST['numcompte'] );
     $cle       = strip_tags( $_POST['cle'] );
     $iban       = strip_tags( $_POST['iban'] );
-    $bic       = strip_tags( $_POST['bic'] );    
+    $bic       = strip_tags( $_POST['bic'] );
+    $rib_file = sanitize_url($_POST['fichier']);
 
     update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic,$rib_file);    
     
