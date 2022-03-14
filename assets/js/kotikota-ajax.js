@@ -448,8 +448,7 @@ $(function(){
 		 		  
 	  	$.ajax({
 	  		url: ajaxurl,
-	  		type: 'POST',
-			data: fd,
+	  		type: 'POST',			
 	  		data:{
 	  			'action':'save_info_banque',
 	  			'titulaire': titulaire,
