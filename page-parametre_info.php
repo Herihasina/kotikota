@@ -284,7 +284,7 @@
 		if (fancy != '') {
 			$(fancy).fancybox();
 		}
-	}
+	});
 </script>
 
 <?php
