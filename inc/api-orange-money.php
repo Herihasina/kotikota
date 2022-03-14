@@ -76,7 +76,7 @@ function get_om_payment_api($participation, $order_id){
   );
 
   $reference = get_field('nom_de_la_cagnotte', $participation->id_cagnotte);
-  $referenceout = clean( $reference );
+  $referenceout = substr( clean( $reference ) , 15);
   
   $body_payment = array(
       'merchant_key' => $merchent_key,
