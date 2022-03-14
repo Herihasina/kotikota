@@ -173,7 +173,7 @@
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>Banque</label>
-	                            						<input type="text" name="" placeholder="Le nom de votre banque" class="chp" d="rib_bank" value="<?= $info->rib_banque ?>">
+	                            						<input type="text" name="" placeholder="Le nom de votre banque" class="chp" id="rib_bank" value="<?= $info->rib_banque ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-100">
