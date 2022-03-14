@@ -662,7 +662,7 @@ function save_info_banque(){
     }*/
     
     $idCagnotte = $_POST['idCagnotte'];
-    $rib_file = $_POST['fichier'];
+    $rib_file = sanitize_url($_POST['fichier']);
     
 
     if ( $erreurs ){
