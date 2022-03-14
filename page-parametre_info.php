@@ -145,7 +145,7 @@
                                   		<span><?= get_the_title( $info->rib ) ?></span>
                                   	<?php endif; ?>
                                     <input type="text" name="file[]" class="input-file" id="rib_btn">
-                                    <input type="hidden" name="" value="<?= $info->rib ?>" id="rib_value">
+                                    <input type="hidden" name="" value="<?= $info->rib_file ?>" id="rib_value">
                                     <i> <?php _e('Parcourir','kotikota'); ?></i>
                                     <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
                                 </div>
