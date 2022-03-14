@@ -135,7 +135,7 @@
 							</div>
 		          		</div>
 
-		          		<div class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms" style="visibility: visible; animation-delay: 1000ms; animation-name: fadeIn;">
+		          		<div id="rib_info" class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms" style="visibility: visible; animation-delay: 1000ms; animation-name: fadeIn;">
                             <label><?php _e('Ajouter un RIB','kotikota'); ?></label>
                            <!--  <div class="chp">
                                 <div class="cont-file">
@@ -278,14 +278,6 @@
 			</div>
 
 		</main>
-<script type="text/javascript">
-	jQuery(document).ready(function($) {
-		var fancy = "<?=  strip_tags($_GET['fancy']) ?>";
-		if (fancy != '') {
-			$(fancy).fancybox();
-		}
-	});
-</script>
 
 <?php
 	get_footer();
