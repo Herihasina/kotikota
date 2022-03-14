@@ -675,9 +675,9 @@ function save_info_banque(){
     $iban       = strip_tags( $_POST['iban'] );
     $bic       = strip_tags( $_POST['bic'] );    
 
-    $update_benef = update_beneficiaire_info_rib( $idBenef,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic );
+    update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic );
 
-    $single = get_site_url().'/parametre';
+    $single = get_site_url().'/parametre-info-principale/?parametre='.$idCagnotte;
     echo $single;
     wp_die();
 }

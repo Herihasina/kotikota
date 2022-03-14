@@ -443,7 +443,29 @@ $(function(){
 	  	var cle = $('#rib_cle').val();
 	  	var iban = $('#rib_iban').val();
 	  	var bic = $('#rib_bic').val();
+		
+		var titulaire = $('#rib_nom').val();
+	  	var banque = $('#rib_bank').val();
+	  	var domicile = $('#rib_domicile').val();
+	  	var codebanque = $('#rib_codebank').val();
+	  	var codeguichet = $('#rib_codeguichet').val();
+	  	var numcompte = $('#rib_numcompte').val();
+	  	var cle = $('#rib_cle').val();
+	  	var iban = $('#rib_iban').val();
+	  	var bic = $('#rib_bic').val();
 
+	  	console.log(idBenef);
+	  	console.log(titulaire);
+	  	console.log(banque);
+	  	console.log(domicile);
+	  	console.log(codebanque);
+	  	console.log(codeguichet);
+		console.log(numcompte);
+	  	console.log(cle);
+	  	console.log(iban);
+	  	console.log(bic);
+	  	
+		  
 	  	$.ajax({
 	  		url: ajaxurl,
 	  		type: 'POST',
