@@ -1156,6 +1156,11 @@ function kk_search(){
             'value'   => $str,
             'compare' => 'LIKE',
         ),
+        array(
+            'key' => 'visibilite_cagnotte' ,
+            'value' => 'publique',
+            'compare' => '=',
+        ),
     );
 
     $args = array(
