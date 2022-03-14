@@ -34,6 +34,13 @@ $(document).ready(function() {
         return false;
     });
 
+    $('.open-register').on('click',function(){
+        $('.lrm-signin-section, .lrm-reset-password-section').removeClass('is-selected');
+        $('.lrm-signup-section').addClass('is-selected');
+        
+        return false;
+    });
+
 
     if( $('#new_btn:visible').length ){
         $('#new_btn').trigger('click');
