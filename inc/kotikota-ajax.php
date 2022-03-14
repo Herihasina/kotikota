@@ -1614,7 +1614,7 @@ function insert_video_cagnotte(){
                 </div>
             
                 <?php
-                elseif(!$videos || $count_correct_id!=count($videos)):
+                elseif(!$videos && $count_correct_id!=count($videos)):
                 ?>
                     <div style="text-align:center">
                         <h4 style="text-align:center">
@@ -1730,7 +1730,7 @@ function remove_media_cagnotte(){
                             endforeach; ?>
                         </div>
                     <?php
-                    elseif(!$videos || $count_correct_id!=count($videos)):
+                    elseif(!$videos && $count_correct_id!=count($videos)):
                     ?>
                         <div style="text-align:center">
                             <h4 style="text-align:center">
