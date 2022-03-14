@@ -694,7 +694,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     return $benef;
   }
 
-  function get_beneficiaire_info( $idBenef, $idCagnotte ){
+  function get_beneficiaire_info( $idBenef, $idCagnotte = 0 ){
     $info = new stdClass();
     $info->nom    = get_field('nom_benef', $idBenef ) != '' ? get_field('nom_benef', $idBenef ) : get_the_title( $idBenef );
     $info->prenom = get_field('prenom_benef', $idBenef );
