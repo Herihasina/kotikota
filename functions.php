@@ -715,7 +715,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     return $info;
   }
   
-  function update_beneficiaire_info_rib( $idBenef,$rib_nom,$rib_banque,$rib_adresse_de_domiciliation,$rib_code_banque,$rib_code_agence,$rib_num_de_compte,$rib_cle_rib){
+  function update_beneficiaire_info_rib( $idBenef,$rib_nom,$rib_banque,$rib_adresse_de_domiciliation,$rib_code_banque,$rib_code_agence,$rib_num_de_compte,$rib_cle_rib,$rib_iban,$rib_bic){
     if(
       update_field('rib_nom', $rib_nom, $idBenef ) &&
       update_field('rib_banque', $rib_banque, $idBenef ) &&
@@ -723,7 +723,9 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
       update_field('rib_code_banque', $rib_code_banque, $idBenef ) &&
       update_field('rib_code_agence', $rib_code_agence, $idBenef ) &&
       update_field('rib_num_de_compte', $rib_num_de_compte, $idBenef ) &&
-      update_field('rib_cle_rib', $rib_cle_rib, $idBenef )
+      update_field('rib_cle_rib', $rib_cle_rib, $idBenef ) &&
+      update_field('rib_iban', $rib_iban, $idBenef ) &&
+      update_field('rib_bic', $rib_bic, $idBenef )
     ){
       $result = true;
     }else{
