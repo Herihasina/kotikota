@@ -694,7 +694,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     return $benef;
   }
 
-  function get_beneficiaire_info( $idBenef ){
+  function get_beneficiaire_info( $idBenef, $idCagnotte ){
     $info = new stdClass();
     $info->nom    = get_field('nom_benef', $idBenef ) != '' ? get_field('nom_benef', $idBenef ) : get_the_title( $idBenef );
     $info->prenom = get_field('prenom_benef', $idBenef );
@@ -704,28 +704,28 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $info->code    = get_field('code_benef', $idBenef );
     
     // RIB
-    $info->rib_nom    = get_field('rib_nom', $idBenef );
-    $info->rib_banque    = get_field('rib_banque', $idBenef );
-    $info->rib_adresse_de_domiciliation    = get_field('rib_adresse_de_domiciliation', $idBenef );
-    $info->rib_code_banque    = get_field('rib_code_banque', $idBenef );
-    $info->rib_code_agence    = get_field('rib_code_agence', $idBenef );
-    $info->rib_num_de_compte    = get_field('rib_num_de_compte', $idBenef );
-    $info->rib_cle_rib    = get_field('rib_cle_rib', $idBenef );
+    $info->rib_nom    = get_field('rib_nom', $idCagnotte );
+    $info->rib_banque    = get_field('rib_banque', $idCagnotte );
+    $info->rib_adresse_de_domiciliation    = get_field('rib_adresse_de_domiciliation', $idCagnotte );
+    $info->rib_code_banque    = get_field('rib_code_banque', $idCagnotte );
+    $info->rib_code_agence    = get_field('rib_code_agence', $idCagnotte );
+    $info->rib_num_de_compte    = get_field('rib_num_de_compte', $idCagnotte );
+    $info->rib_cle_rib    = get_field('rib_cle_rib', $idCagnotte );
     
     return $info;
   }
   
-  function update_beneficiaire_info_rib( $idBenef,$rib_nom,$rib_banque,$rib_adresse_de_domiciliation,$rib_code_banque,$rib_code_agence,$rib_num_de_compte,$rib_cle_rib,$rib_iban,$rib_bic){
+  function update_beneficiaire_info_rib( $idCagnotte,$rib_nom,$rib_banque,$rib_adresse_de_domiciliation,$rib_code_banque,$rib_code_agence,$rib_num_de_compte,$rib_cle_rib,$rib_iban,$rib_bic){
     if(
-      update_field('rib_nom', $rib_nom, $idBenef ) &&
-      update_field('rib_banque', $rib_banque, $idBenef ) &&
-      update_field('rib_adresse_de_domiciliation', $rib_adresse_de_domiciliation, $idBenef ) &&
-      update_field('rib_code_banque', $rib_code_banque, $idBenef ) &&
-      update_field('rib_code_agence', $rib_code_agence, $idBenef ) &&
-      update_field('rib_num_de_compte', $rib_num_de_compte, $idBenef ) &&
-      update_field('rib_cle_rib', $rib_cle_rib, $idBenef ) &&
-      update_field('rib_iban', $rib_iban, $idBenef ) &&
-      update_field('rib_bic', $rib_bic, $idBenef )
+      update_field('rib_nom', $rib_nom, $idCagnotte ) &&
+      update_field('rib_banque', $rib_banque, $idCagnotte ) &&
+      update_field('rib_adresse_de_domiciliation', $rib_adresse_de_domiciliation, $idCagnotte ) &&
+      update_field('rib_code_banque', $rib_code_banque, $idCagnotte ) &&
+      update_field('rib_code_agence', $rib_code_agence, $idCagnotte ) &&
+      update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte ) &&
+      update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ) &&
+      update_field('rib_iban', $rib_iban, $idCagnotte ) &&
+      update_field('rib_bic', $rib_bic, $idCagnotte )
     ){
       $result = true;
     }else{
