@@ -69,7 +69,7 @@
                         $benef = get_beneficiaire_cagnotte( $post->ID );
                         $info = get_beneficiaire_info( $benef->ID, $post->ID  );
                         if( $info->rib_file == '' || $info->rib_file == 0 ) {
-                        $link = '<a href="'. get_site_url() . '/parametre-info-principale/?parametre='.$post->ID.'#pp-rib"'. '>'. __('informations bancaires ici','kotikota') .'</a>';
+                        $link = '<a href="'. get_site_url() . '/parametre-info-principale/?parametre='.$post->ID.'&fancy=pp-rib"'. '>'. __('informations bancaires ici','kotikota') .'</a>';
                       ?>
                         <div class="conf_text">
                           <?= __('N\'oubliez pas de compléter vos ','kotikota') ?>
