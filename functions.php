@@ -711,6 +711,8 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $info->rib_code_agence    = get_field('rib_code_agence', $idCagnotte );
     $info->rib_num_de_compte    = get_field('rib_num_de_compte', $idCagnotte );
     $info->rib_cle_rib    = get_field('rib_cle_rib', $idCagnotte );
+    $info->rib_iban    = get_field('rib_iban', $idCagnotte );
+    $info->rib_bic    = get_field('rib_bic', $idCagnotte );
     
     return $info;
   }
