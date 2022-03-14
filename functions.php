@@ -990,3 +990,16 @@ function generate_post_to_pdf_file($postID) {
       $pdf->Output($filePath, 'F');
       $pdf->Output($post->ID . '.pdf', 'D');
     }
+  
+  function cvf_td_generate_random_code($length=10) {
+
+     $string = '';
+     $characters = "23456789ABCDEFHJKLMNPRTVWXYZabcdefghijklmnopqrstuvwxyz";
+
+     for ($p = 0; $p < $length; $p++) {
+         $string .= $characters[mt_rand(0, strlen($characters)-1)];
+     }
+
+     return $string;
+
+  }
