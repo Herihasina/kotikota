@@ -928,12 +928,12 @@ function custom_js_to_head() {
     $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     $actual_link .= '&rib=1&postID='.$id;
     ?>
-    <script>
+    <!--<script>
     jQuery(function(){
         jQuery("body.post-type-cagnotte .wrap a.page-title-action").after('<a href="<?=$actual_link?>" class="page-title-action rib-action">Télécharger RIB</a>');
         jQuery("body.post-type-cagnotte-perso .wrap a.page-title-action").after('<a href="<?=$actual_link?>" class="page-title-action rib-action">Télécharger RIB</a>');      
     });
-    </script>
+    </script> -->
     <?php
 }
 add_action('admin_head', 'custom_js_to_head');
