@@ -167,56 +167,56 @@
                             					<div class="col col-100">
 	                            					<div class="blc-chp">
 	                            						<label>Titulaire du compte <span>*</span></label>
-	                            						<input type="text" name="" placeholder="Votre nom" class="chp" id="nom">
+	                            						<input type="text" name="" placeholder="Votre nom" class="chp" id="rib_nom" value="<?= $info->rib_nom ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>Banque</label>
-	                            						<input type="text" name="" placeholder="Le nom de votre banque" class="chp" id="bank">
+	                            						<input type="text" name="" placeholder="Le nom de votre banque" class="chp" d="rib_bank" value="<?= $info->rib_banque ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>Domiciliation bancaire</label>
-	                            						<input type="text" name="" placeholder="Votre adresse de domiciliation" class="chp" id="domicile">
+	                            						<input type="text" name="" placeholder="Votre adresse de domiciliation" class="chp" id="rib_domicile" value="<?= $info->rib_adresse_de_domiciliation ?>">
 	                            					</div>
                             					</div>
                             					<div class="col">
                             						<div class="blc-chp">
 	                            						<label>Code Banque</label>
-	                            						<input type="text" name="" placeholder="----" class="chp" id="codebank">
+	                            						<input type="text" name="" placeholder="----" class="chp" id="rib_codebank" value="<?= $info->rib_code_banque ?>">
 	                            					</div>
                             					</div>
                             					<div class="col">
                             						<div class="blc-chp">
 	                            						<label>Code Guichet</label>
-	                            						<input type="text" name="" placeholder="----" class="chp" id="codeguichet">
+	                            						<input type="text" name="" placeholder="----" class="chp" id="rib_codeguichet" value="<?= $info->rib_code_agence ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-70">
                             						<div class="blc-chp">
 	                            						<label>Numéro de Compte</label>
-	                            						<input type="text" name="" placeholder="-----------" class="chp" id="numcompte">
+	                            						<input type="text" name="" placeholder="-----------" class="chp" id="rib_numcompte" value="<?= $info->rib_num_de_compte ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-30">
                             						<div class="blc-chp">
 	                            						<label>Clé RIB</label>
-	                            						<input type="text" name="" placeholder="--" class="chp" id="numcompte">
+	                            						<input type="text" name="" placeholder="--" class="chp" id="rib_cle" value="<?= $info->rib_cle_rib ?>">
 	                            					</div>
                             					</div>
 
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>IBAN </label>
-	                            						<input type="text" name="" placeholder="---- ---- ---- ---- ---- ---- ---" class="chp" id="numcompte">
+	                            						<input type="text" name="" placeholder="---- ---- ---- ---- ---- ---- ---" class="chp" id="rib_iban">
 	                            					</div>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>BIC</label>
-	                            						<input type="text" name="" placeholder="-----------" class="chp" id="numcompte">
+	                            						<input type="text" name="" placeholder="-----------" class="chp" id="rib_bic">
 	                            					</div>
                             					</div>
 
