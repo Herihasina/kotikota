@@ -42,7 +42,7 @@
   if( isset( $_GET['msisdn']) && !empty( $_GET['msisdn']) ) $num = strip_tags( $_GET['msisdn'] );
   $retour = create_payment( $order_id, $reference, $num, $amount );
 
-  if( true === $retour->status->success && '200' == $retour->status->code ){
+  if( true === $retour->status->success || '200' == $retour->status->code ){
     $transaction_id = save_AM_transaction( $participation->id_participation, $order_id );
   }
 

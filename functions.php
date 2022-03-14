@@ -713,6 +713,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $info->rib_cle_rib    = get_field('rib_cle_rib', $idCagnotte );
     $info->rib_iban    = get_field('rib_iban', $idCagnotte );
     $info->rib_bic    = get_field('rib_bic', $idCagnotte );
+    $info->rib_file    = get_field('rib_fichier', $idCagnotte );
     
     return $info;
   }
@@ -727,8 +728,8 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $rib_num_de_compte,
     $rib_cle_rib,
     $rib_iban,
-    $rib_bic,
-    $rib_file)
+    $rib_bic
+  )
   {
     if(
       update_field('rib_nom', $rib_nom, $idCagnotte ) &&
@@ -739,8 +740,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
       update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte ) &&
       update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ) &&
       update_field('rib_iban', $rib_iban, $idCagnotte ) &&
-      update_field('rib_bic', $rib_bic, $idCagnotte ) &&
-      update_field('rib_fichier', attachment_url_to_postid($rib_file), $idCagnotte )
+      update_field('rib_bic', $rib_bic, $idCagnotte )
     ){
       $result = true;
     }else{
