@@ -65,9 +65,24 @@
                   <div id="confirme-cloture" style="display: none;text-align: center;">
                     <div class="content">
                       <div class="conf_titre"><?= __('Êtes-vous sûr de vouloir clôturer votre cagnotte ?','kotikota') ?></div>
-                      <div class="conf_text">
-                        <?= __('Cette action est irréversible.<br>Une fois clôturée, il sera impossible à tout utilisateur de participer à votre cagnotte. Toutefois, vous pourrez toujours la partager sur vos réseaux.','kotikota'); ?>
-                      </div>
+                      <?php
+                        $benef = get_beneficiaire_cagnotte( $post->ID );
+                        $info = get_beneficiaire_info( $benef->ID, $post->ID  );
+                        if( $info->rib == '' || $info->rib == 0 ) {                          
+                      ?>
+                        <div class="conf_text">
+                          <?= __('N\'oubliez pas de compléter vos informations bancaires ici pour que nous puissions vous transférer le montant de votre cagnotte. <br> Cette action est irréversible.<br>Une fois clôturée, il sera impossible à tout utilisateur de participer à votre cagnotte. Toutefois, vous pourrez toujours la partager sur vos réseaux.','kotikota'); ?>
+                        </div>
+
+                      <?php
+                      } else {
+                      ?>
+                        <div class="conf_text">
+                          <?= __('Cette action est irréversible.<br>Une fois clôturée, il sera impossible à tout utilisateur de participer à votre cagnotte. Toutefois, vous pourrez toujours la partager sur vos réseaux.','kotikota'); ?>
+                        </div>
+                      <?php 
+                      }
+                      ?>
                     </div>
                     <div class="btn">
                       <a href="#" class="link close-fancy" title="<?= __('Revenir à la cagnotte','kotikota') ?>" class="link">
