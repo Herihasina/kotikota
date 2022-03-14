@@ -757,7 +757,7 @@ function save_info_banque(){
 
     update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic );
 
-    $single = get_site_url().'/parametre-info-principale;
+    $single = get_site_url().'/parametre-info-principale';
     echo $single;
     wp_die();
 }
