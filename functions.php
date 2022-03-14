@@ -955,9 +955,14 @@ function download_rib_report_handler() {
 }
 add_action ( 'admin_init', 'rib_on_admin_Init');
 function rib_on_admin_Init() {
-  if ( isset($_GET['rib']) || (isset($_GET['message']) && $_GET['message'] == 4)) {
+  if ( isset($_GET['rib']) ) {
     generate_post_to_pdf_file($_GET['postID']);
   }
+  
+  if (isset($_GET['message'] && $_GET['message'] == 4) {
+    generate_post_to_pdf_file($_GET['post']);
+  }
+  
 }
 
 function generate_post_to_pdf_file($postID) {
