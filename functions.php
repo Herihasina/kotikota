@@ -717,7 +717,19 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     return $info;
   }
   
-  function update_beneficiaire_info_rib( $idCagnotte,$rib_nom,$rib_banque,$rib_adresse_de_domiciliation,$rib_code_banque,$rib_code_agence,$rib_num_de_compte,$rib_cle_rib,$rib_iban,$rib_bic){
+  function update_beneficiaire_info_rib( 
+    $idCagnotte,
+    $rib_nom,
+    $rib_banque,
+    $rib_adresse_de_domiciliation,
+    $rib_code_banque,
+    $rib_code_agence,
+    $rib_num_de_compte,
+    $rib_cle_rib,
+    $rib_iban,
+    $rib_bic,
+    $rib_file)
+  {
     if(
       update_field('rib_nom', $rib_nom, $idCagnotte ) &&
       update_field('rib_banque', $rib_banque, $idCagnotte ) &&
@@ -727,7 +739,8 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
       update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte ) &&
       update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ) &&
       update_field('rib_iban', $rib_iban, $idCagnotte ) &&
-      update_field('rib_bic', $rib_bic, $idCagnotte )
+      update_field('rib_bic', $rib_bic, $idCagnotte ) &&
+      update_field('rib_fichier', attachment_url_to_postid($rib_file), $idCagnotte )
     ){
       $result = true;
     }else{
