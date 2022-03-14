@@ -258,7 +258,7 @@
                         <div class="cond-part wow fadeIn" data-wow-delay="1000ms">
                              <label><?php _e('Reste plus qu’à fixer les conditions de participation','kotikota'); ?> <span>*</span></label>
                              <div class="lst-choix-cond-part ">
-                                 <div class="item active">
+                                 <div class="item">
                                     <div class="content custom-control custom-radio ">
                                          <input type="radio" name="participation_cagnotte"  id="montantlibre" class="radio" value="libre">
                                          <label for="montantlibre"> <?php _e('Montant libre','kotikota'); ?> <span></span></label>
