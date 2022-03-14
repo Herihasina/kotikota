@@ -72,7 +72,9 @@
                         $link = '<a href="' get_site_url().'/parametre-info-principale/?parametre='.$post->ID.'#pp-rib"'. '>informations bancaires ici</a>';
                       ?>
                         <div class="conf_text">
-                          <?= __('N\'oubliez pas de compléter vos ') .$link. __(' pour que nous puissions vous transférer le montant de votre cagnotte. <br><br> Cette action est irréversible.<br>Une fois clôturée, il sera impossible à tout utilisateur de participer à votre cagnotte. Toutefois, vous pourrez toujours la partager sur vos réseaux.','kotikota'); ?>
+                          <?= __('N\'oubliez pas de compléter vos ','kotikota') ?>
+                          <? = $link ?>
+                          <?= __(' pour que nous puissions vous transférer le montant de votre cagnotte. <br><br> Cette action est irréversible.<br>Une fois clôturée, il sera impossible à tout utilisateur de participer à votre cagnotte. Toutefois, vous pourrez toujours la partager sur vos réseaux.','kotikota'); ?>
                         </div>
 
                       <?php
