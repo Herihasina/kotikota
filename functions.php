@@ -728,8 +728,8 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $rib_num_de_compte,
     $rib_cle_rib,
     $rib_iban,
-    $rib_bic,
-    $rib_file)
+    $rib_bic
+  )
   {
     if(
       update_field('rib_nom', $rib_nom, $idCagnotte ) &&
@@ -740,8 +740,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
       update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte ) &&
       update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ) &&
       update_field('rib_iban', $rib_iban, $idCagnotte ) &&
-      update_field('rib_bic', $rib_bic, $idCagnotte ) &&
-      update_field('rib_fichier', $rib_file, $idCagnotte )
+      update_field('rib_bic', $rib_bic, $idCagnotte )
     ){
       $result = true;
     }else{
