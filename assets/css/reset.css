@@ -635,7 +635,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .blc-chp .chp.datepicker        { background: url(../images/date.png) no-repeat right center; }
 .blc-chp .chp.montant           { background: url(../images/ar.png) no-repeat right center; }
 
-.chy-type .blc-chp              { margin-bottom: 33px }
+.chy-type .blc-chp              { margin-bottom: 33px; position: relative; }
 
 .ui-widget-header               { background-color: #8d4a8f;}
 .ui-datepicker .ui-datepicker-title { color: #fff }
@@ -3693,4 +3693,9 @@ a:hover { color:#fbbd36; }
     pointer-events: none;
     background:#f3f3f3;
 }
+.info-cagnotte { position: absolute; left: 0; bottom: 0 }
+.info-cagnotte div {
+    font-size: 14px;
+}
+
 
