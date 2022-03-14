@@ -721,7 +721,7 @@ function save_info_banque(){
                                 'post_status'    => 'inherit'
                             );
                             // Insert attachment to the database
-                            $attach_id = wp_insert_attachment( $attachment, $filename, $parent_post_id );
+                            $attach_id = wp_insert_attachment( $attachment, $filename, $idCagnotte );
 
                             require_once( ABSPATH . 'wp-admin/includes/image.php' );
 

@@ -1,11 +1,19 @@
 <?php
 	// Template name: info principale
-
+	
 	if ( array_key_exists("parametre", $_GET) ){
 		$idCagnotte = strip_tags($_GET['parametre']);
 	}elseif( array_key_exists("origin", $_GET) && trim( $_GET['origin'] ) == 'post-setup' && array_key_exists("cgid", $_GET) ){
 		$idCagnotte = strip_tags($_GET['cgid']);
 	}
+	
+	$attachments = get_posts( array(
+        'post_type'         => 'attachment',
+        'posts_per_page'    => -1,
+        'post_parent'       => $idCagnotte,
+        'exclude'           => get_post_thumbnail_id() // Exclude post thumbnail to the attachment count
+    ) );
+	print_r($attachments);
 
 	if ( !is_cagnotte( $idCagnotte ) )
 		die(__('Cette ID ne correspond à votre cagnotte :)','kotikota'));
