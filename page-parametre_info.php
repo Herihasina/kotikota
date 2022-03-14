@@ -102,7 +102,7 @@
 		          	</div>
 		          	<?php 
 		          		$benef = get_beneficiaire_cagnotte( $idCagnotte );
-		          		$info = get_beneficiaire_info( $benef->ID );
+		          		$info = get_beneficiaire_info( $benef->ID, $idCagnotte  );
 		          	 ?>
 		          	<div class="form clr">
 		          		<div class="col">
