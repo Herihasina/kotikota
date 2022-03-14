@@ -16,7 +16,7 @@
 
 <div class="blc-cagnotte-participation">
   <div class="wrapper">
-    <form class="participation">
+    <form class="participation" id="form-edit-profil">
         <div class="fom-participe">
             <div class="titre wow fadeIn" data-wow-delay="800ms">
                <h2><span><img src="<?php echo IMG_URL ?>identite.png"></span> <?php echo __('Editez votre profil', 'kotikota'); ?></h2>
@@ -25,13 +25,19 @@
                 <?php 
                   $bg = wp_get_attachment_image_src(get_field('photo', 'user_'.get_current_user_id()),'cagnotte-home' )[0];
                 ?>
-                    <div class="blc-img">
-                          <div class="zone-img profil-img<?php if ($bg) echo " bg-user" ?>" <?php if ($bg): ?> style="background: center / auto no-repeat url(<?php echo $bg ?>)" <?php endif; ?>>
-                                <input name="file" id="pdp-btn" class="inputfile" type="text">
-                                <label for="pdp-btn"><?php _e('Ajouter  <br> votre photo','kotikota'); ?></label>
-                                <input type="hidden" value="" name="choix-photo" id="pdp">
-                            </div>
-                        </div>                      
+                    <div class="blc-img desk-only" style="display: none;">
+                      <div class="zone-img profil-img<?php if ($bg) echo " bg-user" ?>" <?php if ($bg): ?> style="background: center / auto no-repeat url(<?php echo $bg ?>)" <?php endif; ?>>
+                            <input name="file" id="pdp-btn" class="inputfile" type="text">
+                            <label for="pdp-btn"><?php _e('Ajouter  <br> votre photo','kotikota'); ?></label>
+                            <input type="hidden" value="" name="choix-photo" id="pdp">
+                        </div>
+                    </div>
+
+                    <!-- Mobile only -->
+                    <div class="mobile-onlys illustration_cagnotte photo_profil_mobile">
+                        <input type="file" capture="environment" accept="image/*" name="choix-photo_mobile" id="photo_profil_mobile" required>
+                    </div>                                        
+                    <!-- /mobile only -->                   
             </div>
             <div class="formulaire clr wow fadeIn" data-wow-delay="900ms">
               <div class="col">
@@ -72,17 +78,18 @@
               </div>
               <div class="col">
                   <div class=" blc-chp">
-                      <label for="lname"><?php echo __('Mot de passe', 'kotikota'); ?> <span>*</span></label>
+                      <label for="newpwd"><?php echo __('Mot de passe', 'kotikota'); ?> <span>*</span></label>
                       <div class="chp">
-                        <input type="text" name="lname" id="newpwd" value="">
+                        <input type="text" name="newpwd" id="newpwd" value="">
                       </div>
                   </div>
               </div>
               <div class="col profilFile">
                 <div class=" blc-chp">
                   <div class="blcFormulaire fichier">
-                  <label for="lname"><?php echo __('Ajouter votre CIN, Passeport', 'kotikota'); ?></label>
-                    <div class="chp">
+                  <label for=""><?php echo __('Ajouter votre CIN, Passeport', 'kotikota'); ?></label>
+                    <!-- visible seulement pour desk  -->
+                    <div class="chp desk-only" style="display: none;">
                         <div class="cont-file">
                           <?php 
                             $cin = get_field('piece_didentite','user_'.get_current_user_id() );
@@ -91,13 +98,21 @@
                           <?php else: ?>
                             <span><?= basename ( get_attached_file( $cin ) ); ?></span>
                           <?php endif; ?>
-                          <input type="text" name="file[]" class="input-file" id="cin_btn">
-                          <input type="hidden" name="" value="" id="cin_value">
+                          <input type="text" class="input-file" id="cin_btn">
+                          <input type="hidden" name="cin_value" value="" id="cin_value">
                           <i> Parcourir</i>
                           <i class="reset" style="display: none"><?php echo __('Supprimer', 'kotikota'); ?></i>
                         </div>
                         <div class="zone-img-cin"></div>
                     </div>
+                    <!-- /fin desk -->
+
+                    <!-- visible seulement pour mobile -->
+                    <div class="mobile-onlys">
+                        <input type="file" name="cin_value_mobile" id="cin_value" capture="environment" accept="image/*">
+                    </div>
+                    <!-- /fin visible seulement pour mobile -->
+
                   </div>
                 </div>
               </div>
@@ -107,7 +122,7 @@
 
         <div class="btn">
           <a href="#" onclick="window.history.back();" class="link" title="<?php echo __('annuler', 'kotikota'); ?>"><?php echo __('annuler', 'kotikota'); ?></a>
-          <input type="submit" name="" value="<?php echo __('valider', 'kotikota'); ?>" id="edit-profilz" class="link submit" >
+          <input type="submit" name="submit_edit_profil" value="<?php echo __('valider', 'kotikota'); ?>" id="edit-profilz" class="link submit" >
         </div>
 
 

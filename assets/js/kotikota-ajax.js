@@ -767,35 +767,34 @@ $(function(){
 	  	e.preventDefault();
 	  	$('#loader').addClass('working');
 
-	  	var nom = $('#fname').val();
-	  	var prenom = $('#lname').val();
-	  	var mail = $('#mail').val();
-	  	var code = $('#code').val();
-	  	var tel = $('#tel').val();
-	  	var pdp = $('#pdp').val();
-	  	var newpwd = $('#newpwd').val();
-	  	var cin_value = $('#cin_value').val();	
+	  	var form_data = new FormData( $('#form-edit-profil')[0] );
+
+	  	form_data.append('action','edit_profile');
+
+	  	if( $('.mobile-only:visible').length ){
+	  		form_data.delete('cin_value');
+	  		form_data.delete('choix-photo');
+	  		form_data.append('device', 'mobile');
+
+	  	}else if( $('.desk-only:visible').length  ){
+	  		form_data.delete('cin_value_mobile');
+	  		form_data.delete('choix-photo_mobile');
+	  		form_data.append('device', 'desktop');
+
+	  	}
 
 	  	$.ajax({
 			  		url: ajaxurl,
 			  		type: 'POST',
-			  		data: {
-			  			'action' : 'edit_profile',
-			  			'nom': nom,
-			  			'prenom': prenom,
-			  			'mail': mail,
-			  			'code': code,
-			  			'tel': tel,
-			  			'pdp' : pdp,
-			  			'newpwd' : newpwd,
-			  			'cin_value' : cin_value
-			  		},
-			  		dataType: 'html'
+			  		data: form_data,
+			  		dataType: 'json',
+			  		contentType: false,
+        		processData: false
 			  	}).done(function(resp){
 			  		$('#loader').removeClass('working');
 			  		$('#open_conf').trigger('click');
-	  				$('#popup_conf .conf_text').text('Votre profil a bien été mis à jour !');
-			  	});
+	  				$('#popup_conf .conf_text').text(resp);
+			 });
 
 	  	return false;
 	  });

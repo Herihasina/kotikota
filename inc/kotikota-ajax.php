@@ -999,19 +999,27 @@ function delete_pst(){
 add_action( 'wp_ajax_edit_profile', 'edit_profile' );
 
 function edit_profile(){
+
+    $str = http_build_query($_POST);
+    parse_str($str, $Data);
+    extract($Data);
+
     $erreurs = [];
 
-    if ( !isset($_POST['nom']) || $_POST['nom'] == "" )
+    if ( $lname == "" )
         $erreurs[] = __("Entrez votre nom", "kotikota");
 
-    if ( !isset($_POST['prenom']) || $_POST['prenom'] == "" )
+    if ( $fname == "" )
         $erreurs[] = __("Entrez votre prénom", "kotikota");
 
-    if ( !isset($_POST['mail']) || $_POST['mail'] == "" || !filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL) )
+    if ( $mail == "" || !filter_var( $mail, FILTER_VALIDATE_EMAIL) )
         $erreurs[] = __("Entrez votre adresse email valide.", "kotikota");
 
-    if ( !isset($_POST['tel']) || $_POST['tel'] == "" )
+    if ( $tel == "" )
         $erreurs[] = __("Entrez votre numéro de téléphone.", "kotikota");
+
+    if ( $code == "" )
+        $erreurs[] = __("Entrez votre code indicatif.", "kotikota");
 
     if ( isset($_POST['newpwd']) && $_POST['newpwd'] != '' ){
         
@@ -1022,6 +1030,10 @@ function edit_profile(){
         }
     }
 
+    if( $device != 'mobile' && $device != 'desktop' ){
+        $erreurs[] = "Mba tsy rariny kos zan hafetsenao zan dada a";
+    }
+
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
              echo "<li>$erreur</li>";
@@ -1030,13 +1042,13 @@ function edit_profile(){
     }
 
     $userdata = array(
-            'ID' => get_current_user_id(),            
-            'first_name' => strip_tags($_POST['nom']),
-            'last_name' => strip_tags($_POST['prenom']),
-            'user_email' => strip_tags($_POST['mail'])
-        );
+        'ID'         => get_current_user_id(),            
+        'first_name' => strip_tags($_POST['fname']),
+        'last_name'  => strip_tags($_POST['lname']),
+        'user_email' => strip_tags($_POST['mail']),
+    );
 
-    if ( $newpwd){
+    if ( $newpwd ){
         $userdata['user_pass'] = $newpwd;
     }
 
@@ -1047,19 +1059,46 @@ function edit_profile(){
         $sessions->destroy_all();
     }
 
-    if ( strip_tags( $_POST['pdp'] ) != '' ){
-        $pdp = attachment_url_to_postid(strip_tags($_POST['pdp']));
-        update_field('photo', $pdp, 'user_'.get_current_user_id());
+    if( 'mobile' == $device ){
+
+        if( $_FILES['choix-photo_mobile'] ){
+            $pdp = $_FILES['choix-photo_mobile'];
+            $pdp = $pdp['name'];
+
+            $pdp = get_image_attach_id ( $pdp, 'user_'. get_current_user_id() );
+        }
+
+        if( $_FILES['cin_value_mobile'] ){
+            $cin = $_FILES['cin_value_mobile'];
+            $cin = $cin['name'];
+
+            $cin = get_image_attach_id ( $cin, 'user_'. get_current_user_id() );
+        }
+
+    }else if( 'desktop' == $device ){
+        if ( $_POST['choix-photo'] != '' ){
+            $pdp = attachment_url_to_postid( $_POST['choix-photo'] );
+        }
+
+        if ( strip_tags( $_POST['cin_value'] ) != '' ){
+            $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));            
+        }
     }
 
-    if ( strip_tags( $_POST['cin_value'] ) != '' ){
-        $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+    if( $pdp )
+        update_field('photo', $pdp, 'user_'.get_current_user_id());
+
+    if( $cin )
         update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
-    }
   
     update_field('code', $_POST['code'], 'user_'.get_current_user_id());
+    update_field('numero_de_telephone', strip_tags( $tel ), 'user_'.get_current_user_id());
 
-    update_field('numero_de_telephone', strip_tags( $_POST['tel'] ), 'user_'.get_current_user_id());
+    $out = array();
+
+    $out[] = __('Votre profil a bien été mis à jour !','kotikota');
+
+    echo  json_encode( $out );
 
     wp_die();
 }
