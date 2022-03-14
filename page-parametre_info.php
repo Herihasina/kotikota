@@ -139,10 +139,10 @@
                             <label><?php _e('Ajouter un RIB','kotikota'); ?></label>
                            <!--  <div class="chp">
                                 <div class="cont-file">
-                                		<?php if( $info->rib == '' || $info->rib == 0 ): ?>
+                                		<?php if( $info->rib_file == '' || $info->rib_file == 0 ): ?>
                                     	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
                                   	<?php else: ?>
-                                  		<span><?= get_the_title( $info->rib ) ?></span>
+                                  		<span><?= get_the_title( $info->rib_file ) ?></span>
                                   	<?php endif; ?>
                                     <input type="text" name="file[]" class="input-file" id="rib_btn">
                                     <input type="hidden" name="" value="<?= $info->rib_file ?>" id="rib_value">
