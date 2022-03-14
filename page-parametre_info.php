@@ -245,6 +245,7 @@
                             					<div class="info-rib">
                             						<p>Pour assurer une double vérification, vous aSi vous souhaitez obtenir un transfert via Mobile Money, il faudra effectuer une demande spéciale à l’adresse hello@koti-kota.com en précisant le Nom de votre cagnotte, votre Identifiant Koti Kota (Profil), le montant à récupérer, votre numéro de téléphone ainsi qu’un justificatif d’identité (CIN, passeport,…)</p>
                             					</div>
+								<ul id="responsepopup"></ul>
                             					<div class="btn">
 										           <a href="#" class="link" title="annuler" data-fancybox-close="">annuler</a>
 										           <input type="submit" name="" value="enregistrer" class="link submit" >
