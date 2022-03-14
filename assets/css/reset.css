@@ -3691,5 +3691,6 @@ a:hover { color:#fbbd36; }
 
 #type_cagnotte.disabled{
     pointer-events: none;
+    background:#f3f3f3;
 }
 
