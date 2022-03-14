@@ -979,6 +979,8 @@ function generate_post_to_pdf_file($postID) {
       $html .= '<br>'."Nom de la banque : " .get_field('rib_banque', $post->ID).'<br>';
       $html .= '<br>'."Adresse de domiciliation : " .get_field('rib_adresse_de_domiciliation', $post->ID).'<br>';
       $html .= '<br>'."RIB : " .get_field('rib_code_banque', $post->ID) .' '.get_field('rib_code_agence', $post->ID) .' '.get_field('rib_num_de_compte', $post->ID) .' '.get_field('rib_cle_rib', $post->ID).'<br>';
+      $html .= '<br>'."IBAN : " .get_field('rib_iban', $post->ID).'<br>';
+      $html .= '<br>'."BIC : " .get_field('rib_bic', $post->ID).'<br>';
       $html .="</body>";
   
       /*$html = '<h1>Welcome to <a href="http://techbriefers.com/" style="text-decoration:none;padding: 10px;"> <span style="background-color:#ef3e47;color:#fff;"> Tech</span><span style="background-color:#fff1f0;color:#000;">Briefers</span> </a>!</h1>
