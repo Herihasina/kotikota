@@ -654,15 +654,24 @@ function save_info_banque(){
        $erreurs[] = __("Indiquer Numero BIC.", "kotikota");
     }
 
+    /*if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();
+    }*/
+    
+    $idCagnotte = $_POST['idCagnotte'];
+    $rib_file = $_POST['fichier'];
+    
+
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
              echo "<li>$erreur</li>";
          }
          wp_die();
     }
-
-    $idCagnotte = $_POST['idCagnotte'];
-
+    
     // info beneficiaire
     $idBenef   = strip_tags( $_POST['idBenef'] );
     $titulaire       = strip_tags( $_POST['titulaire'] );
@@ -675,9 +684,9 @@ function save_info_banque(){
     $iban       = strip_tags( $_POST['iban'] );
     $bic       = strip_tags( $_POST['bic'] );    
 
-    update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic );
-
-    $single = get_site_url().'/parametre-info-principale/?parametre='.$idCagnotte;
+    update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic,$rib_file);    
+    
+    $single = get_site_url().'/parametre-info-principale';
     echo $single;
     wp_die();
 }

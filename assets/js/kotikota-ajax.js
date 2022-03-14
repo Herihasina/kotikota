@@ -432,6 +432,7 @@ $(function(){
 	  	var nomCagnotte = $('#nom_cagnotte').val();
 	  	var idCagnotte	= $('#idCagnotte').val();
 	  	var idBenef = $('#benef').val();
+		var fd = new FormData();
 	  	// info beneficiaire
 
 	  	var titulaire = $('#rib_nom').val();
@@ -443,33 +444,27 @@ $(function(){
 	  	var cle = $('#rib_cle').val();
 	  	var iban = $('#rib_iban').val();
 	  	var bic = $('#rib_bic').val();
-		
-		var titulaire = $('#rib_nom').val();
-	  	var banque = $('#rib_bank').val();
-	  	var domicile = $('#rib_domicile').val();
-	  	var codebanque = $('#rib_codebank').val();
-	  	var codeguichet = $('#rib_codeguichet').val();
-	  	var numcompte = $('#rib_numcompte').val();
-	  	var cle = $('#rib_cle').val();
-	  	var iban = $('#rib_iban').val();
-	  	var bic = $('#rib_bic').val();
-
-	  	console.log(idBenef);
-	  	console.log(titulaire);
-	  	console.log(banque);
-	  	console.log(domicile);
-	  	console.log(codebanque);
-	  	console.log(codeguichet);
-		console.log(numcompte);
-	  	console.log(cle);
-	  	console.log(iban);
-	  	console.log(bic);
-	  	
+		var fichier = $('#rib_value').val();
+		    
+		fd.append('action','save_info_banque');
+	  	fd.append('titulaire',titulaire);
+	  	fd.append('banque',banque);
+	  	fd.append('domicile',domicile);
+	  	fd.append('codebanque',codebanque);
+	  	fd.append('codeguichet',codeguichet);
+	  	fd.append('numcompte',numcompte);
+	  	fd.append('cle',cle);
+	  	fd.append('iban',iban);
+	  	fd.append('bic',bic);
+	  	fd.append('idCagnotte',idCagnotte);
+	  	fd.append('idBenef',idBenef);
+		fd.append('fichier', fichier);
 		  
 	  	$.ajax({
 	  		url: ajaxurl,
 	  		type: 'POST',
-	  		data:{
+			data: fd,
+	  		/*data:{
 	  			'action':'save_info_banque',
 	  			'titulaire': titulaire,
 	  			'banque': banque,
@@ -482,7 +477,7 @@ $(function(){
 	  			'bic': bic,
 	  			'idCagnotte': idCagnotte,
 	  			'idBenef': idBenef,
-	  		}
+	  		}*/
 	  	}).done(function(resp){
 	  		var url = new RegExp("^http");
 	  		if( url.test(resp) ){

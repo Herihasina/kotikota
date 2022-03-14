@@ -701,7 +701,7 @@ $(document).ready(function() {
         });
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-            $('#rib_value').val(attachment.id);
+            $('#rib_value').val(attachment.url);
             $('#rib_value').siblings('span').text(attachment.filename);
         });
         mediaUploader.open();

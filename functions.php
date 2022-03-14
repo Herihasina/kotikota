@@ -694,7 +694,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     return $benef;
   }
 
-  function get_beneficiaire_info( $idBenef, $idCagnotte ){
+  function get_beneficiaire_info( $idBenef, $idCagnotte = 0 ){
     $info = new stdClass();
     $info->nom    = get_field('nom_benef', $idBenef ) != '' ? get_field('nom_benef', $idBenef ) : get_the_title( $idBenef );
     $info->prenom = get_field('prenom_benef', $idBenef );
@@ -717,7 +717,19 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     return $info;
   }
   
-  function update_beneficiaire_info_rib( $idCagnotte,$rib_nom,$rib_banque,$rib_adresse_de_domiciliation,$rib_code_banque,$rib_code_agence,$rib_num_de_compte,$rib_cle_rib,$rib_iban,$rib_bic){
+  function update_beneficiaire_info_rib( 
+    $idCagnotte,
+    $rib_nom,
+    $rib_banque,
+    $rib_adresse_de_domiciliation,
+    $rib_code_banque,
+    $rib_code_agence,
+    $rib_num_de_compte,
+    $rib_cle_rib,
+    $rib_iban,
+    $rib_bic,
+    $rib_file)
+  {
     if(
       update_field('rib_nom', $rib_nom, $idCagnotte ) &&
       update_field('rib_banque', $rib_banque, $idCagnotte ) &&
@@ -727,7 +739,8 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
       update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte ) &&
       update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ) &&
       update_field('rib_iban', $rib_iban, $idCagnotte ) &&
-      update_field('rib_bic', $rib_bic, $idCagnotte )
+      update_field('rib_bic', $rib_bic, $idCagnotte ) &&
+      update_field('rib_fichier', attachment_url_to_postid($rib_file), $idCagnotte )
     ){
       $result = true;
     }else{
@@ -979,6 +992,8 @@ function generate_post_to_pdf_file($postID) {
       $html .= '<br>'."Nom de la banque : " .get_field('rib_banque', $post->ID).'<br>';
       $html .= '<br>'."Adresse de domiciliation : " .get_field('rib_adresse_de_domiciliation', $post->ID).'<br>';
       $html .= '<br>'."RIB : " .get_field('rib_code_banque', $post->ID) .' '.get_field('rib_code_agence', $post->ID) .' '.get_field('rib_num_de_compte', $post->ID) .' '.get_field('rib_cle_rib', $post->ID).'<br>';
+      $html .= '<br>'."IBAN : " .get_field('rib_iban', $post->ID).'<br>';
+      $html .= '<br>'."BIC : " .get_field('rib_bic', $post->ID).'<br>';
       $html .="</body>";
   
       /*$html = '<h1>Welcome to <a href="http://techbriefers.com/" style="text-decoration:none;padding: 10px;"> <span style="background-color:#ef3e47;color:#fff;"> Tech</span><span style="background-color:#fff1f0;color:#000;">Briefers</span> </a>!</h1>
@@ -990,3 +1005,16 @@ function generate_post_to_pdf_file($postID) {
       $pdf->Output($filePath, 'F');
       $pdf->Output($post->ID . '.pdf', 'D');
     }
+  
+  function cvf_td_generate_random_code($length=10) {
+
+     $string = '';
+     $characters = "23456789ABCDEFHJKLMNPRTVWXYZabcdefghijklmnopqrstuvwxyz";
+
+     for ($p = 0; $p < $length; $p++) {
+         $string .= $characters[mt_rand(0, strlen($characters)-1)];
+     }
+
+     return $string;
+
+  }

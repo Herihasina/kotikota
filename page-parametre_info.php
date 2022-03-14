@@ -1,12 +1,12 @@
 <?php
 	// Template name: info principale
-
+	
 	if ( array_key_exists("parametre", $_GET) ){
 		$idCagnotte = strip_tags($_GET['parametre']);
 	}elseif( array_key_exists("origin", $_GET) && trim( $_GET['origin'] ) == 'post-setup' && array_key_exists("cgid", $_GET) ){
 		$idCagnotte = strip_tags($_GET['cgid']);
 	}
-
+	
 	if ( !is_cagnotte( $idCagnotte ) )
 		die(__('Cette ID ne correspond à votre cagnotte :)','kotikota'));
 
@@ -210,13 +210,13 @@
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>IBAN </label>
-	                            						<input type="text" name="" placeholder="---- ---- ---- ---- ---- ---- ---" class="chp" id="rib_iban">
+	                            						<input type="text" name="" placeholder="---- ---- ---- ---- ---- ---- ---" class="chp" id="rib_iban" value="<?= $info->rib_iban ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label>BIC</label>
-	                            						<input type="text" name="" placeholder="-----------" class="chp" id="rib_bic">
+	                            						<input type="text" name="" placeholder="-----------" class="chp" id="rib_bic" value="<?= $info->rib_bic ?>">
 	                            					</div>
                             					</div>
 
