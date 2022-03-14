@@ -21,24 +21,47 @@ $(function(){
 			if( categorie_c == 'Personnelle' ){
 				/* Afaka misafidy oe publique sa privée */
 				$('#type_cagnotte').removeClass( 'disabled' );
+				$('#type_cagnotte').val('privee');
+
 				$('#frais_cagnotte').show();
 				$('#frais_cagnotte').text('Frais 6%');
 
 				$('#cat_cagnotte').val('Personnelle');
+
+				$('.info-prive').removeClass('hidden');
+				$('.info-publique').addClass('hidden');				
 
 			}else if( categorie_c == 'Solidaire' ){
 				/* Tonga dia publique systématiquement */
 				$('#type_cagnotte').val('publique');
 				$('#type_cagnotte').removeClass('disabled');
 				$('#type_cagnotte').addClass('disabled');
+
 				$('#frais_cagnotte').show();
 				$('#frais_cagnotte').text('Frais 3%');
 
 				$('#cat_cagnotte').val('Solidaire');
+
+				$('.info-publique').removeClass('hidden');
+				$('.info-prive').addClass('hidden');
+
 			}
 
 			$('#sous-Categ').val( choix_categ );
 			$('#categ').val( categ );
+
+		});
+
+		$('#type_cagnotte').on('change', function(){
+			var valera = $(this).val();
+
+			if( valera == 'privee'){
+				$('.info-prive').removeClass('hidden');
+				$('.info-publique').addClass('hidden');
+			}else if( valera == 'publique' ){
+				$('.info-publique').removeClass('hidden');
+				$('.info-prive').addClass('hidden');
+			}
 
 		});
 

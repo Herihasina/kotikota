@@ -3684,7 +3684,7 @@ a:hover { color:#fbbd36; }
     .blc-cagnotte-participation .btn {  margin-top: 50px;  text-align: center;}
 }
 
-.mobile-only, #frais_cagnotte{
+.mobile-only, #frais_cagnotte, .info-cagnotte-inner.hidden{
     display: none;
 }
 .desk-only{
