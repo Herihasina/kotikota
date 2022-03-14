@@ -1581,12 +1581,15 @@ function insert_video_cagnotte(){
        ?>
             <h3>vidéos</h3>
             <div class="lst-option blcvideos ">        
-                <?php if($videos): ?>
+                <?php if($videos): 
+                    $key_video=1;
+                    $count_correct_id=0;
+                ?>
                 <div class="lst-option"> 
                     <?php foreach($videos as $video ): 
                     $video_id= $video['lien_youtube'];
                     $video_data = get_youtube_video_detail($video_id);
-                    if($video_data):$key_video=1;
+                    if($video_data): $count_correct_id++;
                     ?>        
                         <div class="item">      
                             <div class="contvideo">
@@ -1611,7 +1614,7 @@ function insert_video_cagnotte(){
                 </div>
             
                 <?php
-                else:
+                elseif(!$videos || $count_correct_id!=count($videos)):
                 ?>
                     <div style="text-align:center">
                         <h4 style="text-align:center">
@@ -1695,12 +1698,13 @@ function remove_media_cagnotte(){
                     <div class="lst-option blcvideos ">        
                         <?php if($videos): 
                             $key_video=1;
+                            $count_correct_id=0;
                         ?>
                         <div class="lst-option"> 
                             <?php foreach($videos as $video ): 
                             $video_id= $video['lien_youtube'];
                             $video_data = get_youtube_video_detail($video_id);
-                            if($video_data):
+                            if($video_data): $count_correct_id++;
                             ?>        
                                 <div class="item">      
                                 <div class="contvideo">
@@ -1726,7 +1730,7 @@ function remove_media_cagnotte(){
                             endforeach; ?>
                         </div>
                     <?php
-                    else:
+                    elseif(!$videos || $count_correct_id!=count($videos)):
                     ?>
                         <div style="text-align:center">
                             <h4 style="text-align:center">
