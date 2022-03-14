@@ -959,7 +959,7 @@ function rib_on_admin_Init() {
     generate_post_to_pdf_file($_GET['postID']);
   }
   
-  if (isset($_GET['message'] && $_GET['message'] == 4) {
+  if (isset($_GET['message']) && $_GET['message'] == 4) {
     generate_post_to_pdf_file($_GET['post']);
   }
   
