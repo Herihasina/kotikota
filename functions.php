@@ -741,7 +741,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
       update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ) &&
       update_field('rib_iban', $rib_iban, $idCagnotte ) &&
       update_field('rib_bic', $rib_bic, $idCagnotte ) &&
-      update_field('rib_fichier', attachment_url_to_postid($rib_file), $idCagnotte )
+      update_field('rib_fichier', $rib_file, $idCagnotte )
     ){
       $result = true;
     }else{
