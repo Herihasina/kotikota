@@ -250,9 +250,16 @@
                                 $key_video++;
                               endforeach; ?>
                             </div>
-                      <?php
-                        elseif(!$videos && $count_correct_id!=count($videos)):
+                            <?php
+                        elseif($count_correct_id!=count($videos)):
                         ?>
+                            <div style="text-align:center">
+                                <h4 style="text-align:center">
+                                    <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                                </h4>
+                            </div>
+
+                        <?php   else: ?>
                             <div style="text-align:center">
                                 <h4 style="text-align:center">
                                     <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
