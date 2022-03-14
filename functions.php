@@ -702,8 +702,34 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $info->telephone = get_field('telephone_benef', $idBenef );
     $info->rib    = get_field('rib_benef', $idBenef );
     $info->code    = get_field('code_benef', $idBenef );
-
+    
+    // RIB
+    $info->rib_nom    = get_field('rib_nom', $idBenef );
+    $info->rib_banque    = get_field('rib_banque', $idBenef );
+    $info->rib_adresse_de_domiciliation    = get_field('rib_adresse_de_domiciliation', $idBenef );
+    $info->rib_code_banque    = get_field('rib_code_banque', $idBenef );
+    $info->rib_code_agence    = get_field('rib_code_agence', $idBenef );
+    $info->rib_num_de_compte    = get_field('rib_num_de_compte', $idBenef );
+    $info->rib_cle_rib    = get_field('rib_cle_rib', $idBenef );
+    
     return $info;
+  }
+  
+  function update_beneficiaire_info_rib( $idBenef,$rib_nom,$rib_banque,$rib_adresse_de_domiciliation,$rib_code_banque,$rib_code_agence,$rib_num_de_compte,$rib_cle_rib){
+    if(
+      update_field('rib_nom', $rib_nom, $idBenef ) &&
+      update_field('rib_banque', $rib_banque, $idBenef ) &&
+      update_field('rib_adresse_de_domiciliation', $rib_adresse_de_domiciliation, $idBenef ) &&
+      update_field('rib_code_banque',_rib $rib_code_banque, $idBenef ) &&
+      update_field('rib_code_agence', $rib_code_agence, $idBenef )
+      update_field('rib_num_de_compte', $rib_num_de_compte, $idBenef )
+      update_field('rib_cle_rib', $rib_cle_rib, $idBenef )
+    ){
+      $result = true;
+    }else{
+      $result = false;
+    }
+    return $result;
   }
 
   function update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib = '' ){
