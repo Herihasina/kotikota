@@ -278,6 +278,14 @@
 			</div>
 
 		</main>
+<script type="text/javascript">
+	$(document).ready(function() {	
+		var fancy = "<?=  strip_tags($_GET['fancy']) ?>";
+		if (fancy != '') {
+			$(fancy).fancybox();
+		}
+	}
+</script>
 
 <?php
 	get_footer();
