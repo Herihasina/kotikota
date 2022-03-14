@@ -645,6 +645,14 @@ function save_info_banque(){
     if ( !isset($_POST['cle']) || $_POST['cle'] == "" ){
        $erreurs[] = __("Entrer le clé Rib.", "kotikota");
     }
+    
+    if ( !isset($_POST['iban']) || $_POST['iban'] == "" ){
+       $erreurs[] = __("Indiquer Numero IBAN.", "kotikota");
+    }
+    
+    if ( !isset($_POST['cle']) || $_POST['cle'] == "" ){
+       $erreurs[] = __("Indiquer Numero BIC.", "kotikota");
+    }
 
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
@@ -664,11 +672,12 @@ function save_info_banque(){
     $codeguichet      = strip_tags( $_POST['codeguichet'] );
     $numcompte       = strip_tags( $_POST['numcompte'] );
     $cle       = strip_tags( $_POST['cle'] );
-    update_field('code_benef', $code, $idBenef );
+    $iban       = strip_tags( $_POST['iban'] );
+    $bic       = strip_tags( $_POST['bic'] );    
 
-    $update_benef = update_beneficiaire_info_rib( $idBenef,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle );
+    $update_benef = update_beneficiaire_info_rib( $idBenef,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic );
 
-    $single = get_site_url().'/parametre-info-principale';
+    $single = get_site_url().'/parametre';
     echo $single;
     wp_die();
 }
