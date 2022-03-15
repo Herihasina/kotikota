@@ -833,6 +833,9 @@ $(function(){
 	  				$('#popup_conf .conf_text').text('La relance automatique a été effectuée !');
 			  	});
 
+      } else {
+      	$('#open_conf').trigger('click');
+	$('#popup_conf .conf_text').text('Sélectionner une ou plusieurs adresse email ci-dessus qui n\'ont pas encore répondu à votre invitation');
       }
 
 			return false;
