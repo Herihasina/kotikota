@@ -742,19 +742,19 @@
                                                         <table cellpadding="0" cellspacing="0" align="center">
                                                             <tr valign="middle">
                                                                 <td width="58" height="50" style="width: 58px; height: 50px;">
-                                                                    <a href="<?= get_field('fb_kotikota','option') ?>"><img width="58" height="50" src="<?= IMG_URL ?>fb.jpg" alt="facebook" style="width: 58px; height: 50px; display: block;" /></a>
+                                                                    <a href="<?= get_theme_mod('sn_fb_setting') ?>"><img width="58" height="50" src="<?= IMG_URL ?>fb.jpg" alt="facebook" style="width: 58px; height: 50px; display: block;" /></a>
                                                                 </td>
 
                                                                 <td width="58" height="50" style="width: 58px; height: 50px;">
-                                                                    <a href="<?= get_field('in_kotikota','option')  ?>"><img width="58" height="50" src="<?= IMG_URL ?>insta.jpg" alt="facebook" style="width: 58px; height: 50px; display: block;" /></a>
+                                                                    <a href="<?= get_theme_mod('sn_insta_setting') ?>"><img width="58" height="50" src="<?= IMG_URL ?>insta.jpg" alt="facebook" style="width: 58px; height: 50px; display: block;" /></a>
                                                                 </td>
 
                                                                 <td width="58" height="50" style="width: 58px; height: 50px;">
-                                                                    <a href="<?= get_field('tw_kotikota','option')  ?>"><img width="58" height="50" src="<?= IMG_URL ?>twit.jpg" alt="facebook" style="width: 58px; height: 50px; display: block;" /></a>
+                                                                    <a href="<?= get_theme_mod('sn_tweet_setting') ?>"><img width="58" height="50" src="<?= IMG_URL ?>twit.jpg" alt="facebook" style="width: 58px; height: 50px; display: block;" /></a>
                                                                 </td>
 
                                                                 <td width="58" height="50" style="width: 58px; height: 50px;">
-                                                                    <a href="<?= get_field('yt_kotikota','option') ?>"><img width="58" height="50" src="<?= IMG_URL ?>youtube.jpg" alt="facebook" style="width: 58px; height: 50px; display: block;" /></a>
+                                                                    <a href="<?= get_theme_mod('sn_yt_setting') ?>"><img width="58" height="50" src="<?= IMG_URL ?>youtube.jpg" alt="facebook" style="width: 58px; height: 50px; display: block;" /></a>
                                                                 </td>
                                                             </tr>
                                                         </table>
