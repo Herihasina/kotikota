@@ -88,7 +88,7 @@
                         <p><?php echo wp_strip_all_tags(get_field('description_de_la_cagnote', $id) )?> </p>
                         <div class="objectif">
                             <div><?php _e('objectif','kotikota'); ?></div>
-                            <span><?= number_format($ilaina, 0, '.', ' '). ' '. $devise; ?></span>
+                            <span><?= number_format($objectif, 0, '.', ' '). ' '. $devise; ?></span>
                         </div>
                     </a>
                     <div class="compteur">
