@@ -26,13 +26,15 @@
                 ?>
             </div>
             <div class="menu-flag clr">
-                <?php $icones = get_field('icones_drapeaux','option');?>
-                <ul>
+                <?php $icones = get_field('icones_drapeaux','option');
+                echo do_action('wpml_add_language_selector');
+                ?>
+                <!-- <ul>
                     <li><a href="#" id="fr"><img src="<?php echo $icones['francais'] ?>"></a></li>
                     <li><a href="#" id="en"><img src="<?php echo $icones['anglais'] ?>"></a></li>
-                </ul>
+                </ul> -->
             </div>
-            <?php echo do_shortcode('[gtranslate]'); ?>
+            
             <?php if ( !is_user_logged_in() ) :?>
             <div class="btn-head">
                 <a href="#connecter" class="link fancybox-home " title="<?= __('s’enregistrer /se connecter','kotikota') ?>"><?= __('s’enregistrer /se connecter','kotikota') ?></a>
