@@ -28,7 +28,7 @@
                                             echo str_replace('_', '', $titre) ;
                                         ?>
                                     </h4>
-                                    <div class="<?php the_sub_field('gratuite') ?>"><?php the_sub_field('gratuite') ?></div>
+                                    <div class="gratuit"><?php the_sub_field('gratuite') ?></div>
                                     <div class="info">*<?php _e('hors frais opérateurs','kotikota'); ?>  </div>
                                 </div>
                             </div>
