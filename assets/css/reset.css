@@ -191,7 +191,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 
 /*.banner                                                   { background: url(../images/banner-home.jpg) bottom center; background-size:cover; width: 100%; height:768px;; position: relative;}
 .banner:after                                               { content: ''; display: block; width: 100%; height: 224px; background: url('../images/deco-banner.png') no-repeat center; background-size: cover; position: absolute; left: 0; bottom: -200px  } 
-*/.txt-banner                                               {  padding-left: 19px; max-width: 800px; padding-top: 23%}
+*/.txt-banner                                               {  padding-left: 19px; max-width: 900px; padding-top: 23%}
 .txt-banner h1  ,
 .txt-banner h2                                              { color:  #fff; font-size: 36px; line-height: 50px; margin-bottom: 36px;}
 .txt-banner .link                                           { padding: 22px 29px ; margin-bottom: 27px; border-radius:30px; border: none; background-color:#fbbd36; margin-right: 10px}
@@ -351,12 +351,12 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .tarifs h2:after                                            { content: ''; border-bottom: #ffd71d solid 1px; width: 60px; margin: 31px auto; display: block;   }
 .tarifs .cont-left                                          {  width: 50%;  float: left; padding-right: 40px  }
 .tarifs .cont-left  .col                                    { background-color: #fabc37;  padding:55px 0 15px 183px; border-radius: 0 200px 200px 0%; position: relative;}
-.tarifs .cont-left .col .content                                 { max-width: 300px ; margin: 0 auto 27px }
+.tarifs .cont-left .col .content                            { max-width: 350px ; margin: 0 auto 27px }
 .tarifs .cont-left .content  h4                             { color: #fff; font-family:Montserrat-b; margin-bottom: 13px; }
 .tarifs .cont-left .content  h4 span                        { display: block; font-family:Montserrat; font-size: 16px }
 .tarifs .cont-left .content .picto                          { display: table-cell; vertical-align: middle; }
 .tarifs .cont-left .content .txt                            { display: table-cell; vertical-align: middle; padding-left: 26px ; position: relative;}
-.tarifs .cont-left .content .gratuit                        { background-color:#8d4a8f; padding:8px 28px 8px 37px;  color: #fff; text-transform: uppercase; font-size: 16px; font-family: Opificio-b  ; border-radius: 0 0 34px 0  }
+.tarifs .cont-left .content .gratuit                        { background-color:#8d4a8f; padding:8px 23px 8px 30px;  color: #fff; text-transform: uppercase; font-size: 16px; font-family: Opificio-b  ; border-radius: 0 0 34px 0  }
 .tarifs .item                                               { margin-bottom: 29px; }
 .tarifs .cont-right                                         { float: left ; width: 50% ; padding-left: 40px  }
 .tarifs .content .txt h3                                    { font-size: 16px; line-height: 24px; text-transform: uppercase; color: #131313; font-family:Montserrat-b ; padding-left: 58px; background: url(../images/ico-titre.png) no-repeat left center; margin-bottom: 12px; min-height: 50px }
@@ -894,7 +894,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 
 
 .lst-cagnotte-publique .item  .ico2 { position: absolute; left: 0; top: 0;  }
-.lst-cagnotte-publique .item  .ico-percent { position: absolute; left: 0; top: -1px; background:url(../images/bg-percent.png); width: 100px; height: 103px; padding: 9px 7px }
+.lst-cagnotte-publique .item  .ico-percent { position: absolute; left: 0; top: -1px; background:url(../images/bg-percent.png); background-repeat: no-repeat; background-size: cover; width: 100px; height: 103px; padding: 9px 7px }
 .percent { background-color: #fff; border-radius: 50%; position: relative;  }
 .percent {
     background-color: #fff;
@@ -1929,9 +1929,11 @@ input:checked {
     color: #fff;
     font-size: 15px;
     position: absolute;
-    bottom: -10px;
-    white-space: nowrap;
+    bottom: -26px;
+    width: 200px
+  
 }
+
 .tarifs .cont-left .col .content:nth-of-type(1) .txt .info { display:none}
 .tarifs .cont-right .col.payement { min-height: 400px }
 #confirme-cloture {
