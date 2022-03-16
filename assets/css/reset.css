@@ -1929,8 +1929,9 @@ input:checked {
     color: #fff;
     font-size: 15px;
     position: absolute;
-    bottom: -10px;
-    white-space: nowrap;
+    bottom: -26px;
+    width: 200px
+  
 }
 .tarifs .cont-left .col .content:nth-of-type(1) .txt .info { display:none}
 .tarifs .cont-right .col.payement { min-height: 400px }
