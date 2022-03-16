@@ -55,10 +55,10 @@ $(function(){
 		$('#type_cagnotte').on('change', function(){
 			var valera = $(this).val();
 
-			if( valera == 'privee'){
+			if( valera == text.list_priv){
 				$('.info-prive').removeClass('hidden');
 				$('.info-publique').addClass('hidden');
-			}else if( valera == 'publique' ){
+			}else if( valera == text.list_pub ){
 				$('.info-publique').removeClass('hidden');
 				$('.info-prive').addClass('hidden');
 			}
