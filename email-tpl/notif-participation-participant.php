@@ -465,7 +465,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; padding-bottom: 25px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 20px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    Bienvenue <?= $prenom ?> dans la communauté des KotiKoteurs
+                                                                    Bienvenue <?= $prenom ?> dans la communauté des KotiKoteurs 📢
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -473,7 +473,7 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                      Merci d’avoir participé à la la cagnotte « <strong><?= $nomcagnotte ?></strong>»
+                                                                      Merci d’avoir participé à la la cagnotte « <strong><?= $nomcagnotte ?></strong> » ⌛ 👍
                                                                     <br>
                                                                     <br>
                                                                     Vous retrouverez toutes les caractéristiques de la cagnotte en <a href="<?=  get_permalink($id) ?>" title="">cliquant ici</a>.
