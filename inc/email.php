@@ -13,13 +13,13 @@ function sendNotificationCreation($id){
 
     if( 'mg' == ICL_LANGUAGE_CODE ){
       $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );      
-      $tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
+      //$tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
     }elseif( 'en' == ICL_LANGUAGE_CODE ){
       $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );      
-      $tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
+      //$tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
     }else{
       $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );      
-      $tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
+      //$tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
     }
     
     ob_start();
@@ -29,7 +29,7 @@ function sendNotificationCreation($id){
     $objet = get_field('objet_creation','option') ? get_field('objet_creation','option') : __("Création de cagnotte avec succès","kotikota");
 
     if (@wp_mail( $email_titulaire, $objet, $html, $headers ) ){
-        $current_user = wp_get_current_user();
+        /*$current_user = wp_get_current_user();
         ob_start();
           include( $tpl_participant );
           $htmlp = ob_get_clean();
@@ -40,7 +40,7 @@ function sendNotificationCreation($id){
             return true;
           }else{
             return false;
-          }
+          }*/
       return true;
     }else{
       return false;
@@ -79,7 +79,7 @@ function sendNotificationParticipation($id){
 
     if ( @wp_mail( $email_titulaire, $objet, $html, $headers ) ){
       //return true;
-            ob_start();
+          ob_start();
           include( $tpl_participant );
           $htmlp = ob_get_clean();
 
