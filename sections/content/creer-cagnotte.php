@@ -110,8 +110,8 @@
                                             <option value="publique"><?php _e('Cagnotte Publique','kotikota'); ?></option>
                                         </select>
                                         <div class="info-cagnotte">
-                                            <div class="tip info-publique info-cagnotte-inner hidden">Les cagnottes publiques sont visibles par tous les utilisateurs</div>
-                                            <div class="tip info-prive info-cagnotte-inner hidden">Les cagnottes privées ne peuvent être visibles que par les personnes invitées</div>
+                                            <div class="tip info-publique info-cagnotte-inner hidden"><?= __("Les cagnottes publiques sont visibles par tous les utilisateurs","kotikota" ?></div>
+                                            <div class="tip info-prive info-cagnotte-inner hidden"><?= __("Les cagnottes privées ne peuvent être visibles que par les personnes invitées","kotikota" ?></div>
                                         </div>
 
                                     </div>
