@@ -356,7 +356,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .tarifs .cont-left .content  h4 span                        { display: block; font-family:Montserrat; font-size: 16px }
 .tarifs .cont-left .content .picto                          { display: table-cell; vertical-align: middle; }
 .tarifs .cont-left .content .txt                            { display: table-cell; vertical-align: middle; padding-left: 26px ; position: relative;}
-.tarifs .cont-left .content .gratuit                        { background-color:#8d4a8f; padding:8px 28px 8px 37px;  color: #fff; text-transform: uppercase; font-size: 16px; font-family: Opificio-b  ; border-radius: 0 0 34px 0  }
+.tarifs .cont-left .content .gratuit                        { background-color:#8d4a8f; padding:8px 23px 8px 30px;  color: #fff; text-transform: uppercase; font-size: 16px; font-family: Opificio-b  ; border-radius: 0 0 34px 0  }
 .tarifs .item                                               { margin-bottom: 29px; }
 .tarifs .cont-right                                         { float: left ; width: 50% ; padding-left: 40px  }
 .tarifs .content .txt h3                                    { font-size: 16px; line-height: 24px; text-transform: uppercase; color: #131313; font-family:Montserrat-b ; padding-left: 58px; background: url(../images/ico-titre.png) no-repeat left center; margin-bottom: 12px; min-height: 50px }
