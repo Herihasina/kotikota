@@ -90,6 +90,20 @@ function load_front_assets() {
 
     wp_localize_script( 'ajax-wp', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
     wp_localize_script( 'custom-wp', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
+    
+    wp_localize_script( 'ajax-wp', 'text', 
+        array( 
+            'conf_montant_devise' => 'Montant équivalent : ' ,
+            'conf_invite_email' => 'Votre invitation a bien été envoyée !',
+            'conf_titre_save_notif' => 'Notification par email',
+            'conf_relance_auto' => 'La relance automatique a été effectuée !',
+            'conf_cloture' => 'La cagnotte a bien été clôturée !',
+            'conf_document_upload' => 'Télécharger',
+            'conf_document_upload_status' => 'Téléchargement',
+            'conf_document_upload_instuction' => 'Déposez vos fichiers pour les télécharger',
+            'conf_document_upload_taille' => 'Taille de fichier maximale pour le téléchargement : 8 Mo.',
+        ) 
+    );
 
 }
 add_action( 'wp_enqueue_scripts', 'load_front_assets' );
