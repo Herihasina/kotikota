@@ -56,6 +56,13 @@
                 $id = $un_post->ID;
                 $couleur = get_field('couleur', $id);
                 $part = get_field('tous_les_participants', $id);
+                $objectif = (int)get_field('objectif_montant', $id);
+                $limited = get_field('fixer_un_objectif', $id);
+                $devise = get_field('devise', $id);
+                $devise = is_array( $devise ) && array_key_exists('label', $devise) ? $devise['label'] : 'Ar';
+
+                if (!$objectif ) $objectif = 1;
+            
                 if ( !$part) $part = [];
         ?>
             <div class="item<?php if ($couleur) echo ' '.$couleur ?>">
@@ -80,8 +87,8 @@
                         <h3><?php echo get_field('nom_de_la_cagnotte',$id) ?></h3>
                         <p><?php echo wp_strip_all_tags(get_field('description_de_la_cagnote', $id) )?> </p>
                         <div class="objectif">
-                            <div>objectif</div>
-                            <span>1 000 000 Ar</span>
+                            <div><?php _e('objectif','kotikota'); ?></div>
+                            <span><?= number_format($objectif, 0, '.', ' '). ' '. $devise; ?></span>
                         </div>
                     </a>
                     <div class="compteur">

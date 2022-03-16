@@ -465,15 +465,15 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; padding-bottom: 25px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 20px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    Bienvenue <?= $prenom ?> dans la communauté des KotiKoteurs
+                                                                    Bienvenue <?= $prenom ?> dans la communauté des KotiKoteurs 📢
                                                                 </div>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
+                                                            <td align="center" class="text" style="font-size: 16px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                      Merci d’avoir participé à la la cagnotte « <strong><?= $nomcagnotte ?></strong>»
+                                                                      Merci d’avoir participé à la la cagnotte « <strong><?= $nomcagnotte ?></strong> » ⌛ 👍
                                                                     <br>
                                                                     <br>
                                                                     Vous retrouverez toutes les caractéristiques de la cagnotte en <a href="<?=  get_permalink($id) ?>" title="">cliquant ici</a>.
@@ -481,7 +481,8 @@
                                                                     Vous pouvez aussi partager cette cagnotte sur les réseaux sociaux
                                                                 </div>
                                                                 <p>&nbsp;</p>
-                                                                    <p>☀️ La joyeuse team KOTI KOTA 🌈</p>
+                                                                <p>☀️ La joyeuse team KOTI KOTA 🌈</p>
+                                                                <p>&nbsp;</p>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -496,7 +497,7 @@
                                                                             valign="middle"
                                                                         >
                                                                         <a href="https://wa.me/<?= get_field('fb_kotikota','option') ?>?text=Une%20cagnotte%20intéressant%20sur%20kotikota" target="_blank">
-                                                                            <img width="177" height="52" src="<?= IMG_URL ?>whatsapp2.png" alt="whatsapp" style="width: 117px; height: 52px; display: block;" />
+                                                                            <img width="177" height="52" src="<?= IMG_URL ?>whatspp2.png" alt="whatsapp" style="width: 177px; height: 52px; display: block;" />
                                                                         </a>
 
                                                                         
