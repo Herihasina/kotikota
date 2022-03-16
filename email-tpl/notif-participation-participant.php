@@ -471,7 +471,7 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
+                                                            <td align="center" class="text" style="font-size: 16px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
                                                                       Merci d’avoir participé à la la cagnotte « <strong><?= $nomcagnotte ?></strong> » ⌛ 👍
                                                                     <br>
@@ -481,7 +481,8 @@
                                                                     Vous pouvez aussi partager cette cagnotte sur les réseaux sociaux
                                                                 </div>
                                                                 <p>&nbsp;</p>
-                                                                    <p>☀️ La joyeuse team KOTI KOTA 🌈</p>
+                                                                <p>☀️ La joyeuse team KOTI KOTA 🌈</p>
+                                                                <p>&nbsp;</p>
                                                             </td>
                                                         </tr>
                                                         <tr>
