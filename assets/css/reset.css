@@ -894,7 +894,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 
 
 .lst-cagnotte-publique .item  .ico2 { position: absolute; left: 0; top: 0;  }
-.lst-cagnotte-publique .item  .ico-percent { position: absolute; left: 0; top: -1px; background:url(../images/bg-percent.png); width: 100px; height: 103px; padding: 9px 7px }
+.lst-cagnotte-publique .item  .ico-percent { position: absolute; left: 0; top: -1px; background:url(../images/bg-percent.png); background-repeat: no-repeat; background-size: cover; width: 100px; height: 103px; padding: 9px 7px }
 .percent { background-color: #fff; border-radius: 50%; position: relative;  }
 .percent {
     background-color: #fff;
@@ -1933,6 +1933,7 @@ input:checked {
     width: 200px
   
 }
+
 .tarifs .cont-left .col .content:nth-of-type(1) .txt .info { display:none}
 .tarifs .cont-right .col.payement { min-height: 400px }
 #confirme-cloture {
