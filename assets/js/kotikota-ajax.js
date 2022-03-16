@@ -18,29 +18,29 @@ $(function(){
 
 			var categorie_c = $(this).find('input[name="sous-categ"]').data('categorie');
 
-			if( categorie_c == 'Personnelle' ){
+			if( categorie_c == text.list_perso ){
 				/* Afaka misafidy oe publique sa privée */
 				$('#type_cagnotte').removeClass( 'disabled' );
-				$('#type_cagnotte').val('privee');
+				$('#type_cagnotte').val(text.list_priv);
 
 				$('#frais_cagnotte').show();
-				$('#frais_cagnotte').text('Frais 6%');
+				$('#frais_cagnotte').text(text.list_frais_6);
 
-				$('#cat_cagnotte').val('Personnelle');
+				$('#cat_cagnotte').val(text.list_perso);
 
 				$('.info-prive').removeClass('hidden');
 				$('.info-publique').addClass('hidden');				
 
-			}else if( categorie_c == 'Solidaire' ){
+			}else if( categorie_c == text.list_solid ){
 				/* Tonga dia publique systématiquement */
-				$('#type_cagnotte').val('publique');
+				$('#type_cagnotte').val(text.list_pub);
 				$('#type_cagnotte').removeClass('disabled');
 				$('#type_cagnotte').addClass('disabled');
 
 				$('#frais_cagnotte').show();
-				$('#frais_cagnotte').text('Frais 3%');
+				$('#frais_cagnotte').text(text.list_frais_3);
 
-				$('#cat_cagnotte').val('Solidaire');
+				$('#cat_cagnotte').val(text.list_solid);
 
 				$('.info-publique').removeClass('hidden');
 				$('.info-prive').addClass('hidden');
@@ -186,7 +186,7 @@ $(function(){
 	  		/* affichéna ny montant équivalent en ariary */
 	  		var $montant_converti = calcul_devise_en_mga( $montant, $devise, change_mga_eu, change_mga_liv, change_mga_cad, change_mga_usd );
 	  		
-	  		$('.change-texte').text('Montant équivalent : ' + $montant_converti + ' MGA');
+	  		$('.change-texte').text( text.conf_montant_devise + $montant_converti + ' MGA');
 	  	}else{
 	  		$('.change-texte').text('');
 	  	}
@@ -206,7 +206,7 @@ $(function(){
 	  		/* affichéna ny montant équivalent en ariary */
 	  		var $montant_converti = calcul_devise_en_mga( $montant, $devise, change_mga_eu, change_mga_liv, change_mga_cad, change_mga_usd );
 	  		
-	  		$('.change-texte').text('Montant équivalent : ' + $montant_converti + ' MGA');
+	  		$('.change-texte').text(text.conf_montant_devise + $montant_converti + ' MGA');
 	  	}else{
 	  		$('.change-texte').text('');
 	  	}
@@ -379,7 +379,7 @@ $(function(){
 	  	}).done(function(resp){
 	  		if ( resp == "success" ){
 	  			$('#open_conf').trigger('click');
-	  			$('#popup_conf .conf_text').text('Votre invitation a bien été envoyée !');
+	  			$('#popup_conf .conf_text').text(text.conf_invite_email);
 	  		}else{
 	  			$('ul#response').addClass('error').html(resp);
 			  		setTimeout(function() {
@@ -670,7 +670,7 @@ $(function(){
 	  	}).done(function(resp){
 	  		var url = new RegExp("^<div>");
 	  		if( url.test(resp) ){
-	  			$('#popup_conf .conf_titre').html('Notification par email');
+	  			$('#popup_conf .conf_titre').html(text.conf_titre_save_notif);
 	  			$('#popup_conf .conf_text').html(resp);
 	  			$('#open_conf').trigger('click');
 				 }else{
@@ -830,7 +830,7 @@ $(function(){
 			  	}).done(function(resp){
 			  		$('#loader').removeClass('working');
 			  		$('#open_conf').trigger('click');
-	  				$('#popup_conf .conf_text').text('La relance automatique a été effectuée !');
+	  				$('#popup_conf .conf_text').text(text.conf_relance_auto);
 			  	});
 
       } else {
@@ -913,7 +913,7 @@ $(function(){
 	  		$('#loader').removeClass('working');
 
 	  		$('#open_conf').trigger('click');
-	  		$('#popup_conf .conf_text').text('La cagnotte a bien été clôturée !');
+	  		$('#popup_conf .conf_text').text(text.conf_cloture);
 
 	  		$('#cloturer-confirm').remove();
 	  		$('#confirme-cloture').remove();
@@ -951,12 +951,12 @@ $(function(){
         e.preventDefault();
         var cagnotte_id= $(this).data('cagnotteId');
         if (mediaUploader) {
-            $("#menu-item-upload").html("Télécharger");
+            $("#menu-item-upload").html(text.conf_document_upload);
             $("#menu-item-upload").click();
             $("#menu-item-browse").css("display","none");
-            $(".media-uploader-status .h2").html("Téléchargement");
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $(".media-uploader-status .h2").html(text.conf_document_upload_status);
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
             mediaUploader.open();
             return;
         }
@@ -982,12 +982,12 @@ $(function(){
 
         });
         mediaUploader.open();
-        $("#menu-item-upload").html("Télécharger");
+        $("#menu-item-upload").html(text.conf_document_upload);
         $("#menu-item-upload").click();
         $("#menu-item-browse").css("display","none");
-        $(".media-uploader-status .h2").html("Téléchargement");
-        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-        $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+        $(".media-uploader-status .h2").html(text.conf_document_upload_status);
+        $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+        $("p.max-upload-size").text(text.conf_document_upload_taille);
     });
 
 	var mediaUploaderImage;
@@ -995,12 +995,12 @@ $(function(){
         e.preventDefault();
         var cagnotte_id= $(this).data('cagnotteId');
         if (mediaUploaderImage) {
-            $("#menu-item-upload").html("Télécharger");
+            $("#menu-item-upload").html(text.conf_document_upload);
             $("#menu-item-upload").click();
             $("#menu-item-browse").css("display","none");
-            $(".media-uploader-status .h2").html("Téléchargement");
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $(".media-uploader-status .h2").html(text.conf_document_upload_status);
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
             mediaUploaderImage.open();
             return;
         }
@@ -1026,12 +1026,12 @@ $(function(){
 
         });
         mediaUploaderImage.open();
-        $("#menu-item-upload").html("Télécharger");
+        $("#menu-item-upload").html(text.conf_document_upload);
         $("#menu-item-upload").click();
         $("#menu-item-browse").css("display","none");
-        $(".media-uploader-status .h2").html("Téléchargement");
-        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-        $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+        $(".media-uploader-status .h2").html(text.conf_document_upload_status);
+        $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+        $("p.max-upload-size").text(text.conf_document_upload_taille);
     });
 
 	$('#add_video').click(function(e){
