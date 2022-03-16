@@ -496,7 +496,7 @@
                                                                             valign="middle"
                                                                         >
                                                                         <a href="https://wa.me/<?= get_field('fb_kotikota','option') ?>?text=Une%20cagnotte%20intéressant%20sur%20kotikota" target="_blank">
-                                                                            <img width="177" height="52" src="<?= IMG_URL ?>whatspp2.png" alt="whatsapp" style="width: 117px; height: 52px; display: block;" />
+                                                                            <img width="177" height="52" src="<?= IMG_URL ?>whatspp2.png" alt="whatsapp" style="width: 177px; height: 52px; display: block;" />
                                                                         </a>
 
                                                                         
