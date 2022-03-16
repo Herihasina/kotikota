@@ -102,7 +102,7 @@ function load_front_assets() {
             'conf_document_upload_status' => 'Téléchargement',
             'conf_document_upload_instuction' => 'Déposez vos fichiers pour les télécharger',
             'conf_document_upload_taille' => 'Taille de fichier maximale pour le téléchargement : 8 Mo.',
-            'list_priv' => 'privee',
+            'list_priv' => 'priva',
             'list_frais_6' => 'Frais 6%',
             'list_perso' => 'Personnelle',
             'list_solid' => 'Solidaire',
