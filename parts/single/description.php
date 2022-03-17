@@ -61,8 +61,8 @@
 
   <div class="pp-document-photos">
     <div class="blcbtn">
-      <a href="#pp-document" class="link fancybox" title="Document">Document</a>
-      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos">Photos et vidéos</a>
+      <a href="#pp-document" class="link fancybox" title="Document"><?php _e('Document','kotikota') ?></a>
+      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos et vidéos','kotikota') ?></a>
       
       <div class="pp-document" id="pp-document" style="display: none">
         <div class="Document cont-pp">
