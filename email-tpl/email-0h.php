@@ -355,7 +355,7 @@
                                                             <tr>
                                                                 <td align="left" class="titre" style="font-size: 0px; padding: 15px 0 29px 20px; word-break: break-word;">
                                                                     <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 30px; text-align: left; color: #ffffff;">
-                                                                       Rappel après création de votre cagnotte
+                                                                       <?php _e('Rappel après création de votre cagnotte','kotikota') ?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -461,7 +461,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; padding-bottom: 25px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 20px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    Hello <?= $info_rappel->display_name ?>,
+                                                                    <?php _e('Hello','kotikota') ?> <?= $info_rappel->display_name ?>,
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -469,11 +469,11 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    Il reste une dernière étape pour valider ta cagnotte ✅ <a href="<?=  get_permalink($postId) ?>" title=""><?= $nomcagnotte ?></a>
+                                                                    <?php _e('Il reste une dernière étape pour valider ta cagnotte','kotikota') ?> ✅ <a href="<?=  get_permalink($postId) ?>" title=""><?= $nomcagnotte ?></a>
                                                                     <br>
-                                                                    Nous avons besoin sous 48h d’un justificatif d’identité (CIN ou Passeport) pour sécuriser ta cagnotte.
+                                                                    <?php _e('Nous avons besoin sous 48h d’un justificatif d’identité (CIN ou Passeport) pour sécuriser ta cagnotte.','kotikota') ?>
                                                                     <br><br>
-                                                                    Il te suffit de cliquer ci-dessous
+                                                                    <?php _e('Il te suffit de cliquer ci-dessous','kotikota') ?>
                                                                 </div>
                                                                 <br>
                                                                  <br>
@@ -505,7 +505,7 @@
                                                                                 "
                                                                                 target="_blank"
                                                                             >
-                                                                                Valider mon identité
+                                                                                <?php _e('Valider mon identité','Kotikota') ?>
                                                                             </a>
                                                                         </td>
                                                                     </tr>
@@ -714,7 +714,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 24px; text-align: center; color: #131313;">
-                                                                    Restez connect&#233;
+                                                                    <?php _e('Restez connect&#233;','kotikota') ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -918,7 +918,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    Email envoy&#233; par <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
+                                                                    <?php _e('Email envoy&#233; par','kotikota') ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -926,7 +926,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    &#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s
+                                                                    <?php _e('&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s','kotikota') ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
