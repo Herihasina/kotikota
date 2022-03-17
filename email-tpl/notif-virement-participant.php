@@ -355,7 +355,7 @@
                                                             <tr>
                                                                 <td align="left" class="titre" style="font-size: 0px; padding: 15px 0 29px 20px; word-break: break-word;">
                                                                     <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 30px; text-align: left; color: #ffffff;">
-                                                                       Cagnotte virée
+                                                                       <?php _e("Cagnotte virée","kotikota") ?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -461,19 +461,19 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <p>Cher KotiKoteur 📢</p>
+                                                                    <p><?php _e("Cher KotiKoteur","kotikota") ?> 📢</p>
                                                                     <p>
-                                                                        Suite à la clôture de votre cagnotte « <?= get_field('nom_de_la_cagnotte', $idCagnotte) ?> » ⌛👍<br>
-                                                                        Nous avons viré les sommes sur le compte bancaire 💰 du bénéficiaire.
+                                                                        <?php _e("Suite à la clôture de votre cagnotte","kotikota") ?> « <?= get_field('nom_de_la_cagnotte', $idCagnotte) ?> » ⌛👍<br>
+                                                                        <?php _e("Nous avons viré les sommes sur le compte bancaire 💰 du bénéficiaire.","kotikota") ?>
                                                                     </p>
                                                                     <p>
-                                                                        Un énorme Merci pour votre participation 🙏
+                                                                        <?php _e("Un énorme Merci pour votre participation","kotikota") ?> 🙏
                                                                     </p>
                                                                     <p>
-                                                                        Pour lancer votre 1ère cagnotte, c'est par <a href="<?= get_permalink( $idCagnotte) ?>">ICI</a>
+                                                                        <?php _e("Pour lancer votre 1ère cagnotte, c'est par","kotikota") ?> <a href="<?= get_permalink( $idCagnotte) ?>"><?php _e("ICI","kotikota") ?></a>
                                                                     </p>
                                                                     <p>&nbsp;</p>
-                                                                    <p>☀️ La joyeuse team KOTI KOTA 🌈</p>
+                                                                    <p>☀️ <?php _e("La joyeuse team KOTI KOTA","kotikota") ?> 🌈</p>
                                                                 </div>
                                                                 <br>
                                                                  <br>
@@ -681,7 +681,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 24px; text-align: center; color: #131313;">
-                                                                    Restez connect&#233;
+                                                                    <?php _e("Restez connect&#233;","kotikota") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -885,7 +885,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    Email envoy&#233; par <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
+                                                                    <?php _e("Email envoy&#233; par","kotikota") ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -893,7 +893,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    &#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s
+                                                                    <?php _e("&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s","kotikota") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
