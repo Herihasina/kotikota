@@ -1104,12 +1104,12 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .gestion-cagnotte .wrapper      { padding: 0; max-width: 1024px }
 .lst-step                               { margin-bottom: 60px; position: relative; }
 .lst-step .item                         { float: left; width: 33.33%; text-align: center; position: relative; }
-.lst-step .item .content h2             { color:#bbbbbb; font-size: 20px; font-family:Opificio-b; margin-bottom: 32px; text-align: center }
+.lst-step .item .content h2             { color:#bbbbbb; font-size: 20px; font-family:Opificio-b; margin-bottom: 32px; text-align: center; min-height: 48px }
 .lst-step .item .content .ico           { width: 175px; height: 175px; background-color: #eaeaea; border-radius: 50% ; position: relative; margin:0 auto; z-index: 2; display: block;}
 .lst-step .item.active .content h2 { color: #424242  }
 .lst-step .item.active .content .ico    { background-color: #e10454 }
 .lst-step .item.active .content .ico:after     { content: ''; display: block; width: 40px; height: 41px; background:url(../images/ico-check3.png); position: absolute; bottom: -4px; right: 8px } 
-.lst-step .item .content                { max-width: 175px; }
+.lst-step .item .content                { max-width: 200px }
 .lst-step .item .content .ico img       { position: absolute; left: 0; right: 0; margin:auto; top:0; bottom: 0; display: block;}
 .lst-step:before                         { content: ''; position: absolute; top: 140px; border-bottom: #dddddd dashed 1px; width: 100%; left: 0}
 
