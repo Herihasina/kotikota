@@ -355,8 +355,7 @@
                                                             <tr>
                                                                 <td align="left" class="titre" style="font-size: 0px; padding: 15px 0 29px 20px; word-break: break-word;">
                                                                     <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 30px; text-align: left; color: #ffffff;">
-                                                                       <?php _e('Confirmation de la cr&#233;ation de<br />
-                                                                        votre cagnotte', 'kotikota' ?>
+                                                                       <?php _e('Confirmation de la cr&#233;ation de<br /> votre cagnotte', 'kotikota' ?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
