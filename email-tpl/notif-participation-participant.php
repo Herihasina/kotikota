@@ -359,7 +359,7 @@
                                                             <tr>
                                                                 <td align="left" class="titre" style="font-size: 0px; padding: 15px 0 29px 20px; word-break: break-word;">
                                                                     <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 30px; text-align: left; color: #ffffff;">
-                                                                       Une nouvelle <br> participation !
+                                                                       <?php _e("Une nouvelle <br> participation !","kotikota") ?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -465,7 +465,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; padding-bottom: 25px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 20px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    Bienvenue <?= $prenom ?> dans la communauté des KotiKoteurs 📢
+                                                                    <?php _e("Bienvenue","kotikota") ?> <?= $prenom ?> <?php _e("dans la communauté des KotiKoteurs","kotikota") ?> 📢
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -473,15 +473,15 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 16px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                      Merci d’avoir participé à la la cagnotte « <strong><?= $nomcagnotte ?></strong> » ⌛ 👍
+                                                                      <?php _e("Merci d’avoir participé à la la cagnotte","kotikota") ?> « <strong><?= $nomcagnotte ?></strong> » ⌛ 👍
                                                                     <br>
                                                                     <br>
-                                                                    Vous retrouverez toutes les caractéristiques de la cagnotte en <a href="<?=  get_permalink($id) ?>" title="">cliquant ici</a>.
+                                                                    <?php _e("Vous retrouverez toutes les caractéristiques de la cagnotte en","kotikota") ?> <a href="<?=  get_permalink($id) ?>" title=""><?php _e("cliquant ici","kotikota") ?></a>.
                                                                     <br>
-                                                                    Vous pouvez aussi partager cette cagnotte sur les réseaux sociaux
+                                                                    <?php _e("Vous pouvez aussi partager cette cagnotte sur les réseaux sociaux","kotikota") ?>
                                                                 </div>
                                                                 <p>&nbsp;</p>
-                                                                <p>☀️ La joyeuse team KOTI KOTA 🌈</p>
+                                                                <p>☀️ <?php _e("La joyeuse team KOTI KOTA","kotiktoa") ?> 🌈</p>
                                                                 <p>&nbsp;</p>
                                                             </td>
                                                         </tr>
@@ -500,7 +500,7 @@
                                                                             <img width="177" height="52" src="<?= IMG_URL ?>whatspp2.png" alt="whatsapp" style="width: 177px; height: 52px; display: block;" />
                                                                         </a>
 
-                                                                        
+
 
                                                                         </td>
                                                                         <td width="30"></td>
@@ -724,7 +724,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 24px; text-align: center; color: #131313;">
-                                                                    Restez connect&#233;
+                                                                    <?php _e("Restez connect&#233;","kotikota") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -928,7 +928,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    Email envoy&#233; par <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
+                                                                    <?php _e("Email envoy&#233; par","kotikota") ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -936,7 +936,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    &#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s
+                                                                    <?php _e("&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s","kotikota") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
