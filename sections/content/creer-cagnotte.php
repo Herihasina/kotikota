@@ -38,11 +38,11 @@
                                         <div class="offrir-cadeau">
                                             <h3 class="titre">
                                                 <?php
-                                                //if (substr(ICL_LANGUAGE_CODE,0,2) == 'mg') {
-                                                    //echo get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
-                                                //} else {
+                                                if (ICL_LANGUAGE_CODE == 'mg_MG') {
+                                                    echo get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
+                                                } else {
                                                     echo $parent->name;
-                                                //}
+                                                }
                                                 ?>
                                             </h3>
                                             <div class="lst-type">
