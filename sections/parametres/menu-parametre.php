@@ -59,8 +59,7 @@
     		echo ' active selected';	?>">
       <div class="content">
         <h2><?php _e('Infos principales','kotikota')?></h2>
-        <a href="<?php
-        echo get_site_url(); ?>parametre-info-principale/?parametre=<?= $idCagnotte ?>" class="ico">
+        <a href="<?php echo get_site_url(); ?>/parametre-info-principale/?parametre=<?= $idCagnotte ?>" class="ico">
           <img src="<?php echo IMG_URL ?>info.png">
         </a>
       </div>
@@ -68,7 +67,7 @@
     <div class="item<?php if ($active == 'fond') echo ' active no-ico'; if ($active == 'description'|| $active == 'montant' || $active == 'notif') echo ' active selected';	?>">
       <div class="content">
         <h2><?php _e('Fond d’écran','kotikota'); ?></h2>
-        <a href="<?php echo get_site_url().'/'.ICL_LANGUAGE_CODE. ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="ico">
+        <a href="<?php echo get_site_url(); ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="ico">
           <img src="<?php echo IMG_URL ?>fond.png">
         </a>
       </div>
