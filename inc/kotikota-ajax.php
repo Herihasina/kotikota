@@ -545,8 +545,8 @@ function save_info_principale(){
     // if ( !isset($_POST['rib']) || $_POST['rib'] == "" )
     //    $erreurs[] = __("Entrer le RIB du bénéficiaire.", "kotikota");
 
-   if ( !isset($_POST['categ']) || $_POST['categ'] == "" )
-       $erreurs[] = __("Indiquer la catégorie de cagnotte.", "kotikota");
+    //if ( !isset($_POST['categ']) || $_POST['categ'] == "" )
+    //   $erreurs[] = __("Indiquer la catégorie de cagnotte.", "kotikota");
     if ( !isset($_POST['sousCateg']) || $_POST['sousCateg'] == "" )
        $erreurs[] = __("Indiquer une type de cagnotte.", "kotikota");
 
