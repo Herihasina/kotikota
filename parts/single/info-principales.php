@@ -48,9 +48,13 @@
                 <b>
                   <?php
                     echo $diff; ?>
-                    <?= ' '._e('jour','kotikota'); ?>
-                    <?php if ($diff >= 2 && ICL_LANGUAGE_CODE == 'fr') echo "s";
-                  ?>
+                    <?php 
+                      if ($diff >= 2 && ICL_LANGUAGE_CODE == 'fr') {
+                        echo ' '._e('jour','kotikota').'s';
+                      }else{
+                        echo ' '._e('jour','kotikota');
+                      }
+                    ?>
                 </b>
                 <span><?php _e('restant','kotikota'); ?><?php if ($diff >= 2 && ICL_LANGUAGE_CODE == 'fr' ) echo "s"; ?></span>
             </div>
