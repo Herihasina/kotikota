@@ -43,7 +43,7 @@
                                                     }else{
                                                         echo $enfant->name;
                                                     }
-                                                    echo 
+                                                     
                                                 } else {
                                                     echo $enfant->name;
                                                 }
