@@ -160,7 +160,7 @@ select option                                               { padding: 10px 30px
 .slick-dots button                                          { display:block; width:16px; height:16px; border-radius:50%; text-indent:-9999px; background:none; outline:none; padding:0; border:1px solid #885297;}
 .slick-active button                                        { background:#885297;}
 
-.wrapper                                                    { max-width: 1244px; margin: 0 auto; position: relative; z-index: 20 }
+.wrapper                                                    { max-width: 1344px; margin: 0 auto; position: relative; z-index: 20 }
 #header                                                     { position: relative; }
 .right                                                      { float: right; }
 .left                                                       { float: left }
@@ -3715,6 +3715,9 @@ a:hover { color:#fbbd36; }
     height: 100%;
     opacity: 0;
     cursor: pointer;
+}
+.col.profilFile {
+    margin-bottom: 0;
 }
 
 
