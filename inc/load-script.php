@@ -93,7 +93,7 @@ function load_front_assets() {
 
     wp_localize_script( 'email-multiple', 'text',
         array( 'email_entree' => __('Saisir un email + touche entrée', 'kotikota'))
-    };
+    );
 
     wp_localize_script( 'ajax-wp', 'text',
         array(
