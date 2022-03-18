@@ -2628,6 +2628,7 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     height: 31px;
     border-radius: 50%;
 }
+.conf_text a { color: #000 }
 
 
 
