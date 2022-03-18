@@ -68,8 +68,8 @@
     </div>
     <div class="item<?php if ($active == 'fond') echo ' active no-ico'; if ($active == 'description'|| $active == 'montant' || $active == 'notif') echo ' active selected';	?>">
       <div class="content">
-        <h2><?php _e('Fond d’écran','kotikota'); ?> <?php echo $_SERVER['REQUEST_URI']; ?></h2>
-        <a href="<?php echo get_site_url() . (ICL_LANGUAGE_CODE =='fr') ? '' : '/'.ICL_LANGUAGE_CODE.'/'; ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="ico">
+        <h2><?php _e('Fond d’écran','kotikota'); ?></h2>
+        <a href="<?php echo get_site_url() ?>/mg/parametre-fond/?parametre=<?= $idCagnotte ?>" class="ico">
           <img src="<?php echo IMG_URL ?>fond.png">
         </a>
       </div>
