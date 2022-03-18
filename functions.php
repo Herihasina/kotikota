@@ -10,8 +10,8 @@ define ( 'CACHE_DIR', WP_CONTENT_DIR . '/uploads/pdfs/');
 
 add_action( 'wp_enqueue_scripts', 'kotikota_enqueue_styles' );
 function kotikota_enqueue_styles() {
-  wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' ); 
-} 
+  wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+}
 
 // CSS, JS, IMAGES...
 require_once( 'inc/load-script.php');
@@ -26,7 +26,7 @@ require_once 'inc/api-mvola.php';
 require_once 'inc/api-airtel.php';
 require_once 'inc/api-bnipay.php';
 
-//CRON 
+//CRON
 require_once 'inc/kk-cron.php';
 
 #Liste des cagnottes perso
@@ -43,7 +43,7 @@ function categoriser_les_cagnottes(){
 
   if( is_array( $parents ) ){
     foreach ( $parents as $parent ){
-      $enfants = get_terms( array( 
+      $enfants = get_terms( array(
           'taxonomy'   => 'categ-cagnotte',
           'hide_empty' => false,
           'orderby'    => 'tax_position',
@@ -66,11 +66,11 @@ function categoriser_les_cagnottes(){
     }
   }
 
-  return array( 
-    'personnelles' => $cagnottes_personnelles_ids, 
-    'solidaires' => $cagnottes_solidaires_ids 
+  return array(
+    'personnelles' => $cagnottes_personnelles_ids,
+    'solidaires' => $cagnottes_solidaires_ids
   );
-  
+
 }
 
 function wpb_sender_name( $original_email_from ) {
@@ -104,7 +104,7 @@ function save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donatio
     "maskParticipation"   => $maskParticipation,
     "maskIdentite"        => $maskIdentite,
     "date"                => date("d-m-Y h:i:s"),
-    "mot_doux"            => $mot_doux,    
+    "mot_doux"            => $mot_doux,
   ));
   return $wpdb->insert_id;
 }
@@ -120,7 +120,7 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
               )
           )
       ));
- 
+
   if ( empty($oldParticipant) ) { //raha mbola tsy ao ilay email
       //echo "DEBUG: nouvel email<br>";
       $metas = array(
@@ -136,9 +136,9 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
               'post_status'=> 'publish',
               'meta_input' => $metas
           );
-     
 
-      $newParticipant = wp_insert_post( $postarr, true ); 
+
+      $newParticipant = wp_insert_post( $postarr, true );
 
       if (is_wp_error($post_id)) { //echo "nouvel email: error insert<br>";
           $errors = $post_id->get_error_messages();
@@ -163,7 +163,7 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
               );
 
           add_row( 'toutes_cagnottes_participees', $vals, $newParticipant ); //ajouter dans participant la cagnotte
-          
+
           add_row('tous_les_participants', $valsCagnotte, $idCagnotte ); // ajouter dans cagnotte le participant
           //echo "Ajouténa any @participant ny cagnotte - Ajouténa any @cagnotte ny participant";
           $success = true;
@@ -176,7 +176,7 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
       $metas = array(
               'nom_participant'       => $lname,
               'prenom_participant'    => $fname,
-              'telephone_participant' => $phone,                
+              'telephone_participant' => $phone,
           );
 
       $postarr = array(
@@ -194,23 +194,23 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
           }
           $success = false;
       }else{
-          $toutes_cagnottes_participees = get_field('toutes_cagnottes_participees',$update_participant); 
+          $toutes_cagnottes_participees = get_field('toutes_cagnottes_participees',$update_participant);
           $row = 1;
           $toutes_cagnottes_participees_id = [];
-           foreach ($toutes_cagnottes_participees as $cagn ){ 
+           foreach ($toutes_cagnottes_participees as $cagn ){
               $toutes_cagnottes_participees_id[] = $cagn['cagnotte']->ID;
               if ( $cagn['cagnotte']->ID == $idCagnotte ){
                   //echo "efa nanome t@io cagnotte io email io ==> atao ++ ny participation ef vitany<br>";
-                  $newMontant = (int)$cagn['montant_paye']; 
+                  $newMontant = (int)$cagn['montant_paye'];
                   $newMontant = $newMontant  + (int)$donation;
-                  $vals = array(                        
+                  $vals = array(
                       'montant_paye' => $newMontant,
                       'masque_participation' => $maskParticipation,
                       'mode_paiement'  => $paiement,
                       'masque_identite' => $maskIdentite,
                       );
                   update_row( 'toutes_cagnottes_participees', $row, $vals, $update_participant );
-                  
+
               }
               $row++;
            }
@@ -229,8 +229,8 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
               'participant_' => $update_participant
               );
               add_row('tous_les_participants', $valsCagnotte, $idCagnotte );
-           }  
-           $success = true;       
+           }
+           $success = true;
       }
   }
 
@@ -244,15 +244,15 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
 }
 
 function insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux ){
-  //ajoutena ao @CPT mot_doux ilay message t@ty participation ty    
+  //ajoutena ao @CPT mot_doux ilay message t@ty participation ty
     $postarr = array(
             'post_type' => 'mot_doux',
             'post_title' => $fname.' '.$lname,
             'post_status' => 'publish',
-            'post_content' => $mot_doux 
+            'post_content' => $mot_doux
             );
 
-    $nouveauMotDoux = wp_insert_post( $postarr, true ); 
+    $nouveauMotDoux = wp_insert_post( $postarr, true );
 
     if (is_wp_error($post_id)) { //echo "nouvel email: error insert<br>";
         $errors = $post_id->get_error_messages();
@@ -263,7 +263,7 @@ function insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux ){
     }else{
         $success = true;
 
-        $list_mot_doux = get_field( 'mot_doux', $idCagnotte ); 
+        $list_mot_doux = get_field( 'mot_doux', $idCagnotte );
 
         if( !is_array($list_mot_doux) ):
             $list_mot_doux = array();
@@ -293,24 +293,24 @@ function get_user_participation($email_participant){
 
   if($participant):
     //prendres toutes les cagnottes auxquelles le participant a contribué
-    $toutes_cagnottes_participees = get_field('toutes_cagnottes_participees',$participant->ID); 
+    $toutes_cagnottes_participees = get_field('toutes_cagnottes_participees',$participant->ID);
     $toutes_cagnottes_participees_id = [];
-    foreach ($toutes_cagnottes_participees as $cagn ){ 
+    foreach ($toutes_cagnottes_participees as $cagn ){
       $toutes_cagnottes_participees_id[] = $cagn['cagnotte']->ID; //prendre les ids des cagnottes
     }
 
     //prendre les cagnottes
     $per_page = get_field('per_page','options');
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    $args = array(  
+    $args = array(
           'post_type' => array('cagnotte','cagnotte-perso'),
           'post_status' => 'publish',
-          'posts_per_page' => $per_page, 
+          'posts_per_page' => $per_page,
           'orderby' => 'ID',
           'order' => 'DESC',
           'paged' => $paged,
           'post__in' => $toutes_cagnottes_participees_id
-          
+
     );
 
     $participations = query_posts( $args );
@@ -326,19 +326,19 @@ function get_participation( $id_participation, $email = null, $est_finalise = 'f
 
   if ( $email !== null ){
     $result = $wpdb->get_results(
-      "SELECT * FROM $participation 
-      WHERE id_participation = '$id_participation'     
+      "SELECT * FROM $participation
+      WHERE id_participation = '$id_participation'
           AND email = '$email'
           AND est_finalise = '$est_finalise' "
-    ); 
+    );
   }else{
     $result = $wpdb->get_results(
-      "SELECT * FROM $participation 
+      "SELECT * FROM $participation
       WHERE id_participation = '$id_participation'
           AND est_finalise = '$est_finalise' "
     );
   }
-  
+
   if (!empty($result)) {
       return $result[0];
   }else {
@@ -349,7 +349,7 @@ function get_participation( $id_participation, $email = null, $est_finalise = 'f
 function update_participation( $id_participation ){
   global $wpdb;
   $participation = $wpdb->prefix.'participation';
-  $up_part = $wpdb->update($participation, 
+  $up_part = $wpdb->update($participation,
       array(
           "est_finalise"     => 1,
       ),
@@ -377,7 +377,7 @@ function get_devise_cagnotte( $id_cagnotte ){
 function get_parameters(){
   $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   $url_components = parse_url($url);
-  parse_str($url_components['query'], $params); 
+  parse_str($url_components['query'], $params);
 
   return $params;
 }
@@ -392,32 +392,32 @@ function is_cagnotte($idCagnotte){
 }
 
 function create_table(){
-  global $wpdb;  
-  
-  require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );  
-    
-  $table_name = $wpdb->prefix . "newTitulaire";  
-    
-  $sql = "CREATE TABLE $table_name ( 
-          id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, 
-          id_author bigint(20) DEFAULT 0 NOT NULL, 
-          first_cagnotte VARCHAR(255) DEFAULT '' NOT NULL, 
+  global $wpdb;
+
+  require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
+  $table_name = $wpdb->prefix . "newTitulaire";
+
+  $sql = "CREATE TABLE $table_name (
+          id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+          id_author bigint(20) DEFAULT 0 NOT NULL,
+          first_cagnotte VARCHAR(255) DEFAULT '' NOT NULL,
           24h_apres VARCHAR(255) DEFAULT '' NOT NULL,
           36h_apres VARCHAR(255) DEFAULT '' NOT NULL,
           48h_apres VARCHAR(255) DEFAULT '' NOT NULL,
           compte_actif tinyint(1) DEFAULT 0 NOT NULL,
           nbr_rappel tinyint(1) DEFAULT 0 NOT NULL,
-          PRIMARY KEY  (id) 
-      );";  
-        
-  dbDelta( $sql );  
-    
-  echo $wpdb->last_error;  
-  die();  
+          PRIMARY KEY  (id)
+      );";
+
+  dbDelta( $sql );
+
+  echo $wpdb->last_error;
+  die();
 }
 
 function convert_montant( $donation, $devise_cagnotte, $devise ){
-  //alaina alou ny taux 
+  //alaina alou ny taux
   $eu_mga = (int)get_field('change_mga_eu', 'option');
   $liv_mga = (int)get_field('change_mga_liv', 'option');
   $liv_eu = (int)get_field('change_eu_liv', 'option');
@@ -471,8 +471,8 @@ function traitement_post_paiement( $participation ){
   $mot_doux = $participation->mot_doux;
   $success = insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite );
 
-  if ( $success && $mot_doux != '' ){       
-      $success = insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux ); 
+  if ( $success && $mot_doux != '' ){
+      $success = insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux );
    }
 
   if ( get_field('recevoir_les_notifications_de_participation_par_e-mail', $idCagnotte ) )
@@ -504,7 +504,7 @@ function get_ids_titulaires(){
           $profil_valide = get_field('profil_valide', 'user_'.$user->ID );
           if( !$profil_valide ){
             $out[] = $user->ID;
-          }          
+          }
         }
     }
     return $out;
@@ -567,7 +567,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $participation = $wpdb->prefix.'participation';
 
     $results = $wpdb->get_results(
-        "SELECT $col FROM $participation 
+        "SELECT $col FROM $participation
         WHERE est_finalise = 1
         ORDER BY $orderby $order"
     );
@@ -581,7 +581,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
       $posts = $wpdb->prefix.'posts';
 
       $results = $wpdb->get_results(
-        "SELECT * 
+        "SELECT *
         FROM $participation as particip
         LEFT JOIN $posts as posts
         ON particip.id_cagnotte = posts.ID
@@ -598,9 +598,9 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $participation = $wpdb->prefix.'participation';
 
     $results = $wpdb->get_results(
-      "SELECT * 
+      "SELECT *
       FROM $participation as particip
-      WHERE particip.est_finalise = 1 
+      WHERE particip.est_finalise = 1
       AND particip.date LIKE '%$date%'
       ORDER BY $orderby $order"
     );
@@ -613,16 +613,16 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $participation = $wpdb->prefix.'participation';
 
     $results = $wpdb->get_results(
-      "SELECT * 
+      "SELECT *
       FROM $participation as particip
-      WHERE particip.est_finalise = 1 
+      WHERE particip.est_finalise = 1
       AND particip.paiement LIKE '%$paiement%'
       ORDER BY $orderby $order"
     );
 
     return $results;
   }
-  
+
   function clean($string) {
    $string = preg_replace('/[^A-Za-z0-9\-]/', ' ', $string); // Removes special chars.
 
@@ -655,7 +655,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
 
   function get_siblings_categories( $idCagnotte ){
     $parent = get_categorie_cagnotte( $idCagnotte );
-    $enfants = get_terms( array( 
+    $enfants = get_terms( array(
         'taxonomy'   => 'categ-cagnotte',
         'hide_empty' => false,
         'orderby'    => 'tax_position',
@@ -670,8 +670,8 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
         if( is_array($visu) && array_key_exists( 'class_de_cette_categorie' , $visu ) ):
             $couleur = $visu['class_de_cette_categorie'];
         endif;
-       
-      ?>        
+
+      ?>
            <div class="item <?php if( $parent['enfant'] == $enfant->term_id ) echo 'active' ?>">
                <div class="content">
                    <div class="inner <?php echo $couleur; ?>">
@@ -683,26 +683,26 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
                             }else{
                                 echo $enfant->name;
                             }
-                             
+
                         } else {
                             echo $enfant->name;
                         }
                        ?>
                       <span></span>
-                         <input type="hidden" name="sous-categ" value="<?php echo $enfant->term_id ?>"> 
+                         <input type="hidden" name="sous-categ" value="<?php echo $enfant->term_id ?>">
                          <input type="hidden" name="categ" value="<?php echo $parent['id'] ?>">
                   </div>
                </div>
            </div>
       <?php endforeach;
 
-    echo ob_get_clean();    
+    echo ob_get_clean();
   }
 
   function get_beneficiaire_cagnotte( $idCagnotte ){
-    $benef_array = get_field('benef_cagnotte', $idCagnotte ); 
+    $benef_array = get_field('benef_cagnotte', $idCagnotte );
     $benef = $benef_array[0];
-    
+
     return $benef;
   }
 
@@ -714,7 +714,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $info->telephone = get_field('telephone_benef', $idBenef );
     $info->rib    = get_field('rib_benef', $idBenef );
     $info->code    = get_field('code_benef', $idBenef );
-    
+
     // RIB
     $info->rib_nom    = get_field('rib_nom', $idCagnotte );
     $info->rib_banque    = get_field('rib_banque', $idCagnotte );
@@ -726,11 +726,11 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $info->rib_iban    = get_field('rib_iban', $idCagnotte );
     $info->rib_bic    = get_field('rib_bic', $idCagnotte );
     $info->rib_file    = get_field('rib_fichier', $idCagnotte );
-    
+
     return $info;
   }
-  
-  function update_beneficiaire_info_rib( 
+
+  function update_beneficiaire_info_rib(
     $idCagnotte,
     $rib_nom,
     $rib_banque,
@@ -762,7 +762,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
   }
 
   function update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib = '' ){
-    if( 
+    if(
       update_field('nom_benef', $nom, $idBenef ) &&
       update_field('prenom_benef', $prenom, $idBenef ) &&
       update_field('email_benef', $email, $idBenef ) &&
@@ -785,7 +785,7 @@ function choose_photo_and_insert_to_acf( $posted_img, $custom_field_key, $postID
     $upload_overrides = array('test_form' => false);
 
     $files = $posted_img;
-  
+
     if ($files['name']) {
       $file = array(
         'name'     => $files['name'],
@@ -794,8 +794,8 @@ function choose_photo_and_insert_to_acf( $posted_img, $custom_field_key, $postID
         'error'    => $files['error'],
         'size'     => $files['size'],
       );
-      $movefile = wp_handle_upload($file, $upload_overrides); 
-      
+      $movefile = wp_handle_upload($file, $upload_overrides);
+
       $image = getimagesize($file['tmp_name']);
       $poids = $file['size'];
       $minimum = array(
@@ -810,7 +810,7 @@ function choose_photo_and_insert_to_acf( $posted_img, $custom_field_key, $postID
       $image_height = $image[1];
 
       if( $poids > 8000000 ){
-          $file['error'] = __('📸 taille 8 Mo autorisée 😉','kotikota'); 
+          $file['error'] = __('📸 taille 8 Mo autorisée 😉','kotikota');
       }
       elseif( !strpos('image', $file['type']) ){
           $file['error'] = __('Format de fichier non pris en charge','kotikota');
@@ -825,8 +825,8 @@ function choose_photo_and_insert_to_acf( $posted_img, $custom_field_key, $postID
         return $file['error'];
       }
     }
-   
-  } 
+
+  }
 }
 
 function get_user_id_by_display_name( $display ){
@@ -837,7 +837,7 @@ function get_user_id_by_display_name( $display ){
   $users         = $wpdb->prefix.'users';
 
   $result = $wpdb->get_results(
-    "SELECT ID 
+    "SELECT ID
     FROM $users as u
     WHERE u.display_name = '$display'
     "
@@ -871,8 +871,8 @@ function calcul_devise_en_mga( $montant, $devise, $taux_eu, $taux_liv, $taux_cad
 }
 
 function get_image_attach_id ( $filename, $cagnotteID ) {
-      
-    // Get the path to the upload directory. 
+
+    // Get the path to the upload directory.
     // If it was uploaded to WP, wp_upload_dir() does the job
     $wp_upload_dir = wp_upload_dir();
     $full_path = $wp_upload_dir['path'] .'/'. $filename;
@@ -882,7 +882,7 @@ function get_image_attach_id ( $filename, $cagnotteID ) {
 
     // Prepare an array of post data for the attachment.
     $attachment = array(
-        'guid'           => $wp_upload_dir['url'] . '/' . basename($full_path), 
+        'guid'           => $wp_upload_dir['url'] . '/' . basename($full_path),
         'post_mime_type' => $filetype['type'],
         'post_title'     => preg_replace( '/\.[^.]+$/', '', basename($full_path) ),
         'post_content'   => '',
@@ -897,7 +897,7 @@ function get_image_attach_id ( $filename, $cagnotteID ) {
 
 function get_youtube_video_detail($video_id){
   $video_data=[];
-  $myApiKey = 'AIzaSyBhJk7J2pzZ5ZF5K1mlm_V5l3xcKwc6rSU'; 
+  $myApiKey = 'AIzaSyBhJk7J2pzZ5ZF5K1mlm_V5l3xcKwc6rSU';
   $youtubeDataAPI = 'https://www.googleapis.com/youtube/v3/videos?id='. $video_id . '&key=' . $myApiKey . '&part=contentDetails,snippet';
 
   /* Create new resource */
@@ -943,7 +943,7 @@ function custom_js_to_head() {
     <!--<script>
     jQuery(function(){
         jQuery("body.post-type-cagnotte .wrap a.page-title-action").after('<a href="<?=$actual_link?>" class="page-title-action rib-action">Télécharger RIB</a>');
-        jQuery("body.post-type-cagnotte-perso .wrap a.page-title-action").after('<a href="<?=$actual_link?>" class="page-title-action rib-action">Télécharger RIB</a>');      
+        jQuery("body.post-type-cagnotte-perso .wrap a.page-title-action").after('<a href="<?=$actual_link?>" class="page-title-action rib-action">Télécharger RIB</a>');
     });
     </script> -->
     <?php
@@ -954,9 +954,9 @@ add_action('admin_head', 'custom_js_to_head');
 function rib_pdf_admin_enqueue_scripts() {
     global $post;
     $id = $post->ID;
-  
+
     wp_enqueue_script( 'rib-pdf-input-js', get_stylesheet_directory_uri() . '/assets/js/admin-script.js', false, '1.0.0' );
-    wp_localize_script( 'rib-pdf-input-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'postID' => $id ) );  
+    wp_localize_script( 'rib-pdf-input-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ), 'postID' => $id ) );
 }
 
 add_action('wp_ajax_download_rib_report', 'download_rib_report_handler');
@@ -970,11 +970,11 @@ function rib_on_admin_Init() {
   if ( isset($_GET['rib']) ) {
     generate_post_to_pdf_file($_GET['postID']);
   }
-  
+
   if (isset($_GET['message']) && $_GET['message'] == 4) {
     generate_post_to_pdf_file($_GET['post']);
   }
-  
+
 }
 
 function generate_post_to_pdf_file($postID) {
@@ -983,24 +983,24 @@ function generate_post_to_pdf_file($postID) {
       $post = get_post ( $postID );
       $content = $post->post_content;
       //echo get_stylesheet_directory_uri();
-  
+
       if (! class_exists ( 'TCPDF' )) {
         require_once  get_stylesheet_directory() . '/libs/tcpdf_min/tcpdf.php';
       }
       /*if (! class_exists ( 'pdfheader' )) {
         require_once  get_stylesheet_directory() . '/pdfheader.php';
       }
-      
+
       if (! class_exists ( 'simple_html_dom_node' )) {
         require_once  get_stylesheet_directory() . '/libs/simplehtmldom/simple_html_dom.php';
       }*/
-  
+
       $filePath = CACHE_DIR . '/' . $post->ID . '.pdf';
       $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
       $pdf->SetCreator ( 'kotikota' . PDF_CREATOR );
       $pdf->SetAuthor ( get_bloginfo ( 'name' ) );
       $pdf_title = 'Informations RIB de la cagnotte ' . $post->post_title;
-  
+
       $pdf->setPrintHeader(false);
       $pdf->AddPage();
       $html .= "<body>";
@@ -1012,7 +1012,7 @@ function generate_post_to_pdf_file($postID) {
       $html .= '<br>'."IBAN : " .get_field('rib_iban', $post->ID).'<br>';
       $html .= '<br>'."BIC : " .get_field('rib_bic', $post->ID).'<br>';
       $html .="</body>";
-  
+
       /*$html = '<h1>Welcome to <a href="http://techbriefers.com/" style="text-decoration:none;padding: 10px;"> <span style="background-color:#ef3e47;color:#fff;"> Tech</span><span style="background-color:#fff1f0;color:#000;">Briefers</span> </a>!</h1>
       <i>This is the two minute example of TCPDF library by <a href="http://techbriefers.com/">techbriefers</a>.</i>
       <h2>What is Lorem Ipsum?</h2>
@@ -1022,7 +1022,7 @@ function generate_post_to_pdf_file($postID) {
       $pdf->Output($filePath, 'F');
       $pdf->Output($post->ID . '.pdf', 'D');
     }
-  
+
   function cvf_td_generate_random_code($length=10) {
 
      $string = '';
