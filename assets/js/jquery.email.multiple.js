@@ -19,7 +19,7 @@
         return this.each(function()
         {
             $(this).after("<div class=\"all-mail\"></div>\n" +
-                "<input type=\"text\" name=\"email\" class=\"enter-mail-id\" placeholder="+text.email_entree+" />");
+                "<input type=\"text\" name=\"email\" class=\"enter-mail-id\" placeholder=\"\" />");
             let $orig = $(this);
             let $element = $('.enter-mail-id');
 
