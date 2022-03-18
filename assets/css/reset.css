@@ -2630,7 +2630,7 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 }
 .conf_text a { color: #000 }
 
-.menu-flag li:after{ content: '';width: 31px;height: 31px;position: absolute;top: 0;left: 0; border-radius: 50% }
+.menu-flag li:after{ content: '';width: 31px;height: 31px;position: absolute;top: 0;left: 0; border-radius: 50%; cursor: pointer }
 .menu-flag  li.wpml-ls-item-mg:after{ background: url(../images/mg-flag.png) no-repeat center;background-size: cover; }
 .menu-flag  li.wpml-ls-item-fr:after{ background: url(../images/fr-flag.png) no-repeat center;background-size: cover; }
 .menu-flag  li.wpml-ls-item-en:after{ background: url(../images/en-flag.png) no-repeat center;background-size: cover; }
