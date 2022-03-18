@@ -39,11 +39,17 @@
                                             <h3 class="titre">
                                                 <?php
 
-                                                //if (trim(ICL_LANGUAGE_CODE) == 'mg') {
-                                                //    echo get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
-                                                //} else {
+                                                if (trim(ICL_LANGUAGE_CODE) == 'mg') {
+                                                    $mg = get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
+                                                    if( $mg ){
+                                                        echo $mg;
+                                                    }else{
+                                                        echo $parent->name;
+                                                    }
+                                                     
+                                                } else {
                                                     echo $parent->name;
-                                                //}
+                                                }
                                                 ?>
                                             </h3>
                                             <div class="lst-type">
