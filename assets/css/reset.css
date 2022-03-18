@@ -1124,13 +1124,13 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .invitation .titre span { display: inline-block; margin-right: 20px; vertical-align: middle; }
 .liste-invitation ul { margin: 0 -25px }
 .liste-invitation ul li { width: 33.33%; float: left; padding: 0 25px }
-.liste-invitation ul li a { color: #fff; font-size: 14px; height: 60px; border-radius: 10px; display: block; text-align: center; font-family:Montserrat-r; padding: 15px 0 }
+.liste-invitation ul li a { color: #fff; font-size: 14px; height: 60px; border-radius: 10px; display: block; text-align: center; font-family:Montserrat-r; padding:18px 0 }
 .liste-invitation ul li.whatsapp a { background-color: #46ba4f }
 .liste-invitation ul li.facebook a { background-color: #2078f4 }
 .liste-invitation ul li.twitter a { background-color: #1da1f3 }
-.liste-invitation ul li.whatsapp a:before { content:''; background: url(../images/whatsapp.png); width: 32px; height: 32px; display: inline-block; margin-right: 10px; vertical-align: middle; }
-.liste-invitation ul li.facebook a:before { content:''; background: url(../images/facebook2.png); width: 32px; height: 30px; display: inline-block; margin-right: 10px; vertical-align: middle; }
-.liste-invitation ul li.twitter a:before { content:''; background: url(../images/twitter2.png); width: 30px; height: 30px; display: inline-block; margin-right: 10px; vertical-align: middle; }
+.liste-invitation ul li.whatsapp a:before { content:''; background: url(../images/whatsapp.png); width: 32px; height: 32px; display: inline-block; margin-right: 10px; vertical-align: middle; margin-top: -4px }
+.liste-invitation ul li.facebook a:before { content:''; background: url(../images/facebook2.png); width: 32px; height: 30px; display: inline-block; margin-right: 10px; vertical-align: middle;margin-top: -4px }
+.liste-invitation ul li.twitter a:before { content:''; background: url(../images/twitter2.png); width: 30px; height: 30px; display: inline-block; margin-right: 10px; vertical-align: middle;margin-top: -4px }
 
 .liste-invitation { margin-bottom: 38px }
 .chp-lien { margin-bottom: 52px }
