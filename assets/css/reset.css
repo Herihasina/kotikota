@@ -173,10 +173,7 @@ select option                                               { padding: 10px 30px
 
 .btn-head                                                   { float: left; margin-left: 20px; position: relative; }
 .menu-flag                                                  { float: left; margin-top: 5px; }
-.wpml-ls-legacy-list-horizontal                             { padding: 0 7px !important }
-.wpml-ls-statics-shortcode_actions.wpml-ls.wpml-ls-legacy-list-horizontal {
-    padding: 0 7px !important;
-}
+
 .menu-flag li                                               { float: left; margin: 0 10px; position: relative;  }
 .menu li                                                    { float: left; }
 .logo                                                       { display: block; margin-top: 20px;margin-left: 0;}
@@ -2761,7 +2758,7 @@ a:hover { color:#fbbd36; }
     .headerTop.sticky .menu > ul                                { top: 90px }
     .headerTop.sticky .menuMobile                               { color: #131313 }
     .btn-head .link                                             { font-size: 0; background: url(../images/ico-login.png) no-repeat center #fbbd36; padding: 0; width: 32px; height: 32px; float: left}
-    .menu-flag                                                  { margin-top: 12px;}
+    .menu-flag                                                  { margin-top: 4px;}
 
     .headerTop .right                                           { margin-top: 17px;}
     .headerTop.sticky .right                                    { margin-top: 0;}
