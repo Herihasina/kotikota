@@ -163,7 +163,7 @@
                 </div>
               <?php if($curr_userdata->ID == $titulaire_id) :?>
                 <div class="blcbtn">
-                  <a href="#" id="add_doc_btn" class="link" title="Ajouter" data-cagnotte-id="<?=  $post->ID ?>">ajouter</a>
+                  <a href="#" id="add_doc_btn" class="link" title="<?php _e('Ajouter','kotikota')?>" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('ajouter','kotikota')?></a>
                   <a href="#" id="remove_doc_btn" class="link" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Supprimer','kotikota') ?></a>
                 </div>
               <?php endif; ?>
@@ -272,7 +272,7 @@
               </div>
               <?php if($curr_userdata->ID == $titulaire_id) :?>
                 <div class="blcbtn">
-                  <a href="#ajout-video-image" class="link fancybox" title="Ajouter">ajouter</a>
+                  <a href="#ajout-video-image" class="link fancybox" title="<?php _e('Ajouter','kotikota')?>"><?php _e('ajouter','kotikota')?></a>
                   <a href="#" class="link" id="remove_media_btn" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Supprimer','kotikota') ?></a>
                 </div>
               <?php endif; ?>
@@ -294,7 +294,7 @@
                     <input type="text" name="video_id" placeholder="<?php echo __('exemple: 9wNPug7h1gQ','kotikota'); ?>" >
                   </div>
               </div>
-              <div id="add_video" class="link" title="Ajouter" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Ajouter','kotikota') ?></div>
+              <div id="add_video" class="link" title="<?php _e('Ajouter','kotikota') ?>" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Ajouter','kotikota') ?></div>
               <span class="error_video">
 
               </span>

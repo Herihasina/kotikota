@@ -1,4 +1,4 @@
-<?php 
+<?php
 	/*
 	Template Name: participer
 	*/
@@ -12,11 +12,11 @@
 
   if( !get_field('actif', $id_cagnotte) ) wp_die( __('Participation impossible','kotikota'), 'Lien direct' );
 
-	if ( get_post_type( $id_cagnotte ) == "cagnotte" ||  get_post_type( $id_cagnotte ) == "cagnotte-perso" ): 
+	if ( get_post_type( $id_cagnotte ) == "cagnotte" ||  get_post_type( $id_cagnotte ) == "cagnotte-perso" ):
   $user = wp_get_current_user();
   if ( $user )
     $user_data = get_user_meta($user->ID);
-  
+
 	get_header();
 ?>
 <main id="homepage">
@@ -47,7 +47,7 @@
                       <div class="chp">
                         <input type="text" name="lname" id="lname" placeholder="<?php echo __('Indiquez votre nom','kotikota'); ?>" required
                           value="<?php echo $user_data['last_name'][0]; ?>">
-                        
+
                       </div>
                   </div>
               </div>
@@ -57,7 +57,7 @@
                       <div class="chp">
                         <input type="email" name="mail" id="mail" placeholder="<?php echo __('Indiquez votre adresse mail','kotikota'); ?>" required
                           value="<?php echo $user->data->user_email; ?>">
-                        
+
                       </div>
                   </div>
               </div>
@@ -70,7 +70,7 @@
                       <span id="error-msg" class="hide">✗</span>
                   </div>
               </div>
-            </div>             
+            </div>
         </div>
 
         <div class="fom-participe">
@@ -80,13 +80,13 @@
             <div class="formulaire clr wow fadeIn" data-wow-delay="900ms">
               <div class="col100">
                   <div class=" blc-chp participe">
-                      <?php 
-                        $deviseB = get_field('devise', $id ); 
+                      <?php
+                        $deviseB = get_field('devise', $id );
                         $devise = $deviseB['value'];
                       ?>
                       <label for="donation"><?php echo __('Ma participation', 'kotikota'); ?> <span>*</span></label>
                       <div class="chp device">
-                        <input type="number" name="donation" id="donation" placeholder="Saisissez un montant" required>
+                        <input type="number" name="donation" id="donation" placeholder="<?php echo __('Saisissez un montant','kotikota'); ?>" required>
                         <select class="input-select appended-select" id="choix-devise" style="">
                           <option value="mga" <?php if ($devise == 'mga') echo "selected"; ?>>MGA</option>
                           <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>€</option>
@@ -96,23 +96,23 @@
                         </select>
                       </div>
                       <div class="tip change-texte">
-                        
+
                       </div>
                       <!-- <div class="tip">
                         Pour un paiement via Paypal, sélectionner la devise Euro (€).
                       </div> -->
                           <?php if ( get_field('montant_suggere', $id ) != 0 && get_field('condition_de_participation', $id ) == "conseille" ): ?>
-                      		<span class="montant"> 
-                            <?php echo __('Montant minimum conseillé : ', 'kotikota');  
-                            
-                              $devise_lbl = $deviseB['label'];                             
+                      		<span class="montant">
+                            <?php echo __('Montant minimum conseillé : ', 'kotikota');
+
+                              $devise_lbl = $deviseB['label'];
                               echo "<span id='span_montant' class='format_chiffre'>".get_field('montant_suggere', $id ).'</span> <span id="span_devise">MGA</span>' ?>
                           </span>
                           <?php elseif ( get_field('montant_suggere', $id ) != 0 && get_field('condition_de_participation', $id ) == "fixe" ): ?>
-                      		<span class="montant"> 
-                            <?php echo __('Montant minimum imposé : ', 'kotikota');  
-                            
-                              $devise_lbl = $deviseB['label'];                             
+                      		<span class="montant">
+                            <?php echo __('Montant minimum imposé : ', 'kotikota');
+
+                              $devise_lbl = $deviseB['label'];
                               echo "<span id='span_montant' class='format_chiffre'>".get_field('montant_suggere', $id ).'</span> <span id="span_devise">MGA</span>' ?>
                           </span>
                           <?php endif; ?>
@@ -151,7 +151,7 @@
                 </div>
               </div>
 
-            </div>             
+            </div>
         </div>
 
         <div class="fom-participe">
@@ -165,8 +165,8 @@
                     <textarea id="message" class="chp-txtarea" placeholder="<?php echo __('Votre message', 'kotikota'); ?>" required></textarea>
                 </div>
               </div>
-            <?php 
-             } else{ 
+            <?php
+             } else{
             ?>
             <div class="blc-liste-cagnote force-login">
                 <div class="lst-cagnotte-publique wow fadeIn clr">
@@ -264,11 +264,11 @@
                             <label for="paypal"><img src="<?php echo IMG_URL ?>paypal2.png"></label>
                             <div class="check"></div>
                           </li>
-                        
+
                         </ul>
-                      </div>  
+                      </div>
                   </div>
-              </div> --> 
+              </div> -->
               <div class="col100">
                 <div class="blc-chp acc">
                   <label><input type="checkbox" name="accord" id="accord">
@@ -288,7 +288,7 @@
         <div class="btn">
         <?php //echo do_shortcode( '[wp_paypal button="buynow" name="My product" amount="1.00"]' ) ?>
           <a href="#" onclick="window.history.back();" class="link" title="<?= __('Annuler','kotikota') ?>"><?= __('Annuler','kotikota') ?></a>
-          <input type="hidden" name="id_cagnotte" value="<?php echo $id_cagnotte; ?>">          
+          <input type="hidden" name="id_cagnotte" value="<?php echo $id_cagnotte; ?>">
           <input type="submit" name="" value="<?= __('Valider','kotikota') ?>" id="creer-participation" class="link submit" >
         </div>
     </form>
@@ -313,7 +313,7 @@
               <input type="hidden" name="all_datas" value="">
               <div class="chp">
                 <input type="text" name="num_airtel">
-              </div>            
+              </div>
               <input type="submit" name="submit_airtel" id="pay_airtel" value="Valider" class="link submit">
             </form>
           </div>
