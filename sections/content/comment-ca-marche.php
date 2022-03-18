@@ -95,7 +95,14 @@
                                       <img class="<?=$css?>" src="<?php the_sub_field('image') ?>">
                                     </a>
                                 <?php else: ?>
-                                    <a href="<?php the_sub_field('lien') ?>">
+                                    <a href="<?php
+                                        if (trim(ICL_LANGUAGE_CODE) == 'mg') {
+                                            the_sub_field('lien_malagasy');
+                                        } else {
+                                            the_sub_field('lien');
+                                        }
+                                    ?>
+                                    ?>">
                                       <img class="<?=$css?>" src="<?php the_sub_field('image') ?>">
                                     </a>
                                 <?php endif; ?>
