@@ -45,7 +45,7 @@ function load_front_assets() {
     }
     if ( is_page('gestion-cagnotte-invite') || is_single())
         wp_register_script( 'email-multiple', JS_URL . 'jquery.email.multiple.js', array(), true, false, true );
-    
+
     wp_register_script( 'intlTelInput', 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.js', array(), true, false, true );
 
     // if( is_page( 'participer' ) ){
@@ -90,9 +90,13 @@ function load_front_assets() {
 
     wp_localize_script( 'ajax-wp', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
     wp_localize_script( 'custom-wp', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
-    
-    wp_localize_script( 'ajax-wp', 'text', 
-        array( 
+
+    wp_localize_script( 'email-multiple', 'text',
+        array( 'email_entree' => __('Saisir un email + touche entrée', 'kotikota'))
+    };
+
+    wp_localize_script( 'ajax-wp', 'text',
+        array(
             'conf_montant_devise' => __('Montant équivalent : ', 'kotikota'),
             'conf_invite_email' => __('Votre invitation a bien été envoyée !', 'kotikota'),
             'conf_titre_save_notif' => __('Notification par email', 'kotikota'),
@@ -108,7 +112,7 @@ function load_front_assets() {
             'list_solid' => __('Solidaire', 'kotikota'),
             'list_pub' => __('publique', 'kotikota'),
             'list_frais_3' => __('Frais 3%', 'kotikota'),
-        ) 
+        )
     );
 
 }
@@ -118,7 +122,7 @@ if ( isset($_REQUEST['action'] ) && !empty($_REQUEST['action'] ) ) {
     if ( $_REQUEST['action'] == 'rp' || $_REQUEST['action'] == 'resetpass' ){
         add_action( 'login_enqueue_scripts', 'login_scripts' );
     }
-    
+
 }
 
 function login_scripts() {
