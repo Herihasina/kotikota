@@ -3676,6 +3676,7 @@ a:hover { color:#fbbd36; }
     .lst-payement ul li:nth-of-type(8) {
         order: 8;
     }
+    .securite-cagnotte h2 { line-height: normal; }
 
 
 
