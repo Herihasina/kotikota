@@ -1,6 +1,6 @@
 <?php
 	// Template name: info fond
-  
+
   if ( array_key_exists("parametre", $_GET) )
     $idCagnotte = strip_tags($_GET['parametre']);
 
@@ -8,7 +8,7 @@
     die(__('Cette ID ne correspond à votre cagnotte :)','kotikota'));
 
 	if ( (is_user_logged_in() && get_field('titulaire_de_la_cagnotte', $idCagnotte  )  == get_current_user_id() ) || current_user_can('administrator') ):
-		
+
 		$active = "fond";
 		get_header(); ?>
 
@@ -21,7 +21,7 @@
 				<?php
 						include 'sections/parametres/menu-parametre.php';
 				?>
-					
+
 					<div class="titre wow fadeIn" data-wow-delay="950ms">
             <h2><span><img src="<?php echo IMG_URL ?>ico-images.png"></span><?php _e('Je personnalise mes images','kotikota') ?></h2>
           </div>
@@ -41,8 +41,8 @@
           <div class="tip"><?php printf( __('%s taille 8 mo autorisée %s','kotikota'), '📸','😉' ) ?></div>
           <div class="slide-img wow fadeIn" data-wow-delay="950ms" id="slide-img">
           	<?php
-                $imgs = get_field('images_proposees','option'); 
-                if (count($imgs)):                    
+                $imgs = get_field('images_proposees','option');
+                if (count($imgs)):
                   foreach ( $imgs as $img ):
             ?>
           	<div class="item">
@@ -76,20 +76,20 @@
                     }
                 }
           ?>
-          </div> 
+          </div>
           <ul id="response"></ul>
           <input type="hidden" id="idCagnotte" name="idCagnotte" value="<?php echo $idCagnotte ?>">
 	        <div class="btn wow fadeIn" data-wow-delay="950ms">
 	          <a href="<?php echo get_permalink( $idCagnotte ) ?>/parametre-info-principale/?parametre=<?= $idCagnotte ?>" class="link" title="<?php _e('revenir','kotikota') ?>"><?php _e('revenir','kotikota') ?></a>
-	           <a href="<?php echo get_site_url()?>/parametre-description/" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="submit-fond"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>
+	           <a href="<?php echo $url ?>/parametre-description/" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="submit-fond"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>
 	        </div>
 
 				</div>
 			</div>
-			
+
 		<div id="loader">
 					  <img src="<?php echo IMG_URL.'loader.gif' ?>" alt="loader">
-					</div>	
+					</div>
 				</main>
 <?php
 	get_footer();
