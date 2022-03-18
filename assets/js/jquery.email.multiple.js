@@ -19,18 +19,18 @@
         return this.each(function()
         {
             $(this).after("<div class=\"all-mail\"></div>\n" +
-                "<input type=\"text\" name=\"email\" class=\"enter-mail-id\" placeholder=\"Saisir un email + touche entrée\" />");
+                "<input type=\"text\" name=\"email\" class=\"enter-mail-id\" placeholder="+text.email_entree+" />");
             let $orig = $(this);
             let $element = $('.enter-mail-id');
-           
-                        
+
+
             $element.keydown(function (e) {
                 $element.css('border', '');
                 if ( e.keyCode === 13 || e.keyCode === 32) {
 
                     let getValue = $element.val();
                     if (/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,6}$/.test(getValue)){
-                        if ( $('.un-email').length <= 99 ){                        
+                        if ( $('.un-email').length <= 99 ){
                             $('.all-mail').append('<span class="email-ids"><span class="un-email">' + getValue + '</span><span class="cancel-email">x</span></span>');
                             $element.val('');
 

@@ -1,4 +1,4 @@
-<?php 
+<?php
 	/*
 	Template Name: mon profil
 	*/
@@ -22,7 +22,7 @@
                <h2><span><img src="<?php echo IMG_URL ?>identite.png"></span> <?php echo __('Editez votre profil', 'kotikota'); ?></h2>
             </div>
             <div class="choix-photo choix-photo-profil blc-chp">
-                <?php 
+                <?php
                   $bg = wp_get_attachment_image_src(get_field('photo', 'user_'.get_current_user_id()),'cagnotte-home' )[0];
                 ?>
                     <div class="blc-img desk-only">
@@ -36,8 +36,8 @@
                     <!-- Mobile only -->
                     <div class="mobile-only illustration_cagnotte photo_profil_mobile">
                         <input type="file" capture="environment" accept="image/*" name="choix-photo_mobile" id="photo_profil_mobile" required>
-                    </div>                                        
-                    <!-- /mobile only -->                   
+                    </div>
+                    <!-- /mobile only -->
             </div>
             <div class="formulaire clr wow fadeIn" data-wow-delay="900ms">
               <div class="col">
@@ -91,7 +91,7 @@
                     <!-- visible seulement pour desk  -->
                     <div class="chp desk-only" style="">
                         <div class="cont-file">
-                          <?php 
+                          <?php
                             $cin = get_field('piece_didentite','user_'.get_current_user_id() );
                             if( !$cin ): ?>
                             <span><?php echo __('Aucun fichier sélectionné', 'kotikota'); ?></span>
@@ -100,7 +100,7 @@
                           <?php endif; ?>
                           <input type="text" class="input-file" id="cin_btn">
                           <input type="hidden" name="cin_value" value="" id="cin_value">
-                          <i> Parcourir</i>
+                          <i> <?php _e('Parcourir','kotikota'); ?></i>
                           <i class="reset" style="display: none"><?php echo __('Supprimer', 'kotikota'); ?></i>
                         </div>
                         <div class="zone-img-cin"></div>

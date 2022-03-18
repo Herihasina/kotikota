@@ -160,7 +160,7 @@ select option                                               { padding: 10px 30px
 .slick-dots button                                          { display:block; width:16px; height:16px; border-radius:50%; text-indent:-9999px; background:none; outline:none; padding:0; border:1px solid #885297;}
 .slick-active button                                        { background:#885297;}
 
-.wrapper                                                    { max-width: 1244px; margin: 0 auto; position: relative; z-index: 20 }
+.wrapper                                                    { max-width: 1344px; margin: 0 auto; position: relative; z-index: 20 }
 #header                                                     { position: relative; }
 .right                                                      { float: right; }
 .left                                                       { float: left }
@@ -172,7 +172,8 @@ select option                                               { padding: 10px 30px
 .headerTop.sticky .logo img                                 { width: 100%; display: block; }
 
 .btn-head                                                   { float: left; margin-left: 20px; position: relative; }
-.menu-flag                                                  { float: left; margin-top: 10px; }
+.menu-flag                                                  { float: left; margin-top: 5px; }
+.wpml-ls-legacy-list-horizontal                             { padding: 0 7px !important }
 .menu-flag li                                               { float: left; margin: 0 10px  }
 .menu li                                                    { float: left; }
 .logo                                                       { display: block; margin-top: 20px;margin-left: 0;}
@@ -2612,6 +2613,15 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     font-weight: 700
 }
 
+.wpml-ls-link img[alt="Anglais"] {
+    display: none !important;
+}
+.wpml-ls-legacy-list-horizontal a img {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+}
+
 
 
 @media (min-width:1201px) {
@@ -3715,6 +3725,9 @@ a:hover { color:#fbbd36; }
     height: 100%;
     opacity: 0;
     cursor: pointer;
+}
+.col.profilFile {
+    margin-bottom: 0;
 }
 
 

@@ -39,9 +39,9 @@
                                             <h3 class="titre">
                                                 <?php
 
-                                                /*if (trim(ICL_LANGUAGE_CODE) == 'mg') {
-                                                    echo get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
-                                                } else {*/
+                                                //if (trim(ICL_LANGUAGE_CODE) == 'mg') {
+                                                //    echo get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
+                                                //} else {
                                                     echo $parent->name;
                                                 //}
                                                 ?>

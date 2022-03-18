@@ -1,17 +1,17 @@
 <?php
 	// Template name: info principale
-	
+
 	if ( array_key_exists("parametre", $_GET) ){
 		$idCagnotte = strip_tags($_GET['parametre']);
 	}elseif( array_key_exists("origin", $_GET) && trim( $_GET['origin'] ) == 'post-setup' && array_key_exists("cgid", $_GET) ){
 		$idCagnotte = strip_tags($_GET['cgid']);
 	}
-	
+
 	if ( !is_cagnotte( $idCagnotte ) )
 		die(__('Cette ID ne correspond à votre cagnotte :)','kotikota'));
 
 	if ( (is_user_logged_in() && get_field('titulaire_de_la_cagnotte', $idCagnotte )  == get_current_user_id() ) || current_user_can('administrator') ):
-		
+
 		$active = "info";
 		get_header(); ?>
 
@@ -38,8 +38,8 @@
 	              	<div class="zone-beneficiaire">
 				        <div class="zone-search">
 				          		<div class="blc-menu">
-					                <div class="menu-cagnotte"><?php _e('Types cagnottes','kotikota'); ?></div>             
-					            </div>					            
+					                <div class="menu-cagnotte"><?php _e('Types cagnottes','kotikota'); ?></div>
+					            </div>
 					            <div class="menu-liste-cagnotte">
 					            	<form class="form-type clr">
 					            		<div class="lst-form-type clr">
@@ -52,7 +52,7 @@
                                   </h3>
                                 	-->
                                   <div class="lst-type">
-                                      <?php get_siblings_categories($idCagnotte) ?>     
+                                      <?php get_siblings_categories($idCagnotte) ?>
                                   </div>
                               </div>
                           </div>
@@ -63,13 +63,13 @@
 		      		</div>
 		      	  </div>
 	            </div>
-	            
-	            <div class="col"> 
+
+	            <div class="col">
 	              <div class="blc-chp">
 	                <label><?php _e('Date de début','kotikota'); ?> <span>*</span></label>
 	                <?php
 	                	$debu = strtotime( get_field('debut_cagnoote',$idCagnotte) );
-										$newformatdeb = date('d-m-Y',$debu);									
+										$newformatdeb = date('d-m-Y',$debu);
 	                ?>
 	                <input type="text" name="debut" class="chp datepicker debut_cagnotte" id="datepicker_debut_param" value="<?php echo $newformatdeb; ?>" required
 	                <?php if ( get_field('modif_debut', $idCagnotte) ) echo "disabled"; ?>
@@ -81,11 +81,11 @@
 	                <label><?php _e('Date de fin','kotikota'); ?> <span>*</span></label>
 	                <?php
 	                	$time = strtotime( get_field('deadline_cagnoote',$idCagnotte) );
-										$newformat = date('d-m-Y',$time);										
+										$newformat = date('d-m-Y',$time);
 	                ?>
 	                <input type="text" name="fin" class="chp datepicker deadline_cagnotte"
-	                id="datepicker_fin_param" 
-	                value="<?php echo $newformat; ?>" 
+	                id="datepicker_fin_param"
+	                value="<?php echo $newformat; ?>"
 	                required
 	                data-min="<?php echo $newformatdeb ?>"
 	                <?php if ( get_field('modif_fin', $idCagnotte) ) echo "disabled"; ?>
@@ -100,7 +100,7 @@
 	            	<div class="titre wow fadeIn" data-wow-delay="950ms" style="visibility: visible; animation-delay: 950ms; animation-name: fadeIn;">
 		            	<h2><span><img src="http://kotikota.maki-group.mg/wp-content/themes/kotikota/assets/images/ico-information.png"></span><?php _e('Informations sur le bénéficiaire','kotikota'); ?> </h2>
 		          	</div>
-		          	<?php 
+		          	<?php
 		          		$benef = get_beneficiaire_cagnotte( $idCagnotte );
 		          		$info = get_beneficiaire_info( $benef->ID, $idCagnotte  );
 		          	 ?>
@@ -131,7 +131,7 @@
 				                <label><?php _e('Téléphone','kotikota'); ?><span>*</span></label>
 				                <input type="tel" name="tel" class="chp" id="tel" pattern="[0-9]{9}" placeholder="xxxxxxxxx" required="" value="<?= $info->telephone ?>">
 				            	<span id="valid-msg" class="hide">✓</span>
-                      			<span id="error-msg" class="hide">✗</span>  
+                      			<span id="error-msg" class="hide">✗</span>
 							</div>
 		          		</div>
 
@@ -152,76 +152,76 @@
                                 <div class="zone-img-rib"></div>
                             </div> -->
                             <div class="blc-rib">
-                            	<input type="text" name="rib" class="chp" id="rib" placeholder="<?php if( $info->rib_file == '' || $info->rib_file == 0 ){ echo 'Aucun fichier'; } else { echo get_the_title( $info->rib_file ); } ?>" required="" value="">
-                            	<a href="#pp-rib" class="link submit fancybox">Remplir le RIB du Bénéficiaire</a>
+                            	<input type="text" name="rib" class="chp" id="rib" placeholder="<?php if( $info->rib_file == '' || $info->rib_file == 0 ){ _e('Aucun fichier','kotikota'); } else { echo get_the_title( $info->rib_file ); } ?>" required="" value="">
+                            	<a href="#pp-rib" class="link submit fancybox"><?php _e('Remplir le RIB du Bénéficiaire','kotikota') ?></a>
                             </div>
 
                             <div class="pp-rib" id="pp-rib" style="display: none">
                             	<div class="cont-rib cont-pp">
-                            		<div class="titre"><h2>RIB du Bénéficiaire</h2></div>
+                            		<div class="titre"><h2><?php _e('RIB du Bénéficiaire','kotikota') ?></h2></div>
                             		<div class="inner-pp">
                             			<form class="form-rib">
-                            				<p>Vous êtes prié de renseigner le Relevé d’Identité Bancaire du bénéficiaire de votre cagnotte afin que nous puissions lui transférer le montant récupéré. </p>
-                            				<p>Merci de compléter les informations suivantes :</p>
+                            				<p<?php _e('>Vous êtes prié de renseigner le Relevé d’Identité Bancaire du bénéficiaire de votre cagnotte afin que nous puissions lui transférer le montant récupéré.','kotikota') ?></p>
+                            				<p><?php _e('Merci de compléter les informations suivantes :','kotikota') ?></p>
                             				<div class="formulaireParametre ">
                             					<div class="col col-100">
 	                            					<div class="blc-chp">
-	                            						<label>Titulaire du compte <span>*</span></label>
-	                            						<input type="text" name="" placeholder="Votre nom" class="chp" id="rib_nom" value="<?= $info->rib_nom ?>">
+	                            						<label><?php _e('Titulaire du compte','kotikota') ?> <span>*</span></label>
+	                            						<input type="text" name="" placeholder="<?php _e('Votre nom','kotikota')?>" class="chp" id="rib_nom" value="<?= $info->rib_nom ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
-	                            						<label>Banque</label>
-	                            						<input type="text" name="" placeholder="Le nom de votre banque" class="chp" id="rib_bank" value="<?= $info->rib_banque ?>">
+	                            						<label><?php _e('Banque','kotikota') ?></label>
+	                            						<input type="text" name="" placeholder="<?php _e('Le nom de votre banque','kotikota')?>" class="chp" id="rib_bank" value="<?= $info->rib_banque ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
-	                            						<label>Domiciliation bancaire</label>
-	                            						<input type="text" name="" placeholder="Votre adresse de domiciliation" class="chp" id="rib_domicile" value="<?= $info->rib_adresse_de_domiciliation ?>">
+	                            						<label><?php _e('Domiciliation bancaire','kotikota') ?></label>
+	                            						<input type="text" name="" placeholder="<?php _e('Votre adresse de domiciliation','kotikota') ?>" class="chp" id="rib_domicile" value="<?= $info->rib_adresse_de_domiciliation ?>">
 	                            					</div>
                             					</div>
                             					<div class="col">
                             						<div class="blc-chp">
-	                            						<label>Code Banque</label>
+	                            						<label><?php _e('Code Banque','kotikota') ?></label>
 	                            						<input type="text" name="" placeholder="----" class="chp" id="rib_codebank" value="<?= $info->rib_code_banque ?>">
 	                            					</div>
                             					</div>
                             					<div class="col">
                             						<div class="blc-chp">
-	                            						<label>Code Guichet</label>
+	                            						<label><?php _e('Code Guichet','kotikota') ?></label>
 	                            						<input type="text" name="" placeholder="----" class="chp" id="rib_codeguichet" value="<?= $info->rib_code_agence ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-70">
                             						<div class="blc-chp">
-	                            						<label>Numéro de Compte</label>
+	                            						<label><?php _e('Numéro de Compte','kotikota') ?></label>
 	                            						<input type="text" name="" placeholder="-----------" class="chp" id="rib_numcompte" value="<?= $info->rib_num_de_compte ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-30">
                             						<div class="blc-chp">
-	                            						<label>Clé RIB</label>
+	                            						<label><?php _e('Clé RIB','kotikota') ?></label>
 	                            						<input type="text" name="" placeholder="--" class="chp" id="rib_cle" value="<?= $info->rib_cle_rib ?>">
 	                            					</div>
                             					</div>
 
                             					<div class="col col-100">
                             						<div class="blc-chp">
-	                            						<label>IBAN </label>
+	                            						<label><?php _e('IBAN','kotikota') ?> </label>
 	                            						<input type="text" name="" placeholder="---- ---- ---- ---- ---- ---- ---" class="chp" id="rib_iban" value="<?= $info->rib_iban ?>">
 	                            					</div>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
-	                            						<label>BIC</label>
+	                            						<label><?php _e('BIC','kotikota') ?></label>
 	                            						<input type="text" name="" placeholder="-----------" class="chp" id="rib_bic" value="<?= $info->rib_bic ?>">
 	                            					</div>
                             					</div>
 
                             					<div class="info-rib">
-                            						<p>Pour assurer une double vérification, vous pouvez fournir une photo du RIB du bénéficiaire</p>
+                            						<p><?php _e('Pour assurer une double vérification, vous pouvez fournir une photo du RIB du bénéficiaire','kotikota') ?></p>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
@@ -243,11 +243,11 @@
 						                            </div>
                             					</div>
                             					<div class="info-rib">
-                            						<p>Pour assurer une double vérification, vous aSi vous souhaitez obtenir un transfert via Mobile Money, il faudra effectuer une demande spéciale à l’adresse hello@koti-kota.com en précisant le Nom de votre cagnotte, votre Identifiant Koti Kota (Profil), le montant à récupérer, votre numéro de téléphone ainsi qu’un justificatif d’identité (CIN, passeport,…)</p>
+                            						<p><?php _e('Pour assurer une double vérification, vous aSi vous souhaitez obtenir un transfert via Mobile Money, il faudra effectuer une demande spéciale à l’adresse hello@koti-kota.com en précisant le Nom de votre cagnotte, votre Identifiant Koti Kota (Profil), le montant à récupérer, votre numéro de téléphone ainsi qu’un justificatif d’identité (CIN, passeport,…)','kotikota') ?></p>
                             					</div>
 								<ul id="responsepopup"></ul>
                             					<div class="btn">
-										           <a href="#" class="link" title="annuler" data-fancybox-close="">annuler</a>
+										           <a href="#" class="link" title="annuler" data-fancybox-close=""><?php _e('annuler','kotikota') ?></a>
 										           <input type="submit" name="" value="enregistrer" class="link submit" >
 										        </div>
                             				</div>
@@ -263,15 +263,15 @@
 	          </form>
 	          <ul id="response"></ul>
 	        </div>
-	        <input type="hidden" id="idCagnotte" name="idCagnotte" value="<?php echo $idCagnotte ?>">              
+	        <input type="hidden" id="idCagnotte" name="idCagnotte" value="<?php echo $idCagnotte ?>">
 	        <div class="btn wow fadeIn" data-wow-delay="950ms">
 	          <a href="<?php echo get_permalink( $idCagnotte ) ?>" class="link" title="<?php _e('annuler','kotikota') ?>"><?php _e('annuler','kotikota') ?></a>
 	           <a href="<?php echo get_site_url()?>/parametre-fond/" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="submit-info-principale"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>
 	        </div>
 
 				</div>
-			</div>	
-			
+			</div>
+
 
 			<div id="loader">
 			  <img src="<?php echo IMG_URL.'loader.gif' ?>" alt="loader">
