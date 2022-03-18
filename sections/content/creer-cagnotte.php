@@ -1,4 +1,4 @@
-<?php 
+<?php
     $user = wp_get_current_user();
     $profil_valide = get_field('profil_valide', 'user_'.$user->ID );
 ?>
@@ -8,9 +8,9 @@
                      <div class="blc-slider-range">
                         <div class="slider-range wow fadeIn" data-wow-delay="900ms">
                              <p>
-                              <label><?php _e('Création de cagnotte à','kotikota') ?></label>    
-                            </p>        
-                            <div id="slider-range-min"> 
+                              <label><?php _e('Création de cagnotte à','kotikota') ?></label>
+                            </p>
+                            <div id="slider-range-min">
                                  <span class="pourcentage" id="pourcentage">20%</span>
                             </div>
                         </div>
@@ -21,7 +21,7 @@
                             <label><?php _e('Choisir un type de cagnotte','kotikota') ?> <span>*</span></label>
                             <div class="clear"></div>
                             <div class="lst-form-type clr jauge">
-                            <?php 
+                            <?php
                                 $parents = get_terms( array(
                                     'taxonomy' => 'categ-cagnotte',
                                     'hide_empty' => false,
@@ -36,10 +36,19 @@
                                 ?>
                                     <div class="col">
                                         <div class="offrir-cadeau">
-                                            <h3 class="titre"><?php echo $parent->name; ?></h3>
+                                            <h3 class="titre">
+                                                <?php
+
+                                                /*if (trim(ICL_LANGUAGE_CODE) == 'mg') {
+                                                    echo get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
+                                                } else {*/
+                                                    echo $parent->name;
+                                                //}
+                                                ?>
+                                            </h3>
                                             <div class="lst-type">
                                                 <?php
-                                                    $enfants = get_terms( array( 
+                                                    $enfants = get_terms( array(
                                                             'taxonomy' => 'categ-cagnotte',
                                                             'hide_empty' => false,
                                                             'orderby' => 'tax_position',
@@ -58,15 +67,24 @@
                                                              <div class="item">
                                                                  <div class="content">
                                                                      <div class="inner <?php echo $couleur; ?>">
-                                                                        <?php echo $enfant->name; ?>
+                                                                        <?php
+                                                                            //print_r(ICL_LANGUAGE_CODE);
+
+                                                                            if (trim(ICL_LANGUAGE_CODE) == 'mg') {
+                                                                                echo get_field('traduction_malagasy', 'categ-cagnotte_'. $enfant->term_id);
+                                                                            } else {
+                                                                                echo $enfant->name;
+                                                                            }
+                                                                            ?>
+                                                                        <?php //echo $enfant->name; ?>
                                                                         <span></span>
-                                                                           <input type="hidden" data-categorie="<?= $categorie['label'] ?>" name="sous-categ" value="<?php echo $enfant->term_id ?>"> 
-                                                                           <input type="hidden" name="categ" value="<?php echo $parent->term_id ?>"> 
+                                                                           <input type="hidden" data-categorie="<?= $categorie['label'] ?>" name="sous-categ" value="<?php echo $enfant->term_id ?>">
+                                                                           <input type="hidden" name="categ" value="<?php echo $parent->term_id ?>">
                                                                     </div>
                                                                  </div>
                                                              </div>
-                                                <?php 
-                                                        
+                                                <?php
+
                                                     endforeach;
                                                 ?>
                                              </div>
@@ -167,7 +185,7 @@
                                                         $user_media[] = $imageko->ID;
                                                     }
                                                 }
-                                                $imgs = get_field('images_proposees','option'); 
+                                                $imgs = get_field('images_proposees','option');
                                                 if (is_array($imgs)):
                                                     foreach ( $imgs as $img ):// var_dump( getimagesize(wp_get_attachment_image_url( $img['image_prop'],'full')));
                                             ?>
@@ -189,7 +207,7 @@
                                      <!-- Mobile only -->
                                     <div class="mobile-only illustration_cagnotte">
                                         <input type="file" capture="environment" accept="image/*" name="illustration_mobile" id="url_img_cagnotte_mobile" required>
-                                    </div>                                        
+                                    </div>
                                     <!-- /mobile only -->
                                 </div>
                                 <div class="tip tip_creation"><?php printf( __('%s taille 8 Mo autorisée %s','kotikota'), '📸','😉' ) ?></div>
@@ -267,8 +285,8 @@
                                 </div>
                                 <div class="item">
                                     <div class="content custom-radio">
-                                        <input type="radio" name="participation_cagnotte"  id="montantconseille" class="radio"  value="conseille"> 
-                                        <label for="montantconseille"> <?php _e('Montant minimum conseillé','kotikota'); ?> </label>    
+                                        <input type="radio" name="participation_cagnotte"  id="montantconseille" class="radio"  value="conseille">
+                                        <label for="montantconseille"> <?php _e('Montant minimum conseillé','kotikota'); ?> </label>
                                         <!-- <input type="text" name="" id="montant_conseille" placeholder="<?php /* _e('chacun donne ce qu’il veut…mais tu conseilles un montant','kotikota'); */ ?>" class="chp-txt"> -->
                                         <input type="text" name="m_conseille" id="montant_conseille" placeholder="<?php _e('saisir un montant','kotikota'); ?>" class="chp-txt has-focus">
                                     </div>
@@ -319,10 +337,10 @@
                         </div>
                         <ul id="response"></ul>
                         <div class="btn">
-                            <input type="hidden" id="sous-Categ" name="sous_categ" value=""> 
+                            <input type="hidden" id="sous-Categ" name="sous_categ" value="">
                             <input type="hidden" id="categ" name="categ" value="">
                             <input type="hidden" id="condParticip" name="condParticip" value="">
-                            <a href="<?php echo home_url() ?>" class="link" title="<?php _e('annuler','kotikota'); ?>"><?php _e('annuler','kotikota'); ?></a> 
+                            <a href="<?php echo home_url() ?>" class="link" title="<?php _e('annuler','kotikota'); ?>"><?php _e('annuler','kotikota'); ?></a>
                             <input type="submit" name="submit_creation_cagnotte" class="link submit" value="<?php _e('créer ma cagnotte','kotikota'); ?>" id="creer-cagnotte">
                             <a href="#pp-felicitation" style="display: none" class="link submit fancybox" id="creer-cagnotte-popup">créer ma cagnotte pop up</a>
                         </div>
