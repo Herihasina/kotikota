@@ -49,8 +49,8 @@
                     <a href="#" class="login link" >
                         <span class="profil">
                             <?php 
-                                 $bg = wp_get_attachment_image_src(get_field('photo', 'user_'.get_current_user_id()),'cagnotte-picto' )[0];
-                                if ( !$bg ) $bg = get_field('default_gravatar','option');
+                                $bg = wp_get_attachment_image_src(get_field('photo', 'user_'.get_current_user_id()),'cagnotte-picto' )[0];
+                                if ( !$bg ) $bg = IMG_URL . 'no-profil.jpg';
                             ?>
                             <img src="<?php echo $bg ?>" alt="<?php echo $user_data['first_name'][0]; ?>" style="width:50px;height:50px;">
                         </span>

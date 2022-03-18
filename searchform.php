@@ -16,7 +16,19 @@
         ?>
             <div class="col">
                 <div class="offrir-cadeau">
-                    <h3 class="titre"><?php echo $parent->name; ?></h3>
+                    <h3 class="titre"><?php
+                    if (trim(ICL_LANGUAGE_CODE) == 'mg') {
+                        $mg = get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
+                        if( $mg ){
+                            echo $mg;
+                        }else{
+                            echo $parent->name;
+                        }
+                         
+                    } else {
+                        echo $parent->name;
+                    }
+                     ?></h3>
                     <div class="lst-type">
                         <?php
                             $enfants = get_terms( array( 
