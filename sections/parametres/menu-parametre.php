@@ -1,5 +1,5 @@
 <?php
-  if (trim(ICL_LANGUAGE_CODE) != '') {
+  if (trim(ICL_LANGUAGE_CODE) != 'fr') {
     $url = get_site_url().'/'.ICL_LANGUAGE_CODE;
   } else {
     $url = get_site_url();
