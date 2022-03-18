@@ -38,6 +38,8 @@
                                         <div class="offrir-cadeau">
                                             <h3 class="titre">
                                                 <?php
+                                                echo ICL_LANGUAGE_CODE;
+
                                                 if (ICL_LANGUAGE_CODE == 'mg_MG') {
                                                     echo get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
                                                 } else {
