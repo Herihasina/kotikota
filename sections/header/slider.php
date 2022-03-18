@@ -99,7 +99,7 @@
                     elseif ( is_page( array('payment-accepted','succes-paiement') ) ):
                         echo __('Don effectué :)', 'kotikota');
                     else:
-                        echo "Erreur 404";
+                        echo $_SERVER['REQUEST_URI'];//"Erreur 404";
                     endif;
                     ?>
                 </h1>
