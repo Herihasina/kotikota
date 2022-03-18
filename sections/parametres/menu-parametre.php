@@ -66,6 +66,9 @@
         </a>
       </div>
     </div>
+    <?php
+        echo get_site_url() . (trim(ICL_LANGUAGE_CODE) == 'fr') ? '' : '/'.ICL_LANGUAGE_CODE.'/'; ?>
+
     <div class="item<?php if ($active == 'fond') echo ' active no-ico'; if ($active == 'description'|| $active == 'montant' || $active == 'notif') echo ' active selected';	?>">
       <div class="content">
         <h2><?php _e('Fond d’écran','kotikota')?></h2>
