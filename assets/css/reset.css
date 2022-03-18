@@ -1124,13 +1124,13 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .invitation .titre span { display: inline-block; margin-right: 20px; vertical-align: middle; }
 .liste-invitation ul { margin: 0 -25px }
 .liste-invitation ul li { width: 33.33%; float: left; padding: 0 25px }
-.liste-invitation ul li a { color: #fff; font-size: 14px; height: 60px; border-radius: 10px; display: block; text-align: center; font-family:Montserrat-r; padding: 15px 0 }
+.liste-invitation ul li a { color: #fff; font-size: 14px; height: 60px; border-radius: 10px; display: block; text-align: center; font-family:Montserrat-r; padding:18px 0 }
 .liste-invitation ul li.whatsapp a { background-color: #46ba4f }
 .liste-invitation ul li.facebook a { background-color: #2078f4 }
 .liste-invitation ul li.twitter a { background-color: #1da1f3 }
-.liste-invitation ul li.whatsapp a:before { content:''; background: url(../images/whatsapp.png); width: 32px; height: 32px; display: inline-block; margin-right: 10px; vertical-align: middle; }
-.liste-invitation ul li.facebook a:before { content:''; background: url(../images/facebook2.png); width: 32px; height: 30px; display: inline-block; margin-right: 10px; vertical-align: middle; }
-.liste-invitation ul li.twitter a:before { content:''; background: url(../images/twitter2.png); width: 30px; height: 30px; display: inline-block; margin-right: 10px; vertical-align: middle; }
+.liste-invitation ul li.whatsapp a:before { content:''; background: url(../images/whatsapp.png); width: 32px; height: 32px; display: inline-block; margin-right: 10px; vertical-align: middle; margin-top: -4px }
+.liste-invitation ul li.facebook a:before { content:''; background: url(../images/facebook2.png); width: 32px; height: 30px; display: inline-block; margin-right: 10px; vertical-align: middle;margin-top: -4px }
+.liste-invitation ul li.twitter a:before { content:''; background: url(../images/twitter2.png); width: 30px; height: 30px; display: inline-block; margin-right: 10px; vertical-align: middle;margin-top: -4px }
 
 .liste-invitation { margin-bottom: 38px }
 .chp-lien { margin-bottom: 52px }
@@ -2628,6 +2628,7 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     height: 31px;
     border-radius: 50%;
 }
+.conf_text a { color: #000 }
 
 
 
@@ -3470,7 +3471,7 @@ a:hover { color:#fbbd36; }
      .lst-msg .item .content .profil                    { width: 50px; height: 50px }
      .gestion-cagnotte .titre h2                        { font-size: 28px }
      .gestion-cagnotte .titre.participation             { padding: 20px 20px 15px; line-height: normal;}
-     .lst-step .item .content h2                        { margin-bottom: 20px }
+     .lst-step .item .content h2                        { margin-bottom: 20px; min-height: inherit; }
      .lst-comment-ca-marche .item                       { margin-bottom: 10px }
      .lst-choix-cond-part .item .chp-txt                { text-overflow: ellipsis; width: 85% }
      .connecter-pp .cont-right .content h2              { font-size:22px; }
