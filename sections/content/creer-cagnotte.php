@@ -39,7 +39,7 @@
                                             <h3 class="titre">
                                                 <?php
 
-                                                if (ICL_LANGUAGE_CODE == 'MG') {
+                                                if (trim(ICL_LANGUAGE_CODE) === 'MG') {
                                                     echo get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
                                                 } else {
                                                     echo $parent->name;
@@ -68,7 +68,7 @@
                                                                  <div class="content">
                                                                      <div class="inner <?php echo $couleur; ?>">
                                                                         <?php
-                                                                            if (ICL_LANGUAGE_CODE == 'MG') {
+                                                                            if (trim(ICL_LANGUAGE_CODE) === 'MG') {
                                                                                 echo get_field('traduction_malagasy', 'categ-cagnotte_'. $enfant->term_id);
                                                                             } else {
                                                                                 echo $enfant->name;
