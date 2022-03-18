@@ -25,7 +25,7 @@
                 <?php 
                   $bg = wp_get_attachment_image_src(get_field('photo', 'user_'.get_current_user_id()),'cagnotte-home' )[0];
                 ?>
-                    <div class="blc-img desk-only" style="display: none;">
+                    <div class="blc-img desk-only">
                       <div class="zone-img profil-img<?php if ($bg) echo " bg-user" ?>" <?php if ($bg): ?> style="background: center / auto no-repeat url(<?php echo $bg ?>)" <?php endif; ?>>
                             <input name="file" id="pdp-btn" class="inputfile" type="text">
                             <label for="pdp-btn"><?php _e('Ajouter  <br> votre photo','kotikota'); ?></label>
@@ -34,7 +34,7 @@
                     </div>
 
                     <!-- Mobile only -->
-                    <div class="mobile-onlys illustration_cagnotte photo_profil_mobile">
+                    <div class="mobile-only illustration_cagnotte photo_profil_mobile">
                         <input type="file" capture="environment" accept="image/*" name="choix-photo_mobile" id="photo_profil_mobile" required>
                     </div>                                        
                     <!-- /mobile only -->                   
@@ -89,7 +89,7 @@
                   <div class="blcFormulaire fichier">
                   <label for=""><?php echo __('Ajouter votre CIN, Passeport', 'kotikota'); ?></label>
                     <!-- visible seulement pour desk  -->
-                    <div class="chp desk-only" style="display: none;">
+                    <div class="chp desk-only" style="">
                         <div class="cont-file">
                           <?php 
                             $cin = get_field('piece_didentite','user_'.get_current_user_id() );
@@ -108,7 +108,7 @@
                     <!-- /fin desk -->
 
                     <!-- visible seulement pour mobile -->
-                    <div class="mobile-onlys">
+                    <div class="mobile-only">
                         <input type="file" name="cin_value_mobile" id="cin_value" capture="environment" accept="image/*">
                     </div>
                     <!-- /fin visible seulement pour mobile -->
