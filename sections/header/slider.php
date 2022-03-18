@@ -71,7 +71,7 @@
                     elseif ( basename(get_page_template()) == 'page-participer_cagnotte.php'):
                         $id = $_GET['part'];
                         $terms = get_the_terms($id, 'categ-cagnotte');
-                        echo __('<span>Participer à la cagnotte : </span>', 'kotikota'). $terms[1]->name;
+                        echo __('<span>Participer à la cagnotte : </span>', 'kotikota'). ' ' .$terms[1]->name;
                     elseif ( basename(get_page_template()) == 'page-gestion_cagnotte.php'):
                         echo __('Invitez vos participants', 'kotikota');
                     elseif (  preg_match('/^\/parametre/', $_SERVER['REQUEST_URI']) || preg_match('/^\/mg\/parametre/', $_SERVER['REQUEST_URI']) ):
