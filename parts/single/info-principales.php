@@ -51,7 +51,7 @@
                     if ($diff >= 2) echo "s";
                   ?>
                 </b>
-                <span><?php _e('restant','kotikota'); ?><?php if ($diff >= 2) echo "s"; ?></span>
+                <span><?php _e('restant','kotikota'); ?><?php if ($diff >= 2 && ICL_LANGUAGE_CODE == 'fr' ) echo "s"; ?></span>
             </div>
         </div>
         <div class="col col4">
@@ -66,7 +66,7 @@
                     if ( !$tous_les_participants ) $tous_les_participants = [];
                     echo count( $tous_les_participants); ?>
                 </b>
-                <span><?php _e('participant','kotikota'); ?><?php if ( count($tous_les_participants) >= 2 && !$masquer_contributions ) echo "s"; ?></span>
+                <span><?php _e('participant','kotikota'); ?><?php if ( count($tous_les_participants) >= 2 && !$masquer_contributions && ICL_LANGUAGE_CODE == 'fr' ) echo "s"; ?></span>
             </div>
         </div>
         <?php
