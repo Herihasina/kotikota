@@ -1,3 +1,11 @@
+<?php
+  if (trim(ICL_LANGUAGE_CODE) != '') {
+    $url = get_site_url().ICL_LANGUAGE_CODE.'/';
+  } else {
+    $url = get_site_url();
+  }
+?>
+
 <div class="nom-cagnotteSum wow fadeInUp" data-wow-delay="800ms">
     <div class="content">
         <div class="col col1">
@@ -59,7 +67,7 @@
     		echo ' active selected';	?>">
       <div class="content">
         <h2><?php _e('Infos principales','kotikota')?></h2>
-        <a href="<?php echo get_site_url(); ?>/parametre-info-principale/?parametre=<?= $idCagnotte ?>" class="ico">
+        <a href="<?php echo $url ?>/parametre-info-principale/?parametre=<?= $idCagnotte ?>" class="ico">
           <img src="<?php echo IMG_URL ?>info.png">
         </a>
       </div>
@@ -67,7 +75,7 @@
     <div class="item<?php if ($active == 'fond') echo ' active no-ico'; if ($active == 'description'|| $active == 'montant' || $active == 'notif') echo ' active selected';	?>">
       <div class="content">
         <h2><?php _e('Fond d’écran','kotikota'); ?></h2>
-        <a href="<?php echo get_site_url(); ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="ico">
+        <a href="<?php echo $url ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="ico">
           <img src="<?php echo IMG_URL ?>fond.png">
         </a>
       </div>
@@ -75,7 +83,7 @@
     <div class="item<?php if ($active == 'description') echo ' active no-ico'; if ( $active == 'montant' || $active == 'notif') echo ' active selected';	?>">
       <div class="content">
         <h2><?php _e('Description','kotikota')?></h2>
-        <a href="<?php echo get_site_url() ?>/parametre-description/?parametre=<?= $idCagnotte ?>" class="ico">
+        <a href="<?php echo $url ?>/parametre-description/?parametre=<?= $idCagnotte ?>" class="ico">
           <img src="<?php echo IMG_URL ?>description.png">
         </a>
       </div>
@@ -83,7 +91,7 @@
     <div class="item<?php if ($active == 'montant') echo ' active no-ico'; if ($active == 'notif') echo ' active selected';	?>">
       <div class="content">
         <h2><?php _e('Montant','kotikota')?></h2>
-        <a href="<?php echo get_site_url()?>/parametre-montant/?parametre=<?= $idCagnotte ?>" class="ico">
+        <a href="<?php echo $url ?>/parametre-montant/?parametre=<?= $idCagnotte ?>" class="ico">
           <img src="<?php echo IMG_URL ?>montant.png">
         </a>
       </div>
