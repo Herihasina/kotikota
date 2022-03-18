@@ -60,7 +60,7 @@
                             <?php 
                                 printf(__("Réalisé avec %s par %s & Propulsé %s par %s", 'kotikota'), 
                                     '<img src="'.IMG_URL.'icon-coeur.png" alt="">',
-                                    '<a href="http://maki-agency.mg/" title="Réalisé par Maki Agency" target="_blank">Maki Agency</a>',
+                                    '<a href="https://maki-agency.mg/" title="Réalisé par Maki Agency" target="_blank">Maki Agency</a>',
                                     '<img src="'.IMG_URL.'fuser.png" alt="">',
                                     '<a href="https://www.linkedin.com/company/sakalava-capital/?viewAsMember=true" target="_blank"><b>Sakalava Capital</b></a>'); 
                             ?>

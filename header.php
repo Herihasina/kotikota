@@ -9,14 +9,14 @@
     <title>
       <?php
         // if ( !is_single() ){
-        //   
+        //
         // }
         if( is_search() ){
           echo esc_html( get_search_query() ).' : '. __('Résultat de recherche','kotikota');
         }elseif (is_singular('cagnotte')){
           echo get_field('nom_de_la_cagnotte');
         }else{
-          wp_title('|', true, 'right').'|'. bloginfo('name'); 
+          wp_title('|', true, 'right').'|'. bloginfo('name');
         }
       ?>
     </title>
@@ -25,21 +25,21 @@
     <!-- End TrustBox script -->
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <?php if ( is_singular('cagnotte') ) : 
-      $terms = get_the_terms( $post->ID, 'categ-cagnotte' ); 
+    <?php if ( is_singular('cagnotte') ) :
+      $terms = get_the_terms( $post->ID, 'categ-cagnotte' );
     ?>
       <meta property="og:url" content="<?php echo get_the_permalink( $post->ID ); ?>" />
       <meta property="og:type" content="article" />
-      <meta property="og:title" content="<?php echo get_the_title(); ?>" />      
+      <meta property="og:title" content="<?php echo get_the_title(); ?>" />
       <meta property="og:description" content="<?php echo $terms[0]->name; ?>" />
       <meta property="fb:app_id" content="3122702584626959">
-      <?php 
+      <?php
         $img_url = get_field('illustration_pour_la_cagnotte', $post->ID);
         if ( $img_url ): ?>
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
           <meta property="og:image" content="<?= $img_url ?>" />
-          <meta property="og:image:secure_url" content="<?= $img_url ?>" /> 
+          <meta property="og:image:secure_url" content="<?= $img_url ?>" />
         <?php endif;
         elseif( is_home() || is_front_page() ):
       ?>
@@ -51,14 +51,14 @@
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
           <meta property="og:image" content="https://koti-kota.com/wp-content/uploads/2021/09/unicefmada_118782353_313714943185395_1746931575050700793_n.jpg" />
-          <meta property="og:image:secure_url" content="https://koti-kota.com/wp-content/uploads/2021/09/unicefmada_118782353_313714943185395_1746931575050700793_n.jpg" /> 
-          <meta property="og:image:alt" content="Image de Koti Kota" /> 
+          <meta property="og:image:secure_url" content="https://koti-kota.com/wp-content/uploads/2021/09/unicefmada_118782353_313714943185395_1746931575050700793_n.jpg" />
+          <meta property="og:image:alt" content="Image de Koti Kota" />
       <?php
         endif;
      wp_head(); ?>
 </head>
 <body <?php body_class() ?>>
-  
+
     <!-- Messenger Chat plugin Code -->
     <div id="fb-root"></div>
 
@@ -93,11 +93,12 @@
 <div id="wrapper">
     <header id="header">
       <?php
+        $current_url = home_url(add_query_arg(array(), $wp->request));
         if (is_home() || is_front_page() ):?>
       <input type="hidden" name="isHome" value=1>
-        
+
       <?php
-        endif; 
+        endif;
       ?>
       <?php
         include 'sections/header/top.php';
@@ -105,13 +106,12 @@
         include 'sections/header/popup-connecter.php';
         include 'sections/header/popup-sinscrire.php';
         if (is_home() || is_front_page() ):
-          include 'sections/header/popup-apropos.php';                  
+          include 'sections/header/popup-apropos.php';
           include 'sections/header/popup-simulation.php';
-        endif; 
+        endif;
       ?>
     </header>
-    
+
     <?php if( isset( $_GET['new'] ) ){ ?>
       <a href="#new_user" data-fancybox id="new_btn">X</a>
     <?php } ?>
-   

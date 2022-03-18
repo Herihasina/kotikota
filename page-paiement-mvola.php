@@ -35,7 +35,7 @@
   $id_part = "don_".$participation->id_cagnotte.time();
   $montant = $participation->donation;
   $description = get_field('nom_de_la_cagnotte', $participation->id_cagnotte);
-  $description = clean( $description );
+  $description = substr( clean( $description ), 0, 15 );
   $lname = $participation->lname;
   $fname = $participation->fname;
 

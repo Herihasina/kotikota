@@ -21,7 +21,7 @@
         </div>
         <ul id="response"></ul>
         <?php 
-        	$per_page = get_field('per_page','options');
+        	$per_page = get_field('per_page','option');
         	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
         	$args = array(  
