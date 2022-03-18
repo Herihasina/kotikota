@@ -355,7 +355,7 @@
                                                             <tr>
                                                                 <td align="left" class="titre" style="font-size: 0px; padding: 15px 0 29px 20px; word-break: break-word;">
                                                                     <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 30px; text-align: left; color: #ffffff;">
-                                                                       <?php _e("Fin de la cagnotte","kotikota") ?>
+                                                                       <?php echo __("Fin de la cagnotte","kotikota_mail") ?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -461,11 +461,11 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <p><?php _e("Chers KotiKoteurs","kotikota") ?> 📢</p>
+                                                                    <p><?php echo __("Chers KotiKoteurs","kotikota_mail") ?> 📢</p>
                                                                     <p>&nbsp;</p>
-                                                                    <p><?php _e("La cagnotte","kotikota") ?> « <?= $nomcagnotte ?> » <?php _e("a bien été clôturée","kotikota") ?></p>
+                                                                    <p><?php printf( __("La cagnotte « %s » a bien été clôturée","kotikota_mail",$nomcagnotte)) ?></p>
                                                                     <p>&nbsp;</p>
-                                                                    <p><?php _e("Vous retrouverez toutes la caractéristiques de la cagnotte en","kotikota") ?> <a href="<?= get_permalink( $id ) ?>" target="_blank"><?php _e("cliquant ici","kotikota") ?> 🖱</a></p>
+                                                                    <p><?php printf( __("Vous retrouverez toutes la caractéristiques de la cagnotte en <a href='%' target='_blank'>cliquant ici 🖱</a>","kotikota_mail"), get_permalink( $id )); ?></p>
                                                                 </div>
                                                                 <br>
                                                                  <br>
@@ -673,7 +673,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("Restez connect&#233;","kotikota") ?>
+                                                                    <?php echo __("Restez connect&#233;","kotikota_mail") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -877,7 +877,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("Email envoy&#233; par","kotikota") ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
+                                                                    <?php echo __("Email envoy&#233; par","kotikota_mail") ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -885,7 +885,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s","kotikota") ?>
+                                                                    <?php echo __("&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s","kotikota_mail") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>

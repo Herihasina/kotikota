@@ -354,7 +354,7 @@
                                                             <tr>
                                                                 <td align="left" class="titre" style="font-size: 0px; padding: 15px 0 29px 20px; word-break: break-word;">
                                                                     <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 30px; text-align: left; color: #ffffff;">
-                                                                       <?php _e("Vous êtes <br>invités !","kotikota") ?>
+                                                                       <?php echo __("Vous êtes <br>invités !","kotikota_mail") ?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -460,23 +460,23 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <?php _e("Bonjour, Salama, Hello,","kotikota") ?><br>
-                                                                    <?php _e("Je vous invite à participer à la cagnotte:","kotikota") ?><br>
+                                                                    <?php echo __("Bonjour, Salama, Hello,","kotikota_mail") ?><br>
+                                                                    <?php echo __("Je vous invite à participer à la cagnotte:","kotikota_mail") ?><br>
                                                                     <strong><?= $nomcagnotte ?></strong>
                                                                     <br>
                                                                     <br>
-                                                                    <?php _e("Organisée par:","kotikota") ?> <?= $prenom ?> <?= $nom ?>
+                                                                    <?php echo __("Organisée par:","kotikota_mail") ?> <?= $prenom ?> <?= $nom ?>
                                                                     <br>
                                                                     <br>
-                                                                    <?php _e("Pour participer, c'est simple, rapide et sécurisé.<br>
+                                                                    <?php echo __("Pour participer, c'est simple, rapide et sécurisé.<br>
                                                                     Inutile de vous inscrire.<br>
-                                                                    Seul un clic suffit<br>","kotikota") ?>
+                                                                    Seul un clic suffit<br>","kotikota_mail") ?>
 
-                                                                    <a href="<?= get_permalink( $idCagnotte ) ?>?origin=invite">PARTICIPER</a>
+                                                                    <a href="<?= get_permalink( $idCagnotte ) ?>?origin=invite"><?php echo __("PARTICIPER","kotikota_mail"); ?></a>
 
                                                                 </div>
                                                                 <p>&nbsp;</p>
-                                                                <p>☀️ <?php _e("La joyeuse team KOTI KOTA","kotikota") ?> 🌈</p>
+                                                                <p>☀️ <?php echo __("La joyeuse team KOTI KOTA","kotikota_mail") ?> 🌈</p>
                                                             </td>
                                                         </tr>
 
@@ -682,7 +682,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("Restez connect&#233;","kotikota") ?>
+                                                                    <?php echo __("Restez connect&#233;","kotikota_mail") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -886,7 +886,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("Email envoy&#233; par","kotikota") ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
+                                                                    <?php echo __("Email envoy&#233; par","kotikota_mail") ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -894,7 +894,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s","kotikota") ?>
+                                                                    <?php echo __("&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s","kotikota_mail") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
