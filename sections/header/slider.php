@@ -71,7 +71,7 @@
                     elseif ( basename(get_page_template()) == 'page-participer_cagnotte.php'):
                         $id = $_GET['part'];
                         $terms = get_the_terms($id, 'categ-cagnotte');
-                        echo __('<span>Participer à la cagnotte : </span>', 'kotikota');
+                        echo __('<span>Participer à la cagnotte : </span>', 'kotikota').' ';
                         if (trim(ICL_LANGUAGE_CODE) == 'mg') {
                             $mg = get_field('traduction_malagasy', 'categ-cagnotte_'. $terms[1]->term_id);
                             if( $mg ){
