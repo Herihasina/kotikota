@@ -40,7 +40,7 @@
                                     <i class="ico"></i>
                                     <img src="<?= $vignette ?>" alt="Kotikota">
                                 </div>
-                                <span><?php _e('Cliquez pour lire la vidéo','Kotikota') ?></span>
+                                <span><?php _e('Cliquez pour lire la vidéo','kotikota') ?></span>
                             </a>
                         </div>
                  </div>
