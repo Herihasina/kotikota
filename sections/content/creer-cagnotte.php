@@ -38,11 +38,11 @@
                                         <div class="offrir-cadeau">
                                             <h3 class="titre">
                                                 <?php
-                                                if (substr(ICL_LANGUAGE_CODE,0,2) == 'mg') {
+                                                //if (substr(ICL_LANGUAGE_CODE,0,2) == 'mg') {
                                                     echo get_field('traduction_malagasy', 'categ-cagnotte_'. $parent->term_id);
-                                                } else {
+                                                //} else {
                                                     echo $parent->name;
-                                                }
+                                                //}
                                                 ?>
                                             </h3>
                                             <div class="lst-type">
@@ -67,11 +67,11 @@
                                                                  <div class="content">
                                                                      <div class="inner <?php echo $couleur; ?>">
                                                                         <?php
-                                                                            if (substr(ICL_LANGUAGE_CODE,0,2) == 'mg') {
+                                                                            /*if (substr(ICL_LANGUAGE_CODE,0,2) == 'mg') {
                                                                                 echo get_field('traduction_malagasy', 'categ-cagnotte_'. $enfant->term_id);
-                                                                            } else {
+                                                                            } else {*/
                                                                                 echo $enfant->name;
-                                                                            }
+                                                                            //}
                                                                             ?>
                                                                         <?php //echo $enfant->name; ?>
                                                                         <span></span>
