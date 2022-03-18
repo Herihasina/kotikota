@@ -5,13 +5,13 @@
   if ( isset($_GET['origin']) && $_GET['origin'] = 'invite' ){
     $isInvited = true;
   }
-  get_header(); 
+  get_header();
 ?>
 <main id="homepage">
 <?php
-  include 'sections/content/parallax.php'; 
+  include 'sections/content/parallax.php';
 
-  
+
 
   if ( (have_posts() ) || ( have_posts() && current_user_can( 'administrator' ) ) || ( get_field('titulaire_de_la_cagnotte') == get_current_user_id() ) ):
     while (have_posts()): the_post();
@@ -21,18 +21,18 @@
 
 <div class="blc-cagnotte-details">
   <div class="wrapper">
-      <?php 
-        get_template_part('parts/single/info-principales'); 
-        get_template_part('parts/single/top-buttons'); 
+      <?php
+        get_template_part('parts/single/info-principales');
+        get_template_part('parts/single/top-buttons');
 
       ?>
-      
+
       <div class="det-cagnotte wow fadeIn" data-wow-delay="850ms">
           <div class="content">
-              <?php 
+              <?php
                 get_template_part('parts/single/image');
                 get_template_part('parts/single/description');  ?>
-              
+
               <div class="blcTab">
                 <ul class="tab-nav">
                     <li class="participation"><a href="#participation"><span><?php _e('Participants','kotikota'); ?></span></a></li>
@@ -55,7 +55,7 @@
               </a>
 
               <?php if ( (is_user_logged_in() && get_field('titulaire_de_la_cagnotte')  == get_current_user_id()) || current_user_can('administrator') ): ?>
-                <a href="<?php echo get_permalink(get_page_by_path( 'parametre-info-principale')).'?parametre='.$post->ID ?>" class="link" title="<?php _e('Paramètres cagnotte','kotikota'); ?>"><?php _e('Paramètres cagnotte','kotikota'); ?></a> 
+                <a href="<?php echo get_permalink(get_page_by_path( 'parametre-info-principale')).'?parametre='.$post->ID ?>" class="link" title="<?php _e('Paramètres cagnotte','kotikota'); ?>"><?php _e('Paramètres cagnotte','kotikota'); ?></a>
 
                 <a href="<?php echo get_permalink(get_page_by_path( 'gestion-cagnotte-invite')).'?gest='.$post->ID ?>" id="gestionner" data-id="<?php echo $post->ID ?>" data-url="<?php echo get_permalink(get_page_by_path( 'gestion-cagnotte-invite')) ?>" class="link" title="<?php _e('Gestion des Participations','kotikota'); ?>"><?php _e('Gestion des Participations','kotikota'); ?></a>
 
@@ -69,7 +69,7 @@
                         $benef = get_beneficiaire_cagnotte( $post->ID );
                         $info = get_beneficiaire_info( $benef->ID, $post->ID  );
                         if( $info->rib_file == '' || $info->rib_file == 0 ) {
-                        $link = '<a href="'. get_site_url() . '/parametre-info-principale/?parametre='.$post->ID.'#rib_info"'. '>'. __('informations bancaires ici','kotikota') .'</a>';
+                        $link = '<a href="'. get_lang_url() . '/parametre-info-principale/?parametre='.$post->ID.'#rib_info"'. '>'. __('informations bancaires ici','kotikota') .'</a>';
                       ?>
                         <div class="conf_text">
                           <?= __('N\'oubliez pas de compléter vos ','kotikota') ?>
@@ -83,7 +83,7 @@
                         <div class="conf_text">
                           <?= __('Cette action est irréversible.<br>Une fois clôturée, il sera impossible à tout utilisateur de participer à votre cagnotte. Toutefois, vous pourrez toujours la partager sur vos réseaux.','kotikota'); ?>
                         </div>
-                      <?php 
+                      <?php
                       }
                       ?>
                     </div>
@@ -107,8 +107,8 @@
   <img src="<?php echo IMG_URL.'loader.gif' ?>" alt="loader">
 </div>
 </main>
-<?php 
-      endwhile; 
+<?php
+      endwhile;
   endif;
 
  get_footer(); ?>
