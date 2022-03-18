@@ -172,7 +172,8 @@ select option                                               { padding: 10px 30px
 .headerTop.sticky .logo img                                 { width: 100%; display: block; }
 
 .btn-head                                                   { float: left; margin-left: 20px; position: relative; }
-.menu-flag                                                  { float: left; margin-top: 10px; }
+.menu-flag                                                  { float: left; margin-top: 5px; }
+.wpml-ls-legacy-list-horizontal                             { padding: 0 7px !important }
 .menu-flag li                                               { float: left; margin: 0 10px  }
 .menu li                                                    { float: left; }
 .logo                                                       { display: block; margin-top: 20px;margin-left: 0;}
