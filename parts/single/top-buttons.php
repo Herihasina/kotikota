@@ -18,7 +18,7 @@
         <span><?php _e('Partager sur Facebook','kotikota') ?></span>
       </a> -->
 
-    <a href="#pp-partage" title="Partager" class="link partage fancybox"><span>Partager</span></a>
+    <a href="#pp-partage" title="Partager" class="link partage fancybox"><span><?php _e('Partager','kotikota') ?></span></a>
     </div>
     <div class="pp-partage" id="pp-partage" style="display: none">
       <div class="cont-partage cont-pp">
