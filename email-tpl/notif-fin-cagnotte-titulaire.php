@@ -355,7 +355,7 @@
                                                             <tr>
                                                                 <td align="left" class="titre" style="font-size: 0px; padding: 15px 0 29px 20px; word-break: break-word;">
                                                                     <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 30px; text-align: left; color: #ffffff;">
-                                                                       <?php _e("Fin de la cagnotte","kotikota") ?>
+                                                                       <?php echo __("Fin de la cagnotte","kotikota_mail") ?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -461,20 +461,20 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <p><?php _e("Cher KotiKoteur","kotikota") ?> 📢</p>
-                                                                    <p><?php _e("Votre cagnotte","kotikota") ?> « <?= get_field('nom_de_la_cagnotte', $idCagnotte) ?> » <?php _e("a bien été clôturée","kotikota") ?> ⌛👍.</p>
-                                                                    <p>V<?php _e("ous retrouverez toutes la caractéristiques de la cagnotte en","kotikota") ?> <a href="<?= get_permalink($idCagnotte) ?>">cliquant ici 🖱</a></p>
+                                                                    <p><?php echo __("Cher KotiKoteur","kotikota_mail") ?> 📢</p>
+                                                                    <p><?php printf( __("Votre cagnotte %s a bien été clôturée","kotikota_mail"),'« '. get_field('nom_de_la_cagnotte', $idCagnotte) .' » '); ?> ⌛👍.</p>
+                                                                    <p><?php printf( __("Vous retrouverez toutes la caractéristiques de la cagnotte en <a href='%'> cliquant ici 🖱</a>","kotikota_mail"), get_permalink($idCagnotte)); ?></p>
                                                                     <?php $devise = get_field('devise', $idCagnotte ); ?>
-                                                                    <p><?php _e("Montant à transférer :","kotikota") ?> <?= get_field('montant_recolte', $idCagnotte).' MGA' ?></p>
-                                                                    <p><?php _e("Afin de pouvoir vous transférer les sommes","kotikota") ?> 💰 <?php _e("par virement bancaire","kotikota") ?> 💸<br>
-                                                                    <?php _e("Merci de nous confirmer par retour de mail","kotikota") ?> 📩 <?php _e("les informations suivantes concernant l’heureux bénéficiaire de la cagnotte","kotikota") ?> 👤<br>
-                                                                    <?php _e("- Nom et prénom","kotikota") ?><br>
-                                                                    <?php _e("- Téléphone","kotikota") ?><br>
-                                                                    <?php _e("- Email","kotikota") ?><br>
-                                                                    <?php _e("- RIB","kotikota") ?><br>
+                                                                    <p><?php echo __("Montant à transférer :","kotikota_mail") ?> <?= get_field('montant_recolte', $idCagnotte).' MGA' ?></p>
+                                                                    <p><?php echo __("Afin de pouvoir vous transférer les sommes","kotikota_mail") ?> 💰 <?php echo __("par virement bancaire","kotikota_mail") ?> 💸<br>
+                                                                    <?php echo __("Merci de nous confirmer par retour de mail","kotikota_mail") ?> 📩 <?php echo __("les informations suivantes concernant l’heureux bénéficiaire de la cagnotte","kotikota_mail") ?> 👤<br>
+                                                                    <?php echo __("- Nom et prénom","kotikota_mail") ?><br>
+                                                                    <?php echo __("- Téléphone","kotikota_mail") ?><br>
+                                                                    <?php echo __("- Email","kotikota_mail") ?><br>
+                                                                    <?php echo __("- RIB","kotikota_mail") ?><br>
                                                                     </p>
                                                                     <p>&nbsp;</p>
-                                                                    <p>☀️ <?php _e("La joyeuse team KOTI KOTA","kotikota") ?> 🌈</p>
+                                                                    <p>☀️ <?php echo __("La joyeuse team KOTI KOTA","kotikota_mail") ?> 🌈</p>
                                                                 </div>
                                                                 <br>
                                                                  <br>
@@ -682,7 +682,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("Restez connect&#233;","kotikota") ?>
+                                                                    <?php echo __("Restez connect&#233;","kotikota_mail") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -886,7 +886,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("Email envoy&#233; par","kotikota") ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
+                                                                    <?php echo __("Email envoy&#233; par","kotikota_mail") ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -894,7 +894,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s","kotikota") ?>
+                                                                    <?php echo __("&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s","kotikota_mail") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>

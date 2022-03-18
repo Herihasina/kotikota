@@ -318,7 +318,7 @@
                                                                                 <td style="width: 90px;">
                                                                                     <a href="#" target="_blank">
                                                                                         <img
-                                                                                            alt="Kotikota"
+                                                                                            alt="kotikota"
                                                                                             height="90"
                                                                                             src="<?= IMG_URL ?>logo.png"
                                                                                             style="border: 0; display: block; outline: none; text-decoration: none; height: 90px; width: 100%;"
@@ -355,7 +355,7 @@
                                                             <tr>
                                                                 <td align="left" class="titre" style="font-size: 0px; padding: 15px 0 29px 20px; word-break: break-word;">
                                                                     <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 30px; text-align: left; color: #ffffff;">
-                                                                       <?php _e("Rappel N° 2","kotikota") ?>
+                                                                       <?php echo __("Rappel N° 2","kotikota_mail") ?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -444,7 +444,7 @@
                                                                             <td style="width: 60px;">
                                                                                 <a href="#" target="_blank">
                                                                                     <img
-                                                                                        alt="Kotikota"
+                                                                                        alt="kotikota"
                                                                                         height="auto"
                                                                                         src="<?= IMG_URL ?>ico.jpg"
                                                                                         style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%;"
@@ -461,7 +461,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; padding-bottom: 25px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 20px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <?php _e("Hello","kotikota") ?> <?= $info_rappel->display_name ?>,
+                                                                    <?php echo __("Hello","kotikota_mail") ?> <?= $info_rappel->display_name ?>,
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -469,13 +469,13 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <?php _e("Voilà maintenant 36 heures que vous avez créé une cagnotte sur la plateforme","kotikota") ?> <a href="<?= site_url() ?>" title="">Koti Kota</a>.
+                                                                    <?php echo __("Voilà maintenant 36 heures que vous avez créé une cagnotte sur la plateforme","kotikota_mail") ?> <a href="<?= site_url() ?>" title="">Koti Kota</a>.
                                                                     <br><br>
-                                                                    <?php _e("Nous vous rappellons de bien vouloir nous fournir votre pièce d'itentité d'ici les prochaines 12 heures.","kotikota") ?>
+                                                                    <?php echo __("Nous vous rappellons de bien vouloir nous fournir votre pièce d'itentité d'ici les prochaines 12 heures.","kotikota_mail") ?>
                                                                     <br><br>
-                                                                    <?php _e("Ce délai passé, nous sommes dans l'obligation de suspendre votre compte ainsi que votre ou vos cagnottes en cours.","kotikota") ?>
+                                                                    <?php echo __("Ce délai passé, nous sommes dans l'obligation de suspendre votre compte ainsi que votre ou vos cagnottes en cours.","kotikota_mail") ?>
                                                                     <br><br>
-                                                                    <?php _e("Comptant sur votre compréhension.","kotikota") ?>
+                                                                    <?php echo __("Comptant sur votre compréhension.","kotikota_mail") ?>
                                                                 </div>
                                                                 <br>
                                                                  <br>
@@ -507,7 +507,7 @@
                                                                                 "
                                                                                 target="_blank"
                                                                             >
-                                                                                <?php _e("Valider mon identité","kotikota") ?>
+                                                                                <?php echo __("Valider mon identité","kotikota_mail") ?>
                                                                             </a>
                                                                         </td>
                                                                     </tr>
@@ -575,7 +575,7 @@
                                                                             <td style="width: 600px;">
                                                                                 <a href="#" target="_blank">
                                                                                     <img
-                                                                                        alt="Kotikota"
+                                                                                        alt="kotikota"
                                                                                         height="auto"
                                                                                         src="<?= IMG_URL ?>bg.png"
                                                                                         style="border: 0; display: block; outline: none; text-decoration: none; height: auto; width: 100%;"
@@ -716,7 +716,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("Restez connect&#233;","kotikota") ?>
+                                                                    <?php echo __("Restez connect&#233;","kotikota_mail") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -920,7 +920,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("Email envoy&#233; par","kotikota") ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
+                                                                    <?php echo __("Email envoy&#233; par","kotikota_mail") ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -928,7 +928,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php _e("&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s","kotikota") ?>
+                                                                    <?php echo __("&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s","kotikota_mail") ?>
                                                                 </div>
                                                             </td>
                                                         </tr>

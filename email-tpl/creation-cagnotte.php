@@ -199,9 +199,9 @@
                             <td style="direction: ltr; font-size: 0px; padding: 0; text-align: center; vertical-align: top;">
                                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                align="center" class="" style="vertical-align:top;width:680px;"
             >
@@ -216,9 +216,9 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <!--[if mso | IE]>
-    
+
         <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="60" style="vertical-align:top;height:60px;">
-      
+
     <![endif]-->
 
                                                                 <div style="height: 60px;">
@@ -226,9 +226,9 @@
                                                                 </div>
 
                                                                 <!--[if mso | IE]>
-    
+
         </td></tr></table>
-      
+
     <![endif]-->
                                                             </td>
                                                         </tr>
@@ -241,9 +241,9 @@
 
                                 <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                             </td>
@@ -256,13 +256,13 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" class="head-outlook" style="width:680px;" width="680"
       >
         <tr>
           <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-      
+
         <v:rect  style="width:680px;" xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false">
         <v:fill  origin="0.5, 0" position="0.5, 0" src="<?= IMG_URL ?>bg-head.jpg" type="tile" />
         <v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0">
@@ -276,9 +276,9 @@
                                 <td style="direction: ltr; font-size: 0px; padding: 20px 0 32px; text-align: center; vertical-align: top;">
                                     <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                align="center" class="mob-outlook" style="vertical-align:top;width:80px;"
             >
@@ -298,7 +298,7 @@
 
                                     <!--[if mso | IE]>
             </td>
-          
+
             <td
                align="center" class="logo-outlook" style="vertical-align:top;width:110px;"
             >
@@ -340,7 +340,7 @@
 
                                     <!--[if mso | IE]>
             </td>
-          
+
             <td
                align="center" class="titre1-outlook" style="vertical-align:top;width:375px;"
             >
@@ -355,7 +355,7 @@
                                                             <tr>
                                                                 <td align="left" class="titre" style="font-size: 0px; padding: 15px 0 29px 20px; word-break: break-word;">
                                                                     <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 30px; text-align: left; color: #ffffff;">
-                                                                       <?php echo __('Confirmation de la cr&#233;ation de<br /> votre cagnotte', 'kotikota') ?>
+                                                                       <?php echo __('Confirmation de la cr&#233;ation de<br /> votre cagnotte', 'kotikota_mail') ?>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -368,7 +368,7 @@
 
                                     <!--[if mso | IE]>
             </td>
-          
+
             <td
                align="center" class="mob-outlook" style="vertical-align:top;width:114px;"
             >
@@ -388,9 +388,9 @@
 
                                     <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                                 </td>
@@ -403,11 +403,11 @@
             <!--[if mso | IE]>
         </v:textbox>
       </v:rect>
-    
+
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" class="content-outlook" style="width:680px;" width="680"
       >
@@ -422,9 +422,9 @@
                             <td style="direction: ltr; font-size: 0px; padding: 0 40px; text-align: center; vertical-align: top;">
                                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                align="center" class="" style="vertical-align:top;width:600px;"
             >
@@ -461,7 +461,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; padding-bottom: 25px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 20px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <?php echo __('Bravo','kotikota') ?> <?= $prenom ?>,
+                                                                    <?php echo __('Bravo','kotikota_mail') ?> <?= $prenom ?>,
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -469,16 +469,16 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <?php echo __('Votre cagnotte','kotikota') ?> <a href="<?=  get_permalink($id) ?>" title=""><?= $nomcagnotte ?></a> <?php echo __('a &#233;t&#233; cr&#233;&#233;e avec succ&#232;s','kotikota') ?>
+                                                                    <?php printf( __('Votre cagnotte %s a &#233;t&#233; cr&#233;&#233;e avec succ&#232;s','kotikota_mail'),'<a href="'. get_permalink($id) .'" title="">'. $nomcagnotte .'</a>'); ?>
                                                                     <br>
                                                                     <br>
-                                                                    <?php echo __('Bienvenue dans la communaut&#233; des KotiKoteurs','kotikota') ?>
+                                                                    <?php echo __('Bienvenue dans la communaut&#233; des KotiKoteurs','kotikota_mail') ?>
                                                                     <br>
                                                                     <br>
-                                                                    <?php echo __('Mettez le maximum de chances de votre c&#244;t&#233; en suivants les conseils ci-apr&#232;s.','kotikota') ?>
+                                                                    <?php echo __('Mettez le maximum de chances de votre c&#244;t&#233; en suivants les conseils ci-apr&#232;s.','kotikota_mail') ?>
                                                                 </div>
                                                                 <p>&nbsp;</p>
-                                                                <p>☀️ <?php echo __('La joyeuse team KOTI KOTA','kotikota') ?> 🌈</p>
+                                                                <p>☀️ <?php echo __('La joyeuse team KOTI KOTA','kotikota_mail') ?> 🌈</p>
                                                             </td>
                                                         </tr>
 
@@ -508,7 +508,7 @@
                                                                                 "
                                                                                 target="_blank"
                                                                             >
-                                                                                <?php echo __('partager votre cagnotte','kotikota') ?>
+                                                                                <?php echo __('partager votre cagnotte','kotikota_mail') ?>
                                                                             </a>
                                                                         </td>
                                                                     </tr>
@@ -524,9 +524,9 @@
 
                                 <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                             </td>
@@ -539,7 +539,7 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" class="content-outlook" style="width:680px;" width="680"
       >
@@ -554,9 +554,9 @@
                             <td style="direction: ltr; font-size: 0px; padding: 0 40px; text-align: center; vertical-align: top;">
                                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                align="center" class="" style="vertical-align:top;width:600px;"
             >
@@ -598,9 +598,9 @@
 
                                 <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                             </td>
@@ -613,7 +613,7 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:680px;" width="680"
       >
@@ -628,9 +628,9 @@
                             <td style="direction: ltr; font-size: 0px; padding: 0; text-align: center; vertical-align: top;">
                                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                align="center" class="" style="vertical-align:top;width:680px;"
             >
@@ -645,9 +645,9 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <!--[if mso | IE]>
-    
+
         <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="51" style="vertical-align:top;height:51px;">
-      
+
     <![endif]-->
 
                                                                 <div style="height: 51px;">
@@ -655,9 +655,9 @@
                                                                 </div>
 
                                                                 <!--[if mso | IE]>
-    
+
         </td></tr></table>
-      
+
     <![endif]-->
                                                             </td>
                                                         </tr>
@@ -670,9 +670,9 @@
 
                                 <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                             </td>
@@ -685,7 +685,7 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:680px;" width="680"
       >
@@ -700,9 +700,9 @@
                             <td style="direction: ltr; font-size: 0px; padding: 0; text-align: center; vertical-align: top;">
                                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                align="center" class="" style="vertical-align:top;width:680px;"
             >
@@ -717,7 +717,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 24px; font-weight: 700; line-height: 24px; text-align: center; color: #131313;">
-                                                                    Restez connect&#233;
+                                                                    <?php echo __('Restez connect&#233;','kotikota_mail') ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -730,9 +730,9 @@
 
                                 <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                             </td>
@@ -745,7 +745,7 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:680px;" width="680"
       >
@@ -760,9 +760,9 @@
                             <td style="direction: ltr; font-size: 0px; padding: 0; text-align: center; vertical-align: top;">
                                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                align="center" class="" style="vertical-align:top;width:680px;"
             >
@@ -802,9 +802,9 @@
 
                                 <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                             </td>
@@ -817,7 +817,7 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:680px;" width="680"
       >
@@ -832,9 +832,9 @@
                             <td style="direction: ltr; font-size: 0px; padding: 0; text-align: center; vertical-align: top;">
                                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                align="center" class="" style="vertical-align:top;width:680px;"
             >
@@ -849,9 +849,9 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <!--[if mso | IE]>
-    
+
         <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="30" style="vertical-align:top;height:30px;">
-      
+
     <![endif]-->
 
                                                                 <div style="height: 30px;">
@@ -859,9 +859,9 @@
                                                                 </div>
 
                                                                 <!--[if mso | IE]>
-    
+
         </td></tr></table>
-      
+
     <![endif]-->
                                                             </td>
                                                         </tr>
@@ -874,9 +874,9 @@
 
                                 <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                             </td>
@@ -889,7 +889,7 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:680px;" width="680"
       >
@@ -904,9 +904,9 @@
                             <td style="direction: ltr; font-size: 0px; padding: 0; text-align: center; vertical-align: top;">
                                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                align="center" class="" style="vertical-align:top;width:680px;"
             >
@@ -921,7 +921,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php echo __('Email envoy&#233; par','kotikota') ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
+                                                                    <?php echo __('Email envoy&#233; par','kotikota_mail') ?> <a href="http://www.kotikota.mg" style="color: #000; text-decoration: none;">www.kotikota.mg</a>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -929,7 +929,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #131313;">
-                                                                    <?php echo __('&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s','kotikota') ?>
+                                                                    <?php echo __('&#169; Koti Kota 2020 - Tous droits r&#233;serv&#233;s','kotikota_mail') ?>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -942,9 +942,9 @@
 
                                 <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                             </td>
@@ -957,7 +957,7 @@
           </td>
         </tr>
       </table>
-      
+
       <table
          align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:680px;" width="680"
       >
@@ -972,9 +972,9 @@
                             <td style="direction: ltr; font-size: 0px; padding: 0; text-align: center; vertical-align: top;">
                                 <!--[if mso | IE]>
                   <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                
+
         <tr>
-      
+
             <td
                align="center" class="" style="vertical-align:top;width:680px;"
             >
@@ -989,9 +989,9 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; word-break: break-word;">
                                                                 <!--[if mso | IE]>
-    
+
         <table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td height="30" style="vertical-align:top;height:30px;">
-      
+
     <![endif]-->
 
                                                                 <div style="height: 30px;">
@@ -999,9 +999,9 @@
                                                                 </div>
 
                                                                 <!--[if mso | IE]>
-    
+
         </td></tr></table>
-      
+
     <![endif]-->
                                                             </td>
                                                         </tr>
@@ -1014,9 +1014,9 @@
 
                                 <!--[if mso | IE]>
             </td>
-          
+
         </tr>
-      
+
                   </table>
                 <![endif]-->
                             </td>
