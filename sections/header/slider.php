@@ -74,9 +74,9 @@
                         echo __('<span>Participer à la cagnotte : </span>', 'kotikota'). $terms[1]->name;
                     elseif ( basename(get_page_template()) == 'page-gestion_cagnotte.php'):
                         echo __('Invitez vos participants', 'kotikota');
-                    elseif (  preg_match('/^\/parametre/', $_SERVER['REQUEST_URI']) || preg_match('/^mg\/parametre/', $_SERVER['REQUEST_URI']) ):
+                    elseif (  preg_match('/^\/parametre/', $_SERVER['REQUEST_URI']) || preg_match('/^\/mg\/parametre/', $_SERVER['REQUEST_URI']) ):
                         echo __('Je paramètre ma cagnotte', 'kotikota');
-                     elseif (  preg_match('/^\/mon-profil/', $_SERVER['REQUEST_URI']) ):
+                     elseif (  preg_match('/^\/mg\/mon-profil/', $_SERVER['REQUEST_URI']) ):
                         echo __('J\'édite mon profil', 'kotikota');
                      elseif ( is_search() ):
                         echo __('Toutes nos cagnottes', 'kotikota');
