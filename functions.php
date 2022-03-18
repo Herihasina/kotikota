@@ -1035,3 +1035,13 @@ function generate_post_to_pdf_file($postID) {
      return $string;
 
   }
+
+  function get_lang_url() {
+    if (trim(ICL_LANGUAGE_CODE) != '') {
+        $url = get_site_url().'/'.ICL_LANGUAGE_CODE;
+      } else {
+        $url = get_site_url();
+      }
+
+      return $url;
+  }

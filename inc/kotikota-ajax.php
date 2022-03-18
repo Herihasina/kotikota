@@ -614,7 +614,7 @@ function save_info_principale(){
     $sousCateg = strip_tags( $_POST['sousCateg'] );
     wp_set_object_terms( $idCagnotte, array( (int)$sousCateg, (int)$categ ), 'categ-cagnotte' );
 
-    $single = get_site_url().'/parametre-fond';
+    $single = get_lang_url().'/parametre-fond';
     echo $single;
     wp_die();
 }
@@ -691,7 +691,7 @@ function save_info_banque(){
 
     update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic);
 
-    $single = get_site_url().'/parametre-info-principale';
+    $single = get_lang_url().'/parametre-info-principale';
     echo $single;
     wp_die();
 }
@@ -719,7 +719,7 @@ function save_fond(){
 
     update_field('illustration_pour_la_cagnotte', attachment_url_to_postid($bg), $idCagnotte );
 
-    $resp =  get_site_url().'/parametre-description?parametre='.$idCagnotte;
+    $resp =  get_lang_url().'/parametre-description?parametre='.$idCagnotte;
     echo $resp;
 
     wp_die();
@@ -753,7 +753,7 @@ function save_descr(){
     }
 
     $success = true;
-    echo get_site_url().'/parametre-montant?parametre='.$idCagnotte;
+    echo get_lang_url().'/parametre-montant?parametre='.$idCagnotte;
     wp_die();
 
 }
