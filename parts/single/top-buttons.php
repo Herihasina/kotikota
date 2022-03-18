@@ -4,15 +4,15 @@
      <div id="btn_participer_wrap">
         <a href="<?php echo get_permalink(get_page_by_path( 'participer')).'?part='.$post->ID ?>" id="participat" data-id="<?php echo $post->ID ?>" data-url="<?php echo get_permalink(get_page_by_path( 'participer')) ?>" class="link participe" title="Participer">
           <span><?php echo __('Participer','kotikota'); ?></span>
-        </a>            
+        </a>
       </div>
-   <?php 
-      endif; 
+   <?php
+      endif;
       $link = "https://www.facebook.com/sharer/sharer.php?u=".get_permalink();
   ?>
     <div>
-     <!--  <a target="_blank" 
-          href="<?php echo $link; ?>" 
+     <!--  <a target="_blank"
+          href="<?php echo $link; ?>"
           class="link partage" title="<?php _e('Partager sur Facebook','kotikota') ?>"
           rel="noopener noreferrer">
         <span><?php _e('Partager sur Facebook','kotikota') ?></span>
@@ -23,7 +23,7 @@
     <div class="pp-partage" id="pp-partage" style="display: none">
       <div class="cont-partage cont-pp">
         <div class="titre">
-            <h2>Invitez vos participants</h2>
+            <h2><?php _e('Invitez vos participants','kotikota') ?></h2>
         </div>
         <div class="inner-pp">
       <div class="invitation">
@@ -38,9 +38,9 @@
               <li class="twitter"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<?php echo urlencode( get_the_title( $id_cagnotte )) ?>?origin=invite" data-size="large" title="Twitter" target="_blank"><?php _e('twitter','kotikota'); ?></a></li>
           </ul>
         </div>
-        
+
         <div class="titre link-cagnotte">
-          <h2><span><img src="<?php echo IMG_URL ?>icon-link.png"></span>Lien de votre cagnotte</h2>
+          <h2><span><img src="<?php echo IMG_URL ?>icon-link.png"></span><?php _e('Lien de votre cagnotte','kotikota')?></h2>
         </div>
 
         <div class="chp-lien " >
@@ -67,7 +67,7 @@
               $ont_pas_encore_participe = array();
 
               if ( is_array($participants) ){
-                foreach( $participants as $k => $participant ){ 
+                foreach( $participants as $k => $participant ){
                   $email_participant = get_field('email_participant', $participant['participant_']->ID);
                   if ( false !== $key = array_search($email_participant, $invitations) ){
                     $ont_deja_participe[] = $participant;
