@@ -46,7 +46,7 @@
                                                     }else{
                                                         echo $parent->name;
                                                     }
-                                                     
+
                                                 } else {
                                                     echo $parent->name;
                                                 }
@@ -83,7 +83,7 @@
                                                                                 }else{
                                                                                     echo $enfant->name;
                                                                                 }
-                                                                                 
+
                                                                             } else {
                                                                                 echo $enfant->name;
                                                                             }
@@ -354,15 +354,15 @@
                             <input type="hidden" id="condParticip" name="condParticip" value="">
                             <a href="<?php echo home_url() ?>" class="link" title="<?php _e('annuler','kotikota'); ?>"><?php _e('annuler','kotikota'); ?></a>
                             <input type="submit" name="submit_creation_cagnotte" class="link submit" value="<?php _e('créer ma cagnotte','kotikota'); ?>" id="creer-cagnotte">
-                            <a href="#pp-felicitation" style="display: none" class="link submit fancybox" id="creer-cagnotte-popup">créer ma cagnotte pop up</a>
+                            <a href="#pp-felicitation" style="display: none" class="link submit fancybox" id="creer-cagnotte-popup"><?php _e('créer ma cagnotte pop up','kotikota') ?></a>
                         </div>
                         <div class="pp-felicitation" id="pp-felicitation" style="display: none">
                             <div class="content">
                                 <?php $current_user  = wp_get_current_user(); ?>
-                                <div class="conf_titre">Félicitations</div>
-                                <div class="conf_text"><p>Vous avez reçu un email à l'adresse <span class="email"><?= $current_user->user_email ?></span> afin que vous puissiez confirmer votre compte . Attention, il se peut que l'email tombe dans les courriers indésirables (spam). </p> </div>
+                                <div class="conf_titre"><?php _e('Félicitations','kotikota') ?></div>
+                                <div class="conf_text"><p><?php printf(__('Vous avez reçu un email à l\'adresse %s afin que vous puissiez confirmer votre compte . Attention, il se peut que l\'email tombe dans les courriers indésirables (spam).'),'<span class="email">'. $current_user->user_email .'</span> afin que vous puissiez confirmer votre compte . Attention, il se peut que l\'email tombe dans les courriers indésirables (spam).')?> </p> </div>
                                 <div class="btn">
-                                  <a href="#" id="Ok" class="link" title="Ok"> ok </a>
+                                  <a href="#" id="Ok" class="link" title="Ok"> <?php _e('ok','kotikota') ?> </a>
                                 </div>
                             </div>
                         </div>
