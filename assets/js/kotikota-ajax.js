@@ -1,24 +1,24 @@
 $(function(){
 
 /******
-	  création cagnotte 
+	  création cagnotte
 	  *************/
 
 	  /*
 	  * Choix catégorie de cagnotte
 	  * Type de cagnotte est défini selon type
-	  
+
 	  * Cagnotte SOLIDAIRE = automatiquement PUBLIQUE ==> cacher le choix déroulant
 		* Cagnotte PERSONNELLE = cagnotte PUBLIQUE ou PRIVÉE au choix (on doit pouvoir choisir)
 		*/
-		
-	  $('.lst-type .item').on('click', function(){ 
+
+	  $('.lst-type .item').on('click', function(){
 			var choix_categ = $(this).find('input[name="sous-categ"]').val();
 			var categ = $(this).find('input[name="categ"]').val();
 
 			var categorie_c = $(this).find('input[name="sous-categ"]').data('categorie');
 
-			if( categorie_c == text.list_perso ){
+			if( categorie_c == "Personnelle" ){
 				/* Afaka misafidy oe publique sa privée */
 				$('#type_cagnotte').removeClass( 'disabled' );
 				$('#type_cagnotte').val(text.list_priv);
@@ -29,9 +29,9 @@ $(function(){
 				$('#cat_cagnotte').val(text.list_perso);
 
 				$('.info-prive').removeClass('hidden');
-				$('.info-publique').addClass('hidden');				
+				$('.info-publique').addClass('hidden');
 
-			}else if( categorie_c == text.list_solid ){
+			}else if( categorie_c == "Solidaire" ){
 				/* Tonga dia publique systématiquement */
 				$('#type_cagnotte').val(text.list_pub);
 				$('#type_cagnotte').removeClass('disabled');
@@ -89,17 +89,17 @@ $(function(){
 	  	}
 
 	  	form_data.append('action', 'create_cagnotte');
-	
+
 		// if(cin_value){
 		// 	form_data.append('cin_value', cin_value);
 		// }else{
 		// 	form_data.append('cin_value', '');
 		// }
 
-	  	
+
 	  	$.ajax({
 	  		url: ajaxurl,
-	  		data: form_data,           
+	  		data: form_data,
         contentType: false,
         processData: false,
         type:"POST",
@@ -114,24 +114,24 @@ $(function(){
 						beforeClose: function() {
 						    window.location = resp;
 						}
-					});					
+					});
 				}else{
 		  		$('ul#response').addClass('error').html(resp);
 		  		setTimeout(function() {
 		  			$('ul#response').removeClass('error').html('');
-		  		}, 10000 );					
+		  		}, 10000 );
 				}
 	  	});
 
 	  	return false;
 	  });
-	 
+
 	  $('#pp-felicitation .link').click(function(){
 	  	$.fancybox.close();
 	  });
-	
+
 	   /******
-	  participation 
+	  participation
 	  *************/
 	  $('#participate').click(function(){
 	  	$('#loader').addClass('working');
@@ -144,7 +144,7 @@ $(function(){
 	  			'action' : 'redirect_single',
 	  			'id' : id
 	  		}
-	  	}).done(function(resp){	  		
+	  	}).done(function(resp){
 	  		if (resp = 'success'){
 	  			console.log('redirecting...');
 	  			window.location = url;
@@ -156,8 +156,8 @@ $(function(){
 
 	  	return false;
 	  });
-	  
-	  /* 
+
+	  /*
 	  * Participation
 	  */
 
@@ -185,7 +185,7 @@ $(function(){
 	  	if( 'mga' != $devise ){
 	  		/* affichéna ny montant équivalent en ariary */
 	  		var $montant_converti = calcul_devise_en_mga( $montant, $devise, change_mga_eu, change_mga_liv, change_mga_cad, change_mga_usd );
-	  		
+
 	  		$('.change-texte').text( text.conf_montant_devise + $montant_converti + ' MGA');
 	  	}else{
 	  		$('.change-texte').text('');
@@ -205,12 +205,12 @@ $(function(){
 	  	if( 'mga' != $devise ){
 	  		/* affichéna ny montant équivalent en ariary */
 	  		var $montant_converti = calcul_devise_en_mga( $montant, $devise, change_mga_eu, change_mga_liv, change_mga_cad, change_mga_usd );
-	  		
+
 	  		$('.change-texte').text(text.conf_montant_devise + $montant_converti + ' MGA');
 	  	}else{
 	  		$('.change-texte').text('');
 	  	}
-	  	
+
 	  });
 
 	  $('#creer-participation').click(function(e){
@@ -245,7 +245,7 @@ $(function(){
 
 	  	// 	return false;
 	  	// }else if ( devise != 'mga' ){
-	  	// 	if ( paiement == 'orange' || paiement == 'telma' || paiement == 'airtel' ){ 
+	  	// 	if ( paiement == 'orange' || paiement == 'telma' || paiement == 'airtel' ){
 		  // 		$('#open_conf').trigger('click');
 		  // 		$('#popup_conf').addClass('warning_popup');
 		  // 		$('#popup_conf .conf_titre').text('Attention !');
@@ -278,7 +278,7 @@ $(function(){
 	  			'accord' : accord
 	  		}
 	  	}).done( function(resp){
-	  		
+
 	  		$('#loader').removeClass('working');
 	  		var patt = new RegExp("^\<li\>");
 	  		var url = new RegExp("^http");
@@ -324,7 +324,7 @@ $(function(){
 	      	$('#loader').removeClass('working');
 	      	$('.output-normal').fadeOut(300);
 	      	$('.output-response').fadeIn(300);
-	      	window.location = resp;     	
+	      	window.location = resp;
 	      }
 	    });
 
@@ -343,8 +343,8 @@ $(function(){
 	  			'action' : 'redirect_gestion',
 	  			'id' : id
 	  		}
-	  	}).done(function(resp){	 
-	  		console.log(resp); 		
+	  	}).done(function(resp){
+	  		console.log(resp);
 	  		if (resp = 'success'){
 	  			console.log('redirect...');
 	  			window.location = url + '?gest=' + id;
@@ -455,7 +455,7 @@ $(function(){
 	  	var nomCagnotte = $('#nom_cagnotte').val();
 	  	var idCagnotte	= $('#idCagnotte').val();
 	  	var idBenef = $('#benef').val();
-		
+
 	  	// info beneficiaire
 
 	  	var titulaire = $('#rib_nom').val();
@@ -468,10 +468,10 @@ $(function(){
 	  	var iban = $('#rib_iban').val();
 	  	var bic = $('#rib_bic').val();
 		var fichier = $('#rib_value').val();
-		console.log(fichier); 		  
+		console.log(fichier);
 	  	$.ajax({
 	  		url: ajaxurl,
-	  		type: 'POST',			
+	  		type: 'POST',
 	  		data:{
 	  			'action':'save_info_banque',
 	  			'titulaire': titulaire,
@@ -504,7 +504,7 @@ $(function(){
 	  	return false;
 
 	  });
-	
+
 	  /* paramtre fond */
 	  $('#slide-img .item a').click(function(){
 			var src = $(this).data('imgsrc');
@@ -569,10 +569,10 @@ $(function(){
 	  	$.ajax({
 	  		url: ajaxurl,
 	  		type: 'POST',
-	  		data: { 
+	  		data: {
 	  			'action': 'save_descr',
 	  			'descr': descr,
-	  			'idCagnotte': idCagnotte 
+	  			'idCagnotte': idCagnotte
 	  		}
 	  	}).done(function(resp){
 	  		var url = new RegExp("^http");
@@ -618,7 +618,7 @@ $(function(){
 	  	$.ajax({
 	  		url: ajaxurl,
 	  		type: 'POST',
-	  		data: { 
+	  		data: {
 	  			'action': 'save_montant',
 	  			'ilaina': ilaina,
 	  			'suggere': suggere,
@@ -645,7 +645,7 @@ $(function(){
 	  });
 
 	  /* parametre notification */
-	  $('#submit-parametre').click(function(){ 
+	  $('#submit-parametre').click(function(){
 	  	$('#loader').addClass('working');
 
 	  	var recevoirNotif = $('#recevoir:checked').val();
@@ -661,7 +661,7 @@ $(function(){
 	  	$.ajax({
 	  		url: ajaxurl,
 	  		type: 'POST',
-	  		data: { 
+	  		data: {
 	  			'action': 'save_notif',
 	  			'recevoirNotif': recevoirNotif,
 	  			'notifParticip': notifParticip,
@@ -720,7 +720,7 @@ $(function(){
 	  $('.delete a').click(function(){
 	  	var id = $(this).data('delete');
 	  	if ( confirm("Confirmer la suppression") ){
-	  			
+
 
 	  			$.ajax({
 	  				url: ajaxurl,
@@ -732,7 +732,7 @@ $(function(){
 	  			}).done(function(r){
 	  					if (r == "success"){
 	  						location.reload();
-	  					}	  					
+	  					}
 	  			});
 	  	}
 	  	return false;
@@ -741,9 +741,9 @@ $(function(){
 	  /* edit qusint */
 	  if ( $('#edit-question').length ){
 			  $('#edit-question').click(function(){
-			  	var question = $('#la-question').val();	  	
+			  	var question = $('#la-question').val();
 			  	var id = $('.edit a').data('edit');
-		
+
 			  	if ( question == ''){
 			  		alert('Question !');
 			  		return false;
@@ -762,7 +762,7 @@ $(function(){
 			  	}).done(function(resp){
 			  		location.reload();
 			  		// $('.listComment.editing').html(resp);
-			  		// $('#la-question').val('');	
+			  		// $('#la-question').val('');
 			  		// $('#loader').removeClass('working');
 			  		// $('.listComment').removeClass('editing');
 			  	});
@@ -872,14 +872,14 @@ $(function(){
 
 	// Page paiement Airtel Money
 	if( $('#AM_page').length > 0 ){
-		$('#loader').addClass('working');		
+		$('#loader').addClass('working');
 		setTimeout( check_AM_Status, 40000 );
 	}
 
 	function check_AM_Status(){
-		
+
 		var order_id = $('#order_id').val();
-		
+
   	$.ajax({
 	  		url: ajaxurl,
 	  		type: 'POST',
@@ -918,7 +918,7 @@ $(function(){
 	  		$('#cloturer-confirm').remove();
 	  		$('#confirme-cloture').remove();
 	  		$('#btn_participer_wrap').remove();
-	  		
+
 	  });
 
 		return false;
@@ -938,11 +938,11 @@ $(function(){
 				'action': 'remove_doc_cagnotte',
 				'file_ids' : file_ids,
 				'cagnotte_id': cagnotte_id
-			},           
+			},
 			dataType: 'html',
 			type:"POST",
 		}).done(function(resp){
-			$('#pp-document .lst-document').html(resp);		
+			$('#pp-document .lst-document').html(resp);
 		});
 	});
 
@@ -971,12 +971,12 @@ $(function(){
                     'action': 'insert_doc_cagnotte',
                     'doc_file' : attachment.url,
                     'cagnotte_id': cagnotte_id
-                },           
+                },
                 dataType: 'html',
                 type:"POST",
             }).done(function(resp){
-                $('#pp-document .lst-document').html(resp);		
-                
+                $('#pp-document .lst-document').html(resp);
+
             });
 
 
@@ -1015,11 +1015,11 @@ $(function(){
                     'action': 'insert_image_cagnotte',
                     'image_url' : attachment.url,
                     'cagnotte_id': cagnotte_id
-                },           
+                },
                 dataType: 'html',
                 type:"POST",
             }).done(function(resp){
-                $('#pp-photos .lst-document .row .photo').html(resp);		
+                $('#pp-photos .lst-document .row .photo').html(resp);
                 $.fancybox.close();
             });
 
@@ -1046,14 +1046,14 @@ $(function(){
 					'action': 'insert_video_cagnotte',
 					'video_id' : video_id,
 					'cagnotte_id': cagnotte_id
-				},           
+				},
 				dataType: 'html',
 				type:"POST",
 			}).done(function(resp){
 				if(patt.test(resp)){
 					$('.error_video').text(resp);
 				}else{
-					$('#pp-photos .lst-document .row .video').html(resp);		
+					$('#pp-photos .lst-document .row .video').html(resp);
 					$.fancybox.close();
 				}
 			});
@@ -1082,11 +1082,11 @@ $(function(){
 				'image_ids' : image_ids,
 				'video_ids' : video_ids,
 				'cagnotte_id': cagnotte_id
-			},           
+			},
 			dataType: 'html',
 			type:"POST",
 		}).done(function(resp){
-			$('#pp-photos .lst-document').html(resp);		
+			$('#pp-photos .lst-document').html(resp);
 		});
 	});
 
