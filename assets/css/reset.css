@@ -2726,6 +2726,7 @@ a:hover { color:#fbbd36; }
 }
 @media (min-width:1201px) { 
    #menu-menu-home { display: block!important; }
+   #menu-menu-1-malagasy-madagascar { display: block!important; }
 }
 @media (max-width:1200px) {
     #menu-menu-1 { background-color: #fff; display: none;} 
