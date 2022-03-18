@@ -35,7 +35,7 @@ if ( (is_user_logged_in() && get_field('titulaire_de_la_cagnotte', $id_cagnotte 
           </ul>
         </div>
         <div class="titre link-cagnotte wow fadeIn">
-          <h2><span><img src="<?php echo IMG_URL ?>icon-link.png"></span><?= get_field('cagnotte_texte_1', 'option') ?></h2>
+          <h2><span><img src="<?php echo IMG_URL ?>icon-link.png"></span><?= __('Lien de votre cagnotte','koikota'); ?></h2>
         </div>
 
         <div class="chp-lien wow fadeIn" data-wow-delay="950ms">
