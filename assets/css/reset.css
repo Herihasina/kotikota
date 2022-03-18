@@ -2727,10 +2727,15 @@ a:hover { color:#fbbd36; }
 @media (min-width:1201px) { 
    #menu-menu-home { display: block!important; }
    #menu-menu-1-malagasy-madagascar { display: block!important; }
+#menu-menu-home-malagasy-madagascar { display: block!important;}
 }
+
 @media (max-width:1200px) {
     #menu-menu-1 { background-color: #fff; display: none;} 
-    #menu-menu-1-malagasy-madagascar{ background-color: #fff; display: none;} 
+    #menu-menu-1-malagasy-madagascar{ background-color: #fff; display: none;}
+    #menu-menu-home-malagasy-madagascar { display: none; background-color: #fff;}
+
+
     #menu-menu-home { display: none;}
     .wrapMenuMobile                                             { width:auto; height:45px; display:block; z-index:80; transition:all 400ms ease-in-out;  cursor:pointer;  text-transform:uppercase; position:absolute; right:40px; top:23px;}
     .menuMobile                                                 { width:30px; display:block; height:45px; cursor:pointer; position:relative; line-height:20px;padding: 0;color: #ffffff; text-indent: -100px;}
