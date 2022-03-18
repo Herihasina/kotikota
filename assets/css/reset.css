@@ -177,7 +177,7 @@ select option                                               { padding: 10px 30px
 .wpml-ls-statics-shortcode_actions.wpml-ls.wpml-ls-legacy-list-horizontal {
     padding: 0 7px !important;
 }
-.menu-flag li                                               { float: left; margin: 0 10px  }
+.menu-flag li                                               { float: left; margin: 0 10px; position: relative;  }
 .menu li                                                    { float: left; }
 .logo                                                       { display: block; margin-top: 20px;margin-left: 0;}
 .headerTop                                                  { position: relative; top: 0; left: 0; right: 0; margin: auto; z-index: 99; background-color: #fff; padding-top: 16px }
@@ -3695,13 +3695,14 @@ a:hover { color:#fbbd36; }
     .cont-pp .titre h2 { font-size: 28px }
     .pp-rib .titre::before { display: none; }
     .cont-pp .titre { padding: 20px 40px 20px 20px;}
-    .txt-banner { padding-top: 30px; max-width: 280px;}
+    .txt-banner { padding-top: 30px; max-width: 100%;}
     .cont-video > div { width: 180px;}
     .cont-video span { font-size: 12px }
     .blc-video { right: auto; left: 20px}
 
     .lst-choix-cond-part .item .content::after { right: 15px }
     .lst-choix-cond-part .item .content::before { right: 19px }
+    .lst-comment-ca-marche .item .content p { height: 50px; overflow: hidden; }
 
 /*
     .lst-step .item .content .ico {
