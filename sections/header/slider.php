@@ -76,7 +76,7 @@
                         echo __('Invitez vos participants', 'kotikota');
                     elseif (  preg_match('/^\/parametre/', $_SERVER['REQUEST_URI']) || preg_match('/^\/mg\/parametre/', $_SERVER['REQUEST_URI']) ):
                         echo __('Je paramètre ma cagnotte', 'kotikota');
-                     elseif (  preg_match('/^\/mon-profil/', $_SERVER['REQUEST_URI']) ):
+                     elseif (  preg_match('/^\/mg\/mon-profil/', $_SERVER['REQUEST_URI']) ):
                         echo __('J\'édite mon profil', 'kotikota');
                      elseif ( is_search() ):
                         echo __('Toutes nos cagnottes', 'kotikota');
@@ -99,7 +99,7 @@
                     elseif ( is_page( array('payment-accepted','succes-paiement') ) ):
                         echo __('Don effectué :)', 'kotikota');
                     else:
-                        echo $_SERVER['REQUEST_URI'];//"Erreur 404";
+                        echo "Erreur 404";
                     endif;
                     ?>
                 </h1>
