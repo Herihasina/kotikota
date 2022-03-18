@@ -35,7 +35,19 @@
                                    <div class="item">
                                        <div class="content">
                                            <div class="inner <?php echo $couleur; ?>">
-                                              <?php echo $enfant->name; ?>
+                                              <?php
+                                                if (trim(ICL_LANGUAGE_CODE) == 'mg') {
+                                                    $mg = get_field('traduction_malagasy', 'categ-cagnotte_'. $enfant->term_id);
+                                                    if( $mg ){
+                                                        echo $mg;
+                                                    }else{
+                                                        echo $enfant->name;
+                                                    }
+                                                     
+                                                } else {
+                                                    echo $enfant->name;
+                                                }
+                                              ?>
                                               <span></span>
                                                  <input type="hidden" name="sous-categ" value="<?php echo $enfant->term_id ?>"> 
                                                  <input type="hidden" name="categ" value="<?php echo $parent->term_id ?>"> 

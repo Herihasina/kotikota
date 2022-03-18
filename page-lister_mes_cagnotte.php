@@ -14,7 +14,7 @@
 <div class="blc-cagnotte-liste wow fadeIn" data-wow-delay="850ms">
     <div class="wrapper">
         <?php
-        	$per_page = get_field('per_page','options');
+        	$per_page = get_field('per_page','option');
         	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
         	$args = array(  
