@@ -21,11 +21,11 @@
                 // }else{
                 //      include 'slider-video.php';
                 // }
-            // }   
+            // }
         ?>
-       
 
-       
+
+
     </div>
 
 <?php else: ?>
@@ -37,19 +37,19 @@
                     $terms = get_the_terms($post->ID, 'categ-cagnotte');
                     $souscateg = $terms[1];
                     $bg = get_field('image_banniere', 'categ-cagnotte_'.$souscateg->term_id);
-            }elseif( is_search() || is_tax() ){ 
+            }elseif( is_search() || is_tax() ){
                 $bg = get_field('banniere_image','option');
             }elseif ( basename(get_page_template()) == 'page-participer_cagnotte.php' ){
-                $terms = get_the_terms($_GET['part'], 'categ-cagnotte'); 
+                $terms = get_the_terms($_GET['part'], 'categ-cagnotte');
                 $souscateg = $terms[1];
                 $bg = get_field('image_banniere', 'categ-cagnotte_'.$souscateg->term_id);
             }
             $bg = wp_get_attachment_image_src( $bg, 'banniere' )[0];
 
         ?>
-        <div class="banner-inner" 
-            <?php 
-                if ($bg) : ?> style="background: center / cover no-repeat url('<?php echo $bg ?>);" <?php endif; 
+        <div class="banner-inner"
+            <?php
+                if ($bg) : ?> style="background: center / cover no-repeat url('<?php echo $bg ?>);" <?php endif;
 
             ?>
         >
@@ -74,7 +74,7 @@
                         echo __('<span>Participer à la cagnotte : </span>', 'kotikota'). $terms[1]->name;
                     elseif ( basename(get_page_template()) == 'page-gestion_cagnotte.php'):
                         echo __('Invitez vos participants', 'kotikota');
-                    elseif (  preg_match('/^\/parametre/', $_SERVER['REQUEST_URI']) ):
+                    elseif (  preg_match('/^\/parametre/', $_SERVER['REQUEST_URI']) || preg_match('/mg/^\/parametre/', $_SERVER['REQUEST_URI']) ):
                         echo __('Je paramètre ma cagnotte', 'kotikota');
                      elseif (  preg_match('/^\/mon-profil/', $_SERVER['REQUEST_URI']) ):
                         echo __('J\'édite mon profil', 'kotikota');
