@@ -2630,6 +2630,11 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 }
 .conf_text a { color: #000 }
 
+.menu-flag li:after{ content: '';width: 31px;height: 31px;position: absolute;top: 0;left: 0; }
+.menu-flag  li.wpml-ls-item-mg:after{ background: url(../images/mg-flag.png) no-repeat center;background-size: cover; }
+.menu-flag  li.wpml-ls-item-fr:after{ background: url(../images/fr-flag.png) no-repeat center;background-size: cover; }
+.menu-flag  li.wpml-ls-item-en:after{ background: url(../images/en-flag.png) no-repeat center;background-size: cover; }
+
 
 
 @media (min-width:1201px) {
@@ -3551,7 +3556,7 @@ a:hover { color:#fbbd36; }
     .lst-securite .item .titre {padding: 20px 40px 20px 60px}
     .lst-securite .item .titre::before { left: 20px }
     .lst-securite .item .titre::after { right: 20px }
-    .securite-cagnotte h2 {font-size: 30px}
+    .securite-cagnotte h2 {font-size: 30px ; line-height: normal}
     .cont-pp .titre { padding: 20px 20px; }
     .cont-pp .titre h2 { font-size: 30px }
     .inner-pp .row .col { width: 100%;}
