@@ -59,6 +59,7 @@
     		echo ' active selected';	?>">
       <div class="content">
         <h2><?php _e('Infos principales','kotikota')?></h2>
+        <?php echo get_site_url() ?>
         <a href="<?php echo get_site_url() ?>parametre-info-principale/?parametre=<?= $idCagnotte ?>" class="ico">
           <img src="<?php echo IMG_URL ?>info.png">
         </a>
