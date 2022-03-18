@@ -71,7 +71,7 @@
                                                                             //print_r(ICL_LANGUAGE_CODE);
 
                                                                             if (trim(ICL_LANGUAGE_CODE) == 'mg') {
-                                                                                echo 'malagasy';//get_field('traduction_malagasy', 'categ-cagnotte_'. $enfant->term_id);
+                                                                                echo get_field('traduction_malagasy', 'categ-cagnotte_'. $enfant->term_id);
                                                                             } else {
                                                                                 echo $enfant->name;
                                                                             }
