@@ -80,6 +80,11 @@
             <div class="conf_text">Lorem ipsum sit amet dolor lorem ipusm sit amet dolor lorem ipsum sit met lorem ipsum</div>
         </div>
     </div>
+    <div style="visibility: hidden;position: fixed;top: -100000px;z-index: -1;">
+        <div id="titre_pop"><?= __('Réinitialisation du mot de passe','kotikota'); ?></div>
+    <div id="text_pop"><?= __('MDP envoyé, merci de vérifier votre boite email !','kotikota'); ?></div>
+    </div>
+    
     <?php wp_footer(); ?>
 
 </body>

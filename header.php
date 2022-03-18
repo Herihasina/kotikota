@@ -31,7 +31,7 @@
       <meta property="og:url" content="<?php echo get_the_permalink( $post->ID ); ?>" />
       <meta property="og:type" content="article" />
       <meta property="og:title" content="<?php echo get_the_title(); ?>" />
-      <meta property="og:description" content="<?php echo $terms[0]->name; ?>" />
+      <meta property="og:description" content="<?php get_field('description_de_la_cagnote', $post->ID) ?>" />
       <meta property="fb:app_id" content="3122702584626959">
       <?php
         $img_url = get_field('illustration_pour_la_cagnotte', $post->ID);
