@@ -1,4 +1,7 @@
 <?php
+                    global $wp;
+                    $current_url = home_url(add_query_arg(array(), $wp->request));
+
                     // Avoir le dernier cagnottes du kotikoteur
                     if ( is_user_logged_in() ) {
                         $args = array(
@@ -20,7 +23,7 @@
                         while( $q->have_posts() ) {
                                 $q->the_post();
                                 //$ca_id = get_the_ID();
-                                $url_invite = 'https://koti-kota.com/gestion-cagnotte-invite/?gest='. get_the_ID();
+                                $url_invite = $current_url .'gestion-cagnotte-invite/?gest='. get_the_ID();
                                 $url_class_invite = '';
                         }
                         wp_reset_postdata();
