@@ -2612,6 +2612,15 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     font-weight: 700
 }
 
+.wpml-ls-link img[alt="Anglais"] {
+    display: none !important;
+}
+.wpml-ls-legacy-list-horizontal a img {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+}
+
 
 
 @media (min-width:1201px) {
