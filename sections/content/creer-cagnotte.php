@@ -67,7 +67,7 @@
                                                                  <div class="content">
                                                                      <div class="inner <?php echo $couleur; ?>">
                                                                         <?php
-                                                                            if( if (substr(ICL_LANGUAGE_CODE,0,2) == 'mg') {
+                                                                            if( if (substr(ICL_LANGUAGE_CODE,0,2) == 'mg')) {
                                                                                 echo get_field('traduction_malagasy', 'categ-cagnotte_'. $enfant->term_id);
                                                                             } else {
                                                                                 echo $enfant->name;
