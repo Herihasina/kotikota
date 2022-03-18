@@ -59,7 +59,7 @@
     		echo ' active selected';	?>">
       <div class="content">
         <h2><?php _e('Infos principales','kotikota')?></h2>
-        <a href="<?php echo $icl_get_home_url; ?>parametre-info-principale/?parametre=<?= $idCagnotte ?>" class="ico">
+        <a href="<?php echo $icl_get_home_url; ?>parametre-info-principale/?parametre=<?= $idCagnotte ?>" class="ico"> debug
           <img src="<?php echo IMG_URL ?>info.png">
         </a>
       </div>
