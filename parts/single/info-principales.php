@@ -50,7 +50,7 @@
                     echo $diff; ?>
                     <?php 
                       if ($diff >= 2 && ICL_LANGUAGE_CODE == 'fr') {
-                        echo ' '._e('jour','kotikota').'s';
+                        echo ' '._e('jours','kotikota');
                       }else{
                         echo ' '._e('jour','kotikota');
                       }
