@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" prefix="og: https://ogp.me/ns#">
+<html <?php language_attributes() ?> prefix="og: https://ogp.me/ns#">
 
 <head>
     <script src="https://www.google.com/recaptcha/api.js?render=6Lc7PboaAAAAAO615AOfhbSRGs8wLcCEj3dClpC7"></script>
@@ -25,7 +25,7 @@
     <!-- End TrustBox script -->
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <?php if ( is_singular('cagnotte') ) :
+    <?php if ( is_singular( array('cagnotte', 'cagnotte-perso') ) ) :
       $terms = get_the_terms( $post->ID, 'categ-cagnotte' );
     ?>
       <meta property="og:url" content="<?php echo get_the_permalink( $post->ID ); ?>" />
