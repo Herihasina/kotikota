@@ -3296,16 +3296,16 @@ a:hover { color:#fbbd36; }
             text-align: center !important;
             font-weight: 700;
         }
-        #pp-photos .inner-pp .row .col .lst-option { padding-right: 0 }
-        .lst-document h4 {
+    #pp-photos .inner-pp .row .col .lst-option { padding-right: 0 }
+    .lst-document h4 {
             text-align: center !important;
-            margin-bottom: 30px;
-        }
-        #pp-document .lst-document h4 {
-    margin-bottom: 0;
-}
-
-.tarifs .cont-left .col .content {width: auto; max-width: 400px}
+        margin-bottom: 30px;
+    }
+    #pp-document .lst-document h4 {
+        margin-bottom: 0;
+    }
+    .tarifs .cont-left .col .content {width: auto; max-width: 400px}
+    .securite-cagnotte h2 { line-height: normal; }
 
 
 
@@ -3676,7 +3676,7 @@ a:hover { color:#fbbd36; }
     .lst-payement ul li:nth-of-type(8) {
         order: 8;
     }
-    .securite-cagnotte h2 { line-height: normal; }
+
 
 
 
