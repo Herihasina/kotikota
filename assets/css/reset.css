@@ -3587,6 +3587,8 @@ a:hover { color:#fbbd36; }
         display: block;
         margin: 0 0 20px;
     }
+
+
     #cin_value {   width: 100%;
         height: 100%;
         opacity: 0;
@@ -3705,6 +3707,17 @@ a:hover { color:#fbbd36; }
     .desk-only{
         display: none;
     }
+    .mobile-only.illustration_cagnotte.photo_profil_mobile {
+        margin-bottom: 20px;
+    }
+    #photo_profil_mobile {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
 }
 
 
