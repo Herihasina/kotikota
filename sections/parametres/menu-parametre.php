@@ -1,8 +1,6 @@
 <?php
-  echo ICL_LANGUAGE_CODE;
-
   if (trim(ICL_LANGUAGE_CODE) != '') {
-    $url = get_site_url().ICL_LANGUAGE_CODE.'/';
+    $url = get_site_url().'/'.ICL_LANGUAGE_CODE;
   } else {
     $url = get_site_url();
   }
