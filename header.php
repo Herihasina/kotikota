@@ -93,7 +93,7 @@
 <div id="wrapper">
     <header id="header">
       <?php
-        $my_home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
+
         if (is_home() || is_front_page() ):?>
       <input type="hidden" name="isHome" value=1>
 
