@@ -58,7 +58,7 @@
     	if ($active == 'info') echo ' active no-ico'; if ($active == 'fond'|| $active == 'description' || $active == 'montant' || $active == 'notif')
     		echo ' active selected';	?>">
       <div class="content">
-        <h2><?php _e('Infos principales','kotikota')?><?php echo 'test url'; ?></h2>
+        <h2><?php _e('Infos principales','kotikota')?> <?php echo get_site_url() . (ICL_LANGUAGE_CODE =='fr') ? '' : '/'.ICL_LANGUAGE_CODE.'/'; ?></h2>
         <a href="<?php
         echo get_site_url()
         . (ICL_LANGUAGE_CODE == 'fr') ? '' : '/'.ICL_LANGUAGE_CODE.'/'; ?>parametre-info-principale/?parametre=<?= $idCagnotte ?>" class="ico">
@@ -68,7 +68,7 @@
     </div>
     <div class="item<?php if ($active == 'fond') echo ' active no-ico'; if ($active == 'description'|| $active == 'montant' || $active == 'notif') echo ' active selected';	?>">
       <div class="content">
-        <h2><?php _e('Fond d’écran','kotikota'); ?><?php echo 'test url'; ?></h2>
+        <h2><?php _e('Fond d’écran','kotikota'); ?> <?php echo get_site_url() . (ICL_LANGUAGE_CODE =='fr') ? '' : '/'.ICL_LANGUAGE_CODE.'/'; ?></h2>
         <a href="<?php echo get_site_url() . (ICL_LANGUAGE_CODE =='fr') ? '' : '/'.ICL_LANGUAGE_CODE.'/'; ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="ico">
           <img src="<?php echo IMG_URL ?>fond.png">
         </a>
