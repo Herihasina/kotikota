@@ -1930,7 +1930,8 @@ input:checked {
     font-size: 15px;
     position: absolute;
     bottom: -26px;
-    width: 200px
+    width: 200px;
+    line-height: 16px
   
 }
 
@@ -3004,6 +3005,8 @@ a:hover { color:#fbbd36; }
 
     #form-creation-cagnotte .chy-type .col.col53 { width: 50%;}
     .footer-3 .Whatsapp { padding-left: 0 }
+    .tarifs .cont-left .info { bottom:-48px }
+    .tarifs .cont-left .col {  padding: 41px 60px 30px 0;}
 
 }
 
@@ -3250,6 +3253,8 @@ a:hover { color:#fbbd36; }
         #pp-document .lst-document h4 {
     margin-bottom: 0;
 }
+
+.tarifs .cont-left .col .content {width: auto; max-width: 400px}
 
 
 
@@ -3501,7 +3506,7 @@ a:hover { color:#fbbd36; }
     #confirme-cloture .link.close-fancy {  margin-bottom: 10px;}
 
     .qui-sommes-nous h2 { font-size: 30px }
-    .tarifs .cont-left .info { bottom: -30px }
+   /* .tarifs .cont-left .info { bottom: -30px }*/
 
     .lst-securite .item .txt {padding: 30px 20px}
     .lst-securite .item .titre {padding: 20px 40px 20px 60px}
