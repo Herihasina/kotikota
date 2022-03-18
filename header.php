@@ -93,7 +93,7 @@
 <div id="wrapper">
     <header id="header">
       <?php
-        $current_url = home_url(add_query_arg(array(), $wp->request));
+
         if (is_home() || is_front_page() ):?>
       <input type="hidden" name="isHome" value=1>
 
