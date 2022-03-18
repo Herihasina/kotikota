@@ -360,7 +360,7 @@
                             <div class="content">
                                 <?php $current_user  = wp_get_current_user(); ?>
                                 <div class="conf_titre"><?php _e('Félicitations','kotikota') ?></div>
-                                <div class="conf_text"><p><?php _e("Vous avez reçu un email à l'adresse","kotikota") ."<span class='email'>". $current_user->user_email ."</span>". _e("afin que vous puissiez confirmer votre compte . Attention, il se peut que l'email tombe dans les courriers indésirables (spam).","kotikota") ?> </p> </div>
+                                <div class="conf_text"><p><?php _e("Vous avez reçu un email à l'adresse","kotikota") ?> <span class='email'><?= $current_user->user_email ?></span> <?php _e("afin que vous puissiez confirmer votre compte . Attention, il se peut que l'email tombe dans les courriers indésirables (spam).","kotikota") ?> </p> </div>
                                 <div class="btn">
                                   <a href="#" id="Ok" class="link" title="Ok"> <?php _e('ok','kotikota') ?> </a>
                                 </div>
