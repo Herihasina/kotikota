@@ -71,7 +71,13 @@
                                                                             //print_r(ICL_LANGUAGE_CODE);
 
                                                                             if (trim(ICL_LANGUAGE_CODE) == 'mg') {
-                                                                                echo get_field('traduction_malagasy', 'categ-cagnotte_'. $enfant->term_id);
+                                                                                $mg = get_field('traduction_malagasy', 'categ-cagnotte_'. $enfant->term_id);
+                                                                                if( $mg ){
+                                                                                    echo $mg;
+                                                                                }else{
+                                                                                    echo $enfant->name;
+                                                                                }
+                                                                                echo 
                                                                             } else {
                                                                                 echo $enfant->name;
                                                                             }
