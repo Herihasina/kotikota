@@ -33,19 +33,19 @@
                                 <?php endif; ?>
                             </div>
 
-                        </div>  
+                        </div>
                         <div class="blc-video">
                             <a class="cont-video fancybox" id="play-pop-up-video-home" data-fancybox href="https://www.youtube.com/watch?v=<?= $video ?>&autoplay=1&rel=0&loop=1&showinfo=0&playlist=<?= $video ?>">
                                 <div>
                                     <i class="ico"></i>
                                     <img src="<?= $vignette ?>" alt="Kotikota">
                                 </div>
-                                <span>Cliquez pour lire la vidéo</span>
+                                <span><?php _e('Cliquez pour lire la vidéo','Kotikota') ?></span>
                             </a>
-                        </div>   
+                        </div>
                  </div>
                 <!-- /image slider -->
-<?php 
+<?php
              }
          endif;
 endif;
