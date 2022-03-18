@@ -67,7 +67,7 @@
       <div class="pp-document" id="pp-document" style="display: none">
         <div class="Document cont-pp">
             <div class="titre">
-                <h2>Documents</h2>
+                <h2><?php _e('Documents','kotikota') ?></h2>
             </div>
             <div class="inner-pp">
                 <div class="lst-document scrollbar-inner">
