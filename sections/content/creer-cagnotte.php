@@ -360,7 +360,7 @@
                             <div class="content">
                                 <?php $current_user  = wp_get_current_user(); ?>
                                 <div class="conf_titre"><?php _e('Félicitations','kotikota') ?></div>
-                                <div class="conf_text"><p><?php printf( __('Vous avez reçu un email à l\'adresse %s afin que vous puissiez confirmer votre compte . Attention, il se peut que l\'email tombe dans les courriers indésirables (spam).'),'kotikota','<span class="email">'. $current_user->user_email .'</span> afin que vous puissiez confirmer votre compte . Attention, il se peut que l\'email tombe dans les courriers indésirables (spam).'); ?> </p> </div>
+                                <div class="conf_text"><p><?php printf( __('Vous avez reçu un email à l\'adresse %s afin que vous puissiez confirmer votre compte . Attention, il se peut que l\'email tombe dans les courriers indésirables (spam).'),'kotikota','<span class="email">'. $current_user->user_email .'</span>'); ?> </p> </div>
                                 <div class="btn">
                                   <a href="#" id="Ok" class="link" title="Ok"> <?php _e('ok','kotikota') ?> </a>
                                 </div>
