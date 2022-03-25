@@ -171,14 +171,14 @@
                                 <label><?php _e('Choisis la bonne photo ','kotikota'); ?> <span>*</span></label>
                                 <div class="blc-img jauge">
                                     <!-- Desk only -->
-                                    <div class="zone-img illustration_cagnotte"> <!--desk-only-->
+                                    <div class="zone-img desk-only illustration_cagnotte">
                                         <input name="" id="fileImg" class="inputfile" type="text">
                                         <label for="fileImg"><?php _e('Ajouter  <br> votre photo','kotikota'); ?></label>
                                         <input type="hidden" value="" name="illustration" id="url_img_cagnotte" required>
                                     </div>
                                     <!-- /Desk only -->
 
-                                    <div class="lst-img clr scrollbar-inner"> <!--desk-only-->
+                                    <div class="lst-img clr scrollbar-inner desk-only">
                                         <div class="inner">
                                             <?php
                                                 $query_images_args = array(
@@ -317,7 +317,7 @@
                             <div class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms">
                                 <label> <?php _e('Ajouter votre passeport ou carte identité (à fournir sous 48h )','kotikota'); ?></label>
                                 <!-- visible seulement pour desk  -->
-                               <div class="chp desk-only">
+                               <div class="chp"> <!--desk-only-->
                                     <div class="cont-file">
                                         <span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
                                         <input type="text" name="" class="input-file" id="cin_btn">
