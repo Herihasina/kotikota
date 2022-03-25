@@ -115,6 +115,12 @@ function load_front_assets() {
         )
     );
 
+    wp_localize_script( 'custom-wp', 'text',
+        array(
+            'fichier_ajoute' => __('Fichier ajouté', 'kotikota'),
+        )
+    );
+
 }
 add_action( 'wp_enqueue_scripts', 'load_front_assets' );
 
