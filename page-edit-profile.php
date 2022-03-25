@@ -104,7 +104,7 @@
                             <?php
                             if($cin):
                               _e('Fichier ajouté','kotikota');
-                            else
+                            else:
                               _e('Parcourir','kotikota');
                             endif;
                             ?></i>
