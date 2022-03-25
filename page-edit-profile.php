@@ -89,7 +89,7 @@
                   <div class="blcFormulaire fichier">
                   <label for=""><?php echo __('Ajouter votre CIN, Passeport', 'kotikota'); ?></label>
                     <!-- visible seulement pour desk  -->
-                    <div class="chp desk-only" style="">
+                    <div class="chp" style=""><!--desk-only-->
                         <div class="cont-file">
                           <?php
                             $cin = get_field('piece_didentite','user_'.get_current_user_id() );

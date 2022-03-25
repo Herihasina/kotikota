@@ -783,7 +783,7 @@ $(function(){
 	  	form_data.append('action','edit_profile');
 
 	  	if( $('.mobile-only:visible').length ){
-	  		form_data.delete('cin_value');
+	  		//form_data.delete('cin_value');
 	  		form_data.delete('choix-photo');
 	  		form_data.append('device', 'mobile');
 

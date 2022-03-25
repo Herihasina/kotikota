@@ -1081,8 +1081,9 @@ function edit_profile(){
 
 
     if( 'mobile' == $device ){
-
-        if( $_FILES['choix-photo_mobile'] ){
+        if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
+            $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+        } else if( $_FILES['choix-photo_mobile'] ){
             $pdp = $_FILES['choix-photo_mobile'];
             $pdp = $pdp['name'];
 
