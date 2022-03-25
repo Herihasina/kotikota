@@ -1047,6 +1047,12 @@ function edit_profile(){
          wp_die();
     }
 
+    $out[] = __('Votre profil a bien été mis à jour !','kotikota');
+
+    echo  json_encode( $out );
+
+    wp_die();
+
     $userdata = array(
         'ID'         => get_current_user_id(),
         'first_name' => strip_tags($_POST['fname']),
@@ -1057,12 +1063,6 @@ function edit_profile(){
     if ( isset($newpwd) && $newpwd ){
         $userdata['user_pass'] = $newpwd;
     }
-
-    $out[] = __('Votre profil a bien été mis à jour !','kotikota');
-
-    echo  json_encode( $out );
-
-    wp_die();
 
     $update_user = wp_update_user( $userdata );
 
