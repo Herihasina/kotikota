@@ -664,7 +664,7 @@ $(document).ready(function() {
         });
     });
 
-    $('#cin_btn .parcourir').click(function(e) {
+    $('.blcFormulaire .parcourir').click(function(e) {
         $('#cin_btn').trigger('click');
     });
 
