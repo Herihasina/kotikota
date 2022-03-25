@@ -80,7 +80,6 @@ $(function(){
 	  		form_data.delete('cin_value');
 	  		//form_data.delete('illustration');
 	  		form_data.append('device', 'mobile');
-	  		console.log('mobile device');
 
 	  	} else {// if( $('.illustration_cagnotte.desk-only:visible').length  ){
 	  		form_data.delete('cin_value_mobile');
