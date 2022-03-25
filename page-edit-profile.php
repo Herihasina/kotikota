@@ -100,7 +100,7 @@
                           <?php endif; ?>
                           <input type="text" class="input-file" id="cin_btn">
                           <input type="hidden" name="cin_value" value="" id="cin_value">
-                          <i> <?php _e('Parcourir','kotikota'); ?></i>
+                          <i class="parcourir"> <?php _e('Parcourir','kotikota'); ?></i>
                           <i class="reset" style="display: none"><?php echo __('Supprimer', 'kotikota'); ?></i>
                         </div>
                         <div class="zone-img-cin"></div>
