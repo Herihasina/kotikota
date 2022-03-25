@@ -1040,7 +1040,7 @@ function edit_profile(){
     }
 
     if ( $erreurs ){
-        foreach ($erreurs as $erreur ){
+        foreach ($erreurs as &$erreur ){
             $erreur = "<li>".$erreur."</li>";
         }
         echo json_encode( $erreurs );
