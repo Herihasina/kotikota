@@ -37,6 +37,8 @@ function create_cagnotte(){
                     $cin = $movefile['url'];
                 }
             }
+        } else if (isset($cin_value)) {
+            $cin = $cin_value;
         }
 
         if ( isset($_FILES['illustration_mobile'] )){
@@ -233,9 +235,13 @@ function create_cagnotte(){
 
     if ( $cin != '' ){
         if( 'mobile' == $device ){
-            $cin = get_image_attach_id ( $filename_cin, 'user_'.$now_user );
-
-            update_field('piece_didentite', $cin, 'user_'.$now_user );
+            if($filename_cin) {
+                $cin = get_image_attach_id ( $filename_cin, 'user_'.$now_user );
+                update_field('piece_didentite', $cin, 'user_'.$now_user );
+            } else {
+                $cin = attachment_url_to_postid( $cin );
+                update_field('piece_didentite', $cin, 'user_'.$now_user );
+            }
         }elseif( 'desktop' == $device ){
             $cin = attachment_url_to_postid( $cin );
             update_field('piece_didentite', $cin, 'user_'.$now_user );

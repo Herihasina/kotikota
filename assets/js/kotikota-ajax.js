@@ -77,7 +77,7 @@ $(function(){
 	  	var form_data = new FormData( $('#form-creation-cagnotte')[0] );
 
 	  	if( $('.illustration_cagnotte.mobile-only:visible').length ){
-	  		form_data.delete('cin_value');
+	  		//form_data.delete('cin_value');
 	  		//form_data.delete('illustration');
 	  		form_data.append('device', 'mobile');
 
