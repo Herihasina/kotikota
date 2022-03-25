@@ -3628,7 +3628,7 @@ a:hover { color:#fbbd36; }
         border: #fff solid 1px;
         background: url(../images/ico-photo.png)no-repeat center #8d4a8f;
         display: block;
-        margin: 0;
+        margin: 20px 0 0 0 ;
     }
     #url_img_cagnotte_mobile {
         width: 100%;
