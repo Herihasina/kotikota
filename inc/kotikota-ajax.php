@@ -1058,6 +1058,12 @@ function edit_profile(){
         $userdata['user_pass'] = $newpwd;
     }
 
+    $out[] = __('Votre profil a bien été mis à jour !','kotikota');
+
+    echo  json_encode( $out );
+
+    wp_die();
+
     $update_user = wp_update_user( $userdata );
 
     if ($update_user && isset($userdata['user_pass']) ){
@@ -1065,11 +1071,7 @@ function edit_profile(){
         $sessions->destroy_all();
     }
 
-    $out[] = __('Votre profil a bien été mis à jour !','kotikota');
 
-    echo  json_encode( $out );
-
-    wp_die();
 
     if( 'mobile' == $device ){
 
