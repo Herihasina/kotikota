@@ -64,7 +64,7 @@ function create_cagnotte(){
                     $illustration = $movefile['url'];
                 }
             }
-        }elseif(isset($illustration)) {
+        }else if(isset($illustration)) {
             $illustration = $illustration;
         }else{
             $erreurs[] = __("Veuillez choisir une image pour illustrer la cagnotte.", "kotikota");
