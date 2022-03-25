@@ -1023,8 +1023,8 @@ function edit_profile(){
     if ( $tel == "" )
         $erreurs[] = __("Entrez votre numéro de téléphone.", "kotikota");
 
-    if ( $code == "" )
-        $erreurs[] = __("Entrez votre code indicatif.", "kotikota");
+    //if ( $code == "" )
+    //    $erreurs[] = __("Entrez votre code indicatif.", "kotikota");
 
     if ( isset($_POST['newpwd']) && $_POST['newpwd'] != '' ){
 
@@ -1039,19 +1039,12 @@ function edit_profile(){
         $erreurs[] = "Mba tsy rariny kos zan hafetsenao zan dada a";
     }
 
-
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
              echo "<li>$erreur</li>";
          }
          wp_die();
     }
-
-    $out[] = __('Votre profil a bien été mis à jour !','kotikota');
-
-    echo  json_encode( $out );
-
-    wp_die();
 
     $userdata = array(
         'ID'         => get_current_user_id(),
