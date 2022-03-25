@@ -39,7 +39,7 @@ function create_cagnotte(){
             }
         }
 
-        if ( isset($_FILES['illustration_mobile'] ) ){
+        if ( isset($_FILES['illustration_mobile'] )){
 
             if (!function_exists('wp_handle_upload')) {
                 require_once(ABSPATH . 'wp-admin/includes/file.php');
@@ -64,6 +64,8 @@ function create_cagnotte(){
                     $illustration = $movefile['url'];
                 }
             }
+        }elseif(isset($illustration)) {
+            $illustration = $illustration;
         }else{
             $erreurs[] = __("Veuillez choisir une image pour illustrer la cagnotte.", "kotikota");
         }
