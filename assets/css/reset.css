@@ -1852,7 +1852,7 @@ input:checked {
     font-style: normal;
     color: #fff;
     font-size: 14px;
-    /*width: 175px;*/
+    width: 175px;
     text-transform: uppercase;
     line-height: 60px;
     text-align: center;
@@ -3087,7 +3087,7 @@ a:hover { color:#fbbd36; }
         font-size: 12px !important;
         position: relative !important;
         display: inline-block;
-        width: 125px !important;
+        /*width: 125px !important;*/
         padding: 0px 25px !important;
         height: auto !important;
     }
