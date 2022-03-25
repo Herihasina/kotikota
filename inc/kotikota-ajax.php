@@ -1039,11 +1039,6 @@ function edit_profile(){
         $erreurs[] = "Mba tsy rariny kos zan hafetsenao zan dada a";
     }
 
-    $out[] = __('Votre profil a bien été mis à jour !','kotikota');
-
-    echo  json_encode( $out );
-
-    wp_die();
 
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
@@ -1069,6 +1064,12 @@ function edit_profile(){
         $sessions = WP_Session_Tokens::get_instance(get_current_user_id());
         $sessions->destroy_all();
     }
+
+    $out[] = __('Votre profil a bien été mis à jour !','kotikota');
+
+    echo  json_encode( $out );
+
+    wp_die();
 
     if( 'mobile' == $device ){
 
