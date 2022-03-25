@@ -1043,6 +1043,7 @@ function edit_profile(){
         foreach ($erreurs as $erreur ){
              echo "<li>$erreur</li>";
          }
+         json_encode( $erreurs );
          wp_die();
     }
 

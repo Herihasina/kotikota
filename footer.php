@@ -49,20 +49,20 @@
                 <div class="blcBottom clr">
                     <div class="wrapper">
                         <div class="blcMention">
-                            &copy; Koti Kota <?= date('Y') ?> 
-                            <a href="<?php echo get_permalink( get_page_by_path('cgu') ) ?>" title="CGU" target="_blank"> <?= __('CGU','kotikota') ?> </a> 
-                            <a href="<?php echo get_permalink( get_page_by_path('politique-de-confidentialite') ) ?>" title="<?= __('Politique de confidentialité','kotikota') ?>" target="_blank"> <?= __('Politique de confidentialité','kotikota') ?> </a> 
-                            <a href="<?php echo get_permalink( get_page_by_path('mentions-legales') ) ?>" title="<?= __('Mentions légales','kotikota') ?>" target="_blank"> <?= __('Mentions légales','kotikota') ?> </a> 
+                            &copy; Koti Kota <?= date('Y') ?>
+                            <a href="<?php echo get_permalink( get_page_by_path('cgu') ) ?>" title="CGU" target="_blank"> <?= __('CGU','kotikota') ?> </a>
+                            <a href="<?php echo get_permalink( get_page_by_path('politique-de-confidentialite') ) ?>" title="<?= __('Politique de confidentialité','kotikota') ?>" target="_blank"> <?= __('Politique de confidentialité','kotikota') ?> </a>
+                            <a href="<?php echo get_permalink( get_page_by_path('mentions-legales') ) ?>" title="<?= __('Mentions légales','kotikota') ?>" target="_blank"> <?= __('Mentions légales','kotikota') ?> </a>
                             <a href="<?php echo site_url() ?>/sitemap" target="_blank" title="<?= __('Site map','kotikota') ?>"> <?= __('Site map','kotikota') ?> </a>
                         </div>
 
                         <div class="blcMaki">
-                            <?php 
-                                printf(__("Réalisé avec %s par %s & Propulsé %s par %s", 'kotikota'), 
+                            <?php
+                                printf(__("Réalisé avec %s par %s & Propulsé %s par %s", 'kotikota'),
                                     '<img src="'.IMG_URL.'icon-coeur.png" alt="">',
                                     '<a href="https://maki-agency.mg/" title="Réalisé par Maki Agency" target="_blank">Maki Agency</a>',
                                     '<img src="'.IMG_URL.'fuser.png" alt="">',
-                                    '<a href="https://www.linkedin.com/company/sakalava-capital/?viewAsMember=true" target="_blank"><b>Sakalava Capital</b></a>'); 
+                                    '<a href="https://www.linkedin.com/company/sakalava-capital/?viewAsMember=true" target="_blank"><b>Sakalava Capital</b></a>');
                             ?>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
         </footer>
 
     </div>
-    
+
     <a href="#popup_conf" id="open_conf" class="fancybox_conf" data-fancybox="" title="" style="display: none;">X</a>
     <div id="popup_conf" style="display: none">
         <div class="content">
@@ -80,11 +80,20 @@
             <div class="conf_text">Lorem ipsum sit amet dolor lorem ipusm sit amet dolor lorem ipsum sit met lorem ipsum</div>
         </div>
     </div>
+
+    <a href="#popup_error" id="open_error" class="fancybox_error" data-fancybox="" title="" style="display: none;">X</a>
+    <div id="popup_error" style="display: none">
+        <div class="content">
+            <div class="error_titre"><?= __('Erreur','kotikota') ?></div>
+            <div class="error_text">Lorem ipsum sit amet dolor lorem ipusm sit amet dolor lorem ipsum sit met lorem ipsum</div>
+        </div>
+    </div>
+
     <div style="visibility: hidden;position: fixed;top: -100000px;z-index: -1;">
         <div id="titre_pop"><?= __('Réinitialisation du mot de passe','kotikota'); ?></div>
     <div id="text_pop"><?= __('MDP envoyé, merci de vérifier votre boite email !','kotikota'); ?></div>
     </div>
-    
+
     <?php wp_footer(); ?>
 
 </body>
