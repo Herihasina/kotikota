@@ -1039,6 +1039,12 @@ function edit_profile(){
         $erreurs[] = "Mba tsy rariny kos zan hafetsenao zan dada a";
     }
 
+    $out[] = __('Votre profil a bien été mis à jour !','kotikota');
+
+    echo  json_encode( $out );
+
+    wp_die();
+
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
              echo "<li>$erreur</li>";
