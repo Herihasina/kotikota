@@ -81,7 +81,7 @@ $(function(){
 	  		//form_data.delete('illustration');
 	  		form_data.append('device', 'mobile');
 
-	  	}else {// if( $('.illustration_cagnotte.desk-only:visible').length  ){
+	  	} else {// if( $('.illustration_cagnotte.desk-only:visible').length  ){
 	  		form_data.delete('cin_value_mobile');
 	  		form_data.delete('illustration_mobile');
 	  		form_data.append('device', 'desktop');
@@ -89,6 +89,8 @@ $(function(){
 	  	}
 
 	  	form_data.append('action', 'create_cagnotte');
+
+	  	console.log(form_data);
 
 		// if(cin_value){
 		// 	form_data.append('cin_value', cin_value);
