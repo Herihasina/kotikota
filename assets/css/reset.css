@@ -1551,6 +1551,12 @@ input:checked {
     cursor: pointer;
 }
 
+.blcFormulaire .parcourir.nonvide {
+  background-color: #fbbd36 !important;
+  border-color: #fbbd36 !important;
+  cursor: pointer;
+}
+
 .cont-file {
     color: #8E8E8E;
     font-size: 16px;

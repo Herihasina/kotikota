@@ -688,6 +688,9 @@ $(document).ready(function() {
             $('#cin_value').val(attachment.url);
             $('.zone-img-cin').css('background', 'center / cover no-repeat url(' + $('#cin_value').val() + ')');
             $('#cin_value').siblings('span').text(attachment.filename);
+            $('.blcFormulaire .parcourir').text('Fichier ajouté');
+            $('.blcFormulaire .parcourir').addClass('nonvide');
+
         });
         mediaUploader.open();
         $("#menu-item-upload").html("Télécharger");
