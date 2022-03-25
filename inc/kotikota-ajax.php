@@ -264,11 +264,11 @@ function create_cagnotte(){
         wp_set_object_terms( $newPost, array( (int)$sousCateg, (int)$categ ), 'categ-cagnotte' );
         if( 'mobile' == $device ){
             $attach_id = get_image_attach_id ( $filename,$newPost );
-            if($attach_id){
-                update_field('illustration_pour_la_cagnotte', $attach_id, $newPost );
-            } else {
+            //if($attach_id){
+            //    update_field('illustration_pour_la_cagnotte', $attach_id, $newPost );
+            //} else {
                 update_field('illustration_pour_la_cagnotte', attachment_url_to_postid( $illustration ), $newPost );
-            }
+            //}
         }elseif( 'desktop' == $device ){
             update_field('illustration_pour_la_cagnotte', attachment_url_to_postid( $illustration ), $newPost );
         }
