@@ -1040,11 +1040,11 @@ function edit_profile(){
     }
 
     if ( $erreurs ){
-        foreach ($erreurs as $erreur ){
+        /*foreach ($erreurs as $erreur ){
              echo "<li>$erreur</li>";
-         }
-         json_encode( $erreurs );
-         wp_die();
+        }*/
+        echo json_encode( $erreurs );
+        wp_die();
     }
 
     $userdata = array(
