@@ -78,10 +78,10 @@ $(function(){
 
 	  	if( $('.illustration_cagnotte.mobile-only:visible').length ){
 	  		form_data.delete('cin_value');
-	  		form_data.delete('illustration');
+	  		//form_data.delete('illustration');
 	  		form_data.append('device', 'mobile');
 
-	  	}else if( $('.illustration_cagnotte.desk-only:visible').length  ){
+	  	}else {// if( $('.illustration_cagnotte.desk-only:visible').length  ){
 	  		form_data.delete('cin_value_mobile');
 	  		form_data.delete('illustration_mobile');
 	  		form_data.append('device', 'desktop');
