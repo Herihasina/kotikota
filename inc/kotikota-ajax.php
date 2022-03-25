@@ -1081,11 +1081,11 @@ function edit_profile(){
         }
 
     }else if( 'desktop' == $device ){
-        if ( $_POST['choix-photo'] != '' ){
+        if ( isset($_POST['choix-photo']) && $_POST['choix-photo'] != '' ){
             $pdp = attachment_url_to_postid( $_POST['choix-photo'] );
         }
 
-        if ( strip_tags( $_POST['cin_value'] ) != '' ){
+        if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
             $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
         }
     }
