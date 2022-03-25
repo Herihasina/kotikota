@@ -100,7 +100,14 @@
                           <?php endif; ?>
                           <input type="text" class="input-file" id="cin_btn">
                           <input type="hidden" name="cin_value" value="" id="cin_value">
-                          <i class="parcourir"> <?php _e('Parcourir','kotikota'); ?></i>
+                          <i class="parcourir <?= if($cin) ? 'nonvide':'' ?>">
+                            <?php
+                            if($cin):
+                              _e('Fichier ajouté','kotikota');
+                            else
+                              _e('Parcourir','kotikota');
+                            endif;
+                            ?></i>
                           <i class="reset" style="display: none"><?php echo __('Supprimer', 'kotikota'); ?></i>
                         </div>
                         <div class="zone-img-cin"></div>
