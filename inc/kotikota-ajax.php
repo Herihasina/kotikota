@@ -1081,16 +1081,16 @@ function edit_profile(){
 
 
     if( 'mobile' == $device ){
-        if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
-            $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
-        } else if( $_FILES['choix-photo_mobile'] ){
+        if( $_FILES['choix-photo_mobile'] ){
             $pdp = $_FILES['choix-photo_mobile'];
             $pdp = $pdp['name'];
 
             $pdp = get_image_attach_id ( $pdp, 'user_'. get_current_user_id() );
         }
 
-        if( $_FILES['cin_value_mobile'] ){
+        if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
+            $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+        } else if( $_FILES['cin_value_mobile'] ){
             $cin = $_FILES['cin_value_mobile'];
             $cin = $cin['name'];
 
