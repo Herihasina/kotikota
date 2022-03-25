@@ -1040,9 +1040,9 @@ function edit_profile(){
     }
 
     if ( $erreurs ){
-        /*foreach ($erreurs as $erreur ){
-             echo "<li>$erreur</li>";
-        }*/
+        foreach ($erreurs as $erreur ){
+            $erreur = "<li>".$erreur."</li>";
+        }
         echo json_encode( $erreurs );
         wp_die();
     }
