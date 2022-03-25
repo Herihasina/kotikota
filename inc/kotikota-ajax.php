@@ -1054,7 +1054,7 @@ function edit_profile(){
         'user_email' => strip_tags($_POST['mail']),
     );
 
-    if ( $newpwd ){
+    if ( isset($newpwd) && $newpwd ){
         $userdata['user_pass'] = $newpwd;
     }
 
