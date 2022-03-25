@@ -115,7 +115,7 @@ function load_front_assets() {
         )
     );
 
-    wp_localize_script( 'custom-wp', 'text',
+    wp_localize_script( 'custom-wp', 'text_customwp',
         array(
             'fichier_ajoute' => __('Fichier ajouté', 'kotikota'),
         )

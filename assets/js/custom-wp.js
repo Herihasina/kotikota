@@ -688,7 +688,7 @@ $(document).ready(function() {
             $('#cin_value').val(attachment.url);
             $('.zone-img-cin').css('background', 'center / cover no-repeat url(' + $('#cin_value').val() + ')');
             $('#cin_value').siblings('span').text(attachment.filename);
-            $('.blcFormulaire .parcourir').text(text.fichier_ajoute);
+            $('.blcFormulaire .parcourir').text(text_customwp.fichier_ajoute);
             $('.blcFormulaire .parcourir').addClass('nonvide');
 
         });
