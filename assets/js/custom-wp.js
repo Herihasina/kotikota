@@ -37,7 +37,7 @@ $(document).ready(function() {
     // $('.open-register').on('click',function(){
     //     $('.lrm-signin-section, .lrm-reset-password-section').removeClass('is-selected');
     //     $('.lrm-signup-section').addClass('is-selected');
-        
+
     //     return false;
     // });
 
@@ -274,18 +274,18 @@ $(document).ready(function() {
         $('button[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             // var target = $(e.target).attr("href") // activated tab
             alert("target");
-        }); 
+        });
         e.preventDefault();
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger des fichiers");
             $("#menu-item-browse").html("Galerie de photos");
             $("#menu-item-upload").insertAfter('#menu-item-browse')
-            
+
             $("#menu-item-browse").click();
             $("#menu-item-browse").css("display","block");
             $(".media-uploader-status .h2").html("Téléchargement");
 
-            
+
             $("#menu-item-upload").click(function(e) {
                 $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
                 $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
@@ -301,7 +301,7 @@ $(document).ready(function() {
         mediaUploader.on('select', function() {
 
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-            
+
             if ($('.blc-cagnotte').length) {
                 $('#url_img_cagnotte').val(attachment.url).addClass('filled');
             }
@@ -331,7 +331,7 @@ $(document).ready(function() {
         $("#menu-item-browse").html("Galerie de photos");
         $("#menu-item-upload").insertAfter('#menu-item-browse')
         $(".media-uploader-status .h2").html("Téléchargement");
-         
+
         $("#menu-item-browse").click();
 
         $("#menu-item-upload").click(function(e) {
@@ -509,7 +509,7 @@ $(document).ready(function() {
     });
 
     /* end menu connecté */
-    
+
     setInterval(function() {
         var cat = $('.lst-form-type.jauge').find('.active').length;
         if (cat) {
@@ -626,7 +626,7 @@ $(document).ready(function() {
             $("#menu-item-upload").html("Télécharger des fichiers");
             $("#menu-item-browse").html("Galerie de photos");
             $("#menu-item-upload").insertAfter('#menu-item-browse')
-            
+
             $("#menu-item-browse").click();
             $("#menu-item-browse").css("display","block");
             $(".media-uploader-status .h2").html("Téléchargement");
@@ -654,7 +654,7 @@ $(document).ready(function() {
         $("#menu-item-browse").html("Galerie de photos");
         $("#menu-item-upload").insertAfter('#menu-item-browse')
         $(".media-uploader-status .h2").html("Téléchargement");
-         
+
         $("#menu-item-browse").click();
 
         $("#menu-item-upload").click(function(e) {
@@ -663,6 +663,11 @@ $(document).ready(function() {
             $(".media-uploader-status .h2").html("Téléchargement");
         });
     });
+
+    $('#cin_btn .parcourir').click(function(e) {
+        $('#cin_btn').trigger('click');
+    });
+
     $('#cin_btn').click(function(e) {
         e.preventDefault();
         if (mediaUploader) {
@@ -889,7 +894,7 @@ $(document).ready(function() {
     $(".iti__country").click(function(e) {
         $("#code").val($(this).attr("data-country-code"));
     });
-    
+
     $(".onoff").on('change', function() {
         //togBtn= $(this);
         //togBtn.val(togBtn.prop('checked'));
@@ -912,5 +917,5 @@ $(document).ready(function() {
 //         return false;
 //     });
 
-    
+
 // });
