@@ -171,14 +171,14 @@
                                 <label><?php _e('Choisis la bonne photo ','kotikota'); ?> <span>*</span></label>
                                 <div class="blc-img jauge">
                                     <!-- Desk only -->
-                                    <div class="zone-img desk-only illustration_cagnotte">
+                                    <div class="zone-img illustration_cagnotte"> <!--desk-only-->
                                         <input name="" id="fileImg" class="inputfile" type="text">
                                         <label for="fileImg"><?php _e('Ajouter  <br> votre photo','kotikota'); ?></label>
                                         <input type="hidden" value="" name="illustration" id="url_img_cagnotte" required>
                                     </div>
                                     <!-- /Desk only -->
 
-                                    <div class="lst-img clr scrollbar-inner desk-only">
+                                    <div class="lst-img clr scrollbar-inner"> <!--desk-only-->
                                         <div class="inner">
                                             <?php
                                                 $query_images_args = array(
