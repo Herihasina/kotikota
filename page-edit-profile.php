@@ -102,12 +102,13 @@
                           <input type="hidden" name="cin_value" value="" id="cin_value">
                           <i class="parcourir <?= if($cin) ? 'nonvide':'' ?>">
                             <?php
-                            if($cin):
+                            if($cin){
                               _e('Fichier ajouté','kotikota');
-                            else:
+                            } else {
                               _e('Parcourir','kotikota');
-                            endif;
-                            ?></i>
+                            }
+                            ?>
+                          </i>
                           <i class="reset" style="display: none"><?php echo __('Supprimer', 'kotikota'); ?></i>
                         </div>
                         <div class="zone-img-cin"></div>
