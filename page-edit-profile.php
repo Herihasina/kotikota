@@ -25,7 +25,7 @@
                 <?php
                   $bg = wp_get_attachment_image_src(get_field('photo', 'user_'.get_current_user_id()),'cagnotte-home' )[0];
                 ?>
-                    <div class="blc-img desk-only">
+                    <div class="blc-img"><!-- desk-only -->
                       <div class="zone-img profil-img<?php if ($bg) echo " bg-user" ?>" <?php if ($bg): ?> style="background: center / auto no-repeat url(<?php echo $bg ?>)" <?php endif; ?>>
                             <input name="file" id="pdp-btn" class="inputfile" type="text">
                             <label for="pdp-btn"><?php _e('Ajouter  <br> votre photo','kotikota'); ?></label>
