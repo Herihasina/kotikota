@@ -89,7 +89,6 @@
                         <div class="objectif">
                             <div><?php _e('objectif','kotikota'); ?></div>
                             <?php
-                                echo $objectif;
                                 if($objectif > 1) {
                             ?>
                                 <span><?= number_format($objectif, 0, '.', ' '). ' '. $devise; ?></span>
