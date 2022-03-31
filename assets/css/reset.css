@@ -3766,6 +3766,7 @@ a:hover { color:#fbbd36; }
 @media (max-width: 601px){
     .mobile-only{
         display: block;
+        margin: auto !important;
     }
     .desk-only{
         display: none;
