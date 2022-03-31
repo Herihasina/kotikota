@@ -784,7 +784,7 @@ $(function(){
 
 	  	if( $('.mobile-only:visible').length ){
 	  		//form_data.delete('cin_value');
-	  		form_data.delete('choix-photo');
+	  		//form_data.delete('choix-photo');
 	  		form_data.append('device', 'mobile');
 
 	  	}else if( $('.desk-only:visible').length  ){
