@@ -1,7 +1,7 @@
 <div class="blc-liste-cagnote wow fadeIn" data-wow-delay="850ms">
     <div class="lst-cagnotte-publique wow fadeIn clr" data-wow-delay="900ms">
     <?php
-		while (have_posts()){ 
+		while (have_posts()){
             the_post();
             $couleur = get_field('couleur');
     ?>
@@ -16,14 +16,14 @@
 
                         	if ($terms){
                                 foreach ($terms as $term){
-                                    $id_parent = $term->parent; 
-                                    if ( $id_parent != 0 ) { 
+                                    $id_parent = $term->parent;
+                                    if ( $id_parent != 0 ) {
                                        $t = get_field('picto_sous-categorie', 'categ-cagnotte_'.$term->term_id);
                                        echo '<span class="ico">'.wp_get_attachment_image( $t['picto_etat_normal'], 'cagnotte-picto' ).'</span>';
                                     }
                                 }
                             }
-                    	
+
                             $limited = get_field('fixer_un_objectif');
                             $azo = (int)get_field('montant_recolte');
                             $ilaina = (int)get_field('objectif_montant');
@@ -40,15 +40,15 @@
                                 <span class="ico2">
                                     <img src="<?php echo IMG_URL ?>ok.png">
                                 </span>
-                        <?php 
+                        <?php
                             }elseif ( $statu < 100 && $limited ){ ?>
                                 <span class="ico-percent">
                                     <div class="percent" style="width:50px;height:50px;">
                                       <p style="display:none;"><?php echo $statu ?>%</p>
                                     </div>
                                 </span>
-                                
-                        <?php 
+
+                        <?php
                             }
 
                             if( $closed ): ?>
@@ -63,15 +63,25 @@
                             $type_cagnotte = get_field('visibilite_cagnotte');
                             echo wp_strip_all_tags( get_field('description_de_la_cagnote') ); ?>
                         </p>
-                        <?php 
+                        <?php
                         if( get_field('fixer_un_objectif' ) ): ?>
                             <div class="objectif">
                                 <div><?php _e('objectif','kotikota'); ?></div>
-                                <span><?= number_format($ilaina, 0, '.', ' '). ' '. $devise; ?></span>
+                                <?php
+                                    if($ilaina > 1) {
+                                ?>
+                                    <span><?= number_format($ilaina, 0, '.', ' '). ' '. $devise; ?></span>
+                                <?php
+                                } else {
+                                ?>
+                                    <span><?php _e('pas d\'objectif','kotikota'); ?></span>
+                                <?php
+                                }
+                                ?>
                             </div>
                         <?php endif; ?>
                     </a>
-                    
+
                     <div class="compteur">
                         <div class="jour">
                                 <span>
@@ -79,20 +89,20 @@
                                 </span>
                             </div>
                         <div class="user">
-                             <?php 
-                                $part = get_field('tous_les_participants');                            
-                                if ( !$part ) $part = [];                     
+                             <?php
+                                $part = get_field('tous_les_participants');
+                                if ( !$part ) $part = [];
                             ?>
                                 <span>
-                                	<?php                 
+                                	<?php
                                 		echo count($part);
                                 	?>
                             	</span>
                         </div>
                         <div class="amount">
                             <span>
-                                <?php 
-                                    if (get_field('montant_recolte') ){ 
+                                <?php
+                                    if (get_field('montant_recolte') ){
                                         echo '<span class="format_chiffre">'.get_field('montant_recolte').'</span> '. $devise;
                                     }else{
                                         echo "0 ".$devise;
@@ -103,12 +113,12 @@
                     </div>
                 </div>
             </div>
-    <?php 
-        } 
+    <?php
+        }
     ?>
     </div>
     <?php
     	$uri = $_SERVER['REQUEST_URI'];
     	kotikota_pagination($uri);
-    ?>            
+    ?>
 </div>

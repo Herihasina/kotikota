@@ -34,7 +34,18 @@
         <div class="col col6">
             <div class="objectifs">
               <div class="ico2"><img src="<?= IMG_URL ?>ico-rst-collct.png"></div>
+              <?php
+                if($objectif > 1) {
+              ?>
               <b><?= number_format($objectif, 0, '.', ' '); ?> <?= $devise ?></b>
+              <?php
+              } else {
+              ?>
+                <b><?php _e('pas d\'objectif','kotikota'); ?></b>
+              <?php
+                }
+              ?>
+
               <span><?php _e('Objectif','kotikota'); ?></span>
             </div>
         </div>
@@ -48,7 +59,7 @@
                 <b>
                   <?php
                     echo $diff; ?>
-                    <?php 
+                    <?php
                       if ($diff >= 2 && ICL_LANGUAGE_CODE == 'fr') {
                         echo ' '._e('jours','kotikota');
                       }else{
