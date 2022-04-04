@@ -66,10 +66,10 @@
                         <?php
                         if( get_field('fixer_un_objectif' ) ): ?>
                             <div class="objectif">
-                                <div><?php _e('objectif','kotikota'); ?></div>
                                 <?php
                                     if($ilaina > 1) {
                                 ?>
+                                    <div><?php _e('objectif','kotikota'); ?></div>
                                     <span><?= number_format($ilaina, 0, '.', ' '). ' '. $devise; ?></span>
                                 <?php
                                 }

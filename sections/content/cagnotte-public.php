@@ -87,10 +87,10 @@
                         <h3><?php echo get_field('nom_de_la_cagnotte',$id) ?></h3>
                         <p><?php echo wp_strip_all_tags(get_field('description_de_la_cagnote', $id) )?> </p>
                         <div class="objectif">
-                            <div><?php _e('objectif','kotikota'); ?></div>
                             <?php
                                 if($objectif > 1) {
                             ?>
+                                <div><?php _e('objectif','kotikota'); ?></div>
                                 <span><?= number_format($objectif, 0, '.', ' '). ' '. $devise; ?></span>
                             <?php
                             }
