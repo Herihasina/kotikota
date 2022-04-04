@@ -72,12 +72,9 @@
                                 ?>
                                     <span><?= number_format($ilaina, 0, '.', ' '). ' '. $devise; ?></span>
                                 <?php
-                                } else {
-                                ?>
-                                    <span><?php _e('pas d\'objectif','kotikota'); ?></span>
-                                <?php
                                 }
                                 ?>
+
                             </div>
                         <?php endif; ?>
                     </a>

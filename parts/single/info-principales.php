@@ -39,11 +39,7 @@
               ?>
               <b><?= number_format($objectif, 0, '.', ' '); ?> <?= $devise ?></b>
               <?php
-              } else {
-              ?>
-                <b><?php _e('pas d\'objectif','kotikota'); ?></b>
-              <?php
-                }
+              }
               ?>
 
               <span><?php _e('Objectif','kotikota'); ?></span>

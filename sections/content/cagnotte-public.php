@@ -93,12 +93,9 @@
                             ?>
                                 <span><?= number_format($objectif, 0, '.', ' '). ' '. $devise; ?></span>
                             <?php
-                                } else {
+                            }
                             ?>
-                                <span><?php _e('pas d\'objectif','kotikota'); ?></span>
-                            <?php
-                                }
-                            ?>
+
                         </div>
                     </a>
                     <div class="compteur">
