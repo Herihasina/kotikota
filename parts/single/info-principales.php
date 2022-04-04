@@ -31,20 +31,19 @@
             $devise = $devise['label'] ? $devise['label'] : $devise[0];
         ?>
         <?php  if ( get_field('fixer_un_objectif' ) ): ?>
+        <?php
+         if($objectif > 1) {
+        ?>
         <div class="col col6">
             <div class="objectifs">
               <div class="ico2"><img src="<?= IMG_URL ?>ico-rst-collct.png"></div>
-              <?php
-                if($objectif > 1) {
-              ?>
               <b><?= number_format($objectif, 0, '.', ' '); ?> <?= $devise ?></b>
-              <?php
-              }
-              ?>
-
               <span><?php _e('Objectif','kotikota'); ?></span>
             </div>
         </div>
+        <?php
+              }
+        ?>
         <?php endif; ?>
         <div class="col col3">
             <div class="jours">
