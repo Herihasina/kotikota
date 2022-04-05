@@ -81,7 +81,41 @@
                                echo '<span class="ico">'.wp_get_attachment_image( $t['picto_etat_normal'], 'cagnotte-picto' ).'</span>';
                             }
                         }
-                    ?>
+
+                        $limited = get_field('fixer_un_objectif');
+                        $azo = (int)get_field('montant_recolte');
+                        $ilaina = (int)get_field('objectif_montant');
+                        $closed = get_field('cagnotte_cloturee') == 'oui' ? true : false;
+                        $devise = get_field('devise');
+                        $devise = is_array( $devise ) && array_key_exists('label', $devise) ? $devise['label'] : 'Ar';
+
+                        if (!$ilaina ) $ilaina = 1;
+
+                        $statu = $azo*100/$ilaina;
+
+                        if ( $statu >= 100 && $limited  && $ilaina > 1 ){
+                        ?>
+                                <span class="ico2">
+                                    <img src="<?php echo IMG_URL ?>ok.png">
+                                </span>
+                        <?php
+                            }elseif ( $statu < 100 && $limited ){ ?>
+                                <span class="ico-percent">
+                                    <div class="percent" style="width:50px;height:50px;">
+                                      <p style="display:none;"><?php echo $statu ?>%</p>
+                                    </div>
+                                </span>
+
+                        <?php
+                            }
+
+                            if( $closed ): ?>
+                            <span class="ico-percent cloturer">
+                                <div class="ckeckCloturer"></div>
+                            </span>
+                        <?php endif; ?>
+
+
                     </a>
                      <a href="<?php echo get_the_permalink( $id) ?>" title="<?php echo get_field('nom_de_la_cagnotte',$id) ?>" class="txt">
                         <h3><?php echo get_field('nom_de_la_cagnotte',$id) ?></h3>
