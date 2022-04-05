@@ -59,6 +59,9 @@
                 $objectif = (int)get_field('objectif_montant', $id);
                 $limited = get_field('fixer_un_objectif', $id);
                 $devise = get_field('devise', $id);
+                $azo = (int)get_field('montant_recolte', $id);
+                $ilaina = (int)get_field('objectif_montant', $id);
+                $closed = get_field('cagnotte_cloturee', $id) == 'oui' ? true : false;
                 $devise = is_array( $devise ) && array_key_exists('label', $devise) ? $devise['label'] : 'Ar';
 
                 if (!$objectif ) $objectif = 1;
@@ -81,13 +84,6 @@
                                echo '<span class="ico">'.wp_get_attachment_image( $t['picto_etat_normal'], 'cagnotte-picto' ).'</span>';
                             }
                         }
-
-                        $limited = get_field('fixer_un_objectif');
-                        $azo = (int)get_field('montant_recolte');
-                        $ilaina = (int)get_field('objectif_montant');
-                        $closed = get_field('cagnotte_cloturee') == 'oui' ? true : false;
-                        $devise = get_field('devise');
-                        $devise = is_array( $devise ) && array_key_exists('label', $devise) ? $devise['label'] : 'Ar';
 
                         if (!$ilaina ) $ilaina = 1;
 
