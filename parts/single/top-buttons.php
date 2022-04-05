@@ -1,6 +1,9 @@
-<?php  $is_activ = get_field('actif'); ?>
+<?php
+  $is_activ = get_field('actif');
+  $closed = get_field('cagnotte_cloturee', $id) == 'oui' ? true : false;
+?>
 <div class="btn-partage clr wow fadeIn" data-wow-delay="850ms">
-    <?php if ( $is_activ ): ?>
+    <?php if ( $is_activ || !$closed): ?>
      <div id="btn_participer_wrap">
         <a href="<?php echo get_permalink(get_page_by_path( 'participer')).'?part='.$post->ID ?>" id="participat" data-id="<?php echo $post->ID ?>" data-url="<?php echo get_permalink(get_page_by_path( 'participer')) ?>" class="link participe" title="Participer">
           <span><?php echo __('Participer','kotikota'); ?></span>
