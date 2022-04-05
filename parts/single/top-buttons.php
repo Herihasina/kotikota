@@ -1,6 +1,6 @@
 <?php
   $is_activ = get_field('actif');
-  $closed = get_field('cagnotte_cloturee', $id) == 'oui' ? true : false;
+  $closed = get_field('cagnotte_cloturee') == 'oui' ? true : false;
 ?>
 <div class="btn-partage clr wow fadeIn" data-wow-delay="850ms">
     <?php if ( $is_activ || !$closed): ?>
