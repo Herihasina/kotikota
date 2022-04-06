@@ -787,7 +787,7 @@ $(function(){
 	  		//form_data.delete('choix-photo');
 	  		form_data.append('device', 'mobile');
 
-	  	}else if( $('.desk-only:visible').length  ){
+	  	}else { // if( $('.desk-only:visible').length  ){
 	  		form_data.delete('cin_value_mobile');
 	  		form_data.delete('choix-photo_mobile');
 	  		form_data.append('device', 'desktop');
