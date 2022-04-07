@@ -268,9 +268,9 @@ $(document).ready(function() {
     });
 
     //upload image cagnotte
-    var mediaUploader;
-    $('#fileImg').click(function(e) {
 
+    $('#fileImg').click(function(e) {
+        var mediaUploader;
         $('button[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             // var target = $(e.target).attr("href") // activated tab
             alert("target");
@@ -619,8 +619,9 @@ $(document).ready(function() {
     }
 
     //upload image cagnotte
-    var mediaUploader;
+
     $('#pdp-btn').click(function(e) {
+        var mediaUploader;
         e.preventDefault();
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger des fichiers");
@@ -669,6 +670,7 @@ $(document).ready(function() {
     });
 
     $('#cin_btn').click(function(e) {
+        var mediaUploader;
         e.preventDefault();
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger");
@@ -701,6 +703,7 @@ $(document).ready(function() {
         $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
     });
     $('#rib_btn').click(function(e) {
+        var mediaUploader;
         e.preventDefault();
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger");
