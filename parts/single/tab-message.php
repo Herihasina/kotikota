@@ -33,7 +33,12 @@
                 ?>
               </b>
               <?php $date = new DateTime($mot_dou->post_date); ?>
-              <span class="date"><?= printf( __('a écrit le %s','kotikota'), $date->format('d/m/y') ) ?></span>
+              <span class="date">
+                <?php 
+                $date = $date->format("m/d/Y");
+
+                printf( __('a écrit le %s','kotikota'), $date ) ?>
+              </span>
               <div class="txt">
                   <?php echo $mot_dou->post_content; ?>
 
