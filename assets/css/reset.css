@@ -2643,6 +2643,10 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 .menu-flag  li.wpml-ls-item-en a:after{ background: url(../images/en-flag.png) no-repeat center;background-size: cover; }
 .wpml-ls-legacy-list-horizontal a { padding: 0 !important }
 
+.lst-msg.participation.clr {
+    display: flex;
+    flex-flow: row wrap;
+}
 
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
