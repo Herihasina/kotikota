@@ -35,7 +35,7 @@
               <?php $date = new DateTime($mot_dou->post_date); ?>
               <span class="date">
                 <?php 
-                $date = $date->format("m/d/Y");
+                $date = $date->format("m/d/y");
 
                 printf( __('a écrit le %s','kotikota'), $date ) ?>
               </span>
