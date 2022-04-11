@@ -466,8 +466,6 @@ function traitement_post_paiement( $participation ){
     $devise_cagnotte = $devise_cagnotte[1];
   }
 
-  $donation = convert_montant( $donation, $devise_cagnotte, $devise );
-
   $mot_doux = $participation->mot_doux;
   $success = insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite );
 
@@ -475,8 +473,7 @@ function traitement_post_paiement( $participation ){
       $success = insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux );
    }
 
-  if ( get_field('recevoir_les_notifications_de_participation_par_e-mail', $idCagnotte ) )
-      sendNotificationParticipation($idCagnotte);
+  @sendNotificationParticipation($idCagnotte);
 
   $titulaire = get_field('titulaire_de_la_cagnotte', $idCagnotte );
   $prenom = get_user_meta($titulaire);

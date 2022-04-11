@@ -91,8 +91,8 @@
                           <option value="mga" <?php if ($devise == 'mga') echo "selected"; ?>>MGA</option>
                           <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>€</option>
                           <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>£</option>
-                          <option value="cad" <?php if ($devise == 'liv') echo "selected"; ?>>CAD</option>
-                          <option value="usd" <?php if ($devise == 'liv') echo "selected"; ?>>USD</option>
+                          <option value="cad" <?php if ($devise == 'cad') echo "selected"; ?>>CAD</option>
+                          <option value="usd" <?php if ($devise == 'usd') echo "selected"; ?>>USD</option>
                         </select>
                       </div>
                       <div class="tip change-texte">

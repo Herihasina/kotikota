@@ -391,7 +391,7 @@ function creer_participation(){
 
     if ( !isset($_POST['devise']) || $_POST['devise'] == "" ){
         $erreurs[] = __("Veuillez choisir votre devise", "kotikota");
-    }elseif ($devise != 'mga' && $devise != 'eu' && $devise != 'liv'){
+    }elseif ($devise != 'mga' && $devise != 'eu' && $devise != 'liv' && 'cad' != $devise && 'usd' != $devise ){
         $devise = get_field('devise_par_defaut','option');
         $devise = $devise['value'];
     }
@@ -411,6 +411,7 @@ function creer_participation(){
         $change_mga_cad = get_field('change_mga_cad','options');
 
         $donation = calcul_devise_en_mga( $donation, $devise, $change_mga_eu, $change_mga_liv, $change_mga_cad, $change_mga_usd );
+        
     }
     # /tapitra #
 

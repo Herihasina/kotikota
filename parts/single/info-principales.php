@@ -91,7 +91,10 @@
                               echo '<span class="format_chiffre">'.get_field('montant_recolte').'</span> '. $devise;
                           ?>
                         </b>
-                        <span><?php _e('collecté','kotikota'); ?><?php if ((int)get_field('montant_recolte') >= 2) echo "s"; ?></span>
+                        <span><?php 
+                          _e('collecté','kotikota'); 
+                          if ((int)get_field('montant_recolte') >= 2 && ICL_LANGUAGE_CODE == 'fr' ) echo "s"; ?>
+                        </span>
                     </div>
                 </div>
                 <?php  if ( get_field('fixer_un_objectif' ) ): ?>
