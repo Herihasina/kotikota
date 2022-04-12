@@ -36,7 +36,8 @@
 
         <div class="liste-invitation clr " >
           <ul class="clr">
-              <li class="whatsapp"><a href="https://wa.me/?text=<?php echo get_permalink($id_cagnotte) ?>?origin=invite" title="whatsapp" target="_blank"><?php _e('whatsapp','kotikota'); ?></a></li>
+              <li class="whatsapp desk-only"><a onclick="window.open('https://web.whatsapp.com://send?text=<?php echo get_permalink($id_cagnotte) ?>?origin=invite')" href="#" title="whatsapp" target="_blank" data-action="share/whatsapp/share"><?php _e('whatsapp','kotikota'); ?></a></li>
+              <li class="whatsapp mobile-only"><a onclick="window.open('whatsapp://send?text=<?php echo get_permalink($id_cagnotte) ?>?origin=invite')" href="#" title="whatsapp" target="_blank" data-action="share/whatsapp/share"><?php _e('whatsapp','kotikota'); ?></a></li>
               <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_permalink($id_cagnotte); ?>?origin=invite" title="Facebook" target="_blank"><?php _e('facebook','kotikota'); ?></a></li>
               <li class="twitter"><a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=<?php echo urlencode( get_the_title( $id_cagnotte )) ?>?origin=invite" data-size="large" title="Twitter" target="_blank"><?php _e('twitter','kotikota'); ?></a></li>
           </ul>

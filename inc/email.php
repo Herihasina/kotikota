@@ -4,7 +4,11 @@ function sendNotificationCreation($id){
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
     $prenom = get_user_meta($titulaire);  
-    $email_titulaire = get_userdata( $titulaire )->user_email;  
+    
+    $email_titulaire = get_userdata( $titulaire );
+    
+    $email_titulaire = $email_titulaire->user_email;
+
     $prenom = $prenom['first_name'][0];
     if ( !$prenom )
         $prenom = $prenom['nickname'][0];
@@ -52,7 +56,9 @@ function sendNotificationParticipation($id){
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
     $prenom = get_user_meta($titulaire);
-    $email_titulaire = get_userdata( $titulaire )->user_email;
+    $email_titulaire = get_userdata( $titulaire );
+
+    $email_titulaire = $email_titulaire->user_email;
 
     $prenom = $prenom['first_name'][0];
     if ( !$prenom )
@@ -158,7 +164,11 @@ function sendNotificationFin($id, $emailParticipant, $nomParticipant, $prenomPar
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
     $prenom = get_user_meta($titulaire);  
-    $email_titulaire = get_userdata( $titulaire )->user_email;  
+    
+    $email_titulaire = get_userdata( $titulaire );
+    
+    $email_titulaire = $email_titulaire->user_email;
+
     $prenom = $prenom['first_name'][0];
     if ( !$prenom )
         $prenom = $prenom['nickname'][0];
@@ -245,7 +255,10 @@ function notificationVirementParticipant($id, $emailParticipant, $nomParticipant
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
     $prenom = get_user_meta($titulaire);  
-    $email_titulaire = get_userdata( $titulaire )->user_email;  
+    $email_titulaire = get_userdata( $titulaire );
+    
+    $email_titulaire = $email_titulaire->user_email;
+    
     $prenom = $prenom['first_name'][0];
     if ( !$prenom )
         $prenom = $prenom['nickname'][0];
