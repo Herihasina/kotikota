@@ -83,22 +83,21 @@ function sendNotificationParticipation($id){
 
     $objet = get_field('objet_participation','option') ? get_field('objet_participation','option') : __("Participation à votre cagnotte","kotikota");
 
-    if ( @wp_mail( $email_titulaire, $objet, $html, $headers ) ){
+    @wp_mail( $email_titulaire, $objet, $html, $headers );
+    // if ( @wp_mail( $email_titulaire, $objet, $html, $headers ) ){
       //return true;
-          ob_start();
-          include( $tpl_participant );
-          $htmlp = ob_get_clean();
+    ob_start();
+    include( $tpl_participant );
+    $htmlp = ob_get_clean();
 
-          $objet = get_field('objet_participation_participant','option') ? get_field('objet_participation_participant','option') : __("Participation à une cagnotte","kotikota");
+    $objet = get_field('objet_participation_participant','option') ? get_field('objet_participation_participant','option') : __("Participation à une cagnotte","kotikota");
 
-          if ( @wp_mail( $current_user->user_email, $objet, $htmlp, $headers ) ){
-            return true;
-          }else{
-            return false;
-          }
+    if ( @wp_mail( $current_user->user_email, $objet, $htmlp, $headers ) ){
+      return true;
     }else{
       return false;
     }
+    
 }
 
 function sendInvitation($invites, $idCagnotte){
