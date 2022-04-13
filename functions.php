@@ -499,7 +499,7 @@ function get_ids_titulaires(){
         $user_roles = $user_meta->roles;
         if ( $user_roles[0] != 'administrator' ){
           $profil_valide = get_field('profil_valide', 'user_'.$user->ID );
-          if( !$profil_valide ){
+          if( !$profil_valide || is_null( $profil_valide ) ){
             $out[] = $user->ID;
           }
         }

@@ -305,7 +305,10 @@ function create_cagnotte(){
 
         sendNotificationCreation($newPost);
         $piece_didentite = get_field('piece_didentite', 'user_'.$now_user );
-        if( !$piece_didentite )
+
+        $profil_valide = get_field('profil_valide', 'user_'.$now_user );
+
+        if( !$piece_didentite && !$profil_valide )
             sendRappelPostCreation( $now_user );
 
         $single = get_permalink( $newPost );
