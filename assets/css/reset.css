@@ -504,7 +504,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 
 .popup  .social-pp                                      { text-align: center; margin-bottom: 59px }
 .popup  .social-pp  a                                   { display: block; max-width: 455px; margin: 0 auto; height: 60px; border-radius: 10px; padding: 20px 20px; margin-bottom: 30px }
-.popup  .social-pp  a.facebook                          { background-color: #3b5998; color: #fff; font-size: 14px; text-transform: uppercase; font-family:Opificio;    }
+.popup  .social-pp  a.facebook                          { display: none; background-color: #3b5998; color: #fff; font-size: 14px; text-transform: uppercase; font-family:Opificio;    }
 .popup  .social-pp  a.facebook:before                   { content: ''; display: inline-block; background: url(../images/facebook1.png); width: 12px; height: 25px; margin-right: 10px; margin-top: -10px; vertical-align: middle; }
 
 .social-pp  a.google                            { background-color: #fff; color: #131313; font-size: 14px; text-transform: uppercase; font-family:Opificio; border: #dddddd solid 1px   }

@@ -10,7 +10,7 @@ body .social .trustpilot-widget a { background: #dadada url(../images/logo-trust
 .social a.fb:hover,
 .social a.insta:hover,
 .social a.twitter:hover,
-.social a.youtube:hover { opacity: 0.8; } 
+.social a.youtube:hover { opacity: 0.8; }
 body .blc-apropos h2 { text-transform: none ; }
 
 body #montant_conseille.has-focus,body #montant_fixe.has-focus { width: 50%;border-radius: 5px;border-color: #cecece !important; }
