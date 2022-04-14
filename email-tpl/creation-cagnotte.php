@@ -467,7 +467,7 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td align="center" class="text" style="font-size: 0px; padding: 0 46px 10px; word-break: break-word;">
+                                                            <td align="center" class="text" style="font-size: 16px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
                                                                     <?php echo __('Merci d’avoir créé votre cagnotte sur www.koti-kota.com','kotikota_mail') ?> <br><br>
                                                                     📢 <?php echo __('Par expérience, sachez que 3 raisons majeures expliquent le succès ou l’échec de votre cagnotte','kotikota_mail') ?><br><br>
