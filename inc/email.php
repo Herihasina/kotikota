@@ -18,13 +18,10 @@ function sendNotificationCreation($id){
 
     if( 'mg' == ICL_LANGUAGE_CODE ){
       $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );
-      //$tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
     }elseif( 'en' == ICL_LANGUAGE_CODE ){
       $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );
-      //$tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
     }else{
       $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );
-      //$tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
     }
 
     ob_start();
@@ -34,36 +31,13 @@ function sendNotificationCreation($id){
     $objet = get_field('objet_creation','option') ? get_field('objet_creation','option') : __("Création de cagnotte avec succès","kotikota");
 
     if (@wp_mail( $email_titulaire, $objet, $html, $headers ) ){
-        /*$current_user = wp_get_current_user();
-        ob_start();
-          include( $tpl_participant );
-          $htmlp = ob_get_clean();
-
-          $objet = get_field('objet_participation_participant','option') ? get_field('objet_participation_participant','option') : __("Participation à une cagnotte","kotikota");
-
-          if ( @wp_mail( $current_user->user_email, $objet, $htmlp, $headers ) ){
-            return true;
-          }else{
-            return false;
-          }
-          ob_start();
-          include( $tpl_participant );
-          $htmlp = ob_get_clean();
-
-          if ( @wp_mail( $current_user->user_email, $objet, $htmlp, $headers ) ) {
-            return true;
-          }else{
-            return false;
-          }*/
-
       return true;
     }else{
       return false;
     }
 }
 
-function sendNotificationParticipation($id){
-    $current_user = wp_get_current_user();
+function sendNotificationParticipation($id, $email_participant = ''){
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
     $prenom = get_user_meta($titulaire);
@@ -96,17 +70,18 @@ function sendNotificationParticipation($id){
 
     //@wp_mail( $email_titulaire, $objet, $html, $headers );
     if ( @wp_mail( $email_titulaire, $objet, $html, $headers ) ) {
-      //return true;
-        $objet = get_field('objet_participation_participant','option') ? get_field('objet_participation_participant','option') : __("Participation à une cagnotte","kotikota");
+        if ($email_participant) {
+          $objet = get_field('objet_participation_participant','option') ? get_field('objet_participation_participant','option') : __("Participation à une cagnotte","kotikota");
 
-        ob_start();
-        include( $tpl_participant );
-        $htmlp = ob_get_clean();
+          ob_start();
+          include( $tpl_participant );
+          $htmlp = ob_get_clean();
 
-        if ( @wp_mail( $current_user->user_email, $objet, $htmlp, $headers ) ){
-          return true;
-        }else{
-          return false;
+          if ( @wp_mail( $email_participant, $objet, $htmlp, $headers ) ){
+            return true;
+          }else{
+            return false;
+          }
         }
 
         return true;
