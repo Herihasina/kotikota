@@ -671,9 +671,9 @@ function save_info_banque(){
     if ( !isset($_POST['cle']) || $_POST['cle'] == "" ){
        $erreurs[] = __("Indiquer Numero BIC.", "kotikota");
     }
-   if ( !isset($_POST['fichier']) || $_POST['fichier'] == "" ){
-      $erreurs[] = __("Vous devez téléverser un fichier Image ou PDF", "kotikota");
-    }
+   // if ( !isset($_POST['fichier']) || $_POST['fichier'] == "" ){
+   //    $erreurs[] = __("Vous devez téléverser un fichier Image ou PDF", "kotikota");
+   //  }
 
     /*if ( $erreurs ){
         foreach ($erreurs as $erreur ){
