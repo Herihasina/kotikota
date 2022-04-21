@@ -115,7 +115,7 @@
 		          		<div class="col">
 		          			<div class="blc-chp">
 				                <label><?php _e('Prénom','kotikota'); ?></label>
-				                <input type="text" name="prenom" class="chp" id="prenom" placeholder="<?php _e('Prénom','kotikota'); ?>" required="false"  value="<?= $info->prenom ?>">
+				                <input type="text" name="prenom" class="chp" id="prenom" placeholder="<?php _e('Prénom','kotikota'); ?>"  value="<?= $info->prenom ?>">
 				              </div>
 		          		</div>
 
