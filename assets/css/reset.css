@@ -3780,6 +3780,10 @@ a:hover { color:#fbbd36; }
     .blc-cagnotte-participation .btn {  margin-top: 50px;  text-align: center;}
     .tarifs .cont-left .content .txt { padding-left: 8px }
     .nom-cagnotteSum .content .col b { font-size: 16px }
+    .nom-cagnotteSum .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .mobile-only, #frais_cagnotte, .info-cagnotte-inner.hidden{
