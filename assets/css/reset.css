@@ -3327,10 +3327,19 @@ a:hover { color:#fbbd36; }
 
     .blc-cagnotte-liste .lst-cagnotte-publique .item { position: relative; z-index: 300 }
     .offrir-cadeau .lst-type {
-    display: block;
-    position: relative;
-    z-index: -1;
-}
+        display: block;
+        position: relative;
+        z-index: -1;
+    }
+
+    .zone-search .offrir-cadeau .lst-type {
+        display: none;
+    }
+    .zone-search .menu-liste-cagnotte.active .lst-type { display: block; }
+
+    .zone-search .menu-liste-cagnotte .lst-form-type { height: 0 }
+    .zone-search .menu-liste-cagnotte.active .lst-form-type { height: 300px }
+
 
 
 
