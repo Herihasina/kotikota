@@ -3325,6 +3325,8 @@ a:hover { color:#fbbd36; }
     .tarifs .cont-left .col .content {width: auto; max-width: 400px}
     .securite-cagnotte h2 { line-height: normal; }
 
+    .blc-cagnotte-liste .lst-cagnotte-publique .item { position: relative; z-index: 300 }
+
 
 
 
