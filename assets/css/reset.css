@@ -3326,6 +3326,11 @@ a:hover { color:#fbbd36; }
     .securite-cagnotte h2 { line-height: normal; }
 
     .blc-cagnotte-liste .lst-cagnotte-publique .item { position: relative; z-index: 300 }
+    .offrir-cadeau .lst-type {
+    display: block;
+    position: relative;
+    z-index: -1;
+}
 
 
 
