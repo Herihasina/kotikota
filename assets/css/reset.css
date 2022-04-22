@@ -829,7 +829,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .btn-partage  div { padding:0 30px; width: 50%; display: inline-block; vertical-align: middle;}
 
 .det-cagnotte .content          { border-radius: 13px; overflow: hidden; margin-bottom: 59px }
-.det-cagnotte .content .blc-img { position: relative; }
+.det-cagnotte .content .blc-img { position: relative; border-radius: 10px 10px 0 0 ; overflow: hidden; }
 .det-cagnotte .content .blc-img img { display: block; width: 100% ; height: auto;}
 .det-cagnotte .content .blc-img .ico-percent { position: absolute; top :0; left: 0; width: 100px; height: 103px; background:url(../images/bg-percent.png); background-size: cover; padding: 10px}
 .det-cagnotte .content .blc-img .ico-percent .percent:after { width: 41px; height: 41px; top: -3px }
