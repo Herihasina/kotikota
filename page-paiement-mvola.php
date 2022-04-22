@@ -1,6 +1,6 @@
 <?php
-	// Template name: Paiement MVola 
-	
+	// Template name: Paiement MVola
+
 	if ( ( !isset($_GET['id']) && empty( $_GET['id'] ) ) || ( !isset($_GET['cl']) && empty( $_GET['cl'] ) ) ){
     wp_redirect( '/' );
     exit();
@@ -26,7 +26,7 @@
 
   /*
     Paramètres API MVola:
-      montant 
+      montant
       ID de transaction (unique koa)
       Description de la transaction == Nom de la cagnotte
       Coordonnées de la livraison
@@ -49,7 +49,7 @@
   }else {
 
     /*
-      insertion BD params 
+      insertion BD params
         id_participation
         MPGw_TokenID
         ShopTransactionAmount
@@ -69,9 +69,9 @@
     $ShopShippingAddress   = $retour->ShopShippingAddress;
 
     $transaction_id = save_mvola_transaction( $id_participation, $MPGw_TokenID, $ShopTransactionAmount, $ShopTransactionID, $ShopTransactionLabel, $ShopShippingName, $ShopShippingAddress);
-    
+
     $link = MPGW_TRANSACTION_URL . $MPGw_TokenID;
-    
+
     header( 'Location: ' . MPGW_TRANSACTION_URL . $MPGw_TokenID );
 
     get_header();

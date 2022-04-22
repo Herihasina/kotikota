@@ -142,7 +142,7 @@ function get_mvola_transaction_notif(){
   } else {
     if( $retour->MvolaTransactionStatus == 'SUCCESS' ){
       $participation = get_mvola_participation( $shopID );
-      traitement_post_paiement( $participation );
+      //traitement_post_paiement( $participation );
       $out = array(
         'status'  => true,
         'row'     => $participation,
