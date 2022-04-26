@@ -64,12 +64,10 @@ function envoi__rappel(){
 add_action('check_cagnotte_cloture','cloture_cagnotte');
 
 function cloture_cagnotte() {
-	$args = array(
-        'post_type' => array('cagnotte','cagnotte-perso'),
-        'post_status' => 'publish',
-        'orderby' => 'ID',
-        'order' => 'DESC',
-        'paged' => -1,
+	$arg = array(
+      'post_type'   => array( 'cagnotte', 'cagnotte-perso'),
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
     );
 
     $loop = query_posts( $args );
