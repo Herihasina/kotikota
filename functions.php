@@ -1052,12 +1052,14 @@ function generate_post_to_pdf_file($postID) {
 
     $q = new WP_Query( $arg );
 
+    echo '<div style="display:none">';
     while( $q->have_posts() ){
       $q->the_post();
       $id = get_the_ID();
-      echo $id;
+      echo $id . '</br>';
 
     }
+    echo '</div>';
     wp_reset_query();
   /*  $loop = query_posts( $args );
 
