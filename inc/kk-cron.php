@@ -76,8 +76,10 @@ function cloture_cagnotte() {
       $q->the_post();
       $id = get_the_ID();
       $deadline = get_nbr_de_jour_restant( get_field('deadline_cagnoote', $id) );
+      $is_activ = get_field('actif', $id);
+  	  $closed = get_field('cagnotte_cloturee', $id) == 'oui' ? true : false;
 
-      if($deadline == 0) { // si deadline 0 cloturer la cagnotte
+      if($deadline == 0 && !$closed ) { // si deadline 0 cloturer la cagnotte et cagnotte non cloturée
         update_field('actif', false, $id );
 		update_field('cagnotte_cloturee', 'oui', $id );
 
