@@ -1045,15 +1045,21 @@ function generate_post_to_pdf_file($postID) {
 
   add_action('init','test_cloture_cagnotte');
   function test_cloture_cagnotte() {
-  /*$args = array(
-        'post_type' => array('cagnotte','cagnotte-perso'),
-        'post_status' => 'publish',
-        'orderby' => 'ID',
-        'order' => 'DESC',
-        'paged' => -1,
+
+    $arg = array(
+      'post_type'   => array( 'cagnotte', 'cagnotte-perso'),
     );
 
-    $loop = query_posts( $args );
+    $q = new WP_Query( $arg );
+
+    while( $q->have_posts() ){
+      $q->the_post();
+      $id = get_the_ID();
+      echo $id;
+
+    }
+    wp_reset_query();
+  /*  $loop = query_posts( $args );
 
     if (have_posts()):
         while ( $loop->have_posts() ) : $loop->the_post();
