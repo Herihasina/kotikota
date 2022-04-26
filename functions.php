@@ -1058,7 +1058,11 @@ function generate_post_to_pdf_file($postID) {
     while( $q->have_posts() ){
       $q->the_post();
       $id = get_the_ID();
-      echo $id . '</br>';
+      $deadline = get_nbr_de_jour_restant( get_field('deadline_cagnoote', $id) );
+
+      if($deadline == 0) { // si deadline 0 cloturer la cagnotte
+        echo $id . '</br>';
+      }
 
     }
     echo '</div>';
