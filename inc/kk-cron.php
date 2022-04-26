@@ -1,6 +1,6 @@
 <?php
-/* 
-	fonction miactivé automatique ny compte 
+/*
+	fonction miactivé automatique ny compte
 	ra vo misy fichier uploadé
 	sinon activation manuelle depuis bool
 */
@@ -23,8 +23,8 @@ function envoi__rappel(){
 	$now = date('d-m-y H');
 	$user_ids = (array)get_ids_titulaires(); //ID anzay tsy mbola valide ihany no alaina eto
 
-		foreach( $user_ids as $user_id ){	
-				
+		foreach( $user_ids as $user_id ){
+
 			$rappel_envoye = get_field('rappel_envoye', 'user_'.$user_id );
 
 			if ( !$rappel_envoye || is_null( $rappel_envoye ) ) $rappel_envoye = 0;
@@ -38,7 +38,7 @@ function envoi__rappel(){
 						update_field('rappel_envoye', $rappel_envoye, 'user_'.$user_id );
 
 				}
-			}elseif ( $rappel_envoye == 1 ){ 
+			}elseif ( $rappel_envoye == 1 ){
 				$rappel2 = get_field('deuxo_rappel', 'user_'.$user_id );
 				if ( ($now == $rappel2 || $now > $rappel2) && $rappel2 != '' ){
 					$rappel_36h = envoiSecondRappel($user_id);
@@ -54,9 +54,62 @@ function envoi__rappel(){
 
 						$rappel_envoye++;
 						update_field('rappel_envoye', $rappel_envoye, 'user_'.$user_id );
-						
+
 				}
 			}
 		}
+
+}
+
+add_action('check_cagnotte_cloture','cloture_cagnotte');
+
+function cloture_cagnotte() {
+	$args = array(
+        'post_type' => array('cagnotte','cagnotte-perso'),
+        'post_status' => 'publish',
+        'orderby' => 'ID',
+        'order' => 'DESC',
+        'paged' => -1,
+        /*'meta_query' => array(
+            array(
+                'key' => 'titulaire_de_la_cagnotte',
+                'value' => get_current_user_id()
+
+            )
+        )*/
+    );
+
+    $loop = query_posts( $args );
+
+    if (have_posts()):
+        while ( $loop->have_posts() ) : $loop->the_post();
+            $id = get_the_ID();
+            $deadline = get_nbr_de_jour_restant( get_field('deadline_cagnoote', $id) )
+
+            if($deadline == 0) { // si deadline 0 cloturer la cagnotte
+            	update_field('actif', false, $id );
+		        update_field('cagnotte_cloturee', 'oui', $id );
+
+		        $participants = array();
+		        // andefasana notif daholo ny participant rehetra
+		        $participants = get_field('tous_les_participants', $id);
+		        if( is_array( $participants ) ):
+		            foreach( $participants as $participant ){
+		                $part = $participant['participant_'];
+		                $partID = $part->ID;
+		                $nom_participant = get_field('nom_participant', $partID);
+		                $prenom_participant = get_field('prenom_participant', $partID);
+		                $email_participant = get_field('email_participant', $partID);
+
+		                $sent = sendNotificationFin($id, $email_participant, $nom_participant, $prenom_participant);
+		            }
+		        endif;
+		        // andefasana notif koa ny titulaire
+		        $sent_2 = sendNotificationFinPourTitulaire( $id );
+            }
+
+            endwhile;
+        wp_reset_postdata();
+    endif;
 
 }
