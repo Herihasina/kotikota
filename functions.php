@@ -1042,3 +1042,25 @@ function generate_post_to_pdf_file($postID) {
 
       return $url;
   }
+
+  add_action('init','test_cloture_cagnotte');
+  function test_cloture_cagnotte() {
+  $args = array(
+        'post_type' => array('cagnotte','cagnotte-perso'),
+        'post_status' => 'publish',
+        'orderby' => 'ID',
+        'order' => 'DESC',
+        'paged' => -1,
+    );
+
+    $loop = query_posts( $args );
+
+    if (have_posts()):
+        while ( $loop->have_posts() ) : $loop->the_post();
+          $id = get_the_ID();
+          echo get_the_title(). '<br>';
+        endwhile;
+        wp_reset_postdata();
+    endif;
+
+}
