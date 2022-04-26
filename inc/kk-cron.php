@@ -70,37 +70,37 @@ function cloture_cagnotte() {
       'posts_per_page' => -1,
     );
 
-    $loop = query_posts( $args );
+	$q = new WP_Query( $arg );
 
-    if (have_posts()):
-        while ( $loop->have_posts() ) : $loop->the_post();
-            $id = get_the_ID();
-            $deadline = get_nbr_de_jour_restant( get_field('deadline_cagnoote', $id) );
+    while( $q->have_posts() ){
+      $q->the_post();
+      $id = get_the_ID();
+      $deadline = get_nbr_de_jour_restant( get_field('deadline_cagnoote', $id) );
 
-            if($deadline == 0) { // si deadline 0 cloturer la cagnotte
-            	update_field('actif', false, $id );
-		        update_field('cagnotte_cloturee', 'oui', $id );
+      if($deadline == 0) { // si deadline 0 cloturer la cagnotte
+        update_field('actif', false, $id );
+		update_field('cagnotte_cloturee', 'oui', $id );
 
-		        $participants = array();
-		        // andefasana notif daholo ny participant rehetra
-		        $participants = get_field('tous_les_participants', $id);
-		        if( is_array( $participants ) ):
-		            foreach( $participants as $participant ){
-		                $part = $participant['participant_'];
-		                $partID = $part->ID;
-		                $nom_participant = get_field('nom_participant', $partID);
-		                $prenom_participant = get_field('prenom_participant', $partID);
-		                $email_participant = get_field('email_participant', $partID);
+		$participants = array();
+		// andefasana notif daholo ny participant rehetra
+		$participants = get_field('tous_les_participants', $id);
+		if( is_array( $participants ) ):
+		foreach( $participants as $participant ){
+			$part = $participant['participant_'];
+			$partID = $part->ID;
+			$nom_participant = get_field('nom_participant', $partID);
+			$prenom_participant = get_field('prenom_participant', $partID);
+			$email_participant = get_field('email_participant', $partID);
 
-		                $sent = sendNotificationFin($id, $email_participant, $nom_participant, $prenom_participant);
-		            }
-		        endif;
-		        // andefasana notif koa ny titulaire
-		        $sent_2 = sendNotificationFinPourTitulaire( $id );
-            }
+			$sent = sendNotificationFin($id, $email_participant, $nom_participant, $prenom_participant);
+		}
+		endif;
+		// andefasana notif koa ny titulaire
+		$sent_2 = sendNotificationFinPourTitulaire( $id );
+      }
 
-            endwhile;
-        wp_reset_postdata();
-    endif;
+    }
+
+    wp_reset_postdata();
 
 }
