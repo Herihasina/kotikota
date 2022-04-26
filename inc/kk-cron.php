@@ -61,7 +61,7 @@ function envoi__rappel(){
 
 }
 
-/*add_action('check_cagnotte_cloture','cloture_cagnotte');
+add_action('check_cagnotte_cloture','cloture_cagnotte');
 
 function cloture_cagnotte() {
 	$args = array(
@@ -77,7 +77,7 @@ function cloture_cagnotte() {
     if (have_posts()):
         while ( $loop->have_posts() ) : $loop->the_post();
             $id = get_the_ID();
-            $deadline = get_nbr_de_jour_restant( get_field('deadline_cagnoote', $id) )
+            $deadline = get_nbr_de_jour_restant( get_field('deadline_cagnoote', $id) );
 
             if($deadline == 0) { // si deadline 0 cloturer la cagnotte
             	update_field('actif', false, $id );
@@ -105,4 +105,4 @@ function cloture_cagnotte() {
         wp_reset_postdata();
     endif;
 
-}*/
+}
