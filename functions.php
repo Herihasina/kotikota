@@ -1048,6 +1048,7 @@ function generate_post_to_pdf_file($postID) {
 
     $arg = array(
       'post_type'   => array( 'cagnotte', 'cagnotte-perso'),
+      'post_status' => 'publish',
     );
 
     $q = new WP_Query( $arg );
