@@ -61,7 +61,7 @@ function envoi__rappel(){
 
 }
 
-add_action('check_cagnotte_cloture','cloture_cagnotte');
+/*add_action('check_cagnotte_cloture','cloture_cagnotte');
 
 function cloture_cagnotte() {
 	$args = array(
@@ -70,13 +70,6 @@ function cloture_cagnotte() {
         'orderby' => 'ID',
         'order' => 'DESC',
         'paged' => -1,
-        /*'meta_query' => array(
-            array(
-                'key' => 'titulaire_de_la_cagnotte',
-                'value' => get_current_user_id()
-
-            )
-        )*/
     );
 
     $loop = query_posts( $args );
@@ -112,4 +105,4 @@ function cloture_cagnotte() {
         wp_reset_postdata();
     endif;
 
-}
+}*/
