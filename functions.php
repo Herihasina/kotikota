@@ -1042,39 +1042,3 @@ function generate_post_to_pdf_file($postID) {
 
       return $url;
   }
-
-  add_action('init','test_cloture_cagnotte');
-  function test_cloture_cagnotte() {
-
-    $arg = array(
-      'post_type'   => array( 'cagnotte', 'cagnotte-perso'),
-      'post_status' => 'publish',
-      'posts_per_page' => -1,
-    );
-
-    $q = new WP_Query( $arg );
-
-    echo '<div style="display:none">';
-    while( $q->have_posts() ){
-      $q->the_post();
-      $id = get_the_ID();
-      $deadline = get_nbr_de_jour_restant( get_field('deadline_cagnoote', $id) );
-
-      if($deadline == 0) { // si deadline 0 cloturer la cagnotte
-        echo 'id:'.$id . 'deadline:'.$deadline.'</br>';
-      }
-
-    }
-    echo '</div>';
-    wp_reset_query();
-  /*  $loop = query_posts( $args );
-
-    if (have_posts()):
-        while ( $loop->have_posts() ) : $loop->the_post();
-          $id = get_the_ID();
-          echo get_the_title(). '<br>';
-        endwhile;
-        wp_reset_postdata();
-    endif;*/
-
-}
