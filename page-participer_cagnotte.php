@@ -210,8 +210,8 @@
               <div class="col100 ">
                   <div class=" blc-chp blc-radio">
                       <h3>
-                        <?php echo __('Dépôt bancaire','kotikota');?>,
-	                      <br><?php echo __('Virement bancaire','kotikota');?>
+                        <?php echo __('Paiement','kotikota');?>,
+	                      <br><?php echo __('carte bancaire','kotikota');?>
                       </h3>
                       <div class="option">
                         <ul class="clr">

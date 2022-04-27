@@ -3340,6 +3340,9 @@ a:hover { color:#fbbd36; }
     .zone-search .menu-liste-cagnotte .lst-form-type { height: 0 }
     .zone-search .menu-liste-cagnotte.active .lst-form-type { height: 300px }
     .blc-liste-cagnote iframe { width: 100% }
+    .pp-document-photos .blcbtn .link {
+        margin: 0 20px 10px;
+    }
 
 
 
