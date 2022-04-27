@@ -42,20 +42,17 @@
                                 </div>
                                 <span><?php _e('Cliquez pour lire la vidéo','kotikota') ?></span>
                             </a>
+                            <div class="social">
+                                <div>
+                                    <a href="<?= get_theme_mod('sn_fb_setting') ?>" class="fb" target="_blank"></a>
+                                    <a href="<?= get_theme_mod('sn_insta_setting') ?>" class="insta" target="_blank"></a>
+                                    <a href="<?= get_theme_mod('sn_tweet_setting') ?>" class="twitter" target="_blank"></a>
+                                    <a href="<?= get_theme_mod('sn_yt_setting') ?>" class="youtube" target="_blank"></a>
+                                </div>
+                           
+                            </div>
                         </div>
-                        <div class="social">
-                            <div>
-                                <a href="<?= get_theme_mod('sn_fb_setting') ?>" class="fb" target="_blank"></a>
-                                <a href="<?= get_theme_mod('sn_insta_setting') ?>" class="insta" target="_blank"></a>
-                                <a href="<?= get_theme_mod('sn_tweet_setting') ?>" class="twitter" target="_blank"></a>
-                                <a href="<?= get_theme_mod('sn_yt_setting') ?>" class="youtube" target="_blank"></a>
-                            </div>
-                        <!-- TrustBox widget - Micro Review Count -->
-                            <div class="trustpilot-widget" data-locale="fr-FR" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="61dbd0fc47f95fb0e06d2b7f" data-style-height="50px" data-style-width="80%" style="margin-top: 25%;">
-                              <a href="https://www.trustpilot.com/review/koti-kota.com" target="_blank" rel="noopener">Trustpilot</a>
-                            </div>
-                        <!-- End TrustBox widget -->
-                    </div>
+                        
                  </div>
                 <!-- /image slider -->
 <?php
