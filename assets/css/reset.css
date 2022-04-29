@@ -3647,7 +3647,7 @@ a:hover { color:#fbbd36; }
     #BNI_page .blc-img ul li { display: inline-block; width: 49%; vertical-align: middle; margin-bottom: 20px }
 
     .cont-video > div { width: 200px; margin: 0 auto}
-    .blc-video { right: 20px }
+    .blc-video { right: 0 }
 
     .modal-body iframe { width: 100%;}
     .cont-video i { width: 40px; height: 40px; background-size: cover }
