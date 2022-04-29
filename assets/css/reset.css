@@ -2920,7 +2920,7 @@ a:hover { color:#fbbd36; }
 }
 
 @media (max-width:1024px) {
-    #slider                                                 { height: 640px }
+    #slider                                                 { height: 715px }
   .btn-head                                                 { margin-left: 15px;}
   .menu-flag li                                             { margin: 0 5px;}
   .comment-ca-marche                                          { padding-top: 0;}
@@ -3366,8 +3366,8 @@ a:hover { color:#fbbd36; }
     #midground                                          { display: none }
     .wrapper                                            { padding: 0 20px }
     .wrapMenuMobile                                     { right: 20px; }
-   #slider                                              { height: 530px;}
-   .banner                                              { height: 530px;}
+   #slider                                              { height: 617px;}
+   .banner                                              { height: 617px;}
     .banner .wrapper                                    { padding: 0 20px }
     .txt-banner                                         { padding-top: 105px;max-width: 280px;}
     .txt-banner h1  ,
