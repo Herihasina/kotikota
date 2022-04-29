@@ -3349,6 +3349,14 @@ a:hover { color:#fbbd36; }
     .pp-document-photos .blcbtn .link {
         margin: 0 20px 10px;
     }
+    .liste-invitation .whatsapp.mobile-only {
+        display: block;
+        width: auto;
+        background: none;
+        border-radius: 10px;
+        height: auto;
+        margin-bottom: 10px !important;
+    }
 
 
 
