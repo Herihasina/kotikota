@@ -361,7 +361,7 @@ function envoiTroisiemeRappel($userid){
   }
 }
 
-add_filter( 'the_post_export_content', rib_export );
+//add_filter( 'the_post_export_content', rib_export );
 
 function rib_export( $post_content ){
     $nom = 'Titulaire du compte : ' . get_field('rib_nom');
