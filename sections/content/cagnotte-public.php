@@ -39,7 +39,9 @@
                         while ( $loop->have_posts() ) : $loop->the_post();
                             $length = get_field('tous_les_participants');
                             if ( !$length ) $length = [];
+                            $part = get_field('tous_les_participants', $post->ID);
                             $all_posts[ count($length).'-'.$i] = $post;
+                            $all_posts[ count($length).'-'.$i]['part'] = $part;
 
                         endwhile;
                         wp_reset_postdata();
