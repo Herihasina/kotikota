@@ -49,7 +49,7 @@
                 }
             endif;
 
-            asort($all_posts);
+            krsort($all_posts);
 
             print_r($all_posts);
             die;
