@@ -62,8 +62,7 @@
   <div class="pp-document-photos">
     <div class="blcbtn">
       <a href="#pp-document" class="link fancybox" title="Document"><?php _e('Document','kotikota') ?></a>
-      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos ','kotikota') ?></a>
-      <a href="#pp-videos" class="link fancybox" title="Photos et vidéos"><?php _e('vidéos','kotikota') ?></a>
+      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos et vidéos','kotikota') ?></a>
 
       <div class="pp-document" id="pp-document" style="display: none">
         <div class="Document cont-pp">
@@ -178,7 +177,7 @@
       <div class="pp-document" id="pp-photos" style="display: none">
         <div class="Document cont-pp">
             <div class="titre">
-                <h2><?php _e('Images','kotikota') ?></h2>
+                <h2><?php _e('Images et vidéos','kotikota') ?></h2>
             </div>
             <div class="inner-pp">
               <div class="lst-document scrollbar-inner">
@@ -215,33 +214,6 @@
                             </div>
                     <?php endif; ?>
                     </div>
-               
-                  </div>
-              </div>
-              <?php if($curr_userdata->ID == $titulaire_id) :?>
-                <div class="blcbtn">
-                  <a href="#ajout-video-image" class="link fancybox" title="<?php _e('Ajouter','kotikota')?>"><?php _e('ajouter','kotikota')?></a>
-                  <a href="#" class="link" id="remove_media_btn" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Supprimer','kotikota') ?></a>
-                </div>
-              <?php endif; ?>
-            </div>
-            <div class="footer-pp">
-                    <span><?php _e('Des questions ? En savoir plus sur la création des cagnottes ?','kotikota') ?></span>
-                    <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" title="<?php _e('Créer une cagotte en ligne','kotikota') ?>"><?php _e('Créer une cagotte en ligne','kotikota') ?></a> <!-- - <a href="#" title="Faire une simulation">Faire une simulation</a> -->
-            </div>
-        </div>
-
-
-      </div>
-
-       <div class="pp-document" id="pp-videos" style="display: none">
-        <div class="Document cont-pp">
-            <div class="titre">
-                <h2><?php _e('vidéos','kotikota') ?></h2>
-            </div>
-            <div class="inner-pp">
-              <div class="lst-document scrollbar-inner">
-                  <div class="row">         
                     <div class="col video">
                       <h3><?php _e('vidéos','kotikota') ?></h3>
                         <div class="lst-option blcvideos ">
