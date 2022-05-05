@@ -94,6 +94,7 @@
                 ?>
               </b>
               <div class="blc-chp">
+                <input type="hidden" id="idCagnotte" value="<?= $post->ID ?>">
                 <input type="text" name="" id="la-question" placeholder="<?= __('Rédigez votre question et/ou commentaire','kotikota') ?>" class="chp">
                 <input type="button" id="add-question" class="btn-send">
                 <input type="button" id="edit-question" class="btn-send">
