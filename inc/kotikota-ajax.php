@@ -414,7 +414,7 @@ function creer_participation(){
         $change_mga_cad = get_field('change_mga_cad','options');
 
         $donation = calcul_devise_en_mga( $donation, $devise, $change_mga_eu, $change_mga_liv, $change_mga_cad, $change_mga_usd );
-        
+
     }
     # /tapitra #
 
@@ -564,7 +564,7 @@ function save_info_principale(){
 
     //if ( !isset($_POST['categ']) || $_POST['categ'] == "" )
     //   $erreurs[] = __("Indiquer la catégorie de cagnotte.", "kotikota");
-    
+
     if ( !isset($_POST['sousCateg']) || $_POST['sousCateg'] == "" )
        $erreurs[] = __("Indiquer une type de cagnotte.", "kotikota");
 
@@ -965,7 +965,9 @@ function ask_question(){
 
         update_field( 'questions', $list_questions , $idCagnotte );
 
-        $newQuestion = get_post($newQuestion);
+        $html = '';
+
+        /*$newQuestion = get_post($newQuestion);
         $user_data = get_user_meta($newQuestion->post_author);
         $date = new DateTime($newQuestion->post_date);
         $html = '';
@@ -995,7 +997,7 @@ function ask_question(){
                       </div>';
         if ( $newQuestion == $editID){
             $html .= ' </div>';
-        }
+        }*/
 
         echo $html;
         wp_die();
