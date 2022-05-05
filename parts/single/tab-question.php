@@ -22,8 +22,10 @@
                       <?php
                         if ( $user_data['first_name'][0] != '' || $user_data['last_name'][0] != '' ){
                           echo $user_data['first_name'][0].' '.$user_data['last_name'][0];
-                        }else{
+                        }elseif ($user_data['nickname'][0] != '') {
                           echo $user_data['nickname'][0];
+                        } else {
+                          echo __('Anonyme','kotikota');
                         }
                       ?>
                     </b>
