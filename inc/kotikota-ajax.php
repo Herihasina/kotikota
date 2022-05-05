@@ -909,6 +909,7 @@ function save_notif(){
 }
 
 add_action( 'wp_ajax_ask_question', 'ask_question' );
+add_action( 'wp_ajax_nopriv_ask_question', 'ask_question' );
 
 function ask_question(){
     $erreurs = [];
