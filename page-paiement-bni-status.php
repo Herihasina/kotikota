@@ -1,9 +1,9 @@
 <?php
-	// template name: Virement bancaire Status 
+	// template name: Virement bancaire Status
 
 $salt = 'E3TBSEXdgxtaj4OxyTHHvh5hhORdIl4oBuAvWV9Xfymc7gNGPI';
 $cipher_key = '01D3TKzcYnRgkc7k2Nh1qAGt0Y8UL1j7BhiUUlOj1c4vkrDCx9dyPABqnIYqIoVtI2zGpG21nuP11PcctC6YtaFuUfaqk1G9UOZ2';
-			
+
 $id_order = $_GET['id_order'];
 
 $posted_data = base64_decode($_POST['posted_data']);
@@ -33,7 +33,7 @@ if($checksum == $checksum_data)
 			/*
 			* Cette partie du code a déjà été testé séparément
 			* avec un numéro de commande fixe ( à la place de la variable $id_order )
-			*/ 
+			*/
 			// on prend $id_order et fait une requête en BD pour récupérer la transaction ayant le
 			// même numéro de commande
 			$participation = get_bni_participation( $id_order );
@@ -46,21 +46,23 @@ if($checksum == $checksum_data)
 			/*
 			* fin de partie testée
 			*/
-		
+
 		echo 'success'; // Do not remove
 	}
 	else									// FAILED PAYMENT
 	{
 		// PUT ALL FAIL CODE FOR CREDIT CARDS PAYMENTS TO EXECUTE HERE <---------
 		// TIP : Usualy just used as notification. Remember that a buyer can retry his payment.
-		
-		
-		echo 'fail'; // Do not remove
+
+
+		//echo 'fail'; // Do not remove
+		echo 'success';
 	}
 }
 else
 {
-	echo 'Invalid Sender.';
-}	
+	//echo 'Invalid Sender.';
+	echo 'success';
+}
 
 ?>
