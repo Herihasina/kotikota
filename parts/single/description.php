@@ -237,43 +237,11 @@
        <div class="pp-document" id="pp-videos" style="display: none">
         <div class="Document cont-pp">
             <div class="titre">
-                <h2><?php _e('Images et vidéos','kotikota') ?></h2>
+                <h2><?php _e('vidéos','kotikota') ?></h2>
             </div>
             <div class="inner-pp">
               <div class="lst-document scrollbar-inner">
                   <div class="row">
-                    <div class="col photo">
-                      <h3><?php _e('images','kotikota') ?></h3>
-                      <?php if($photos):
-                            $key_image=1;
-                        ?>
-                        <div class="lst-option blcphotos">
-                          <?php foreach($photos as $photo ):
-                            $image = wp_get_attachment_url( $photo['image'] );
-                          ?>
-                            <div class="item">
-                              <div class="inner">
-                              <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>" value="<?= $key_image?>">
-                                <label for="img-<?= $key_image?>"></label>
-                              <?php endif; ?>
-                                <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
-                              </div>
-                            </div>
-                          <?php
-                              $key_image++;
-                          endforeach; ?>
-                        </div>
-                      <?php
-                      else:
-                      ?>
-                            <div style="text-align:center">
-                                <h4 style="text-align:center">
-                                    <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                                </h4>
-                            </div>
-                    <?php endif; ?>
-                    </div>
                     <div class="col video">
                       <h3><?php _e('vidéos','kotikota') ?></h3>
                         <div class="lst-option blcvideos ">
