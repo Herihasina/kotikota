@@ -939,7 +939,7 @@ function ask_question(){
             'post_status' => 'publish',
             'post_content' => $question,
             'post_date'  => the_time('d/m/y'),
-            'post_author' => 1 //get_current_user_id() ? get_current_user_id() : 1
+            'post_author' => get_current_user_id()
             );
 
 
