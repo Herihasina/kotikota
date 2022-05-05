@@ -30,12 +30,20 @@
             'posts_per_page' => $per_page,
             'meta_key' => 'visibilite_cagnotte',
             'meta_value' => 'publique',
-            'orderby' => count(get_field('tous_les_participants')),//'ID',
+            'orderby' => 'ID',
             'order' => 'DESC',
             'paged' => $paged,
         );
 
         $loop = query_posts( $args );
+        if ( $loop->have_posts() ){
+            while ( $loop->have_posts() ) : $loop->the_post();
+                $length = get_field('tous_les_participants');
+                if ( !$length ) $length = [];
+                    $all_posts[count($length)] = $post;
+            endwhile;
+            wp_reset_postdata();
+        }
 
         if ( $loop ):
             include 'sections/content/liste-cagnottes.php';
