@@ -1004,6 +1004,8 @@ function ask_question(){
         /*echo $html;
         wp_die();
     }*/
+
+    wp_die();
 }
 
 add_action( 'wp_ajax_delete_pst', 'delete_pst' );
