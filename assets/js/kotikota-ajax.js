@@ -709,6 +709,7 @@ $(function(){
 		  		},
 		  		dataType: 'html'
 		  	}).done(function(resp){
+		  		console.log(resp);
 		  		// $(resp).insertBefore('#chp-comment');
 		  		$('#loader').removeClass('working');
 		  		location.reload();
