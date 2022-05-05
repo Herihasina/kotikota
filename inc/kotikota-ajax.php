@@ -914,8 +914,6 @@ add_action( 'wp_ajax_nopriv_ask_question', 'ask_question' );
 function ask_question(){
     $erreurs = [];
 
-    wp_die();
-
     if ( !isset($_POST['question']) || $_POST['question'] == "" ){
         $erreurs[] = __("Veuillez bien poser votre question.", "kotikota");
     }
@@ -940,7 +938,7 @@ function ask_question(){
             'post_status' => 'publish',
             'post_content' => $question,
             'post_date'  => the_time('d/m/y'),
-            'post_author' => get_current_user_id()
+            'post_author' => get_current_user_id() ? get_current_user_id() : 0
             );
 
 
