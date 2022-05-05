@@ -239,12 +239,12 @@
             <div class="titre">
                 <h2><?php _e('vidéos','kotikota') ?></h2>
             </div>
-            
+
             <div class="inner-pp">
               <div class="lst-document scrollbar-inner">
                   <div class="row">
                     <div class="col video">
-                      <h3><?php _e('vidéos','kotikota') ?></h3>
+                      <h3><?php _e('Vidéos','kotikota') ?></h3>
                         <div class="lst-option blcvideos ">
                           <?php if($videos):
                               $key_video=1;
