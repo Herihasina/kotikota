@@ -692,6 +692,7 @@ $(function(){
 		  	var question = $('#la-question').val();
 		  	var idCagnotte	 = $('#idCagnotte').val();
 		  	console.log('id_cagnotte:'+idCagnotte);
+		  	return;
 		  	if ( question == ''){
 		  		alert('Question !');
 		  		return false;
