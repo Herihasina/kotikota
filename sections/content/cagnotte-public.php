@@ -39,9 +39,8 @@
                         while ( $loop->have_posts() ) : $loop->the_post();
                             $length = get_field('tous_les_participants');
                             if ( !$length ) $length = [];
-                            $part = get_field('tous_les_participants', get_the_ID());
-                            $all_posts[ $part.'-'.$i] = $post;
-                            //$all_posts[ count($length).'-'.$i] = $post;
+                            //$all_posts[ $part.'-'.$i] = $post;
+                            $all_posts[ count($length).'-'.$i] = $post;
 
                         endwhile;
                         wp_reset_postdata();
@@ -50,10 +49,11 @@
                 }
             endif;
 
+            ksort($all_posts);
+
             print_r($all_posts);
             die;
 
-            ksort($all_posts);
             $nbr_elems = count($all_posts);
 
             $i=1;
