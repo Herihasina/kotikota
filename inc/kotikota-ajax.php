@@ -913,6 +913,8 @@ add_action( 'wp_ajax_ask_question', 'ask_question' );
 function ask_question(){
     $erreurs = [];
 
+    wp_die();
+
     if ( !isset($_POST['question']) || $_POST['question'] == "" ){
         $erreurs[] = __("Veuillez bien poser votre question.", "kotikota");
     }
@@ -929,8 +931,6 @@ function ask_question(){
 
     $question = strip_tags( $_POST['question'] );
     $idCagnotte = $_POST['idCagnotte'];
-
-    wp_die();
 
     //ajoutena ao @CPT mot_doux ilay message t@ty participation ty
     $postarr = array(
@@ -968,7 +968,7 @@ function ask_question(){
 
         update_field( 'questions', $list_questions , $idCagnotte );
 
-        $html = '';
+        $html = 'update successfull';
 
         /*$newQuestion = get_post($newQuestion);
         $user_data = get_user_meta($newQuestion->post_author);
