@@ -709,9 +709,8 @@ $(function(){
 		  		},
 		  		dataType: 'html'
 		  	}).done(function(resp){
-		  		// $(resp).insertBefore('#chp-comment');
-		  		//location.reload();
 		  		$('#loader').removeClass('working');
+		  		$(resp).insertBefore('#chp-comment');
 		  	});
 
 		  	return false;
