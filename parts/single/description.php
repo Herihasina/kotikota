@@ -239,6 +239,7 @@
             <div class="titre">
                 <h2><?php _e('vidéos','kotikota') ?></h2>
             </div>
+            
             <div class="inner-pp">
               <div class="lst-document scrollbar-inner">
                   <div class="row">
