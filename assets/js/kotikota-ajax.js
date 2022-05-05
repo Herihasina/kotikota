@@ -691,9 +691,7 @@ $(function(){
 		  $('#add-question').click(function(){
 		  	var question = $('#la-question').val();
 		  	var idCagnotte	 = $('#idCagnotte-question').val();
-		  	console.log('id_cagnotte:'+idCagnotte);
-		  	console.log('question:'+question);
-		  	return;
+
 		  	if ( question == ''){
 		  		alert('Question !');
 		  		return false;
@@ -712,7 +710,7 @@ $(function(){
 		  		dataType: 'html'
 		  	}).done(function(resp){
 		  		// $(resp).insertBefore('#chp-comment');
-		  		location.reload();
+		  		//location.reload();
 		  		$('#loader').removeClass('working');
 		  	});
 
