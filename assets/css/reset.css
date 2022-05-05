@@ -3349,6 +3349,7 @@ a:hover { color:#fbbd36; }
     .pp-document-photos .blcbtn .link {
         margin: 0 20px 10px;
     }
+    .nom-cagnotteSum .content .col { width: 100% }
 
 
 
@@ -3728,6 +3729,8 @@ a:hover { color:#fbbd36; }
         height: auto;
         margin-bottom: 10px !important;
     }
+
+    .Card_container_result #result_fail a.btn.btn_try_again { width: 100% !important }
 
 
 
