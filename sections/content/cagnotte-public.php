@@ -50,8 +50,8 @@
                 }
             endif;
 
-            //print_r($all_posts);
-            //die;
+            print_r($all_posts);
+            die;
 
             ksort($all_posts);
             $nbr_elems = count($all_posts);
