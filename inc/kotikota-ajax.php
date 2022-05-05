@@ -937,7 +937,7 @@ function ask_question(){
             'post_status' => 'publish',
             'post_content' => $question,
             'post_date'  => the_time('d/m/y'),
-            'post_author' => get_current_user_id()
+            'post_author' => get_current_user_id() ? get_current_user_id() : ''
             );
 
     $editID = strip_tags( $_POST['id_question'] );
