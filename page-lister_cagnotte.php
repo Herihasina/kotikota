@@ -1,4 +1,4 @@
-<?php 
+<?php
 	/*
 	Template Name: Liste cagnottes
 	*/
@@ -15,28 +15,28 @@
     <div class="wrapper">
         <div class="zone-search">
             <div class="blc-menu">
-                <div class="menu-cagnotte"><?php _e('Toutes les cagnottes', 'kotikota'); ?></div>             
+                <div class="menu-cagnotte"><?php _e('Toutes les cagnottes', 'kotikota'); ?></div>
             </div>
             <?php get_search_form(); ?>
         </div>
         <ul id="response"></ul>
-        <?php 
+        <?php
         	$per_page = get_field('per_page','option');
         	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-        	$args = array(  
+        	$args = array(
             'post_type' => array('cagnotte','cagnotte-perso'),
             'post_status' => 'publish',
             'posts_per_page' => $per_page,
             'meta_key' => 'visibilite_cagnotte',
-            'meta_value' => 'publique', 
-            'orderby' => 'ID',
+            'meta_value' => 'publique',
+            'orderby' => count(get_field('tous_les_participants')),//'ID',
             'order' => 'DESC',
             'paged' => $paged,
         );
 
         $loop = query_posts( $args );
-        
+
         if ( $loop ):
             include 'sections/content/liste-cagnottes.php';
         else:
