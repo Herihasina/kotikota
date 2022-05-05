@@ -930,9 +930,10 @@ function ask_question(){
     $question = strip_tags( $_POST['question'] );
     $idCagnotte = $_POST['idCagnotte'];
 
+    wp_die();
 
     //ajoutena ao @CPT mot_doux ilay message t@ty participation ty
-    /*$postarr = array(
+    $postarr = array(
             'post_type' => 'question',
             'post_title' => substr($question, 0, 40),
             'post_status' => 'publish',
@@ -1001,11 +1002,9 @@ function ask_question(){
             $html .= ' </div>';
         }*/
 
-        /*echo $html;
+        echo $html;
         wp_die();
-    }*/
-
-    wp_die();
+    }
 }
 
 add_action( 'wp_ajax_delete_pst', 'delete_pst' );
