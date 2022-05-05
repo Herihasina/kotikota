@@ -39,7 +39,7 @@
                         while ( $loop->have_posts() ) : $loop->the_post();
                             $length = get_field('tous_les_participants');
                             if ( !$length ) $length = [];
-                            $part = get_field('tous_les_participants', $post->ID);
+                            $part = get_field('tous_les_participants', get_the_ID());
                             $all_posts[ $part.'-'.$i] = $post;
                             //$all_posts[ count($length).'-'.$i] = $post;
 
