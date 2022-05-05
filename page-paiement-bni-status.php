@@ -55,14 +55,14 @@ if($checksum == $checksum_data)
 		// TIP : Usualy just used as notification. Remember that a buyer can retry his payment.
 
 
-		//echo 'fail'; // Do not remove
-		echo 'success';
+		echo 'fail'; // Do not remove
+		//echo 'success';
 	}
 }
 else
 {
-	//echo 'Invalid Sender.';
-	echo 'success';
+	echo 'Invalid Sender.';
+	//echo 'success';
 }
 
 ?>
