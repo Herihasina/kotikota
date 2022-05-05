@@ -691,7 +691,9 @@ $(function(){
 		  $('#add-question').click(function(){
 		  	var question = $('#la-question').val();
 		  	var idCagnotte	 = $('#idCagnotte-question').val();
-
+		  	console.log('id_cagnotte:'+idCagnotte);
+		  	console.log('question:'+question);
+		  	return;
 		  	if ( question == ''){
 		  		alert('Question !');
 		  		return false;
