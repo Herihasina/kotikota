@@ -62,7 +62,8 @@
   <div class="pp-document-photos">
     <div class="blcbtn">
       <a href="#pp-document" class="link fancybox" title="Document"><?php _e('Document','kotikota') ?></a>
-      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos et vidéos','kotikota') ?></a>
+      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos ','kotikota') ?></a>
+      <a href="#pp-videos" class="link fancybox" title="Photos et vidéos"><?php _e('vidéos','kotikota') ?></a>
 
       <div class="pp-document" id="pp-document" style="display: none">
         <div class="Document cont-pp">
@@ -177,7 +178,7 @@
       <div class="pp-document" id="pp-photos" style="display: none">
         <div class="Document cont-pp">
             <div class="titre">
-                <h2><?php _e('Images et vidéos','kotikota') ?></h2>
+                <h2><?php _e('Images','kotikota') ?></h2>
             </div>
             <div class="inner-pp">
               <div class="lst-document scrollbar-inner">
@@ -214,6 +215,87 @@
                             </div>
                     <?php endif; ?>
                     </div>
+                  <!--   <div class="col video">
+                      <h3><?php _e('vidéos','kotikota') ?></h3>
+                        <div class="lst-option blcvideos ">
+                          <?php if($videos):
+                              $key_video=1;
+                              $count_correct_id=0;
+                          ?>
+                            <div class="lst-option">
+                              <?php foreach($videos as $video ):
+                                $video_id= $video['lien_youtube'];
+                                $video_data = get_youtube_video_detail($video_id);
+                                if($video_data): $count_correct_id++;
+                              ?>
+                                  <div class="item">
+                                    <div class="contvideo">
+                                      <a href="<?= $video_data['url'] ?>" target="_blank">
+                                        <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
+                                        <div class="txt">
+                                          <h4><?= $video_data['title'] ?></h4>
+                                          <p><?= $video_data['description'] ?></p>
+                                        </div>
+                                        <?php if($curr_userdata->ID == $titulaire_id) :?>
+                                          <div class="check-video">
+                                            <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>" value="<?= $key_video?>">
+                                            <label for="video-<?= $key_video?>"></label>
+                                          </div>
+                                        <?php endif; ?>
+                                      </a>
+                                    </div>
+                                  </div>
+
+                              <?php
+                                endif;
+                                $key_video++;
+                              endforeach; ?>
+                            </div>
+                            <?php
+                        elseif($count_correct_id!=count($videos)):
+                        ?>
+                            <div style="text-align:center">
+                                <h4 style="text-align:center">
+                                    <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                                </h4>
+                            </div>
+
+                        <?php   else: ?>
+                            <div style="text-align:center">
+                                <h4 style="text-align:center">
+                                    <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                                </h4>
+                            </div>
+                        <?php endif; ?>
+                        </div>
+                    </div> -->
+                  </div>
+              </div>
+              <?php if($curr_userdata->ID == $titulaire_id) :?>
+                <div class="blcbtn">
+                  <a href="#ajout-video-image" class="link fancybox" title="<?php _e('Ajouter','kotikota')?>"><?php _e('ajouter','kotikota')?></a>
+                  <a href="#" class="link" id="remove_media_btn" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Supprimer','kotikota') ?></a>
+                </div>
+              <?php endif; ?>
+            </div>
+            <div class="footer-pp">
+                    <span><?php _e('Des questions ? En savoir plus sur la création des cagnottes ?','kotikota') ?></span>
+                    <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" title="<?php _e('Créer une cagotte en ligne','kotikota') ?>"><?php _e('Créer une cagotte en ligne','kotikota') ?></a> <!-- - <a href="#" title="Faire une simulation">Faire une simulation</a> -->
+            </div>
+        </div>
+
+
+      </div>
+
+       <div class="pp-document" id="pp-videos" style="display: none">
+        <div class="Document cont-pp">
+            <div class="titre">
+                <h2><?php _e('Images et vidéos','kotikota') ?></h2>
+            </div>
+            <div class="inner-pp">
+              <div class="lst-document scrollbar-inner">
+                  <div class="row">
+                
                     <div class="col video">
                       <h3><?php _e('vidéos','kotikota') ?></h3>
                         <div class="lst-option blcvideos ">
