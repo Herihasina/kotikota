@@ -267,7 +267,8 @@
 	        <div class="btn wow fadeIn" data-wow-delay="950ms">
 	          <a href="<?php echo get_permalink( $idCagnotte ) ?>" class="link" title="<?php _e('annuler','kotikota') ?>"><?php _e('annuler','kotikota') ?></a>
 	           <a href="#" class="link submit" title="<?php _e('Enregistrer','kotikota') ?>" id="submit-info-principale"><?php _e('Enregistrer','kotikota') ?></a>
-	           <a href="<?php echo $url ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="next-info-principale"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>
+	           <!--<a href="<?php echo $url ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="next-info-principale"><?php _e('éTAPE SUIVANTE','kotikota') ?></a> -->
+	           <a href="<?php echo get_permalink( $idCagnotte ) ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="link" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>
 	        </div>
 
 				</div>

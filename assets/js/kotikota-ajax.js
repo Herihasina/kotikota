@@ -438,8 +438,8 @@ $(function(){
 	  	}).done(function(resp){
 	  		var url = new RegExp("^http");
 	  		if( url.test(resp) ){
-				 	console.log('redirect..');
-				 		window.location = resp + '?parametre='+idCagnotte;
+				 	//console.log('redirect..');
+				 	//	window.location = resp + '?parametre='+idCagnotte;
 				 }else{
 	  			$('ul#response').addClass('error').html(resp);
 			  		setTimeout(function() {
