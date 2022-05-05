@@ -930,10 +930,9 @@ function ask_question(){
     $question = strip_tags( $_POST['question'] );
     $idCagnotte = $_POST['idCagnotte'];
 
-    echo 'avant';
 
     //ajoutena ao @CPT mot_doux ilay message t@ty participation ty
-    $postarr = array(
+    /*$postarr = array(
             'post_type' => 'question',
             'post_title' => substr($question, 0, 40),
             'post_status' => 'publish',
@@ -941,7 +940,7 @@ function ask_question(){
             'post_date'  => the_time('d/m/y'),
             'post_author' => 1 //get_current_user_id() ? get_current_user_id() : 1
             );
-    echo 'apres';
+
 
     $editID = strip_tags( $_POST['id_question'] );
     if ($editID != ''){
@@ -1002,9 +1001,9 @@ function ask_question(){
             $html .= ' </div>';
         }*/
 
-        echo $html;
+        /*echo $html;
         wp_die();
-    }
+    }*/
 }
 
 add_action( 'wp_ajax_delete_pst', 'delete_pst' );
