@@ -690,10 +690,8 @@ $(function(){
 	  if ( $('#add-question').length ){
 		  $('#add-question').click(function(){
 		  	var question = $('#la-question').val();
-		  	var idCagnotte	 = $('#idCagnotte').val();
-		  	console.log('id_cagnotte:'+idCagnotte);
-		  	console.log('question:'+question);
-		  	return;
+		  	var idCagnotte	 = $('#idCagnotte-question').val();
+
 		  	if ( question == ''){
 		  		alert('Question !');
 		  		return false;
