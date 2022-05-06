@@ -42,7 +42,7 @@
                                 </span>
                         <?php
                             }elseif ( $statu < 100 && $limited ){ ?>
-                                <span class="ico-percent close">
+                                <span class="ico-percent">
                                     <div class="percent" style="width:50px;height:50px;">
                                       <p style="display:none;"><?php echo $statu ?>%</p>
                                     </div>
