@@ -1351,7 +1351,7 @@ padding-top: 22px;*/ }
 .col-dates .chy-type { margin: 0 -20px 40px; padding-left: 7px }
 .col-dates .chy-type .col.col47 { padding: 0 10px;}
 .lst-comment .cont-message { margin-top: 0; margin-bottom: 40px;}
-.blcTab .tab-content#participation .cont-message { margin-top: 10px; margin-bottom: 40px}
+.blcTab .tab-content#participation .cont-message { margin-top: 10px; margin-bottom: 40px; margin: 0 auto 40px}
 .zone-img .inputfile + label.no-bg span {  display: none;}
 .lst-cagnotte-publique.center { text-align: center; }
 #montant_fixe.has-focus { width: 95% }
