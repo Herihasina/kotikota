@@ -2656,10 +2656,10 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 
 .lst-cagnotte-publique .item .ico-percent.cloturer {
     background: url(../images/bandau-mini.png);
-    width: 200px;
+    width: 165px;
     background-size: cover;
-    height: 77px;
-    margin-left: -16px;
+    height: 64px;
+    margin-left: -14px;
     margin-top: 11px;
 }
 
@@ -2667,6 +2667,16 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 .lst-cagnotte-publique .item .ico-percent.cloturer .ckeckCloturer {
     display: none;
 }
+.lst-cagnotte-publique .item .ico-percent.cloturer span {
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-top: 8px
+}
+.lst-cagnotte-publique .item .ico-percent.cloturer span:hover { color: #fff }
+
+.lst-cagnotte-publique .item .ico-percent.cloturer { display: flex; justify-content: center; align-items: center }
 
 
 @media (min-width:1201px) {
