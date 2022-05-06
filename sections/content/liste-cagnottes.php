@@ -42,7 +42,7 @@
                                 </span>
                         <?php
                             }elseif ( $statu < 100 && $limited ){ ?>
-                                <span class="ico-percent">
+                                <span class="ico-percent close">
                                     <div class="percent" style="width:50px;height:50px;">
                                       <p style="display:none;"><?php echo $statu ?>%</p>
                                     </div>
@@ -54,6 +54,7 @@
                             if( $closed ): ?>
                             <span class="ico-percent cloturer">
                                 <div class="ckeckCloturer"></div>
+                                <span>Clôturer</span>
                             </span>
                         <?php endif; ?>
                     </a>
