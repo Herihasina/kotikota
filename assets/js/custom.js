@@ -370,6 +370,14 @@ $(document).ready(function() {
 		}
 	});	
 
+	$('.ico-percent').each(function() {
+		if(vis.hasClass("cloturer")){
+			vis.prev().removeClass("test");
+		}else{
+			vis.prev().addClass('test');	
+		}	
+	});
+
 
 
 

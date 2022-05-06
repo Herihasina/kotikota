@@ -2672,7 +2672,8 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     display: block;
     text-transform: uppercase;
     font-size: 14px;
-    padding-top: 8px
+    padding-top: 8px;
+    color: #fff !important
 }
 .lst-cagnotte-publique .item .ico-percent.cloturer span:hover { color: #fff }
 
