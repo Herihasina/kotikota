@@ -2659,7 +2659,7 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     width: 165px;
     background-size: cover;
     height: 64px;
-    margin-left: -14px;
+    margin-left: -13px;
     margin-top: 11px;
 }
 
