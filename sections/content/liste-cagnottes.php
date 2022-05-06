@@ -54,7 +54,7 @@
                             if( $closed ): ?>
                             <span class="ico-percent cloturer">
                                 <div class="ckeckCloturer"></div>
-                                <span>Clôturer</span>
+                                <span>Clôturée</span>
                             </span>
                         <?php endif; ?>
                     </a>
