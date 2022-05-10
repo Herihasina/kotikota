@@ -114,22 +114,19 @@
     </div>
 </div>
 
-<?php
-  if(isset($_GET['q']) && $_GET['q']= "question" ) {
-?>
+
   <script type="text/javascript">
     var $ = jQuery.noConflict();
 
     $( function(){
         $(document).ready(function() {
+          if(window.location.hash == 'question') {
             $('#participation').hide();
             $('.blcTab .participation').removeClass('active');
             $('.blcTab .question').addClass('active');
             $('#question').show();
+          }
 
         });
     });
   </script>
-<?php
-  }
-?>
