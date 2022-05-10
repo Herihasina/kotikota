@@ -120,7 +120,7 @@
 
     $( function(){
         $(document).ready(function() {
-          if(window.location.hash == 'question') {
+          if(window.location.hash.slice(1) == 'question') {
             $('#participation').hide();
             $('.blcTab .participation').removeClass('active');
             $('.blcTab .question').addClass('active');
