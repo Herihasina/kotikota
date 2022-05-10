@@ -220,7 +220,7 @@
               </div>
               <?php if($curr_userdata->ID == $titulaire_id) :?>
                 <div class="blcbtn">
-                  <a href="#ajout-video-image" class="link fancybox" title="<?php _e('Ajouter','kotikota')?>"><?php _e('ajouter','kotikota')?></a>
+                  <a href="#ajout-video-image2" class="link fancybox" title="<?php _e('Ajouter','kotikota')?>"><?php _e('ajouter','kotikota')?></a>
                   <a href="#" class="link" id="remove_media_btn" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Supprimer','kotikota') ?></a>
                 </div>
               <?php endif; ?>
@@ -329,6 +329,23 @@
               </span>
           </div>
       </div>
+
+         <div id="ajout-video-image2" style="display: none">
+        <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Cliquez ici pour ajouter une photo','kotikota') ?></a> 
+          <div class="col">
+             <!--  <div class=" blc-chp ">
+                  <label for="fname"><?php echo __('ID de la nouvelle video','kotikota'); ?><span>*</span></label>
+                  <div class="chp">
+                    <input type="text" name="video_id" placeholder="<?php echo __('exemple: 9wNPug7h1gQ','kotikota'); ?>" >
+                  </div>
+              </div> -->
+              <div id="add_video" class="link" title="<?php _e('Ajouter','kotikota') ?>" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Ajouter','kotikota') ?></div>
+              <span class="error_video">
+
+              </span>
+          </div>
+      </div>
+
     </div>
 
 
