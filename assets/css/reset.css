@@ -2608,6 +2608,14 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 #ajout-video-image .fancybox-close-small {
     color: #000;
 }
+#ajout-video-image2 .fancybox-close-small {
+    color: #000;
+}
+#ajout-video-image2 {
+    text-align: center;
+}
+#ajout-video-image2 #add_image { margin-bottom: 30px }
+
 .lst-document h4 { text-align: left !important; font-weight: 700 }
 #pp-document .lst-document h4 {
     text-align: center !important;
