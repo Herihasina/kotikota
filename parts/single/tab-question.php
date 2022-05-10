@@ -32,7 +32,7 @@
                     <?php
                       $date = new DateTime($question->post_date);
                     ?>
-                    <span class="date"><?= printf( __('a écrit le %s','kotikota'), $date->format('d/m/y') ) ?></span>
+                    <span class="date"><?= printf( __('a écrit le %s','kotikota'), $date->format('d/m/Y') ) ?></span>
                     <div class="txt">
                         <?php echo $question->post_content; ?>
 
