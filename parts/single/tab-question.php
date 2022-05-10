@@ -30,7 +30,7 @@
                       ?>
                     </b>
                     <?php
-                      $date = new DateTime($question->post_date);//new DateTime($question->post_date);
+                      $date = date($question->post_date);//new DateTime($question->post_date);
                     ?>
                     <span class="date"><?= printf( __('a écrit le %s','kotikota'), $date->format('d/m/y') ) ?></span>
                     <div class="txt">
