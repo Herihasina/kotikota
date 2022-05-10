@@ -712,7 +712,9 @@ $(function(){
 		  		//console.log(resp);
 		  		// $(resp).insertBefore('#chp-comment');
 		  		$('#loader').removeClass('working');
-		  		location.reload();
+
+		  		window.location.href = '#question';
+				window.location.reload(true);
 		  	});
 
 		  	return false;
