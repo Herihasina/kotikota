@@ -122,8 +122,11 @@
 
     $( function(){
         $(document).ready(function() {
-            $('.blcTab .question ').addClass('active');
+            $('#participation').hide();
+            $('.blcTab .participation').removeClass('active');
+            $('.blcTab .question').addClass('active');
             $('#question').show();
+
         });
     });
   </script>
