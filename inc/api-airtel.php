@@ -171,7 +171,7 @@
 
 	 		if( "TS" == $status->status || "DP00800001001" == $status2->response_code ){ // Don bien effectué
 	 			$participation = get_AM_participation( $order_id );
-	 			$process 	   = traitement_post_paiement( $participation );
+	 			//$process 	   = traitement_post_paiement( $participation );
 	 			$response['message'] = __('Votre don a bien été enregistré. Merci :)','kotikota');
 	 			$response['code']	 = 'OK';
 	 			$response['titre']	 = 'Don effectué';
