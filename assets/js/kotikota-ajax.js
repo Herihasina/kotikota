@@ -713,7 +713,7 @@ $(function(){
 		  		// $(resp).insertBefore('#chp-comment');
 		  		$('#loader').removeClass('working');
 
-		  		window.location.href = '/?q=question#question';
+		  		window.location.href = addParameterToURL('question#question');//'/?q=question#question';
 				window.location.reload(true);
 
 		  	});
