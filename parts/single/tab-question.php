@@ -113,3 +113,20 @@
       <?php //endif; ?>
     </div>
 </div>
+
+<?php
+  if(isset($_GET['q']) && $_GET['q']= "question" ) {
+?>
+  <script type="text/javascript">
+    var $ = jQuery.noConflict();
+
+    $( function(){
+        $(document).ready(function() {
+            $('.blcTab .question ').addClass('active');
+            $('#question').show();
+        });
+    });
+  </script>
+<?php
+  }
+?>

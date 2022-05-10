@@ -713,8 +713,9 @@ $(function(){
 		  		// $(resp).insertBefore('#chp-comment');
 		  		$('#loader').removeClass('working');
 
-		  		window.location.href = '#question';
+		  		window.location.href = '?q=question#question';
 				window.location.reload(true);
+
 		  	});
 
 		  	return false;
