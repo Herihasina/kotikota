@@ -2700,9 +2700,7 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 .lst-cagnotte-publique .item .ico-percent.cloturer span:hover { color: #fff }
 
 .lst-cagnotte-publique .item .ico-percent.cloturer { display: flex; justify-content: center; align-items: center }
-#pp-videos .lst-document {
-    overflow: hidden !important;
-}
+
 
 
 @media (min-width:1201px) {
