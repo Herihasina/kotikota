@@ -223,8 +223,8 @@
                                 $video_id= $video['lien_youtube'];
                                 $video_data = get_youtube_video_detail($video_id);
                                 if($video_data): $count_correct_id++;
-                                  $section_word = locate_template( 'parts/single/sections/section-document-word.php', false, false );
-                                  include($section_word);
+                                  $section_video = locate_template( 'parts/single/sections/section-document-video.php', false, false );
+                                  include($section_video);
                                 endif;
                                 $key_video++;
                               endforeach; ?>
