@@ -1,31 +1,29 @@
 <?php
 
-function sendNotificationCreation($id){    
+function sendNotificationCreation($id){
+    $current_user = wp_get_current_user();
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
-    $prenom = get_user_meta($titulaire);  
-    
+    $prenom = get_user_meta($titulaire);
+
     $email_titulaire = get_userdata( $titulaire );
-    
+
     $email_titulaire = $email_titulaire->user_email;
 
     $prenom = $prenom['first_name'][0];
     if ( !$prenom )
         $prenom = $prenom['nickname'][0];
-    
+
     $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');
 
     if( 'mg' == ICL_LANGUAGE_CODE ){
-      $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );      
-      //$tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
+      $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );
     }elseif( 'en' == ICL_LANGUAGE_CODE ){
-      $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );      
-      //$tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
+      $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );
     }else{
-      $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );      
-      //$tpl_participant = locate_template( 'email-tpl/notif-participation-participant.php', false, false );
+      $tpl = locate_template( 'email-tpl/creation-cagnotte.php', false, false );
     }
-    
+
     ob_start();
       include( $tpl );
     $html = ob_get_clean();
@@ -33,26 +31,13 @@ function sendNotificationCreation($id){
     $objet = get_field('objet_creation','option') ? get_field('objet_creation','option') : __("Création de cagnotte avec succès","kotikota");
 
     if (@wp_mail( $email_titulaire, $objet, $html, $headers ) ){
-        /*$current_user = wp_get_current_user();
-        ob_start();
-          include( $tpl_participant );
-          $htmlp = ob_get_clean();
-
-          $objet = get_field('objet_participation_participant','option') ? get_field('objet_participation_participant','option') : __("Participation à une cagnotte","kotikota");
-
-          if ( @wp_mail( $current_user->user_email, $objet, $htmlp, $headers ) ){
-            return true;
-          }else{
-            return false;
-          }*/
       return true;
     }else{
       return false;
     }
 }
- 
-function sendNotificationParticipation($id){
-    $current_user = wp_get_current_user();
+
+function sendNotificationParticipation($id, $email_participant = ''){
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
     $prenom = get_user_meta($titulaire);
@@ -78,26 +63,30 @@ function sendNotificationParticipation($id){
     }
 
     ob_start();
-      include( $tpl );
+    include( $tpl );
     $html = ob_get_clean();
 
     $objet = get_field('objet_participation','option') ? get_field('objet_participation','option') : __("Participation à votre cagnotte","kotikota");
 
-    @wp_mail( $email_titulaire, $objet, $html, $headers );
-    // if ( @wp_mail( $email_titulaire, $objet, $html, $headers ) ){
-      //return true;
-    ob_start();
-    include( $tpl_participant );
-    $htmlp = ob_get_clean();
+    //@wp_mail( $email_titulaire, $objet, $html, $headers );
+    if ( @wp_mail( $email_titulaire, $objet, $html, $headers ) ) {
+        if ($email_participant) {
+          $objet = get_field('objet_participation_participant','option') ? get_field('objet_participation_participant','option') : __("Participation à une cagnotte","kotikota");
 
-    $objet = get_field('objet_participation_participant','option') ? get_field('objet_participation_participant','option') : __("Participation à une cagnotte","kotikota");
+          ob_start();
+          include( $tpl_participant );
+          $htmlp = ob_get_clean();
 
-    if ( @wp_mail( $current_user->user_email, $objet, $htmlp, $headers ) ){
-      return true;
-    }else{
-      return false;
+          if ( @wp_mail( $email_participant, $objet, $htmlp, $headers ) ){
+            return true;
+          }else{
+            return false;
+          }
+        }
+
+        return true;
     }
-    
+
 }
 
 function sendInvitation($invites, $idCagnotte){
@@ -119,16 +108,16 @@ function sendInvitation($invites, $idCagnotte){
   }
 
   $objet = get_field('objet_invitation','option') ? get_field('objet_invitation','option') : __("Invitation à la cagnotte","kotikota");
-    
+
   foreach ( $emails as $email ){
-        if ( sanitize_email( $email ) ){ 
+        if ( sanitize_email( $email ) ){
           ob_start();
               include($tpl);
           $html = ob_get_clean();
 
           $resp = '';
           if ( wp_mail( $email, $objet, $html, $headers ) ) {
-              $resp = "success"; 
+              $resp = "success";
           }else{
               $resp = "erreur";
           }
@@ -140,7 +129,7 @@ function sendInvitation($invites, $idCagnotte){
             );
           $new_invite = wp_insert_post( $postarr );
 
-          $list_invites = get_field( 'invitations', $idCagnotte ); 
+          $list_invites = get_field( 'invitations', $idCagnotte );
 
           if( !is_array($list_invites) ):
               $list_invites = array();
@@ -162,16 +151,16 @@ function sendInvitation($invites, $idCagnotte){
 function sendNotificationFin($id, $emailParticipant, $nomParticipant, $prenomParticipant){
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
-    $prenom = get_user_meta($titulaire);  
-    
+    $prenom = get_user_meta($titulaire);
+
     $email_titulaire = get_userdata( $titulaire );
-    
+
     $email_titulaire = $email_titulaire->user_email;
 
     $prenom = $prenom['first_name'][0];
     if ( !$prenom )
         $prenom = $prenom['nickname'][0];
-    
+
 
     $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');
 
@@ -253,15 +242,15 @@ function notificationVirementTitulaire( $idCagnotte ){
 function notificationVirementParticipant($id, $emailParticipant, $nomParticipant, $prenomParticipant){
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
-    $prenom = get_user_meta($titulaire);  
+    $prenom = get_user_meta($titulaire);
     $email_titulaire = get_userdata( $titulaire );
-    
+
     $email_titulaire = $email_titulaire->user_email;
-    
+
     $prenom = $prenom['first_name'][0];
     if ( !$prenom )
         $prenom = $prenom['nickname'][0];
-    
+
 
     $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');
 
@@ -289,7 +278,7 @@ function notificationVirementParticipant($id, $emailParticipant, $nomParticipant
 function envoiPremierRappel($userid){
   $info_rappel = get_user_info_by_id( $userid );
   $email = $info_rappel->user_email;
-  
+
   $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');
 
   if( 'mg' == ICL_LANGUAGE_CODE ){
@@ -317,7 +306,7 @@ function envoiPremierRappel($userid){
 function envoiSecondRappel($userid){
   $info_rappel = get_user_info_by_id( $userid );
   $email = $info_rappel->user_email;
-  
+
   $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');
 
   if( 'mg' == ICL_LANGUAGE_CODE ){
@@ -383,7 +372,7 @@ function rib_export( $post_content ){
 function sendRappelPostCreation($userid, $postId = 0){
   $info_rappel = get_user_info_by_id( $userid );
   $nomcagnotte = get_field('nom_de_la_cagnotte', $postId);
-    
+
   $email = $info_rappel->user_email;
 
   $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');

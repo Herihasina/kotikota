@@ -13,13 +13,13 @@ define("HASH", "c836e9ee07bd85291bac8d3d0445b660a95f01b2ff0a9bf722f2dbe2a55838bb
 
 /*
   @params
-    montant 
+    montant
     ID de transaction (unique koa)
     Description de la transaction == Nom de la cagnotte
     Coordonnées de la livraison
 */
 function create_payment_mvola( $ShopTransactionId, $amount, $ShopTransactionLabel, $nom_donneur, $prenom_donneur){
-  
+
   $MPGW_BASEURL = MPGW_BASEURL;
   $MPGW_WS_URL = MPGW_WS_URL;
   $APIVersion = APIVERSION;
@@ -72,10 +72,10 @@ function get_mvola_transaction( $shopID ){
   $mvola = $wpdb->prefix.'mvola';
 
   $result = $wpdb->get_results(
-    "SELECT MPGw_TokenID FROM $mvola 
+    "SELECT MPGw_TokenID FROM $mvola
     WHERE ShopTransactionID = '$shopID'"
   );
-  
+
   if (!empty($result)) {
     return $result[0];
   }else {
@@ -89,14 +89,14 @@ function get_mvola_participation( $shopID ){
   $participation = $wpdb->prefix.'participation';
 
   $result = $wpdb->get_results(
-    "SELECT * 
+    "SELECT *
     FROM $participation as p
     LEFT JOIN $mvola as m
     ON p.id_participation = m.id_participation
     WHERE m.ShopTransactionID = '$shopID'
     "
   );
-  
+
   if (!empty($result)) {
     return $result[0];
   }else {
@@ -120,16 +120,16 @@ function get_mvola_transaction_notif(){
     wp_die( "Erreur! Cette transaction n'existe pas." );
   }
 
-  $token = get_mvola_transaction( $shopID ); 
+  $token = get_mvola_transaction( $shopID );
   $token = $token->MPGw_TokenID;
 
   $ws = new SoapClient($MPGW_WS_URL);
 
-  $parameters = new \stdClass(); 
+  $parameters = new \stdClass();
   $parameters->Login_WS    = $loginws;
   $parameters->Password_WS = $pwdws;
   $parameters->HashCode_WS = $hash;
-  $parameters->MPGw_TokenID= $token; 
+  $parameters->MPGw_TokenID= $token;
 
   $retour = $ws->WS_MPGw_CheckTransactionStatus($APIVersion, $parameters);
   // Verrification du resultat de l'appel
@@ -142,6 +142,7 @@ function get_mvola_transaction_notif(){
   } else {
     if( $retour->MvolaTransactionStatus == 'SUCCESS' ){
       $participation = get_mvola_participation( $shopID );
+      //traitement_post_paiement( $participation );
       $out = array(
         'status'  => true,
         'row'     => $participation,
@@ -172,7 +173,7 @@ function create_bni_table(){
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($query);
   }
- 
+
 }
 
 add_action( 'init', 'create_bni_table');

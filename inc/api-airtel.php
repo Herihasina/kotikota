@@ -49,7 +49,7 @@
 			return $token;
 		}else{
 			return false;
-		}		
+		}
 	}
 
 	function create_payment( $idTransaction, $reference, $num, $amount ){
@@ -64,15 +64,15 @@
 
 		    return $params;
 		}, 99, 2 );
- 		
+
  		if( false !== $bearer ):
 			$headers = array(
-				
+
 				'Content-Type' => 'application/json',
 				'Accept' 	   => '*/*',
 				'X-Country'	   => 'MG',
-				'X-Currency'   => 'MGA',	
-				'Authorization'=> 'Bearer ' . $bearer,	
+				'X-Currency'   => 'MGA',
+				'Authorization'=> 'Bearer ' . $bearer,
 
 			);
 			if( strlen( $reference) > 25 ){
@@ -108,22 +108,22 @@
 	 		}
 	 		/*
 	 		 * $response
-	 		 * public 'data' => 		   
-			      public 'transaction' => 
+	 		 * public 'data' =>
+			      public 'transaction' =>
 			        object(stdClass)[542]
-			          public 'id' => string 
+			          public 'id' => string
 			          public 'status' => string
-			  public 'status' => 
-			      public 'message' => string 
+			  public 'status' =>
+			      public 'message' => string
 			      public 'code' => string '200'
-			      public 'result_code' => string 
+			      public 'result_code' => string
 			      public 'success' => boolean true
-			*/	 		
+			*/
 	 	else:
 	 		return false;
 	 	endif;
 
-		
+
 	}
 
 	function check_status_AM(){
@@ -148,11 +148,11 @@
 		$url_token = HOST_AIRTEL . TXN_ENQ . $order_id;
 
 		$bearer = get_sells_token();
- 
+
 		$headers = array(
 			'Accept' 	   => '*/*',
 			'X-Country'	   => 'MG',
-			'X-Currency'   => 'MGA',	
+			'X-Currency'   => 'MGA',
 			'Authorization'=> 'Bearer ' . $bearer,
 			'sslverify' 	=> false,
 		);
@@ -165,7 +165,7 @@
  		$status = wp_remote_get( $url_token, $args);
  		if( is_array( $status ) ){
 	 		$status = json_decode( $status['body'] );
-	 		
+
 	 		$status2 = $status->transaction;
 	 		$status = $status->data->transaction;
 
@@ -185,7 +185,7 @@
 	 	}else{
 	 		$reponse['error'] = "requête mal formée";
 	 	}
- 		
+
  		echo json_encode( $response );
  		wp_die();
 	}
@@ -197,7 +197,7 @@
 
 	  $wpdb->insert($customer_table, array(
 	  	"id_participation" => $id_participation,
-	    "order_id"         => $order_id,	    
+	    "order_id"         => $order_id,
 	    "status"           => $status,
 	  ));
 	  return $wpdb->insert_id;
@@ -210,14 +210,14 @@
 	  $participation = $wpdb->prefix.'participation';
 
 	  $result = $wpdb->get_results(
-	    "SELECT * 
+	    "SELECT *
 	    FROM $participation as p
 	    LEFT JOIN $airtel as a
 	    ON p.id_participation = a.id_participation
 	    WHERE a.order_id = '$order_id'
 	    "
 	  );
-	  
+
 	  if (!empty($result)) {
 	    return $result[0];
 	  }else {

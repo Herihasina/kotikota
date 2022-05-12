@@ -504,7 +504,7 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 
 .popup  .social-pp                                      { text-align: center; margin-bottom: 59px }
 .popup  .social-pp  a                                   { display: block; max-width: 455px; margin: 0 auto; height: 60px; border-radius: 10px; padding: 20px 20px; margin-bottom: 30px }
-.popup  .social-pp  a.facebook                          { background-color: #3b5998; color: #fff; font-size: 14px; text-transform: uppercase; font-family:Opificio;    }
+.popup  .social-pp  a.facebook                          { display: none; background-color: #3b5998; color: #fff; font-size: 14px; text-transform: uppercase; font-family:Opificio;    }
 .popup  .social-pp  a.facebook:before                   { content: ''; display: inline-block; background: url(../images/facebook1.png); width: 12px; height: 25px; margin-right: 10px; margin-top: -10px; vertical-align: middle; }
 
 .social-pp  a.google                            { background-color: #fff; color: #131313; font-size: 14px; text-transform: uppercase; font-family:Opificio; border: #dddddd solid 1px   }
@@ -829,8 +829,8 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .btn-partage  div { padding:0 30px; width: 50%; display: inline-block; vertical-align: middle;}
 
 .det-cagnotte .content          { border-radius: 13px; overflow: hidden; margin-bottom: 59px }
-.det-cagnotte .content .blc-img { position: relative; }
-.det-cagnotte .content .blc-img img { display: block; width: 100% ; height: auto;}
+.det-cagnotte .content .blc-img { position: relative; border-radius: 10px 10px 0 0 ;}
+.det-cagnotte .content .blc-img img { display: block; width: 100% ; height: auto; border-radius: 10px 10px 0 0 ;}
 .det-cagnotte .content .blc-img .ico-percent { position: absolute; top :0; left: 0; width: 100px; height: 103px; background:url(../images/bg-percent.png); background-size: cover; padding: 10px}
 .det-cagnotte .content .blc-img .ico-percent .percent:after { width: 41px; height: 41px; top: -3px }
 .det-cagnotte .content .titre { padding: 17px 58px 12px ; color: #fff}
@@ -2647,6 +2647,12 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     display: flex;
     flex-flow: row wrap;
 }
+.blc-video .social {
+    float: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
@@ -2914,7 +2920,7 @@ a:hover { color:#fbbd36; }
 }
 
 @media (max-width:1024px) {
-    #slider                                                 { height: 640px }
+    #slider                                                 { height: 715px }
   .btn-head                                                 { margin-left: 15px;}
   .menu-flag li                                             { margin: 0 5px;}
   .comment-ca-marche                                          { padding-top: 0;}
@@ -3010,7 +3016,7 @@ a:hover { color:#fbbd36; }
      .det-cagnotte .content .txt                            { padding: 50px 40px 40px 40px;}
      .pop-up-apropos .btn                                   { margin-top: 30px;}
      .blc-cagnotte-liste .lst-cagnotte-publique .item       { width: 50% ; padding: 0 5px}
-     .blc-cagnotte-liste .lst-cagnotte-publique             { padding-bottom: 0; margin-bottom: 10px ; margin: 0 -5px 10px}
+     .blc-cagnotte-liste .lst-cagnotte-publique             { padding-bottom: 0; margin-bottom: 10px ; margin: 0 -5px 10px; position: relative; z-index: 20}
      .parametre .lst-step .item                             {  width: 33.33%; margin-bottom: 20px}
 
      .blcTab .tab-nav li { padding: 00 5px }
@@ -3047,7 +3053,7 @@ a:hover { color:#fbbd36; }
     .col-dates .chy-type .col.col47 { padding: 0;}
     .chy-type { margin: 0 0 40px;}
     .lst-apropos .item .content { max-width: inherit; display: block; }
-    .menu-liste-cagnotte.active { z-index: 9999 }
+    .menu-liste-cagnotte.active { z-index: 200 }
     .col-dates .chy-type .col.col47:first-of-type, .col-dates .chy-type .col.col47:last-of-type { width: 100% !important; padding: 0 !important;}
     .formulaire-cagnotte .chy-type .col.col47 { padding: 0 0 0 10px}
     .Info-principale .blcFormulaire.fichier {  padding: 0 30px}
@@ -3279,8 +3285,11 @@ a:hover { color:#fbbd36; }
     .txt-beneficiaire { display: inline-block; vertical-align: middle;}
     .profilverifi {  margin-left: 0; margin-top: 10px;}
 
-    .zone-search.sticky {  position: fixed; width: 100%; top: 90px; z-index: 20;background: #fff;  padding: 10px 40px;box-sizing: border-box;left: 0;}
+    .zone-search.sticky {  position: fixed; width: 100%; top: 90px; z-index: 21;background: #fff;  padding: 10px 40px;box-sizing: border-box;left: 0;}
     .scrollDown-pp {display: block;}
+    div#ajaxsearchlite1 {
+    z-index: 100;
+}
 
     .blc-cagnotte-participation .fom-participe .formulaire .chp {padding: 0 70px 0 28px}
     .lst-payement ul li.clr { display: none;}
@@ -3322,6 +3331,26 @@ a:hover { color:#fbbd36; }
     .tarifs .cont-left .col .content {width: auto; max-width: 400px}
     .securite-cagnotte h2 { line-height: normal; }
 
+    .blc-cagnotte-liste .lst-cagnotte-publique .item { position: relative; z-index: 300 }
+    .offrir-cadeau .lst-type {
+        display: block;
+        position: relative;
+        z-index: -1;
+    }
+
+    .zone-search .offrir-cadeau .lst-type {
+        display: none;
+    }
+    .zone-search .menu-liste-cagnotte.active .lst-type { display: block; }
+
+    .zone-search .menu-liste-cagnotte .lst-form-type { height: 0 }
+    .zone-search .menu-liste-cagnotte.active .lst-form-type { height: 300px }
+    .blc-liste-cagnote iframe { width: 100% }
+    .pp-document-photos .blcbtn .link {
+        margin: 0 20px 10px;
+    }
+
+
 
 
 
@@ -3337,8 +3366,8 @@ a:hover { color:#fbbd36; }
     #midground                                          { display: none }
     .wrapper                                            { padding: 0 20px }
     .wrapMenuMobile                                     { right: 20px; }
-   #slider                                              { height: 530px;}
-   .banner                                              { height: 530px;}
+   #slider                                              { height: 617px;}
+   .banner                                              { height: 617px;}
     .banner .wrapper                                    { padding: 0 20px }
     .txt-banner                                         { padding-top: 105px;max-width: 280px;}
     .txt-banner h1  ,
@@ -3617,8 +3646,8 @@ a:hover { color:#fbbd36; }
     #BNI_page .blc-img ul {  display: block; max-width: 700px; margin: 0 auto 50px;   }
     #BNI_page .blc-img ul li { display: inline-block; width: 49%; vertical-align: middle; margin-bottom: 20px }
 
-    .cont-video > div { width: 200px;}
-    .blc-video { right: 20px }
+    .cont-video > div { width: 200px; margin: 0 auto}
+    .blc-video { right: 0 }
 
     .modal-body iframe { width: 100%;}
     .cont-video i { width: 40px; height: 40px; background-size: cover }
@@ -3691,6 +3720,15 @@ a:hover { color:#fbbd36; }
     .lst-payement ul li:nth-of-type(8) {
         order: 8;
     }
+    #pp-partage  .liste-invitation .whatsapp.mobile-only {
+        display: block;
+        width: auto;
+        background: none;
+        border-radius: 10px;
+        height: auto;
+        margin-bottom: 10px !important;
+    }
+
 
 
 
@@ -3760,6 +3798,11 @@ a:hover { color:#fbbd36; }
     .profilFile .formulaire .chp { padding: 0;}
     .blc-cagnotte-participation .btn {  margin-top: 50px;  text-align: center;}
     .tarifs .cont-left .content .txt { padding-left: 8px }
+    .nom-cagnotteSum .content .col b { font-size: 16px }
+    .nom-cagnotteSum .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .mobile-only, #frais_cagnotte, .info-cagnotte-inner.hidden{

@@ -473,7 +473,7 @@ function traitement_post_paiement( $participation ){
       $success = insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux );
    }
 
-  @sendNotificationParticipation($idCagnotte);
+  @sendNotificationParticipation($idCagnotte, $email);
 
   $titulaire = get_field('titulaire_de_la_cagnotte', $idCagnotte );
   $prenom = get_user_meta($titulaire);

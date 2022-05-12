@@ -550,8 +550,8 @@ function save_info_principale(){
        $erreurs[] = __("Vous avez supprimé l'ID du bénéficiaire.", "kotikota");
     if ( !isset($_POST['nom']) || $_POST['nom'] == "" )
        $erreurs[] = __("Entrer le nom du bénéficiaire.", "kotikota");
-    if ( !isset($_POST['prenom']) || $_POST['prenom'] == "" )
-       $erreurs[] = __("Entrer le prénom du bénéficiaire.", "kotikota");
+    //if ( !isset($_POST['prenom']) || $_POST['prenom'] == "" )
+      // $erreurs[] = __("Entrer le prénom du bénéficiaire.", "kotikota");
     if ( !isset($_POST['email']) || $_POST['email'] == "" )
        $erreurs[] = __("Entrer l'adresse email du bénéficiaire.", "kotikota");
     if ( !isset($_POST['tel']) || $_POST['tel'] == "" ){
@@ -564,6 +564,7 @@ function save_info_principale(){
 
     //if ( !isset($_POST['categ']) || $_POST['categ'] == "" )
     //   $erreurs[] = __("Indiquer la catégorie de cagnotte.", "kotikota");
+    
     if ( !isset($_POST['sousCateg']) || $_POST['sousCateg'] == "" )
        $erreurs[] = __("Indiquer une type de cagnotte.", "kotikota");
 
@@ -670,9 +671,9 @@ function save_info_banque(){
     if ( !isset($_POST['cle']) || $_POST['cle'] == "" ){
        $erreurs[] = __("Indiquer Numero BIC.", "kotikota");
     }
-    if ( !isset($_POST['fichier']) || $_POST['fichier'] == "" ){
-       $erreurs[] = __("Vous devez téléverser un fichier Image ou PDF", "kotikota");
-    }
+   // if ( !isset($_POST['fichier']) || $_POST['fichier'] == "" ){
+   //    $erreurs[] = __("Vous devez téléverser un fichier Image ou PDF", "kotikota");
+   //  }
 
     /*if ( $erreurs ){
         foreach ($erreurs as $erreur ){

@@ -42,7 +42,17 @@
                                 </div>
                                 <span><?php _e('Cliquez pour lire la vidéo','kotikota') ?></span>
                             </a>
+                            <div class="social">
+                                <div>
+                                    <a href="<?= get_theme_mod('sn_fb_setting') ?>" class="fb" target="_blank"></a>
+                                    <a href="<?= get_theme_mod('sn_insta_setting') ?>" class="insta" target="_blank"></a>
+                                    <a href="<?= get_theme_mod('sn_tweet_setting') ?>" class="twitter" target="_blank"></a>
+                                    <a href="<?= get_theme_mod('sn_yt_setting') ?>" class="youtube" target="_blank"></a>
+                                </div>
+                           
+                            </div>
                         </div>
+                        
                  </div>
                 <!-- /image slider -->
 <?php
