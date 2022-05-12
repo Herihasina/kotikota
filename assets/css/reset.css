@@ -2700,6 +2700,9 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 .lst-cagnotte-publique .item .ico-percent.cloturer span:hover { color: #fff }
 
 .lst-cagnotte-publique .item .ico-percent.cloturer { display: flex; justify-content: center; align-items: center }
+#pp-videos .lst-document {
+    overflow: hidden !important;
+}
 
 
 @media (min-width:1201px) {
@@ -3172,7 +3175,7 @@ a:hover { color:#fbbd36; }
         padding: 0 20px !important;
     }
     .profilFile .cont-file span { padding: 0 10px !important;}
-    .inner-pp .lst-document  .row { padding-right: 20px }
+    .inner-pp .lst-document  .row { padding-right: 0 }
     .info-rib { padding: 0 40px; }
 
 }
@@ -3398,6 +3401,9 @@ a:hover { color:#fbbd36; }
         margin: 0 20px 10px;
     }
     .nom-cagnotteSum .content .col { width: 100% }
+    #pp-photos .inner-pp .row .col .lst-option.blcphotos .item:nth-child(2n+2) {
+        padding-right: 0;
+    }
 
 
 
