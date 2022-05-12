@@ -1377,22 +1377,11 @@ function insert_doc_cagnotte(){
                     <h3>documents word</h3>
                     <?php if($word_doc):?>
                         <div class="lst-option">
-                        <?php foreach($word_doc as $doc ): ?>
-                            <div class="item">
-                            <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <input type="checkbox" name="doc_files" class="document document-check" id="doc-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>">
-                                <label for="doc-<?= $doc['id'] ?>">
-                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                <div class="txt"><?= $doc['name'] ?></div>
-                                </label>
-                            <?php else: ?>
-                                <a href="<?= $doc['url'] ?>" class="doc-item-link">
-                                    <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                    <div class="txt"><?= $doc['name'] ?></div>
-                                </a>
-                            <?php endif; ?>
-                            </div>
-                        <?php endforeach; ?>
+                        <?php 
+                        foreach($word_doc as $doc ):
+                            $section_document = locate_template( 'parts/single/sections/section-document-word.php', false, false );
+                            include($section_document);
+                        endforeach; ?>
                         </div>
 
                     <?php
@@ -1409,22 +1398,10 @@ function insert_doc_cagnotte(){
                         <h3>documents pdf</h3>
                         <?php if($pdf_doc):?>
                             <div class="lst-option">
-                            <?php foreach($pdf_doc as $doc ): ?>
-                                <div class="item">
-                                <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                    <input type="checkbox" name="doc_files" class="document document-check" id="pdf-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>">
-                                    <label for="pdf-<?= $doc['id'] ?>">
-                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                        <div class="txt"><?= $doc['name'] ?></div>
-                                    </label>
-                                <?php else: ?>
-                                    <a href="<?= $doc['url'] ?>" class="doc-item-link" target="_blank">
-                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                        <div class="txt"><?= $doc['name'] ?></div>
-                                    </a>
-                                <?php endif; ?>
-                                </div>
-                            <?php endforeach; ?>
+                            <?php foreach($pdf_doc as $doc ): 
+                              $section_pdf = locate_template( 'parts/single/sections/section-document-pdf.php', false, false );
+                              include($section_pdf);
+                            endforeach; ?>
                             </div>
                             <?php
                         else:
@@ -1500,22 +1477,10 @@ function remove_doc_cagnotte(){
                     <h3>documents word</h3>
                     <?php if($word_doc):?>
                         <div class="lst-option">
-                        <?php foreach($word_doc as $doc ): ?>
-                            <div class="item">
-                            <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <input type="checkbox" name="doc_files" class="document document-check" id="doc-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>">
-                                <label for="doc-<?= $doc['id'] ?>">
-                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                <div class="txt"><?= $doc['name'] ?></div>
-                                </label>
-                            <?php else: ?>
-                                <a href="<?= $doc['url'] ?>" class="doc-item-link">
-                                    <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                    <div class="txt"><?= $doc['name'] ?></div>
-                                </a>
-                            <?php endif; ?>
-                            </div>
-                        <?php endforeach; ?>
+                        <?php foreach($word_doc as $doc ):
+                            $section_document = locate_template( 'parts/single/sections/section-document-word.php', false, false );
+                            include($section_document);
+                        endforeach; ?>
                         </div>
 
                     <?php
@@ -1532,22 +1497,10 @@ function remove_doc_cagnotte(){
                         <h3>documents pdf</h3>
                         <?php if($pdf_doc):?>
                             <div class="lst-option">
-                            <?php foreach($pdf_doc as $doc ): ?>
-                                <div class="item">
-                                <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                    <input type="checkbox" name="doc_files" class="document document-check" id="pdf-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>">
-                                    <label for="pdf-<?= $doc['id'] ?>">
-                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                        <div class="txt"><?= $doc['name'] ?></div>
-                                    </label>
-                                <?php else: ?>
-                                    <a href="<?= $doc['url'] ?>" class="doc-item-link" target="_blank">
-                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                        <div class="txt"><?= $doc['name'] ?></div>
-                                    </a>
-                                <?php endif; ?>
-                                </div>
-                            <?php endforeach; ?>
+                            <?php foreach($pdf_doc as $doc ): 
+                              $section_pdf = locate_template( 'parts/single/sections/section-document-pdf.php', false, false );
+                              include($section_pdf);
+                            endforeach; ?>
                             </div>
                             <?php
                         else:
@@ -1601,18 +1554,11 @@ function insert_image_cagnotte(){
             <?php if($photos): $key_image=1;?>
             <div class="lst-option blcphotos">
                 <?php foreach($photos as $photo ):
-                $image = wp_get_attachment_url( $photo['image'] );
-                ?>
-                <div class="item">
-                    <div class="inner">
-                    <?php if($curr_userdata->ID == $titulaire_id) :?>
-                        <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>" value="<?= $key_image?>">
-                        <label for="img-<?= $key_image?>"></label>
-                    <?php endif; ?>
-                    <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
-                    </div>
-                </div>
-                <?php $key_image++; endforeach; ?>
+                    $image = wp_get_attachment_url( $photo['image'] );
+                    $section_photo = locate_template( 'parts/single/sections/section-document-photo.php', false, false );
+                    include($section_photo);
+                    $key_image++;
+                endforeach; ?>
             </div>
             <?php
             else:
@@ -1662,30 +1608,14 @@ function insert_video_cagnotte(){
                 ?>
                 <div class="lst-option">
                     <?php foreach($videos as $video ):
-                    $video_id= $video['lien_youtube'];
-                    $video_data = get_youtube_video_detail($video_id);
-                    if($video_data): $count_correct_id++;
-                    ?>
-                        <div class="item">
-                            <div class="contvideo">
-                            <a href="<?= $video_data['url'] ?>" target="_blank">
-                                <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
-                                <div class="txt">
-                                <h4><?= $video_data['title'] ?></h4>
-                                <p><?= $video_data['description'] ?></p>
-                                </div>
-                                <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <div class="check-video">
-                                    <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>" value="<?= $key_video?>">
-                                    <label for="video-<?= $key_video?>"></label>
-                                </div>
-                                <?php endif; ?>
-                            </a>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php $key_video++; endforeach; ?>
+                        $video_id= $video['lien_youtube'];
+                        $video_data = get_youtube_video_detail($video_id);
+                        if($video_data): $count_correct_id++;
+                            $section_video = locate_template( 'parts/single/sections/section-document-video.php', false, false );
+                            include($section_video);
+                        endif;
+                        $key_video++;
+                    endforeach; ?>
                 </div>
 
                 <?php
