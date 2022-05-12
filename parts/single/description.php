@@ -117,7 +117,7 @@
                         <?php if($pdf_doc):?>
                           <div class="lst-option">
                             <?php foreach($pdf_doc as $doc ): 
-                              $section_pdf = locate_template( 'parts/single/sections/section-pdf-word.php', false, false );
+                              $section_pdf = locate_template( 'parts/single/sections/section-document-pdf.php', false, false );
                               include($section_pdf);
                             endforeach; ?>
                           </div>
