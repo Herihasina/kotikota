@@ -1644,6 +1644,58 @@ function insert_video_cagnotte(){
 
 }
 
+add_action( 'wp_ajax_remove_photos_cagnotte', 'remove_photos_cagnotte' );
+function remove_photos_cagnotte(){
+    $erreurs = [];
+
+    if ( isset($_POST)){
+        $html="";
+        $str = http_build_query($_POST);
+        parse_str($str, $Data);
+        extract($Data);
+
+        $delete_image=false;
+        if($image_ids && !empty($image_ids)){
+            foreach($image_ids as $id){
+                $delete_image = delete_row('liste_images_cagnotte', $id, $cagnotte_id);
+            }
+        }
+        $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
+        $curr_userdata = wp_get_current_user();
+        $photos = get_field('liste_images_cagnotte',$cagnotte_id);
+
+       ?>
+            ?>
+            <h3><?php _e('images','kotikota') ?></h3>
+            <?php if($photos): $key_image=1;?>
+            <div class="lst-option blcphotos">
+                <?php foreach($photos as $photo ):
+                    $image = wp_get_attachment_url( $photo['image'] );
+                    $section_photo = locate_template( 'parts/single/sections/section-document-photo.php', false, false );
+                    include($section_photo);
+                    $key_image++;
+                endforeach; ?>
+            </div>
+            <?php
+            else:
+            ?>
+                <div style="text-align:center">
+                    <h4 style="text-align:center">
+                        <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                    </h4>
+                </div>
+            <?php endif; ?>
+            </div>
+       <?php
+        echo $html;
+
+
+        wp_die();
+    }
+
+}
+
+
 add_action( 'wp_ajax_remove_media_cagnotte', 'remove_media_cagnotte' );
 function remove_media_cagnotte(){
     $erreurs = [];

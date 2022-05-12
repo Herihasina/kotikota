@@ -1069,31 +1069,25 @@ $(function(){
 		}
 	});
 
-	$('#remove_media_btn').click(function(e){
+	$('#remove_media_photos_btn').click(function(e){
 		e.preventDefault();
 		var cagnotte_id= $(this).data('cagnotteId');
 		var image_ids = [];
-		var video_ids = [];
         $('[name=ck-photo]:checked').each(function(i){
 			image_ids[i] = $(this).val();
         });
-		$('[name=ck-video]:checked').each(function(i){
-			video_ids[i] = $(this).val();
-        });
 		console.log(image_ids);
-		console.log(video_ids);
 		$.ajax({
 			url: ajaxurl,
 			data: {
-				'action': 'remove_media_cagnotte',
+				'action': 'remove_photos_cagnotte',
 				'image_ids' : image_ids,
-				'video_ids' : video_ids,
 				'cagnotte_id': cagnotte_id
 			},
 			dataType: 'html',
 			type:"POST",
 		}).done(function(resp){
-			$('#pp-photos .lst-document').html(resp);
+			$('#pp-photos .lst-document .row .photo').html(resp);
 		});
 	});
 
