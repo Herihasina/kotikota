@@ -2142,6 +2142,20 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .inner-pp .row .col {
     width: 50%;
 }
+.inner-pp .row .col.video {
+    width: 100%;
+}
+.inner-pp .row .col.video .lst-option {
+    max-width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+.inner-pp .row .col.video .lst-option .item {
+    display: flex;
+    margin-bottom: 30px;
+    width: 50%;
+    padding: 0 10px;
+}
 
 .cont-pp .blcbtn {
     border-top: #ddd solid 1px;
@@ -3310,7 +3324,7 @@ a:hover { color:#fbbd36; }
     #pp-photos .inner-pp .row .col .lst-option.blcphotos {  max-width: 100%; padding-right: 20px;}
     #pp-photos .inner-pp .row .col { width: 100%;}
     #pp-photos .inner-pp .row .col .lst-option {  max-width: 100%; padding-right: 20px;}
-    #pp-photos .inner-pp .row .col .lst-option.blcphotos .item { padding-right: 10px; width: 25% }
+    #pp-photos .inner-pp .row .col .lst-option.blcphotos .item { padding-right: 10px; width: 50% }
     #pp-photos .inner-pp h3 { text-align: center }
     .pp-rib .titre::before { top: 34px }
     .pp-rib .cont-pp .inner-pp { padding: 60px 40px 60px 40px;}
@@ -3765,6 +3779,7 @@ a:hover { color:#fbbd36; }
     }
 
     .Card_container_result #result_fail a.btn.btn_try_again { width: 100% !important }
+    .inner-pp .row .col.video .lst-option .item { width: 100% }
 
 
 
