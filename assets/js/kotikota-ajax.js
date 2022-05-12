@@ -1060,7 +1060,7 @@ $(function(){
 				if(patt.test(resp)){
 					$('.error_video').text(resp);
 				}else{
-					$('#pp-photos .lst-document .row .video').html(resp);
+					$('#pp-videos .lst-document .row .video').html(resp);
 					$.fancybox.close();
 				}
 			});
