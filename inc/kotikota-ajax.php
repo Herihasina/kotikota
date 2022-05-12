@@ -1656,9 +1656,7 @@ function remove_photos_cagnotte(){
 
         $delete_image=false;
         if($image_ids && !empty($image_ids)){
-            var_dump($image_ids);
             foreach($image_ids as $id){
-                var_dump($id);
                 $delete_image = delete_row('liste_images_cagnotte', $id, $cagnotte_id);
             }
         }
