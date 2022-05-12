@@ -1091,4 +1091,26 @@ $(function(){
 		});
 	});
 
+	$('#remove_media_videos_btn').click(function(e){
+		e.preventDefault();
+		var cagnotte_id= $(this).data('cagnotteId');
+		var video_ids = [];
+        $('[name=ck-video]:checked').each(function(i){
+			video_ids[i] = $(this).val();
+        });
+		console.log(video_ids);
+		$.ajax({
+			url: ajaxurl,
+			data: {
+				'action': 'remove_videos_cagnotte',
+				'video_ids' : video_ids,
+				'cagnotte_id': cagnotte_id
+			},
+			dataType: 'html',
+			type:"POST",
+		}).done(function(resp){
+			$('#pp-videos .lst-document .row .video').html(resp);
+		});
+	});
+
 })

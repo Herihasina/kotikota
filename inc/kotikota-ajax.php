@@ -1665,7 +1665,6 @@ function remove_photos_cagnotte(){
         $photos = get_field('liste_images_cagnotte',$cagnotte_id);
 
        ?>
-            ?>
             <h3><?php _e('images','kotikota') ?></h3>
             <?php if($photos): $key_image=1;?>
             <div class="lst-option blcphotos">
@@ -1696,8 +1695,8 @@ function remove_photos_cagnotte(){
 }
 
 
-add_action( 'wp_ajax_remove_media_cagnotte', 'remove_media_cagnotte' );
-function remove_media_cagnotte(){
+add_action( 'wp_ajax_remove_videos_cagnotte', 'remove_videos_cagnotte' );
+function remove_videos_cagnotte(){
     $erreurs = [];
 
     if ( isset($_POST)){
@@ -1706,13 +1705,6 @@ function remove_media_cagnotte(){
         parse_str($str, $Data);
         extract($Data);
 
-        $delete_image=false;
-        $delete_video=false;
-        if($image_ids && !empty($image_ids)){
-            foreach($image_ids as $id){
-                $delete_image = delete_row('liste_images_cagnotte', $id, $cagnotte_id);
-            }
-        }
         if($video_ids && !empty($video_ids)){
             foreach($video_ids as $id){
                 $delete_video = delete_row('liste_videos_cagnotte', $id, $cagnotte_id);
@@ -1721,98 +1713,44 @@ function remove_media_cagnotte(){
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
         $curr_userdata = wp_get_current_user();
         $videos = get_field('liste_videos_cagnotte',$cagnotte_id);
-        $photos = get_field('liste_images_cagnotte',$cagnotte_id);
 
-       ?>
-            <div class="row">
-                <div class="col photo">
-                    <h3><?php _e('images','kotikota') ?></h3>
-                    <?php if($photos):
-                        $key_image=1;
-                    ?>
-                    <div class="lst-option blcphotos">
-                        <?php foreach($photos as $photo ):
-                        $image = wp_get_attachment_url( $photo['image'] );
-                        ?>
-                        <div class="item">
-                            <div class="inner">
-                            <?php if($curr_userdata->ID == $titulaire_id) :?>
-                            <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>" value="<?= $key_image?>">
-                            <label for="img-<?= $key_image?>"></label>
-                            <?php endif; ?>
-                            <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
-                            </div>
-                        </div>
-                        <?php
-                            $key_image++;
-                        endforeach; ?>
+        ?>
+            <h3><?php _e('vidéos','kotikota') ?></h3>
+            <div class="lst-option blcvideos ">
+                <?php if($videos):
+                    $key_video=1;
+                    $count_correct_id=0;
+                ?>
+                <div class="lst-option">
+                    <?php foreach($videos as $video ):
+                        $video_id= $video['lien_youtube'];
+                        $video_data = get_youtube_video_detail($video_id);
+                        if($video_data): $count_correct_id++;
+                            $section_video = locate_template( 'parts/single/sections/section-document-video.php', false, false );
+                            include($section_video);
+                        endif;
+                        $key_video++;
+                    endforeach; ?>
+                </div>
+
+                <?php
+                elseif($count_correct_id!=count($videos)):
+                ?>
+                    <div style="text-align:center">
+                        <h4 style="text-align:center">
+                            <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                        </h4>
                     </div>
-                    <?php
-                    else:
-                    ?>
-                        <div style="text-align:center">
-                            <h4 style="text-align:center">
-                                <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                            </h4>
-                        </div>
+
+                <?php   else: ?>
+                    <div style="text-align:center">
+                        <h4 style="text-align:center">
+                            <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                        </h4>
+                    </div>
                 <?php endif; ?>
-                </div>
-                <div class="col video">
-                    <h3><?php _e('vidéos','kotikota') ?></h3>
-                    <div class="lst-option blcvideos ">
-                        <?php if($videos):
-                            $key_video=1;
-                            $count_correct_id=0;
-                        ?>
-                        <div class="lst-option">
-                            <?php foreach($videos as $video ):
-                            $video_id= $video['lien_youtube'];
-                            $video_data = get_youtube_video_detail($video_id);
-                            if($video_data): $count_correct_id++;
-                            ?>
-                                <div class="item">
-                                <div class="contvideo">
-                                    <a href="<?= $video_data['url'] ?>" target="_blank">
-                                    <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
-                                    <div class="txt">
-                                        <h4><?= $video_data['title'] ?></h4>
-                                        <p><?= $video_data['description'] ?></p>
-                                    </div>
-                                    <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                        <div class="check-video">
-                                        <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>" value="<?= $key_video?>">
-                                        <label for="video-<?= $key_video?>"></label>
-                                        </div>
-                                    <?php endif; ?>
-                                    </a>
-                                </div>
-                                </div>
-
-                            <?php
-                            endif;
-                            $key_video++;
-                            endforeach; ?>
-                        </div>
-                        <?php
-                        elseif($count_correct_id!=count($videos)):
-                        ?>
-                            <div style="text-align:center">
-                                <h4 style="text-align:center">
-                                    <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                                </h4>
-                            </div>
-
-                        <?php   else: ?>
-                            <div style="text-align:center">
-                                <h4 style="text-align:center">
-                                    <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                                </h4>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                </div>
-       <?php
+            </div>
+        <?php
         echo $html;
 
 

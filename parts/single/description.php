@@ -252,7 +252,7 @@
               <?php if($curr_userdata->ID == $titulaire_id) :?>
                 <div class="blcbtn">
                   <a href="#ajout-video-image" class="link fancybox" title="<?php _e('Ajouter','kotikota')?>"><?php _e('ajouter','kotikota')?></a>
-                  <a href="#" class="link" id="remove_media_btn" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Supprimer','kotikota') ?></a>
+                  <a href="#" class="link" id="remove_media_videos_btn" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Supprimer','kotikota') ?></a>
                 </div>
               <?php endif; ?>
             </div>
