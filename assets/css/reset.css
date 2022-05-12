@@ -2088,10 +2088,10 @@ input[type="checkbox"].ck-photo:checked ~ label {
 }
 
 .inner-pp .row .col .lst-option {
-    max-width: 387px;
+    max-width: 100%;
 }
 .inner-pp .row .col .lst-option {
-    max-width: 387px;
+    max-width: 100%;
 }
 .inner-pp .row .col .lst-option .item {
     display: flex; margin-bottom: 30px
@@ -2188,8 +2188,8 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .lst-document .lst-option .img { display: block; overflow: hidden; border-radius: 10px; position: relative; height: 119px }
 .lst-document .lst-option .img img { display: block; width: 100% ; height: 119px; object-fit: cover}
 #pp-photos .inner-pp .row .col .lst-option .item label { padding-right: 0 }
-.inner-pp .row .col .lst-option.blcphotos { display: block;max-width: 413px; }
-.inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 50%; float: left; padding-right: 22px}
+.inner-pp .row .col .lst-option.blcphotos { display: block;max-width: 100%; }
+.inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 25%; float: left; padding-right: 22px}
 .inner-pp .row .col .lst-option.blcphotos::after {    display: table; clear: both;}
 .contvideo a { display: flex;  align-items: center; color: #000; position: relative;}
 .contvideo a:hover { color: #000 }
@@ -2272,7 +2272,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
 
 .video-img .heure { background-color: #000; border-radius: 5px; padding:5px; color: #fff; font-size: 12px; text-align: center; position: absolute; right: 5px; bottom: 5px; line-height: 12px; display: inline-block; }
 .inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label:after { opacity: 1 }
-.inner-pp .row .col.photo {  width: 55%;}
+.inner-pp .row .col.photo {  width: 100%;}
 .btn-partage .link.partage span { background: url(../images/share.png) left center no-repeat;  background-size: 25px}
 #pp-partage { padding: 0;}
 .pp-partage .invitation .titre { background-color: transparent !important;  }
@@ -3310,7 +3310,7 @@ a:hover { color:#fbbd36; }
     #pp-photos .inner-pp .row .col .lst-option.blcphotos {  max-width: 100%; padding-right: 20px;}
     #pp-photos .inner-pp .row .col { width: 100%;}
     #pp-photos .inner-pp .row .col .lst-option {  max-width: 100%; padding-right: 20px;}
-    #pp-photos .inner-pp .row .col .lst-option.blcphotos .item { padding-right: 10px }
+    #pp-photos .inner-pp .row .col .lst-option.blcphotos .item { padding-right: 10px; width: 25% }
     #pp-photos .inner-pp h3 { text-align: center }
     .pp-rib .titre::before { top: 34px }
     .pp-rib .cont-pp .inner-pp { padding: 60px 40px 60px 40px;}
