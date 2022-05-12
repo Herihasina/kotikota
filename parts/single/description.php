@@ -168,18 +168,9 @@
                         <div class="lst-option blcphotos">
                           <?php foreach($photos as $photo ):
                             $image = wp_get_attachment_url( $photo['image'] );
-                          ?>
-                            <div class="item">
-                              <div class="inner">
-                              <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>" value="<?= $key_image?>">
-                                <label for="img-<?= $key_image?>"></label>
-                              <?php endif; ?>
-                                <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
-                              </div>
-                            </div>
-                          <?php
-                              $key_image++;
+                            $section_photo = locate_template( 'parts/single/sections/section-document-photo.php', false, false );
+                            include($section_photo);
+                            $key_image++;
                           endforeach; ?>
                         </div>
                       <?php
@@ -232,26 +223,8 @@
                                 $video_id= $video['lien_youtube'];
                                 $video_data = get_youtube_video_detail($video_id);
                                 if($video_data): $count_correct_id++;
-                              ?>
-                                  <div class="item">
-                                    <div class="contvideo">
-                                      <a href="<?= $video_data['url'] ?>" target="_blank">
-                                        <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
-                                        <div class="txt">
-                                          <h4><?= $video_data['title'] ?></h4>
-                                          <p><?= $video_data['description'] ?></p>
-                                        </div>
-                                        <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                          <div class="check-video">
-                                            <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>" value="<?= $key_video?>">
-                                            <label for="video-<?= $key_video?>"></label>
-                                          </div>
-                                        <?php endif; ?>
-                                      </a>
-                                    </div>
-                                  </div>
-
-                              <?php
+                                  $section_word = locate_template( 'parts/single/sections/section-document-word.php', false, false );
+                                  include($section_word);
                                 endif;
                                 $key_video++;
                               endforeach; ?>
