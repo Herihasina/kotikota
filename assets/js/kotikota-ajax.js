@@ -949,7 +949,7 @@ $(function(){
 			dataType: 'html',
 			type:"POST",
 		}).done(function(resp){
-			$('#pp-document .lst-document').html(resp);
+			$('#pp-document #list-documents').html(resp);
 		});
 	});
 
@@ -983,9 +983,7 @@ $(function(){
                 dataType: 'html',
                 type:"POST",
             }).done(function(resp){
-				console.log("here!");
-				console.log($('#pp-document .lst-document'));
-                $('#pp-document .lst-document').html(resp);
+                $('#pp-document #list-documents').html(resp);
 
             });
 
@@ -1030,7 +1028,7 @@ $(function(){
                 dataType: 'html',
                 type:"POST",
             }).done(function(resp){
-                $('#pp-photos .lst-document .row .photo').html(resp);
+                $('#pp-photos #list-photos .row .photo').html(resp);
                 $.fancybox.close();
             });
 
@@ -1064,7 +1062,7 @@ $(function(){
 				if(patt.test(resp)){
 					$('.error_video').text(resp);
 				}else{
-					$('#pp-videos .lst-document .row .video').html(resp);
+					$('#pp-videos #list-videos .row .video').html(resp);
 					$.fancybox.close();
 				}
 			});
@@ -1091,7 +1089,7 @@ $(function(){
 			dataType: 'html',
 			type:"POST",
 		}).done(function(resp){
-			$('#pp-photos .lst-document .row .photo').html(resp);
+			$('#pp-photos #list-photos .row .photo').html(resp);
 		});
 	});
 
@@ -1113,7 +1111,7 @@ $(function(){
 			dataType: 'html',
 			type:"POST",
 		}).done(function(resp){
-			$('#pp-videos .lst-document .row .video').html(resp);
+			$('#pp-videos #list-videos .row .video').html(resp);
 		});
 	});
 
