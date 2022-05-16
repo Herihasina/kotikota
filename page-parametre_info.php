@@ -178,8 +178,8 @@
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
-	                            						<label><?php _e('Domiciliation bancaire','kotikota') ?></label>
-	                            						<input type="text" name="" placeholder="<?php _e('Votre adresse de domiciliation','kotikota') ?>" class="chp" id="rib_domicile" value="<?= $info->rib_adresse_de_domiciliation ?>">
+	                            						<label><?php _e('Adresse','kotikota') ?></label>
+	                            						<input type="text" name="" placeholder="<?php _e('Votre adresse','kotikota') ?>" class="chp" id="rib_domicile" value="<?= $info->rib_adresse_de_domiciliation ?>">
 	                            					</div>
                             					</div>
                             					<div class="col">
@@ -202,7 +202,7 @@
                             					</div>
                             					<div class="col col-30">
                             						<div class="blc-chp">
-	                            						<label><?php _e('Clé RIB','kotikota') ?></label>
+	                            						<label><?php _e('Clé','kotikota') ?></label>
 	                            						<input type="text" name="" placeholder="--" class="chp" id="rib_cle" value="<?= $info->rib_cle_rib ?>">
 	                            					</div>
                             					</div>
