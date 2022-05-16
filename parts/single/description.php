@@ -70,7 +70,7 @@
                 <h2><?php _e('Documents','kotikota') ?></h2>
             </div>
             <div class="inner-pp">
-                <div class="lst-document scrollbar-inner">
+                <div id="list-documents" class="lst-document scrollbar-inner">
                   <?php if($document_fichiers):
                     $word_doc=[];
                     $pdf_doc=[];
@@ -180,7 +180,7 @@
                 <h2><?php _e('Images et vidéos','kotikota') ?></h2>
             </div>
             <div class="inner-pp">
-              <div class="lst-document scrollbar-inner">
+              <div id="list-photos-videos" class="lst-document scrollbar-inner">
                   <div class="row">
                     <div class="col photo">
                       <h3><?php _e('images','kotikota') ?></h3>

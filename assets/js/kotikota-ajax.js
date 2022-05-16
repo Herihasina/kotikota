@@ -944,7 +944,7 @@ $(function(){
 			dataType: 'html',
 			type:"POST",
 		}).done(function(resp){
-			$('#pp-document .lst-document').html(resp);
+			$('#pp-document #list-documents').html(resp);
 		});
 	});
 
@@ -978,9 +978,7 @@ $(function(){
                 dataType: 'html',
                 type:"POST",
             }).done(function(resp){
-				console.log("here!");
-				console.log($('#pp-document .lst-document'));
-                $('#pp-document .lst-document').html(resp);
+                $('#pp-document #list-documents').html(resp);
 
             });
 
@@ -1025,7 +1023,7 @@ $(function(){
                 dataType: 'html',
                 type:"POST",
             }).done(function(resp){
-                $('#pp-photos .lst-document .row .photo').html(resp);
+                $('#pp-photos #list-photos-videos .row .photo').html(resp);
                 $.fancybox.close();
             });
 
@@ -1059,7 +1057,7 @@ $(function(){
 				if(patt.test(resp)){
 					$('.error_video').text(resp);
 				}else{
-					$('#pp-photos .lst-document .row .video').html(resp);
+					$('#pp-photos #list-photos-videos .row .video').html(resp);
 					$.fancybox.close();
 				}
 			});
