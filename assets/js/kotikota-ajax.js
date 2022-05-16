@@ -971,6 +971,7 @@ $(function(){
             multiple: false
         });
         mediaUploader.on('select', function() {
+			console.log("doc upload");
             var attachment = mediaUploader.state().get('selection').first().toJSON();
 			$.ajax({
                 url: ajaxurl,
@@ -1015,6 +1016,7 @@ $(function(){
             multiple: false
         });
         mediaUploaderImage.on('select', function() {
+			console.log("image upload");
             var attachment = mediaUploaderImage.state().get('selection').first().toJSON();
             $.ajax({
                 url: ajaxurl,
