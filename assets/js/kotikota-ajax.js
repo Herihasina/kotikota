@@ -978,6 +978,8 @@ $(function(){
                 dataType: 'html',
                 type:"POST",
             }).done(function(resp){
+				console.log("here!");
+				console.log($('#pp-document .lst-document'));
                 $('#pp-document .lst-document').html(resp);
 
             });
