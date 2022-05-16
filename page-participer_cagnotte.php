@@ -158,24 +158,12 @@
             <div class="titre">
                 <h2><span><img src="<?php echo IMG_URL ?>message3.png"></span><?php echo __('Votre message', 'kotikota'); ?></h2>
             </div>
-            <?php if ( is_user_logged_in() ){ ?>
-              <div class="formulaire fix-bloc">
-                <div class=" blc-chp">
-                    <label for="message"><?php echo __('Laisser un petit mot doux pour la cagnotte', 'kotikota'); ?> <span>*</span></label>
-                    <textarea id="message" class="chp-txtarea" placeholder="<?php echo __('Votre message', 'kotikota'); ?>" required></textarea>
-                </div>
+            <div class="formulaire fix-bloc">
+              <div class=" blc-chp">
+                  <label for="message"><?php echo __('Laisser un petit mot doux pour la cagnotte', 'kotikota'); ?> <span>*</span></label>
+                  <textarea id="message" class="chp-txtarea" placeholder="<?php echo __('Votre message', 'kotikota'); ?>" required></textarea>
               </div>
-            <?php
-             } else{
-            ?>
-            <div class="blc-liste-cagnote force-login">
-                <div class="lst-cagnotte-publique wow fadeIn clr">
-                    <h3 style="text-align:center">
-                        <?php _e('Vous devez vous authentifier pour pouvoir laisser un message!','kotikota'); ?>
-                    </h3>
-                </div>
             </div>
-          <?php } ?>
         </div>
 
          <div class="fom-participe wow fadeIn" data-wow-delay="950ms">
