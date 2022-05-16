@@ -312,19 +312,19 @@ box-shadow: 0px 9px 21px -13px rgba(0,0,0,0.75); }
 .cagnotte-publique h2                                       { text-align: center;  font-size: 36px; font-family:Opificio-b ; color:#131313; margin-bottom: 59px; }
 .cagnotte-publique h2:after                                 { content: ''; border-bottom: #ffd71d solid 1px; width: 60px; margin: 31px auto; display: block;   }
 .lst-cagnotte-publique                                      { max-width: 1054px; margin: 0 auto 57px }
-.lst-cagnotte-publique .content                             { border:#dddddd solid 1px; border-radius: 17px; max-width: 320px; margin: 0 auto; overflow:visible; }
+.lst-cagnotte-publique .content                             { border:#dddddd solid 1px; border-radius: 17px; max-width: 320px; margin: 0 auto; overflow:hidden; }
 .lst-cagnotte-publique .content  h3                         { color: #000000; font-size: 20px; font-family:Opificio-b ; margin-bottom: 15px;  overflow: hidden; min-height: 24px; height: 50px }
 .lst-cagnotte-publique .content .txt                        { padding: 10px 20px 6px; display: block; color: #131313; background-color: #fff; height: 194px}
 .lst-cagnotte-publique .content .txt  p                     { font-size: 16px; line-height: 24px; font-family:Montserrat-r ; height: 75px; overflow:hidden; margin-bottom: 10px}
-.lst-cagnotte-publique .content .img                        { margin-bottom: 15px; position: relative; display: block; height: 202px; overflow: visible; }
+.lst-cagnotte-publique .content .img                        { margin-bottom: 15px; position: relative; display: block; height: 202px; overflow: hidden; }
 /*.lst-cagnotte-publique .content .img:before                 { content: ''; display: block; background-color:rgba(0,0,0,0.3); position: absolute; left: 0; top: 0; width: 100%; height: 100%; opacity: 0 }*/
 .lst-cagnotte-publique .content .img:after                  { content: ''; background: url(../images/deco-img.png); position: absolute; bottom: 0; left: -1px; width: 319px; height: 68px; }
 .lst-cagnotte-publique .content .img .ico                   { position: absolute; display: block; top: 20px; right: 20px ; width: 50px; height: 50px; border-radius:50%; background-color: #e83878; }
 
-.lst-cagnotte-publique .content .img img { display: block; width: 100%;  height: 100%; object-fit: cover; border-radius: 17px 17px 0 0}
+.lst-cagnotte-publique .content .img img { display: block; width: 100%;  height: 100%; object-fit: cover;}
 
 
-.lst-cagnotte-publique .content .compteur                   { background-color:#e83878; padding: 21px 0 12px; text-align: center; position: relative; border-radius: 0 0 17px 17px  }
+.lst-cagnotte-publique .content .compteur                   { background-color:#e83878; padding: 21px 0 12px; text-align: center; position: relative;  }
 .lst-cagnotte-publique .content .compteur .jour:after       { content: ''; display: block; position: absolute; border-left: #fff solid 1px; height: 25px;  right: 0; margin: auto; top: 0; bottom: 0; width: 1px }
 .lst-cagnotte-publique .content .compteur .user:after       { content: ''; display: block; position: absolute; border-left: #fff solid 1px; height: 25px; right: 0; margin: auto; top: 0; bottom: 0; width: 1px }
 
@@ -1351,7 +1351,7 @@ padding-top: 22px;*/ }
 .col-dates .chy-type { margin: 0 -20px 40px; padding-left: 7px }
 .col-dates .chy-type .col.col47 { padding: 0 10px;}
 .lst-comment .cont-message { margin-top: 0; margin-bottom: 40px;}
-.blcTab .tab-content#participation .cont-message { margin-top: 10px; margin-bottom: 40px; margin: 0 auto 40px}
+.blcTab .tab-content#participation .cont-message { margin-top: 10px; margin-bottom: 40px}
 .zone-img .inputfile + label.no-bg span {  display: none;}
 .lst-cagnotte-publique.center { text-align: center; }
 #montant_fixe.has-focus { width: 95% }
@@ -1482,7 +1482,7 @@ div.asl_r .resdrg {
 /*Modifs Cagnotte */
 .cloturer .ckeckCloturer { background: url(../images/icon-check.svg) center no-repeat #fff; background-size: contain; width: 35px; height: 35px; border-radius: 50%; position: absolute; top: -9px; bottom: 0; left: -9px; right: 0; margin: auto; z-index: 5;}
 .det-cagnotte .blc-img .cloturer .ckeckCloturer { width: 45px; height: 45px; top: -14px; left: -12px;}
-.det-cagnotte .blc-img .blocCloture { background: url(../images/bandeau.png) center no-repeat; background-size: contain; width:265px; height: 142px; padding:  70px 30px 0; text-align: center; position: absolute; top: 19%; right: -25px; font: normal 16px/24px Montserrat-r, Arial; color: #fff;}
+.det-cagnotte .blc-img .blocCloture { background: url(../images/bandau.svg) center no-repeat; background-size: contain; width: 250px; height: 90px; padding: 30px; text-align: center; position: absolute; top: 50%; right: -25px; font: normal 16px/24px Montserrat-r, Arial; color: #fff;}
 .det-cagnotte .content { overflow: inherit !important;}
 
 .securise span {
@@ -2088,10 +2088,10 @@ input[type="checkbox"].ck-photo:checked ~ label {
 }
 
 .inner-pp .row .col .lst-option {
-    max-width: 100%;
+    max-width: 387px;
 }
 .inner-pp .row .col .lst-option {
-    max-width: 100%;
+    max-width: 387px;
 }
 .inner-pp .row .col .lst-option .item {
     display: flex; margin-bottom: 30px
@@ -2142,20 +2142,6 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .inner-pp .row .col {
     width: 50%;
 }
-.inner-pp .row .col.video {
-    width: 100%;
-}
-.inner-pp .row .col.video .lst-option {
-    max-width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-}
-.inner-pp .row .col.video .lst-option .item {
-    display: flex;
-    margin-bottom: 30px;
-    width: 50%;
-    padding: 0 10px;
-}
 
 .cont-pp .blcbtn {
     border-top: #ddd solid 1px;
@@ -2202,8 +2188,8 @@ input[type="checkbox"].ck-photo:checked ~ label {
 .lst-document .lst-option .img { display: block; overflow: hidden; border-radius: 10px; position: relative; height: 119px }
 .lst-document .lst-option .img img { display: block; width: 100% ; height: 119px; object-fit: cover}
 #pp-photos .inner-pp .row .col .lst-option .item label { padding-right: 0 }
-.inner-pp .row .col .lst-option.blcphotos { display: block;max-width: 100%; }
-.inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 25%; float: left; padding-right: 22px}
+.inner-pp .row .col .lst-option.blcphotos { display: block;max-width: 413px; }
+.inner-pp .row .col .lst-option.blcphotos .item { display: block; margin-bottom: 20px;flex-direction: row; width: 50%; float: left; padding-right: 22px}
 .inner-pp .row .col .lst-option.blcphotos::after {    display: table; clear: both;}
 .contvideo a { display: flex;  align-items: center; color: #000; position: relative;}
 .contvideo a:hover { color: #000 }
@@ -2286,7 +2272,7 @@ input[type="checkbox"].ck-photo:checked ~ label {
 
 .video-img .heure { background-color: #000; border-radius: 5px; padding:5px; color: #fff; font-size: 12px; text-align: center; position: absolute; right: 5px; bottom: 5px; line-height: 12px; display: inline-block; }
 .inner-pp .row .col .lst-option .item input[type="checkbox"].ck-photo:checked ~ label:after { opacity: 1 }
-.inner-pp .row .col.photo {  width: 100%;}
+.inner-pp .row .col.photo {  width: 55%;}
 .btn-partage .link.partage span { background: url(../images/share.png) left center no-repeat;  background-size: 25px}
 #pp-partage { padding: 0;}
 .pp-partage .invitation .titre { background-color: transparent !important;  }
@@ -2622,14 +2608,6 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 #ajout-video-image .fancybox-close-small {
     color: #000;
 }
-#ajout-video-image2 .fancybox-close-small {
-    color: #000;
-}
-#ajout-video-image2 {
-    text-align: center;
-}
-#ajout-video-image2 #add_image { margin-bottom: 30px }
-
 .lst-document h4 { text-align: left !important; font-weight: 700 }
 #pp-document .lst-document h4 {
     text-align: center !important;
@@ -2675,33 +2653,6 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
     align-items: center;
     justify-content: center;
 }
-
-.lst-cagnotte-publique .item .ico-percent.cloturer {
-    background: url(../images/bandau-mini.png);
-    width: 165px;
-    background-size: cover;
-    height: 64px;
-    margin-left: -13px;
-    margin-top: 11px;
-}
-
-
-.lst-cagnotte-publique .item .ico-percent.cloturer .ckeckCloturer {
-    display: none;
-}
-.lst-cagnotte-publique .item .ico-percent.cloturer span {
-    text-align: center;
-    display: block;
-    text-transform: uppercase;
-    font-size: 14px;
-    padding-top: 8px;
-    color: #fff !important
-}
-.lst-cagnotte-publique .item .ico-percent.cloturer span:hover { color: #fff }
-
-.lst-cagnotte-publique .item .ico-percent.cloturer { display: flex; justify-content: center; align-items: center }
-
-
 
 @media (min-width:1201px) {
 body a span, body a,.lrm-reset-password-section .full-width, .slick-prev , .slick-next, .headerTop.sticky .right,  .popup .btn .link.submit, .link.submit , .simulation-pp .txt-bottom a:after, .switch .chp, .blc-slider-range.sticky, .lst-cagnotte-publique .content .img:before, .lst-payement ul li img, .btn-partage .link span , .lst-cagnotte-publique .content , .footer-2 li a:hover::before, .footer-3 .mail li a::before, .footer-3 .Whatsapp li a:before  { -webkit-transition:all 400ms ease-in-out; -moz-transition:all 400ms ease-in-out; -ms-transition:all 400ms ease-in-out; transition:all 400ms ease-in-out;}
@@ -3173,7 +3124,7 @@ a:hover { color:#fbbd36; }
         padding: 0 20px !important;
     }
     .profilFile .cont-file span { padding: 0 10px !important;}
-    .inner-pp .lst-document  .row { padding-right: 0 }
+    .inner-pp .lst-document  .row { padding-right: 20px }
     .info-rib { padding: 0 40px; }
 
 }
@@ -3325,7 +3276,7 @@ a:hover { color:#fbbd36; }
     #pp-photos .inner-pp .row .col .lst-option.blcphotos {  max-width: 100%; padding-right: 20px;}
     #pp-photos .inner-pp .row .col { width: 100%;}
     #pp-photos .inner-pp .row .col .lst-option {  max-width: 100%; padding-right: 20px;}
-    #pp-photos .inner-pp .row .col .lst-option.blcphotos .item { padding-right: 10px; width: 50% }
+    #pp-photos .inner-pp .row .col .lst-option.blcphotos .item { padding-right: 10px }
     #pp-photos .inner-pp h3 { text-align: center }
     .pp-rib .titre::before { top: 34px }
     .pp-rib .cont-pp .inner-pp { padding: 60px 40px 60px 40px;}
@@ -3397,10 +3348,6 @@ a:hover { color:#fbbd36; }
     .blc-liste-cagnote iframe { width: 100% }
     .pp-document-photos .blcbtn .link {
         margin: 0 20px 10px;
-    }
-    .nom-cagnotteSum .content .col { width: 100% }
-    #pp-photos .inner-pp .row .col .lst-option.blcphotos .item:nth-child(2n+2) {
-        padding-right: 0;
     }
 
 
@@ -3647,7 +3594,7 @@ a:hover { color:#fbbd36; }
     .footer-2 .mail, .footer-3 .tel, .footer-3 .Whatsapp { padding-left: 0; padding-top: 60px;}
     .enter-mail-id{ width: 100%!important; }
 
-    .det-cagnotte .blc-img .blocCloture { width: 187px; height: 100px; right: -17px; padding-top: 41px}
+    .det-cagnotte .blc-img .blocCloture { width: 200px; height: 75px; padding: 20px 17px 20px 30px; right: -17px;}
 
     .col.profilFile { display: flex; margin-bottom: 40px;}
 
@@ -3782,9 +3729,6 @@ a:hover { color:#fbbd36; }
         margin-bottom: 10px !important;
     }
 
-    .Card_container_result #result_fail a.btn.btn_try_again { width: 100% !important }
-    .inner-pp .row .col.video .lst-option .item { width: 100% }
-
 
 
 
@@ -3891,8 +3835,6 @@ a:hover { color:#fbbd36; }
 
 }
 
-.content-comment .profil img {
-  width: 100%;
-}
+
 
 
