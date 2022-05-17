@@ -384,7 +384,9 @@ $(function(){
 	  		if ( data.resp == "success" ){
 	  			$('#open_conf').trigger('click');
 	  			$('#popup_conf .conf_text').text(text.conf_invite_email);
-				window.location = data.url;
+				if(source){
+					window.location = data.url;
+				}
 	  		}else{
 	  			$('ul#response').addClass('error').html(data.erreurs);
 			  		setTimeout(function() {
