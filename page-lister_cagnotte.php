@@ -27,11 +27,11 @@
         	$args = array(
             'post_type' => array('cagnotte','cagnotte-perso'),
             'post_status' => 'publish',
-            'posts_per_page' => $per_page,
+            //'posts_per_page' => $per_page,
             'meta_key' => 'visibilite_cagnotte',
             'meta_value' => 'publique',
-            //'orderby' => 'ID',
-            //'order' => 'DESC',
+            'orderby' => 'ID',
+            'order' => 'DESC',
             'paged' => $paged,
         );
 
