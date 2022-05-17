@@ -1,20 +1,18 @@
 <div class="blc-liste-cagnote wow fadeIn" data-wow-delay="850ms">
     <div class="lst-cagnotte-publique wow fadeIn clr" data-wow-delay="900ms">
     <?php
-        //$i=1;
-
-        foreach ( array_reverse($all_posts) as $un_post):
-            $id = $un_post->ID;
-            $couleur = get_field('couleur',$id);
+        while (have_posts()){
+            the_post();
+            $couleur = get_field('couleur');
     ?>
             <div class="item <?php if ($couleur) echo $couleur ?>">
                 <div class="content">
-                    <a href="<?php echo get_the_permalink( $id) ?>" class="img">
+                    <a href="<?php the_permalink(); ?>" class="img">
                             <?php
-                                $img_url = attachment_url_to_postid(get_field('illustration_pour_la_cagnotte',$id));
+                                $img_url = attachment_url_to_postid(get_field('illustration_pour_la_cagnotte'));
                             echo wp_get_attachment_image( $img_url, 'cagnotte-home' );
 
-                            $terms = get_the_terms( $id, 'categ-cagnotte' );
+                            $terms = get_the_terms( $post->ID, 'categ-cagnotte' );
 
                             if ($terms){
                                 foreach ($terms as $term){
@@ -26,11 +24,11 @@
                                 }
                             }
 
-                            $limited = get_field('fixer_un_objectif',$id);
-                            $azo = (int)get_field('montant_recolte',$id);
-                            $ilaina = (int)get_field('objectif_montant',$id);
-                            $closed = get_field('cagnotte_cloturee',$id) == 'oui' ? true : false;
-                            $devise = get_field('devise',$id);
+                            $limited = get_field('fixer_un_objectif');
+                            $azo = (int)get_field('montant_recolte');
+                            $ilaina = (int)get_field('objectif_montant');
+                            $closed = get_field('cagnotte_cloturee') == 'oui' ? true : false;
+                            $devise = get_field('devise');
                             $devise = is_array( $devise ) && array_key_exists('label', $devise) ? $devise['label'] : 'Ar';
 
                             if (!$ilaina ) $ilaina = 1;
@@ -60,14 +58,14 @@
                             </span>
                         <?php endif; ?>
                     </a>
-                    <a href="<?php echo get_the_permalink( $id) ?>" class="txt">
-                        <h3><?php echo get_field('nom_de_la_cagnotte',$id) ?></h3>
+                    <a href="<?php the_permalink(); ?>" class="txt">
+                        <h3><?php echo get_field('nom_de_la_cagnotte') ?></h3>
                         <p><?php
-                            $type_cagnotte = get_field('visibilite_cagnotte',$id);
-                            echo wp_strip_all_tags( get_field('description_de_la_cagnote',$id) ); ?>
+                            $type_cagnotte = get_field('visibilite_cagnotte');
+                            echo wp_strip_all_tags( get_field('description_de_la_cagnote') ); ?>
                         </p>
                         <?php
-                        if( get_field('fixer_un_objectif',$id) ): ?>
+                        if( get_field('fixer_un_objectif' ) ): ?>
                             <div class="objectif">
                                 <?php
                                     if($ilaina > 1) {
@@ -85,12 +83,12 @@
                     <div class="compteur">
                         <div class="jour">
                                 <span>
-                                    <?php echo get_nbr_de_jour_restant( get_field('deadline_cagnoote',$id) ) .' J'; ?>
+                                    <?php echo get_nbr_de_jour_restant( get_field('deadline_cagnoote' ) ) .' J'; ?>
                                 </span>
                             </div>
                         <div class="user">
                              <?php
-                                $part = get_field('tous_les_participants',$id);
+                                $part = get_field('tous_les_participants');
                                 if ( !$part ) $part = [];
                             ?>
                                 <span>
@@ -102,8 +100,8 @@
                         <div class="amount">
                             <span>
                                 <?php
-                                    if (get_field('montant_recolte',$id) ){
-                                        echo '<span class="format_chiffre">'.get_field('montant_recolte',$id).'</span> '. $devise;
+                                    if (get_field('montant_recolte') ){
+                                        echo '<span class="format_chiffre">'.get_field('montant_recolte').'</span> '. $devise;
                                     }else{
                                         echo "0 ".$devise;
                                     }
@@ -114,8 +112,7 @@
                 </div>
             </div>
     <?php
-        //$i++;
-        endforeach;
+        }
     ?>
     </div>
     <?php

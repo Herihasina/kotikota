@@ -27,11 +27,11 @@
         	$args = array(
             'post_type' => array('cagnotte','cagnotte-perso'),
             'post_status' => 'publish',
-            'posts_per_page' => -1,//$per_page,
+            'posts_per_page' => $per_page,
             //'meta_key' => 'visibilite_cagnotte',
             //'meta_value' => 'publique',
             //'orderby' => 'ID',
-            'order' => 'DESC',
+
             'paged' => $paged,
             //'meta_key' => 'tous_les_participants',
             'meta_query' => array(
@@ -45,23 +45,18 @@
                 )
             ),
             'orderby' => 'meta_value',
-
+            'order' => 'DESC',
         );
 
         $loop = query_posts( $args );
 
-        if ( $loop ){
+        /*if ( $loop ){
             $i = 1;
             while ( have_posts() ) : the_post();
                 $length = get_field('tous_les_participants');
                 if ( !$length ) {
                     $length = [];
                 }
-
-                /*$cl = '0';
-                for ($j=1;$j<=strlen((string)count($length));$j++) {
-                    $cl .= '0';
-                }*/
 
                 $all_posts[$i] = $post;
                 $i++;
@@ -70,9 +65,9 @@
         }
 
         ksort($all_posts);
-        print_r($all_posts);
+        print_r($all_posts);*/
 
-        if ( $all_posts ):
+        if ( $loop ):
             include 'sections/content/liste-cagnottes.php';
         else:
     ?>
