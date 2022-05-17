@@ -28,11 +28,24 @@
             'post_type' => array('cagnotte','cagnotte-perso'),
             'post_status' => 'publish',
             'posts_per_page' => -1,//$per_page,
-            'meta_key' => 'visibilite_cagnotte',
-            'meta_value' => 'publique',
-            'orderby' => 'ID',
+            //'meta_key' => 'visibilite_cagnotte',
+            //'meta_value' => 'publique',
+            //'orderby' => 'ID',
             'order' => 'DESC',
             'paged' => $paged,
+            //'meta_key' => 'tous_les_participants',
+            'meta_query' => array(
+                'relation' => 'OR',
+                array(
+                    'key'   => 'visibilite_cagnotte',
+                    'value' => 'publique'
+                ),
+                array(
+                    'key'   => 'tous_les_participants',
+                )
+            ),
+            'orderby' => 'meta_value',
+
         );
 
         $loop = query_posts( $args );
@@ -50,8 +63,7 @@
                     $cl .= '0';
                 }*/
 
-                $all_posts[$i]['post'] = $post;
-                $all_posts[$i]['participant'] = count($length);
+                $all_posts[$i] = $post;
                 $i++;
             endwhile;
             wp_reset_postdata();
