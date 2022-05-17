@@ -381,10 +381,10 @@ $(function(){
 	  		}
 	  	}).done(function(resp){
 			var data= $.parseJSON(resp);
-			console.log(data);
-	  		if ( resp == "success" ){
+	  		if ( data.resp == "success" ){
 	  			$('#open_conf').trigger('click');
 	  			$('#popup_conf .conf_text').text(text.conf_invite_email);
+				window.location = data.url;
 	  		}else{
 	  			$('ul#response').addClass('error').html(resp);
 			  		setTimeout(function() {
