@@ -31,11 +31,10 @@
             //'meta_key' => 'visibilite_cagnotte',
             //'meta_value' => 'publique',
             //'orderby' => 'ID',
-
             'paged' => $paged,
             //'meta_key' => 'tous_les_participants',
             'meta_query' => array(
-                'relation' => 'OR',
+                'relation' => 'AND',
                 array(
                     'key'   => 'visibilite_cagnotte',
                     'value' => 'publique'
