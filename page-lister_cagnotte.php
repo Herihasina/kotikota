@@ -43,8 +43,10 @@
                 if ( !$length ) $length = [];
                     $all_posts[count($length)] = $post;
             endwhile;
-            //wp_reset_postdata();
+            wp_reset_postdata();
         }
+
+        ksort($all_posts);
 
         if ( $loop ):
             include 'sections/content/liste-cagnottes.php';
