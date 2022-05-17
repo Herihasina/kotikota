@@ -43,9 +43,12 @@
                 $length = get_field('tous_les_participants');
                 if ( !$length ) {
                     $length = [];
+                    $cl = 1;
+                } else {
+                    $cl = count($length);
                 }
 
-                $all_posts[count($length).'0'.$i] = $post;
+                $all_posts[$cl*$i] = $post;
                 $i++;
             endwhile;
             wp_reset_postdata();
