@@ -45,7 +45,7 @@
                     $length = [];
                     $cl = 1;
                 } else {
-                    $cl = count($length);
+                    $cl = count($length)+1;
                 }
 
                 $all_posts[$cl*$i] = $post;
