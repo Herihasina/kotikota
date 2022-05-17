@@ -520,10 +520,12 @@ function send_invite(){
         $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
 
     if ( $erreurs ){
+        $text_erreurs ="";
         foreach ($erreurs as $erreur ){
-             echo "<li>$erreur</li>";
-         }
-         wp_die();
+            $text_erreurs .="<li>$erreur</li>";
+        }
+        echo json_encode(array('resp' => 'error', 'erreurs' => $text_erreurs ));
+        wp_die();
     }
 
     $idCagnotte = $_POST['idCagnotte'];
