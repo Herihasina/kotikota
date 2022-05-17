@@ -378,9 +378,9 @@ $(function(){
 	  			'action': 'send_invite',
 	  			'emails': emails,
 	  			'idCagnotte': idCagnotte,
-				'source': source
 	  		}
 	  	}).done(function(resp){
+			  console.log(resp);
 	  		if ( resp == "success" ){
 	  			$('#open_conf').trigger('click');
 	  			$('#popup_conf .conf_text').text(text.conf_invite_email);

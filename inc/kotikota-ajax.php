@@ -528,10 +528,13 @@ function send_invite(){
 
     $idCagnotte = $_POST['idCagnotte'];
 
-    $source =$_POST['source'];
-    var_dump($source);
 
-    // sendInvitation( $_POST['emails'], $idCagnotte );
+    //vérification si cela provient de la page de gestion d'invités
+    $cagnotte_url = get_permalink($idCagnotte);
+
+    $resp= sendInvitation( $_POST['emails'], $idCagnotte );
+
+    echo json_encode(array('resp' => $resp, 'url' => $cagnotte_url));
 
     wp_die();
 }
@@ -1163,7 +1166,9 @@ function relance_auto(){
         $emails[] = sanitize_email( $t );
     }
 
-    sendInvitation( $emails, $idCagnotte );
+    $resp = sendInvitation( $emails, $idCagnotte );
+
+    echo $resp;
 
     wp_die();
 }
