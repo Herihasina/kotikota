@@ -32,7 +32,7 @@
             'meta_value' => 'publique',
             'orderby' => 'ID',
             'order' => 'DESC',
-            'paged' => $paged,
+            //'paged' => $paged,
         );
 
         $loop = query_posts( $args );
