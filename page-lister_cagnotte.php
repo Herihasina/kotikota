@@ -41,6 +41,7 @@
             $i = 1;
             while ( have_posts() ) : the_post();
                 $length = get_field('tous_les_participants');
+                $i = 1;
                 if ( !$length ) {
                     //$length = [];
                     $length = array_fill(0, $i, '');
