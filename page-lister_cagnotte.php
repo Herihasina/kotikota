@@ -45,12 +45,13 @@
                     $length = [];
                 }
 
-                $cl = '0';
+                /*$cl = '0';
                 for ($j=1;$j<=strlen((string)count($length));$j++) {
                     $cl .= '0';
-                }
+                }*/
 
-                $all_posts[count($length).$cl.$i] = $post;
+                $all_posts[$i] = $post;
+                $all_posts[$i]['participant'] = $length;
                 $i++;
             endwhile;
             wp_reset_postdata();
