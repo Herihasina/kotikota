@@ -50,8 +50,8 @@
                     $cl .= '0';
                 }*/
 
-                $all_posts[$i] = $post;
-                $all_posts[$i] = ['participant'=>$length];
+                $all_posts[$i]['post'] = $post;
+                $all_posts[$i]['participant'] = $length;
                 $i++;
             endwhile;
             wp_reset_postdata();
