@@ -43,19 +43,21 @@
                 $length = get_field('tous_les_participants');
                 if ( !$length ) {
                     $length = [];
-                    $cl = 1;
-                } else {
-                    $cl = count($length)+1;
                 }
 
-                $all_posts[$cl*$i] = $post;
+                $cl = '0';
+                for ($j=1;$j<=strlen((string)count($length));$j++) {
+                    $cl .= '0';
+                }
+
+                $all_posts[count($length).$cl.$i] = $post;
                 $i++;
             endwhile;
             wp_reset_postdata();
         }
 
         ksort($all_posts);
-        //print_r($all_posts);
+        print_r($all_posts);
 
         if ( $all_posts ):
             include 'sections/content/liste-cagnottes.php';
