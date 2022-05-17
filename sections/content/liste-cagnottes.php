@@ -1,7 +1,7 @@
 <div class="blc-liste-cagnote wow fadeIn" data-wow-delay="850ms">
     <div class="lst-cagnotte-publique wow fadeIn clr" data-wow-delay="900ms">
     <?php
-        $i=1;
+        //$i=1;
 
         foreach ( array_reverse($all_posts) as $un_post):
             $id = $un_post->ID;
@@ -114,7 +114,7 @@
                 </div>
             </div>
     <?php
-        $i++;
+        //$i++;
         endforeach;
     ?>
     </div>
