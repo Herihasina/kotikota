@@ -48,6 +48,7 @@
         );
 
         $loop = query_posts( $args );
+        echo $loop->request;
 
         /*if ( $loop ){
             $i = 1;
