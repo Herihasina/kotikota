@@ -41,15 +41,12 @@
             $i = 1;
             while ( have_posts() ) : the_post();
                 $length = get_field('tous_les_participants');
-                $i = 1;
                 if ( !$length ) {
-                    //$length = [];
-                    $length = array_fill(0, $i, '');
-                    $i++;
+                    $length = [];
                 }
 
-                $all_posts[count($length)] = $post;
-
+                $all_posts[count($length).'0'.$i] = $post;
+                $i++;
             endwhile;
             wp_reset_postdata();
         }
