@@ -51,7 +51,7 @@
                 }*/
 
                 $all_posts[$i]['post'] = $post;
-                $all_posts[$i]['participant'] = $length;
+                $all_posts[$i]['participant'] = count($length);
                 $i++;
             endwhile;
             wp_reset_postdata();
