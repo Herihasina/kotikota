@@ -52,6 +52,7 @@
         }
 
         ksort($all_posts);
+        print_r($all_posts);
 
         if ( $all_posts ):
             include 'sections/content/liste-cagnottes.php';
