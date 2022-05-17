@@ -37,14 +37,14 @@
 
         $loop = query_posts( $args );
         //var_dump($loop);
-        if ( $loop->have_posts() ){
+        /*if ( $loop->have_posts() ){
             while ( $loop->have_posts() ) : $loop->the_post();
                 $length = get_field('tous_les_participants');
                 if ( !$length ) $length = [];
                     $all_posts[count($length)] = $post;
             endwhile;
             wp_reset_postdata();
-        }
+        }*/
 
         if ( $loop ):
             include 'sections/content/liste-cagnottes.php';
