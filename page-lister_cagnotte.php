@@ -48,7 +48,7 @@
 
         ksort($all_posts);
 
-        if ( $loop ):
+        if ( $all_posts ):
             include 'sections/content/liste-cagnottes.php';
         else:
     ?>
