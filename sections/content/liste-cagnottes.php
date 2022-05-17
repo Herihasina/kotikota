@@ -3,7 +3,7 @@
     <?php
         //$i=1;
 
-        foreach ( array_reverse($all_posts) as $un_post):
+        foreach ( array_reverse($all_posts['post']) as $un_post):
             $id = $un_post->ID;
             $couleur = get_field('couleur',$id);
     ?>
