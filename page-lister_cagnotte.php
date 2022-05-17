@@ -27,7 +27,7 @@
         	$args = array(
             'post_type' => array('cagnotte','cagnotte-perso'),
             'post_status' => 'publish',
-            'posts_per_page' => -1,//$per_page,
+            'posts_per_page' => $per_page,
             'meta_key' => 'visibilite_cagnotte',
             'meta_value' => 'publique',
             'orderby' => 'ID',
@@ -55,7 +55,7 @@
         }
 
         ksort($all_posts);
-        print_r($all_posts);
+        //print_r($all_posts);
 
         if ( $all_posts ):
             include 'sections/content/liste-cagnottes.php';
