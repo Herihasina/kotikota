@@ -380,7 +380,8 @@ $(function(){
 	  			'idCagnotte': idCagnotte,
 	  		}
 	  	}).done(function(resp){
-			  console.log(resp);
+			var data= $.parseJSON(resp);
+			console.log(data);
 	  		if ( resp == "success" ){
 	  			$('#open_conf').trigger('click');
 	  			$('#popup_conf .conf_text').text(text.conf_invite_email);
