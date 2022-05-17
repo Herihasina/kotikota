@@ -896,6 +896,10 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 
 .lst-cagnotte-publique .item  .ico2 { position: absolute; left: 0; top: 0;  }
 .lst-cagnotte-publique .item  .ico-percent { position: absolute; left: 0; top: -1px; background:url(../images/bg-percent.png); background-repeat: no-repeat; background-size: cover; width: 100px; height: 103px; padding: 9px 7px }
+
+.lst-cagnotte-publique .item .ico-percent.cloturer { background:url(../images/bandau-mini.png); width: 200px; height: 78px }
+.lst-cagnotte-publique .item .ico-percent.cloturer .ckeckCloturer { display: none; }
+
 .percent { background-color: #fff; border-radius: 50%; position: relative;  }
 .percent {
     background-color: #fff;
