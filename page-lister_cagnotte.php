@@ -43,7 +43,7 @@
                     'key'   => 'tous_les_participants',
                 )
             ),
-            'orderby' => 'meta_value',
+            'orderby' => 'meta_value_num',
             'order' => 'DESC',
         );
 
