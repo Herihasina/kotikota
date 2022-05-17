@@ -361,6 +361,7 @@ $(function(){
 
 	  /* invite email */
 	   $('#invite_email').click( function(){
+		   var source = $(this).data('source');
 	  	$('#loader').addClass('working');
 	  	if ( $('.un-email').length ){
 	  		var emails = [];
@@ -376,7 +377,8 @@ $(function(){
 	  		data: {
 	  			'action': 'send_invite',
 	  			'emails': emails,
-	  			'idCagnotte': idCagnotte
+	  			'idCagnotte': idCagnotte,
+				'source': source
 	  		}
 	  	}).done(function(resp){
 	  		if ( resp == "success" ){

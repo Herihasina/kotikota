@@ -126,7 +126,7 @@ if ( (is_user_logged_in() && get_field('titulaire_de_la_cagnotte', $id_cagnotte 
         <div class="btn wow fadeIn" data-wow-delay="950ms">
           <input type="hidden" id="idCagnotte" name="idCagnotte" value="<?php echo $id_cagnotte ?>">
           <a href="<?php echo get_permalink( $id_cagnotte ) ?>" class="link" title="<?php _e('Annuler','kotikota'); ?>"><?php _e('Annuler','kotikota'); ?></a>
-          <input type="submit" id="invite_email" name="" class="link submit" value="<?php _e('Valider','kotikota'); ?>">
+          <input type="submit" id="invite_email" name="" class="link submit" data-source="gestion-invite"  value="<?php _e('Valider','kotikota'); ?>">
         </div>
       </div>
   </div>

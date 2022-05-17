@@ -528,7 +528,10 @@ function send_invite(){
 
     $idCagnotte = $_POST['idCagnotte'];
 
-    sendInvitation( $_POST['emails'], $idCagnotte );
+    $source =$_POST['source'];
+    var_dump($source);
+
+    // sendInvitation( $_POST['emails'], $idCagnotte );
 
     wp_die();
 }
