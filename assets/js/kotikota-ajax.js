@@ -386,7 +386,7 @@ $(function(){
 	  			$('#popup_conf .conf_text').text(text.conf_invite_email);
 				window.location = data.url;
 	  		}else{
-	  			$('ul#response').addClass('error').html(resp);
+	  			$('ul#response').addClass('error').html(data.resp);
 			  		setTimeout(function() {
 			  			$('ul#response').removeClass('error').html('');
 			  		}, 10000 );
