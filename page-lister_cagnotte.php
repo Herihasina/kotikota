@@ -55,9 +55,9 @@
         FROM wp_posts
         INNER JOIN wp_postmeta ON ( wp_posts.ID = wp_postmeta.post_id )
             WHERE 1=1
-            AND ( ( wp_postmeta.meta_key = 'visibilite_cagnotte' AND wp_postmeta.meta_value = 'publique' ) )
-            AND wp_posts.post_type IN ('cagnotte', 'cagnotte-perso')
-            AND ((wp_posts.post_status = 'publish'))
+            AND ( ( wp_postmeta.meta_key = "visibilite_cagnotte" AND wp_postmeta.meta_value = "publique" ) )
+            AND wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
+            AND ((wp_posts.post_status = "publish"))
         GROUP BY wp_posts.ID ORDER BY count_part DESC LIMIT 0, 9';
 
         $loop = $wpdb->get_results($sql);
