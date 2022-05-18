@@ -50,7 +50,7 @@
 
         $loop = query_posts( $args );
 
-        echo $wpdb->last_query;
+        echo $wpdb->request;
 
         /*if ( $loop ){
             $i = 1;
