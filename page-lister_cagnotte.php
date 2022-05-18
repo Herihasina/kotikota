@@ -63,8 +63,6 @@
         $loop = $wpdb->get_results($sql);
 
         //$results = new WP_Query( $args );
-        // Oops, $results has nothing, or something we did not expect
-        // Show the query
         //echo $results->request;
 
         /*if ( $loop ){
