@@ -47,7 +47,7 @@
             AND ( ( wp_postmeta.meta_key = "visibilite_cagnotte" AND wp_postmeta.meta_value = "publique" ) )
             AND wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
             AND ((wp_posts.post_status = "publish"))
-            AND ((wp_postmeta.meta_key == "cagnotte_cloturee" AND wp_postmeta.meta_value = "false" ))
+            AND ((wp_postmeta.meta_key = "cagnotte_cloturee" AND wp_postmeta.meta_value = "non" ))
         GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
 
         //query the posts with pagination
