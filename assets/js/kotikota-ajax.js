@@ -496,12 +496,12 @@ $(function(){
 	  		}
 	  	}).done(function(resp){
 			var resp_json = $.parseJSON(resp);
-			console.log(resp_json);
 	  		if( resp_json.resp === "success"){
 				console.log('redirect..');
 				window.location = resp_json.url + '?parametre='+idCagnotte;
 			}else{
 				var errors = resp_json.errors;
+				console.log(errors);
 				errors.each(function(index,value){
 					console.log(index+" "+value);
 				});
