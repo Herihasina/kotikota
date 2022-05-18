@@ -26,7 +26,7 @@
         	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
             $offset = ($paged - 1)*$per_page;
 
-        	$args = array(
+        	/*$args = array(
             'post_type' => array('cagnotte','cagnotte-perso'),
             'post_status' => 'publish',
             'posts_per_page' => $per_page,
@@ -34,22 +34,10 @@
             'meta_value' => 'publique',
             'orderby' => 'ID',
             'paged' => $paged,
-            //'meta_key' => 'tous_les_participants',
-            /*'meta_query' => array(
-                'relation' => 'AND',
-                array(
-                    'key'   => 'visibilite_cagnotte',
-                    'value' => 'publique'
-                ),
-                array(
-                    'key'   => 'tous_les_participants',
-                )
-            ),
-            'orderby' => 'meta_value_num',*/
             'order' => 'DESC',
-        );
+            );
 
-        //$loop = query_posts( $args );
+        $loop = query_posts( $args );*/
         $sql = 'SELECT
         SQL_CALC_FOUND_ROWS
         wp_posts.ID, (SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value,":",2),":",-1) from wp_postmeta WHERE meta_key = "tous_les_participants" AND wp_postmeta.post_id = wp_posts.ID) as count_part
@@ -67,34 +55,12 @@
         // run query to count the result later
         $total_result = $wpdb->get_results( $sql, OBJECT);
         $total_post = count($total_result);
-        //$max_num_pages = ceil($total_post / $per_page);
 
-        //$ppp = intval(get_query_var('posts_per_page'));
         $wp_query->found_posts = count($total_result);
         $wp_query->max_num_pages =  ceil($total_post / $per_page);
         $wp_query->posts_per_page = $per_page;
 
         $loop = $wpdb->get_results($query_limit);
-
-        //$results = new WP_Query( $args );
-        //echo $results->request;
-
-        /*if ( $loop ){
-            $i = 1;
-            while ( have_posts() ) : the_post();
-                $length = get_field('tous_les_participants');
-                if ( !$length ) {
-                    $length = [];
-                }
-
-                $all_posts[$i] = $post;
-                $i++;
-            endwhile;
-            wp_reset_postdata();
-        }
-
-        ksort($all_posts);
-        print_r($all_posts);*/
 
         if ( $loop ):
             include 'sections/content/liste-cagnottes.php';
