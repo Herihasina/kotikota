@@ -459,6 +459,8 @@ $(function(){
 	  	/* Paramètres rib */
 	  $('.form-rib .link.submit').click(function(){
 	  	$('#loader').addClass('working');
+		//   empty errors
+		$('.formulaireParametre .blc-chp  span.error').empty();
 	  	var nomCagnotte = $('#nom_cagnotte').val();
 	  	var idCagnotte	= $('#idCagnotte').val();
 	  	var idBenef = $('#benef').val();
@@ -503,7 +505,7 @@ $(function(){
 				var errors = resp_json.errors;
 				console.log(errors);
 				$(errors).each(function(index,value){
-					console.log(value);
+					$('#'+value.key+'-error').text(value.error);
 				});
 				
 	  			// $('ul#responsepopup').addClass('error').html(resp);
