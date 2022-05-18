@@ -361,6 +361,7 @@ $(function(){
 
 	  /* invite email */
 	   $('#invite_email').click( function(){
+		var source = $(this).data('source');
 	  	$('#loader').addClass('working');
 	  	if ( $('.un-email').length ){
 	  		var emails = [];
@@ -379,15 +380,19 @@ $(function(){
 	  			'idCagnotte': idCagnotte
 	  		}
 	  	}).done(function(resp){
-	  		if ( resp == "success" ){
-	  			$('#open_conf').trigger('click');
-	  			$('#popup_conf .conf_text').text(text.conf_invite_email);
-	  		}else{
-	  			$('ul#response').addClass('error').html(resp);
-			  		setTimeout(function() {
-			  			$('ul#response').removeClass('error').html('');
-			  		}, 10000 );
-	  		}
+			var data= $.parseJSON(resp);
+			if ( data.resp == "success" ){
+				$('#open_conf').trigger('click');
+				$('#popup_conf .conf_text').text(text.conf_invite_email);
+			  if(source){
+				  window.location = data.url;
+			  }
+			}else{
+				$('ul#response').addClass('error').html(data.erreurs);
+					setTimeout(function() {
+						$('ul#response').removeClass('error').html('');
+					}, 10000 );
+			}
 	  		$('#loader').removeClass('working');
 	  	});
 	  	return false;

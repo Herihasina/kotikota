@@ -520,15 +520,23 @@ function send_invite(){
         $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
 
     if ( $erreurs ){
+        $text_erreurs ="";
         foreach ($erreurs as $erreur ){
-             echo "<li>$erreur</li>";
-         }
-         wp_die();
+            $text_erreurs .="<li>$erreur</li>";
+        }
+        echo json_encode(array('resp' => 'error', 'erreurs' => $text_erreurs ));
+        wp_die();
     }
 
     $idCagnotte = $_POST['idCagnotte'];
 
-    sendInvitation( $_POST['emails'], $idCagnotte );
+
+    //vérification si cela provient de la page de gestion d'invités
+    $cagnotte_url = get_permalink($idCagnotte);
+
+    $resp= sendInvitation( $_POST['emails'], $idCagnotte );
+
+    echo json_encode(array('resp' => $resp, 'url' => $cagnotte_url));
 
     wp_die();
 }
@@ -1156,7 +1164,9 @@ function relance_auto(){
         $emails[] = sanitize_email( $t );
     }
 
-    sendInvitation( $emails, $idCagnotte );
+    $resp = sendInvitation( $emails, $idCagnotte );
+
+    echo $resp;
 
     wp_die();
 }

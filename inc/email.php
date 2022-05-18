@@ -145,7 +145,7 @@ function sendInvitation($invites, $idCagnotte){
         }
     }
 
-    echo $resp;
+    return $resp;
 }
 
 function sendNotificationFin($id, $emailParticipant, $nomParticipant, $prenomParticipant){
