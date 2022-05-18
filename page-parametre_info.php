@@ -167,6 +167,7 @@
                             					<div class="col col-100">
 	                            					<div class="blc-chp">
 	                            						<label><?php _e('Titulaire du compte','kotikota') ?> <span>*</span></label>
+	                            						<input type="text" name="" placeholder="<?php _e('Votre nom','kotikota')?>" class="chp" id="rib_nom" value="<?= $info->rib_nom ?>">
 	                            						<span id="titulaire-error" class="error"></span>
 													</div>
                             					</div>
