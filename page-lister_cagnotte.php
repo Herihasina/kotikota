@@ -48,12 +48,24 @@
             'order' => 'DESC',
         );
 
-        $loop = query_posts( $args );
+        //$loop = query_posts( $args );
+        $sql = 'SELECT
+        SQL_CALC_FOUND_ROWS
+        wp_posts.ID, (SELECT SUBSTRING(meta_value, 3, 1) from wp_postmeta WHERE meta_key = "tous_les_participants" AND wp_postmeta.post_id = wp_posts.ID) as count_part
+        FROM wp_posts
+        INNER JOIN wp_postmeta ON ( wp_posts.ID = wp_postmeta.post_id )
+            WHERE 1=1
+            AND ( ( wp_postmeta.meta_key = 'visibilite_cagnotte' AND wp_postmeta.meta_value = 'publique' ) )
+            AND wp_posts.post_type IN ('cagnotte', 'cagnotte-perso')
+            AND ((wp_posts.post_status = 'publish'))
+        GROUP BY wp_posts.ID ORDER BY count_part DESC LIMIT 0, 9';
 
-        $results = new WP_Query( $args );
+        $loop = $wpdb->get_results($sql);
+
+        //$results = new WP_Query( $args );
         // Oops, $results has nothing, or something we did not expect
         // Show the query
-        echo $results->request;
+        //echo $results->request;
 
         /*if ( $loop ){
             $i = 1;
