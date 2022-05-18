@@ -502,8 +502,8 @@ $(function(){
 			}else{
 				var errors = resp_json.errors;
 				console.log(errors);
-				$(errors).each(function(index,value){
-					console.log(index+" "+value);
+				$(errors).each(function(error){
+					console.log(error);
 				});
 				
 	  			// $('ul#responsepopup').addClass('error').html(resp);
