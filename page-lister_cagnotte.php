@@ -29,12 +29,12 @@
             'post_type' => array('cagnotte','cagnotte-perso'),
             'post_status' => 'publish',
             'posts_per_page' => $per_page,
-            //'meta_key' => 'visibilite_cagnotte',
-            //'meta_value' => 'publique',
-            //'orderby' => 'ID',
+            'meta_key' => 'visibilite_cagnotte',
+            'meta_value' => 'publique',
+            'orderby' => 'ID',
             'paged' => $paged,
             //'meta_key' => 'tous_les_participants',
-            'meta_query' => array(
+            /*'meta_query' => array(
                 'relation' => 'AND',
                 array(
                     'key'   => 'visibilite_cagnotte',
@@ -44,7 +44,7 @@
                     'key'   => 'tous_les_participants',
                 )
             ),
-            'orderby' => 'meta_value_num',
+            'orderby' => 'meta_value_num',*/
             'order' => 'DESC',
         );
 
