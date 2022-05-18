@@ -459,6 +459,8 @@ $(function(){
 	  	/* Paramètres rib */
 	  $('.form-rib .link.submit').click(function(){
 	  	$('#loader').addClass('working');
+		//   empty errors
+		$('.formulaireParametre .blc-chp  span.error').empty();
 	  	var nomCagnotte = $('#nom_cagnotte').val();
 	  	var idCagnotte	= $('#idCagnotte').val();
 	  	var idBenef = $('#benef').val();
@@ -495,17 +497,23 @@ $(function(){
 				'fichier' : fichier
 	  		}
 	  	}).done(function(resp){
-	  		var url = new RegExp("^http");
-	  		if( url.test(resp) ){
-				 	console.log('redirect..');
-				 		window.location = resp + '?parametre='+idCagnotte;
-				 }else{
-	  			$('ul#responsepopup').addClass('error').html(resp);
-			  		setTimeout(function() {
-			  			$('ul#responsepopup').removeClass('error').html('');
-			  		}, 10000 );
+			var resp_json = $.parseJSON(resp);
+	  		if( resp_json.resp === "success"){
+				console.log('redirect..');
+				window.location = resp_json.url + '?parametre='+idCagnotte;
+			}else{
+				var errors = resp_json.errors;
+				console.log(errors);
+				$(errors).each(function(index,value){
+					$('#'+value.key+'-error').text(value.error_msg);
+				});
+				
+	  			// $('ul#responsepopup').addClass('error').html(resp);
+			  	// 	setTimeout(function() {
+				// 	$('ul#responsepopup').removeClass('error').html('');
+				// }, 10000 );
 	  		}
-				 $('#loader').removeClass('working');
+			$('#loader').removeClass('working');
 	  	});
 
 	  	return false;

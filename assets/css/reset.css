@@ -1261,7 +1261,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .formulaireParametre .col { float: left; width: 50%; padding: 0 30px }
 .formulaireParametre .blc-chp .chp { width: 100%; border: #ddd solid 1px; border-radius: 10px; -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);-moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1); padding: 20px 30px  ; height: 60px ; color: #7b7b7b; font-size: 16px; font-family: Montserrat-r }
 .formulaireParametre .blc-chp  label { display: block; color: #7b7b7b; font-size: 12px; font-family:Montserrat-r; margin-bottom: 13px  }
-.formulaireParametre .blc-chp  label span { color: #ff263e }
+.formulaireParametre .blc-chp  label span, .formulaireParametre .blc-chp  span.error { color: #ff263e }
 .formulaireParametre .blc-chp { margin-bottom: 33px; }
 
 .formulaireParametre .blc-check .option ul li label { margin: 0 ; font-size: 16px; font-family:Montserrat-r; color:#7b7b7b; white-space: nowrap;text-overflow: ellipsis;width: 100%;display: block;overflow: hidden; padding-right: 20px}
