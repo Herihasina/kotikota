@@ -495,17 +495,20 @@ $(function(){
 				'fichier' : fichier
 	  		}
 	  	}).done(function(resp){
-	  		var url = new RegExp("^http");
-	  		if( url.test(resp) ){
-				 	console.log('redirect..');
-				 		window.location = resp + '?parametre='+idCagnotte;
-				 }else{
-	  			$('ul#responsepopup').addClass('error').html(resp);
-			  		setTimeout(function() {
-			  			$('ul#responsepopup').removeClass('error').html('');
-			  		}, 10000 );
-	  		}
-				 $('#loader').removeClass('working');
+			console.log(resp);
+			var resp_json = $.parseJSON(resp);
+			console.log(resp_json);
+	  		// var url = new RegExp("^http");
+	  		// if( url.test(resp) ){
+			// 	 	console.log('redirect..');
+			// 	 		window.location = resp + '?parametre='+idCagnotte;
+			// 	 }else{
+	  		// 	$('ul#responsepopup').addClass('error').html(resp);
+			//   		setTimeout(function() {
+			//   			$('ul#responsepopup').removeClass('error').html('');
+			//   		}, 10000 );
+	  		// }
+			// 	 $('#loader').removeClass('working');
 	  	});
 
 	  	return false;
