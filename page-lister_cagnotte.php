@@ -66,8 +66,13 @@
 
         // run query to count the result later
         $total_result = $wpdb->get_results( $sql, OBJECT);
-        $total_post = count($total_result);
-        $max_num_pages = ceil($total_post / $per_page);
+        //$total_post = count($total_result);
+        //$max_num_pages = ceil($total_post / $per_page);
+
+        //$ppp = intval(get_query_var('posts_per_page'));
+        $wp_query->found_posts = count($total_result);
+        $wp_query->max_num_pages =  ceil($total_post / $per_page);
+        $wp_query->posts_per_page = $per_page;
 
         $loop = $wpdb->get_results($query_limit);
 
