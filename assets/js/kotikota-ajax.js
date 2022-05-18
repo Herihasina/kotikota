@@ -495,20 +495,23 @@ $(function(){
 				'fichier' : fichier
 	  		}
 	  	}).done(function(resp){
-			console.log(resp);
 			var resp_json = $.parseJSON(resp);
 			console.log(resp_json);
-	  		// var url = new RegExp("^http");
-	  		// if( url.test(resp) ){
-			// 	 	console.log('redirect..');
-			// 	 		window.location = resp + '?parametre='+idCagnotte;
-			// 	 }else{
-	  		// 	$('ul#responsepopup').addClass('error').html(resp);
-			//   		setTimeout(function() {
-			//   			$('ul#responsepopup').removeClass('error').html('');
-			//   		}, 10000 );
-	  		// }
-			// 	 $('#loader').removeClass('working');
+	  		if( resp_json.resp === "success"){
+				console.log('redirect..');
+				window.location = resp_json.url + '?parametre='+idCagnotte;
+			}else{
+				var errors = resp_json.errors;
+				errors.each(function(index,value){
+					console.log(index+" "+value);
+				});
+				
+	  			// $('ul#responsepopup').addClass('error').html(resp);
+			  	// 	setTimeout(function() {
+				// 	$('ul#responsepopup').removeClass('error').html('');
+				// }, 10000 );
+	  		}
+			$('#loader').removeClass('working');
 	  	});
 
 	  	return false;
