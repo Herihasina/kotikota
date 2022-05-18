@@ -662,30 +662,29 @@ function save_info_banque(){
     if ( !isset($_POST['codebanque']) || $_POST['codebanque'] == "" )
        $erreurs[] = array('key'=> 'codebanque', 'error_msg'=> __("Indiquer le code banque.", "kotikota"));
     //verification code banque 
-    var_dump(preg_match('/^\w{5}$/', $_POST['codebanque'], $output_array) );
-    if ( isset($_POST['codebanque']) && preg_match('/^\w{5}$/', $_POST['codebanque'], $output_array) )
+    if ( isset($_POST['codebanque']) && ! preg_match('/^\w{5}$/', $_POST['codebanque'], $output_array) )
        $erreurs[] = array('key'=> 'codebanque', 'error_msg'=> __("Veuillez entrer un code banque valide avec exactement 5 caractères.", "kotikota"));
 
     if ( !isset($_POST['codeguichet']) || $_POST['codeguichet'] == "" )
        $erreurs[] = array('key'=> 'codeguichet', 'error_msg'=> __("Indiquer le code guichet ou code agence.", "kotikota"));
     //verification code guichet
-    if ( isset($_POST['codeguichet']) && preg_match('/^\w{5}$/', $_POST['codeguichet'], $output_array))
+    if ( isset($_POST['codeguichet']) && ! preg_match('/^\w{5}$/', $_POST['codeguichet'], $output_array))
        $erreurs[] = array('key'=> 'codeguichet', 'error_msg'=>__("Veuillez entrer un code guichet ou code agence valide avec exactement 5 caractères.", "kotikota"));
 
     if ( !isset($_POST['numcompte']) || $_POST['numcompte'] == "" )
        $erreurs[] = array('key'=> 'numcompte', 'error_msg'=> __("Indiquer le numero de compte.", "kotikota"));
     //verification numero de compte
-    if ( isset($_POST['numcompte']) && preg_match('/^\w{11}$/', $_POST['numcompte'], $output_array))
+    if ( isset($_POST['numcompte']) && ! preg_match('/^\w{11}$/', $_POST['numcompte'], $output_array))
        $erreurs[] = array('key'=> 'numcompte', 'error_msg'=>__("Veuillez entrer un numéro de compte valide avec exactement 11 caractères.", "kotikota"));
 
     if ( !isset($_POST['cle']) || $_POST['cle'] == "" )
        $erreurs[] = array('key'=> 'cle', 'error_msg'=> __("Entrer la clé Rib.", "kotikota"));
     //verification cle rib
-    if ( isset($_POST['cle']) && preg_match('/^\w{2}$/', $_POST['cle'], $output_array))
+    if ( isset($_POST['cle']) && ! preg_match('/^\w{2}$/', $_POST['cle'], $output_array))
        $erreurs[] = array('key'=> 'cle', 'error_msg'=>__("Veuillez entrer une clé Rib valide avec exactement 2 caractères.", "kotikota"));
 
     // vérification IBAN
-    if ( isset($_POST['iban']) && preg_match('/^\w{27}$/', $_POST['iban'], $output_array))
+    if ( isset($_POST['iban']) && ! preg_match('/^\w{27}$/', $_POST['iban'], $output_array))
        $erreurs[] = array('key'=> 'iban', 'error_msg'=>__("Veuillez entrer un numéro IBAN valide avec exactement 27 caractères.", "kotikota"));
 
    // if ( !isset($_POST['fichier']) || $_POST['fichier'] == "" ){
