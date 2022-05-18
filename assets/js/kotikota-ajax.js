@@ -502,7 +502,7 @@ $(function(){
 			}else{
 				var errors = resp_json.errors;
 				console.log(errors);
-				errors.each(function(index,value){
+				$(errors).each(function(index,value){
 					console.log(index+" "+value);
 				});
 				
