@@ -44,7 +44,7 @@
         FROM wp_posts
         INNER JOIN wp_postmeta ON ( wp_posts.ID = wp_postmeta.post_id )
             WHERE 1=1
-            AND ( ( wp_postmeta.meta_key = "visibilite_cagnotte" AND wp_postmeta.meta_value = "publique" ) AND (wp_postmeta.meta_key = "cagnotte_cloturee" AND wp_postmeta.meta_value = "non" ))
+            AND ( ( wp_postmeta.meta_key = "visibilite_cagnotte" AND wp_postmeta.meta_value = "publique" ) OR (wp_postmeta.meta_key = "cagnotte_cloturee" AND wp_postmeta.meta_value = "non" ))
             AND wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
             AND ((wp_posts.post_status = "publish"))
         GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
