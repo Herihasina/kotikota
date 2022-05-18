@@ -24,6 +24,7 @@
         <?php
         	$per_page = get_field('per_page','option');
         	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+            $offset = ($paged - 1)*$per_page;
 
         	$args = array(
             'post_type' => array('cagnotte','cagnotte-perso'),
@@ -58,9 +59,17 @@
             AND ( ( wp_postmeta.meta_key = "visibilite_cagnotte" AND wp_postmeta.meta_value = "publique" ) )
             AND wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
             AND ((wp_posts.post_status = "publish"))
-        GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC LIMIT '.$paged.','. $per_page;
+        GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
 
-        $loop = $wpdb->get_results($sql);
+        //query the posts with pagination
+        $query_limit = $sql . " LIMIT ".$offset.", ".$per_page."; ";
+
+        // run query to count the result later
+        $total_result = $wpdb->get_results( $sql, OBJECT);
+        $total_post = count($total_result);
+        $max_num_pages = ceil($total_post / $post_per_page);
+
+        $loop = $wpdb->get_results($query_limit);
 
         //$results = new WP_Query( $args );
         //echo $results->request;
