@@ -662,6 +662,7 @@ function save_info_banque(){
     if ( !isset($_POST['codebanque']) || $_POST['codebanque'] == "" )
        $erreurs[] = array('key'=> 'codebanque', 'error_msg'=> __("Indiquer le code banque.", "kotikota"));
     //verification code banque 
+    var_dump(preg_match('/^\w{5}$/', $_POST['codebanque'], $output_array) );
     if ( isset($_POST['codebanque']) && preg_match('/^\w{5}$/', $_POST['codebanque'], $output_array) )
        $erreurs[] = array('key'=> 'codebanque', 'error_msg'=> __("Veuillez entrer un code banque valide avec exactement 5 caractères.", "kotikota"));
 
