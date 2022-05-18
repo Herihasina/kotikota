@@ -505,7 +505,7 @@ $(function(){
 				var errors = resp_json.errors;
 				console.log(errors);
 				$(errors).each(function(index,value){
-					$('#'+value.key+'-error').text(value.error);
+					$('#'+value.key+'-error').text(value.error_msg);
 				});
 				
 	  			// $('ul#responsepopup').addClass('error').html(resp);
