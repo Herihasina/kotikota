@@ -8,6 +8,7 @@
 ?>
 <main id="homepage">
 <?php
+    global $wpdb;
 	include 'sections/content/parallax.php';
 ?>
 
@@ -48,7 +49,8 @@
         );
 
         $loop = query_posts( $args );
-        echo $loop->request;
+
+        echo $wpdb->last_query;
 
         /*if ( $loop ){
             $i = 1;
