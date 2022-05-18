@@ -168,43 +168,49 @@
 	                            					<div class="blc-chp">
 	                            						<label><?php _e('Titulaire du compte','kotikota') ?> <span>*</span></label>
 	                            						<input type="text" name="" placeholder="<?php _e('Votre nom','kotikota')?>" class="chp" id="rib_nom" value="<?= $info->rib_nom ?>">
-														<span class="error">Test error</span>
+														<span id="titulaire-error" class="error"></span>
 													</div>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label><?php _e('Banque','kotikota') ?> <span>*</span> </label>
 	                            						<input type="text" name="" placeholder="<?php _e('Le nom de votre banque','kotikota')?>" class="chp" id="rib_bank" value="<?= $info->rib_banque ?>">
-	                            					</div>
+														<span id="banque-error" class="error"></span>
+													</div>
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
 	                            						<label><?php _e('Adresse','kotikota') ?> <span>*</span></label>
 	                            						<input type="text" name="" placeholder="<?php _e('Votre adresse','kotikota') ?>" class="chp" id="rib_domicile" value="<?= $info->rib_adresse_de_domiciliation ?>">
-	                            					</div>
+														<span id="domicile-error" class="error"></span>
+													</div>
                             					</div>
                             					<div class="col">
                             						<div class="blc-chp">
 	                            						<label><?php _e('Code Banque','kotikota') ?> <span>*</span></label>
 	                            						<input type="text" name="" placeholder="-----" class="chp" id="rib_codebank" value="<?= $info->rib_code_banque ?>">
+														<span id="codebanque-error" class="error"></span>
 	                            					</div>
                             					</div>
                             					<div class="col">
                             						<div class="blc-chp">
 	                            						<label><?php _e('Code Guichet','kotikota') ?> <span>*</span></label>
 	                            						<input type="text" name="" placeholder="-----" class="chp" id="rib_codeguichet" value="<?= $info->rib_code_agence ?>">
+														<span id="codeguichet-error" class="error"></span>
 	                            					</div>
                             					</div>
                             					<div class="col col-70">
                             						<div class="blc-chp">
 	                            						<label><?php _e('Numéro de Compte','kotikota') ?> <span>*</span></label>
 	                            						<input type="text" name="" placeholder="-----------" class="chp" id="rib_numcompte" value="<?= $info->rib_num_de_compte ?>">
+														<span id="numcompte-error" class="error"></span>
 	                            					</div>
                             					</div>
                             					<div class="col col-30">
                             						<div class="blc-chp">
 	                            						<label><?php _e('Clé','kotikota') ?> <span>*</span></label>
 	                            						<input type="text" name="" placeholder="--" class="chp" id="rib_cle" value="<?= $info->rib_cle_rib ?>">
+														<span id="cle-error" class="error"></span>
 	                            					</div>
                             					</div>
 
@@ -212,6 +218,7 @@
                             						<div class="blc-chp">
 	                            						<label><?php _e('IBAN','kotikota') ?> </label>
 	                            						<input type="text" name="" placeholder="---- ---- ---- ---- ---- ---- ---" class="chp" id="rib_iban" value="<?= $info->rib_iban ?>">
+														<span id="iban-error" class="error"></span>
 	                            					</div>
                             					</div>
                             					<div class="col col-100">
