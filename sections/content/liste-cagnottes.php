@@ -83,7 +83,7 @@
                     <div class="compteur">
                         <div class="jour">
                                 <span>
-                                    <?php echo get_nbr_de_jour_restant( get_field('deadline_cagnoote' ) ) .' J'; ?>
+                                    <?php //echo get_nbr_de_jour_restant( get_field('deadline_cagnoote' ) ) .' J'; ?>
                                 </span>
                             </div>
                         <div class="user">
