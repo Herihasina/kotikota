@@ -88,6 +88,7 @@ function load_front_assets() {
     wp_enqueue_script( 'custom-wp', false, array(), false, true );
     wp_enqueue_script( 'ajax-wp', false, array(), false, true );
 
+    wp_localize_script( 'custom', 'placeholder_description', _e('Message','kotikota') );
     wp_localize_script( 'ajax-wp', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
     wp_localize_script( 'custom-wp', 'ajaxurl', admin_url( 'admin-ajax.php' ) );
 
