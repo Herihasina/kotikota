@@ -53,7 +53,7 @@
 
             $sql = 'SELECT SQL_CALC_FOUND_ROWS ID, count_part
                 FROM
-                (SELECT wp_posts.ID,(SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value,":",2),":",-1) from wp_postmeta WHERE meta_key = "tous_les_participants" AND wp_postmeta.post_id = wp_posts.ID) as count_part
+                (SELECT wp_posts.ID, count_part
             FROM ((wp_posts
             INNER JOIN wp_postmeta mp3 ON (wp_posts.ID = mp3.post_id))
             INNER JOIN
@@ -65,11 +65,9 @@
             WHERE 1=1
             AND ( (mp1.meta_key = "visibilite_cagnotte" AND mp1.meta_value = "publique")
             AND ( mp3.meta_key = "cagnotte_cloturee" AND mp3.meta_value = "non"))
-            AND (wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
-            AND (wp_posts.post_status = "publish"))
             GROUP BY wp_posts.ID
             UNION ALL
-            SELECT wp_posts.ID, (SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value,":",2),":",-1) from wp_postmeta WHERE meta_key = "tous_les_participants" AND wp_postmeta.post_id = wp_posts.ID) as count_part
+            SELECT wp_posts.ID, count_part
             FROM ((wp_posts
             INNER JOIN wp_postmeta mp1 ON (wp_posts.ID = mp1.post_id))
             INNER JOIN wp_postmeta mp3 ON (wp_posts.ID = mp3.post_id))
@@ -80,11 +78,9 @@
             WHERE mp2.meta_key = "tous_les_participants") Subquery
             ON (wp_posts.ID = Subquery.post_id)
             WHERE 1=1
-            AND ( CONVERT(Subquery.count_part,SIGNED INTEGER) > 0
+            AND ( CONVERT(Subquery.count_part,SIGNED INTEGER) > 0)
             AND ( (mp1.meta_key = "visibilite_cagnotte" AND mp1.meta_value = "publique")
             AND ( mp3.meta_key = "cagnotte_cloturee" AND mp3.meta_value = "oui"))
-            AND (wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
-            AND (wp_posts.post_status = "publish")))
             GROUP BY wp_posts.ID) AS m
                 ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
 
