@@ -38,18 +38,6 @@
             );
 
             $loop = query_posts( $args );*/
-            $sql = 'SELECT
-            SQL_CALC_FOUND_ROWS
-            wp_posts.ID, (SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value,":",2),":",-1) from wp_postmeta WHERE meta_key = "tous_les_participants" AND wp_postmeta.post_id = wp_posts.ID) as count_part
-            FROM wp_posts
-            INNER JOIN wp_postmeta AS pm1 ON ( wp_posts.ID = pm1.post_id )
-                WHERE 1=1
-                AND ( ( pm1.meta_key = "visibilite_cagnotte" AND pm1.meta_value = "publique" ) )
-                AND wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
-                AND ((wp_posts.post_status = "publish"))
-            GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
-
-
 
             $sql = 'SELECT SQL_CALC_FOUND_ROWS ID, count_part
                 FROM
