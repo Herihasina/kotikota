@@ -632,6 +632,15 @@ function save_info_principale(){
     $rib       = strip_tags( $_POST['rib'] );
     update_field('code_benef', $code, $idBenef );
 
+    $erreurs[] = $idBenef + ' ' +$nom + ' ' + $prenom + ' ' + $email + ' ' + $telephone + ' ' + $code;
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();
+    }
+
     $update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
     update_field('benef_cagnotte', $idBenef, $idCagnotte);
 
@@ -661,7 +670,7 @@ function save_info_banque(){
 
     if ( !isset($_POST['codebanque']) || $_POST['codebanque'] == "" )
        $erreurs[] = array('key'=> 'codebanque', 'error_msg'=> __("Indiquer le code banque.", "kotikota"));
-    //verification code banque 
+    //verification code banque
     if ( isset($_POST['codebanque']) && $_POST['codebanque'] != "" && ! preg_match('/^\w{5}$/', $_POST['codebanque'], $output_array) )
        $erreurs[] = array('key'=> 'codebanque', 'error_msg'=> __("Veuillez entrer un code banque valide avec exactement 5 caractères.", "kotikota"));
 
@@ -1393,7 +1402,7 @@ function insert_doc_cagnotte(){
                     <h3>documents word</h3>
                     <?php if($word_doc):?>
                         <div class="lst-option">
-                        <?php 
+                        <?php
                         foreach($word_doc as $doc ):
                             $section_document = locate_template( 'parts/single/sections/section-document-word.php', false, false );
                             include($section_document);
@@ -1414,7 +1423,7 @@ function insert_doc_cagnotte(){
                         <h3>documents pdf</h3>
                         <?php if($pdf_doc):?>
                             <div class="lst-option">
-                            <?php foreach($pdf_doc as $doc ): 
+                            <?php foreach($pdf_doc as $doc ):
                               $section_pdf = locate_template( 'parts/single/sections/section-document-pdf.php', false, false );
                               include($section_pdf);
                             endforeach; ?>
@@ -1513,7 +1522,7 @@ function remove_doc_cagnotte(){
                         <h3>documents pdf</h3>
                         <?php if($pdf_doc):?>
                             <div class="lst-option">
-                            <?php foreach($pdf_doc as $doc ): 
+                            <?php foreach($pdf_doc as $doc ):
                               $section_pdf = locate_template( 'parts/single/sections/section-document-pdf.php', false, false );
                               include($section_pdf);
                             endforeach; ?>
