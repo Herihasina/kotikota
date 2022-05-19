@@ -51,7 +51,9 @@
 
 
 
-            $sql = 'SELECT SQL_CALC_FOUND_ROWS wp_posts.ID
+            $sql = 'SELECT SQL_CALC_FOUND_ROWS ID, count_part
+                FROM
+                (SELECT wp_posts.ID,(SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value,":",2),":",-1) from wp_postmeta WHERE meta_key = "tous_les_participants" AND wp_postmeta.post_id = wp_posts.ID) as count_part
             FROM ((wp_posts
             INNER JOIN wp_postmeta mp3 ON (wp_posts.ID = mp3.post_id))
             INNER JOIN
@@ -67,7 +69,7 @@
             AND (wp_posts.post_status = "publish"))
             GROUP BY wp_posts.ID
             UNION ALL
-            SELECT wp_posts.ID
+            SELECT wp_posts.ID, (SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value,":",2),":",-1) from wp_postmeta WHERE meta_key = "tous_les_participants" AND wp_postmeta.post_id = wp_posts.ID) as count_part
             FROM ((wp_posts
             INNER JOIN wp_postmeta mp1 ON (wp_posts.ID = mp1.post_id))
             INNER JOIN wp_postmeta mp3 ON (wp_posts.ID = mp3.post_id))
@@ -83,7 +85,8 @@
             AND ( mp3.meta_key = "cagnotte_cloturee" AND mp3.meta_value = "oui"))
             AND (wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
             AND (wp_posts.post_status = "publish")))
-            GROUP BY wp_posts.ID';
+            GROUP BY wp_posts.ID) AS m
+                ORDER BY count_part';
 
             //query the posts with pagination
             $query_limit = $sql . " LIMIT ".$offset.", ".$per_page."; ";
