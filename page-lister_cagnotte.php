@@ -80,7 +80,7 @@
             WHERE mp2.meta_key = "tous_les_participants") Subquery
             ON (wp_posts.ID = Subquery.post_id)
             WHERE 1=1
-            AND ( Subquery.count_part > "0"
+            AND ( CONVERT(Subquery.count_part,SIGNED INTEGER) > 0
             AND ( (mp1.meta_key = "visibilite_cagnotte" AND mp1.meta_value = "publique")
             AND ( mp3.meta_key = "cagnotte_cloturee" AND mp3.meta_value = "oui"))
             AND (wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
