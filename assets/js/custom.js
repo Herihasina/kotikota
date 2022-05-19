@@ -414,14 +414,24 @@ $(document).ready(function() {
 	    time: 3000
 	});
 
-	 var exist = $('.textEdit').length
-	    if (exist) {
-	        $('.textEdit').summernote({
-	            height: 400,
-	            tabsize: 2
-	          });
-	    }
-	  /* wow animation */
+	var exist = $('.textEdit').length
+	if (exist) {
+		$('.textEdit').summernote({
+			height: 400,
+			tabsize: 2
+			});
+	}
+
+	var exist_create_description = $('#description_cagnotte').length
+	if (exist_create_description) {
+		$('#description_cagnotte').summernote({
+			placeholder: placeholder_description,
+			height: 190,
+			tabsize: 2
+		});
+	}
+
+	/* wow animation */
     new WOW({
         mobile:false,
     }).init()
