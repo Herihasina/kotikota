@@ -93,7 +93,7 @@
             //$nbr_elems = count($all_posts);
 
             //$i=1;
-            foreach ( array_reverse($all_posts) as $un_post):
+            foreach ( $all_posts as $un_post):
                 $id = $un_post->ID;
                 $couleur = get_field('couleur', $id);
                 $part = get_field('tous_les_participants', $id);
