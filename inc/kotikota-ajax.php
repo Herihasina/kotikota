@@ -623,16 +623,42 @@ function save_info_principale(){
         }
 
     // info beneficiaire
-    $idBenef   = strip_tags( $_POST['idBenef'] );
+    /*$idBenef   = strip_tags( $_POST['idBenef'] );
     $nom       = strip_tags( $_POST['nom'] );
     $prenom    = strip_tags( $_POST['prenom'] );
     $email     = strip_tags( $_POST['email'] );
     $telephone = strip_tags( $_POST['tel'] );
     $code      = strip_tags( $_POST['code'] );
-    $rib       = strip_tags( $_POST['rib'] );
+    $rib       = strip_tags( $_POST['rib'] );*/
+
+    $idBenef   =  $_POST['idBenef'];
+    $nom       =  $_POST['nom'];
+    $prenom    =  $_POST['prenom'];
+    $email     =  $_POST['email'];
+    $telephone =  $_POST['tel'];
+    $code      =  $_POST['code'];
+    $rib       =  $_POST['rib'];
     update_field('code_benef', $code, $idBenef );
 
-    $update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
+    /*$erreurs[] = $idBenef;
+    $erreurs[] = $nom;
+    $erreurs[] = $prenom;
+    $erreurs[] = $email;
+    $erreurs[] = $telephone;
+    $erreurs[] = $code;
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();
+    }*/
+    update_field('nom_benef', $nom, $idBenef );
+    update_field('prenom_benef', $prenom, $idBenef );
+    update_field('email_benef', $email, $idBenef );
+    update_field('telephone_benef', $telephone, $idBenef );
+
+    //$update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
     update_field('benef_cagnotte', $idBenef, $idCagnotte);
 
     // update categorie/sous-categorie cagnotte
@@ -661,7 +687,7 @@ function save_info_banque(){
 
     if ( !isset($_POST['codebanque']) || $_POST['codebanque'] == "" )
        $erreurs[] = array('key'=> 'codebanque', 'error_msg'=> __("Indiquer le code banque.", "kotikota"));
-    //verification code banque 
+    //verification code banque
     if ( isset($_POST['codebanque']) && $_POST['codebanque'] != "" && ! preg_match('/^\w{5}$/', $_POST['codebanque'], $output_array) )
        $erreurs[] = array('key'=> 'codebanque', 'error_msg'=> __("Veuillez entrer un code banque valide avec exactement 5 caractères.", "kotikota"));
 
@@ -1393,7 +1419,7 @@ function insert_doc_cagnotte(){
                     <h3>documents word</h3>
                     <?php if($word_doc):?>
                         <div class="lst-option">
-                        <?php 
+                        <?php
                         foreach($word_doc as $doc ):
                             $section_document = locate_template( 'parts/single/sections/section-document-word.php', false, false );
                             include($section_document);
@@ -1414,7 +1440,7 @@ function insert_doc_cagnotte(){
                         <h3>documents pdf</h3>
                         <?php if($pdf_doc):?>
                             <div class="lst-option">
-                            <?php foreach($pdf_doc as $doc ): 
+                            <?php foreach($pdf_doc as $doc ):
                               $section_pdf = locate_template( 'parts/single/sections/section-document-pdf.php', false, false );
                               include($section_pdf);
                             endforeach; ?>
@@ -1513,7 +1539,7 @@ function remove_doc_cagnotte(){
                         <h3>documents pdf</h3>
                         <?php if($pdf_doc):?>
                             <div class="lst-option">
-                            <?php foreach($pdf_doc as $doc ): 
+                            <?php foreach($pdf_doc as $doc ):
                               $section_pdf = locate_template( 'parts/single/sections/section-document-pdf.php', false, false );
                               include($section_pdf);
                             endforeach; ?>

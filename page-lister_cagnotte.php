@@ -37,35 +37,35 @@
             'order' => 'DESC',
             );
 
-        $loop = query_posts( $args );*/
-        $sql = 'SELECT
-        SQL_CALC_FOUND_ROWS
-        wp_posts.ID, (SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value,":",2),":",-1) from wp_postmeta WHERE meta_key = "tous_les_participants" AND wp_postmeta.post_id = wp_posts.ID) as count_part
-        FROM wp_posts
-        INNER JOIN wp_postmeta ON ( wp_posts.ID = wp_postmeta.post_id )
-            WHERE 1=1
-            AND ( ( wp_postmeta.meta_key = "visibilite_cagnotte" AND wp_postmeta.meta_value = "publique" ) )
-            AND wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
-            AND ((wp_posts.post_status = "publish"))
-        GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
+            $loop = query_posts( $args );*/
+            $sql = 'SELECT
+            SQL_CALC_FOUND_ROWS
+            wp_posts.ID, (SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value,":",2),":",-1) from wp_postmeta WHERE meta_key = "tous_les_participants" AND wp_postmeta.post_id = wp_posts.ID) as count_part
+            FROM wp_posts
+            INNER JOIN wp_postmeta AS pm1 ON ( wp_posts.ID = pm1.post_id )
+                WHERE 1=1
+                AND ( ( pm1.meta_key = "visibilite_cagnotte" AND pm1.meta_value = "publique" ) )
+                AND wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
+                AND ((wp_posts.post_status = "publish"))
+            GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
 
-        //query the posts with pagination
-        $query_limit = $sql . " LIMIT ".$offset.", ".$per_page."; ";
+            //query the posts with pagination
+            $query_limit = $sql . " LIMIT ".$offset.", ".$per_page."; ";
 
-        // run query to count the result later
-        $total_result = $wpdb->get_results( $sql, OBJECT);
-        $total_post = count($total_result);
+            // run query to count the result later
+            $total_result = $wpdb->get_results( $sql, OBJECT);
+            $total_post = count($total_result);
 
-        $wp_query->found_posts = count($total_result);
-        $wp_query->max_num_pages =  ceil($total_post / $per_page);
-        $wp_query->posts_per_page = $per_page;
+            $wp_query->found_posts = count($total_result);
+            $wp_query->max_num_pages =  ceil($total_post / $per_page);
+            $wp_query->posts_per_page = $per_page;
 
-        $loop = $wpdb->get_results($query_limit);
+            $loop = $wpdb->get_results($query_limit);
 
-        if ( $loop ):
-            include 'sections/content/liste-cagnottes.php';
-        else:
-    ?>
+            if ( $loop ):
+                include 'sections/content/liste-cagnottes.php';
+            else:
+        ?>
             <div class="blc-liste-cagnote wow fadeIn" data-wow-delay="850ms">
                 <div class="lst-cagnotte-publique wow fadeIn clr" data-wow-delay="900ms">
                     <div style="text-align:center">

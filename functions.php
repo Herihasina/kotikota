@@ -763,8 +763,8 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
       update_field('nom_benef', $nom, $idBenef ) &&
       update_field('prenom_benef', $prenom, $idBenef ) &&
       update_field('email_benef', $email, $idBenef ) &&
-      update_field('telephone_benef', $telephone, $idBenef ) &&
-      update_field('rib_benef', $rib, $idBenef )
+      update_field('telephone_benef', $telephone, $idBenef )
+      //update_field('rib_benef', $rib, $idBenef )
     ){
       $result = true;
     }else{
