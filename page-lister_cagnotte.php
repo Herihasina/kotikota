@@ -51,9 +51,9 @@
 
 
 
-            $sql = 'SELECT SQL_CALC_FOUND_ROWS ID, count_part, "id1" OrderKey
+            $sql = 'SELECT SQL_CALC_FOUND_ROWS ID, count_part
                 FROM
-                (SELECT wp_posts.ID, count_part
+                (SELECT wp_posts.ID, count_part, "id1" OrderKey
             FROM ((wp_posts
             INNER JOIN wp_postmeta mp3 ON (wp_posts.ID = mp3.post_id))
             INNER JOIN
