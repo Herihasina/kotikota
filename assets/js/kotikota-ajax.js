@@ -404,9 +404,9 @@ $(function(){
 
 	  	// info principale
 	  	var nomCagnotte = $('#nom_cagnotte').val();
-	  	var debut				 = $('#datepicker_debut_param').val();
-	  	var fin					 = $('#datepicker_fin_param').val();
-	  	var idCagnotte	 = $('#idCagnotte').val();
+	  	var debut		= $('#datepicker_debut_param').val();
+	  	var fin			= $('#datepicker_fin_param').val();
+	  	var idCagnotte	= $('#idCagnotte').val();
 
 	  	// categorie
 	  	var sousCateg = $('.lst-type .item.active input[name="sous-categ"]').val();
@@ -442,16 +442,16 @@ $(function(){
 	  		}
 	  	}).done(function(resp){
 	  		var url = new RegExp("^http");
-	  		if( url.test(resp) ){
-				 	console.log('redirect..');
-				 		window.location = resp + '?parametre='+idCagnotte;
-				 }else{
+	  		if( url.test(resp) == false ){
+				 	//console.log('redirect..');
+				 	//	window.location = resp + '?parametre='+idCagnotte;
+				 //}else{
 	  			$('ul#response').addClass('error').html(resp);
 			  		setTimeout(function() {
 			  			$('ul#response').removeClass('error').html('');
 			  		}, 10000 );
 	  		}
-				 $('#loader').removeClass('working');
+			$('#loader').removeClass('working');
 	  	});
 
 	  	return false;
@@ -507,7 +507,7 @@ $(function(){
 				$(errors).each(function(index,value){
 					$('#'+value.key+'-error').text(value.error_msg);
 				});
-				
+
 	  			// $('ul#responsepopup').addClass('error').html(resp);
 			  	// 	setTimeout(function() {
 				// 	$('ul#responsepopup').removeClass('error').html('');
