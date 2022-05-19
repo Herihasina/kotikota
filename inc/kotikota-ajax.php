@@ -655,7 +655,7 @@ function save_info_principale(){
     }*/
 
     $update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
-    update_field('benef_cagnotte', $idBenef, $idCagnotte);
+    //update_field('benef_cagnotte', $idBenef, $idCagnotte);
 
     $erreurs[] = $update_benef;
 
