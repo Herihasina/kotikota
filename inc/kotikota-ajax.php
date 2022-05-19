@@ -623,24 +623,24 @@ function save_info_principale(){
         }
 
     // info beneficiaire
-    /*$idBenef   = strip_tags( $_POST['idBenef'] );
+    $idBenef   = strip_tags( $_POST['idBenef'] );
     $nom       = strip_tags( $_POST['nom'] );
     $prenom    = strip_tags( $_POST['prenom'] );
     $email     = strip_tags( $_POST['email'] );
     $telephone = strip_tags( $_POST['tel'] );
     $code      = strip_tags( $_POST['code'] );
-    $rib       = strip_tags( $_POST['rib'] );*/
+    $rib       = strip_tags( $_POST['rib'] );
 
-    $idBenef   =  $_POST['idBenef'];
+    /*$idBenef   =  $_POST['idBenef'];
     $nom       =  $_POST['nom'];
     $prenom    =  $_POST['prenom'];
     $email     =  $_POST['email'];
     $telephone =  $_POST['tel'];
     $code      =  $_POST['code'];
     $rib       =  $_POST['rib'];
-    //update_field('code_benef', $code, $idBenef );
+    update_field('code_benef', $code, $idBenef );*/
 
-    $erreurs[] = $idBenef;
+    /*$erreurs[] = $idBenef;
     $erreurs[] = $nom;
     $erreurs[] = $prenom;
     $erreurs[] = $email;
@@ -652,7 +652,7 @@ function save_info_principale(){
              echo "<li>$erreur</li>";
          }
          wp_die();
-    }
+    }*/
 
     $update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
     update_field('benef_cagnotte', $idBenef, $idCagnotte);
