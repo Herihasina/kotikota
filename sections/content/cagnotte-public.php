@@ -53,40 +53,41 @@
             //print_r($all_posts);
             $sql = 'SELECT SQL_CALC_FOUND_ROWS ID, count_part
                 FROM
-                (SELECT wp_posts.ID, count_part, "id1" OrderKey
-            FROM ((wp_posts
-            INNER JOIN wp_postmeta mp3 ON (wp_posts.ID = mp3.post_id))
+                (SELECT posts.ID, count_part, "id1" OrderKey
+            FROM (('.$wpdb->posts.' posts
+            INNER JOIN '.$wpdb->postmeta.' mp3 ON (posts.ID = mp3.post_id))
             INNER JOIN
             (SELECT mp2.post_id,SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value, ":", 2), ":", -1) AS count_part
-            FROM wp_postmeta mp2
+            FROM '.$wpdb->postmeta.' mp2
             WHERE mp2.meta_key = "tous_les_participants") Subquery
-            ON (wp_posts.ID = Subquery.post_id))
-            INNER JOIN wp_postmeta mp1 ON (wp_posts.ID = mp1.post_id)
+            ON (posts.ID = Subquery.post_id))
+            INNER JOIN '.$wpdb->postmeta.' mp1 ON (posts.ID = mp1.post_id)
             WHERE 1=1
             AND ( (mp1.meta_key = "visibilite_cagnotte" AND mp1.meta_value = "publique")
             AND ( mp3.meta_key = "cagnotte_cloturee" AND mp3.meta_value = "non"))
-            AND (wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
-            AND (wp_posts.post_status = "publish"))
-            GROUP BY wp_posts.ID
+            AND (posts.post_type IN ("cagnotte", "cagnotte-perso")
+            AND (posts.post_status = "publish"))
+            GROUP BY posts.ID
             UNION ALL
-            SELECT wp_posts.ID, count_part, "id2" OrderKey
-            FROM ((wp_posts
-            INNER JOIN wp_postmeta mp1 ON (wp_posts.ID = mp1.post_id))
-            INNER JOIN wp_postmeta mp3 ON (wp_posts.ID = mp3.post_id))
+            SELECT posts.ID, count_part, "id2" OrderKey
+            FROM (('.$wpdb->posts.' posts
+            INNER JOIN '.$wpdb->postmeta.' mp1 ON (posts.ID = mp1.post_id))
+            INNER JOIN '.$wpdb->postmeta.' mp3 ON (posts.ID = mp3.post_id))
             INNER JOIN
             (SELECT mp2.post_id,SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value, ":", 2), ":", -1)
                   AS count_part
-            FROM wp_postmeta mp2
+            FROM '.$wpdb->postmeta.' mp2
             WHERE mp2.meta_key = "tous_les_participants") Subquery
-            ON (wp_posts.ID = Subquery.post_id)
+            ON (posts.ID = Subquery.post_id)
             WHERE 1=1
             AND ( CONVERT(Subquery.count_part,SIGNED INTEGER) > 0
             AND ( (mp1.meta_key = "visibilite_cagnotte" AND mp1.meta_value = "publique")
             AND ( mp3.meta_key = "cagnotte_cloturee" AND mp3.meta_value = "oui"))
-            AND (wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
-            AND (wp_posts.post_status = "publish")))
-            GROUP BY wp_posts.ID) AS m
+            AND (posts.post_type IN ("cagnotte", "cagnotte-perso")
+            AND (posts.post_status = "publish")))
+            GROUP BY posts.ID) AS m
                 ORDER BY OrderKey, CONVERT(count_part,SIGNED INTEGER) DESC';
+
             $query_limit = $sql . " LIMIT 6";
             $all_posts = $wpdb->get_results($query_limit);
 
