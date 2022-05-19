@@ -86,7 +86,7 @@
             AND (wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
             AND (wp_posts.post_status = "publish")))
             GROUP BY wp_posts.ID) AS m
-                ORDER BY count_part';
+                ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
 
             //query the posts with pagination
             $query_limit = $sql . " LIMIT ".$offset.", ".$per_page."; ";
