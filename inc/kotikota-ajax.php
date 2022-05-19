@@ -653,11 +653,20 @@ function save_info_principale(){
          }
          wp_die();
     }*/
+    update_field('nom_benef', $nom, $idBenef );
+    update_field('prenom_benef', $prenom, $idBenef );
+    update_field('email_benef', $email, $idBenef );
+    update_field('telephone_benef', $telephone, $idBenef );
 
-    $update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
+    //$update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
     //update_field('benef_cagnotte', $idBenef, $idCagnotte);
 
-    $erreurs[] = $update_benef;
+    $erreurs[] = $idBenef;
+    $erreurs[] = $nom;
+    $erreurs[] = $prenom;
+    $erreurs[] = $email;
+    $erreurs[] = $telephone;
+    $erreurs[] = $code;
 
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
