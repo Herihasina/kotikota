@@ -47,8 +47,6 @@
                 AND ( ( pm1.meta_key = "visibilite_cagnotte" AND pm1.meta_value = "publique" ) )
                 AND wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
                 AND ((wp_posts.post_status = "publish"))
-            INNER JOIN wp_postmeta AS pm2 ON ( wp_posts.ID = pm2.post_id )
-            WHERE (pm2.meta_key = "cagnotte_cloturee" AND pm2.meta_value = "non" )
             GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
 
             //query the posts with pagination
