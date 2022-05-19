@@ -111,6 +111,7 @@
                             if( $closed ): ?>
                             <span class="ico-percent cloturer">
                                 <div class="ckeckCloturer"></div>
+                                <span>Clôturée</span>
                             </span>
                         <?php endif; ?>
 
