@@ -225,7 +225,7 @@ function create_cagnotte(){
     $postDetails = array(
         'post_type'  => $post_type,
         'post_title' => $nomCagnotte,
-        'post_status'=> 'publish',
+        'post_status'=> 'pending',
         'meta_input' => $metas
     );
 
