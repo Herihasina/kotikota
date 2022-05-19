@@ -638,9 +638,14 @@ function save_info_principale(){
     $telephone =  $_POST['tel'];
     $code      =  $_POST['code'];
     $rib       =  $_POST['rib'];
-    update_field('code_benef', $code, $idBenef );
+    //update_field('code_benef', $code, $idBenef );
 
-    $erreurs[] = $idBenef + ' ' +$nom + ' ' + $prenom + ' ' + $email + ' ' + $telephone + ' ' + $code;
+    $erreurs[] = $idBenef;
+    $erreurs[] = $nom;
+    $erreurs[] = $prenom;
+    $erreurs[] = $email;
+    $erreurs[] = $telephone;
+    $erreurs[] = $code;
 
     if ( $erreurs ){
         foreach ($erreurs as $erreur ){
