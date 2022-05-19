@@ -623,13 +623,21 @@ function save_info_principale(){
         }
 
     // info beneficiaire
-    $idBenef   = strip_tags( $_POST['idBenef'] );
+    /*$idBenef   = strip_tags( $_POST['idBenef'] );
     $nom       = strip_tags( $_POST['nom'] );
     $prenom    = strip_tags( $_POST['prenom'] );
     $email     = strip_tags( $_POST['email'] );
     $telephone = strip_tags( $_POST['tel'] );
     $code      = strip_tags( $_POST['code'] );
-    $rib       = strip_tags( $_POST['rib'] );
+    $rib       = strip_tags( $_POST['rib'] );*/
+
+    $idBenef   =  $_POST['idBenef'];
+    $nom       =  $_POST['nom'];
+    $prenom    =  $_POST['prenom'];
+    $email     =  $_POST['email'];
+    $telephone =  $_POST['tel'];
+    $code      =  $_POST['code'];
+    $rib       =  $_POST['rib'];
     update_field('code_benef', $code, $idBenef );
 
     $erreurs[] = $idBenef + ' ' +$nom + ' ' + $prenom + ' ' + $email + ' ' + $telephone + ' ' + $code;
