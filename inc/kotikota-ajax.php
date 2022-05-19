@@ -638,7 +638,7 @@ function save_info_principale(){
     $telephone =  $_POST['tel'];
     $code      =  $_POST['code'];
     $rib       =  $_POST['rib'];
-    //update_field('code_benef', $code, $idBenef );
+    update_field('code_benef', $code, $idBenef );
 
     /*$erreurs[] = $idBenef;
     $erreurs[] = $nom;
@@ -659,21 +659,7 @@ function save_info_principale(){
     update_field('telephone_benef', $telephone, $idBenef );
 
     //$update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
-    //update_field('benef_cagnotte', $idBenef, $idCagnotte);
-
-    $erreurs[] = $idBenef;
-    $erreurs[] = $nom;
-    $erreurs[] = $prenom;
-    $erreurs[] = $email;
-    $erreurs[] = $telephone;
-    $erreurs[] = $code;
-
-    if ( $erreurs ){
-        foreach ($erreurs as $erreur ){
-             echo "<li>$erreur</li>";
-         }
-         wp_die();
-    }
+    update_field('benef_cagnotte', $idBenef, $idCagnotte);
 
     // update categorie/sous-categorie cagnotte
     $categ = strip_tags( $_POST['categ'] );

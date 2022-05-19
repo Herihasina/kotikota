@@ -420,13 +420,6 @@ $(function(){
 	  	var code = $('#code').val();
 	  	var tel = $('#tel').val();
 	  	var rib = $('#rib_value').val();
-	  	console.log(idBenef);
-	  	console.log(nom);
-	  	console.log(prenom);
-	  	console.log(email);
-	  	console.log(code);
-	  	console.log(tel);
-	  	console.log(rib);
 
 	  	$.ajax({
 	  		url: ajaxurl,
