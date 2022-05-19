@@ -548,10 +548,10 @@ $(function(){
 	  	}).done(function(resp){
 	  		var url = new RegExp("^http");
 
-	  		if( url.test(resp) ){
-				 	console.log('redirect...');
-				 		window.location = resp;
-				 }else{
+	  		if( url.test(resp) == false ){
+				 	//console.log('redirect...');
+				 	//	window.location = resp;
+				 //}else{
 	  			$('ul#response').addClass('error').html(resp);
 			  		setTimeout(function() {
 			  			$('ul#response').removeClass('error').html('');
