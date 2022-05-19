@@ -51,7 +51,7 @@
 
 
 
-            $sql = 'SELECT SQL_CALC_FOUND_ROWS ID, count_part
+            $sql = 'SELECT SQL_CALC_FOUND_ROWS ID, count_part, "id1" OrderKey
                 FROM
                 (SELECT wp_posts.ID, count_part
             FROM ((wp_posts
@@ -69,7 +69,7 @@
             AND (wp_posts.post_status = "publish"))
             GROUP BY wp_posts.ID
             UNION ALL
-            SELECT wp_posts.ID, count_part
+            SELECT wp_posts.ID, count_part, "id2" OrderKey
             FROM ((wp_posts
             INNER JOIN wp_postmeta mp1 ON (wp_posts.ID = mp1.post_id))
             INNER JOIN wp_postmeta mp3 ON (wp_posts.ID = mp3.post_id))
@@ -86,7 +86,7 @@
             AND (wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
             AND (wp_posts.post_status = "publish")))
             GROUP BY wp_posts.ID) AS m
-                ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
+                ORDER BY OrderKey, CONVERT(count_part,SIGNED INTEGER) DESC';
 
             //query the posts with pagination
             $query_limit = $sql . " LIMIT ".$offset.", ".$per_page."; ";
