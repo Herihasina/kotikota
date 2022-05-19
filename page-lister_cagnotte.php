@@ -65,7 +65,7 @@
             AND ( mp3.meta_key = "cagnotte_cloturee" AND mp3.meta_value = "non"))
             AND (wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
             AND (wp_posts.post_status = "publish"))
-            GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC
+            GROUP BY wp_posts.ID
             UNION ALL
             SELECT wp_posts.ID
             FROM ((wp_posts
@@ -83,7 +83,7 @@
             AND ( mp3.meta_key = "cagnotte_cloturee" AND mp3.meta_value = "oui"))
             AND (wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
             AND (wp_posts.post_status = "publish")))
-            GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
+            GROUP BY wp_posts.ID';
 
             //query the posts with pagination
             $query_limit = $sql . " LIMIT ".$offset.", ".$per_page."; ";
