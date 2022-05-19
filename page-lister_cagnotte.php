@@ -42,11 +42,13 @@
             SQL_CALC_FOUND_ROWS
             wp_posts.ID, (SELECT SUBSTRING_INDEX(SUBSTRING_INDEX(meta_value,":",2),":",-1) from wp_postmeta WHERE meta_key = "tous_les_participants" AND wp_postmeta.post_id = wp_posts.ID) as count_part
             FROM wp_posts
-            INNER JOIN wp_postmeta ON ( wp_posts.ID = wp_postmeta.post_id )
+            INNER JOIN wp_postmeta AS pm1 ON ( wp_posts.ID = pm1.post_id )
                 WHERE 1=1
-                AND ( ( wp_postmeta.meta_key = "visibilite_cagnotte" AND wp_postmeta.meta_value = "publique" ) OR (wp_postmeta.meta_key = "cagnotte_cloturee" AND wp_postmeta.meta_value = "oui" ))
+                AND ( ( pm1.meta_key = "visibilite_cagnotte" AND pm1.meta_value = "publique" ) )
                 AND wp_posts.post_type IN ("cagnotte", "cagnotte-perso")
                 AND ((wp_posts.post_status = "publish"))
+            INNER JOIN wp_postmeta AS pm2 ON ( wp_posts.ID = pm2.post_id )
+            WHERE (pm2.meta_key = "cagnotte_cloturee" AND pm2.meta_value = "non" )
             GROUP BY wp_posts.ID ORDER BY CONVERT(count_part,SIGNED INTEGER) DESC';
 
             //query the posts with pagination
