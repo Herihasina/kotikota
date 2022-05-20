@@ -1986,9 +1986,9 @@ input:checked {
 
 /*** POPUP NOTIF ***/
 .hidden_link{ position: absolute;opacity: 0;left: -99999px;}
-.popup-notif{ background:none;height: calc(100vh - 40px);max-width: 480px;font-size: 12px;padding-top: 50px;text-align: center;}
-.popup-notif .content{ background:#ffffff;padding: 25px;}
-.popup-notif .content:before {content: ""; position: absolute; display: block; width: 0px;  left: 50%;  top: 0;  border: 15px solid transparent;  border-top: 0;  border-bottom: 15px solid #ffffff; transform: translate(-50%, calc(-100% - 5px));}
+.popup-notif{ background:none;height: calc(100vh - 40px);max-width: 480px;font-size: 12px;padding-top: 50px;text-align: center;position: relative;}
+.popup-notif .content{ background:#ffffff;padding: 25px;position: relative}
+.popup-notif .content:before {content: ""; position: absolute; display: block; width: 0px;  left:50%;  top: 6px;  border: 15px solid transparent;  border-top: 0;  border-bottom: 30px solid #ffffff; transform: translate(-50%, calc(-100% - 5px));}
 .fancybox-slide--html .popup-notif  .fancybox-close-small { left: 36px;top: 37px!important;color: #000;}
 
 
