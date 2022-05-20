@@ -18,7 +18,7 @@ get_header(); ?>
     </main>
     <a href="#popup-notif" class="fancybox hidden_link" data-fancybox=""></a>
 
-    <div class="popup-notif" id="popup-notif" style="display:none">
+    <div class="popup-notif" id="popup-notif" style="display:none" >
         <div class="content">
         Ajouter cette application web sur l'ecran d'accueil
         Appuyes sur ...
