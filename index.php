@@ -22,7 +22,7 @@ get_header(); ?>
         <div class="content">
             <div> Ajouter cette application web sur l'ecran d'accueil</div>
             <div><span>Appuyes sur</span> <span><img src="<?= IMG_URL ?>chrome-trois-points.jpg"/></span></div>
-            <div>sélectionnez Ajouter à l'écran d'accueil</div>
+            <div>sélectionnez <b>Ajouter à l'écran d'accueil</b></div>
         </div>
     </div>
 <?php get_footer(); ?>
