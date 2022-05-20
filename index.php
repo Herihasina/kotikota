@@ -20,9 +20,9 @@ get_header(); ?>
 
     <div class="popup-notif" id="popup-notif" style="display:none" >
         <div class="content">
-        Ajouter cette application web sur l'ecran d'accueil
-        Appuyes sur ...
-        sélectionnez Ajouter à l'écran d'accueil
+            <div> Ajouter cette application web sur l'ecran d'accueil</div>
+            <div>Appuyes sur </div>
+            <div>sélectionnez Ajouter à l'écran d'accueil</div>
         </div>
     </div>
 <?php get_footer(); ?>

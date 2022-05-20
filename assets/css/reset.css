@@ -1986,8 +1986,9 @@ input:checked {
 
 /*** POPUP NOTIF ***/
 .hidden_link{ position: absolute;opacity: 0;left: -99999px;}
-.popup-notif{ background:none;height: 100vh;}
+.popup-notif{ background:none;height: 100vh;max-width: 480px;font-size: 12px;}
 .popup-notif .content{ background:#ffffff;padding: 25px;}
+.fancybox-slide--html .popup-notif  .fancybox-close-small { left: 36px;top: 37px!important;color: #000;}
 
 
 
