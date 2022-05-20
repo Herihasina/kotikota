@@ -1986,6 +1986,8 @@ input:checked {
 
 /*** POPUP NOTIF ***/
 .hidden_link{ position: absolute;opacity: 0;left: -99999px;}
+.popup-notif{ background:none;height: 100vh;}
+.popup-notif .content{ background:#ffffff;padding: 25px;}
 
 
 
