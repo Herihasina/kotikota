@@ -21,7 +21,7 @@ get_header(); ?>
     <div class="popup-notif" id="popup-notif" style="display:none" >
         <div class="content">
             <div> Ajouter cette application web sur l'ecran d'accueil</div>
-            <div>Appuyes sur </div>
+            <div><span>Appuyes sur</span> <span><img src="<?= IMG_URL ?>chrome-trois-points.jpg"/></span></div>
             <div>sélectionnez Ajouter à l'écran d'accueil</div>
         </div>
     </div>
