@@ -916,6 +916,10 @@ $(document).ready(function() {
 });
 
 
+$(window).load(function() {
+    $(".hidden_link").fancybox().trigger('click');
+});
+
 // $( window ).load(function() {
 //     /* menu connecté */
 //     $('.btn-head.logged-in').hover(function() {

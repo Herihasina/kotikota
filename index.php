@@ -16,4 +16,13 @@ get_header(); ?>
         <?php include 'sections/content/foire-question.php'; ?>
         <?php include 'sections/content/compteur.php'; ?>
     </main>
+    <a href="#popup-notif" class="fancybox hidden_link" data-fancybox=""></a>
+
+    <div class="popup-notif" id="popup-notif">
+        <div class="content">
+        Ajouter cette application web sur l'ecran d'accueil
+        Appuyes sur ...
+        sélectionnez Ajouter à l'écran d'accueil
+        </div>
+    </div>
 <?php get_footer(); ?>
