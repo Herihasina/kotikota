@@ -3677,6 +3677,7 @@ a:hover { color:#fbbd36; }
     .cont-video i { width: 40px; height: 40px; background-size: cover }
     .lst-step .item.active .content .ico::after { width: 30px; height: 31px; background-size: cover}
      .menu-liste-cagnotte .lst-form-type { height: 300px }
+     .popup-notif{ padding-left: 20px;padding-right: 20px;}
 
      .mobile-only.illustration_cagnotte{
         cursor: pointer;
