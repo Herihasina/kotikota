@@ -1984,7 +1984,8 @@ input:checked {
     color: #676767;
 }
 
-
+/*** POPUP NOTIF ***/
+.hidden_link{ position: absolute;opacity: 0;left: -99999px;}
 
 
 
