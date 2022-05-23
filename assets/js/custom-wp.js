@@ -917,7 +917,10 @@ $(document).ready(function() {
 
 
 $(window).load(function() {
-    $(".hidden_link").fancybox().trigger('click');
+    if ($(window).width() < 601)
+    {
+        $(".hidden_link").fancybox().trigger('click');
+    }
 });
 
 // $( window ).load(function() {
