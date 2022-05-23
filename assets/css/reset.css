@@ -1990,7 +1990,18 @@ input:checked {
 .popup-notif .content{ background:#ffffff;padding: 25px;position: relative}
 .popup-notif .content span{ display: inline-block;vertical-align: middle;}
 .popup-notif .content span img{ display: block;}
-.popup-notif .content:before {content: ""; position: absolute; display: block; width: 0px;  left:50%;  top: 6px;  border: 15px solid transparent;  border-top: 0;  border-bottom: 30px solid #ffffff; transform: translate(-50%, calc(-100% - 5px));}
+/* .popup-notif .content:before {content: ""; position: absolute; display: block; width: 0px;  left:50%;  top: 6px;  border: 15px solid transparent;  border-top: 0;  border-bottom: 30px solid #ffffff; transform: translate(-50%, calc(-100% - 5px));} */
+.popup-notif .content:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0px;
+    right: 0;
+    top: -30px;
+    border-bottom: 30px solid white;
+    border-left: 18px solid transparent;
+    border-right: 0px solid transparent;
+}
 .fancybox-slide--html .popup-notif  .fancybox-close-small { left: 36px;top: 43px!important;color: #000;}
 
 
