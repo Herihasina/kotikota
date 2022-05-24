@@ -2011,10 +2011,10 @@ input:checked {
     display: block;
     width: 0px;
     left: 50%;
-    bottom: 0;
-    border: 15px solid transparent;
+    bottom: 6px;
+    border:16px solid transparent;
     border-bottom: 0;
-    border-top: 15px solid #ffffff;
+    border-top: 30px solid #ffffff;
     transform: translate(-50%, calc(100% + 5px));
 }
 
