@@ -2005,6 +2005,19 @@ input:checked {
 .popup-notif.safari .content span.img{ margin-left: 5px;}
 .popup-notif.safari .d-flex{ height: 100%;align-items: flex-end;}
 
+.popup-notif.safari .content:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0px;
+    left: 50%;
+    bottom: 0;
+    border: 15px solid transparent;
+    border-bottom: 0;
+    border-top: 15px solid #ffffff;
+    transform: translate(-50%, calc(100% + 5px));
+}
+
 
 .fancybox-slide--html .popup-notif  .fancybox-close-small { left: 36px;top: 43px!important;color: #000;}
 
