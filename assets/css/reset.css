@@ -1997,11 +1997,11 @@ input:checked {
     position: absolute;
     display: block;
     width: 0px;
-    right: 0;
+    right: 12px;
     top: -28px;
     border-bottom: 30px solid white;
-    border-left: 18px solid transparent;
-    border-right: 0px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
 }
 .popup-notif.safari .content span.img{ margin-left: 5px;}
 .popup-notif.safari .d-flex{ height: 100%;align-items: flex-end;}
