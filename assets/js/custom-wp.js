@@ -922,10 +922,7 @@ $(window).load(function() {
         $(".hidden_link").fancybox().trigger('click');
     }
 });
-$('.popup-notif .content .close').on('click', function() {
-    $.fancybox.close();
-    return false;
-});
+
 
 
 // $( window ).load(function() {
