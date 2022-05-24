@@ -19,17 +19,18 @@ get_header(); ?>
     <a href="#popup-notif" class="fancybox hidden_link" data-fancybox=""></a>
 
      <!--  chrome & firefox -->
-    <!-- <div class="popup-notif chrome" id="popup-notif" style="display:none" >
+    <div class="popup-notif chrome" id="popup-notif" style="display:none" >
         <div class="d-flex">
             <div class="content">
+                <span class="close close-fancy"></span>
                 <div> Ajouter cette application web sur l'ecran d'accueil</div>
                 <div><span>Appuyez sur</span> <span class="img"><img  src="<?= IMG_URL ?>chrome-trois-points.jpg"/></span></div>
                 <div>sélectionnez <b>Ajouter à l'écran d'accueil</b></div>
             </div>
         </div>
-    </div> -->
+    </div>
      <!-- safari -->
-     <div class="popup-notif safari" id="popup-notif" style="display:none" >
+     <!-- <div class="popup-notif safari" id="popup-notif" style="display:none" >
         <div class="d-flex">
             <div class="content">
                 <span class="close close-fancy"></span>
@@ -38,7 +39,7 @@ get_header(); ?>
                 <div>sélectionnez <b>sur l'écran d'accueil</b></div>
             </div>
         </div>
-    </div>
+    </div> -->
 <?php get_footer(); ?>
 
 
