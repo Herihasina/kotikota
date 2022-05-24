@@ -77,7 +77,7 @@
                     if ( !$tous_les_participants ) $tous_les_participants = [];
                     echo count( $tous_les_participants); ?>
                 </b>
-                <span><?php _e('participant','kotikota'); ?><?php if ( count($tous_les_participants) >= 2 && !$masquer_contributions && ICL_LANGUAGE_CODE == 'fr' ) echo "s"; ?></span>
+                <span><?php _e('participants','kotikota'); ?><?php if ( count($tous_les_participants) >= 2 && !$masquer_contributions && ICL_LANGUAGE_CODE == 'fr' ) echo "s"; ?></span>
             </div>
         </div>
         <?php
