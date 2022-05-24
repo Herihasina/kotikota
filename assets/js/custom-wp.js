@@ -924,6 +924,7 @@ $(window).load(function() {
 });
 $('.popup-notif .content .close').on('click', function() {
     $.fancybox.close();
+    return false;
 });
 
 
