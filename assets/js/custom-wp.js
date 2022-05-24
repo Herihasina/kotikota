@@ -915,13 +915,17 @@ $(document).ready(function() {
     });
 });
 
-
+/*** Popup notif mobile ***/
 $(window).load(function() {
     if ($(window).width() < 601)
     {
         $(".hidden_link").fancybox().trigger('click');
     }
 });
+$('.popup-notif .content .close').on('click', function(e) {
+    $.fancybox.close();
+});
+
 
 // $( window ).load(function() {
 //     /* menu connecté */
