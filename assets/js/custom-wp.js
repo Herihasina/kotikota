@@ -922,7 +922,7 @@ $(window).load(function() {
         $(".hidden_link").fancybox().trigger('click');
     }
 });
-$('.popup-notif .content .close').on('click', function(e) {
+$('.popup-notif .content .close').on('click', function() {
     $.fancybox.close();
 });
 
