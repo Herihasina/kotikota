@@ -2003,7 +2003,7 @@ input:checked {
     border-right: 0px solid transparent;
 }
 .popup-notif.safari .content span.img{ margin-left: 5px;}
-.popup-notif.safari .d-flex{ height: 100%;justify-content: flex-end;}
+.popup-notif.safari .d-flex{ height: 100%;align-items: flex-end;}
 
 
 .fancybox-slide--html .popup-notif  .fancybox-close-small { left: 36px;top: 43px!important;color: #000;}
