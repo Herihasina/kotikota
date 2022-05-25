@@ -35,6 +35,7 @@ get_header(); ?>
         <div class="d-flex">
             <div class="content">
                 <span class="close close-fancy"></span>
+                <span class="logo-pop"><img  src="<?= IMG_URL ?>logo.png"/></span>
                 <div> Ajouter cette application web sur l'ecran d'accueil</div>
                 <div><span>Appuyez sur</span> <span class="img" ><img src="<?= IMG_URL ?>safari-share.jpg"/></span></div>
                 <div>sélectionnez <b>sur l'écran d'accueil</b></div>
