@@ -465,7 +465,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; padding-bottom: 25px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 20px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <?php echo __("Bienvenue","kotikota_mail") ?> <?= $prenom ?> <?php echo __("dans la communauté des KotiKoteurs","kotikota_mail") ?> 📢
+                                                                    <?php echo __("Bienvenue","kotikota_mail") ?> <?= $cur_prenom ?> <?php echo __("dans la communauté des KotiKoteurs","kotikota_mail") ?> 📢
                                                                 </div>
                                                             </td>
                                                         </tr>
