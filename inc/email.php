@@ -49,7 +49,7 @@ function sendNotificationParticipation($id, $email_participant = ''){
     if ( !$prenom )
         $prenom = $prenom['nickname'][0];
 
-    $cur_prenom = $new_user->first_name;
+    $cur_prenom = $userdata->first_name;
 
     $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');
 
