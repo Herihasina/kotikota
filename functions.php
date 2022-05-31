@@ -85,7 +85,7 @@ function get_slug() {
     return  $slugs[1];
 }
 
-function save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise  ){
+function save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo  ){
   global $wpdb;
 
   $customer_table = $wpdb->prefix.'participation';
@@ -97,7 +97,7 @@ function save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donatio
     "email"               => $email,
     "lname"               => $lname,
     "fname"               => $fname,
-    "phone"               =>  str_replace(' ', '', $phone),
+    "phone"               => str_replace(' ', '', $phone),
     "donation"            => $donation,
     "devise"              => $devise,
     "paiement"            => $paiement,
@@ -105,11 +105,21 @@ function save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donatio
     "maskIdentite"        => $maskIdentite,
     "date"                => date("d-m-Y h:i:s"),
     "mot_doux"            => $mot_doux,
+    "pseudo"              => $pseudo,
   ));
   return $wpdb->insert_id;
 }
 
-function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $modeDePaiement, $maskParticipation, $maskIdentite ){
+function add_pseudo_column_to_participation_table(){
+    global $wpdb;
+    $customer_table = $wpdb->prefix.'participation';
+
+    $wpdb->query("ALTER TABLE $customer_table ADD pseudo varchar(100) DEFAULT ''");
+
+    return;
+}
+
+function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $modeDePaiement, $maskParticipation, $maskIdentite, $pseudo ){
   //alaina izay participant manana an'io email io (car email est unique)
   $oldParticipant = get_posts(array(
           'post_type' => 'participant',
@@ -140,8 +150,8 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
 
       $newParticipant = wp_insert_post( $postarr, true );
 
-      if (is_wp_error($post_id)) { //echo "nouvel email: error insert<br>";
-          $errors = $post_id->get_error_messages();
+      if (is_wp_error($newParticipant)) { //echo "nouvel email: error insert<br>";
+          $errors = $newParticipant->get_error_messages();
           foreach ($errors as $error) {
               echo $error;
           }
@@ -151,11 +161,12 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
           update_field('email_participant', $email, $newParticipant);
 
           $vals = array(
-                  'montant_paye' => $donation,
-                  'masque_participation' => $maskParticipation,
-                  'masque_identite' => $maskIdentite,
-                  'mode_paiement'  => $modeDePaiement,
-                  'cagnotte' => (int)$idCagnotte
+                  'montant_paye'                     => $donation,
+                  'masque_participation'             => $maskParticipation,
+                  'masque_identite'                  => $maskIdentite,
+                  'mode_paiement'                    => $modeDePaiement,
+                  'cagnotte'                         => (int)$idCagnotte,
+                  'pseudo_participant_dans_cagnotte' => $pseudo,
                   );
 
           $valsCagnotte = array(
@@ -204,10 +215,11 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
                   $newMontant = (int)$cagn['montant_paye'];
                   $newMontant = $newMontant  + (int)$donation;
                   $vals = array(
-                      'montant_paye' => $newMontant,
-                      'masque_participation' => $maskParticipation,
-                      'mode_paiement'  => $paiement,
-                      'masque_identite' => $maskIdentite,
+                      'montant_paye'                     => $newMontant,
+                      'masque_participation'             => $maskParticipation,
+                      'mode_paiement'                    => $paiement,
+                      'masque_identite'                  => $maskIdentite,
+                      'pseudo_participant_dans_cagnotte' => $pseudo,
                       );
                   update_row( 'toutes_cagnottes_participees', $row, $vals, $update_participant );
 
@@ -217,11 +229,12 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
            if ( !in_array( $idCagnotte, $toutes_cagnottes_participees_id) ){
               //echo "Tsy mbola nanome t@io cagnotte io ilay email fa mi-existe fotsn ==> ajouténa ao @participant ilay cagnotte<br>";
                $vals = array(
-                  'montant_paye' => $donation,
-                  'masque_participation' => $maskParticipation,
-                  'masque_identite' => $maskIdentite,
-                  'mode_paiement'  => $paiement,
-                  'cagnotte' => (int)$idCagnotte
+                  'montant_paye'                     => $donation,
+                  'masque_participation'             => $maskParticipation,
+                  'masque_identite'                  => $maskIdentite,
+                  'mode_paiement'                    => $paiement,
+                  'cagnotte'                         => (int)$idCagnotte,
+                  'pseudo_participant_dans_cagnotte' => $pseudo,
                   );
               add_row( 'toutes_cagnottes_participees', $vals, $update_participant );
 
@@ -243,7 +256,7 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
   return $success;
 }
 
-function insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux ){
+function insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux, $pseudo = '' ){
   //ajoutena ao @CPT mot_doux ilay message t@ty participation ty
     $postarr = array(
             'post_type' => 'mot_doux',
@@ -253,6 +266,10 @@ function insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux ){
             );
 
     $nouveauMotDoux = wp_insert_post( $postarr, true );
+
+    if( $pseudo ){
+      update_post_meta( $nouveauMotDoux, 'pseudo_mot_doux', $pseudo );
+    }
 
     if (is_wp_error($post_id)) { //echo "nouvel email: error insert<br>";
         $errors = $post_id->get_error_messages();
@@ -456,6 +473,7 @@ function traitement_post_paiement( $participation ){
   $maskParticipation = $participation->maskParticipation;
   $maskIdentite      = $participation->maskIdentite;
   $devise            = $participation->devise;
+  $pseudo            = $participation->pseudo;
 
   //convertir la donation dans le même devise si différent de devise cagnotte
 
@@ -467,19 +485,19 @@ function traitement_post_paiement( $participation ){
   }
 
   $mot_doux = $participation->mot_doux;
-  $success = insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite );
+  $success = insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $pseudo );
 
   if ( $success && $mot_doux != '' ){
-      $success = insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux );
+      $success = insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux, $pseudo );
    }
 
   @sendNotificationParticipation($idCagnotte, $email);
 
-  $titulaire = get_field('titulaire_de_la_cagnotte', $idCagnotte );
-  $prenom = get_user_meta($titulaire);
-  $prenom = $prenom['first_name'][0];
-  if ( !$prenom )
-      $prenom = $prenom['nickname'][0];
+  // $titulaire = get_field('titulaire_de_la_cagnotte', $idCagnotte );
+  // $prenom = get_user_meta($titulaire);
+  // $prenom = $prenom['first_name'][0];
+  // if ( !$prenom )
+  //     $prenom = $prenom['nickname'][0];
 
   return $success;
 }

@@ -25,7 +25,9 @@
               </div>
               <b class="author-name">
                 <?php
-                  if ( $user_data['first_name'][0] != '' || $user_data['last_name'][0] != '' ){
+                  if( get_post_meta( $mot_dou->ID, 'pseudo_mot_doux', true ) ){
+                    echo get_post_meta( $mot_dou->ID, 'pseudo_mot_doux', true );
+                  }elseif ( $user_data['first_name'][0] != '' || $user_data['last_name'][0] != '' ){
                     echo $user_data['first_name'][0].' '.$user_data['last_name'][0]; 
                   }else{
                     echo $mot_dou->post_title;

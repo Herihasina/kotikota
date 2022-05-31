@@ -18,6 +18,7 @@
     $user_data = get_user_meta($user->ID);
 
 	get_header();
+
 ?>
 <main id="homepage">
 <?php
@@ -131,7 +132,9 @@
                             <input type="checkbox" class="onoff" id="masque1">
                             <label for="masque1"><span>on</span></label>
                           </div>
-
+                          <div class="pseudo-wrap">
+                            <!-- Peuplé par JS custom-wp.js -->
+                          </div>
 
                         </li>
                         <li class="chp">

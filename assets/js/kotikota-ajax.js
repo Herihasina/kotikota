@@ -230,6 +230,9 @@ $(function(){
 
 	  	if (maskIdentite != "on"){
 	  		maskIdentite = "off";
+	  		var pseudo = "nulll";
+	  	}else if( maskIdentite == "on" ){
+	  		var pseudo = $('#pseudo').val();
 	  	}
 	  	var maskParticipation = $('#masque2:checked').val();
 	  	if (maskParticipation != "on"){
@@ -274,6 +277,7 @@ $(function(){
 	  			'devise': devise,
 	  			'message': message,
 	  			'maskIdentite' : maskIdentite,
+	  			'pseudo' : pseudo,
 	  			'maskParticipation': maskParticipation,
 	  			'paiement' : paiement,
 	  			'idCagnotte' : idCagnotte,

@@ -16,7 +16,7 @@
           $date_participation = $date_participation->format('d/m/y');
 
           $id_participant = $un['participant_']->ID;
-            $cagnottes_participees = get_field('toutes_cagnottes_participees', $id_participant); 
+            $cagnottes_participees = get_field('toutes_cagnottes_participees', $id_participant);
             if ( $cagnottes_participees ):
     ?>
                 <div class="item">
@@ -46,7 +46,7 @@
                       <h4>
                         <?php
                           if ( $une_cagnotte['masque_identite'] ){
-                            echo __('Kotikoteur','kotikota');
+                            echo $une_cagnotte['pseudo_participant_dans_cagnotte'];
                           }else{
                             echo esc_html( $un['participant_']->post_title ); 
                           }                                            

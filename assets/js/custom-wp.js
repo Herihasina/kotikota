@@ -902,15 +902,25 @@ $(document).ready(function() {
     });
 
     $(".onoff").on('change', function() {
-        //togBtn= $(this);
-        //togBtn.val(togBtn.prop('checked'));
+        
+        pseudoWrap = $('.pseudo-wrap');
+
         if ($(this).is(':checked')) {
             $(this).attr('checked','checked');
             $(this).val('on');
-        }
-        else {
+
+            pseudoWrap.append(`
+                <div>
+                    <input type="text" name="pseudo" id="pseudo" value="" placeholder="Pseudo">
+                </div>
+            `);
+
+
+        }else {
            $(this).removeAttr('checked');
             $(this).val('off');
+
+            pseudoWrap.html('');
         }
     });
 });

@@ -398,6 +398,13 @@ function creer_participation(){
         $devise = get_field('devise_par_defaut','option');
         $devise = $devise['value'];
     }
+    if( $_POST['maskIdentite'] == "on" ){
+        $pseudo = strip_tags( $_POST['pseudo'] );
+
+        if( !$pseudo ){
+            $erreurs[] = __('Entrer un pseudo');
+        }
+    }
 
     $idCagnotte = strip_tags($_POST['idCagnotte']);
 
@@ -467,7 +474,7 @@ function creer_participation(){
 
     $paiement = strip_tags( $_POST['paiement'] );
 
-    $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
+    $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo );
 
     if ( $paiement == "paypal" ){
 
@@ -479,7 +486,7 @@ function creer_participation(){
     }elseif( $paiement == "airtel" ){
         // $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone33, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
         // echo get_site_url() ."/paiement-airtel-money/?id=$id_participation&cl=$email";
-        echo "trigger_popup=popup_airtel&idCagnotte=$idCagnotte&email=$email&lname=$lname&fname=$fname&phone=$phone&donation=$donation&maskParticipation=$maskParticipation&maskIdentite=$maskIdentite&mot_doux=$mot_doux&devise=$devise";
+        echo "trigger_popup=popup_airtel&idCagnotte=$idCagnotte&email=$email&lname=$lname&fname=$fname&phone=$phone&donation=$donation&maskParticipation=$maskParticipation&maskIdentite=$maskIdentite&mot_doux=$mot_doux&devise=$devise&pseudo=$pseudo";
     }elseif( $paiement == "bni" || $paiement == "visa"){
         echo get_site_url() ."/virement-bancaire/?id=$id_participation&cl=$email";
     }
@@ -500,7 +507,7 @@ function pay_airtel(){
 
         $num_airtel = strip_tags( $_POST['num_airtel'] );
 
-         $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, "airtel", $maskParticipation, $maskIdentite, $mot_doux, $devise );
+         $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, "airtel", $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo );
 
          echo get_site_url() ."/paiement-airtel-money/?id=$id_participation&cl=$email&msisdn=$num_airtel";
 
