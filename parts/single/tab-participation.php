@@ -16,7 +16,7 @@
           $date_participation = $date_participation->format('d/m/y');
 
           $id_participant = $un['participant_']->ID;
-            $cagnottes_participees = get_field('toutes_cagnottes_participees', $id_participant);
+            $cagnottes_participees = (array)get_field('toutes_cagnottes_participees', $id_participant);
             if ( $cagnottes_participees ):
     ?>
                 <div class="item">
@@ -32,15 +32,27 @@
                                 $bg = wp_get_attachment_image_src(get_field('photo', 'user_'.$user),'icone-serasera' )[0];
                                 if ( !$bg ) $bg = get_field('default_gravatar','option'); ?>
                                  <img src="<?php echo $bg ?>" alt="" >
-                                 <?php
-                            }else{ ?>
-                              <img src="<?php echo get_field('default_gravatar','options') ?>" alt="<?php echo esc_html( $un['participant_']->post_title ); ?>">
-                            <?php                                                                                                 
+                        <?php
+                            }elseif( !$une_cagnotte['masque_identite'] && !email_exists( $email_participant ) ){ 
+                        ?>
+                              <img src="<?php echo get_field('default_gravatar','option') ?>" alt="<?php echo esc_html( $un['participant_']->post_title ); ?>">
+                        <?php                                                                                                 
+                            }elseif( $une_cagnotte['masque_identite'] ){
+                              if( $une_cagnotte['avatar_participant_dans_cagnotte'] ){
+                        ?>
+                              <img src="<?php echo $une_cagnotte['avatar_participant_dans_cagnotte'] ?>" alt="<?php echo esc_html( $un['participant_']->post_title ); ?>">
+                        <?php
+                              }else{
+                                $bg = get_field('default_gravatar','option');
+                        ?>
+                                <img src="<?php echo $bg ?>" alt="" >
+                        <?php 
+                              }   
                             }
                             break;                                              
                           } 
                         }
-                      ?>
+                        ?>
                     </div>
                     <div class="txt">
                       <h4>

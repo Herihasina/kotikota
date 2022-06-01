@@ -915,10 +915,13 @@ $(document).ready(function() {
                 </div>
             `);
 
+            $('.pseudo-img-wrap').show();
 
         }else {
            $(this).removeAttr('checked');
             $(this).val('off');
+
+            $('.pseudo-img-wrap').hide();
 
             pseudoWrap.html('');
         }

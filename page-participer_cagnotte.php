@@ -135,6 +135,30 @@
                           <div class="pseudo-wrap">
                             <!-- Peuplé par JS custom-wp.js -->
                           </div>
+                          <!-- OOOO  -->
+                           <div class="pseudo-img-wrap" style="display:none">
+                                <label><?php _e('Choisis un avatar ','kotikota'); ?> <span>*</span></label>
+                                <div class="blc-img jauge">
+
+                                    <div class="lst-img clr scrollbar-inner"><!--desk-only-->
+                                        <div class="inner">
+                                          <input type="hidden" value="" name="illustration" id="url_img_cagnotte" required>
+                                            <?php
+                                                $imgs = (array)get_field('avatars_proposes','option');
+                                                
+                                                foreach ( $imgs as $img ):
+                                            ?>
+                                                  <div class="img">
+                                                     <a href="#" data-imgsrc="<?php echo wp_get_attachment_image_url( $img['image_prop'], 'full' ) ?>"><?php echo wp_get_attachment_image( $img['image_prop'], 'cagnotte-choix-upload' ) ?></a>
+                                                  </div>
+                                            <?php 
+                                                endforeach;
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                          <!-- 000  -->
 
                         </li>
                         <li class="chp">

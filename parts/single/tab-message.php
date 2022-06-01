@@ -18,10 +18,15 @@
                 <?php
                   $bg = wp_get_attachment_image_src(get_field('photo', 'user_'. $authorID->ID ),'icone-serasera' )[0];
 
-                  if ( !$bg ) $bg = get_field('default_gravatar','option'); 
+                  if( get_post_meta( $mot_dou->ID, 'avatar_mot_doux', true ) ){
+                ?>
+                    <img src="<?php echo get_post_meta( $mot_dou->ID, 'avatar_mot_doux', true ) ?>" alt="" > 
+                <?php 
+                  }else{
+                    if( !$bg ) $bg = get_field('default_gravatar','option');  
                 ?>
                     <img src="<?php echo $bg ?>" alt="" > 
-                
+                <?php } ?>
               </div>
               <b class="author-name">
                 <?php

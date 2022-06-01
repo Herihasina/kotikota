@@ -85,7 +85,7 @@ function get_slug() {
     return  $slugs[1];
 }
 
-function save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo  ){
+function save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo = '', $pseudo_img = ''  ){
   global $wpdb;
 
   $customer_table = $wpdb->prefix.'participation';
@@ -106,6 +106,7 @@ function save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donatio
     "date"                => date("d-m-Y h:i:s"),
     "mot_doux"            => $mot_doux,
     "pseudo"              => $pseudo,
+    "pseudo_img"          => $pseudo_img,
   ));
   return $wpdb->insert_id;
 }
@@ -119,7 +120,7 @@ function add_pseudo_column_to_participation_table(){
     return;
 }
 
-function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $modeDePaiement, $maskParticipation, $maskIdentite, $pseudo ){
+function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $modeDePaiement, $maskParticipation, $maskIdentite, $pseudo = '', $pseudo_img = '' ){
   //alaina izay participant manana an'io email io (car email est unique)
   $oldParticipant = get_posts(array(
           'post_type' => 'participant',
@@ -167,6 +168,7 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
                   'mode_paiement'                    => $modeDePaiement,
                   'cagnotte'                         => (int)$idCagnotte,
                   'pseudo_participant_dans_cagnotte' => $pseudo,
+                  'avatar_participant_dans_cagnotte' => $pseudo_img,
                   );
 
           $valsCagnotte = array(
@@ -220,6 +222,7 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
                       'mode_paiement'                    => $paiement,
                       'masque_identite'                  => $maskIdentite,
                       'pseudo_participant_dans_cagnotte' => $pseudo,
+                      'avatar_participant_dans_cagnotte' => $pseudo_img,
                       );
                   update_row( 'toutes_cagnottes_participees', $row, $vals, $update_participant );
 
@@ -235,6 +238,7 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
                   'mode_paiement'                    => $paiement,
                   'cagnotte'                         => (int)$idCagnotte,
                   'pseudo_participant_dans_cagnotte' => $pseudo,
+                  'avatar_participant_dans_cagnotte' => $pseudo_img,
                   );
               add_row( 'toutes_cagnottes_participees', $vals, $update_participant );
 
@@ -256,7 +260,7 @@ function insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donat
   return $success;
 }
 
-function insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux, $pseudo = '' ){
+function insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux, $pseudo = '', $pseudo_img = '' ){
   //ajoutena ao @CPT mot_doux ilay message t@ty participation ty
     $postarr = array(
             'post_type' => 'mot_doux',
@@ -267,8 +271,12 @@ function insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux, $pseudo = '' )
 
     $nouveauMotDoux = wp_insert_post( $postarr, true );
 
-    if( $pseudo ){
+    if( $pseudo && $pseudo != '' ){
       update_post_meta( $nouveauMotDoux, 'pseudo_mot_doux', $pseudo );
+    }
+
+    if( $pseudo_img && $pseudo_img != '' ){
+      update_post_meta( $nouveauMotDoux, 'avatar_mot_doux', $pseudo_img );
     }
 
     if (is_wp_error($post_id)) { //echo "nouvel email: error insert<br>";
@@ -474,6 +482,7 @@ function traitement_post_paiement( $participation ){
   $maskIdentite      = $participation->maskIdentite;
   $devise            = $participation->devise;
   $pseudo            = $participation->pseudo;
+  $pseudo_img       = $participation->pseudo_img;
 
   //convertir la donation dans le même devise si différent de devise cagnotte
 
@@ -485,10 +494,10 @@ function traitement_post_paiement( $participation ){
   }
 
   $mot_doux = $participation->mot_doux;
-  $success = insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $pseudo );
+  $success = insert_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $pseudo, $pseudo_img );
 
   if ( $success && $mot_doux != '' ){
-      $success = insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux, $pseudo );
+      $success = insert_mot_doux( $idCagnotte, $lname, $fname, $mot_doux, $pseudo, $pseudo_img );
    }
 
   @sendNotificationParticipation($idCagnotte, $email);
