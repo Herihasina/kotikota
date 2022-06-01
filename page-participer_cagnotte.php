@@ -223,12 +223,12 @@
                           </li> -->
                            <li>
                             <input id="visa" name="selector" type="radio" value="visa">
-                            <label for="visa"><img src="<?php echo IMG_URL ?>visa.png"><img src="<?php echo IMG_URL ?>master-card.png"></label>
+                            <label for="visa"><img src="<?php echo IMG_URL ?>secure.png"></label>
                             <div class="check"></div>
                           </li>
-                          <li class="blc-securise">
+                          <!-- <li class="blc-securise">
                             <div class="securise"><span><?= __('sécurisé par BNI','kotikota') ?></span><img src="<?php echo IMG_URL ?>bni2.png"></div>
-                          </li>
+                          </li> -->
                           <!-- <li>
                             <input id="bmoi" name="selector" type="radio" value="bmoi">
                             <label for="bmoi"><img src="<?php echo IMG_URL ?>bmoi2.png"></label>
