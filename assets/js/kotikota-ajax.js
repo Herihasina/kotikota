@@ -988,7 +988,7 @@ $(function(){
             return;
         }
         mediaUploader = wp.media.frames.file_frame = wp.media({
-            multiple: false
+            multiple: true
         });
         mediaUploader.on('select', function() {
 			console.log("doc upload");
