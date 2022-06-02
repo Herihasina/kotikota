@@ -991,9 +991,7 @@ $(function(){
             multiple: true
         });
         mediaUploader.on('select', function() {
-			console.log("doc upload");
-            var attachment = mediaUploader.state().get('selection').first().toJSON();
-			console.log(mediaUploader.state().get('selection'));
+            // var attachment = mediaUploader.state().get('selection').first().toJSON();
 			// $.ajax({
             //     url: ajaxurl,
             //     data: {
@@ -1008,6 +1006,10 @@ $(function(){
 
             // });
 
+			var attachments = mediaUploader.state().get('selection').map( 
+                function( attachment ) {
+                    console.log(attachment.toJSON());
+            });
 
         });
         mediaUploader.open();
