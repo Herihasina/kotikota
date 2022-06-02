@@ -8,11 +8,16 @@ global $is_chrome;
 global $is_safari;
 $popup_notif_class= "";
 $popup_notif_image="chrome-trois-points.jpg";
-if($is_gecko) $popup_notif_class="firefox";
+
 if($is_chrome) $popup_notif_class="chrome";
 if($is_safari) {
     $popup_notif_class="safari";
     $popup_notif_image="safari-share.jpg";
+}
+if($is_gecko) {
+    $popup_notif_class="firefox";
+    $popup_notif_image="chrome-trois-points.jpg";
+
 }
 
 get_header(); ?>
