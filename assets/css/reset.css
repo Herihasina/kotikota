@@ -2022,7 +2022,11 @@ input:checked {
     border-top: 30px solid #ffffff;
     transform: translate(-50%, calc(100% + 5px));
 }
+.popup-notif.firefox .content:before {
+    left: initial;
+    right:10px
 
+}
 
 .fancybox-slide--html .popup-notif  .fancybox-close-small { left: 36px;top: 43px!important;color: #000;display: none;}
 
