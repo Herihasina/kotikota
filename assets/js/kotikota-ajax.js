@@ -993,19 +993,20 @@ $(function(){
         mediaUploader.on('select', function() {
 			console.log("doc upload");
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-			$.ajax({
-                url: ajaxurl,
-                data: {
-                    'action': 'insert_doc_cagnotte',
-                    'doc_file' : attachment.url,
-                    'cagnotte_id': cagnotte_id
-                },
-                dataType: 'html',
-                type:"POST",
-            }).done(function(resp){
-                $('#pp-document #list-documents').html(resp);
+			console.log(mediaUploader.state().get('selection'));
+			// $.ajax({
+            //     url: ajaxurl,
+            //     data: {
+            //         'action': 'insert_doc_cagnotte',
+            //         'doc_file' : attachment.url,
+            //         'cagnotte_id': cagnotte_id
+            //     },
+            //     dataType: 'html',
+            //     type:"POST",
+            // }).done(function(resp){
+            //     $('#pp-document #list-documents').html(resp);
 
-            });
+            // });
 
 
         });
