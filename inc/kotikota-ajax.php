@@ -311,8 +311,9 @@ function create_cagnotte(){
         if( !$piece_didentite && !$profil_valide )
             sendRappelPostCreation( $now_user );
 
-        $single = get_permalink( $newPost );
-        echo "$single";
+        // $single = get_permalink( $newPost );
+        // echo "$single";
+        echo home_url();
     }
     wp_die();
 
