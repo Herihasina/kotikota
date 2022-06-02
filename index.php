@@ -2,6 +2,14 @@
 /**
  * Template Name: Accueil
  */
+//check browser
+global $is_gecko;
+global $is_chrome;
+global $is_safari;
+$popup_notif_class= "";
+if($is_gecko) $popup_notif_class="firefox";
+if($is_chrome) $popup_notif_class="chrome";
+if($is_safari) $popup_notif_class="safari";
 
 get_header(); ?>
     <main id="homepage">
@@ -18,18 +26,21 @@ get_header(); ?>
     </main>
     <a href="#popup-notif" class="fancybox hidden_link" data-fancybox=""></a>
 
-     <!--  chrome & firefox -->
-    <div class="popup-notif chrome" id="popup-notif" style="display:none" >
-        <div class="d-flex">
-            <div class="content">
-                <span class="close close-fancy"></span>
-                <span class="logo-pop"><img  src="<?= IMG_URL ?>logo.png"/></span>
-                <div> Ajouter cette application web sur l'ecran d'accueil</div>
-                <div><span>Appuyez sur</span> <span class="img"><img  src="<?= IMG_URL ?>chrome-trois-points.jpg"/></span></div>
-                <div>sélectionnez <b>Ajouter à l'écran d'accueil</b></div>
+     <!--  pop up notif mobile -->
+    <?php if(wp_is_mobile()) : ?>
+        <div class="popup-notif <?= $popup_notif_class ?>" id="popup-notif" style="display:none" >
+            <div class="d-flex">
+                <div class="content">
+                    <span class="close close-fancy"></span>
+                    <span class="logo-pop"><img  src="<?= IMG_URL ?>logo.png"/></span>
+                    <div> Ajouter cette application web sur l'ecran d'accueil</div>
+                    <div><span>Appuyez sur</span> <span class="img"><img  src="<?= IMG_URL ?>chrome-trois-points.jpg"/></span></div>
+                    <div>sélectionnez <b>Ajouter à l'écran d'accueil</b></div>
+                </div>
             </div>
         </div>
-    </div>
+    <?php endif; ?>
+    <!-- end pop -->
      <!-- safari -->
      <!-- <div class="popup-notif safari" id="popup-notif" style="display:none" >
         <div class="d-flex">
