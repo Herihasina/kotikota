@@ -2006,9 +2006,11 @@ input:checked {
     border-right: 10px solid transparent;
 }
 .popup-notif.safari .content span.img{ margin-left: 5px;}
-.popup-notif.safari .d-flex{ height: 100%;align-items: flex-end;}
+.popup-notif.safari .d-flex,
+.popup-notif.firefox .d-flex{ height: 100%;align-items: flex-end;}
 
-.popup-notif.safari .content:before {
+.popup-notif.safari .content:before,
+.popup-notif.firefox .content:before {
     content: "";
     position: absolute;
     display: block;
