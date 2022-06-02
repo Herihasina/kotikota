@@ -7,9 +7,13 @@ global $is_gecko;
 global $is_chrome;
 global $is_safari;
 $popup_notif_class= "";
+$popup_notif_image="chrome-trois-points.jpg";
 if($is_gecko) $popup_notif_class="firefox";
 if($is_chrome) $popup_notif_class="chrome";
-if($is_safari) $popup_notif_class="safari";
+if($is_safari) {
+    $popup_notif_class="safari";
+    $popup_notif_image="safari-share.jpg";
+}
 
 get_header(); ?>
     <main id="homepage">
@@ -34,7 +38,7 @@ get_header(); ?>
                     <span class="close close-fancy"></span>
                     <span class="logo-pop"><img  src="<?= IMG_URL ?>logo.png"/></span>
                     <div> <?php _e("Ajouter cette application web sur l'ecran d'accueil",'kotikota') ?></div>
-                    <div><span><?php _e("Appuyez sur","kotikota") ?></span> <span class="img"><img  src="<?= IMG_URL ?>chrome-trois-points.jpg"/></span></div>
+                    <div><span><?php _e("Appuyez sur","kotikota") ?></span> <span class="img"><img  src="<?= IMG_URL.$popup_notif_image ?>"/></span></div>
                     <div><?php _e("sélectionnez <b>Ajouter à l'écran d'accueil","kotikota") ?></b></div>
                 </div>
             </div>
