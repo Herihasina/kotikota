@@ -2024,9 +2024,9 @@ input:checked {
 }
 .popup-notif.firefox .content:before {
     left: inherit;
-    right:0
-
+    right:-16px;
 }
+
 .popup-notif.firefox .content{ border-radius: 20px 20px 0 20px; -webkit-border-radius: 20px 20px 0 20px; -moz-border-radius: 20px 20px 0 20px; -ms-border-radius: 20px 20px 0 20px; -o-border-radius: 20px 20px 0 20px; }
 .fancybox-slide--html .popup-notif  .fancybox-close-small { left: 36px;top: 43px!important;color: #000;display: none;}
 
