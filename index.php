@@ -33,9 +33,9 @@ get_header(); ?>
                 <div class="content">
                     <span class="close close-fancy"></span>
                     <span class="logo-pop"><img  src="<?= IMG_URL ?>logo.png"/></span>
-                    <div> Ajouter cette application web sur l'ecran d'accueil</div>
-                    <div><span>Appuyez sur</span> <span class="img"><img  src="<?= IMG_URL ?>chrome-trois-points.jpg"/></span></div>
-                    <div>sélectionnez <b>Ajouter à l'écran d'accueil</b></div>
+                    <div> <?php _e("Ajouter cette application web sur l'ecran d'accueil",'kotikota') ?></div>
+                    <div><span><?php _e("Appuyez sur","kotikota") ?></span> <span class="img"><img  src="<?= IMG_URL ?>chrome-trois-points.jpg"/></span></div>
+                    <div><?php _e("sélectionnez <b>Ajouter à l'écran d'accueil","kotikota") ?></b></div>
                 </div>
             </div>
         </div>
