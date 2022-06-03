@@ -1069,3 +1069,9 @@ function generate_post_to_pdf_file($postID) {
 
       return $url;
   }
+
+  function dump($var){
+    echo "<pre>";
+    var_dump($var);
+    echo "</pre>";
+  }
