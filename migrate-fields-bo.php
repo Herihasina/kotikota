@@ -52,12 +52,12 @@
                 $piece_id = get_field('piece_didentite', 'user_'.$user->ID);
                 if($piece_id){
                     echo "user id: ".$user->ID;
-                    echo get_field('<br> user name: ',$user->ID);
-                    dump($piece_id);
-                    $add_cin_file = add_row('pieces_didentite',array('image' => $piece_id),'user_'.$user->ID);
-                    $test_migration = $add_cin_file;
-                    dump($add_cin_file);
-                    if(!$add_cin_file) return false;
+                    echo get_field('<br> user name: ',$user['first_name'][0]);
+                    // dump($piece_id);
+                    // $add_cin_file = add_row('pieces_didentite',array('image' => $piece_id),'user_'.$user->ID);
+                    // $test_migration = $add_cin_file;
+                    // dump($add_cin_file);
+                    // if(!$add_cin_file) return false;
                 }
 
             }
@@ -67,7 +67,8 @@
     }
 
     echo "<p> migration user CIN to new fields... </p>";
-    dump(migrate_user_cin());
+    
+    echo "results migration: ". migrate_user_cin() ? "success" : "error";
 
     get_footer();
 ?>
