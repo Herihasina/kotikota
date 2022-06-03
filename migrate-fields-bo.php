@@ -18,8 +18,9 @@
     $cagnottes= query_posts( $args );
     if($cagnottes && have_posts(  )){
         foreach ( $cagnottes as $cagnotte){
-            $RIB_fichier = get_field(' rib_fichier', $cagnotte->ID);
-            dump($RIB_fichier);
+            $RIB_fichier = get_field('rib_fichier', $cagnotte->ID);
+            if($RIB_fichier)
+                dump($RIB_fichier);
 
         }
     }
