@@ -21,11 +21,12 @@
             $rib_file_id = get_field('rib_fichier', $cagnotte->ID);
             if($rib_file_id){
                 echo "cagnotte id: ".$cagnotte->ID;
-                echo get_field('nom_de_la_cagnotte',$cagnotte->ID);
-                // dump($rib_file_id);
-                // $rib_file = attachment_url_to_postid(strip_tags($rib_file_id));
-                // $add_rib_file = add_row('fichiers_rib',array('fichier' => $rib_file),$cagnotte->ID);
-                // dump($add_rib_file);
+                echo get_field('<br> nom_de_la_cagnotte',$cagnotte->ID);
+                dump($rib_file_id);
+                $rib_file = attachment_url_to_postid(strip_tags($rib_file_id));
+                dump($rib_file);
+                $add_rib_file = add_row('fichiers_rib',array('fichier' => $rib_file_id),$cagnotte->ID);
+                dump($add_rib_file);
             }
 
         }
