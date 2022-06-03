@@ -13,11 +13,17 @@
         'orderby' => 'ID',
         'order' => 'DESC',
 
-  );
+    );
 
-  $cagnottes= query_posts( $args );
-  dump($cagnottes);
+    $cagnottes= query_posts( $args );
+    if($cagnottes && have_posts(  )){
+        foreach ( $cagnottes as $cagnotte){
+            $RIB_fichier = get_field(' rib_fichier', $cagnotte->ID);
+            dump($RIB_fichier);
+
+        }
+    }
+
+    get_footer();
 ?>
 
-
-<?php get_footer()?>
