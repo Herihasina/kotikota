@@ -52,7 +52,7 @@
                 $piece_id = get_field('piece_didentite', 'user_'.$user->ID);
                 if($piece_id){
                     echo "user id: ".$user->ID;
-                    echo get_field('<br> user name: ',$user['first_name'][0]);
+                    echo get_field('<br> user name: ',$user->first_name[0]);
                     // dump($piece_id);
                     // $add_cin_file = add_row('pieces_didentite',array('image' => $piece_id),'user_'.$user->ID);
                     // $test_migration = $add_cin_file;
