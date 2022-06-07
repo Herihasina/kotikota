@@ -102,30 +102,30 @@ $(function(){
 	  	$.ajax({
 	  		url: ajaxurl,
 	  		data: form_data,
-        contentType: false,
-        processData: false,
-        type:"POST",
-	  	}).done(function(resp){
-	  		$('#loader').removeClass('working');
-				var patt = new RegExp("^http");
-				if( patt.test(resp) ){
-					//window.location = resp;
-					//$('#creer-cagnotte-popup').trigger('click');
-					$.fancybox.open({
-						src : '#pp-felicitation',
-						beforeClose: function() {
-						    window.location = resp;
-						}
-					});
-				}else{
-		  		$('ul#response').addClass('error').html(resp);
-		  		setTimeout(function() {
-		  			$('ul#response').removeClass('error').html('');
-		  		}, 10000 );
-				}
-	  	});
+			contentType: false,
+			processData: false,
+			type:"POST",
+			}).done(function(resp){
+				$('#loader').removeClass('working');
+					var patt = new RegExp("^http");
+					if( patt.test(resp) ){
+						//window.location = resp;
+						//$('#creer-cagnotte-popup').trigger('click');
+						$.fancybox.open({
+							src : '#pp-felicitation',
+							beforeClose: function() {
+								window.location = resp;
+							}
+						});
+					}else{
+					$('ul#response').addClass('error').html(resp);
+					setTimeout(function() {
+						$('ul#response').removeClass('error').html('');
+					}, 10000 );
+					}
+			});
 
-	  	return false;
+			return false;
 	  });
 
 	  $('#pp-felicitation .link').click(function(){

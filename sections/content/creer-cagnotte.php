@@ -321,7 +321,7 @@
                                     <div class="cont-file">
                                         <span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
                                         <input type="text" name="" class="input-file" id="cin_btn">
-                                        <input type="hidden" name="cin_value" value="" id="cin_value">
+                                        <input type="hidden" name="cin_value[]" value="" id="cin_value">
                                         <i class="parcourir"> <?php _e('Parcourir','kotikota'); ?></i>
                                         <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
                                     </div>
