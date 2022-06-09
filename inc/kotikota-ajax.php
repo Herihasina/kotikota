@@ -1170,7 +1170,9 @@ function edit_profile(){
         }
 
         if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
-            $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+            // $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+            $cin_files= explode(';',$cin_value);
+            var_dump($cin_files);die;
         }
     }
 
