@@ -97,8 +97,11 @@
                             <span><?php echo __('Aucun fichier sélectionné', 'kotikota'); ?></span>
                           <?php else:
                               $filenames=""; 
+                              $count_file=1;
                               foreach($cin as $file){
-                                $filenames .=", ".basename (get_attached_file( $file['image'] ));
+                                $count_file++;
+                                $filenames .=basename (get_attached_file( $file['image'] ));
+                                if($count_file != count($cin)) $filenames .=", ";
                               }  
                           ?>
                             <span><?=$filenames ?></span>
