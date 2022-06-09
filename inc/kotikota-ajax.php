@@ -1155,8 +1155,11 @@ function edit_profile(){
 
         if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
             $cin_files= explode(';',$cin_value);
-            var_dump($cin_files);die;
-            $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+            foreach($cin_files as $file){
+                $cin = attachment_url_to_postid(strip_tags($file));
+                if($file)
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $piece_id),'user_'.get_current_user_id());
+            }
         } else if( $_FILES['cin_value_mobile'] ){
             $cin = $_FILES['cin_value_mobile'];
             $cin = $cin['name'];
@@ -1172,15 +1175,19 @@ function edit_profile(){
         if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
             // $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
             $cin_files= explode(';',$cin_value);
-            var_dump($cin_files);die;
+            foreach($cin_files as $file){
+                $cin = attachment_url_to_postid(strip_tags($file));
+                if($file)
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $piece_id),'user_'.get_current_user_id());
+            }   
         }
     }
 
     if( $pdp )
         update_field('photo', $pdp, 'user_'.get_current_user_id());
 
-    if( $cin )
-        update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
+    // if( $cin )
+    //     update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
 
     update_field('code', $_POST['code'], 'user_'.get_current_user_id());
     update_field('numero_de_telephone', strip_tags( $tel ), 'user_'.get_current_user_id());
