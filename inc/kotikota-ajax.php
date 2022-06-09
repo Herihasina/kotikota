@@ -769,9 +769,15 @@ function save_info_banque(){
     $cle       = strip_tags( $_POST['cle'] );
     $iban       = strip_tags( $_POST['iban'] );
     $bic       = strip_tags( $_POST['bic'] );
-    $rib_file  = attachment_url_to_postid(strip_tags($_POST['fichier']));
-
-    update_field('rib_fichier', $rib_file, $idCagnotte );
+    if(isset($_POST['fichier']) && strip_tags( $_POST['fichier'] ) != ''){
+        $rib_files= explode(';',$_POST['fichier']);
+        foreach($rib_files as $file){
+            $rib = attachment_url_to_postid(strip_tags($file));
+            if($file)
+                $add_rib_file = add_row('fichiers_rib',array('fichier' => $rib),$idCagnotte);
+        }
+    }
+    
 
     update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic);
 

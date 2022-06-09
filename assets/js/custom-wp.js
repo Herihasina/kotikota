@@ -727,12 +727,22 @@ $(document).ready(function() {
             return;
         }
         mediaUploader = wp.media.frames.file_frame = wp.media({
-            multiple: false
+            multiple: true
         });
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-            $('#rib_value').val(attachment.url);
-            $('#rib_value').siblings('span').text(attachment.filename);
+            // utilisation pour multiple
+             var attachments_url= [];
+             var attachments_filename= [];
+             var attachments = mediaUploader.state().get('selection').map( 
+                 function( attachment ) {
+                     var json_value= attachment.toJSON();
+                     attachments_url.push(json_value.url);
+                     attachments_filename.push(json_value.filename);
+            });
+            var attachments_filename = attachments_filename.join(', ') ;
+            $('#rib_value').val(attachments_url.join(';'));
+            $('#rib_value').siblings('span').text(attachments_filename);
         });
         mediaUploader.open();
         $("#menu-item-upload").html("Télécharger");
