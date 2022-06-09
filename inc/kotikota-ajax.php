@@ -5,7 +5,6 @@ add_action( 'wp_ajax_create_cagnotte', 'create_cagnotte' );
 function create_cagnotte(){
 
     $erreurs = [];
-    var_dump($_POST);die;
 
     $str = http_build_query($_POST);
     parse_str($str, $Data);
@@ -317,7 +316,8 @@ function create_cagnotte(){
         }
 
         sendNotificationCreation($newPost);
-        $piece_didentite = get_field('piece_didentite', 'user_'.$now_user );
+        $piece_didentite = get_field('piece_didentites', 'user_'.$now_user );
+        var_dump($piece_didentite);die;
 
         $profil_valide = get_field('profil_valide', 'user_'.$now_user );
 
