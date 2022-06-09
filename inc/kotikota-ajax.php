@@ -317,7 +317,6 @@ function create_cagnotte(){
 
         sendNotificationCreation($newPost);
         $piece_didentite = get_field('piece_didentites', 'user_'.$now_user );
-        var_dump($piece_didentite);die;
 
         $profil_valide = get_field('profil_valide', 'user_'.$now_user );
 
