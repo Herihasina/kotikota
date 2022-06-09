@@ -5,6 +5,7 @@ add_action( 'wp_ajax_create_cagnotte', 'create_cagnotte' );
 function create_cagnotte(){
 
     $erreurs = [];
+    var_dump($_POST);die;
 
     $str = http_build_query($_POST);
     parse_str($str, $Data);
@@ -239,12 +240,24 @@ function create_cagnotte(){
                 $cin = get_image_attach_id ( $filename_cin, 'user_'.$now_user );
                 update_field('piece_didentite', $cin, 'user_'.$now_user );
             } else {
-                $cin = attachment_url_to_postid( $cin );
-                update_field('piece_didentite', $cin, 'user_'.$now_user );
+                // $cin = attachment_url_to_postid( $cin );
+                $cin_files= explode(';',$cin_value);
+                foreach($cin_files as $file){
+                    $cin = attachment_url_to_postid(strip_tags($file));
+                    if($file)
+                        $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.$now_user);
+                }
+                // update_field('piece_didentite', $cin, 'user_'.$now_user );
             }
         }elseif( 'desktop' == $device ){
-            $cin = attachment_url_to_postid( $cin );
-            update_field('piece_didentite', $cin, 'user_'.$now_user );
+            // $cin = attachment_url_to_postid( $cin );
+            // update_field('piece_didentite', $cin, 'user_'.$now_user );
+            $cin_files= explode(';',$cin_value);
+            foreach($cin_files as $file){
+                $cin = attachment_url_to_postid(strip_tags($file));
+                if($file)
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.$now_user);
+            }
         }
 
     }
