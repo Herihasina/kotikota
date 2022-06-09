@@ -988,15 +988,21 @@ $(function(){
             return;
         }
         mediaUploader = wp.media.frames.file_frame = wp.media({
-            multiple: false
+            multiple: true
         });
         mediaUploader.on('select', function() {
-            var attachment = mediaUploader.state().get('selection').first().toJSON();
+            // var attachment = mediaUploader.state().get('selection').first().toJSON();
+			var attachments_url= [];
+			var attachments = mediaUploader.state().get('selection').map( 
+                function( attachment ) {
+                    var json_value= attachment.toJSON();
+                    attachments_url.push(json_value.url);
+            });
 			$.ajax({
                 url: ajaxurl,
                 data: {
                     'action': 'insert_doc_cagnotte',
-                    'doc_file' : attachment.url,
+                    'doc_file' : attachments_url.join(';'),
                     'cagnotte_id': cagnotte_id
                 },
                 dataType: 'html',
@@ -1005,12 +1011,6 @@ $(function(){
                 $('#pp-document #list-documents').html(resp);
 
             });
-
-			// utilisation pour multiple
-			// var attachments = mediaUploader.state().get('selection').map( 
-            //     function( attachment ) {
-            //         console.log(attachment.toJSON());
-            // });
 
         });
         mediaUploader.open();

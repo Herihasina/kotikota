@@ -1430,8 +1430,13 @@ function insert_doc_cagnotte(){
         parse_str($str, $Data);
         extract($Data);
 
-        $doc = attachment_url_to_postid(strip_tags($doc_file));
-        $add_doc = add_row('liste_document_fichiers_cagnotte',array('fichier' => $doc),$cagnotte_id);
+        //selection multiple
+        $doc_files = explode(';',$doc_file);
+        foreach($doc_files as $file){
+            $doc = attachment_url_to_postid(strip_tags($file));
+            $add_doc = add_row('liste_document_fichiers_cagnotte',array('fichier' => $doc),$cagnotte_id);
+        }
+        
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
         $curr_userdata = wp_get_current_user();
         if($add_doc){
