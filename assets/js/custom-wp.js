@@ -691,7 +691,7 @@ $(document).ready(function() {
             var attachments_url= [];
 			var attachments = mediaUploader.state().get('selection').map( 
                 function( attachment ) {
-                    var json_value= attachment;
+                    var json_value= attachment.toJSON();
                     attachments_url.push(json_value.url);
             });
             // $('#cin_value').val(attachment.url);
