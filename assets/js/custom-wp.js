@@ -689,14 +689,16 @@ $(document).ready(function() {
             // var attachment = mediaUploader.state().get('selection').first().toJSON();
             // utilisation pour multiple
             var attachments_url= [];
+            var attachments_filename= [];
 			var attachments = mediaUploader.state().get('selection').map( 
                 function( attachment ) {
                     var json_value= attachment.toJSON();
                     attachments_url.push(json_value.url);
+                    attachments_filename.push(json_value.filename);
             });
             // $('#cin_value').val(attachment.url);
-            $('#cin_value').val(attachments_url);
-            var attachments_filename = attachments_url.join(', ') ;
+            $('#cin_value').val( attachments_url.join(';'));
+            var attachments_filename = attachments_filename.join(', ') ;
             $('.zone-img-cin').css('background', 'center / cover no-repeat url(' + $('#cin_value').val() + ')');
             $('#cin_value').siblings('span').text(attachments_filename);
             $('.blcFormulaire .parcourir').text(text_customwp.fichier_ajoute);
