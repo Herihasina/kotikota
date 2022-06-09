@@ -242,7 +242,7 @@
 						                                  		<span><?= implode(", ", $info->rib_file) ?></span>
 						                                  	<?php endif; ?>
 						                                    <input type="text" name="file[]" class="input-file" id="rib_btn">
-						                                    <input type="hidden" name="" value="<?= implode(",", $info->rib_file) ?>" id="rib_value">
+						                                    <input type="hidden" name="" value="" id="rib_value">
 						                                    <i> <?php _e('Parcourir','kotikota'); ?></i>
 						                                    <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
 						                                </div>
