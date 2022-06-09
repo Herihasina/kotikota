@@ -1178,7 +1178,7 @@ function edit_profile(){
             foreach($cin_files as $file){
                 $cin = attachment_url_to_postid(strip_tags($file));
                 if($file)
-                    $add_cin_file = add_row('pieces_didentite',array('image' => $piece_id),'user_'.get_current_user_id());
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.get_current_user_id());
             }   
         }
     }
