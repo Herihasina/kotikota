@@ -1081,6 +1081,7 @@ add_action( 'wp_ajax_edit_profile', 'edit_profile' );
 
 function edit_profile(){
 
+    var_dump($_POST);die;
     $str = http_build_query($_POST);
     parse_str($str, $Data);
     extract($Data);

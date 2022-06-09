@@ -696,8 +696,9 @@ $(document).ready(function() {
             });
             // $('#cin_value').val(attachment.url);
             $('#cin_value').val(attachments_url);
+            var attachments_filename = attachments_url.join(', ') ;
             $('.zone-img-cin').css('background', 'center / cover no-repeat url(' + $('#cin_value').val() + ')');
-            $('#cin_value').siblings('span').text(attachment.filename);
+            $('#cin_value').siblings('span').text(attachments_filename);
             $('.blcFormulaire .parcourir').text(text_customwp.fichier_ajoute);
             $('.blcFormulaire .parcourir').addClass('nonvide');
 
