@@ -98,7 +98,7 @@
                           <?php else:
                               $filenames=""; 
                               foreach($cin as $file){
-                                $filenames .=basename (get_attached_file( $file['image'] ));
+                                $filenames .=", ".basename (get_attached_file( $file['image'] ));
                               }  
                           ?>
                             <span><?=$filenames ?></span>
