@@ -1632,8 +1632,13 @@ function insert_image_cagnotte(){
         parse_str($str, $Data);
         extract($Data);
 
-        $image = attachment_url_to_postid(strip_tags($image_url));
-        $add_doc = add_row('liste_images_cagnotte',array('image' => $image),$cagnotte_id);
+        //selection multiple
+        $image_files = explode(';',$image_url);
+        foreach($image_files as $file){
+            $image = attachment_url_to_postid(strip_tags($file));
+            $add_image = add_row('liste_images_cagnotte',array('image' => $image),$cagnotte_id);
+        }
+        
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
         $curr_userdata = wp_get_current_user();
         $photos = get_field('liste_images_cagnotte',$cagnotte_id);

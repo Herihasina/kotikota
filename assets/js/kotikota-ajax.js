@@ -1037,16 +1037,22 @@ $(function(){
             return;
         }
         mediaUploaderImage = wp.media.frames.file_frame = wp.media({
-            multiple: false
+            multiple: true
         });
         mediaUploaderImage.on('select', function() {
 			console.log("image upload");
-            var attachment = mediaUploaderImage.state().get('selection').first().toJSON();
+            // var attachment = mediaUploaderImage.state().get('selection').first().toJSON();
+			var attachments_url= [];
+			var attachments = mediaUploaderImage.state().get('selection').map( 
+                function( attachment ) {
+                    var json_value= attachment.toJSON();
+                    attachments_url.push(json_value.url);
+            });
             $.ajax({
                 url: ajaxurl,
                 data: {
                     'action': 'insert_image_cagnotte',
-                    'image_url' : attachment.url,
+                    'image_url' : attachments_url.join(';'),
                     'cagnotte_id': cagnotte_id
                 },
                 dataType: 'html',
