@@ -1158,7 +1158,7 @@ function edit_profile(){
             foreach($cin_files as $file){
                 $cin = attachment_url_to_postid(strip_tags($file));
                 if($file)
-                    $add_cin_file = add_row('pieces_didentite',array('image' => $piece_id),'user_'.get_current_user_id());
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.get_current_user_id());
             }
         } else if( $_FILES['cin_value_mobile'] ){
             $cin = $_FILES['cin_value_mobile'];
@@ -1173,7 +1173,6 @@ function edit_profile(){
         }
 
         if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
-            // $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
             $cin_files= explode(';',$cin_value);
             foreach($cin_files as $file){
                 $cin = attachment_url_to_postid(strip_tags($file));
