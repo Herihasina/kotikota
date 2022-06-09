@@ -99,7 +99,7 @@
                             <span><?= basename ( get_attached_file( $cin ) ); ?></span>
                           <?php endif; ?>
                           <input type="text" class="input-file" id="cin_btn">
-                          <input type="hidden" name="cin_value[]" value="" id="cin_value">
+                          <input type="hidden" name="cin_value" value="" id="cin_value">
                           <i class="parcourir <?php if ($cin){ echo 'nonvide'; }else{ echo '';} ?>">
                             <?php
                             if($cin){
