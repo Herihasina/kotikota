@@ -139,10 +139,12 @@
                             <label><?php _e('Ajouter un RIB','kotikota'); ?></label>
                            <!--  <div class="chp">
                                 <div class="cont-file">
-                                		<?php if( $info->rib_file == '' || $info->rib_file == 0 ): ?>
+                                		<?php if( ! $info->rib_file && count($info->rib_file) == 0 ): ?>
                                     	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
-                                  	<?php else: ?>
-                                  		<span><?= get_the_title( $info->rib_file ) ?></span>
+                                  	<?php else: 
+										$files_name= implode(", ", $info->rib_file);
+									?>
+                                  		<span><?= $files_name ?></span>
                                   	<?php endif; ?>
                                     <input type="text" name="file[]" class="input-file" id="rib_btn">
                                     <input type="hidden" name="" value="<?= $info->rib_file ?>" id="rib_value">
@@ -152,7 +154,7 @@
                                 <div class="zone-img-rib"></div>
                             </div> -->
                             <div class="blc-rib">
-                            	<input type="text" name="rib" class="chp" id="rib" placeholder="<?php if( $info->rib_file == '' || $info->rib_file == 0 ){ _e('Aucun fichier','kotikota'); } else { echo get_the_title( $info->rib_file ); } ?>" required="" value="">
+                            	<input type="text" name="rib" class="chp" id="rib" placeholder="<?php if( ! $info->rib_file && count($info->rib_file) == 0  ){ _e('Aucun fichier','kotikota'); } else { echo implode(", ", $info->rib_file); } ?>" required="" value="">
                             	<a href="#pp-rib" class="link submit fancybox"><?php _e('Remplir le RIB du Bénéficiaire','kotikota') ?></a>
                             </div>
 
@@ -234,13 +236,13 @@
                             						<label><?php _e('Ajouter un RIB','kotikota'); ?></label>
 						                            <div class="chpfile">
 						                                <div class="cont-file">
-						                                		<?php if( $info->rib_file == '' || $info->rib_file == 0 ): ?>
+						                                		<?php if( !$info->rib_file && count($info->rib_file) == 0  ): ?>
 						                                    	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
 						                                  	<?php else: ?>
-						                                  		<span><?= get_the_title( $info->rib_file ) ?></span>
+						                                  		<span><?= implode(", ", $info->rib_file) ?></span>
 						                                  	<?php endif; ?>
 						                                    <input type="text" name="file[]" class="input-file" id="rib_btn">
-						                                    <input type="hidden" name="" value="<?= $info->rib_file ?>" id="rib_value">
+						                                    <input type="hidden" name="" value="<?= implode(",", $info->rib_file) ?>" id="rib_value">
 						                                    <i> <?php _e('Parcourir','kotikota'); ?></i>
 						                                    <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
 						                                </div>
