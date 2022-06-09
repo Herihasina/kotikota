@@ -99,9 +99,9 @@
                               $filenames=""; 
                               $count_file=1;
                               foreach($cin as $file){
-                                $count_file++;
                                 $filenames .=basename (get_attached_file( $file['image'] ));
                                 if($count_file != count($cin)) $filenames .=", ";
+                                $count_file++;
                               }  
                           ?>
                             <span><?=$filenames ?></span>
