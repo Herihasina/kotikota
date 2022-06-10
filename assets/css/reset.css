@@ -1096,10 +1096,10 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .fom-participe .formulaire .check .chp:after { content: ''; display: block; width: 26px; height: 26px; background: url(../images/ico-check2.png); position: absolute; right: 20px; top: 0; bottom: 0; margin: auto }
 .fom-participe .formulaire .check .chp input { font-weight: 600; color: #7b7b7b }
 .fom-participe .pseudo-img-wrap .inner{ display: flex;flex-wrap: wrap; }
-.fom-participe .pseudo-img-wrap .inner a { display: block;}
+.fom-participe .pseudo-img-wrap .inner a { display: block; height: 65px;}
 .fom-participe .pseudo-img-wrap .inner .img{ padding: 5px;}
 .fom-participe .pseudo-img-wrap .inner img{ width: 50px;height: 50px;display: block;}
-.fom-participe .pseudo-img-wrap .inner .img:hover img{ width: 60px; height: 60px; transition all ease-in-out:0.5s; -webkit-transform:; -moz-transform:; -ms-transform:; -o-transform:; -webkit-transition:; -moz-transition:; -ms-transition:; -o-transition:; }
+.fom-participe .pseudo-img-wrap .inner .img:hover img{ transform: scale(1.2); transition all ease-in-out:0.5s; -webkit-transform:; -moz-transform:; -ms-transform:; -o-transform:; -webkit-transition:; -moz-transition:; -ms-transition:; -o-transition:; }
 
 
 .blc-radio .option ul                           { list-style: none;display: flex;align-items: center;flex-wrap: wrap;}
