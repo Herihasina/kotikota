@@ -283,13 +283,19 @@ $(document).ready(function() {
 
             $("#menu-item-browse").click();
             $("#menu-item-browse").css("display","block");
-            $(".media-uploader-status .h2").html("Téléchargement");
+            $(".media-sidebar").css("display","none");
+            $(".media-sidebar").css("position","unset");
+            $(".attachments-wrapper").css("right",0);
+            $(".media-uploader-status").css('display','none');
 
 
             $("#menu-item-upload").click(function(e) {
                 $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
                 $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-                $(".media-uploader-status .h2").html("Téléchargement");
+                $(".media-sidebar").css("display","none");
+                $(".media-sidebar").css("position","unset");
+                $(".attachments-wrapper").css("right",0);
+                $(".media-uploader-status").css('display','none');
             });
             mediaUploader.open();
             return;
@@ -298,7 +304,7 @@ $(document).ready(function() {
         mediaUploader = wp.media.frames.file_frame = wp.media({
             multiple: false
         });
-        
+
         mediaUploader.on('select', function() {
 
             var attachment = mediaUploader.state().get('selection').first().toJSON();
@@ -331,14 +337,20 @@ $(document).ready(function() {
         $("#menu-item-upload").html("Télécharger des fichiers");
         $("#menu-item-browse").html("Galerie de photos");
         $("#menu-item-upload").insertAfter('#menu-item-browse')
-        $(".media-uploader-status .h2").html("Téléchargement");
+        $(".media-sidebar").css("display","none");
+        $(".media-sidebar").css("position","unset");
+        $(".attachments-wrapper").css("right",0);
+        $(".media-uploader-status").css('display','none');
 
         $("#menu-item-browse").click();
 
         $("#menu-item-upload").click(function(e) {
             $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
             $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-            $(".media-uploader-status .h2").html("Téléchargement");
+            $(".media-sidebar").css("display","none");
+            $(".media-sidebar").css("position","unset");
+            $(".attachments-wrapper").css("right",0);
+            $(".media-uploader-status").css('display','none');
         });
     });
     function getMeta(url, callback) {
