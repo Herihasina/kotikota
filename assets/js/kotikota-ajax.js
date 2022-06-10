@@ -980,7 +980,8 @@ $(function(){
         if (mediaUploader) {
             $("#menu-item-upload").html(text.conf_document_upload);
             $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
+            $("#menu-item-browse").html("Galerie");
+        	$("#menu-item-browse").css("display","block");
             $(".media-uploader-status .h2").html(text.conf_document_upload_status);
             $("h2.upload-instructions").text(text.conf_document_upload_instuction);
             $("p.max-upload-size").text(text.conf_document_upload_taille);
@@ -1016,7 +1017,8 @@ $(function(){
         mediaUploader.open();
         $("#menu-item-upload").html(text.conf_document_upload);
         $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
+        $("#menu-item-browse").html("Galerie");
+        $("#menu-item-browse").css("display","block");
         $(".media-uploader-status .h2").html(text.conf_document_upload_status);
         $("h2.upload-instructions").text(text.conf_document_upload_instuction);
         $("p.max-upload-size").text(text.conf_document_upload_taille);
@@ -1029,7 +1031,8 @@ $(function(){
         if (mediaUploaderImage) {
             $("#menu-item-upload").html(text.conf_document_upload);
             $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
+            $("#menu-item-browse").html("Galerie");
+        	$("#menu-item-browse").css("display","block");
             $(".media-uploader-status .h2").html(text.conf_document_upload_status);
             $("h2.upload-instructions").text(text.conf_document_upload_instuction);
             $("p.max-upload-size").text(text.conf_document_upload_taille);
@@ -1067,7 +1070,8 @@ $(function(){
         mediaUploaderImage.open();
         $("#menu-item-upload").html(text.conf_document_upload);
         $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
+        $("#menu-item-browse").html("Galerie");
+        $("#menu-item-browse").css("display","block");
         $(".media-uploader-status .h2").html(text.conf_document_upload_status);
         $("h2.upload-instructions").text(text.conf_document_upload_instuction);
         $("p.max-upload-size").text(text.conf_document_upload_taille);

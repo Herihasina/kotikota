@@ -688,7 +688,8 @@ $(document).ready(function() {
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger");
             $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
+            $("#menu-item-browse").html("Galerie");
+            $("#menu-item-browse").css("display","block");
             $(".media-uploader-status .h2").html("Téléchargement");
             $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
             $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
@@ -721,7 +722,8 @@ $(document).ready(function() {
         mediaUploader.open();
         $("#menu-item-upload").html("Télécharger");
         $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
+        $("#menu-item-browse").html("Galerie");
+        $("#menu-item-browse").css("display","block");
         $(".media-uploader-status .h2").html("Téléchargement");
         $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
         $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
@@ -732,7 +734,8 @@ $(document).ready(function() {
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger");
             $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
+            $("#menu-item-browse").html("Galerie");
+        $("#menu-item-browse").css("display","block");
             $(".media-uploader-status .h2").html("Téléchargement");
             $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
             $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
@@ -760,7 +763,8 @@ $(document).ready(function() {
         mediaUploader.open();
         $("#menu-item-upload").html("Télécharger");
         $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
+        $("#menu-item-browse").html("Galerie");
+        $("#menu-item-browse").css("display","block");
         $(".media-uploader-status .h2").html("Téléchargement");
         $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
         $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
