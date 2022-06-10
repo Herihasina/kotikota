@@ -277,42 +277,28 @@ $(document).ready(function() {
         });
         e.preventDefault();
         if (mediaUploader) {
-            // $("#menu-item-upload").html("Télécharger des fichiers");
-            // $("#menu-item-browse").html("Galerie de photos");
-            // $("#menu-item-upload").insertAfter('#menu-item-browse')
+            $("#menu-item-upload").html("Télécharger des fichiers");
+            $("#menu-item-browse").html("Galerie de photos");
+            $("#menu-item-upload").insertAfter('#menu-item-browse')
 
-            // $("#menu-item-browse").click();
-            // $("#menu-item-browse").css("display","block");
-            // $(".media-uploader-status .h2").html("Téléchargement");
+            $("#menu-item-browse").click();
+            $("#menu-item-browse").css("display","block");
+            $(".media-uploader-status .h2").html("Téléchargement");
 
 
-            // $("#menu-item-upload").click(function(e) {
-            //     $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            //     $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-            //     $(".media-uploader-status .h2").html("Téléchargement");
-            // });
+            $("#menu-item-upload").click(function(e) {
+                $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
+                $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+                $(".media-uploader-status .h2").html("Téléchargement");
+            });
             mediaUploader.open();
             return;
         }
 
-        // mediaUploader = wp.media.frames.file_frame = wp.media({
-        //     multiple: false
-        // });
-
-        mediaUploader = wp.media.frames.items = wp.media({
-            title: 'Add to Gallery',
-            button: {
-                text: 'Select'
-            },
-            states: [
-                new wp.media.controller.Library({
-                    title: 'Add to Gallery',
-                    filterable: 'all',
-                    type: ['image', 'video'],
-                    multiple: true
-                })
-            ]
+        mediaUploader = wp.media.frames.file_frame = wp.media({
+            multiple: false
         });
+        
         mediaUploader.on('select', function() {
 
             var attachment = mediaUploader.state().get('selection').first().toJSON();
