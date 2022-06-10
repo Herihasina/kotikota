@@ -189,6 +189,7 @@ function add_custom_size(){
     add_image_size( 'banniere-single', 1024, 421, true );
     add_image_size( 'flag-translate', 31, 31, true );
     add_image_size( 'icone-serasera', 80, 80, true );
+    add_image_size( 'avatar-participation', 90, 90, true );
 }
 
 add_action('after_setup_theme', 'remove_admin_bar');
