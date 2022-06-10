@@ -147,9 +147,9 @@ h1, h2, h3, h4, h5, h6                                      { font-weight: norma
 select option                                               { padding: 10px 30px !important;}
 
 /* media upload */
-.media-sidebar{ display: "none"!important ;position:"unset"!important ;}
-.attachments-wrapper{ right: 0!important}
-.media-uploader-status{display:'none'!important}
+.media-sidebar{ display: none !important ;}
+.attachments-wrapper{ right: 0 !important}
+.media-uploader-status{display:none !important}
 
 /* fin media upload */
 /* CLASS */
