@@ -687,7 +687,7 @@ $(document).ready(function() {
         var mediaUploader;
         e.preventDefault();
         if (mediaUploader) {
-            $("#menu-item-upload").html("Télécharger des fichiers");
+            $("#menu-item-upload").html(text.conf_document_upload);
             $("#menu-item-browse").html("Galerie");
             $("#menu-item-browse").click();
 
@@ -728,7 +728,7 @@ $(document).ready(function() {
 
         });
         mediaUploader.open();
-        $("#menu-item-upload").html("Télécharger des fichiers");
+        $("#menu-item-upload").html(text.conf_document_upload);
         $("#menu-item-browse").html("Galerie");
         $("#menu-item-browse").click();
 
@@ -746,7 +746,7 @@ $(document).ready(function() {
         var mediaUploader;
         e.preventDefault();
         if (mediaUploader) {
-            $("#menu-item-upload").html("Télécharger");
+            $("#menu-item-upload").html(text.conf_document_upload);
             $("#menu-item-browse").html("Galerie");
             $("#menu-item-browse").click();
 
@@ -783,7 +783,7 @@ $(document).ready(function() {
             $('#rib_value').siblings('span').text(attachments_filename);
         });
         mediaUploader.open();
-        $("#menu-item-upload").html("Télécharger");
+        $("#menu-item-upload").html(text.conf_document_upload);
         $("#menu-item-browse").html("Galerie");
         $("#menu-item-browse").click();
 
