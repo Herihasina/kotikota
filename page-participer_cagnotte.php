@@ -149,7 +149,7 @@
                                                 foreach ( $imgs as $img ):
                                             ?>
                                                   <div class="img">
-                                                     <a href="#" data-imgsrc="<?php echo wp_get_attachment_image_url( $img['image_prop'], 'full' ) ?>"><?php echo wp_get_attachment_image( $img['image_prop'], 'cagnotte-choix-upload' ) ?></a>
+                                                     <a href="#" data-imgsrc="<?php echo wp_get_attachment_image_url( $img['image_prop'], 'full' ) ?>"><?php echo wp_get_attachment_image( $img['image_prop'], 'avatar-participation' ) ?></a>
                                                   </div>
                                             <?php 
                                                 endforeach;
