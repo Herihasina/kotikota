@@ -239,12 +239,24 @@ function create_cagnotte(){
                 $cin = get_image_attach_id ( $filename_cin, 'user_'.$now_user );
                 update_field('piece_didentite', $cin, 'user_'.$now_user );
             } else {
-                $cin = attachment_url_to_postid( $cin );
-                update_field('piece_didentite', $cin, 'user_'.$now_user );
+                // $cin = attachment_url_to_postid( $cin );
+                $cin_files= explode(';',$cin_value);
+                foreach($cin_files as $file){
+                    $cin = attachment_url_to_postid(strip_tags($file));
+                    if($file)
+                        $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.$now_user);
+                }
+                // update_field('piece_didentite', $cin, 'user_'.$now_user );
             }
         }elseif( 'desktop' == $device ){
-            $cin = attachment_url_to_postid( $cin );
-            update_field('piece_didentite', $cin, 'user_'.$now_user );
+            // $cin = attachment_url_to_postid( $cin );
+            // update_field('piece_didentite', $cin, 'user_'.$now_user );
+            $cin_files= explode(';',$cin_value);
+            foreach($cin_files as $file){
+                $cin = attachment_url_to_postid(strip_tags($file));
+                if($file)
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.$now_user);
+            }
         }
 
     }
@@ -304,15 +316,16 @@ function create_cagnotte(){
         }
 
         sendNotificationCreation($newPost);
-        $piece_didentite = get_field('piece_didentite', 'user_'.$now_user );
+        $piece_didentite = get_field('piece_didentites', 'user_'.$now_user );
 
         $profil_valide = get_field('profil_valide', 'user_'.$now_user );
 
         if( !$piece_didentite && !$profil_valide )
             sendRappelPostCreation( $now_user );
 
-        $single = get_permalink( $newPost );
-        echo "$single";
+        // $single = get_permalink( $newPost );
+        // echo "$single";
+        echo home_url();
     }
     wp_die();
 
@@ -756,9 +769,15 @@ function save_info_banque(){
     $cle       = strip_tags( $_POST['cle'] );
     $iban       = strip_tags( $_POST['iban'] );
     $bic       = strip_tags( $_POST['bic'] );
-    $rib_file  = attachment_url_to_postid(strip_tags($_POST['fichier']));
-
-    update_field('rib_fichier', $rib_file, $idCagnotte );
+    if(isset($_POST['fichier']) && strip_tags( $_POST['fichier'] ) != ''){
+        $rib_files= explode(';',$_POST['fichier']);
+        foreach($rib_files as $file){
+            $rib = attachment_url_to_postid(strip_tags($file));
+            if($file)
+                $add_rib_file = add_row('fichiers_rib',array('fichier' => $rib),$idCagnotte);
+        }
+    }
+    
 
     update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic);
 
@@ -1153,7 +1172,12 @@ function edit_profile(){
         }
 
         if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
-            $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+            $cin_files= explode(';',$cin_value);
+            foreach($cin_files as $file){
+                $cin = attachment_url_to_postid(strip_tags($file));
+                if($file)
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.get_current_user_id());
+            }
         } else if( $_FILES['cin_value_mobile'] ){
             $cin = $_FILES['cin_value_mobile'];
             $cin = $cin['name'];
@@ -1167,15 +1191,20 @@ function edit_profile(){
         }
 
         if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
-            $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+            $cin_files= explode(';',$cin_value);
+            foreach($cin_files as $file){
+                $cin = attachment_url_to_postid(strip_tags($file));
+                if($file)
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.get_current_user_id());
+            }   
         }
     }
 
     if( $pdp )
         update_field('photo', $pdp, 'user_'.get_current_user_id());
 
-    if( $cin )
-        update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
+    // if( $cin )
+    //     update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
 
     update_field('code', $_POST['code'], 'user_'.get_current_user_id());
     update_field('numero_de_telephone', strip_tags( $tel ), 'user_'.get_current_user_id());
@@ -1401,8 +1430,13 @@ function insert_doc_cagnotte(){
         parse_str($str, $Data);
         extract($Data);
 
-        $doc = attachment_url_to_postid(strip_tags($doc_file));
-        $add_doc = add_row('liste_document_fichiers_cagnotte',array('fichier' => $doc),$cagnotte_id);
+        //selection multiple
+        $doc_files = explode(';',$doc_file);
+        foreach($doc_files as $file){
+            $doc = attachment_url_to_postid(strip_tags($file));
+            $add_doc = add_row('liste_document_fichiers_cagnotte',array('fichier' => $doc),$cagnotte_id);
+        }
+        
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
         $curr_userdata = wp_get_current_user();
         if($add_doc){
@@ -1598,8 +1632,13 @@ function insert_image_cagnotte(){
         parse_str($str, $Data);
         extract($Data);
 
-        $image = attachment_url_to_postid(strip_tags($image_url));
-        $add_doc = add_row('liste_images_cagnotte',array('image' => $image),$cagnotte_id);
+        //selection multiple
+        $image_files = explode(';',$image_url);
+        foreach($image_files as $file){
+            $image = attachment_url_to_postid(strip_tags($file));
+            $add_image = add_row('liste_images_cagnotte',array('image' => $image),$cagnotte_id);
+        }
+        
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
         $curr_userdata = wp_get_current_user();
         $photos = get_field('liste_images_cagnotte',$cagnotte_id);

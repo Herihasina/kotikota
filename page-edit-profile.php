@@ -92,11 +92,19 @@
                     <div class="chp" style=""><!--desk-only-->
                         <div class="cont-file">
                           <?php
-                            $cin = get_field('piece_didentite','user_'.get_current_user_id() );
+                            $cin = get_field('pieces_didentite','user_'.get_current_user_id() );
                             if( !$cin ): ?>
                             <span><?php echo __('Aucun fichier sélectionné', 'kotikota'); ?></span>
-                          <?php else: ?>
-                            <span><?= basename ( get_attached_file( $cin ) ); ?></span>
+                          <?php else:
+                              $filenames=""; 
+                              $count_file=1;
+                              foreach($cin as $file){
+                                $filenames .=basename (get_attached_file( $file['image'] ));
+                                if($count_file != count($cin)) $filenames .=", ";
+                                $count_file++;
+                              }  
+                          ?>
+                            <span><?=$filenames ?></span>
                           <?php endif; ?>
                           <input type="text" class="input-file" id="cin_btn">
                           <input type="hidden" name="cin_value" value="" id="cin_value">

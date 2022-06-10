@@ -121,6 +121,25 @@ function load_front_assets() {
             'fichier_ajoute' => __('Fichier ajouté', 'kotikota'),
         )
     );
+    wp_localize_script( 'custom-wp', 'text',
+        array(
+            'conf_montant_devise' => __('Montant équivalent : ', 'kotikota'),
+            'conf_invite_email' => __('Votre invitation a bien été envoyée !', 'kotikota'),
+            'conf_titre_save_notif' => __('Notification par email', 'kotikota'),
+            'conf_relance_auto' => __('La relance automatique a été effectuée !', 'kotikota'),
+            'conf_cloture' => __('La cagnotte a bien été clôturée !', 'kotikota'),
+            'conf_document_upload' => __('Télécharger', 'kotikota'),
+            'conf_document_upload_status' => __('Téléchargement', 'kotikota'),
+            'conf_document_upload_instuction' => __('Déposez vos fichiers pour les télécharger', 'kotikota'),
+            'conf_document_upload_taille' => __('Taille de fichier maximale pour le téléchargement : 8 Mo.', 'kotikota'),
+            'list_priv' => __('privee', 'kotikota'),
+            'list_frais_6' => __('Frais 6%', 'kotikota'),
+            'list_perso' => __('Personnelle', 'kotikota'),
+            'list_solid' => __('Solidaire', 'kotikota'),
+            'list_pub' => __('publique', 'kotikota'),
+            'list_frais_3' => __('Frais 3%', 'kotikota'),
+        )
+    );
 
 }
 add_action( 'wp_enqueue_scripts', 'load_front_assets' );

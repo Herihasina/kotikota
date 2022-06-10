@@ -146,6 +146,13 @@ p                                                           { margin-bottom: 30p
 h1, h2, h3, h4, h5, h6                                      { font-weight: normal; }
 select option                                               { padding: 10px 30px !important;}
 
+/* media upload */
+.attachments-browser .media-toolbar{ right: 0 !important;}
+.media-sidebar{ display: none !important ;}
+.attachments-wrapper{ right: 0 !important}
+.media-uploader-status{display:none !important}
+
+/* fin media upload */
 /* CLASS */
 .clear                                                      { clear:both; float:none !important; width:100% !important; padding:0 !important; margin:0 !important; display:block;}
 .clr:after                                                  { content:''; display:table; width:100%; clear:both}
@@ -1088,6 +1095,11 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .fom-participe .formulaire .participe .chp:after { content: ''; display: block; width: 18px; height: 12px; background: url(../images/ar2.png); position: absolute; right: 20px; top: 0; bottom: 0; margin: auto }
 .fom-participe .formulaire .check .chp:after { content: ''; display: block; width: 26px; height: 26px; background: url(../images/ico-check2.png); position: absolute; right: 20px; top: 0; bottom: 0; margin: auto }
 .fom-participe .formulaire .check .chp input { font-weight: 600; color: #7b7b7b }
+.fom-participe .pseudo-img-wrap .inner{ display: flex;flex-wrap: wrap; }
+.fom-participe .pseudo-img-wrap .inner a { display: block;}
+.fom-participe .pseudo-img-wrap .inner .img{ padding: 10px;}
+.fom-participe .pseudo-img-wrap .inner img{ width: 60px;height: 60px;}
+
 
 .blc-radio .option ul                           { list-style: none;display: flex;align-items: center;flex-wrap: wrap;}
 .blc-radio .option ul li                        { display: block; position: relative; float: left  }
@@ -1987,7 +1999,7 @@ input:checked {
 /*** POPUP NOTIF ***/
 .hidden_link{ position: absolute;opacity: 0;left: -99999px;}
 .popup-notif{ background:none;height: calc(100vh - 40px);max-width: 480px;font-size: 12px;padding-top: 50px;text-align: center;position: relative;}
-.popup-notif .content{ background:#ffffff;padding: 25px 15px;position: relative;border-radius: 20px;}
+.popup-notif .content{ background:#ffffff; padding: 25px 15px; position: relative; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -ms-border-radius: 20px; -o-border-radius: 20px; }
 .popup-notif .content .close{ width:25px;height: 25px;background:url(../images/close-w.png)center no-repeat #8d4a8f;border-radius: 50%;position: absolute;top: 5px;left: 5px;opacity: 1;}
 .popup-notif .content span{ display: inline-block;vertical-align: middle;}
 .popup-notif .content span img{ display: block;}
@@ -1999,16 +2011,18 @@ input:checked {
     position: absolute;
     display: block;
     width: 0px;
-    right: 12px;
+    right: 0;
     top: -28px;
     border-bottom: 30px solid white;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
 }
 .popup-notif.safari .content span.img{ margin-left: 5px;}
-.popup-notif.safari .d-flex{ height: 100%;align-items: flex-end;}
-
-.popup-notif.safari .content:before {
+.popup-notif.safari .d-flex,
+.popup-notif.firefox .d-flex{ height: 100%;align-items: flex-end;}
+.popup-notif.chrome .content{ border-radius: 20px 0 20px 20px; -webkit-border-radius: 20px 0 20px 20px; -moz-border-radius: 20px 0 20px 20px; -ms-border-radius: 20px 0 20px 20px; -o-border-radius: 20px 0 20px 20px; }
+.popup-notif.safari .content:before,
+.popup-notif.firefox .content:before {
     content: "";
     position: absolute;
     display: block;
@@ -2020,8 +2034,12 @@ input:checked {
     border-top: 30px solid #ffffff;
     transform: translate(-50%, calc(100% + 5px));
 }
+.popup-notif.firefox .content:before {
+    left: inherit;
+    right:-16px;
+}
 
-
+.popup-notif.firefox .content{ border-radius: 20px 20px 0 20px; -webkit-border-radius: 20px 20px 0 20px; -moz-border-radius: 20px 20px 0 20px; -ms-border-radius: 20px 20px 0 20px; -o-border-radius: 20px 20px 0 20px; }
 .fancybox-slide--html .popup-notif  .fancybox-close-small { left: 36px;top: 43px!important;color: #000;display: none;}
 
 

@@ -102,30 +102,30 @@ $(function(){
 	  	$.ajax({
 	  		url: ajaxurl,
 	  		data: form_data,
-        contentType: false,
-        processData: false,
-        type:"POST",
-	  	}).done(function(resp){
-	  		$('#loader').removeClass('working');
-				var patt = new RegExp("^http");
-				if( patt.test(resp) ){
-					//window.location = resp;
-					//$('#creer-cagnotte-popup').trigger('click');
-					$.fancybox.open({
-						src : '#pp-felicitation',
-						beforeClose: function() {
-						    window.location = resp;
-						}
-					});
-				}else{
-		  		$('ul#response').addClass('error').html(resp);
-		  		setTimeout(function() {
-		  			$('ul#response').removeClass('error').html('');
-		  		}, 10000 );
-				}
-	  	});
+			contentType: false,
+			processData: false,
+			type:"POST",
+			}).done(function(resp){
+				$('#loader').removeClass('working');
+					var patt = new RegExp("^http");
+					if( patt.test(resp) ){
+						//window.location = resp;
+						//$('#creer-cagnotte-popup').trigger('click');
+						$.fancybox.open({
+							src : '#pp-felicitation',
+							beforeClose: function() {
+								window.location = resp;
+							}
+						});
+					}else{
+					$('ul#response').addClass('error').html(resp);
+					setTimeout(function() {
+						$('ul#response').removeClass('error').html('');
+					}, 10000 );
+					}
+			});
 
-	  	return false;
+			return false;
 	  });
 
 	  $('#pp-felicitation .link').click(function(){
@@ -979,25 +979,39 @@ $(function(){
         var cagnotte_id= $(this).data('cagnotteId');
         if (mediaUploader) {
             $("#menu-item-upload").html(text.conf_document_upload);
-            $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
-            $(".media-uploader-status .h2").html(text.conf_document_upload_status);
+            $("#menu-item-browse").html("Galerie");
+            $("#menu-item-browse").click();
+
+            $("#menu-item-browse").css("display","block");
+            $(".media-uploader-status .h2").html("Téléchargement");
             $("h2.upload-instructions").text(text.conf_document_upload_instuction);
             $("p.max-upload-size").text(text.conf_document_upload_taille);
+
+            $(".media-uploader-status .h2").html("Téléchargement");
+            $("#menu-item-upload").click(function(e) {
+                $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+                $("p.max-upload-size").text(text.conf_document_upload_taille);
+                $(".media-uploader-status .h2").html("Téléchargement");
+            });
             mediaUploader.open();
             return;
         }
         mediaUploader = wp.media.frames.file_frame = wp.media({
-            multiple: false
+            multiple: true
         });
         mediaUploader.on('select', function() {
-			console.log("doc upload");
-            var attachment = mediaUploader.state().get('selection').first().toJSON();
+            // var attachment = mediaUploader.state().get('selection').first().toJSON();
+			var attachments_url= [];
+			var attachments = mediaUploader.state().get('selection').map( 
+                function( attachment ) {
+                    var json_value= attachment.toJSON();
+                    attachments_url.push(json_value.url);
+            });
 			$.ajax({
                 url: ajaxurl,
                 data: {
                     'action': 'insert_doc_cagnotte',
-                    'doc_file' : attachment.url,
+                    'doc_file' : attachments_url.join(';'),
                     'cagnotte_id': cagnotte_id
                 },
                 dataType: 'html',
@@ -1007,15 +1021,23 @@ $(function(){
 
             });
 
-
         });
         mediaUploader.open();
         $("#menu-item-upload").html(text.conf_document_upload);
-        $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
-        $(".media-uploader-status .h2").html(text.conf_document_upload_status);
-        $("h2.upload-instructions").text(text.conf_document_upload_instuction);
-        $("p.max-upload-size").text(text.conf_document_upload_taille);
+		$("#menu-item-browse").html("Galerie");
+		$("#menu-item-browse").click();
+
+		$("#menu-item-browse").css("display","block");
+		$(".media-uploader-status .h2").html("Téléchargement");
+		$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+		$("p.max-upload-size").text(text.conf_document_upload_taille);
+
+		$(".media-uploader-status .h2").html("Téléchargement");
+		$("#menu-item-upload").click(function(e) {
+			$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+			$("p.max-upload-size").text(text.conf_document_upload_taille);
+			$(".media-uploader-status .h2").html("Téléchargement");
+		});
     });
 
 	var mediaUploaderImage;
@@ -1024,25 +1046,40 @@ $(function(){
         var cagnotte_id= $(this).data('cagnotteId');
         if (mediaUploaderImage) {
             $("#menu-item-upload").html(text.conf_document_upload);
-            $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
-            $(".media-uploader-status .h2").html(text.conf_document_upload_status);
-            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
-            $("p.max-upload-size").text(text.conf_document_upload_taille);
+			$("#menu-item-browse").html("Galerie");
+			$("#menu-item-browse").click();
+
+			$("#menu-item-browse").css("display","block");
+			$(".media-uploader-status .h2").html("Téléchargement");
+			$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+			$("p.max-upload-size").text(text.conf_document_upload_taille);
+
+			$(".media-uploader-status .h2").html("Téléchargement");
+			$("#menu-item-upload").click(function(e) {
+				$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+				$("p.max-upload-size").text(text.conf_document_upload_taille);
+				$(".media-uploader-status .h2").html("Téléchargement");
+			});
             mediaUploaderImage.open();
             return;
         }
         mediaUploaderImage = wp.media.frames.file_frame = wp.media({
-            multiple: false
+            multiple: true
         });
         mediaUploaderImage.on('select', function() {
 			console.log("image upload");
-            var attachment = mediaUploaderImage.state().get('selection').first().toJSON();
+            // var attachment = mediaUploaderImage.state().get('selection').first().toJSON();
+			var attachments_url= [];
+			var attachments = mediaUploaderImage.state().get('selection').map( 
+                function( attachment ) {
+                    var json_value= attachment.toJSON();
+                    attachments_url.push(json_value.url);
+            });
             $.ajax({
                 url: ajaxurl,
                 data: {
                     'action': 'insert_image_cagnotte',
-                    'image_url' : attachment.url,
+                    'image_url' : attachments_url.join(';'),
                     'cagnotte_id': cagnotte_id
                 },
                 dataType: 'html',
@@ -1055,12 +1092,21 @@ $(function(){
 
         });
         mediaUploaderImage.open();
-        $("#menu-item-upload").html(text.conf_document_upload);
-        $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
-        $(".media-uploader-status .h2").html(text.conf_document_upload_status);
-        $("h2.upload-instructions").text(text.conf_document_upload_instuction);
-        $("p.max-upload-size").text(text.conf_document_upload_taille);
+		$("#menu-item-upload").html(text.conf_document_upload);
+		$("#menu-item-browse").html("Galerie");
+		$("#menu-item-browse").click();
+
+		$("#menu-item-browse").css("display","block");
+		$(".media-uploader-status .h2").html("Téléchargement");
+		$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+		$("p.max-upload-size").text(text.conf_document_upload_taille);
+
+		$(".media-uploader-status .h2").html("Téléchargement");
+		$("#menu-item-upload").click(function(e) {
+			$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+			$("p.max-upload-size").text(text.conf_document_upload_taille);
+			$(".media-uploader-status .h2").html("Téléchargement");
+		});
     });
 
 	$('#add_video').click(function(e){
