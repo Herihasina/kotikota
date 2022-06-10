@@ -305,6 +305,8 @@ $(document).ready(function() {
             multiple: false
         });
 
+        console.log(mediaUploader.view.settings);
+
         mediaUploader.on('select', function() {
 
             var attachment = mediaUploader.state().get('selection').first().toJSON();
