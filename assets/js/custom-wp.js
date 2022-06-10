@@ -305,7 +305,7 @@ $(document).ready(function() {
             multiple: false
         });
 
-        console.log(mediaUploader.view.settings);
+        console.log(mediaUploader);
 
         mediaUploader.on('select', function() {
 
