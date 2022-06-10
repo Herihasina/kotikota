@@ -290,8 +290,8 @@ $(document).ready(function() {
 
 
             $("#menu-item-upload").click(function(e) {
-                $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-                $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+                $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+                $("p.max-upload-size").text(text.conf_document_upload_taille);
                 $(".media-sidebar").css("display","none");
                 $(".media-sidebar").css("position","unset");
                 $(".attachments-wrapper").css("right",0);
@@ -305,7 +305,6 @@ $(document).ready(function() {
             multiple: false
         });
 
-        console.log(mediaUploader);
 
         mediaUploader.on('select', function() {
 
@@ -347,8 +346,8 @@ $(document).ready(function() {
         $("#menu-item-browse").click();
 
         $("#menu-item-upload").click(function(e) {
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
             $(".media-sidebar").css("display","none");
             $(".media-sidebar").css("position","unset");
             $(".attachments-wrapper").css("right",0);
@@ -645,12 +644,12 @@ $(document).ready(function() {
 
             $("#menu-item-browse").click();
             $("#menu-item-browse").css("display","block");
-            $(".media-uploader-status .h2").html("Téléchargement");
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
 
             $("#menu-item-upload").click(function(e) {
-                $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-                $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-                $(".media-uploader-status .h2").html("Téléchargement");
+                $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+                $("p.max-upload-size").text(text.conf_document_upload_taille);
+                $(".media-uploader-status .h2").html(text.conf_document_upload);
             });
             mediaUploader.open();
             return;
@@ -669,14 +668,14 @@ $(document).ready(function() {
         $("#menu-item-upload").html("Télécharger des fichiers");
         $("#menu-item-browse").html("Galerie de photos");
         $("#menu-item-upload").insertAfter('#menu-item-browse')
-        $(".media-uploader-status .h2").html("Téléchargement");
+        $(".media-uploader-status .h2").html(text.conf_document_upload);
 
         $("#menu-item-browse").click();
 
         $("#menu-item-upload").click(function(e) {
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-            $(".media-uploader-status .h2").html("Téléchargement");
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
         });
     });
 
@@ -688,13 +687,20 @@ $(document).ready(function() {
         var mediaUploader;
         e.preventDefault();
         if (mediaUploader) {
-            $("#menu-item-upload").html("Télécharger");
-            $("#menu-item-upload").click();
+            $("#menu-item-upload").html("Télécharger des fichiers");
             $("#menu-item-browse").html("Galerie");
+            $("#menu-item-browse").click();
+
             $("#menu-item-browse").css("display","block");
-            $(".media-uploader-status .h2").html("Téléchargement");
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+
+            $("#menu-item-upload").click(function(e) {
+                $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+                $("p.max-upload-size").text(text.conf_document_upload_taille);
+                $(".media-uploader-status .h2").html(text.conf_document_upload);
+            });
             mediaUploader.open();
             return;
         }
@@ -722,25 +728,39 @@ $(document).ready(function() {
 
         });
         mediaUploader.open();
-        $("#menu-item-upload").html("Télécharger");
-        $("#menu-item-upload").click();
+        $("#menu-item-upload").html("Télécharger des fichiers");
         $("#menu-item-browse").html("Galerie");
+        $("#menu-item-browse").click();
+
         $("#menu-item-browse").css("display","block");
-        $(".media-uploader-status .h2").html("Téléchargement");
-        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-        $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+        $(".media-uploader-status .h2").html(text.conf_document_upload);
+        $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+        $("p.max-upload-size").text(text.conf_document_upload_taille);
+        $("#menu-item-upload").click(function(e) {
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
+        });
     });
     $('#rib_btn').click(function(e) {
         var mediaUploader;
         e.preventDefault();
         if (mediaUploader) {
             $("#menu-item-upload").html("Télécharger");
-            $("#menu-item-upload").click();
             $("#menu-item-browse").html("Galerie");
-        $("#menu-item-browse").css("display","block");
-            $(".media-uploader-status .h2").html("Téléchargement");
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $("#menu-item-browse").click();
+
+            $("#menu-item-browse").css("display","block");
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
+            $("#menu-item-upload").click(function(e) {
+                $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+                $("p.max-upload-size").text(text.conf_document_upload_taille);
+                $(".media-uploader-status .h2").html(text.conf_document_upload);
+            });
             mediaUploader.open();
             return;
         }
@@ -764,12 +784,20 @@ $(document).ready(function() {
         });
         mediaUploader.open();
         $("#menu-item-upload").html("Télécharger");
-        $("#menu-item-upload").click();
         $("#menu-item-browse").html("Galerie");
+        $("#menu-item-browse").click();
+
         $("#menu-item-browse").css("display","block");
-        $(".media-uploader-status .h2").html("Téléchargement");
-        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-        $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+        $(".media-uploader-status .h2").html(text.conf_document_upload);
+        $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+        $("p.max-upload-size").text(text.conf_document_upload_taille);
+
+        $(".media-uploader-status .h2").html(text.conf_document_upload);
+        $("#menu-item-upload").click(function(e) {
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
+        });
     });
 
     $('.signup-date-birth').datepicker({
