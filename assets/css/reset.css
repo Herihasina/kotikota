@@ -1087,7 +1087,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .fom-participe .formulaire label span { color: #ff0024 }
 .fom-participe .formulaire .blc-chp { width: 100%; margin-bottom: 32px }
 .fom-participe .formulaire .chp { border: #dddddd solid 1px; height: 60px; border-radius: 10px; padding: 0 28px; color:#bbbbbb; font-size:16px;font-family:Montserrat-r; width: 100%; position: relative;}
-.fom-participe .formulaire .option .chp:first-child{ padding-bottom: 10px;}
+.fom-participe .formulaire .option .pseudo-img-wrap{ padding-bottom: 10px;}
 .fom-participe .blcFormulaire.fichier .chp { height: auto !important;}
 .fom-participe .formulaire  .col100 { width: 100% ; padding: 0 30px}
 .fom-participe .formulaire .participe .chp { -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);-moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1) }
