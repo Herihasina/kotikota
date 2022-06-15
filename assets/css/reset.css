@@ -2709,6 +2709,7 @@ input[type="checkbox"].onoff:checked ~ label:after { opacity: 0 }
 .lst-msg.participation.clr {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 .blc-video .social {
     float: none;
