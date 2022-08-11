@@ -904,9 +904,18 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .lst-cagnotte-publique .item  .ico2 { position: absolute; left: 0; top: 0;  }
 .lst-cagnotte-publique .item  .ico-percent { position: absolute; left: 0; top: -1px; background:url(../images/bg-percent.png); background-repeat: no-repeat; background-size: cover; width: 100px; height: 103px; padding: 9px 7px }
 
-.lst-cagnotte-publique .item .ico-percent.cloturer { background:url(../images/bandau-mini.png); width: 167px; height: 63px; background-size: cover; left: -13px; top: 13px }
+/*.lst-cagnotte-publique .item .ico-percent.cloturer { background:url(../images/bandau-mini.png); width: 167px; height: 63px; background-size: cover; left: -13px; top: 13px }
+*/
+.lst-cagnotte-publique .item .ico-percent.cloturer {
+    background: url(../images/bandau-mini.png);
+    width: 192px;
+    height: 92px;
+    background-size: cover;
+    left: -27px;
+    top: 13px;
+}
 .lst-cagnotte-publique .item .ico-percent.cloturer .ckeckCloturer { display: none; }
-.lst-cagnotte-publique .item .ico-percent.cloturer span { text-align: center; display: block; padding-top: 14px; font-weight: 700; color: #fff !important}
+.lst-cagnotte-publique .item .ico-percent.cloturer span { text-align: center; display: block; padding-top: 44px; font-weight: 700; color: #fff !important}
 
 .percent { background-color: #fff; border-radius: 50%; position: relative;  }
 .percent {
