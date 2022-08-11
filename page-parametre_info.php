@@ -182,8 +182,8 @@
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
-	                            						<label><?php _e('Adresse','kotikota') ?> <span>*</span></label>
-	                            						<input type="text" name="" placeholder="<?php _e('Votre adresse','kotikota') ?>" class="chp" id="rib_domicile" value="<?= $info->rib_adresse_de_domiciliation ?>">
+	                            						<label><?php _e('Domiciliation','kotikota') ?> <span>*</span></label>
+	                            						<input type="text" name="" placeholder="<?php _e('Domiciliation bancaire','kotikota') ?>" class="chp" id="rib_domicile" value="<?= $info->rib_adresse_de_domiciliation ?>">
 														<span id="domicile-error" class="error"></span>
 													</div>
                             					</div>
