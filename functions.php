@@ -775,7 +775,7 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
   {
     var_dump(update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte ));
     var_dump(update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ));
-    var_dump(update_field('rib_bic', $rib_bic, $idCagnotte ));
+    var_dump(update_field('rib_bic', $rib_bic, $idCagnotte ));die;
     if(
       update_field('rib_nom', $rib_nom, $idCagnotte ) ||
       update_field('rib_banque', $rib_banque, $idCagnotte ) ||
