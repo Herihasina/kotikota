@@ -783,14 +783,14 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $rib_iban_update = update_field('rib_iban', $rib_iban, $idCagnotte );
     $rib_bic_update = update_field('rib_bic', $rib_bic, $idCagnotte );
     
-    return  $rib_nom_update ||
-            $rib_banque_update ||
-            $rib_adresse_de_domiciliation_update ||
-            $rib_code_banque_update ||
-            $rib_code_agence_update ||
-            $rib_num_de_compte_update ||
-            $rib_cle_rib_update ||
-            $rib_iban_update ||
+    return  $rib_nom_update &&
+            $rib_banque_update &&
+            $rib_adresse_de_domiciliation_update &&
+            $rib_code_banque_update &&
+            $rib_code_agence_update &&
+            $rib_num_de_compte_update &&
+            $rib_cle_rib_update &&
+            $rib_iban_update &&
             $rib_bic_update;
   }
 
