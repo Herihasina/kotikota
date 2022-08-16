@@ -137,7 +137,6 @@
 
 		          		<div id="rib_info" class="blcFormulaire fichier wow fadeIn" data-wow-delay="1000ms" style="visibility: visible; animation-delay: 1000ms; animation-name: fadeIn;">
                             <label><?php _e('Ajouter un RIB','kotikota'); ?></label>
-							<?php var_dump($info); ?>
                            <!--  <div class="chp">
                                 <div class="cont-file">
                                 		<?php if( ! $info->rib_file && count($info->rib_file) == 0 ): ?>

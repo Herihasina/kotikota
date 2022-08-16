@@ -773,6 +773,15 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $rib_bic
   )
   {
+    var_dump(update_field('rib_nom', $rib_nom, $idCagnotte ));
+    var_dump(update_field('rib_banque', $rib_banque, $idCagnotte ));
+    var_dump(update_field('rib_adresse_de_domiciliation', $rib_adresse_de_domiciliation, $idCagnotte ));
+    var_dump(update_field('rib_code_banque', $rib_code_banque, $idCagnotte ));
+    var_dump(update_field('rib_code_agence', $rib_code_agence, $idCagnotte ));
+    var_dump(update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte ));
+    var_dump(update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ));
+    var_dump(update_field('rib_iban', $rib_iban, $idCagnotte ));
+    var_dump(update_field('rib_bic', $rib_bic, $idCagnotte ));
     if(
       update_field('rib_nom', $rib_nom, $idCagnotte ) &&
       update_field('rib_banque', $rib_banque, $idCagnotte ) &&
