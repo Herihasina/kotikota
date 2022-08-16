@@ -773,20 +773,25 @@ function get_all_transactions($col = '*', $orderby = 'id_participation', $order 
     $rib_bic
   )
   {
-    // var_dump(update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte ));
-    // var_dump(update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ));
-    // var_dump(update_field('rib_bic', $rib_bic, $idCagnotte ));die;
-    $result = update_field('rib_nom', $rib_nom, $idCagnotte ) &&
-              update_field('rib_banque', $rib_banque, $idCagnotte ) &&
-              update_field('rib_adresse_de_domiciliation', $rib_adresse_de_domiciliation, $idCagnotte ) &&
-              update_field('rib_code_banque', $rib_code_banque, $idCagnotte ) &&
-              update_field('rib_code_agence', $rib_code_agence, $idCagnotte ) &&
-              update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte ) &&
-              update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte ) &&
-              update_field('rib_iban', $rib_iban, $idCagnotte ) &&
-              update_field('rib_bic', $rib_bic, $idCagnotte )
-    ;
-    return $result;
+    $rib_nom_update = update_field('rib_nom', $rib_nom, $idCagnotte );
+    $rib_banque_update = update_field('rib_banque', $rib_banque, $idCagnotte );
+    $rib_adresse_de_domiciliation_update = update_field('rib_adresse_de_domiciliation', $rib_adresse_de_domiciliation, $idCagnotte );
+    $rib_code_banque_update = update_field('rib_code_banque', $rib_code_banque, $idCagnotte );
+    $rib_code_agence_update = update_field('rib_code_agence', $rib_code_agence, $idCagnotte );
+    $rib_num_de_compte_update = update_field('rib_num_de_compte', $rib_num_de_compte, $idCagnotte );
+    $rib_cle_rib_update = update_field('rib_cle_rib', $rib_cle_rib, $idCagnotte );
+    $rib_iban_update = update_field('rib_iban', $rib_iban, $idCagnotte );
+    $rib_bic_update = update_field('rib_bic', $rib_bic, $idCagnotte );
+    
+    return  $rib_nom_update ||
+            $rib_banque_update ||
+            $rib_adresse_de_domiciliation_update ||
+            $rib_code_banque_update ||
+            $rib_code_agence_update ||
+            $rib_num_de_compte_update ||
+            $rib_cle_rib_update ||
+            $rib_iban_update ||
+            $rib_bic_update;
   }
 
   function update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib = '' ){
