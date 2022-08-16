@@ -779,8 +779,8 @@ function save_info_banque(){
     }
     
 
-    update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic);
-
+    $update = update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic);
+    echo $update;
     $single = get_lang_url().'/parametre-info-principale';
     echo json_encode(array('resp' => 'success', 'url' => $single ));
     wp_die();
