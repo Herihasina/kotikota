@@ -61,9 +61,9 @@
 
   <div class="pp-document-photos">
     <div class="blcbtn">
-      <a href="#pp-document" class="link fancybox" title="Document"><?php _e('Document','kotikota') ?></a>
-      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos ','kotikota') ?></a>
       <a href="#pp-videos" class="link fancybox" title="Photos et vidéos"><?php _e('vidéos','kotikota') ?></a>
+      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos ','kotikota') ?></a>
+      <a href="#pp-document" class="link fancybox" title="Document"><?php _e('Autres','kotikota') ?></a>
 
       <div class="pp-document" id="pp-document" style="display: none">
         <div class="Document cont-pp">
