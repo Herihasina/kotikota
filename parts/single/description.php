@@ -268,7 +268,7 @@
         <!--   <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Cliquez ici pour ajouter une photo','kotikota') ?></a> -->
           <div class="col">
               <div class=" blc-chp ">
-                  <label for="fname"><?php echo __('ID de la nouvelle video','kotikota'); ?><span>*</span></label>
+                  <label for="fname"><?php echo __('ID de la vidéo YouTube','kotikota'); ?><span>*</span></label>
                   <div class="chp">
                     <input type="text" name="video_id" placeholder="<?php echo __('ID de la vidéo YouTube','kotikota'); ?>" >
                   </div>
