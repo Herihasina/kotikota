@@ -620,7 +620,8 @@ $(function(){
 
 	  	var ilaina = $('#ilaina').val();
 	  	var suggere = $('#suggere').val();
-	  	var devise = $('#devise').val();
+	  	// var devise = $('#devise').val();
+	  	var devise = "mga";
 
 	  	var maskIlainaAzo = $('#masque1:checked').val();
 	  	if (maskIlainaAzo != "on"){
