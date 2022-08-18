@@ -969,31 +969,31 @@ $(document).ready(function() {
         $("#code").val($(this).attr("data-country-code"));
     });
 
-    $(".onoff").on('change', function() {
+    // $(".onoff").on('change', function() {
         
-        pseudoWrap = $('.pseudo-wrap');
+    //     pseudoWrap = $('.pseudo-wrap');
 
-        if ($(this).is(':checked')) {
-            $(this).attr('checked','checked');
-            $(this).val('on');
+    //     if ($(this).is(':checked')) {
+    //         $(this).attr('checked','checked');
+    //         $(this).val('on');
 
-            pseudoWrap.append(`
-                <div>
-                    <input type="text" name="pseudo" id="pseudo" value="" placeholder="Pseudo">
-                </div>
-            `);
+    //         pseudoWrap.append(`
+    //             <div>
+    //                 <input type="text" name="pseudo" id="pseudo" value="" placeholder="Pseudo">
+    //             </div>
+    //         `);
 
-            $('.pseudo-img-wrap').show();
+    //         $('.pseudo-img-wrap').show();
 
-        }else {
-           $(this).removeAttr('checked');
-            $(this).val('off');
+    //     }else {
+    //        $(this).removeAttr('checked');
+    //         $(this).val('off');
 
-            $('.pseudo-img-wrap').hide();
+    //         $('.pseudo-img-wrap').hide();
 
-            pseudoWrap.html('');
-        }
-    });
+    //         pseudoWrap.html('');
+    //     }
+    // });
 });
 
 /*** Popup notif mobile ***/

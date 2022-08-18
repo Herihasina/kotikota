@@ -229,13 +229,12 @@ $(function(){
 	  	var maskIdentite = $('#masque1:checked').val();
 
 	  	if (maskIdentite != "on"){
-	  		maskIdentite = "off";
-	  		var pseudo = "nulll";
-	  		var pseudo_img = "nulll";
-	  	}else if( maskIdentite == "on" ){
-	  		var pseudo = $('#pseudo').val();
-	  		var pseudo_img = $('#url_img_cagnotte').val();
+	  		maskIdentite = "off";	  		
 	  	}
+
+	  	var pseudo = $('#pseudo').val();
+	  	var pseudo_img = $('#url_img_cagnotte').val();
+
 	  	var maskParticipation = $('#masque2:checked').val();
 	  	if (maskParticipation != "on"){
 	  		maskParticipation = "off";
