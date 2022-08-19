@@ -270,7 +270,7 @@
               <div class=" blc-chp ">
                   <label for="fname"><?php echo __('ID de la vidéo YouTube','kotikota'); ?><span>*</span></label>
                   <div class="chp">
-                    <input type="text" name="video_id" placeholder="<?php echo __('ID de la vidéo YouTube','kotikota'); ?>" >
+                    <input type="text" name="video_id" placeholder="<?php echo __('exemple: ixebNgJRePU','kotikota'); ?>" >
                   </div>
               </div>
               <div id="add_video" class="link" title="<?php _e('Ajouter','kotikota') ?>" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Ajouter','kotikota') ?></div>
