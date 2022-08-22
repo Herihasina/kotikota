@@ -24,7 +24,9 @@
                     <div class="profil">
                       <?php
                         foreach ($cagnottes_participees as $une_cagnotte) {
-                          if ( $une_cagnotte['cagnotte']->ID == $post->ID){ 
+                          if ( $une_cagnotte['cagnotte']->ID == $post->ID){
+
+                            # compte existant && tsy masqué identité
                             if ( !$une_cagnotte['masque_identite'] && email_exists( $email_participant ) ){
                                 $user = get_user_by( 'email', $email_participant );
                                 $user = $user->data->ID;
@@ -40,6 +42,7 @@
                         ?>
                                  <img src="<?php echo $bg ?>" alt="" >
                         <?php
+                            # compte n'existe pas/non connecté && tsy masqué identité
                             }elseif( !$une_cagnotte['masque_identite'] && !email_exists( $email_participant ) ){
 
                               if( $une_cagnotte['avatar_participant_dans_cagnotte'] ){
@@ -51,7 +54,9 @@
                               <img src="<?php echo get_field('default_gravatar','option') ?>" alt="<?php echo esc_html( $un['participant_']->post_title ); ?>">
                         <?php
                               }                                                                                                
-                            }elseif( $une_cagnotte['masque_identite'] ){
+                            }
+                            # masqué identité
+                            elseif( $une_cagnotte['masque_identite'] ){
                               if( $une_cagnotte['avatar_participant_dans_cagnotte'] ){
                         ?>
                               <img src="<?php echo $une_cagnotte['avatar_participant_dans_cagnotte'] ?>" alt="<?php echo esc_html( $un['participant_']->post_title ); ?>">
