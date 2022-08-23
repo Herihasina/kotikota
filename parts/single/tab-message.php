@@ -42,7 +42,7 @@
               <?php $date = new DateTime($mot_dou->post_date); ?>
               <span class="date">
                 <?php 
-                $date = $date->format("m/d/y");
+                $date = $date->format("d/m/y");
 
                 printf( __('a écrit le %s','kotikota'), $date ) ?>
               </span>
@@ -65,7 +65,10 @@
                     </div>
                   <?php endif; ?>
           </div>
+
         </div>
+
+
       <?php endforeach; 
        else: ?>
         <div class="cont-message wow fadeIn" data-wow-delay="900ms">
@@ -73,6 +76,43 @@
             <p><?php _e("Il n'y a pas encore de mots doux", 'kotikota') ?></p>
           </div>
       <?php endif; ?>
+
+          <div class="chp-comment" id="chp-message">
+              <div class="content-comment">
+                  <div class="profil">
+                    <?php
+                    if ( is_user_logged_in() ):
+                      $current_id = get_current_user_id();
+                      $user_data = get_user_meta( $current_id );
+                    endif;
+                      if($current_id) {
+                        $bg = wp_get_attachment_image_src(get_field('photo', 'user_'.$current_id),'icone-serasera' )[0];
+                      }
+                      if ( !$bg && isset($bg) ) $bg = get_field('default_gravatar','option'); ?>
+                      <img src="<?php echo $bg ?>" alt="" >
+
+                  </div>
+                  <b class="author-name">
+                    <?php
+                      if($current_id) {
+                        if ( $user_data['first_name'][0] != '' || $user_data['last_name'][0] != '' ){
+                          echo $user_data['first_name'][0].' '.$user_data['last_name'][0];
+                        }else{
+                          echo $user_data['nickname'][0];
+                        }
+                      } else {
+                        echo __('Anonyme','kotikota');
+                      }
+                    ?>
+                  </b>
+                  <div class="blc-chp">
+                    <input type="hidden" id="idCagnotte-md" value="<?= $post->ID ?>">
+                    <input type="text" name="" id="la-md" placeholder="<?= __('Rédigez votre message/mot doux','kotikota') ?>" class="chp">
+                    <input type="button" id="add-md" class="btn-send">
+                    <input type="button" id="edit-md" class="btn-send">
+                  </div>
+              </div>
+          </div>
  
     </div>
 </div>

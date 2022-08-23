@@ -742,6 +742,42 @@ $(function(){
 		  });
 		}
 
+		/* ajout mot doux */
+	  if ( $('#add-md').length ){
+		  $('#add-md').click(function(){
+		  	var md = $('#la-md').val();
+		  	var idCagnotte	 = $('#idCagnotte-md').val();
+
+		  	if ( md == ''){
+		  		alert('Mot doux !');
+		  		return false;
+		  	}
+
+		  	$('#loader').addClass('working');
+
+		  	$.ajax({
+		  		url: ajaxurl,
+		  		type: 'POST',
+		  		data: {
+		  			'action' : 'md',
+		  			'md': md,
+		  			'idCagnotte': idCagnotte
+		  		},
+		  		dataType: 'html'
+		  	}).done(function(resp){
+		  		//console.log(resp);
+		  		// $(resp).insertBefore('#chp-comment');
+		  		$('#loader').removeClass('working');
+
+		  		window.location.href = '#mot-doux';
+				window.location.reload(true);
+
+		  	});
+
+		  	return false;
+		  });
+		}
+
 
 
 	  $('.delete a').click(function(){
