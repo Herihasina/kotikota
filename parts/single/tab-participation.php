@@ -76,10 +76,12 @@
                     <div class="txt">
                       <h4>
                         <?php
-                          if ( $une_cagnotte['masque_identite'] ){
+                          if ( $une_cagnotte['masque_identite'] && $une_cagnotte['pseudo_participant_dans_cagnotte']  ){
                             echo $une_cagnotte['pseudo_participant_dans_cagnotte'];
-                          }else{
+                          }elseif( $un['participant_']->post_title ){
                             echo esc_html( $un['participant_']->post_title ); 
+                          }else{
+                            echo __('Anonyme','kotikota');
                           }                                            
                         ?>
                       </h4>
