@@ -465,7 +465,7 @@
                                                                     <p>&nbsp;</p>
                                                                     <p><?php printf( __("La cagnotte « %s » a bien été clôturée","kotikota_mail",$nomcagnotte)) ?></p>
                                                                     <p>&nbsp;</p>
-                                                                    <p><?php printf( __("Vous retrouverez toutes la caractéristiques de la cagnotte en <a href='%' target='_blank'>cliquant ici 🖱</a>","kotikota_mail"), get_permalink( $id )); ?></p>
+                                                                    <p><?php printf( __("Vous retrouverez toutes la caractéristiques de la cagnotte en <a href='%s' target='_blank'>cliquant ici 🖱</a>","kotikota_mail"), get_permalink( $id )); ?></p>
                                                                 </div>
                                                                 <br>
                                                                  <br>
