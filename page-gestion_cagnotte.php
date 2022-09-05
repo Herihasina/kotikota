@@ -108,7 +108,6 @@ if ( (is_user_logged_in() && get_field('titulaire_de_la_cagnotte', $id_cagnotte 
           ?>
           <div class="blc-chp">
             <div class="chp">
-              <!-- <div class="tip"><?= __("saisir un email + touche entrée",'kotikota') ?></div> -->
               <!-- <textarea placeholder="Votre / vos adresse(s) e-mail.Exemple : johndoe@gmail.com;loremipsum@gmail.com" id="emails_list"></textarea> -->
               <input type="text" id="emails_list" name="" placeholder="<?= __("saisir un email + touche entrée",'kotikota') ?>">
             </div>

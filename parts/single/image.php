@@ -2,11 +2,10 @@
     <?php
       $img_url = attachment_url_to_postid(get_field('illustration_pour_la_cagnotte'));
       if ( $img_url )
-         //echo wp_get_attachment_image( $img_url, 'banniere-single' );
+        //echo wp_get_attachment_image( $img_url, 'banniere-single' );
       ?>
         <img class="attachment-banniere-single size-banniere-single" src="<?= get_field('illustration_pour_la_cagnotte') ?>">
       <?php
-
         $limited = get_field('fixer_un_objectif');
         $azo = (int)get_field('montant_recolte');
         $ilaina = (int)get_field('objectif_montant');

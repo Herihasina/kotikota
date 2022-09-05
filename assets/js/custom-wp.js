@@ -283,13 +283,19 @@ $(document).ready(function() {
 
             $("#menu-item-browse").click();
             $("#menu-item-browse").css("display","block");
-            $(".media-uploader-status .h2").html("Téléchargement");
+            $(".media-sidebar").css("display","none");
+            $(".media-sidebar").css("position","unset");
+            $(".attachments-wrapper").css("right",0);
+            $(".media-uploader-status").css('display','none');
 
 
             $("#menu-item-upload").click(function(e) {
-                $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-                $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-                $(".media-uploader-status .h2").html("Téléchargement");
+                $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+                $("p.max-upload-size").text(text.conf_document_upload_taille);
+                $(".media-sidebar").css("display","none");
+                $(".media-sidebar").css("position","unset");
+                $(".attachments-wrapper").css("right",0);
+                $(".media-uploader-status").css('display','none');
             });
             mediaUploader.open();
             return;
@@ -298,6 +304,8 @@ $(document).ready(function() {
         mediaUploader = wp.media.frames.file_frame = wp.media({
             multiple: false
         });
+
+
         mediaUploader.on('select', function() {
 
             var attachment = mediaUploader.state().get('selection').first().toJSON();
@@ -330,14 +338,20 @@ $(document).ready(function() {
         $("#menu-item-upload").html("Télécharger des fichiers");
         $("#menu-item-browse").html("Galerie de photos");
         $("#menu-item-upload").insertAfter('#menu-item-browse')
-        $(".media-uploader-status .h2").html("Téléchargement");
+        $(".media-sidebar").css("display","none");
+        $(".media-sidebar").css("position","unset");
+        $(".attachments-wrapper").css("right",0);
+        $(".media-uploader-status").css('display','none');
 
         $("#menu-item-browse").click();
 
         $("#menu-item-upload").click(function(e) {
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-            $(".media-uploader-status .h2").html("Téléchargement");
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+            $(".media-sidebar").css("display","none");
+            $(".media-sidebar").css("position","unset");
+            $(".attachments-wrapper").css("right",0);
+            $(".media-uploader-status").css('display','none');
         });
     });
     function getMeta(url, callback) {
@@ -630,12 +644,12 @@ $(document).ready(function() {
 
             $("#menu-item-browse").click();
             $("#menu-item-browse").css("display","block");
-            $(".media-uploader-status .h2").html("Téléchargement");
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
 
             $("#menu-item-upload").click(function(e) {
-                $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-                $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-                $(".media-uploader-status .h2").html("Téléchargement");
+                $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+                $("p.max-upload-size").text(text.conf_document_upload_taille);
+                $(".media-uploader-status .h2").html(text.conf_document_upload);
             });
             mediaUploader.open();
             return;
@@ -654,14 +668,14 @@ $(document).ready(function() {
         $("#menu-item-upload").html("Télécharger des fichiers");
         $("#menu-item-browse").html("Galerie de photos");
         $("#menu-item-upload").insertAfter('#menu-item-browse')
-        $(".media-uploader-status .h2").html("Téléchargement");
+        $(".media-uploader-status .h2").html(text.conf_document_upload);
 
         $("#menu-item-browse").click();
 
         $("#menu-item-upload").click(function(e) {
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
-            $(".media-uploader-status .h2").html("Téléchargement");
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
         });
     });
 
@@ -673,63 +687,117 @@ $(document).ready(function() {
         var mediaUploader;
         e.preventDefault();
         if (mediaUploader) {
-            $("#menu-item-upload").html("Télécharger");
-            $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
-            $(".media-uploader-status .h2").html("Téléchargement");
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $("#menu-item-upload").html(text.conf_document_upload);
+            $("#menu-item-browse").html("Galerie");
+            $("#menu-item-browse").click();
+
+            $("#menu-item-browse").css("display","block");
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+
+            $("#menu-item-upload").click(function(e) {
+                $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+                $("p.max-upload-size").text(text.conf_document_upload_taille);
+                $(".media-uploader-status .h2").html(text.conf_document_upload);
+            });
             mediaUploader.open();
             return;
         }
         mediaUploader = wp.media.frames.file_frame = wp.media({
-            multiple: false
+            multiple: true
         });
         mediaUploader.on('select', function() {
-            var attachment = mediaUploader.state().get('selection').first().toJSON();
-            $('#cin_value').val(attachment.url);
+            // var attachment = mediaUploader.state().get('selection').first().toJSON();
+            // utilisation pour multiple
+            var attachments_url= [];
+            var attachments_filename= [];
+			var attachments = mediaUploader.state().get('selection').map( 
+                function( attachment ) {
+                    var json_value= attachment.toJSON();
+                    attachments_url.push(json_value.url);
+                    attachments_filename.push(json_value.filename);
+            });
+            // $('#cin_value').val(attachment.url);
+            $('#cin_value').val( attachments_url.join(';'));
+            var attachments_filename = attachments_filename.join(', ') ;
             $('.zone-img-cin').css('background', 'center / cover no-repeat url(' + $('#cin_value').val() + ')');
-            $('#cin_value').siblings('span').text(attachment.filename);
+            $('#cin_value').siblings('span').text(attachments_filename);
             $('.blcFormulaire .parcourir').text(text_customwp.fichier_ajoute);
             $('.blcFormulaire .parcourir').addClass('nonvide');
 
         });
         mediaUploader.open();
-        $("#menu-item-upload").html("Télécharger");
-        $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
-        $(".media-uploader-status .h2").html("Téléchargement");
-        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-        $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+        $("#menu-item-upload").html(text.conf_document_upload);
+        $("#menu-item-browse").html("Galerie");
+        $("#menu-item-browse").click();
+
+        $("#menu-item-browse").css("display","block");
+        $(".media-uploader-status .h2").html(text.conf_document_upload);
+        $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+        $("p.max-upload-size").text(text.conf_document_upload_taille);
+        $("#menu-item-upload").click(function(e) {
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
+        });
     });
     $('#rib_btn').click(function(e) {
         var mediaUploader;
         e.preventDefault();
         if (mediaUploader) {
-            $("#menu-item-upload").html("Télécharger");
-            $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
-            $(".media-uploader-status .h2").html("Téléchargement");
-            $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-            $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+            $("#menu-item-upload").html(text.conf_document_upload);
+            $("#menu-item-browse").html("Galerie");
+            $("#menu-item-browse").click();
+
+            $("#menu-item-browse").css("display","block");
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
+            $("#menu-item-upload").click(function(e) {
+                $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+                $("p.max-upload-size").text(text.conf_document_upload_taille);
+                $(".media-uploader-status .h2").html(text.conf_document_upload);
+            });
             mediaUploader.open();
             return;
         }
         mediaUploader = wp.media.frames.file_frame = wp.media({
-            multiple: false
+            multiple: true
         });
         mediaUploader.on('select', function() {
             var attachment = mediaUploader.state().get('selection').first().toJSON();
-            $('#rib_value').val(attachment.url);
-            $('#rib_value').siblings('span').text(attachment.filename);
+            // utilisation pour multiple
+             var attachments_url= [];
+             var attachments_filename= [];
+             var attachments = mediaUploader.state().get('selection').map( 
+                 function( attachment ) {
+                     var json_value= attachment.toJSON();
+                     attachments_url.push(json_value.url);
+                     attachments_filename.push(json_value.filename);
+            });
+            var attachments_filename = attachments_filename.join(', ') ;
+            $('#rib_value').val(attachments_url.join(';'));
+            $('#rib_value').siblings('span').text(attachments_filename);
         });
         mediaUploader.open();
-        $("#menu-item-upload").html("Télécharger");
-        $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
-        $(".media-uploader-status .h2").html("Téléchargement");
-        $("h2.upload-instructions").text("Déposez vos fichiers pour les télécharger");
-        $("p.max-upload-size").text("Taille de fichier maximale pour le téléchargement : 8 Mo.");
+        $("#menu-item-upload").html(text.conf_document_upload);
+        $("#menu-item-browse").html("Galerie");
+        $("#menu-item-browse").click();
+
+        $("#menu-item-browse").css("display","block");
+        $(".media-uploader-status .h2").html(text.conf_document_upload);
+        $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+        $("p.max-upload-size").text(text.conf_document_upload_taille);
+
+        $(".media-uploader-status .h2").html(text.conf_document_upload);
+        $("#menu-item-upload").click(function(e) {
+            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+            $("p.max-upload-size").text(text.conf_document_upload_taille);
+            $(".media-uploader-status .h2").html(text.conf_document_upload);
+        });
     });
 
     $('.signup-date-birth').datepicker({
@@ -901,19 +969,41 @@ $(document).ready(function() {
         $("#code").val($(this).attr("data-country-code"));
     });
 
-    $(".onoff").on('change', function() {
-        //togBtn= $(this);
-        //togBtn.val(togBtn.prop('checked'));
-        if ($(this).is(':checked')) {
-            $(this).attr('checked','checked');
-            $(this).val('on');
-        }
-        else {
-           $(this).removeAttr('checked');
-            $(this).val('off');
-        }
-    });
+    // $(".onoff").on('change', function() {
+        
+    //     pseudoWrap = $('.pseudo-wrap');
+
+    //     if ($(this).is(':checked')) {
+    //         $(this).attr('checked','checked');
+    //         $(this).val('on');
+
+    //         pseudoWrap.append(`
+    //             <div>
+    //                 <input type="text" name="pseudo" id="pseudo" value="" placeholder="Pseudo">
+    //             </div>
+    //         `);
+
+    //         $('.pseudo-img-wrap').show();
+
+    //     }else {
+    //        $(this).removeAttr('checked');
+    //         $(this).val('off');
+
+    //         $('.pseudo-img-wrap').hide();
+
+    //         pseudoWrap.html('');
+    //     }
+    // });
 });
+
+/*** Popup notif mobile ***/
+$(window).load(function() {
+    if ($(window).width() < 601)
+    {
+        $(".hidden_link").fancybox().trigger('click');
+    }
+});
+
 
 
 // $( window ).load(function() {

@@ -225,7 +225,7 @@ function create_cagnotte(){
     $postDetails = array(
         'post_type'  => $post_type,
         'post_title' => $nomCagnotte,
-        'post_status'=> 'publish',
+        'post_status'=> 'pending',
         'meta_input' => $metas
     );
 
@@ -239,12 +239,24 @@ function create_cagnotte(){
                 $cin = get_image_attach_id ( $filename_cin, 'user_'.$now_user );
                 update_field('piece_didentite', $cin, 'user_'.$now_user );
             } else {
-                $cin = attachment_url_to_postid( $cin );
-                update_field('piece_didentite', $cin, 'user_'.$now_user );
+                // $cin = attachment_url_to_postid( $cin );
+                $cin_files= explode(';',$cin_value);
+                foreach($cin_files as $file){
+                    $cin = attachment_url_to_postid(strip_tags($file));
+                    if($file)
+                        $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.$now_user);
+                }
+                // update_field('piece_didentite', $cin, 'user_'.$now_user );
             }
         }elseif( 'desktop' == $device ){
-            $cin = attachment_url_to_postid( $cin );
-            update_field('piece_didentite', $cin, 'user_'.$now_user );
+            // $cin = attachment_url_to_postid( $cin );
+            // update_field('piece_didentite', $cin, 'user_'.$now_user );
+            $cin_files= explode(';',$cin_value);
+            foreach($cin_files as $file){
+                $cin = attachment_url_to_postid(strip_tags($file));
+                if($file)
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.$now_user);
+            }
         }
 
     }
@@ -304,15 +316,16 @@ function create_cagnotte(){
         }
 
         sendNotificationCreation($newPost);
-        $piece_didentite = get_field('piece_didentite', 'user_'.$now_user );
+        $piece_didentite = get_field('piece_didentites', 'user_'.$now_user );
 
         $profil_valide = get_field('profil_valide', 'user_'.$now_user );
 
         if( !$piece_didentite && !$profil_valide )
             sendRappelPostCreation( $now_user );
 
-        $single = get_permalink( $newPost );
-        echo "$single";
+        // $single = get_permalink( $newPost );
+        // echo "$single";
+        echo home_url();
     }
     wp_die();
 
@@ -399,6 +412,18 @@ function creer_participation(){
         $devise = $devise['value'];
     }
 
+    $pseudo = '';
+    $pseudo_img = '';
+
+    if( $_POST['maskIdentite'] == "on" ){
+        $pseudo = strip_tags( $_POST['pseudo'] );
+        $pseudo_img = strip_tags( $_POST['pseudo_img'] );
+
+        if( !$pseudo || !$pseudo_img ){
+            $erreurs[] = __('Entrer un pseudo et choisir un avatar');
+        }
+    }
+
     $idCagnotte = strip_tags($_POST['idCagnotte']);
 
     $condition = strip_tags( $_POST['condition'] );
@@ -414,7 +439,7 @@ function creer_participation(){
         $change_mga_cad = get_field('change_mga_cad','options');
 
         $donation = calcul_devise_en_mga( $donation, $devise, $change_mga_eu, $change_mga_liv, $change_mga_cad, $change_mga_usd );
-        
+
     }
     # /tapitra #
 
@@ -467,20 +492,21 @@ function creer_participation(){
 
     $paiement = strip_tags( $_POST['paiement'] );
 
-    $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
-
     if ( $paiement == "paypal" ){
-
+        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo, $pseudo_img );
         echo get_site_url() ."/don/?id=$id_participation&cl=$email";
     }elseif ( $paiement == "orange" ){
+        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo, $pseudo_img );
         echo get_site_url() ."/paiement-orange-money/?id=$id_participation&cl=$email";
     }elseif ( $paiement == "telma" ){
+        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo, $pseudo_img );
         echo get_site_url() ."/paiement-mvola/?id=$id_participation&cl=$email";
     }elseif( $paiement == "airtel" ){
         // $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone33, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
         // echo get_site_url() ."/paiement-airtel-money/?id=$id_participation&cl=$email";
-        echo "trigger_popup=popup_airtel&idCagnotte=$idCagnotte&email=$email&lname=$lname&fname=$fname&phone=$phone&donation=$donation&maskParticipation=$maskParticipation&maskIdentite=$maskIdentite&mot_doux=$mot_doux&devise=$devise";
+        echo "trigger_popup=popup_airtel&idCagnotte=$idCagnotte&email=$email&lname=$lname&fname=$fname&phone=$phone&donation=$donation&maskParticipation=$maskParticipation&maskIdentite=$maskIdentite&mot_doux=$mot_doux&devise=$devise&pseudo=$pseudo&pseudo_img=$pseudo_img";
     }elseif( $paiement == "bni" || $paiement == "visa"){
+        $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo, $pseudo_img );
         echo get_site_url() ."/virement-bancaire/?id=$id_participation&cl=$email";
     }
 
@@ -500,7 +526,7 @@ function pay_airtel(){
 
         $num_airtel = strip_tags( $_POST['num_airtel'] );
 
-         $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, "airtel", $maskParticipation, $maskIdentite, $mot_doux, $devise );
+         $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, "airtel", $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo, $pseudo_img );
 
          echo get_site_url() ."/paiement-airtel-money/?id=$id_participation&cl=$email&msisdn=$num_airtel";
 
@@ -572,7 +598,7 @@ function save_info_principale(){
 
     //if ( !isset($_POST['categ']) || $_POST['categ'] == "" )
     //   $erreurs[] = __("Indiquer la catégorie de cagnotte.", "kotikota");
-    
+
     if ( !isset($_POST['sousCateg']) || $_POST['sousCateg'] == "" )
        $erreurs[] = __("Indiquer une type de cagnotte.", "kotikota");
 
@@ -623,16 +649,42 @@ function save_info_principale(){
         }
 
     // info beneficiaire
-    $idBenef   = strip_tags( $_POST['idBenef'] );
+    /*$idBenef   = strip_tags( $_POST['idBenef'] );
     $nom       = strip_tags( $_POST['nom'] );
     $prenom    = strip_tags( $_POST['prenom'] );
     $email     = strip_tags( $_POST['email'] );
     $telephone = strip_tags( $_POST['tel'] );
     $code      = strip_tags( $_POST['code'] );
-    $rib       = strip_tags( $_POST['rib'] );
+    $rib       = strip_tags( $_POST['rib'] );*/
+
+    $idBenef   =  $_POST['idBenef'];
+    $nom       =  $_POST['nom'];
+    $prenom    =  $_POST['prenom'];
+    $email     =  $_POST['email'];
+    $telephone =  $_POST['tel'];
+    $code      =  $_POST['code'];
+    $rib       =  $_POST['rib'];
     update_field('code_benef', $code, $idBenef );
 
-    $update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
+    /*$erreurs[] = $idBenef;
+    $erreurs[] = $nom;
+    $erreurs[] = $prenom;
+    $erreurs[] = $email;
+    $erreurs[] = $telephone;
+    $erreurs[] = $code;
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();
+    }*/
+    update_field('nom_benef', $nom, $idBenef );
+    update_field('prenom_benef', $prenom, $idBenef );
+    update_field('email_benef', $email, $idBenef );
+    update_field('telephone_benef', $telephone, $idBenef );
+
+    //$update_benef = update_beneficiaire_info( $idBenef,$nom,$prenom,$email,$telephone,$rib );
     update_field('benef_cagnotte', $idBenef, $idCagnotte);
 
     // update categorie/sous-categorie cagnotte
@@ -661,7 +713,7 @@ function save_info_banque(){
 
     if ( !isset($_POST['codebanque']) || $_POST['codebanque'] == "" )
        $erreurs[] = array('key'=> 'codebanque', 'error_msg'=> __("Indiquer le code banque.", "kotikota"));
-    //verification code banque 
+    //verification code banque
     if ( isset($_POST['codebanque']) && $_POST['codebanque'] != "" && ! preg_match('/^\w{5}$/', $_POST['codebanque'], $output_array) )
        $erreurs[] = array('key'=> 'codebanque', 'error_msg'=> __("Veuillez entrer un code banque valide avec exactement 5 caractères.", "kotikota"));
 
@@ -717,12 +769,18 @@ function save_info_banque(){
     $cle       = strip_tags( $_POST['cle'] );
     $iban       = strip_tags( $_POST['iban'] );
     $bic       = strip_tags( $_POST['bic'] );
-    $rib_file  = attachment_url_to_postid(strip_tags($_POST['fichier']));
+    if(isset($_POST['fichier']) && strip_tags( $_POST['fichier'] ) != ''){
+        $rib_files= explode(';',$_POST['fichier']);
+        foreach($rib_files as $file){
+            $rib = attachment_url_to_postid(strip_tags($file));
+            if($file)
+                $add_rib_file = add_row('fichiers_rib',array('fichier' => $rib),$idCagnotte);
+        }
+    }
+    
 
-    update_field('rib_fichier', $rib_file, $idCagnotte );
-
-    update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic);
-
+    $update = update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic);
+    // var_dump($update); die;
     $single = get_lang_url().'/parametre-info-principale';
     echo json_encode(array('resp' => 'success', 'url' => $single ));
     wp_die();
@@ -923,6 +981,7 @@ function save_notif(){
 }
 
 add_action( 'wp_ajax_ask_question', 'ask_question' );
+add_action( 'wp_ajax_nopriv_ask_question', 'ask_question' );
 
 function ask_question(){
     $erreurs = [];
@@ -951,7 +1010,7 @@ function ask_question(){
             'post_status' => 'publish',
             'post_content' => $question,
             'post_date'  => the_time('d/m/y'),
-            'post_author' => get_current_user_id()
+            'post_author' => get_current_user_id() ? get_current_user_id() : 0
             );
 
     $editID = strip_tags( $_POST['id_question'] );
@@ -979,7 +1038,9 @@ function ask_question(){
 
         update_field( 'questions', $list_questions , $idCagnotte );
 
-        $newQuestion = get_post($newQuestion);
+        $html = 'update successfull';
+
+        /*$newQuestion = get_post($newQuestion);
         $user_data = get_user_meta($newQuestion->post_author);
         $date = new DateTime($newQuestion->post_date);
         $html = '';
@@ -1009,11 +1070,63 @@ function ask_question(){
                       </div>';
         if ( $newQuestion == $editID){
             $html .= ' </div>';
-        }
+        }*/
 
         echo $html;
         wp_die();
     }
+}
+
+add_action( 'wp_ajax_md', 'md' );
+add_action( 'wp_ajax_nopriv_md', 'md' );
+
+function md(){
+    $erreurs = [];
+
+    if ( !isset($_POST['md']) || $_POST['md'] == "" ){
+        $erreurs[] = __("Veuillez bien entrer votre mot doux.", "kotikota");
+    }
+
+    if ( !isset($_POST['idCagnotte']) || !is_cagnotte($_POST['idCagnotte']) )
+        $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();
+    }
+
+    $md = strip_tags( $_POST['md'] );
+    $idCagnotte = $_POST['idCagnotte'];
+
+    $current_id = false;
+
+    if ( is_user_logged_in() ):
+        $current_id = get_current_user_id();
+        $user_data = get_user_meta( $current_id );
+    endif;
+
+    if($current_id) {
+        if ( $user_data['first_name'][0] != '' || $user_data['last_name'][0] != '' ){
+          $fname = $user_data['first_name'][0];
+          $lname = $user_data['last_name'][0];
+        }else{
+          $fname = $user_data['nickname'][0];
+          $lname = '';
+        }
+      } else {
+        $fname = __('Anonyme','kotikota');
+        $lname = '';
+      }
+
+    //ajoutena ao @CPT mot_doux ilay message t@ty participation ty
+   insert_mot_doux( $idCagnotte, $lname, $fname, $md );
+
+   $html = "Mot doux inséré !";
+
+   echo $html;
+   wp_die();
 }
 
 add_action( 'wp_ajax_delete_pst', 'delete_pst' );
@@ -1110,7 +1223,12 @@ function edit_profile(){
         }
 
         if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
-            $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+            $cin_files= explode(';',$cin_value);
+            foreach($cin_files as $file){
+                $cin = attachment_url_to_postid(strip_tags($file));
+                if($file)
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.get_current_user_id());
+            }
         } else if( $_FILES['cin_value_mobile'] ){
             $cin = $_FILES['cin_value_mobile'];
             $cin = $cin['name'];
@@ -1124,15 +1242,20 @@ function edit_profile(){
         }
 
         if ( isset($_POST['cin_value']) && strip_tags( $_POST['cin_value'] ) != '' ){
-            $cin = attachment_url_to_postid(strip_tags($_POST['cin_value']));
+            $cin_files= explode(';',$cin_value);
+            foreach($cin_files as $file){
+                $cin = attachment_url_to_postid(strip_tags($file));
+                if($file)
+                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.get_current_user_id());
+            }   
         }
     }
 
     if( $pdp )
         update_field('photo', $pdp, 'user_'.get_current_user_id());
 
-    if( $cin )
-        update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
+    // if( $cin )
+    //     update_field('piece_didentite', $cin, 'user_'.get_current_user_id());
 
     update_field('code', $_POST['code'], 'user_'.get_current_user_id());
     update_field('numero_de_telephone', strip_tags( $tel ), 'user_'.get_current_user_id());
@@ -1358,8 +1481,13 @@ function insert_doc_cagnotte(){
         parse_str($str, $Data);
         extract($Data);
 
-        $doc = attachment_url_to_postid(strip_tags($doc_file));
-        $add_doc = add_row('liste_document_fichiers_cagnotte',array('fichier' => $doc),$cagnotte_id);
+        //selection multiple
+        $doc_files = explode(';',$doc_file);
+        foreach($doc_files as $file){
+            $doc = attachment_url_to_postid(strip_tags($file));
+            $add_doc = add_row('liste_document_fichiers_cagnotte',array('fichier' => $doc),$cagnotte_id);
+        }
+        
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
         $curr_userdata = wp_get_current_user();
         if($add_doc){
@@ -1389,22 +1517,11 @@ function insert_doc_cagnotte(){
                     <h3>documents word</h3>
                     <?php if($word_doc):?>
                         <div class="lst-option">
-                        <?php foreach($word_doc as $doc ): ?>
-                            <div class="item">
-                            <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <input type="checkbox" name="doc_files" class="document document-check" id="doc-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>">
-                                <label for="doc-<?= $doc['id'] ?>">
-                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                <div class="txt"><?= $doc['name'] ?></div>
-                                </label>
-                            <?php else: ?>
-                                <a href="<?= $doc['url'] ?>" class="doc-item-link">
-                                    <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                    <div class="txt"><?= $doc['name'] ?></div>
-                                </a>
-                            <?php endif; ?>
-                            </div>
-                        <?php endforeach; ?>
+                        <?php
+                        foreach($word_doc as $doc ):
+                            $section_document = locate_template( 'parts/single/sections/section-document-word.php', false, false );
+                            include($section_document);
+                        endforeach; ?>
                         </div>
 
                     <?php
@@ -1421,22 +1538,10 @@ function insert_doc_cagnotte(){
                         <h3>documents pdf</h3>
                         <?php if($pdf_doc):?>
                             <div class="lst-option">
-                            <?php foreach($pdf_doc as $doc ): ?>
-                                <div class="item">
-                                <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                    <input type="checkbox" name="doc_files" class="document document-check" id="pdf-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>">
-                                    <label for="pdf-<?= $doc['id'] ?>">
-                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                        <div class="txt"><?= $doc['name'] ?></div>
-                                    </label>
-                                <?php else: ?>
-                                    <a href="<?= $doc['url'] ?>" class="doc-item-link" target="_blank">
-                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                        <div class="txt"><?= $doc['name'] ?></div>
-                                    </a>
-                                <?php endif; ?>
-                                </div>
-                            <?php endforeach; ?>
+                            <?php foreach($pdf_doc as $doc ):
+                              $section_pdf = locate_template( 'parts/single/sections/section-document-pdf.php', false, false );
+                              include($section_pdf);
+                            endforeach; ?>
                             </div>
                             <?php
                         else:
@@ -1512,22 +1617,10 @@ function remove_doc_cagnotte(){
                     <h3>documents word</h3>
                     <?php if($word_doc):?>
                         <div class="lst-option">
-                        <?php foreach($word_doc as $doc ): ?>
-                            <div class="item">
-                            <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <input type="checkbox" name="doc_files" class="document document-check" id="doc-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>">
-                                <label for="doc-<?= $doc['id'] ?>">
-                                <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                <div class="txt"><?= $doc['name'] ?></div>
-                                </label>
-                            <?php else: ?>
-                                <a href="<?= $doc['url'] ?>" class="doc-item-link">
-                                    <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                    <div class="txt"><?= $doc['name'] ?></div>
-                                </a>
-                            <?php endif; ?>
-                            </div>
-                        <?php endforeach; ?>
+                        <?php foreach($word_doc as $doc ):
+                            $section_document = locate_template( 'parts/single/sections/section-document-word.php', false, false );
+                            include($section_document);
+                        endforeach; ?>
                         </div>
 
                     <?php
@@ -1544,22 +1637,10 @@ function remove_doc_cagnotte(){
                         <h3>documents pdf</h3>
                         <?php if($pdf_doc):?>
                             <div class="lst-option">
-                            <?php foreach($pdf_doc as $doc ): ?>
-                                <div class="item">
-                                <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                    <input type="checkbox" name="doc_files" class="document document-check" id="pdf-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>">
-                                    <label for="pdf-<?= $doc['id'] ?>">
-                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                        <div class="txt"><?= $doc['name'] ?></div>
-                                    </label>
-                                <?php else: ?>
-                                    <a href="<?= $doc['url'] ?>" class="doc-item-link" target="_blank">
-                                        <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                        <div class="txt"><?= $doc['name'] ?></div>
-                                    </a>
-                                <?php endif; ?>
-                                </div>
-                            <?php endforeach; ?>
+                            <?php foreach($pdf_doc as $doc ):
+                              $section_pdf = locate_template( 'parts/single/sections/section-document-pdf.php', false, false );
+                              include($section_pdf);
+                            endforeach; ?>
                             </div>
                             <?php
                         else:
@@ -1602,8 +1683,13 @@ function insert_image_cagnotte(){
         parse_str($str, $Data);
         extract($Data);
 
-        $image = attachment_url_to_postid(strip_tags($image_url));
-        $add_doc = add_row('liste_images_cagnotte',array('image' => $image),$cagnotte_id);
+        //selection multiple
+        $image_files = explode(';',$image_url);
+        foreach($image_files as $file){
+            $image = attachment_url_to_postid(strip_tags($file));
+            $add_image = add_row('liste_images_cagnotte',array('image' => $image),$cagnotte_id);
+        }
+        
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
         $curr_userdata = wp_get_current_user();
         $photos = get_field('liste_images_cagnotte',$cagnotte_id);
@@ -1613,18 +1699,11 @@ function insert_image_cagnotte(){
             <?php if($photos): $key_image=1;?>
             <div class="lst-option blcphotos">
                 <?php foreach($photos as $photo ):
-                $image = wp_get_attachment_url( $photo['image'] );
-                ?>
-                <div class="item">
-                    <div class="inner">
-                    <?php if($curr_userdata->ID == $titulaire_id) :?>
-                        <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>" value="<?= $key_image?>">
-                        <label for="img-<?= $key_image?>"></label>
-                    <?php endif; ?>
-                    <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
-                    </div>
-                </div>
-                <?php $key_image++; endforeach; ?>
+                    $image = wp_get_attachment_url( $photo['image'] );
+                    $section_photo = locate_template( 'parts/single/sections/section-document-photo.php', false, false );
+                    include($section_photo);
+                    $key_image++;
+                endforeach; ?>
             </div>
             <?php
             else:
@@ -1674,30 +1753,14 @@ function insert_video_cagnotte(){
                 ?>
                 <div class="lst-option">
                     <?php foreach($videos as $video ):
-                    $video_id= $video['lien_youtube'];
-                    $video_data = get_youtube_video_detail($video_id);
-                    if($video_data): $count_correct_id++;
-                    ?>
-                        <div class="item">
-                            <div class="contvideo">
-                            <a href="<?= $video_data['url'] ?>" target="_blank">
-                                <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
-                                <div class="txt">
-                                <h4><?= $video_data['title'] ?></h4>
-                                <p><?= $video_data['description'] ?></p>
-                                </div>
-                                <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <div class="check-video">
-                                    <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>" value="<?= $key_video?>">
-                                    <label for="video-<?= $key_video?>"></label>
-                                </div>
-                                <?php endif; ?>
-                            </a>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php $key_video++; endforeach; ?>
+                        $video_id= $video['lien_youtube'];
+                        $video_data = get_youtube_video_detail($video_id);
+                        if($video_data): $count_correct_id++;
+                            $section_video = locate_template( 'parts/single/sections/section-document-video.php', false, false );
+                            include($section_video);
+                        endif;
+                        $key_video++;
+                    endforeach; ?>
                 </div>
 
                 <?php
@@ -1726,8 +1789,8 @@ function insert_video_cagnotte(){
 
 }
 
-add_action( 'wp_ajax_remove_media_cagnotte', 'remove_media_cagnotte' );
-function remove_media_cagnotte(){
+add_action( 'wp_ajax_remove_photos_cagnotte', 'remove_photos_cagnotte' );
+function remove_photos_cagnotte(){
     $erreurs = [];
 
     if ( isset($_POST)){
@@ -1737,12 +1800,56 @@ function remove_media_cagnotte(){
         extract($Data);
 
         $delete_image=false;
-        $delete_video=false;
         if($image_ids && !empty($image_ids)){
             foreach($image_ids as $id){
                 $delete_image = delete_row('liste_images_cagnotte', $id, $cagnotte_id);
             }
         }
+        $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
+        $curr_userdata = wp_get_current_user();
+        $photos = get_field('liste_images_cagnotte',$cagnotte_id);
+
+       ?>
+            <h3><?php _e('images','kotikota') ?></h3>
+            <?php if($photos): $key_image=1;?>
+            <div class="lst-option blcphotos">
+                <?php foreach($photos as $photo ):
+                    $image = wp_get_attachment_url( $photo['image'] );
+                    $section_photo = locate_template( 'parts/single/sections/section-document-photo.php', false, false );
+                    include($section_photo);
+                    $key_image++;
+                endforeach; ?>
+            </div>
+            <?php
+            else:
+            ?>
+                <div style="text-align:center">
+                    <h4 style="text-align:center">
+                        <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                    </h4>
+                </div>
+            <?php endif; ?>
+            </div>
+       <?php
+        echo $html;
+
+
+        wp_die();
+    }
+
+}
+
+
+add_action( 'wp_ajax_remove_videos_cagnotte', 'remove_videos_cagnotte' );
+function remove_videos_cagnotte(){
+    $erreurs = [];
+
+    if ( isset($_POST)){
+        $html="";
+        $str = http_build_query($_POST);
+        parse_str($str, $Data);
+        extract($Data);
+
         if($video_ids && !empty($video_ids)){
             foreach($video_ids as $id){
                 $delete_video = delete_row('liste_videos_cagnotte', $id, $cagnotte_id);
@@ -1751,98 +1858,44 @@ function remove_media_cagnotte(){
         $titulaire_id = get_field('titulaire_de_la_cagnotte',$cagnotte_id);
         $curr_userdata = wp_get_current_user();
         $videos = get_field('liste_videos_cagnotte',$cagnotte_id);
-        $photos = get_field('liste_images_cagnotte',$cagnotte_id);
 
-       ?>
-            <div class="row">
-                <div class="col photo">
-                    <h3><?php _e('images','kotikota') ?></h3>
-                    <?php if($photos):
-                        $key_image=1;
-                    ?>
-                    <div class="lst-option blcphotos">
-                        <?php foreach($photos as $photo ):
-                        $image = wp_get_attachment_url( $photo['image'] );
-                        ?>
-                        <div class="item">
-                            <div class="inner">
-                            <?php if($curr_userdata->ID == $titulaire_id) :?>
-                            <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>" value="<?= $key_image?>">
-                            <label for="img-<?= $key_image?>"></label>
-                            <?php endif; ?>
-                            <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
-                            </div>
-                        </div>
-                        <?php
-                            $key_image++;
-                        endforeach; ?>
+        ?>
+            <h3><?php _e('vidéos','kotikota') ?></h3>
+            <div class="lst-option blcvideos ">
+                <?php if($videos):
+                    $key_video=1;
+                    $count_correct_id=0;
+                ?>
+                <div class="lst-option">
+                    <?php foreach($videos as $video ):
+                        $video_id= $video['lien_youtube'];
+                        $video_data = get_youtube_video_detail($video_id);
+                        if($video_data): $count_correct_id++;
+                            $section_video = locate_template( 'parts/single/sections/section-document-video.php', false, false );
+                            include($section_video);
+                        endif;
+                        $key_video++;
+                    endforeach; ?>
+                </div>
+
+                <?php
+                elseif($count_correct_id!=count($videos)):
+                ?>
+                    <div style="text-align:center">
+                        <h4 style="text-align:center">
+                            <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                        </h4>
                     </div>
-                    <?php
-                    else:
-                    ?>
-                        <div style="text-align:center">
-                            <h4 style="text-align:center">
-                                <?php printf( __( 'Aucune image', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                            </h4>
-                        </div>
+
+                <?php   else: ?>
+                    <div style="text-align:center">
+                        <h4 style="text-align:center">
+                            <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
+                        </h4>
+                    </div>
                 <?php endif; ?>
-                </div>
-                <div class="col video">
-                    <h3><?php _e('vidéos','kotikota') ?></h3>
-                    <div class="lst-option blcvideos ">
-                        <?php if($videos):
-                            $key_video=1;
-                            $count_correct_id=0;
-                        ?>
-                        <div class="lst-option">
-                            <?php foreach($videos as $video ):
-                            $video_id= $video['lien_youtube'];
-                            $video_data = get_youtube_video_detail($video_id);
-                            if($video_data): $count_correct_id++;
-                            ?>
-                                <div class="item">
-                                <div class="contvideo">
-                                    <a href="<?= $video_data['url'] ?>" target="_blank">
-                                    <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
-                                    <div class="txt">
-                                        <h4><?= $video_data['title'] ?></h4>
-                                        <p><?= $video_data['description'] ?></p>
-                                    </div>
-                                    <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                        <div class="check-video">
-                                        <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>" value="<?= $key_video?>">
-                                        <label for="video-<?= $key_video?>"></label>
-                                        </div>
-                                    <?php endif; ?>
-                                    </a>
-                                </div>
-                                </div>
-
-                            <?php
-                            endif;
-                            $key_video++;
-                            endforeach; ?>
-                        </div>
-                        <?php
-                        elseif($count_correct_id!=count($videos)):
-                        ?>
-                            <div style="text-align:center">
-                                <h4 style="text-align:center">
-                                    <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                                </h4>
-                            </div>
-
-                        <?php   else: ?>
-                            <div style="text-align:center">
-                                <h4 style="text-align:center">
-                                    <?php printf( __( 'Aucune video', 'kotikota' ), esc_html( get_search_query() ) ); ?>
-                                </h4>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-                </div>
-       <?php
+            </div>
+        <?php
         echo $html;
 
 

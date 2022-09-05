@@ -19,11 +19,16 @@ function check_compte_titulaire(){
 
 add_action('check_valididty','envoi__rappel');
 
+
 function envoi__rappel(){
 	$now = date('d-m-y H');
 	$user_ids = (array)get_ids_titulaires(); //ID anzay tsy mbola valide ihany no alaina eto
 
 		foreach( $user_ids as $user_id ){
+
+			$cin = get_field('piece_didentite', 'user_'. $user_id );
+
+			if( $cin ) break;
 
 			$rappel_envoye = get_field('rappel_envoye', 'user_'.$user_id );
 

@@ -1,4 +1,4 @@
-$(document).ready(function() {	
+$(document).ready(function() {
 
 	$("#connecter .fieldset--submit").click(function() {
 		$("#connecter .lrm-form-message").insertBefore($("#connecter .fieldset--submit"))
@@ -33,7 +33,7 @@ $(document).ready(function() {
 		// } else {
 		// 	$('.headerTop ').addClass('sticky')
 		// }
-		
+
 	});
 
 	$(window).scroll(function () {
@@ -53,7 +53,7 @@ $(document).ready(function() {
 		// } else {
 		// 	$('.headerTop ').addClass('sticky')
 		// }
-		
+
 	});
 
 
@@ -66,7 +66,7 @@ $(document).ready(function() {
 		$(".menu li i").removeClass('active');
 		$('.listService').toggleClass('z-index')
 		$('.scrollDown').toggleClass('active')
-	});		
+	});
 	// SLIDER HOME //
 	$('#slider').slick({
 			dots:false,
@@ -80,7 +80,7 @@ $(document).ready(function() {
 	        slidesToScroll: 1,
 			cssEase:'linear',
 			fade:true,
-			
+
 	});
 	$('#cagnotte-publique').slick({
 			dots:false,
@@ -94,7 +94,7 @@ $(document).ready(function() {
 	        slidesToScroll: 3,
 			cssEase:'linear',
 			responsive: [
-			{ 
+			{
 			  breakpoint: 1175,
 			  settings: {
 				slidesToShow: 2,
@@ -110,7 +110,7 @@ $(document).ready(function() {
 				adaptiveHeight: true,
 
 			  }
-			},  
+			},
 		 ]
 	});
 	$('.AproposMobile').slick({
@@ -125,7 +125,7 @@ $(document).ready(function() {
 	        slidesToScroll: 1,
 			cssEase:'linear',
 			responsive: [
-			{ 
+			{
 			  breakpoint: 1025,
 			  settings: {
 				slidesToShow: 2,
@@ -140,7 +140,7 @@ $(document).ready(function() {
 				adaptiveHeight: true,
 
 			  }
-			},  
+			},
 		 ]
 	});
 	$('#slide-chiffre').slick({
@@ -155,14 +155,14 @@ $(document).ready(function() {
 	        slidesToScroll: 1,
 			cssEase:'linear',
 			responsive: [
-			{ 
+			{
 			  breakpoint: 1175,
 			  settings: {
 				slidesToShow: 3,
 				dots:true,
 			  }
 			},
-			{ 
+			{
 			  breakpoint: 768,
 			  settings: {
 				slidesToShow: 2,
@@ -177,7 +177,7 @@ $(document).ready(function() {
 				dots:true,
 
 			  }
-			},  
+			},
 		 ]
 	});
 
@@ -193,14 +193,14 @@ $(document).ready(function() {
 	        slidesToScroll: 1,
 			cssEase:'linear',
 			responsive: [
-			{ 
+			{
 			  breakpoint: 1025,
 			  settings: {
 				slidesToShow:5,
 				dots:true,
 			  }
 			},
-			{ 
+			{
 			  breakpoint: 768,
 			  settings: {
 				slidesToShow: 4,
@@ -215,7 +215,7 @@ $(document).ready(function() {
 				dots:true,
 
 			  }
-			},  
+			},
 
 			{
 			  breakpoint:481,
@@ -224,7 +224,7 @@ $(document).ready(function() {
 				dots:true,
 
 			  }
-			},  
+			},
 		 ]
 	});
 
@@ -240,20 +240,20 @@ $(document).ready(function() {
 	        slidesToScroll: 1,
 			cssEase:'linear',
 			responsive: [
-			{ 
+			{
 			  breakpoint: 1076,
 			  settings: {
 				slidesToShow:5,
 				arrows:true,
-				
+
 			  }
 			},
-			{ 
+			{
 			  breakpoint: 915,
 			  settings: {
 				slidesToShow: 4,
 				arrows:true,
-				
+
 			  }
 			},
 
@@ -263,7 +263,7 @@ $(document).ready(function() {
 				slidesToShow: 3,
 				arrows:true,
 			  }
-			},  
+			},
 
 			{
 			  breakpoint:575,
@@ -280,7 +280,7 @@ $(document).ready(function() {
 				arrows:true,
 
 			  }
-			},  
+			},
 		 ]
 	});
 
@@ -296,7 +296,7 @@ $(document).ready(function() {
 	        slidesToScroll: 1,
 			cssEase:'linear',
 			fade:true,
-					
+
 	});
 
 
@@ -317,7 +317,7 @@ $(document).ready(function() {
 	// 		$(this).next().slideToggle();
 	// 		$(this).toggleClass('active');
 	// 	}
-	// }); 
+	// });
 
 	// SCROLL //
 	$(".scroll").click(function() {
@@ -350,48 +350,56 @@ $(document).ready(function() {
 	});
 
 	$(".lst-choix-cond-part .item .content").click(function() {
-		var vis = $(this);	
+		var vis = $(this);
 		if(vis.parent().hasClass("active")){
 			vis.parent().removeClass("active");
 		}else{
 			$(".lst-choix-cond-part .item .content").parent().removeClass('active');
-			vis.parent().addClass('active');	
+			vis.parent().addClass('active');
 		}
-	});	
+	});
 
 
 	$(".lst-securite .item .titre").click(function() {
-		var vis = $(this);	
+		var vis = $(this);
 		if(vis.parent().hasClass("active")){
 			vis.parent().removeClass("active");
 		}else{
 			$(".lst-securite .item .titre").parent().removeClass('active');
-			vis.parent().addClass('active');	
+			vis.parent().addClass('active');
 		}
-	});	
+	});
+
+
+		if($('.ico-percent').hasClass("cloturer")){
+			$('.ico-percent').prev().css("opacity" , '0');
+		}else{
+			$('.ico-percent').prev().css('opacity' , '1');
+		}
+
 
 
 
 
 	// $(".lst-type .item .content").click(function() {
-	// 	var vis = $(this);	
+	// 	var vis = $(this);
 	// 	if(vis.parent().hasClass("active")){
 	// 		vis.parent().removeClass("active");
 	// 	}else{
 	// 		$(".lst-type .item .content").parent().removeClass('active');
-	// 		vis.parent().addClass('active');	
+	// 		vis.parent().addClass('active');
 	// 	}
-	// });	
+	// });
 
 	$(".menu-cagnotte").click(function() {
-		var vis = $(this);	
+		var vis = $(this);
 		if(vis.parent().next().hasClass("active")){
 			vis.parent().next().removeClass("active");
 		}else{
 			$(".menu-cagnotte").parent().next().removeClass('active');
-			vis.parent().next().addClass('active');	
+			vis.parent().next().addClass('active');
 		}
-	});	
+	});
 
 	$(window).scroll(function () {
 		if ($(window).scrollTop() + $(window).height() > $('#footer').offset().top) {
@@ -400,22 +408,32 @@ $(document).ready(function() {
 		$('.blc-slider-range.sticky').removeClass('in');
 		}
 	});
-	
+
 	$('.counter').counterUp({
 	    delay: 50,
 	    time: 3000
 	});
 
-	 var exist = $('.textEdit').length
-	    if (exist) {
-	        $('.textEdit').summernote({
-	            height: 400,
-	            tabsize: 2
-	          });
-	    }
-	  /* wow animation */
+	var exist = $('.textEdit').length
+	if (exist) {
+		$('.textEdit').summernote({
+			height: 400,
+			tabsize: 2
+			});
+	}
+
+	var exist_create_description = $('#description_cagnotte').length
+	if (exist_create_description) {
+		$('#description_cagnotte').summernote({
+			placeholder: placeholder_description,
+			height: 190,
+			tabsize: 2
+		});
+	}
+
+	/* wow animation */
     new WOW({
-        mobile:false, 
+        mobile:false,
     }).init()
 
    // Show the first tab and hide the rest
@@ -430,7 +448,7 @@ $(document).ready(function() {
 	  $('.tab-content').hide();
 	  $('.tab-content').removeClass('show');
 
-	  
+
 	  var activeTab = $(this).find('a').attr('href');
 	  $(activeTab).fadeIn();
 	  $(activeTab).addClass('show');
@@ -470,14 +488,14 @@ $(document).ready(function() {
 			par=iz.parent(".cont-file")
 			txtExt=par.find("span")
 			txtBroswer=par.find("i")
-			txtExt.text(val) 
+			txtExt.text(val)
 			txtBroswer.text("changer")
 		});
 	}
 	function fileInitOter(){
 		$('.input-file').each(function(){
 			$(this).change(function() {
-			$(this).parents(".cont-file").addClass('uploaded');	
+			$(this).parents(".cont-file").addClass('uploaded');
 			iz=$(this)
 			resetBtn=iz.siblings('.reset');
 			val=iz.val()
@@ -486,7 +504,7 @@ $(document).ready(function() {
 				txtExt=par.find("span")
 				txtBroswer=par.find("i")
 
-				txtExt.text(val) 
+				txtExt.text(val)
 				txtBroswer.text("changer")
 				resetBtn.show()
 				resetBtn.text('Suppr')
@@ -536,7 +554,7 @@ $(document).ready(function() {
 	$(".scrollDown-pp").click(function() {
 	    var container = $('.fancybox-overlay');
 	    var scrollTo = $("#form-pp-connecter");
-	    
+
 	    // Or you can animate the scrolling:
 	    container.animate({
 	        scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()
@@ -546,3 +564,8 @@ $(document).ready(function() {
 
 });
 
+function addParameterToURL(param){
+    _url = location.href;
+    _url += (_url.split('?')[1] ? '&':'?') + param;
+    return _url;
+}

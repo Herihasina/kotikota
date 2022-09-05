@@ -43,13 +43,15 @@ function sendNotificationParticipation($id, $email_participant = ''){
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
     $prenom = get_user_meta($titulaire);
-    $email_titulaire = get_userdata( $titulaire );
+    $userdata = get_userdata( $titulaire );
 
-    $email_titulaire = $email_titulaire->user_email;
+    $email_titulaire = $userdata->user_email;
 
     $prenom = $prenom['first_name'][0];
     if ( !$prenom )
         $prenom = $prenom['nickname'][0];
+
+    $cur_prenom = $userdata->first_name;
 
     $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');
 
@@ -363,7 +365,7 @@ function envoiTroisiemeRappel($userid){
   }
 }
 
-add_filter( 'the_post_export_content', rib_export );
+//add_filter( 'the_post_export_content', rib_export );
 
 function rib_export( $post_content ){
     $nom = 'Titulaire du compte : ' . get_field('rib_nom');

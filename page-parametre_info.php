@@ -139,10 +139,12 @@
                             <label><?php _e('Ajouter un RIB','kotikota'); ?></label>
                            <!--  <div class="chp">
                                 <div class="cont-file">
-                                		<?php if( $info->rib_file == '' || $info->rib_file == 0 ): ?>
+                                		<?php if( ! $info->rib_file && count($info->rib_file) == 0 ): ?>
                                     	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
-                                  	<?php else: ?>
-                                  		<span><?= get_the_title( $info->rib_file ) ?></span>
+                                  	<?php else: 
+										$files_name= implode(", ", $info->rib_file);
+									?>
+                                  		<span><?= $files_name ?></span>
                                   	<?php endif; ?>
                                     <input type="text" name="file[]" class="input-file" id="rib_btn">
                                     <input type="hidden" name="" value="<?= $info->rib_file ?>" id="rib_value">
@@ -152,7 +154,7 @@
                                 <div class="zone-img-rib"></div>
                             </div> -->
                             <div class="blc-rib">
-                            	<input type="text" name="rib" class="chp" id="rib" placeholder="<?php if( $info->rib_file == '' || $info->rib_file == 0 ){ _e('Aucun fichier','kotikota'); } else { echo get_the_title( $info->rib_file ); } ?>" required="" value="">
+                            	<input type="text" name="rib" class="chp" id="rib" placeholder="<?php if( ! $info->rib_file && count($info->rib_file) == 0  ){ _e('Aucun fichier','kotikota'); } else { echo implode(", ", $info->rib_file); } ?>" required="" value="">
                             	<a href="#pp-rib" class="link submit fancybox"><?php _e('Remplir le RIB du Bénéficiaire','kotikota') ?></a>
                             </div>
 
@@ -168,7 +170,7 @@
 	                            					<div class="blc-chp">
 	                            						<label><?php _e('Titulaire du compte','kotikota') ?> <span>*</span></label>
 	                            						<input type="text" name="" placeholder="<?php _e('Votre nom','kotikota')?>" class="chp" id="rib_nom" value="<?= $info->rib_nom ?>">
-	                            						<span id="titulaire-error" class="error"></span>
+														<span id="titulaire-error" class="error"></span>
 													</div>
                             					</div>
                             					<div class="col col-100">
@@ -180,8 +182,8 @@
                             					</div>
                             					<div class="col col-100">
                             						<div class="blc-chp">
-	                            						<label><?php _e('Adresse','kotikota') ?> <span>*</span></label>
-	                            						<input type="text" name="" placeholder="<?php _e('Votre adresse','kotikota') ?>" class="chp" id="rib_domicile" value="<?= $info->rib_adresse_de_domiciliation ?>">
+	                            						<label><?php _e('Domiciliation','kotikota') ?> <span>*</span></label>
+	                            						<input type="text" name="" placeholder="<?php _e('Domiciliation bancaire','kotikota') ?>" class="chp" id="rib_domicile" value="<?= $info->rib_adresse_de_domiciliation ?>">
 														<span id="domicile-error" class="error"></span>
 													</div>
                             					</div>
@@ -228,21 +230,19 @@
 	                            					</div>
                             					</div>
 
-                            					<div class="info-rib">
-                            						<p><?php _e('Pour assurer une double vérification, vous pouvez fournir une photo du RIB du bénéficiaire','kotikota') ?></p>
-                            					</div>
+                            				
                             					<div class="col col-100">
                             						<div class="blc-chp">
                             						<label><?php _e('Ajouter un RIB','kotikota'); ?></label>
 						                            <div class="chpfile">
 						                                <div class="cont-file">
-						                                		<?php if( $info->rib_file == '' || $info->rib_file == 0 ): ?>
+						                                		<?php if( !$info->rib_file && count($info->rib_file) == 0  ): ?>
 						                                    	<span><?php _e('Aucun fichier sélectionné','kotikota'); ?></span>
 						                                  	<?php else: ?>
-						                                  		<span><?= get_the_title( $info->rib_file ) ?></span>
+						                                  		<span><?= implode(", ", $info->rib_file) ?></span>
 						                                  	<?php endif; ?>
 						                                    <input type="text" name="file[]" class="input-file" id="rib_btn">
-						                                    <input type="hidden" name="" value="<?= $info->rib_file ?>" id="rib_value">
+						                                    <input type="hidden" name="" value="" id="rib_value">
 						                                    <i> <?php _e('Parcourir','kotikota'); ?></i>
 						                                    <i class="reset" style="display: none"><?php _e('Supprimer','kotikota'); ?></i>
 						                                </div>
@@ -251,9 +251,12 @@
 						                            </div>
                             					</div>
                             					<div class="info-rib">
-                            						<p><?php _e('Pour assurer une double vérification, vous aSi vous souhaitez obtenir un transfert via Mobile Money, il faudra effectuer une demande spéciale à l’adresse hello@koti-kota.com en précisant le Nom de votre cagnotte, votre Identifiant Koti Kota (Profil), le montant à récupérer, votre numéro de téléphone ainsi qu’un justificatif d’identité (CIN, passeport,…)','kotikota') ?></p>
+                            						<p><?php _e('Pour assurer une double vérification, vous pouvez fournir une photo du RIB du bénéficiaire','kotikota') ?></p>
                             					</div>
-								<ul id="responsepopup"></ul>
+                            					<div class="info-rib">
+                            						<p><?php _e('Si vous souhaitez obtenir un transfert via Mobile Money, il faudra effectuer une demande spéciale à l’adresse hello@koti-kota.com en précisant le Nom de votre cagnotte, votre Identifiant Koti Kota (Profil), le montant à récupérer, votre numéro de téléphone ainsi qu’un justificatif d’identité (CIN, passeport,…)','kotikota') ?></p>
+                            					</div>
+												<ul id="responsepopup"></ul>
                             					<div class="btn">
 										           <a href="#" class="link" title="annuler" data-fancybox-close=""><?php _e('annuler','kotikota') ?></a>
 										           <input type="submit" name="" value="enregistrer" class="link submit" >
@@ -274,7 +277,9 @@
 	        <input type="hidden" id="idCagnotte" name="idCagnotte" value="<?php echo $idCagnotte ?>">
 	        <div class="btn wow fadeIn" data-wow-delay="950ms">
 	          <a href="<?php echo get_permalink( $idCagnotte ) ?>" class="link" title="<?php _e('annuler','kotikota') ?>"><?php _e('annuler','kotikota') ?></a>
-	           <a href="<?php echo $url ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="submit-info-principale"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>
+	           <a href="#" class="link submit" title="<?php _e('Enregistrer','kotikota') ?>" id="submit-info-principale"><?php _e('Enregistrer','kotikota') ?></a>
+	           <!--<a href="<?php echo $url ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="next-info-principale"><?php _e('éTAPE SUIVANTE','kotikota') ?></a> -->
+	           <a href="<?php echo get_permalink( $idCagnotte ) ?>/parametre-fond/?parametre=<?= $idCagnotte ?>" class="link" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>
 	        </div>
 
 				</div>

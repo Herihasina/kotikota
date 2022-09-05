@@ -18,6 +18,7 @@
     $user_data = get_user_meta($user->ID);
 
 	get_header();
+
 ?>
 <main id="homepage">
 <?php
@@ -131,7 +132,35 @@
                             <input type="checkbox" class="onoff" id="masque1">
                             <label for="masque1"><span>on</span></label>
                           </div>
+                          <div class="pseudo-wrap">
+                            <div>
+                                <input type="text" name="pseudo" id="pseudo" value="" placeholder="Pseudo">
+                            </div>
+                          </div>
+                          <!-- OOOO  -->
+                           <div class="pseudo-img-wrap">
+                                <label><?php _e('Choisis un avatar ','kotikota'); ?> <span>*</span></label>
+                                <div class="blc-img jauge">
 
+                                    <div class="lst-img clr scrollbar-inner"><!--desk-only-->
+                                        <div class="inner">
+                                          <input type="hidden" value="" name="illustration" id="url_img_cagnotte" required>
+                                            <?php
+                                                $imgs = (array)get_field('avatars_proposes','option');
+                                                
+                                                foreach ( $imgs as $img ):
+                                            ?>
+                                                  <div class="img">
+                                                     <a href="#" data-imgsrc="<?php echo wp_get_attachment_image_url( $img['image_prop'], 'full' ) ?>"><?php echo wp_get_attachment_image( $img['image_prop'], 'avatar-participation' ) ?></a>
+                                                  </div>
+                                            <?php 
+                                                endforeach;
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                          <!-- 000  -->
 
                         </li>
                         <li class="chp">
@@ -220,12 +249,12 @@
                           </li> -->
                            <li>
                             <input id="visa" name="selector" type="radio" value="visa">
-                            <label for="visa"><img src="<?php echo IMG_URL ?>visa.png"><img src="<?php echo IMG_URL ?>master-card.png"></label>
+                            <label for="visa"><img src="<?php echo IMG_URL ?>secure.png"></label>
                             <div class="check"></div>
                           </li>
-                          <li class="blc-securise">
+                          <!-- <li class="blc-securise">
                             <div class="securise"><span><?= __('sécurisé par BNI','kotikota') ?></span><img src="<?php echo IMG_URL ?>bni2.png"></div>
-                          </li>
+                          </li> -->
                           <!-- <li>
                             <input id="bmoi" name="selector" type="radio" value="bmoi">
                             <label for="bmoi"><img src="<?php echo IMG_URL ?>bmoi2.png"></label>

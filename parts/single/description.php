@@ -61,8 +61,9 @@
 
   <div class="pp-document-photos">
     <div class="blcbtn">
-      <a href="#pp-document" class="link fancybox" title="Document"><?php _e('Document','kotikota') ?></a>
-      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos et vidéos','kotikota') ?></a>
+      <a href="#pp-videos" class="link fancybox" title="Photos et vidéos"><?php _e('vidéos','kotikota') ?></a>
+      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos ','kotikota') ?></a>
+      <a href="#pp-document" class="link fancybox" title="Document"><?php _e('Autres','kotikota') ?></a>
 
       <div class="pp-document" id="pp-document" style="display: none">
         <div class="Document cont-pp">
@@ -97,22 +98,11 @@
                         <h3>documents word</h3>
                         <?php if($word_doc):?>
                           <div class="lst-option">
-                            <?php foreach($word_doc as $doc ): ?>
-                              <div class="item">
-                                <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                  <input type="checkbox" name="doc_files" class="document document-check" id="doc-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>">
-                                  <label for="doc-<?= $doc['id'] ?>">
-                                    <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                    <div class="txt"><?= $doc['name'] ?></div>
-                                  </label>
-                                <?php else: ?>
-                                  <a href="<?= $doc['url'] ?>" class="doc-item-link">
-                                      <div class="ico"><img src="<?= IMG_URL ?>word.png" alt="Kotikota"></div>
-                                      <div class="txt"><?= $doc['name'] ?></div>
-                                  </a>
-                                <?php endif; ?>
-                              </div>
-                            <?php endforeach; ?>
+                            <?php 
+                              foreach($word_doc as $doc ): 
+                                $section_document = locate_template( 'parts/single/sections/section-document-word.php', false, false );
+                                include($section_document);
+                              endforeach; ?>
                           </div>
                         <?php else: ?>
                           <div style="text-align:center">
@@ -126,22 +116,10 @@
                         <h3>documents pdf</h3>
                         <?php if($pdf_doc):?>
                           <div class="lst-option">
-                            <?php foreach($pdf_doc as $doc ): ?>
-                              <div class="item">
-                                <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                  <input type="checkbox" name="doc_files" class="document document-check" id="pdf-<?= $doc['id'] ?>" value="<?= $doc['id'] ?>">
-                                  <label for="pdf-<?= $doc['id'] ?>">
-                                    <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                    <div class="txt"><?= $doc['name'] ?></div>
-                                  </label>
-                                <?php else: ?>
-                                  <a href="<?= $doc['url'] ?>" class="doc-item-link" target="_blank">
-                                      <div class="ico"><img src="<?= IMG_URL ?>pdf.png" alt="Kotikota"></div>
-                                      <div class="txt"><?= $doc['name'] ?></div>
-                                  </a>
-                                <?php endif; ?>
-                              </div>
-                            <?php endforeach; ?>
+                            <?php foreach($pdf_doc as $doc ): 
+                              $section_pdf = locate_template( 'parts/single/sections/section-document-pdf.php', false, false );
+                              include($section_pdf);
+                            endforeach; ?>
                           </div>
                         <?php else: ?>
                           <div style="text-align:center">
@@ -177,10 +155,10 @@
       <div class="pp-document" id="pp-photos" style="display: none">
         <div class="Document cont-pp">
             <div class="titre">
-                <h2><?php _e('Images et vidéos','kotikota') ?></h2>
+                <h2><?php _e('Images','kotikota') ?></h2>
             </div>
             <div class="inner-pp">
-              <div id="list-photos-videos" class="lst-document scrollbar-inner">
+              <div id="list-photos" class="lst-document scrollbar-inner">
                   <div class="row">
                     <div class="col photo">
                       <h3><?php _e('images','kotikota') ?></h3>
@@ -190,18 +168,9 @@
                         <div class="lst-option blcphotos">
                           <?php foreach($photos as $photo ):
                             $image = wp_get_attachment_url( $photo['image'] );
-                          ?>
-                            <div class="item">
-                              <div class="inner">
-                              <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                <input type="checkbox" class="ck-photo" name="ck-photo" id="img-<?= $key_image?>" value="<?= $key_image?>">
-                                <label for="img-<?= $key_image?>"></label>
-                              <?php endif; ?>
-                                <a href="<?= $image ?>" class="img fancybox"><img src="<?= $image ?>" alt="Kotikota"></a>
-                              </div>
-                            </div>
-                          <?php
-                              $key_image++;
+                            $section_photo = locate_template( 'parts/single/sections/section-document-photo.php', false, false );
+                            include($section_photo);
+                            $key_image++;
                           endforeach; ?>
                         </div>
                       <?php
@@ -214,8 +183,36 @@
                             </div>
                     <?php endif; ?>
                     </div>
+
+                  </div>
+              </div>
+              <?php if($curr_userdata->ID == $titulaire_id) :?>
+                <div class="blcbtn">
+                  <a href="#ajout-video-image2" class="link fancybox" title="<?php _e('Ajouter','kotikota')?>"><?php _e('ajouter','kotikota')?></a>
+                  <a href="#" class="link" id="remove_media_photos_btn" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Supprimer','kotikota') ?></a>
+                </div>
+              <?php endif; ?>
+            </div>
+            <div class="footer-pp">
+                    <span><?php _e('Des questions ? En savoir plus sur la création des cagnottes ?','kotikota') ?></span>
+                    <a href="<?php echo get_permalink( get_page_by_path( 'creer-cagnotte' ) ) ?>" title="<?php _e('Créer une cagotte en ligne','kotikota') ?>"><?php _e('Créer une cagotte en ligne','kotikota') ?></a> <!-- - <a href="#" title="Faire une simulation">Faire une simulation</a> -->
+            </div>
+        </div>
+
+
+      </div>
+
+       <div class="pp-document" id="pp-videos" style="display: none">
+        <div class="Document cont-pp">
+            <div class="titre">
+                <h2><?php _e('vidéos','kotikota') ?></h2>
+            </div>
+
+            <div class="inner-pp">
+              <div id="list-videos" class="lst-document scrollbar-inner">
+                  <div class="row">
                     <div class="col video">
-                      <h3><?php _e('vidéos','kotikota') ?></h3>
+                      <h3><?php _e('Vidéos','kotikota') ?></h3>
                         <div class="lst-option blcvideos ">
                           <?php if($videos):
                               $key_video=1;
@@ -226,32 +223,14 @@
                                 $video_id= $video['lien_youtube'];
                                 $video_data = get_youtube_video_detail($video_id);
                                 if($video_data): $count_correct_id++;
-                              ?>
-                                  <div class="item">
-                                    <div class="contvideo">
-                                      <a href="<?= $video_data['url'] ?>" target="_blank">
-                                        <div class="video-img"><img src="<?= $video_data['vignette'] ?>" alt="Kotikota"><span class="heure"><?= $video_data['duration'] ?></span></div>
-                                        <div class="txt">
-                                          <h4><?= $video_data['title'] ?></h4>
-                                          <p><?= $video_data['description'] ?></p>
-                                        </div>
-                                        <?php if($curr_userdata->ID == $titulaire_id) :?>
-                                          <div class="check-video">
-                                            <input type="checkbox" class="ck-photo" name="ck-video" id="video-<?= $key_video?>" value="<?= $key_video?>">
-                                            <label for="video-<?= $key_video?>"></label>
-                                          </div>
-                                        <?php endif; ?>
-                                      </a>
-                                    </div>
-                                  </div>
-
-                              <?php
+                                  $section_video = locate_template( 'parts/single/sections/section-document-video.php', false, false );
+                                  include($section_video);
                                 endif;
                                 $key_video++;
                               endforeach; ?>
                             </div>
                             <?php
-                        elseif($count_correct_id!=count($videos)):
+                        elseif(is_array($videos) && $count_correct_id != count($videos)):
                         ?>
                             <div style="text-align:center">
                                 <h4 style="text-align:center">
@@ -273,7 +252,7 @@
               <?php if($curr_userdata->ID == $titulaire_id) :?>
                 <div class="blcbtn">
                   <a href="#ajout-video-image" class="link fancybox" title="<?php _e('Ajouter','kotikota')?>"><?php _e('ajouter','kotikota')?></a>
-                  <a href="#" class="link" id="remove_media_btn" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Supprimer','kotikota') ?></a>
+                  <a href="#" class="link" id="remove_media_videos_btn" title="Supprimer" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Supprimer','kotikota') ?></a>
                 </div>
               <?php endif; ?>
             </div>
@@ -286,12 +265,12 @@
 
       </div>
       <div id="ajout-video-image" style="display: none">
-          <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Cliquez ici pour ajouter une photo','kotikota') ?></a>
+        <!--   <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Cliquez ici pour ajouter une photo','kotikota') ?></a> -->
           <div class="col">
               <div class=" blc-chp ">
-                  <label for="fname"><?php echo __('ID de la nouvelle video','kotikota'); ?><span>*</span></label>
+                  <label for="fname"><?php echo __('ID de la vidéo YouTube','kotikota'); ?><span>*</span></label>
                   <div class="chp">
-                    <input type="text" name="video_id" placeholder="<?php echo __('exemple: 9wNPug7h1gQ','kotikota'); ?>" >
+                    <input type="text" name="video_id" placeholder="<?php echo __('exemple: ixebNgJRePU','kotikota'); ?>" >
                   </div>
               </div>
               <div id="add_video" class="link" title="<?php _e('Ajouter','kotikota') ?>" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Ajouter','kotikota') ?></div>
@@ -300,6 +279,23 @@
               </span>
           </div>
       </div>
+
+         <div id="ajout-video-image2" style="display: none">
+        <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Cliquez ici pour ajouter une photo','kotikota') ?></a> 
+          <div class="col">
+             <!--  <div class=" blc-chp ">
+                  <label for="fname"><?php echo __('ID de la nouvelle video','kotikota'); ?><span>*</span></label>
+                  <div class="chp">
+                    <input type="text" name="video_id" placeholder="<?php echo __('exemple: 9wNPug7h1gQ','kotikota'); ?>" >
+                  </div>
+              </div> -->
+              <div id="add_video" class="link" title="<?php _e('Ajouter','kotikota') ?>" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Ajouter','kotikota') ?></div>
+              <span class="error_video">
+
+              </span>
+          </div>
+      </div>
+
     </div>
 
 

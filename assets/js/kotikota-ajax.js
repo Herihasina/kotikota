@@ -102,30 +102,30 @@ $(function(){
 	  	$.ajax({
 	  		url: ajaxurl,
 	  		data: form_data,
-        contentType: false,
-        processData: false,
-        type:"POST",
-	  	}).done(function(resp){
-	  		$('#loader').removeClass('working');
-				var patt = new RegExp("^http");
-				if( patt.test(resp) ){
-					//window.location = resp;
-					//$('#creer-cagnotte-popup').trigger('click');
-					$.fancybox.open({
-						src : '#pp-felicitation',
-						beforeClose: function() {
-						    window.location = resp;
-						}
-					});
-				}else{
-		  		$('ul#response').addClass('error').html(resp);
-		  		setTimeout(function() {
-		  			$('ul#response').removeClass('error').html('');
-		  		}, 10000 );
-				}
-	  	});
+			contentType: false,
+			processData: false,
+			type:"POST",
+			}).done(function(resp){
+				$('#loader').removeClass('working');
+					var patt = new RegExp("^http");
+					if( patt.test(resp) ){
+						//window.location = resp;
+						//$('#creer-cagnotte-popup').trigger('click');
+						$.fancybox.open({
+							src : '#pp-felicitation',
+							beforeClose: function() {
+								window.location = resp;
+							}
+						});
+					}else{
+					$('ul#response').addClass('error').html(resp);
+					setTimeout(function() {
+						$('ul#response').removeClass('error').html('');
+					}, 10000 );
+					}
+			});
 
-	  	return false;
+			return false;
 	  });
 
 	  $('#pp-felicitation .link').click(function(){
@@ -229,8 +229,12 @@ $(function(){
 	  	var maskIdentite = $('#masque1:checked').val();
 
 	  	if (maskIdentite != "on"){
-	  		maskIdentite = "off";
+	  		maskIdentite = "off";	  		
 	  	}
+
+	  	var pseudo = $('#pseudo').val();
+	  	var pseudo_img = $('#url_img_cagnotte').val();
+
 	  	var maskParticipation = $('#masque2:checked').val();
 	  	if (maskParticipation != "on"){
 	  		maskParticipation = "off";
@@ -274,6 +278,8 @@ $(function(){
 	  			'devise': devise,
 	  			'message': message,
 	  			'maskIdentite' : maskIdentite,
+	  			'pseudo' : pseudo,
+	  			'pseudo_img' : pseudo_img,
 	  			'maskParticipation': maskParticipation,
 	  			'paiement' : paiement,
 	  			'idCagnotte' : idCagnotte,
@@ -404,9 +410,9 @@ $(function(){
 
 	  	// info principale
 	  	var nomCagnotte = $('#nom_cagnotte').val();
-	  	var debut				 = $('#datepicker_debut_param').val();
-	  	var fin					 = $('#datepicker_fin_param').val();
-	  	var idCagnotte	 = $('#idCagnotte').val();
+	  	var debut		= $('#datepicker_debut_param').val();
+	  	var fin			= $('#datepicker_fin_param').val();
+	  	var idCagnotte	= $('#idCagnotte').val();
 
 	  	// categorie
 	  	var sousCateg = $('.lst-type .item.active input[name="sous-categ"]').val();
@@ -442,16 +448,16 @@ $(function(){
 	  		}
 	  	}).done(function(resp){
 	  		var url = new RegExp("^http");
-	  		if( url.test(resp) ){
-				 	console.log('redirect..');
-				 		window.location = resp + '?parametre='+idCagnotte;
-				 }else{
+	  		if( url.test(resp) == false ){
+				 	//console.log('redirect..');
+				 	//	window.location = resp + '?parametre='+idCagnotte;
+				 //}else{
 	  			$('ul#response').addClass('error').html(resp);
 			  		setTimeout(function() {
 			  			$('ul#response').removeClass('error').html('');
 			  		}, 10000 );
 	  		}
-				 $('#loader').removeClass('working');
+			$('#loader').removeClass('working');
 	  	});
 
 	  	return false;
@@ -548,10 +554,10 @@ $(function(){
 	  	}).done(function(resp){
 	  		var url = new RegExp("^http");
 
-	  		if( url.test(resp) ){
-				 	console.log('redirect...');
-				 		window.location = resp;
-				 }else{
+	  		if( url.test(resp) == false ){
+				 	//console.log('redirect...');
+				 	//	window.location = resp;
+				 //}else{
 	  			$('ul#response').addClass('error').html(resp);
 			  		setTimeout(function() {
 			  			$('ul#response').removeClass('error').html('');
@@ -591,10 +597,10 @@ $(function(){
 	  		}
 	  	}).done(function(resp){
 	  		var url = new RegExp("^http");
-	  		if( url.test(resp) ){
-				 	console.log('redirect...');
-				 		window.location = resp;
-				 }else{
+	  		if( url.test(resp) == false){
+				 	//console.log('redirect...');
+				 	//	window.location = resp;
+				 //}else{
 	  			$('ul#response').addClass('error').html(resp);
 			  		setTimeout(function() {
 			  			$('ul#response').removeClass('error').html('');
@@ -613,7 +619,8 @@ $(function(){
 
 	  	var ilaina = $('#ilaina').val();
 	  	var suggere = $('#suggere').val();
-	  	var devise = $('#devise').val();
+	  	// var devise = $('#devise').val();
+	  	var devise = "mga";
 
 	  	var maskIlainaAzo = $('#masque1:checked').val();
 	  	if (maskIlainaAzo != "on"){
@@ -703,7 +710,8 @@ $(function(){
 	  if ( $('#add-question').length ){
 		  $('#add-question').click(function(){
 		  	var question = $('#la-question').val();
-		  	var idCagnotte	 = $('#idCagnotte').val();
+		  	var idCagnotte	 = $('#idCagnotte-question').val();
+
 		  	if ( question == ''){
 		  		alert('Question !');
 		  		return false;
@@ -721,9 +729,49 @@ $(function(){
 		  		},
 		  		dataType: 'html'
 		  	}).done(function(resp){
+		  		//console.log(resp);
 		  		// $(resp).insertBefore('#chp-comment');
-		  		location.reload();
 		  		$('#loader').removeClass('working');
+
+		  		window.location.href = '#question';
+				window.location.reload(true);
+
+		  	});
+
+		  	return false;
+		  });
+		}
+
+		/* ajout mot doux */
+	  if ( $('#add-md').length ){
+		  $('#add-md').click(function(){
+		  	var md = $('#la-md').val();
+		  	var idCagnotte	 = $('#idCagnotte-md').val();
+
+		  	if ( md == ''){
+		  		alert('Mot doux !');
+		  		return false;
+		  	}
+
+		  	$('#loader').addClass('working');
+
+		  	$.ajax({
+		  		url: ajaxurl,
+		  		type: 'POST',
+		  		data: {
+		  			'action' : 'md',
+		  			'md': md,
+		  			'idCagnotte': idCagnotte
+		  		},
+		  		dataType: 'html'
+		  	}).done(function(resp){
+		  		//console.log(resp);
+		  		// $(resp).insertBefore('#chp-comment');
+		  		$('#loader').removeClass('working');
+
+		  		window.location.href = '#mot-doux';
+				window.location.reload(true);
+
 		  	});
 
 		  	return false;
@@ -967,25 +1015,39 @@ $(function(){
         var cagnotte_id= $(this).data('cagnotteId');
         if (mediaUploader) {
             $("#menu-item-upload").html(text.conf_document_upload);
-            $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
-            $(".media-uploader-status .h2").html(text.conf_document_upload_status);
+            $("#menu-item-browse").html("Galerie");
+            $("#menu-item-browse").click();
+
+            $("#menu-item-browse").css("display","block");
+            $(".media-uploader-status .h2").html("Téléchargement");
             $("h2.upload-instructions").text(text.conf_document_upload_instuction);
             $("p.max-upload-size").text(text.conf_document_upload_taille);
+
+            $(".media-uploader-status .h2").html("Téléchargement");
+            $("#menu-item-upload").click(function(e) {
+                $("h2.upload-instructions").text(text.conf_document_upload_instuction);
+                $("p.max-upload-size").text(text.conf_document_upload_taille);
+                $(".media-uploader-status .h2").html("Téléchargement");
+            });
             mediaUploader.open();
             return;
         }
         mediaUploader = wp.media.frames.file_frame = wp.media({
-            multiple: false
+            multiple: true
         });
         mediaUploader.on('select', function() {
-			console.log("doc upload");
-            var attachment = mediaUploader.state().get('selection').first().toJSON();
+            // var attachment = mediaUploader.state().get('selection').first().toJSON();
+			var attachments_url= [];
+			var attachments = mediaUploader.state().get('selection').map( 
+                function( attachment ) {
+                    var json_value= attachment.toJSON();
+                    attachments_url.push(json_value.url);
+            });
 			$.ajax({
                 url: ajaxurl,
                 data: {
                     'action': 'insert_doc_cagnotte',
-                    'doc_file' : attachment.url,
+                    'doc_file' : attachments_url.join(';'),
                     'cagnotte_id': cagnotte_id
                 },
                 dataType: 'html',
@@ -995,15 +1057,23 @@ $(function(){
 
             });
 
-
         });
         mediaUploader.open();
         $("#menu-item-upload").html(text.conf_document_upload);
-        $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
-        $(".media-uploader-status .h2").html(text.conf_document_upload_status);
-        $("h2.upload-instructions").text(text.conf_document_upload_instuction);
-        $("p.max-upload-size").text(text.conf_document_upload_taille);
+		$("#menu-item-browse").html("Galerie");
+		$("#menu-item-browse").click();
+
+		$("#menu-item-browse").css("display","block");
+		$(".media-uploader-status .h2").html("Téléchargement");
+		$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+		$("p.max-upload-size").text(text.conf_document_upload_taille);
+
+		$(".media-uploader-status .h2").html("Téléchargement");
+		$("#menu-item-upload").click(function(e) {
+			$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+			$("p.max-upload-size").text(text.conf_document_upload_taille);
+			$(".media-uploader-status .h2").html("Téléchargement");
+		});
     });
 
 	var mediaUploaderImage;
@@ -1012,43 +1082,67 @@ $(function(){
         var cagnotte_id= $(this).data('cagnotteId');
         if (mediaUploaderImage) {
             $("#menu-item-upload").html(text.conf_document_upload);
-            $("#menu-item-upload").click();
-            $("#menu-item-browse").css("display","none");
-            $(".media-uploader-status .h2").html(text.conf_document_upload_status);
-            $("h2.upload-instructions").text(text.conf_document_upload_instuction);
-            $("p.max-upload-size").text(text.conf_document_upload_taille);
+			$("#menu-item-browse").html("Galerie");
+			$("#menu-item-browse").click();
+
+			$("#menu-item-browse").css("display","block");
+			$(".media-uploader-status .h2").html("Téléchargement");
+			$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+			$("p.max-upload-size").text(text.conf_document_upload_taille);
+
+			$(".media-uploader-status .h2").html("Téléchargement");
+			$("#menu-item-upload").click(function(e) {
+				$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+				$("p.max-upload-size").text(text.conf_document_upload_taille);
+				$(".media-uploader-status .h2").html("Téléchargement");
+			});
             mediaUploaderImage.open();
             return;
         }
         mediaUploaderImage = wp.media.frames.file_frame = wp.media({
-            multiple: false
+            multiple: true
         });
         mediaUploaderImage.on('select', function() {
 			console.log("image upload");
-            var attachment = mediaUploaderImage.state().get('selection').first().toJSON();
+            // var attachment = mediaUploaderImage.state().get('selection').first().toJSON();
+			var attachments_url= [];
+			var attachments = mediaUploaderImage.state().get('selection').map( 
+                function( attachment ) {
+                    var json_value= attachment.toJSON();
+                    attachments_url.push(json_value.url);
+            });
             $.ajax({
                 url: ajaxurl,
                 data: {
                     'action': 'insert_image_cagnotte',
-                    'image_url' : attachment.url,
+                    'image_url' : attachments_url.join(';'),
                     'cagnotte_id': cagnotte_id
                 },
                 dataType: 'html',
                 type:"POST",
             }).done(function(resp){
-                $('#pp-photos #list-photos-videos .row .photo').html(resp);
+                $('#pp-photos #list-photos .row .photo').html(resp);
                 $.fancybox.close();
             });
 
 
         });
         mediaUploaderImage.open();
-        $("#menu-item-upload").html(text.conf_document_upload);
-        $("#menu-item-upload").click();
-        $("#menu-item-browse").css("display","none");
-        $(".media-uploader-status .h2").html(text.conf_document_upload_status);
-        $("h2.upload-instructions").text(text.conf_document_upload_instuction);
-        $("p.max-upload-size").text(text.conf_document_upload_taille);
+		$("#menu-item-upload").html(text.conf_document_upload);
+		$("#menu-item-browse").html("Galerie");
+		$("#menu-item-browse").click();
+
+		$("#menu-item-browse").css("display","block");
+		$(".media-uploader-status .h2").html("Téléchargement");
+		$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+		$("p.max-upload-size").text(text.conf_document_upload_taille);
+
+		$(".media-uploader-status .h2").html("Téléchargement");
+		$("#menu-item-upload").click(function(e) {
+			$("h2.upload-instructions").text(text.conf_document_upload_instuction);
+			$("p.max-upload-size").text(text.conf_document_upload_taille);
+			$(".media-uploader-status .h2").html("Téléchargement");
+		});
     });
 
 	$('#add_video').click(function(e){
@@ -1070,7 +1164,7 @@ $(function(){
 				if(patt.test(resp)){
 					$('.error_video').text(resp);
 				}else{
-					$('#pp-photos #list-photos-videos .row .video').html(resp);
+					$('#pp-videos #list-videos .row .video').html(resp);
 					$.fancybox.close();
 				}
 			});
@@ -1079,31 +1173,47 @@ $(function(){
 		}
 	});
 
-	$('#remove_media_btn').click(function(e){
+	$('#remove_media_photos_btn').click(function(e){
 		e.preventDefault();
 		var cagnotte_id= $(this).data('cagnotteId');
 		var image_ids = [];
-		var video_ids = [];
         $('[name=ck-photo]:checked').each(function(i){
 			image_ids[i] = $(this).val();
         });
-		$('[name=ck-video]:checked').each(function(i){
+		console.log(image_ids);
+		$.ajax({
+			url: ajaxurl,
+			data: {
+				'action': 'remove_photos_cagnotte',
+				'image_ids' : image_ids,
+				'cagnotte_id': cagnotte_id
+			},
+			dataType: 'html',
+			type:"POST",
+		}).done(function(resp){
+			$('#pp-photos #list-photos .row .photo').html(resp);
+		});
+	});
+
+	$('#remove_media_videos_btn').click(function(e){
+		e.preventDefault();
+		var cagnotte_id= $(this).data('cagnotteId');
+		var video_ids = [];
+        $('[name=ck-video]:checked').each(function(i){
 			video_ids[i] = $(this).val();
         });
-		console.log(image_ids);
 		console.log(video_ids);
 		$.ajax({
 			url: ajaxurl,
 			data: {
-				'action': 'remove_media_cagnotte',
-				'image_ids' : image_ids,
+				'action': 'remove_videos_cagnotte',
 				'video_ids' : video_ids,
 				'cagnotte_id': cagnotte_id
 			},
 			dataType: 'html',
 			type:"POST",
 		}).done(function(resp){
-			$('#pp-photos .lst-document').html(resp);
+			$('#pp-videos #list-videos .row .video').html(resp);
 		});
 	});
 

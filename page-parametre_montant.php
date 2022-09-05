@@ -1,6 +1,6 @@
 <?php
 	// Template name: info montant
-	
+
   if ( array_key_exists("parametre", $_GET) )
     $idCagnotte = strip_tags($_GET['parametre']);
 
@@ -8,7 +8,7 @@
     die( __('Cette ID ne correspond à votre cagnotte :)','kotikota') );
 
 	if ( (is_user_logged_in() && get_field('titulaire_de_la_cagnotte', $idCagnotte )  == get_current_user_id() ) || current_user_can('administrator')  ):
-		
+
 		$active = "montant";
 		get_header(); ?>
 
@@ -21,7 +21,7 @@
 				<?php
 						include 'sections/parametres/menu-parametre.php';
 				?>
-					
+
 					<div class="titre wow fadeIn" data-wow-delay="950ms">
             <h2><span><img src="<?php echo IMG_URL ?>ico-montant.png"></span><?php _e('Je personnalise le montant','kotikota'); ?></h2>
           </div>
@@ -48,11 +48,11 @@
                               <label for="masque1"><?php _e('Masquer montant à atteindre/montant collecté','kotikota'); ?></label>
                               <div class="check"></div>
                             </li>
-                        
+
                         </ul>
                       </div>
                     </div>
-                  
+
                 </div>
               </div> -->
               <div class="col">
@@ -68,7 +68,7 @@
                 </div>
               </div>
           <!--     <div class="col">
-                <div class="blc-chp">   
+                <div class="blc-chp">
                    <div class="blc-check">
                       <div class="option">
                         <ul>
@@ -77,14 +77,14 @@
                               <label for="masque2"><?php _e('Masquer toutes les contributions','kotikota'); ?></label>
                               <div class="check"></div>
                             </li>
-                        
+
                         </ul>
                       </div>
                     </div>
                 </div>
               </div>
  -->
-               <div class="col">
+              <!--  <div class="col">
                 <div class="blc-chp">
                    <label><?php _e('Devise','kotikota'); ?></label>
                    <?php
@@ -93,8 +93,8 @@
                    ?>
                    <select id="devise" disabled style="background: none !important;">
                       <option value="mga" <?php if ($devise == 'mga') echo "selected"; ?>>ARIARY (Ar)</option>
-                      <!-- <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>EURO (€)</option> -->
-                      <!-- <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>LIVRE (£)</option>                      -->
+                      <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>EURO (€)</option>
+                      <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>LIVRE (£)</option>
                    </select>
 
                   <div class="on-off">
@@ -103,7 +103,7 @@
                   </div>
 
                 </div>
-              </div>
+              </div> -->
             <!--   <div class="col">
                 <div class="blc-chp">
                    <div class="blc-check">
@@ -114,7 +114,7 @@
                               <label for="masque3"><?php _e('Masquer le montant de la contribution','kotikota'); ?></label>
                               <div class="check"></div>
                             </li>
-                        
+
                         </ul>
                       </div>
                     </div>
@@ -127,15 +127,15 @@
           <ul id="response"></ul>
 	        <div class="btn wow fadeIn" data-wow-delay="950ms">
 	          <a href="<?php echo get_permalink( $idCagnotte ) ?>/parametre-description/?parametre=<?= $idCagnotte ?>" class="link" title="<?php _e('revenir','kotikota') ?>"><?php _e('revenir','kotikota') ?></a>
-	          <!--<a href="<?php echo get_site_url()?>/parametre-notification/" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="submit-montant"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>-->
-		  <a href="<?php echo get_permalink( $idCagnotte)?>" class="link submit" title="Valider" id="submit-montant"><?php _e('Valider','kotikota') ?></a>
+	          <!--<a href="<?php echo get_permalink( $idCagnotte)?>" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="submit-montant"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>-->
+		  <a href="<?php echo get_permalink( $idCagnotte ) ?>" class="link submit" title="Enregistrer" id="submit-montant"><?php _e('Enregistrer','kotikota') ?></a>
 	        </div>
 
 				</div>
 			</div>
       <div id="loader">
         <img src="<?php echo IMG_URL.'loader.gif' ?>" alt="loader">
-      </div>  	
+      </div>
 		</main>
 <?php
 	get_footer();

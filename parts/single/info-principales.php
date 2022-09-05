@@ -4,16 +4,18 @@
 
         <div class="col col1">
           <?php
-            $terms = get_the_terms( $post->ID, 'categ-cagnotte' );
+            $terms = wp_get_post_terms( $post->ID, 'categ-cagnotte' );
             $categ = '';
             if ($terms)
-              foreach ($terms as $term){
-                  $id_parent = $term->parent;
-                  if ( $id_parent != 0 ) {
-                     $t = get_field('picto_sous-categorie', 'categ-cagnotte_'.$term->term_id);
-                     if ( is_array( $t ) && array_key_exists('picto_etat_normal', $t))
-                      echo '<class class="ico">'.wp_get_attachment_image( $t['picto_etat_normal'], 'cagnotte-picto' ).'</class>';
-                     $categ = $term->name;
+              foreach ($terms as $key=>$term){
+                  if($key == 0){
+                    $id_parent = $term->parent;
+                    if ( $id_parent != 0 ) {
+                       $t = get_field('picto_sous-categorie', 'categ-cagnotte_'.$term->term_id);
+                       if ( is_array( $t ) && array_key_exists('picto_etat_normal', $t))
+                        echo '<class class="ico">'.wp_get_attachment_image( $t['picto_etat_normal'], 'cagnotte-picto' ).'</class>';
+                       $categ = $term->name;
+                    }
                   }
               }
           ?>
@@ -91,8 +93,8 @@
                               echo '<span class="format_chiffre">'.get_field('montant_recolte').'</span> '. $devise;
                           ?>
                         </b>
-                        <span><?php 
-                          _e('collecté','kotikota'); 
+                        <span><?php
+                          _e('collecté','kotikota');
                           if ((int)get_field('montant_recolte') >= 2 && ICL_LANGUAGE_CODE == 'fr' ) echo "s"; ?>
                         </span>
                     </div>
