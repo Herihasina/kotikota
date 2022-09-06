@@ -779,8 +779,8 @@ function save_info_banque(){
     }
     
 
-    update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic);
-
+    $update = update_beneficiaire_info_rib( $idCagnotte,$titulaire,$banque,$domicile,$codebanque,$codeguichet,$numcompte,$cle,$iban,$bic);
+    // var_dump($update); die;
     $single = get_lang_url().'/parametre-info-principale';
     echo json_encode(array('resp' => 'success', 'url' => $single ));
     wp_die();
@@ -1076,6 +1076,58 @@ function ask_question(){
         echo $html;
         wp_die();
     }
+}
+
+add_action( 'wp_ajax_md', 'md' );
+add_action( 'wp_ajax_nopriv_md', 'md' );
+
+function md(){
+    $erreurs = [];
+
+    if ( !isset($_POST['md']) || $_POST['md'] == "" ){
+        $erreurs[] = __("Veuillez bien entrer votre mot doux.", "kotikota");
+    }
+
+    if ( !isset($_POST['idCagnotte']) || !is_cagnotte($_POST['idCagnotte']) )
+        $erreurs[] = __("ID de cagnotte incorrecte.", "kotikota");
+
+    if ( $erreurs ){
+        foreach ($erreurs as $erreur ){
+             echo "<li>$erreur</li>";
+         }
+         wp_die();
+    }
+
+    $md = strip_tags( $_POST['md'] );
+    $idCagnotte = $_POST['idCagnotte'];
+
+    $current_id = false;
+
+    if ( is_user_logged_in() ):
+        $current_id = get_current_user_id();
+        $user_data = get_user_meta( $current_id );
+    endif;
+
+    if($current_id) {
+        if ( $user_data['first_name'][0] != '' || $user_data['last_name'][0] != '' ){
+          $fname = $user_data['first_name'][0];
+          $lname = $user_data['last_name'][0];
+        }else{
+          $fname = $user_data['nickname'][0];
+          $lname = '';
+        }
+      } else {
+        $fname = __('Anonyme','kotikota');
+        $lname = '';
+      }
+
+    //ajoutena ao @CPT mot_doux ilay message t@ty participation ty
+   insert_mot_doux( $idCagnotte, $lname, $fname, $md );
+
+   $html = "Mot doux inséré !";
+
+   echo $html;
+   wp_die();
 }
 
 add_action( 'wp_ajax_delete_pst', 'delete_pst' );

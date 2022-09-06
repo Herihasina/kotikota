@@ -229,13 +229,12 @@ $(function(){
 	  	var maskIdentite = $('#masque1:checked').val();
 
 	  	if (maskIdentite != "on"){
-	  		maskIdentite = "off";
-	  		var pseudo = "nulll";
-	  		var pseudo_img = "nulll";
-	  	}else if( maskIdentite == "on" ){
-	  		var pseudo = $('#pseudo').val();
-	  		var pseudo_img = $('#url_img_cagnotte').val();
+	  		maskIdentite = "off";	  		
 	  	}
+
+	  	var pseudo = $('#pseudo').val();
+	  	var pseudo_img = $('#url_img_cagnotte').val();
+
 	  	var maskParticipation = $('#masque2:checked').val();
 	  	if (maskParticipation != "on"){
 	  		maskParticipation = "off";
@@ -620,7 +619,8 @@ $(function(){
 
 	  	var ilaina = $('#ilaina').val();
 	  	var suggere = $('#suggere').val();
-	  	var devise = $('#devise').val();
+	  	// var devise = $('#devise').val();
+	  	var devise = "mga";
 
 	  	var maskIlainaAzo = $('#masque1:checked').val();
 	  	if (maskIlainaAzo != "on"){
@@ -734,6 +734,42 @@ $(function(){
 		  		$('#loader').removeClass('working');
 
 		  		window.location.href = '#question';
+				window.location.reload(true);
+
+		  	});
+
+		  	return false;
+		  });
+		}
+
+		/* ajout mot doux */
+	  if ( $('#add-md').length ){
+		  $('#add-md').click(function(){
+		  	var md = $('#la-md').val();
+		  	var idCagnotte	 = $('#idCagnotte-md').val();
+
+		  	if ( md == ''){
+		  		alert('Mot doux !');
+		  		return false;
+		  	}
+
+		  	$('#loader').addClass('working');
+
+		  	$.ajax({
+		  		url: ajaxurl,
+		  		type: 'POST',
+		  		data: {
+		  			'action' : 'md',
+		  			'md': md,
+		  			'idCagnotte': idCagnotte
+		  		},
+		  		dataType: 'html'
+		  	}).done(function(resp){
+		  		//console.log(resp);
+		  		// $(resp).insertBefore('#chp-comment');
+		  		$('#loader').removeClass('working');
+
+		  		window.location.href = '#mot-doux';
 				window.location.reload(true);
 
 		  	});

@@ -463,7 +463,7 @@
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
                                                                     <p><?php echo __("Cher KotiKoteur","kotikota_mail") ?> 📢</p>
                                                                     <p><?php printf( __("Votre cagnotte %s a bien été clôturée","kotikota_mail"),'« '. get_field('nom_de_la_cagnotte', $idCagnotte) .' » '); ?> ⌛👍.</p>
-                                                                    <p><?php printf( __("Vous retrouverez toutes la caractéristiques de la cagnotte en <a href='%'> cliquant ici 🖱</a>","kotikota_mail"), get_permalink($idCagnotte)); ?></p>
+                                                                    <p><?php printf( __("Vous retrouverez toutes la caractéristiques de la cagnotte en <a href='%s'> cliquant ici 🖱</a>","kotikota_mail"), get_permalink($idCagnotte)); ?></p>
                                                                     <?php $devise = get_field('devise', $idCagnotte ); ?>
                                                                     <p><?php echo __("Montant à transférer :","kotikota_mail") ?> <?= get_field('montant_recolte', $idCagnotte).' MGA' ?></p>
                                                                     <p><?php echo __("Afin de pouvoir vous transférer les sommes","kotikota_mail") ?> 💰 <?php echo __("par virement bancaire","kotikota_mail") ?> 💸<br>

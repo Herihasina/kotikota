@@ -133,10 +133,12 @@
                             <label for="masque1"><span>on</span></label>
                           </div>
                           <div class="pseudo-wrap">
-                            <!-- Peuplé par JS custom-wp.js -->
+                            <div>
+                                <input type="text" name="pseudo" id="pseudo" value="" placeholder="Pseudo">
+                            </div>
                           </div>
                           <!-- OOOO  -->
-                           <div class="pseudo-img-wrap" style="display:none">
+                           <div class="pseudo-img-wrap">
                                 <label><?php _e('Choisis un avatar ','kotikota'); ?> <span>*</span></label>
                                 <div class="blc-img jauge">
 

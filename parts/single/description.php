@@ -61,9 +61,9 @@
 
   <div class="pp-document-photos">
     <div class="blcbtn">
-      <a href="#pp-document" class="link fancybox" title="Document"><?php _e('Document','kotikota') ?></a>
-      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos ','kotikota') ?></a>
       <a href="#pp-videos" class="link fancybox" title="Photos et vidéos"><?php _e('vidéos','kotikota') ?></a>
+      <a href="#pp-photos" class="link fancybox" title="Photos et vidéos"><?php _e('Photos ','kotikota') ?></a>
+      <a href="#pp-document" class="link fancybox" title="Document"><?php _e('Autres','kotikota') ?></a>
 
       <div class="pp-document" id="pp-document" style="display: none">
         <div class="Document cont-pp">
@@ -268,9 +268,9 @@
         <!--   <a id="add_image" class="link" title="Cliquez ici pour ajouter une photo" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Cliquez ici pour ajouter une photo','kotikota') ?></a> -->
           <div class="col">
               <div class=" blc-chp ">
-                  <label for="fname"><?php echo __('ID de la nouvelle video','kotikota'); ?><span>*</span></label>
+                  <label for="fname"><?php echo __('ID de la vidéo YouTube','kotikota'); ?><span>*</span></label>
                   <div class="chp">
-                    <input type="text" name="video_id" placeholder="<?php echo __('ID de la vidéo YouTube','kotikota'); ?>" >
+                    <input type="text" name="video_id" placeholder="<?php echo __('exemple: ixebNgJRePU','kotikota'); ?>" >
                   </div>
               </div>
               <div id="add_video" class="link" title="<?php _e('Ajouter','kotikota') ?>" data-cagnotte-id="<?=  $post->ID ?>"><?php _e('Ajouter','kotikota') ?></div>

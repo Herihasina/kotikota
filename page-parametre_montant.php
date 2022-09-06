@@ -84,7 +84,7 @@
                 </div>
               </div>
  -->
-               <div class="col">
+              <!--  <div class="col">
                 <div class="blc-chp">
                    <label><?php _e('Devise','kotikota'); ?></label>
                    <?php
@@ -93,8 +93,8 @@
                    ?>
                    <select id="devise" disabled style="background: none !important;">
                       <option value="mga" <?php if ($devise == 'mga') echo "selected"; ?>>ARIARY (Ar)</option>
-                      <!-- <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>EURO (€)</option> -->
-                      <!-- <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>LIVRE (£)</option>                      -->
+                      <option value="eu" <?php if ($devise == 'eu') echo "selected"; ?>>EURO (€)</option>
+                      <option value="liv" <?php if ($devise == 'liv') echo "selected"; ?>>LIVRE (£)</option>
                    </select>
 
                   <div class="on-off">
@@ -103,7 +103,7 @@
                   </div>
 
                 </div>
-              </div>
+              </div> -->
             <!--   <div class="col">
                 <div class="blc-chp">
                    <div class="blc-check">
@@ -128,7 +128,7 @@
 	        <div class="btn wow fadeIn" data-wow-delay="950ms">
 	          <a href="<?php echo get_permalink( $idCagnotte ) ?>/parametre-description/?parametre=<?= $idCagnotte ?>" class="link" title="<?php _e('revenir','kotikota') ?>"><?php _e('revenir','kotikota') ?></a>
 	          <!--<a href="<?php echo get_permalink( $idCagnotte)?>" class="link submit" title="<?php _e('éTAPE SUIVANTE','kotikota') ?>" id="submit-montant"><?php _e('éTAPE SUIVANTE','kotikota') ?></a>-->
-		  <a href="#" class="link submit" title="Enregistrer" id="submit-montant"><?php _e('Enregistrer','kotikota') ?></a>
+		  <a href="<?php echo get_permalink( $idCagnotte ) ?>" class="link submit" title="Enregistrer" id="submit-montant"><?php _e('Enregistrer','kotikota') ?></a>
 	        </div>
 
 				</div>
