@@ -906,6 +906,9 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 
 /*.lst-cagnotte-publique .item .ico-percent.cloturer { background:url(../images/bandau-mini.png); width: 167px; height: 63px; background-size: cover; left: -13px; top: 13px }
 */
+.cagnotte-publique .wrapper {
+    max-width: 1370px;
+}
 .lst-cagnotte-publique .item .ico-percent.cloturer {
     background: url(../images/bandau-mini.png);
     width: 174px;
