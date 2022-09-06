@@ -323,11 +323,11 @@ function create_cagnotte(){
         }
 
         sendNotificationCreation($newPost);
-        $piece_didentite = get_field('piece_didentites', 'user_'.$now_user );
+        $piece_didentite = get_field('pieces_didentite', 'user_'.$now_user );
 
         $profil_valide = get_field('profil_valide', 'user_'.$now_user );
 
-        if( !$piece_didentite && !$profil_valide )
+        if( !$piece_didentite )
             sendRappelPostCreation( $now_user );
 
         // $single = get_permalink( $newPost );
