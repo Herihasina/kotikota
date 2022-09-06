@@ -243,19 +243,26 @@ function create_cagnotte(){
                 $cin_files= explode(';',$cin_value);
                 foreach($cin_files as $file){
                     $cin = attachment_url_to_postid(strip_tags($file));
-                    if($file)
+                    if($file){
                         $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.$now_user);
+                    }
                 }
                 // update_field('piece_didentite', $cin, 'user_'.$now_user );
             }
         }elseif( 'desktop' == $device ){
-            // $cin = attachment_url_to_postid( $cin );
-            // update_field('piece_didentite', $cin, 'user_'.$now_user );
+            
+
             $cin_files= explode(';',$cin_value);
+            
             foreach($cin_files as $file){
                 $cin = attachment_url_to_postid(strip_tags($file));
-                if($file)
-                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.$now_user);
+                if($file){
+                    $row = array(
+                        'field_6299c9b859c63' => $cin,
+                    );
+
+                    add_row('field_6299c9a159c62', $row, 'user_'.$now_user);
+                }
             }
         }
 
