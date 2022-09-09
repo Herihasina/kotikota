@@ -254,7 +254,7 @@
                             						<p><?php _e('Pour assurer une double vérification, vous pouvez fournir une photo du RIB du bénéficiaire','kotikota') ?></p>
                             					</div>
                             					<div class="info-rib">
-                            						<p><?php _e('Pour assurer une double vérification, vous aSi vous souhaitez obtenir un transfert via Mobile Money, il faudra effectuer une demande spéciale à l’adresse hello@koti-kota.com en précisant le Nom de votre cagnotte, votre Identifiant Koti Kota (Profil), le montant à récupérer, votre numéro de téléphone ainsi qu’un justificatif d’identité (CIN, passeport,…)','kotikota') ?></p>
+                            						<p><?php _e('Si vous souhaitez obtenir un transfert via Mobile Money, il faudra effectuer une demande spéciale à l’adresse hello@koti-kota.com en précisant le Nom de votre cagnotte, votre Identifiant Koti Kota (Profil), le montant à récupérer, votre numéro de téléphone ainsi qu’un justificatif d’identité (CIN, passeport,…)','kotikota') ?></p>
                             					</div>
 												<ul id="responsepopup"></ul>
                             					<div class="btn">

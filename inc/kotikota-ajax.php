@@ -243,19 +243,26 @@ function create_cagnotte(){
                 $cin_files= explode(';',$cin_value);
                 foreach($cin_files as $file){
                     $cin = attachment_url_to_postid(strip_tags($file));
-                    if($file)
+                    if($file){
                         $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.$now_user);
+                    }
                 }
                 // update_field('piece_didentite', $cin, 'user_'.$now_user );
             }
         }elseif( 'desktop' == $device ){
-            // $cin = attachment_url_to_postid( $cin );
-            // update_field('piece_didentite', $cin, 'user_'.$now_user );
+            
+
             $cin_files= explode(';',$cin_value);
+            
             foreach($cin_files as $file){
                 $cin = attachment_url_to_postid(strip_tags($file));
-                if($file)
-                    $add_cin_file = add_row('pieces_didentite',array('image' => $cin),'user_'.$now_user);
+                if($file){
+                    $row = array(
+                        'field_6299c9b859c63' => $cin,
+                    );
+
+                    add_row('field_6299c9a159c62', $row, 'user_'.$now_user);
+                }
             }
         }
 
@@ -316,11 +323,11 @@ function create_cagnotte(){
         }
 
         sendNotificationCreation($newPost);
-        $piece_didentite = get_field('piece_didentites', 'user_'.$now_user );
+        $piece_didentite = get_field('pieces_didentite', 'user_'.$now_user );
 
         $profil_valide = get_field('profil_valide', 'user_'.$now_user );
 
-        if( !$piece_didentite && !$profil_valide )
+        if( !$piece_didentite )
             sendRappelPostCreation( $now_user );
 
         // $single = get_permalink( $newPost );
@@ -1012,7 +1019,6 @@ function ask_question(){
             'post_date'  => the_time('d/m/y'),
             'post_author' => get_current_user_id() ? get_current_user_id() : 0
             );
-
 
     $editID = strip_tags( $_POST['id_question'] );
     if ($editID != ''){

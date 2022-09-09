@@ -367,7 +367,7 @@ $(function(){
 
 	  /* invite email */
 	   $('#invite_email').click( function(){
-		   var source = $(this).data('source');
+		var source = $(this).data('source');
 	  	$('#loader').addClass('working');
 	  	if ( $('.un-email').length ){
 	  		var emails = [];
@@ -383,22 +383,22 @@ $(function(){
 	  		data: {
 	  			'action': 'send_invite',
 	  			'emails': emails,
-	  			'idCagnotte': idCagnotte,
+	  			'idCagnotte': idCagnotte
 	  		}
 	  	}).done(function(resp){
 			var data= $.parseJSON(resp);
-	  		if ( data.resp == "success" ){
-	  			$('#open_conf').trigger('click');
-	  			$('#popup_conf .conf_text').text(text.conf_invite_email);
-				if(source){
-					window.location = data.url;
-				}
-	  		}else{
-	  			$('ul#response').addClass('error').html(data.erreurs);
-			  		setTimeout(function() {
-			  			$('ul#response').removeClass('error').html('');
-			  		}, 10000 );
-	  		}
+			if ( data.resp == "success" ){
+				$('#open_conf').trigger('click');
+				$('#popup_conf .conf_text').text(text.conf_invite_email);
+			  if(source){
+				  window.location = data.url;
+			  }
+			}else{
+				$('ul#response').addClass('error').html(data.erreurs);
+					setTimeout(function() {
+						$('ul#response').removeClass('error').html('');
+					}, 10000 );
+			}
 	  		$('#loader').removeClass('working');
 	  	});
 	  	return false;
@@ -504,21 +504,21 @@ $(function(){
 	  		}
 	  	}).done(function(resp){
 			var resp_json = $.parseJSON(resp);
-	  		if( resp_json.resp === "success"){
-				console.log('redirect..');
-				window.location = resp_json.url + '?parametre='+idCagnotte;
+			if( resp_json.resp === "success"){
+			  console.log('redirect..');
+			  window.location = resp_json.url + '?parametre='+idCagnotte;
 			}else{
 				var errors = resp_json.errors;
 				console.log(errors);
 				$(errors).each(function(index,value){
 					$('#'+value.key+'-error').text(value.error_msg);
 				});
-
-	  			// $('ul#responsepopup').addClass('error').html(resp);
-			  	// 	setTimeout(function() {
+				
+					// $('ul#responsepopup').addClass('error').html(resp);
+					// 	setTimeout(function() {
 				// 	$('ul#responsepopup').removeClass('error').html('');
 				// }, 10000 );
-	  		}
+				}
 			$('#loader').removeClass('working');
 	  	});
 

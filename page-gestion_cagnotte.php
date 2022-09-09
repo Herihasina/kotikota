@@ -112,11 +112,11 @@ if ( (is_user_logged_in() && get_field('titulaire_de_la_cagnotte', $id_cagnotte 
               <input type="text" id="emails_list" name="" placeholder="<?= __("saisir un email + touche entrée",'kotikota') ?>">
             </div>
           </div>
-          <!--
+          
             <div class="tip">
               * Appuyez sur la touche Entrée pour valider et en ajouter une autre
             </div>
-          -->
+          
           <div class="info clr">
             <!-- <a href="#" title="Importer mes contacts">Importer mes contacts</a> -->
             <span><?= __("Nombre d'invitations restantes",'kotikota') ?> : <b id="compt">100</b> / 100</span>
@@ -126,7 +126,7 @@ if ( (is_user_logged_in() && get_field('titulaire_de_la_cagnotte', $id_cagnotte 
         <div class="btn wow fadeIn" data-wow-delay="950ms">
           <input type="hidden" id="idCagnotte" name="idCagnotte" value="<?php echo $id_cagnotte ?>">
           <a href="<?php echo get_permalink( $id_cagnotte ) ?>" class="link" title="<?php _e('Annuler','kotikota'); ?>"><?php _e('Annuler','kotikota'); ?></a>
-          <input type="submit" id="invite_email" name="" class="link submit" data-source="gestion-invite"  value="<?php _e('Valider','kotikota'); ?>">
+          <input type="submit" id="invite_email" name="" class="link submit" data-source="gestion-invite" value="<?php _e('Valider','kotikota'); ?>">
         </div>
       </div>
   </div>

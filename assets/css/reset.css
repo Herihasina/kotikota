@@ -3420,7 +3420,7 @@ a:hover { color:#fbbd36; }
     .offrir-cadeau .lst-type {
         display: block;
         position: relative;
-        z-index: -1;
+        
     }
 
     .zone-search .offrir-cadeau .lst-type {
