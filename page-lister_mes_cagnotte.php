@@ -36,6 +36,8 @@
         $loop = query_posts( $args );
         
         if (have_posts()):
+            $from = "mes-cagnottes";
+            
             include 'sections/content/liste-cagnottes.php';
         else:
     ?>

@@ -23,7 +23,9 @@
   <div class="wrapper">
       <?php
         get_template_part('parts/single/info-principales');
-        get_template_part('parts/single/top-buttons');
+
+        if( "publish" == get_post_status() )
+          get_template_part('parts/single/top-buttons');
 
       ?>
 
