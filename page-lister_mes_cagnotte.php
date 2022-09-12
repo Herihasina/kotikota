@@ -19,7 +19,7 @@
 
         	$args = array(  
             'post_type' => array('cagnotte','cagnotte-perso'),
-            'post_status' => 'publish',
+            'post_status' => array('pending','publish'),
             'posts_per_page' => $per_page, 
             'orderby' => 'ID',
             'order' => 'DESC',

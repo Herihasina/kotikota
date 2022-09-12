@@ -332,7 +332,7 @@ function create_cagnotte(){
 
         // $single = get_permalink( $newPost );
         // echo "$single";
-        echo home_url();
+        echo site_url('toutes-mes-cagnottes');
     }
     wp_die();
 
