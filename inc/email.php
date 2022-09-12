@@ -39,6 +39,39 @@ function sendNotificationCreation($id){
     }
 }
 
+function sendNotificationApprobationCreation($id){
+    $current_user = wp_get_current_user();
+    $titulaire = get_field('titulaire_de_la_cagnotte', $id );
+    $nomcagnotte = get_field('nom_de_la_cagnotte', $id);
+    $prenom = get_user_meta($titulaire);
+
+    $userdata = get_userdata( $titulaire );
+
+    $email_titulaire = $userdata->user_email;
+
+    $prenom = $prenom['first_name'][0];
+    if ( !$prenom )
+        $prenom = $prenom['nickname'][0];
+
+    $cur_prenom = $userdata->first_name;
+
+    $headers = array('Reply-To: '. get_field('admin_email','option'),'Cc:'. get_field('admin_email','option'),'Content-Type: text/html; charset=UTF-8');
+
+    $tpl = locate_template( 'email-tpl/notif-cagnotte-approuvee.php', false, false );    
+
+    ob_start();
+      include( $tpl );
+    $html = ob_get_clean();
+
+    $objet = get_field('objet_approbation_creation','option') ? get_field('objet_approbation_creation','option') : __("Création de cagnotte approuvée","kotikota");
+
+    if (@wp_mail( $email_titulaire, $objet, $html, $headers ) ){
+      return true;
+    }else{
+      return false;
+    }
+}
+
 function sendNotificationParticipation($id, $email_participant = ''){
     $titulaire = get_field('titulaire_de_la_cagnotte', $id );
     $nomcagnotte = get_field('nom_de_la_cagnotte', $id);

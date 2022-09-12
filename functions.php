@@ -1084,3 +1084,16 @@ function generate_post_to_pdf_file($postID) {
     var_dump($var);
     echo "</pre>";
   }
+
+function cagnotte_pending_to_publish( $new_status, $old_status, $post ) {
+
+  if( $post->post_type == "cagnotte" || $post->post_type == "cagnotte-perso" ){
+
+    if ( $old_status == 'pending'  &&  $new_status == 'publish' ) {
+        sendNotificationApprobationCreation( $post->ID );
+    }
+
+  }
+    
+}
+add_action( 'transition_post_status', 'cagnotte_pending_to_publish', 10, 3 );
