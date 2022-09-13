@@ -63,7 +63,7 @@
                         <?php elseif( "pending" == $cagnotte_status ): ?>
                             <span class="ico-percent cloturer en_cours_validation">
                                 <div class="ckeckCloturer"></div>
-                                <span><?php _e('En validation','kotikota'); ?></span>
+                                <span><?php _e('En cours de validation','kotikota'); ?></span>
                             </span>
                         <?php endif; ?>
                     </a>
