@@ -461,7 +461,7 @@
                                                         <tr>
                                                             <td align="center" style="font-size: 0px; padding: 0; padding-bottom: 25px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 20px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <?php echo __('Félicitations,','kotikota_mail') ?>,
+                                                                    <?php echo __('Hello,','kotikota_mail').' '.$prenom; ?>,
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -469,19 +469,14 @@
                                                         <tr>
                                                             <td align="center" class="text" style="font-size: 16px; padding: 0 46px 10px; word-break: break-word;">
                                                                 <div style="font-family: Arial; font-size: 16px; line-height: 24px; text-align: center; color: #000000;">
-                                                                    <?php echo __('Merci d’avoir créé votre cagnotte sur www.koti-kota.com','kotikota_mail') ?> <br><br>
-                                                                    📢 <?php echo __('Par expérience, sachez que 3 raisons majeures expliquent le succès ou l’échec de votre cagnotte','kotikota_mail') ?><br><br>
-                                                                    <?php echo __('Votre présentation n’est pas assez détaillée, pas assez chiffrée, pas assez longue','kotikota_mail') ?>❌ <br><br>
-                                                                    <?php echo __('Votre présentation ne comporte pas assez de photos de qualité, pas de pièces justificatives pour expliquer votre projet','kotikota_mail') ?>❌ <br><br>
-                                                                    <?php echo __('Votre présentation ne comporte pas assez de photos de qualité, pas de pièces justificatives pour expliquer votre projet','kotikota_mail') ?>❌ <br><br>
-                                                                    <?php echo __('Vous n’avez pas suffisamment partagé votre cagnotte à votre entourage via les réseaux sociaux facebook, whatsapp, twitter','kotikota_mail') ?> ❌ <br><br>
-                                                                    🚨<?php echo __('Ainsi, dans les 48h de la création nous vous contacterons si nous estimons que les points 1) et 2) ne sont pas respectés.','kotikota_mail') ?><br><br>
-                                                                    🚨<?php echo __('Puis, en l’absence de participants sous 7 jours, nous déduirons que vous n’avez pas été assez vigilants sur ces trois points et votre cagnotte sera automatiquement supprimée.','kotikota_mail') ?><br><br>
-                                                                    ➡️ <?php echo __('Nous vous invitons donc à apporter la plus grande attention à ces trois points ci-dessus. En effet, le succès de votre cagnotte est essentiel pour nous car il contribue au succès de notre plateforme','kotikota_mail') ?> ❤️<br>
+                                                                    <?php echo __('Votre cagnotte a été validée et activée avec succès.','kotikota_mail') ?> <br><br>
+                                                                    📢 <?php echo __('Bienvenue dans la communauté des KotiKoteurs.','kotikota_mail') ?><br><br>
+                                                                    <?php echo __('Mettez le maximum de chances de votre côté en partageant votre cagnotte à tous vos proches.','kotikota_mail') ?>
+                                                                    <br><br>
 
                                                                 </div>
                                                                 <p>&nbsp;</p>
-                                                                <p><?php echo __('La Team KOTI KOTA','kotikota_mail') ?>😁</p>
+                                                                <p><?php echo __('☀️ La joyeuse team KOTI KOTA🌈','kotikota_mail') ?></p>
                                                             </td>
                                                         </tr>
 
