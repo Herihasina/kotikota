@@ -2034,11 +2034,12 @@ input:checked {
     border-bottom: 30px solid white;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
+    display: none;
 }
 .popup-notif.safari .content span.img{ margin-left: 5px;}
 .popup-notif.safari .d-flex,
 .popup-notif.firefox .d-flex{ height: 100%;align-items: flex-end;}
-.popup-notif.chrome .content{ border-radius: 20px 20px 20px 20px; -webkit-border-radius: 20px 0 20px 20px; -moz-border-radius: 20px 0 20px 20px; -ms-border-radius: 20px 0 20px 20px; -o-border-radius: 20px 0 20px 20px; }
+.popup-notif.chrome .content{ border-radius: 20px 20px 20px 20px; -webkit-border-radius: 20px 20px 20px 20px; -moz-border-radius: 20px 20px 20px 20px; -ms-border-radius: 20px 20px 20px 20px; -o-border-radius: 20px 20px 20px 20px; }
 
 .popup-notif.safari .content:before,
 .popup-notif.firefox .content:before {
