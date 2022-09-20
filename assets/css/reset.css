@@ -3436,6 +3436,23 @@ a:hover { color:#fbbd36; }
     }
     .blc-radio .option ul li label img { max-width: 300px }
 
+     .txt.titre1 p {
+        margin-bottom: 0 !important;
+    }
+
+    .headerTop .right {
+        margin-top: 25px;
+    }
+    .wrapMenuMobile { top: 29px }
+    .headerTop.sticky .right {
+        padding-top: 17px;
+        padding-bottom: 20px;
+    }
+    .headerTop.sticky .wrapMenuMobile {
+        top: 21px;
+    }
+
+
 
 
 
@@ -3587,7 +3604,7 @@ a:hover { color:#fbbd36; }
      .blc-cagnotte-participation                        { padding: 40px 20px 0;}
      .fom-participe .titre h2                           { font-size: 28px }
      .fom-participe .formulaire .col100                 { padding: 0  }
-     .fom-participe .titre h2                           { padding: 26px 10px 24px }
+     .fom-participe .titre h2                           { padding: 26px 28px 24px }
 
      .blc-chp.blc-radio                                 { display: block }
      .blc-chp.blc-radio h3                              { display: block ; width: 100%; text-align: center }
