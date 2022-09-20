@@ -3526,7 +3526,7 @@ a:hover { color:#fbbd36; }
 
     .footer .wrapper                                    { padding: 0 20px 0 20px;}
     .social                                             { padding-top: 20px;}
-    .blcBottom                                          { margin-top: 20px;}
+    .blcBottom                                          { margin-top: 20px; padding-bottom: 80px}
     .pop-up-apropos                                     { border-radius: 20px; padding: 40px 20px;}
     .apropos-pp .link                                   { margin: 0 10px 10px }
     .Faq-pp .blc-faq                                    { padding: 50px 20px 40px;}
@@ -3614,7 +3614,7 @@ a:hover { color:#fbbd36; }
      .blc-chp.blc-radio h3 br                           { display: none }
      .blc-chp.blc-radio .option                         { display: block; text-align: center }
      .blc-radio .option ul li                           { display: inline-block; float: none; width: 32%;}
-     .fom-participe .titre                              { margin-bottom: 20px;}
+     .fom-participe .titre                              { margin-bottom: 35px;}
      .fom-participe .formulaire .blc-chp                { margin-bottom: 20px;}
      .fom-participe .titre span                         { margin-right: 10px }
      .blc-radio .option ul li                           { width: 50%;}
@@ -3662,7 +3662,7 @@ a:hover { color:#fbbd36; }
      .blcTab .listComment .content-comment .profil { position: static; }
      .chp-comment .author-name { float: none; margin-top: 0; margin-bottom: 13px;}
      .blcTab .listComment .content-comment .profil { margin-bottom: 10px }
-     .blcTab .chp-comment .content-comment .profil { float: none;}
+     .blcTab .chp-comment .content-comment .profil { float: none; display: none;}
      .chp-comment .chp { padding-left: 20px }
      .blc-liste-cagnote.force-login { padding: 0 20px;}
      .lst-cagnotte-publique > h3 { padding: 18px 20px }
