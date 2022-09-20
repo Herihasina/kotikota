@@ -1,10 +1,10 @@
 
 	
 $(document).ready(function() {
+	
 	$(document).on('click','.close-fancy',function(){
          $.fancybox.close();
     })
-
 
 	$("#connecter .fieldset--submit").click(function() {
 		$("#connecter .lrm-form-message").insertBefore($("#connecter .fieldset--submit"))
