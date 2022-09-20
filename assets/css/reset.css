@@ -2038,7 +2038,7 @@ input:checked {
 }
 .popup-notif.safari .content span.img{ margin-left: 5px;}
 .popup-notif.safari .d-flex,
-.popup-notif.firefox .d-flex{ height: 100%;align-items: flex-end;}
+.popup-notif.firefox .d-flex{ height: 100%;align-items: center}
 .popup-notif.chrome .content{ border-radius: 20px 20px 20px 20px; -webkit-border-radius: 20px 20px 20px 20px; -moz-border-radius: 20px 20px 20px 20px; -ms-border-radius: 20px 20px 20px 20px; -o-border-radius: 20px 20px 20px 20px; }
 
 .popup-notif.safari .content:before,
