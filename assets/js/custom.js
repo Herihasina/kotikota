@@ -56,10 +56,10 @@ $(document).ready(function() {
 
 	});
 
-	$('.close-fancy').click(function(){
-		 this.parent().addClass('close');
-	});
-
+	 $(document).on('click','.closeFancybox',function(){
+            $.fancybox.close();
+    })
+	 
 	// MENU MOBILE //
 	$(".wrapMenuMobile").click(function() {
 		$(this).toggleClass('active');
