@@ -56,6 +56,10 @@ $(document).ready(function() {
 
 	});
 
+	$('.close-fancy').click(function(){
+		 $.fancybox.close();
+	});
+
 
 	// MENU MOBILE //
 	$(".wrapMenuMobile").click(function() {
