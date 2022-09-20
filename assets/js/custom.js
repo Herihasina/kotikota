@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+	$(document).on('click','.closeFancybox',function(){
+         $.fancybox.close();
+    })
+
 	$("#connecter .fieldset--submit").click(function() {
 		$("#connecter .lrm-form-message").insertBefore($("#connecter .fieldset--submit"))
 		$("#connecter .lrm-form-message").addClass("hide");
@@ -56,10 +60,8 @@ $(document).ready(function() {
 
 	});
 
-	 $(document).on('click','.closeFancybox',function(){
-            $.fancybox.close();
-    })
-	 
+
+
 	// MENU MOBILE //
 	$(".wrapMenuMobile").click(function() {
 		$(this).toggleClass('active');
