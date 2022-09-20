@@ -1,8 +1,9 @@
 
-	$(document).on('click','.closeFancybox',function(){
+	
+$(document).ready(function() {
+	$(document).on('click','.close-fancy',function(){
          $.fancybox.close();
     })
-$(document).ready(function() {
 
 
 	$("#connecter .fieldset--submit").click(function() {
