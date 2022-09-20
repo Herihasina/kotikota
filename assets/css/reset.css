@@ -2034,11 +2034,13 @@ input:checked {
     border-bottom: 30px solid white;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
+    display: none;
 }
 .popup-notif.safari .content span.img{ margin-left: 5px;}
 .popup-notif.safari .d-flex,
-.popup-notif.firefox .d-flex{ height: 100%;align-items: flex-end;}
-.popup-notif.chrome .content{ border-radius: 20px 0 20px 20px; -webkit-border-radius: 20px 0 20px 20px; -moz-border-radius: 20px 0 20px 20px; -ms-border-radius: 20px 0 20px 20px; -o-border-radius: 20px 0 20px 20px; }
+.popup-notif.firefox .d-flex{ height: 100%;align-items: center}
+.popup-notif.chrome .content{ border-radius: 20px 20px 20px 20px; -webkit-border-radius: 20px 20px 20px 20px; -moz-border-radius: 20px 20px 20px 20px; -ms-border-radius: 20px 20px 20px 20px; -o-border-radius: 20px 20px 20px 20px; }
+
 .popup-notif.safari .content:before,
 .popup-notif.firefox .content:before {
     content: "";
@@ -2861,7 +2863,7 @@ a:hover { color:#fbbd36; }
 
     .menu>ul                                                    { max-width:360px; height:auto; position:absolute; right:0; top:86px; padding:0; background:#fff; display:none; z-index:999;}
     .menu ul li                                                 { width:100%; margin:0 auto; display:block; float:none; padding:0;}
-    .menu li a                                                  { height:53px; line-height:47px; border:0; padding:0 40px; margin:0; text-align:left; border-bottom:1px solid #cecece;color: #3f3d3e;text-transform: initial;}
+    .menu li a                                                  { height:53px; line-height:53px; border:0; padding:0 40px; margin:0; text-align:left; border-bottom:1px solid #cecece;color: #3f3d3e;text-transform: initial;}
     .menu a:before                                              { display:none;}
     .menu i                                                     { display:block; width:100%; height:53px; position:absolute; right:0; top:0;}
     .menu i::before                                             { display: block;width: 2px;height: 22px;position: absolute;right: 50px;top: 50%;margin-top: -11px;content: "";background: #529f44;}
@@ -3443,6 +3445,24 @@ a:hover { color:#fbbd36; }
     }
     .blc-radio .option ul li label img { max-width: 300px }
 
+     .txt.titre1 p {
+        margin-bottom: 0 !important;
+    }
+
+    .headerTop .right {
+        margin-top: 25px;
+    }
+    .wrapMenuMobile { top: 29px }
+    .headerTop.sticky .right {
+        padding-top: 17px;
+        padding-bottom: 20px;
+    }
+    .headerTop.sticky .wrapMenuMobile {
+        top: 21px;
+    }
+
+
+
 
 
 
@@ -3513,7 +3533,7 @@ a:hover { color:#fbbd36; }
 
     .footer .wrapper                                    { padding: 0 20px 0 20px;}
     .social                                             { padding-top: 20px;}
-    .blcBottom                                          { margin-top: 20px;}
+    .blcBottom                                          { margin-top: 20px; padding-bottom: 80px}
     .pop-up-apropos                                     { border-radius: 20px; padding: 40px 20px;}
     .apropos-pp .link                                   { margin: 0 10px 10px }
     .Faq-pp .blc-faq                                    { padding: 50px 20px 40px;}
@@ -3594,14 +3614,14 @@ a:hover { color:#fbbd36; }
      .blc-cagnotte-participation                        { padding: 40px 20px 0;}
      .fom-participe .titre h2                           { font-size: 28px }
      .fom-participe .formulaire .col100                 { padding: 0  }
-     .fom-participe .titre h2                           { padding: 26px 10px 24px }
+     .fom-participe .titre h2                           { padding: 26px 28px 24px }
 
      .blc-chp.blc-radio                                 { display: block }
      .blc-chp.blc-radio h3                              { display: block ; width: 100%; text-align: center }
      .blc-chp.blc-radio h3 br                           { display: none }
      .blc-chp.blc-radio .option                         { display: block; text-align: center }
      .blc-radio .option ul li                           { display: inline-block; float: none; width: 32%;}
-     .fom-participe .titre                              { margin-bottom: 20px;}
+     .fom-participe .titre                              { margin-bottom: 35px;}
      .fom-participe .formulaire .blc-chp                { margin-bottom: 20px;}
      .fom-participe .titre span                         { margin-right: 10px }
      .blc-radio .option ul li                           { width: 50%;}
@@ -3649,7 +3669,7 @@ a:hover { color:#fbbd36; }
      .blcTab .listComment .content-comment .profil { position: static; }
      .chp-comment .author-name { float: none; margin-top: 0; margin-bottom: 13px;}
      .blcTab .listComment .content-comment .profil { margin-bottom: 10px }
-     .blcTab .chp-comment .content-comment .profil { float: none;}
+     .blcTab .chp-comment .content-comment .profil { float: none; display: none;}
      .chp-comment .chp { padding-left: 20px }
      .blc-liste-cagnote.force-login { padding: 0 20px;}
      .lst-cagnotte-publique > h3 { padding: 18px 20px }
@@ -3831,6 +3851,8 @@ a:hover { color:#fbbd36; }
     }
     .fancybox-slide--html .popup-notif .fancybox-close-small{ left:18px}
     .blc-radio .option ul li label img { max-width: 250px }
+  
+
 
 
 
@@ -3841,8 +3863,8 @@ a:hover { color:#fbbd36; }
 }
 @media (max-width:480px) {
     .logo                                               {  width: 70px; height: 70px;}
-    .headerTop .right                                   { margin-top: 5px;}
-    .wrapMenuMobile                                     { top:10px; }
+    .headerTop .right                                   { margin-top: 15px;}
+    .wrapMenuMobile                                     { top:18px; }
     .blc-cagnotte-liste .lst-cagnotte-publique .item    {  width: 100%; padding: 0;}
     .blc-cagnotte-liste .lst-cagnotte-publique          {  margin: 0 0 10px;}
     .fom-participe .formulaire .chp                     { }
@@ -3873,6 +3895,9 @@ a:hover { color:#fbbd36; }
     .lst-choix-cond-part .item .content::before { right: 19px }
     .lst-comment-ca-marche .item .content p { height: 50px; overflow: hidden; }
     .blc-radio .option ul li label img { max-width: 200px }
+
+    .popup-notif .content .close { left: 10px; top: 10px }
+    .popup-notif .content { overflow: hidden; }
 
 /*
     .lst-step .item .content .ico {

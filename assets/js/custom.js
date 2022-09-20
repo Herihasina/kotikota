@@ -56,6 +56,9 @@ $(document).ready(function() {
 
 	});
 
+	$('.close-fancy').click(function(){
+		 this.parent().addClass('close');
+	});
 
 	// MENU MOBILE //
 	$(".wrapMenuMobile").click(function() {
