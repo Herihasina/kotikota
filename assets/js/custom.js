@@ -1,8 +1,9 @@
-$(document).ready(function() {
 
 	$(document).on('click','.closeFancybox',function(){
          $.fancybox.close();
     })
+$(document).ready(function() {
+
 
 	$("#connecter .fieldset--submit").click(function() {
 		$("#connecter .lrm-form-message").insertBefore($("#connecter .fieldset--submit"))
