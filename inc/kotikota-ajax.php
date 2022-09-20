@@ -332,7 +332,7 @@ function create_cagnotte(){
 
         // $single = get_permalink( $newPost );
         // echo "$single";
-        echo home_url();
+        echo site_url('toutes-mes-cagnottes');
     }
     wp_die();
 
@@ -1503,32 +1503,73 @@ function insert_doc_cagnotte(){
                 $key_field=1;
                 $word_doc=[];
                 $pdf_doc=[];
+                $ppt_doc=[];
+                $xls_doc=[];
+                $txt_doc=[];
+
+                $doc_extension = array("docx", "doc", "rtf", "odt");
+                $ppt_extension = array("ppt","pptx");
+                $xls_extension = array("xlsx", "xls");
+                $txt_extension = array("txt");
+
                 foreach($docs as $doc ):
                   $file_data=[];
                   $fichier_id = $doc['fichier'];
                   $file_data['id'] = $key_field;
                   $fichier = get_attached_file( $fichier_id);
                   $file_data['name'] = basename ( $fichier );
-                  $file_data['url'] =wp_get_attachment_url( $fichier_id );;
+                  $file_data['url'] =wp_get_attachment_url( $fichier_id );
                   $extension = pathinfo( $fichier )['extension'];
                   if($extension=='pdf'):
-                      $pdf_doc[]=$file_data;
-                  elseif($extension=='docx' || $extension=='docx'):
-                      $word_doc[]=$file_data;
+                    $pdf_doc[]=$file_data;
+                  elseif( in_array( $extension, $doc_extension ) ):
+                    $word_doc[]=$file_data;
+                  elseif( in_array( $extension, $ppt_extension ) ):
+                    $ppt_doc[]=$file_data;
+                  elseif( in_array( $extension, $xls_extension ) ):
+                    $xls_doc[]=$file_data;
+                  elseif( in_array( $extension, $txt_extension ) ):
+                    $txt_doc[]=$file_data;
                   endif;
                   $key_field++;
                 endforeach;
                 ?>
                 <div class="row">
                     <div class="col">
-                    <h3>documents word</h3>
-                    <?php if($word_doc):?>
+                    <h3>documents Office</h3>
+                    <?php if( $word_doc || $ppt_doc || $xls_doc || $txt_doc ) : ?>
                         <div class="lst-option">
-                        <?php
-                        foreach($word_doc as $doc ):
+                            <?php
+                              
+                            $ext = "";
                             $section_document = locate_template( 'parts/single/sections/section-document-word.php', false, false );
-                            include($section_document);
-                        endforeach; ?>
+
+                            if( $word_doc ){
+                            foreach($word_doc as $doc ): 
+                              $ext = "doc";
+                              include($section_document);
+                            endforeach;
+                            }
+                            if( $ppt_doc ){
+                            $ext = "ppt";
+                            foreach($ppt_doc as $doc ): 
+                              include($section_document);
+                            endforeach;
+                            }
+                            if( $xls_doc ){
+                            $ext = "xls";
+                            foreach($xls_doc as $doc ):    
+                              include($section_document);
+                            endforeach;
+                            }
+                            if( $txt_doc ){
+                            $ext = "txt";
+                            foreach($txt_doc as $doc ):             
+                              include($section_document);
+                            endforeach;
+                            }
+
+                            ?>
                         </div>
 
                     <?php
@@ -1603,31 +1644,73 @@ function remove_doc_cagnotte(){
                 $key_field=1;
                 $word_doc=[];
                 $pdf_doc=[];
+                $ppt_doc=[];
+                $xls_doc=[];
+                $txt_doc=[];
+
+                $doc_extension = array("docx", "doc", "rtf", "odt");
+                $ppt_extension = array("ppt","pptx");
+                $xls_extension = array("xlsx", "xls");
+                $txt_extension = array("txt");
+
                 foreach($docs as $doc ):
                   $file_data=[];
                   $fichier_id = $doc['fichier'];
                   $file_data['id'] = $key_field;
                   $fichier = get_attached_file( $fichier_id);
                   $file_data['name'] = basename ( $fichier );
-                  $file_data['url'] =wp_get_attachment_url( $fichier_id );;
+                  $file_data['url'] =wp_get_attachment_url( $fichier_id );
                   $extension = pathinfo( $fichier )['extension'];
                   if($extension=='pdf'):
-                      $pdf_doc[]=$file_data;
-                  elseif($extension=='docx' || $extension=='docx'):
-                      $word_doc[]=$file_data;
+                    $pdf_doc[]=$file_data;
+                  elseif( in_array( $extension, $doc_extension ) ):
+                    $word_doc[]=$file_data;
+                  elseif( in_array( $extension, $ppt_extension ) ):
+                    $ppt_doc[]=$file_data;
+                  elseif( in_array( $extension, $xls_extension ) ):
+                    $xls_doc[]=$file_data;
+                  elseif( in_array( $extension, $txt_extension ) ):
+                    $txt_doc[]=$file_data;
                   endif;
                   $key_field++;
                 endforeach;
                 ?>
                 <div class="row">
                     <div class="col">
-                    <h3>documents word</h3>
-                    <?php if($word_doc):?>
+                    <h3>documents Office</h3>
+                    <?php if( $word_doc || $ppt_doc || $xls_doc || $txt_doc ):?>
                         <div class="lst-option">
-                        <?php foreach($word_doc as $doc ):
-                            $section_document = locate_template( 'parts/single/sections/section-document-word.php', false, false );
-                            include($section_document);
-                        endforeach; ?>
+                        <?php 
+                              
+                              $ext = "";
+                              $section_document = locate_template( 'parts/single/sections/section-document-word.php', false, false );
+
+                              if( $word_doc ){
+                              foreach($word_doc as $doc ): 
+                                $ext = "doc";
+                                include($section_document);
+                              endforeach;
+                              }
+                              if( $ppt_doc ){
+                              $ext = "ppt";
+                              foreach($ppt_doc as $doc ): 
+                                include($section_document);
+                              endforeach;
+                              }
+                              if( $xls_doc ){
+                              $ext = "xls";
+                              foreach($xls_doc as $doc ):    
+                                include($section_document);
+                              endforeach;
+                              }
+                              if( $txt_doc ){
+                              $ext = "txt";
+                              foreach($txt_doc as $doc ):             
+                                include($section_document);
+                              endforeach;
+                              }
+
+                            ?>
                         </div>
 
                     <?php

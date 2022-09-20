@@ -33,7 +33,7 @@
   }
 
   $reference = get_field('nom_de_la_cagnotte', $participation->id_cagnotte);
-  $reference = substr( clean( $reference ), 0, 15 );;
+  $reference = substr( clean( $reference ), 0, 15 );
 
   $order_id = $participation->id_cagnotte.time();
 

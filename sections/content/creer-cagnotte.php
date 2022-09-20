@@ -360,8 +360,9 @@
                             <div class="content">
                                 <?php $current_user  = wp_get_current_user(); ?>
                                 <div class="conf_titre"><?php _e('Félicitations','kotikota') ?></div>
-                                <div class="conf_text"><p><?php _e("Vous avez reçu un email à l'adresse","kotikota") ?> <span class='email'><?= $current_user->user_email ?></span> <?php _e("afin que vous puissiez confirmer votre compte . Attention, il se peut que l'email tombe dans les courriers indésirables (spam).","kotikota") ?> </p> </div>
-                                <div class="conf_text"><p><?php _e("Votre cagnotte est en cours de validation.","kotikota") ?> </p> </div>
+                                <div class="conf_text"><p><?php _e("Votre cagnotte a bien été créée.","kotikota") ?></p>
+                                    <p><?php _e("Elle est actuellement en cours de validation et vous recevrez par email les notifications concernant sa mise en ligne ou les ajouts requis afin d'obtenir une cagnotte souveraine.","kotikota") ?> </p> </div>
+                                <div class="conf_text"><p><?php _e("La joyeuse team kotikota.","kotikota") ?> </p> </div>
                                 <div class="btn">
                                   <a href="#" id="Ok" class="link" title="Ok"> <?php _e('Accepter','kotikota') ?> </a>
                                 </div>

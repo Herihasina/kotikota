@@ -33,6 +33,8 @@
                             $devise = get_field('devise',$id);
                             $devise = is_array( $devise ) && array_key_exists('label', $devise) ? $devise['label'] : 'Ar';
 
+                            $cagnotte_status = get_post_status( $id );
+
                             if (!$ilaina ) $ilaina = 1;
 
                             $statu = $azo*100/$ilaina;
@@ -53,10 +55,15 @@
                         <?php
                             }
 
-                            if( $closed ): ?>
+                            if( "publish" == $cagnotte_status &&  $closed ): ?>
                             <span class="ico-percent cloturer">
                                 <div class="ckeckCloturer"></div>
-                                <span>Clôturée</span>
+                                <span><?php _e('Clôturée','kotikota'); ?></span>
+                            </span>
+                        <?php elseif( "pending" == $cagnotte_status ): ?>
+                            <span class="ico-percent cloturer en_cours_validation">
+                                <div class="ckeckCloturer"></div>
+                                <span><?php _e('En cours de validation','kotikota'); ?></span>
                             </span>
                         <?php endif; ?>
                     </a>
