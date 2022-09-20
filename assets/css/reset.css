@@ -2854,7 +2854,7 @@ a:hover { color:#fbbd36; }
 
     .menu>ul                                                    { max-width:360px; height:auto; position:absolute; right:0; top:86px; padding:0; background:#fff; display:none; z-index:999;}
     .menu ul li                                                 { width:100%; margin:0 auto; display:block; float:none; padding:0;}
-    .menu li a                                                  { height:53px; line-height:47px; border:0; padding:0 40px; margin:0; text-align:left; border-bottom:1px solid #cecece;color: #3f3d3e;text-transform: initial;}
+    .menu li a                                                  { height:53px; line-height:53px; border:0; padding:0 40px; margin:0; text-align:left; border-bottom:1px solid #cecece;color: #3f3d3e;text-transform: initial;}
     .menu a:before                                              { display:none;}
     .menu i                                                     { display:block; width:100%; height:53px; position:absolute; right:0; top:0;}
     .menu i::before                                             { display: block;width: 2px;height: 22px;position: absolute;right: 50px;top: 50%;margin-top: -11px;content: "";background: #529f44;}
@@ -3888,6 +3888,9 @@ a:hover { color:#fbbd36; }
     .lst-choix-cond-part .item .content::before { right: 19px }
     .lst-comment-ca-marche .item .content p { height: 50px; overflow: hidden; }
     .blc-radio .option ul li label img { max-width: 200px }
+
+    .popup-notif .content .close { left: 10px; right: 10px }
+    .popup-notif .content { overflow: hidden; }
 
 /*
     .lst-step .item .content .ico {
