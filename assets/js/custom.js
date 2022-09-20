@@ -57,9 +57,8 @@ $(document).ready(function() {
 	});
 
 	$('.close-fancy').click(function(){
-		 $.fancybox.close();
+		 this.parent().addClass('close');
 	});
-
 
 	// MENU MOBILE //
 	$(".wrapMenuMobile").click(function() {
