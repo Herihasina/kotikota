@@ -422,9 +422,13 @@ function creer_participation(){
     $pseudo = '';
     $pseudo_img = '';
 
+    $maskIdentite = false;
+
     if( $_POST['maskIdentite'] == "on" ){
         $pseudo = strip_tags( $_POST['pseudo'] );
         $pseudo_img = strip_tags( $_POST['pseudo_img'] );
+
+        $maskIdentite = true;
 
         if( !$pseudo || !$pseudo_img ){
             $erreurs[] = __('Entrer un pseudo et choisir un avatar');
@@ -483,13 +487,6 @@ function creer_participation(){
 
     $mot_doux = strip_tags($_POST['message']);
 
-    $maskIdentite = strip_tags( $_POST['maskIdentite'] );
-    if ($maskIdentite == "on"){
-        $maskIdentite = true;
-    }else{
-        $maskIdentite = false;
-    }
-
     $maskParticipation = strip_tags( $_POST['maskParticipation'] );
     if ($maskParticipation == "on"){
         $maskParticipation = true;
@@ -507,6 +504,7 @@ function creer_participation(){
         echo get_site_url() ."/paiement-orange-money/?id=$id_participation&cl=$email";
     }elseif ( $paiement == "telma" ){
         $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise, $pseudo, $pseudo_img );
+        
         echo get_site_url() ."/paiement-mvola/?id=$id_participation&cl=$email";
     }elseif( $paiement == "airtel" ){
         // $id_participation = save_participant( $idCagnotte, $email, $lname, $fname, $phone33, $donation, $paiement, $maskParticipation, $maskIdentite, $mot_doux, $devise );
