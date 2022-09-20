@@ -3855,7 +3855,7 @@ a:hover { color:#fbbd36; }
 @media (max-width:480px) {
     .logo                                               {  width: 70px; height: 70px;}
     .headerTop .right                                   { margin-top: 15px;}
-    .wrapMenuMobile                                     { top:10px; }
+    .wrapMenuMobile                                     { top:18px; }
     .blc-cagnotte-liste .lst-cagnotte-publique .item    {  width: 100%; padding: 0;}
     .blc-cagnotte-liste .lst-cagnotte-publique          {  margin: 0 0 10px;}
     .fom-participe .formulaire .chp                     { }
