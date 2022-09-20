@@ -3458,6 +3458,7 @@ a:hover { color:#fbbd36; }
 
 
 
+
 }
 
 @media (max-width:600px) {
@@ -3841,6 +3842,10 @@ a:hover { color:#fbbd36; }
     }
     .fancybox-slide--html .popup-notif .fancybox-close-small{ left:18px}
     .blc-radio .option ul li label img { max-width: 250px }
+    .tarifs .content .txt p br {
+        display: none;
+    }
+
 
 
 
