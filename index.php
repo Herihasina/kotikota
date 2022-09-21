@@ -38,7 +38,7 @@ get_header(); ?>
      <!--  pop up notif mobile -->
     <?php if(wp_is_mobile()) : ?>
         <div class="popup-notif <?= $popup_notif_class ?>" id="popup-notif" style="display:none" >
-            <div class="d-flex">
+            <div class="d-flex-">
                 <div class="content">
                     <span class="close close-fancy"></span>
                     <span class="logo-pop"><img  src="<?= IMG_URL ?>logo.png"/></span>
