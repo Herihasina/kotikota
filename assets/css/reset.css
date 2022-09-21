@@ -3869,9 +3869,11 @@ a:hover { color:#fbbd36; }
         opacity: 1;
         top: 60px !important;
         left: 25px;
-        background-size: cover;
+        
         padding: 0;
+        z-index: 999
     }
+    .popup-notif .content .close { display: none; }
 
 
   
