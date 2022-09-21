@@ -3,8 +3,7 @@
 $(document).ready(function() {
 	
 	$("#popup-notif .content").click(function() {
-	    $.fancybox.close();
-	    console.log('click')
+	   $('#fancybox-container-1').hide();
 	})
 
 	$("#connecter .fieldset--submit").click(function() {
