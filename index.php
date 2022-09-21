@@ -41,6 +41,7 @@ get_header(); ?>
             <div class="d-flex-">
                 <div class="content">
                     <span class="close close-fancy"></span>
+                    <div class="closePP"></div>
                     <span class="logo-pop"><img  src="<?= IMG_URL ?>logo.png"/></span>
                     <div> <?php _e("Ajouter cette application web sur l'ecran d'accueil",'kotikota') ?></div>
                     <div><span><?php _e("Appuyez sur","kotikota") ?></span> <span class="img"><img  src="<?= IMG_URL.$popup_notif_image ?>"/></span></div>

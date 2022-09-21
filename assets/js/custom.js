@@ -2,7 +2,7 @@
 	
 $(document).ready(function() {
 	
-	$("#popup-notif .content").click(function() {
+	$(".closePP").click(function() {
 	   alert('1')
 	})
 
