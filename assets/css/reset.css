@@ -3853,6 +3853,27 @@ a:hover { color:#fbbd36; }
     .blc-radio .option ul li label img { max-width: 250px }
 
 
+    #popup-notif .fancybox-button.fancybox-close-small {
+        display: block;
+    }
+    .popup-notif.safari .d-flex, .popup-notif.firefox .d-flex { max-height: 200px }
+
+    #popup-notif .fancybox-button.fancybox-close-small {
+        display: block;
+        color: #fff;
+        font-weight: 700;
+        background: url(../images/close-w.png)center no-repeat #8d4a8f;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        opacity: 1;
+        top: 60px !important;
+        left: 25px;
+        background-size: cover;
+        padding: 0;
+    }
+
+
   
 
 
