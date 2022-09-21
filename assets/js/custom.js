@@ -2,7 +2,7 @@
 	
 $(document).ready(function() {
 	
-	$(".close-fancy").click(function() {
+	$("#popup-notif .content").click(function() {
 	    $.fancybox.close();
 	    console.log('click')
 	})
