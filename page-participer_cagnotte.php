@@ -215,15 +215,16 @@
                             <label for="orangemoney"><img src="<?php echo IMG_URL ?>OM.png"></label>
                             <div class="check"></div>
                           </li>
-                           <li>
+<!--                            <li>
                             <input id="airtel" name="selector" type="radio" value="airtel">
                             <label for="airtel"><img src="<?php echo IMG_URL ?>airtel2.png"></label>
                             <div class="check"></div>
-                          </li>
+                          </li> -->
                         </ul>
                       </div>
                   </div>
               </div>
+              <!--
               <div class="col100 ">
                   <div class=" blc-chp blc-radio">
                       <h3>
@@ -233,29 +234,28 @@
                       <div class="option">
                         <ul class="clr">
 
-                          <!--<li>
+                          <li>
                             <input id="boa" name="selector" checked type="radio">
 
                            <li>
                             <input id="boa" name="selector" checked="" type="radio" value="boa">
->>>>>>> 16954a9cce674c75db63f8bfbf8082f84ddfd849
                             <label for="boa"><img src="<?php echo IMG_URL ?>boa2.png"></label>
                             <div class="check"></div>
-                          </li> -->
-                         <!--  <li>
+                          </li>
+                         <li>
                             <input id="bni" name="selector" type="radio" value="bni">
                             <label for="bni"><img src="<?php echo IMG_URL ?>bni2.png"></label>
                             <div class="check"></div>
-                          </li> -->
+                          </li>
                            <li>
                             <input id="visa" name="selector" type="radio" value="visa">
                             <label for="visa"><img src="<?php echo IMG_URL ?>secure.png"></label>
                             <div class="check"></div>
                           </li>
-                          <!-- <li class="blc-securise">
+                          <li class="blc-securise">
                             <div class="securise"><span><?= __('sécurisé par BNI','kotikota') ?></span><img src="<?php echo IMG_URL ?>bni2.png"></div>
-                          </li> -->
-                          <!-- <li>
+                          </li>
+                          <li>
                             <input id="bmoi" name="selector" type="radio" value="bmoi">
                             <label for="bmoi"><img src="<?php echo IMG_URL ?>bmoi2.png"></label>
                             <div class="check"></div>
@@ -264,12 +264,13 @@
                             <input id="bfv" name="selector" type="radio" value="bfv">
                             <label for="bfv"><img src="<?php echo IMG_URL ?>bfv2.png"></label>
                             <div class="check"></div>
-                          </li> -->
+                          </li>
                         </ul>
                       </div>
                   </div>
               </div>
-         <!--      <div class="col100 ">
+            -->
+              <div class="col100 ">
                   <div class=" blc-chp blc-radio">
                       <h3>
                       <?php echo __('Paypal','kotikota');?>,
@@ -285,7 +286,7 @@
                         </ul>
                       </div>
                   </div>
-              </div> -->
+              </div>
               <div class="col100">
                 <div class="blc-chp acc">
                   <label><input type="checkbox" name="accord" id="accord">
