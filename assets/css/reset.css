@@ -1105,6 +1105,7 @@ input[type="checkbox"], input[type="radio"]     { box-sizing: border-box; paddin
 .fom-participe .formulaire .option .pseudo-img-wrap{ padding-bottom: 10px;}
 .fom-participe .blcFormulaire.fichier .chp { height: auto !important;}
 .fom-participe .formulaire  .col100 { width: 100% ; padding: 0 30px}
+.fom-participe .formulaire  .col100:nth-child(2){ display: none; }
 .fom-participe .formulaire .participe .chp { -webkit-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);-moz-box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1);box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.1) }
 .fom-participe .formulaire  .chp input { border: none; width: 100%; background-color: transparent;color:#bbbbbb; font-size:16px;font-family:Montserrat-r; height: 100%; left: 0  }
 .fom-participe .formulaire .blc-chp .montant { display: block; font-size: 16px; color: #fbbd36; margin-top: 9px; font-weight: 600}
